@@ -28,4 +28,4 @@ jobs:
     - name: Install Packages
       run: npm install
     - name: Extract
-      run: npm run extract
+      run: xvfb-run -a npm run extract
