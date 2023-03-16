@@ -22,14 +22,15 @@ async function run() {
     const json = (
       await vscode.workspace.openTextDocument(vscode.Uri.parse(uri))
     ).getText();
+    const normalizedJson = `${JSON.stringify(JSON.parse(json))}\n`;
     const resourcePath = path.join(
       RESOURCES_PATH_ROOT,
       `${uri.replaceAll("vscode:", "vscode")}.json`
     );
     fs.mkdirSync(path.dirname(resourcePath), { recursive: true });
-    fs.writeFileSync(resourcePath, json);
+    fs.writeFileSync(resourcePath, normalizedJson);
 
-    const newUriList = [...json.matchAll(/"(vscode:\/\/[^"]+)"/g)]
+    const newUriList = [...normalizedJson.matchAll(/"(vscode:\/\/[^"]+)"/g)]
       .map((m) => {
         const vscodeUri = new URL(m[1]);
         vscodeUri.hash = "";

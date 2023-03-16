@@ -1,7 +1,7 @@
 {
   "name": "extract-vscode-schemas",
   "version": "1.0.0",
-  "description": "",
+  "description": "Extract VSCode's `vscode://` schemas.",
   "main": "index.js",
   "type": "commonjs",
   "engines": {
@@ -20,8 +20,9 @@
     "type": "git",
     "url": "git+https://github.com/ota-meshi/extract-vscode-schemas.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Yosuke Ota",
+  "funding": "https://github.com/sponsors/ota-meshi",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ota-meshi/extract-vscode-schemas/issues"
   },
