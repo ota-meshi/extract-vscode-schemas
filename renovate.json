@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "config:base",
+    ":preserveSemverRanges",
+    ":disableDependencyDashboard"
+  ],
+  "packageRules": [
+    {
+      "depTypeList": ["devDependencies"],
+      "automerge": true
+    }
+  ]
+}
