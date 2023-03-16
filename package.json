@@ -1,0 +1,41 @@
+{
+  "name": "extract-vscode-schemas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "extract": "node ./src/extract.js",
+    "push-to-git": "node ./src/push-to-git.js",
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix"
+  },
+  "files": [
+    "resources"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ota-meshi/extract-vscode-schemas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ota-meshi/extract-vscode-schemas/issues"
+  },
+  "homepage": "https://github.com/ota-meshi/extract-vscode-schemas#readme",
+  "devDependencies": {
+    "@ota-meshi/eslint-plugin": "^0.13.1",
+    "@types/vscode": "^1.76.0",
+    "@vscode/test-electron": "^2.3.0",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-json-schema-validator": "^4.1.0",
+    "eslint-plugin-jsonc": "^2.6.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.4"
+  }
+}
