@@ -11,7 +11,7 @@ const RESOURCES_PATH_ROOT = path.join(__dirname, "..", "resources");
 module.exports = { run };
 
 async function run() {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 10000));
   const processedUri = new Set();
   const buffer = [...URI_LIST];
   let uri;
