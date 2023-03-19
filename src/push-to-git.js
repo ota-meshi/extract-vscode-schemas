@@ -7,6 +7,7 @@ main();
 /** Main */
 async function main() {
   if (!(await checkDiff())) {
+    console.log("Didn't commit because there are no changes.");
     return;
   }
 
@@ -25,6 +26,7 @@ async function main() {
   await git("commit", "-m", "Update resources");
   // eslint-disable-next-line no-process-env -- ignore
   const { GITHUB_TOKEN } = process.env;
+  console.log("Start git push");
   await git(
     "push",
     `https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/ota-meshi/extract-vscode-schemas.git`,
