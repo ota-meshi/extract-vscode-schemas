@@ -74,13 +74,13 @@ function normalizeEnum(schema) {
   if (Array.isArray(schema.enumDescriptions)) {
     schema.enumDescriptions = [
       ...enumValues.map(([, e]) => e),
-      ...schema.enumDescriptions.slice(enumValues.length),
+      // ...schema.enumDescriptions.slice(enumValues.length),
     ];
   }
   if (Array.isArray(schema.markdownEnumDescriptions)) {
     schema.markdownEnumDescriptions = [
       ...enumValues.map(([, , e]) => e),
-      ...schema.markdownEnumDescriptions.slice(enumValues.length),
+      // ...schema.markdownEnumDescriptions.slice(enumValues.length),
     ];
   }
 }
