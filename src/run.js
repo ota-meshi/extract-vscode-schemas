@@ -90,13 +90,14 @@ Extracted Resources:
 ${[...processedUri]
   .sort()
   .map((uri) => {
-    const link =
-      `https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/${uri.replaceAll(
-        "vscode:",
-        "vscode"
-      )}.json`.replace(/\/\//gu, "/");
+    const path = `${uri.replaceAll("vscode:", "vscode")}.json`.replace(
+      /\/\//gu,
+      "/"
+    );
+    const rawLink = `https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/${path}`;
+    const link = `https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/${path}`;
 
-    return `| \`${uri}\` | <${link}> |`;
+    return `| \`${uri}\` | [${link}](${rawLink}) |`;
   })
   .join("\n")}
 
