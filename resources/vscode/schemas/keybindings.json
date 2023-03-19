@@ -6742,8 +6742,6 @@
               null,
               null,
               null,
-              "workbench.action.terminal.newWithProfile",
-              "workbench.action.terminal.newWithProfile",
               null,
               null,
               null,
@@ -7256,26 +7254,26 @@
               "Focus on No Folder Opened View",
               null,
               null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
               "Run Task",
               "Run Task",
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
               null,
               null,
               null,
@@ -7400,6 +7398,8 @@
               null,
               null,
               null,
+              null,
+              null,
               "Focus on Conflicts View",
               "Focus on Conflicts View",
               null,
@@ -7428,6 +7428,8 @@
               null,
               "Focus on Troubleshoot View",
               "Focus on Troubleshoot View",
+              null,
+              null,
               null,
               null,
               null,
@@ -8062,10 +8064,8 @@
               null,
               null,
               null,
-              null,
-              null,
-              null,
-              null,
+              "workbench.action.terminal.newWithProfile",
+              "workbench.action.terminal.newWithProfile",
               null,
               null,
               null,
@@ -9611,40 +9611,6 @@
         "if": {
           "properties": {
             "command": {
-              "const": "workbench.action.terminal.newWithProfile"
-            }
-          }
-        },
-        "then": {
-          "required": [
-            "args"
-          ],
-          "properties": {
-            "args": {
-              "type": "object",
-              "required": [
-                "profileName"
-              ],
-              "properties": {
-                "profileName": {
-                  "description": "The name of the profile to create",
-                  "type": "string",
-                  "enum": [
-                    null
-                  ],
-                  "markdownEnumDescriptions": [
-                    "Automatically detect the default"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
               "const": "workbench.action.terminal.newWithCwd"
             }
           }
@@ -10957,6 +10923,46 @@
                 "preserveFocus": {
                   "type": "boolean",
                   "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.action.terminal.newWithProfile"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "args"
+          ],
+          "properties": {
+            "args": {
+              "type": "object",
+              "required": [
+                "profileName"
+              ],
+              "properties": {
+                "profileName": {
+                  "description": "The name of the profile to create",
+                  "type": "string",
+                  "enum": [
+                    null,
+                    "bash",
+                    "tmux",
+                    "pwsh"
+                  ],
+                  "markdownEnumDescriptions": [
+                    "Automatically detect the default",
+                    "$(terminal-bash) bash\n- path: /usr/bin/bash",
+                    "$(terminal-tmux) tmux\n- path: /usr/bin/tmux",
+                    "$(terminal-powershell) pwsh\n- path: /usr/bin/pwsh"
+                  ]
                 }
               }
             }
