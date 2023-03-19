@@ -63,20 +63,25 @@ function normalizeEnum(schema) {
       schema.enumDescriptions?.[i] ?? null,
       schema.markdownEnumDescriptions?.[i] ?? null,
     ])
-    .filter((e) => !e.join().includes(".vscode-test/user-data/logs"))
-    .sort((a, b) => compare(a[0], b[0]));
+    .filter(
+      (array) =>
+        !array.some(
+          (e) => typeof e === "string" && e.includes("/.vscode-test/")
+        )
+    )
+    .sort(([a], [b]) => compare(a, b));
   schema.enum = enumValues.map(([e]) => e);
-  if (
-    Array.isArray(schema.enumDescriptions) &&
-    schema.enumDescriptions.length <= schema.enum.length
-  ) {
-    schema.enumDescriptions = enumValues.map(([, e]) => e);
+  if (Array.isArray(schema.enumDescriptions)) {
+    schema.enumDescriptions = [
+      ...enumValues.map(([, e]) => e),
+      ...schema.enumDescriptions.slice(enumValues.length),
+    ];
   }
-  if (
-    Array.isArray(schema.markdownEnumDescriptions) &&
-    schema.markdownEnumDescriptions.length <= schema.enum.length
-  ) {
-    schema.markdownEnumDescriptions = enumValues.map(([, , e]) => e);
+  if (Array.isArray(schema.markdownEnumDescriptions)) {
+    schema.markdownEnumDescriptions = [
+      ...enumValues.map(([, , e]) => e),
+      ...schema.markdownEnumDescriptions.slice(enumValues.length),
+    ];
   }
 }
 
