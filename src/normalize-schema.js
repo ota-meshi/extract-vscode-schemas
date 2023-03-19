@@ -6,30 +6,44 @@ function normalizeSchema(schema) {
   if (!schema) {
     return schema;
   }
-  if (
-    Array.isArray(schema.enum) &&
-    (!schema.type || schema.type === "string")
-  ) {
+  if (Array.isArray(schema.enum)) {
     normalizeEnum(schema);
-  } else if (Array.isArray(schema.anyOf) && !schema.type) {
-    schema.anyOf.forEach(normalizeSchema);
-    schema.anyOf.sort(compareSchema);
-  } else if (
-    schema.type === "array" ||
-    (isPlainObject(schema.items) && !schema.type)
-  ) {
-    if (isPlainObject(schema.items)) {
-      normalizeSchema(schema.items);
+  }
+  for (const key of [
+    // composition
+    "anyOf",
+    "allOf",
+    "oneOf",
+  ]) {
+    if (Array.isArray(schema[key])) {
+      schema[key].forEach(normalizeSchema);
+      schema[key].sort(compareSchema);
     }
-  } else if (
-    schema.type === "object" ||
-    (isPlainObject(schema.properties) && !schema.type)
-  ) {
-    if (isPlainObject(schema.properties)) {
-      const keys = Object.keys(schema.properties).sort(compare);
-      schema.properties = Object.fromEntries(
-        keys.map((key) => [key, normalizeSchema(schema.properties[key])])
-      );
+  }
+  for (const key of [
+    // if-then-else
+    "if",
+    "then",
+    "else",
+    // array
+    "items",
+    "contains",
+    // composition
+    "not",
+  ]) {
+    if (isPlainObject(schema[key])) {
+      normalizeSchema(schema[key]);
+    }
+  }
+  if (isPlainObject(schema.properties)) {
+    const keys = Object.keys(schema.properties).sort(compare);
+    schema.properties = Object.fromEntries(
+      keys.map((key) => [key, normalizeSchema(schema.properties[key])])
+    );
+  }
+  if (isPlainObject(schema.patternProperties)) {
+    for (const property of Object.values(schema.patternProperties)) {
+      normalizeSchema(property);
     }
   }
   return schema;
