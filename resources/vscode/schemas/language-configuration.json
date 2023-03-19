@@ -104,9 +104,6 @@
           {
             "type": "object",
             "properties": {
-              "open": {
-                "$ref": "#/definitions/openBracket"
-              },
               "close": {
                 "$ref": "#/definitions/closeBracket"
               },
@@ -115,10 +112,13 @@
                 "description": "Defines a list of scopes where the auto pairs are disabled.",
                 "items": {
                   "enum": [
-                    "string",
-                    "comment"
+                    "comment",
+                    "string"
                   ]
                 }
+              },
+              "open": {
+                "$ref": "#/definitions/openBracket"
               }
             }
           }
@@ -237,17 +237,17 @@
           ],
           "description": "If a line matches this pattern, then all the lines after it should be unindented once (until another rule matches).",
           "properties": {
-            "pattern": {
-              "type": "string",
-              "description": "The RegExp pattern for decreaseIndentPattern.",
-              "default": ""
-            },
             "flags": {
               "type": "string",
               "description": "The RegExp flags for decreaseIndentPattern.",
               "default": "",
               "pattern": "^([gimuy]+)$",
               "patternErrorMessage": "Must match the pattern `/^([gimuy]+)$/`."
+            },
+            "pattern": {
+              "type": "string",
+              "description": "The RegExp pattern for decreaseIndentPattern.",
+              "default": ""
             }
           }
         },
@@ -258,17 +258,17 @@
           ],
           "description": "If a line matches this pattern, then all the lines after it should be indented once (until another rule matches).",
           "properties": {
-            "pattern": {
-              "type": "string",
-              "description": "The RegExp pattern for increaseIndentPattern.",
-              "default": ""
-            },
             "flags": {
               "type": "string",
               "description": "The RegExp flags for increaseIndentPattern.",
               "default": "",
               "pattern": "^([gimuy]+)$",
               "patternErrorMessage": "Must match the pattern `/^([gimuy]+)$/`."
+            },
+            "pattern": {
+              "type": "string",
+              "description": "The RegExp pattern for increaseIndentPattern.",
+              "default": ""
             }
           }
         },
@@ -279,17 +279,17 @@
           ],
           "description": "If a line matches this pattern, then **only the next line** after it should be indented once.",
           "properties": {
-            "pattern": {
-              "type": "string",
-              "description": "The RegExp pattern for indentNextLinePattern.",
-              "default": ""
-            },
             "flags": {
               "type": "string",
               "description": "The RegExp flags for indentNextLinePattern.",
               "default": "",
               "pattern": "^([gimuy]+)$",
               "patternErrorMessage": "Must match the pattern `/^([gimuy]+)$/`."
+            },
+            "pattern": {
+              "type": "string",
+              "description": "The RegExp pattern for indentNextLinePattern.",
+              "default": ""
             }
           }
         },
@@ -300,17 +300,17 @@
           ],
           "description": "If a line matches this pattern, then its indentation should not be changed and it should not be evaluated against the other rules.",
           "properties": {
-            "pattern": {
-              "type": "string",
-              "description": "The RegExp pattern for unIndentedLinePattern.",
-              "default": ""
-            },
             "flags": {
               "type": "string",
               "description": "The RegExp flags for unIndentedLinePattern.",
               "default": "",
               "pattern": "^([gimuy]+)$",
               "patternErrorMessage": "Must match the pattern `/^([gimuy]+)$/`."
+            },
+            "pattern": {
+              "type": "string",
+              "description": "The RegExp pattern for unIndentedLinePattern.",
+              "default": ""
             }
           }
         }
@@ -340,27 +340,27 @@
               "indent": "indent"
             },
             "properties": {
+              "appendText": {
+                "type": "string",
+                "description": "Describes text to be appended after the new line and after the indentation.",
+                "default": ""
+              },
               "indent": {
                 "type": "string",
                 "description": "Describe what to do with the indentation",
                 "default": "indent",
                 "enum": [
-                  "none",
                   "indent",
                   "indentOutdent",
+                  "none",
                   "outdent"
                 ],
                 "markdownEnumDescriptions": [
-                  "Insert new line and copy the previous line's indentation.",
                   "Insert new line and indent once (relative to the previous line's indentation).",
                   "Insert two new lines:\n - the first one indented which will hold the cursor\n - the second one at the same indentation level",
+                  "Insert new line and copy the previous line's indentation.",
                   "Insert new line and outdent once (relative to the previous line's indentation)."
                 ]
-              },
-              "appendText": {
-                "type": "string",
-                "description": "Describes text to be appended after the new line and after the indentation.",
-                "default": ""
               },
               "removeText": {
                 "type": "number",
@@ -376,17 +376,17 @@
             ],
             "description": "This rule will only execute if the text after the cursor matches this regular expression.",
             "properties": {
-              "pattern": {
-                "type": "string",
-                "description": "The RegExp pattern for afterText.",
-                "default": ""
-              },
               "flags": {
                 "type": "string",
                 "description": "The RegExp flags for afterText.",
                 "default": "",
                 "pattern": "^([gimuy]+)$",
                 "patternErrorMessage": "Must match the pattern `/^([gimuy]+)$/`."
+              },
+              "pattern": {
+                "type": "string",
+                "description": "The RegExp pattern for afterText.",
+                "default": ""
               }
             }
           },
@@ -397,17 +397,17 @@
             ],
             "description": "This rule will only execute if the text before the cursor matches this regular expression.",
             "properties": {
-              "pattern": {
-                "type": "string",
-                "description": "The RegExp pattern for beforeText.",
-                "default": ""
-              },
               "flags": {
                 "type": "string",
                 "description": "The RegExp flags for beforeText.",
                 "default": "",
                 "pattern": "^([gimuy]+)$",
                 "patternErrorMessage": "Must match the pattern `/^([gimuy]+)$/`."
+              },
+              "pattern": {
+                "type": "string",
+                "description": "The RegExp pattern for beforeText.",
+                "default": ""
               }
             }
           },
@@ -418,17 +418,17 @@
             ],
             "description": "This rule will only execute if the text above the line matches this regular expression.",
             "properties": {
-              "pattern": {
-                "type": "string",
-                "description": "The RegExp pattern for previousLineText.",
-                "default": ""
-              },
               "flags": {
                 "type": "string",
                 "description": "The RegExp flags for previousLineText.",
                 "default": "",
                 "pattern": "^([gimuy]+)$",
                 "patternErrorMessage": "Must match the pattern `/^([gimuy]+)$/`."
+              },
+              "pattern": {
+                "type": "string",
+                "description": "The RegExp pattern for previousLineText.",
+                "default": ""
               }
             }
           }
@@ -460,11 +460,11 @@
           {
             "type": "object",
             "properties": {
-              "open": {
-                "$ref": "#/definitions/openBracket"
-              },
               "close": {
                 "$ref": "#/definitions/closeBracket"
+              },
+              "open": {
+                "$ref": "#/definitions/openBracket"
               }
             }
           }
@@ -479,17 +479,17 @@
         "object"
       ],
       "properties": {
-        "pattern": {
-          "type": "string",
-          "description": "The RegExp pattern used to match words.",
-          "default": ""
-        },
         "flags": {
           "type": "string",
           "description": "The RegExp flags used to match words.",
           "default": "g",
           "pattern": "^([gimuy]+)$",
           "patternErrorMessage": "Must match the pattern `/^([gimuy]+)$/`."
+        },
+        "pattern": {
+          "type": "string",
+          "description": "The RegExp pattern used to match words.",
+          "default": ""
         }
       }
     }

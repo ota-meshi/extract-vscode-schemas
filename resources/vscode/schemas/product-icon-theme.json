@@ -49,8 +49,8 @@
             "anyOf": [
               {
                 "enum": [
-                  "normal",
                   "italic",
+                  "normal",
                   "oblique"
                 ]
               },
@@ -66,10 +66,10 @@
             "anyOf": [
               {
                 "enum": [
-                  "normal",
                   "bold",
+                  "bolder",
                   "lighter",
-                  "bolder"
+                  "normal"
                 ]
               },
               {

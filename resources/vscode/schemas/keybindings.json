@@ -7272,34 +7272,6 @@
               null,
               null,
               null,
-              "Run Task",
-              "Run Task",
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
               null,
               null,
               null,
@@ -7390,16 +7362,6 @@
               null,
               null,
               null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
               "Focus on Conflicts View",
               "Focus on Conflicts View",
               null,
@@ -7428,6 +7390,48 @@
               null,
               "Focus on Troubleshoot View",
               "Focus on Troubleshoot View",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              "Run Task",
+              "Run Task",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
               null,
               null,
               null,
@@ -7676,6 +7680,8 @@
               null,
               "Focus on Deprecated View",
               "Focus on Deprecated View",
+              null,
+              null,
               null,
               null,
               null,
@@ -8036,36 +8042,30 @@
               null,
               null,
               null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
               "workbench.action.terminal.newWithProfile",
               "workbench.action.terminal.newWithProfile",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
               null,
               null,
               null,
@@ -8256,7 +8256,41 @@
         "if": {
           "properties": {
             "command": {
-              "const": "cursorMove"
+              "const": "_notebook.selectKernel"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "args"
+          ],
+          "properties": {
+            "args": {
+              "type": "object",
+              "required": [
+                "id",
+                "extension"
+              ],
+              "properties": {
+                "extension": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "notebookEditorId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "copyActiveEditor"
             }
           }
         },
@@ -8271,42 +8305,22 @@
                 "to"
               ],
               "properties": {
+                "by": {
+                  "type": "string",
+                  "enum": [
+                    "group",
+                    "tab"
+                  ]
+                },
                 "to": {
                   "type": "string",
                   "enum": [
                     "left",
-                    "right",
-                    "up",
-                    "down",
-                    "prevBlankLine",
-                    "nextBlankLine",
-                    "wrappedLineStart",
-                    "wrappedLineEnd",
-                    "wrappedLineColumnCenter",
-                    "wrappedLineFirstNonWhitespaceCharacter",
-                    "wrappedLineLastNonWhitespaceCharacter",
-                    "viewPortTop",
-                    "viewPortCenter",
-                    "viewPortBottom",
-                    "viewPortIfOutside"
-                  ]
-                },
-                "by": {
-                  "type": "string",
-                  "enum": [
-                    "line",
-                    "wrappedLine",
-                    "character",
-                    "halfLine"
+                    "right"
                   ]
                 },
                 "value": {
-                  "type": "number",
-                  "default": 1
-                },
-                "select": {
-                  "type": "boolean",
-                  "default": false
+                  "type": "number"
                 }
               }
             }
@@ -8365,7 +8379,7 @@
         "if": {
           "properties": {
             "command": {
-              "const": "editorScroll"
+              "const": "cursorMove"
             }
           }
         },
@@ -8380,29 +8394,42 @@
                 "to"
               ],
               "properties": {
-                "to": {
-                  "type": "string",
-                  "enum": [
-                    "up",
-                    "down"
-                  ]
-                },
                 "by": {
                   "type": "string",
                   "enum": [
+                    "character",
+                    "halfLine",
                     "line",
-                    "wrappedLine",
-                    "page",
-                    "halfPage",
-                    "editor"
+                    "wrappedLine"
+                  ]
+                },
+                "select": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "to": {
+                  "type": "string",
+                  "enum": [
+                    "down",
+                    "left",
+                    "nextBlankLine",
+                    "prevBlankLine",
+                    "right",
+                    "up",
+                    "viewPortBottom",
+                    "viewPortCenter",
+                    "viewPortIfOutside",
+                    "viewPortTop",
+                    "wrappedLineColumnCenter",
+                    "wrappedLineEnd",
+                    "wrappedLineFirstNonWhitespaceCharacter",
+                    "wrappedLineLastNonWhitespaceCharacter",
+                    "wrappedLineStart"
                   ]
                 },
                 "value": {
                   "type": "number",
                   "default": 1
-                },
-                "revealCursor": {
-                  "type": "boolean"
                 }
               }
             }
@@ -8413,211 +8440,51 @@
         "if": {
           "properties": {
             "command": {
-              "const": "revealLine"
+              "const": "editor.action.codeAction"
             }
           }
         },
         "then": {
-          "required": [
-            "args"
-          ],
           "properties": {
             "args": {
-              "type": "object",
               "required": [
-                "lineNumber"
-              ],
-              "properties": {
-                "lineNumber": {
-                  "type": [
-                    "number",
-                    "string"
-                  ]
-                },
-                "at": {
-                  "type": "string",
-                  "enum": [
-                    "top",
-                    "center",
-                    "bottom"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "type"
-            }
-          }
-        },
-        "then": {
-          "required": [
-            "args"
-          ],
-          "properties": {
-            "args": {
-              "type": "object",
-              "required": [
-                "text"
-              ],
-              "properties": {
-                "text": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "editor.action.refactor"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "defaultSnippets": [
-                {
-                  "body": {
-                    "kind": ""
-                  }
-                }
+                "kind"
               ],
               "properties": {
                 "kind": {
-                  "type": "string",
-                  "description": "Kind of the code action to run."
-                },
-                "apply": {
-                  "type": "string",
-                  "description": "Controls when the returned actions are applied.",
-                  "default": "ifSingle",
-                  "enum": [
-                    "first",
-                    "ifSingle",
-                    "never"
-                  ],
-                  "enumDescriptions": [
-                    "Always apply the first returned code action.",
-                    "Apply the first returned code action if it is the only one.",
-                    "Do not apply the returned code actions."
+                  "anyOf": [
+                    {
+                      "enum": [
+                        "refactor.extract.constant",
+                        "refactor.extract.function",
+                        "refactor.extract.interface",
+                        "refactor.extract.type",
+                        "refactor.move.newFile",
+                        "refactor.rewrite.arrow.braces",
+                        "refactor.rewrite.export",
+                        "refactor.rewrite.import",
+                        "refactor.rewrite.parameters.toDestructured",
+                        "refactor.rewrite.property.generateAccessors",
+                        "source.organizeImports"
+                      ],
+                      "enumDescriptions": [
+                        "Extract expression to constant.",
+                        "Extract expression to method or function.",
+                        "Extract type to an interface.",
+                        "Extract type to a type alias.",
+                        "Move the expression to a new file.",
+                        "Add or remove braces in an arrow function.",
+                        "Convert between default export and named export.",
+                        "Convert between named imports and namespace imports.",
+                        "Convert parameters to destructured object",
+                        "Generate 'get' and 'set' accessors",
+                        "Organize Imports"
+                      ]
+                    },
+                    {
+                      "type": "string"
+                    }
                   ]
-                },
-                "preferred": {
-                  "type": "boolean",
-                  "default": false,
-                  "description": "Controls if only preferred code actions should be returned."
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "editor.action.refactor.preview"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "defaultSnippets": [
-                {
-                  "body": {
-                    "kind": ""
-                  }
-                }
-              ],
-              "properties": {
-                "kind": {
-                  "type": "string",
-                  "description": "Kind of the code action to run."
-                },
-                "apply": {
-                  "type": "string",
-                  "description": "Controls when the returned actions are applied.",
-                  "default": "ifSingle",
-                  "enum": [
-                    "first",
-                    "ifSingle",
-                    "never"
-                  ],
-                  "enumDescriptions": [
-                    "Always apply the first returned code action.",
-                    "Apply the first returned code action if it is the only one.",
-                    "Do not apply the returned code actions."
-                  ]
-                },
-                "preferred": {
-                  "type": "boolean",
-                  "default": false,
-                  "description": "Controls if only preferred code actions should be returned."
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "editor.action.sourceAction"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "defaultSnippets": [
-                {
-                  "body": {
-                    "kind": ""
-                  }
-                }
-              ],
-              "properties": {
-                "kind": {
-                  "type": "string",
-                  "description": "Kind of the code action to run."
-                },
-                "apply": {
-                  "type": "string",
-                  "description": "Controls when the returned actions are applied.",
-                  "default": "ifSingle",
-                  "enum": [
-                    "first",
-                    "ifSingle",
-                    "never"
-                  ],
-                  "enumDescriptions": [
-                    "Always apply the first returned code action.",
-                    "Apply the first returned code action if it is the only one.",
-                    "Do not apply the returned code actions."
-                  ]
-                },
-                "preferred": {
-                  "type": "boolean",
-                  "default": false,
-                  "description": "Controls if only preferred code actions should be returned."
                 }
               }
             }
@@ -8645,10 +8512,6 @@
                 }
               ],
               "properties": {
-                "kind": {
-                  "type": "string",
-                  "description": "Kind of the code action to run."
-                },
                 "apply": {
                   "type": "string",
                   "description": "Controls when the returned actions are applied.",
@@ -8663,6 +8526,191 @@
                     "Apply the first returned code action if it is the only one.",
                     "Do not apply the returned code actions."
                   ]
+                },
+                "kind": {
+                  "type": "string",
+                  "description": "Kind of the code action to run."
+                },
+                "preferred": {
+                  "type": "boolean",
+                  "default": false,
+                  "description": "Controls if only preferred code actions should be returned."
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "editor.action.insertSnippet"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "langId": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "snippet": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "editor.action.refactor.preview"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "defaultSnippets": [
+                {
+                  "body": {
+                    "kind": ""
+                  }
+                }
+              ],
+              "properties": {
+                "apply": {
+                  "type": "string",
+                  "description": "Controls when the returned actions are applied.",
+                  "default": "ifSingle",
+                  "enum": [
+                    "first",
+                    "ifSingle",
+                    "never"
+                  ],
+                  "enumDescriptions": [
+                    "Always apply the first returned code action.",
+                    "Apply the first returned code action if it is the only one.",
+                    "Do not apply the returned code actions."
+                  ]
+                },
+                "kind": {
+                  "type": "string",
+                  "description": "Kind of the code action to run."
+                },
+                "preferred": {
+                  "type": "boolean",
+                  "default": false,
+                  "description": "Controls if only preferred code actions should be returned."
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "editor.action.refactor"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "kind"
+              ],
+              "properties": {
+                "kind": {
+                  "anyOf": [
+                    {
+                      "enum": [
+                        "refactor.extract.constant",
+                        "refactor.extract.function",
+                        "refactor.extract.interface",
+                        "refactor.extract.type",
+                        "refactor.move.newFile",
+                        "refactor.rewrite.arrow.braces",
+                        "refactor.rewrite.export",
+                        "refactor.rewrite.import",
+                        "refactor.rewrite.parameters.toDestructured",
+                        "refactor.rewrite.property.generateAccessors"
+                      ],
+                      "enumDescriptions": [
+                        "Extract expression to constant.",
+                        "Extract expression to method or function.",
+                        "Extract type to an interface.",
+                        "Extract type to a type alias.",
+                        "Move the expression to a new file.",
+                        "Add or remove braces in an arrow function.",
+                        "Convert between default export and named export.",
+                        "Convert between named imports and namespace imports.",
+                        "Convert parameters to destructured object",
+                        "Generate 'get' and 'set' accessors"
+                      ]
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "editor.action.refactor"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "defaultSnippets": [
+                {
+                  "body": {
+                    "kind": ""
+                  }
+                }
+              ],
+              "properties": {
+                "apply": {
+                  "type": "string",
+                  "description": "Controls when the returned actions are applied.",
+                  "default": "ifSingle",
+                  "enum": [
+                    "first",
+                    "ifSingle",
+                    "never"
+                  ],
+                  "enumDescriptions": [
+                    "Always apply the first returned code action.",
+                    "Apply the first returned code action if it is the only one.",
+                    "Do not apply the returned code actions."
+                  ]
+                },
+                "kind": {
+                  "type": "string",
+                  "description": "Kind of the code action to run."
                 },
                 "preferred": {
                   "type": "boolean",
@@ -8701,7 +8749,42 @@
         "if": {
           "properties": {
             "command": {
-              "const": "editor.unfold"
+              "const": "editor.action.sourceAction"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "args": {
+              "required": [
+                "kind"
+              ],
+              "properties": {
+                "kind": {
+                  "anyOf": [
+                    {
+                      "enum": [
+                        "source.organizeImports"
+                      ],
+                      "enumDescriptions": [
+                        "Organize Imports"
+                      ]
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "editor.action.sourceAction"
             }
           }
         },
@@ -8710,24 +8793,92 @@
           "properties": {
             "args": {
               "type": "object",
-              "properties": {
-                "levels": {
-                  "type": "number",
-                  "default": 1
-                },
-                "direction": {
-                  "type": "string",
-                  "enum": [
-                    "up",
-                    "down"
-                  ],
-                  "default": "down"
-                },
-                "selectionLines": {
-                  "type": "array",
-                  "items": {
-                    "type": "number"
+              "defaultSnippets": [
+                {
+                  "body": {
+                    "kind": ""
                   }
+                }
+              ],
+              "properties": {
+                "apply": {
+                  "type": "string",
+                  "description": "Controls when the returned actions are applied.",
+                  "default": "ifSingle",
+                  "enum": [
+                    "first",
+                    "ifSingle",
+                    "never"
+                  ],
+                  "enumDescriptions": [
+                    "Always apply the first returned code action.",
+                    "Apply the first returned code action if it is the only one.",
+                    "Do not apply the returned code actions."
+                  ]
+                },
+                "kind": {
+                  "type": "string",
+                  "description": "Kind of the code action to run."
+                },
+                "preferred": {
+                  "type": "boolean",
+                  "default": false,
+                  "description": "Controls if only preferred code actions should be returned."
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "editor.actions.findWithArgs"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "properties": {
+                "findInSelection": {
+                  "type": "boolean"
+                },
+                "matchCase": {
+                  "type": "boolean"
+                },
+                "matchCaseOverride": {
+                  "type": "number",
+                  "description": "Overrides \"Math Case\" flag.\nThe flag will not be saved for the future.\n0: Do Nothing\n1: True\n2: False"
+                },
+                "preserveCase": {
+                  "type": "boolean"
+                },
+                "preserveCaseOverride": {
+                  "type": "number",
+                  "description": "Overrides \"Preserve Case\" flag.\nThe flag will not be saved for the future.\n0: Do Nothing\n1: True\n2: False"
+                },
+                "regex": {
+                  "type": "boolean"
+                },
+                "regexOverride": {
+                  "type": "number",
+                  "description": "Overrides \"Use Regular Expression\" flag.\nThe flag will not be saved for the future.\n0: Do Nothing\n1: True\n2: False"
+                },
+                "replaceString": {
+                  "type": "string"
+                },
+                "searchString": {
+                  "type": "string"
+                },
+                "wholeWord": {
+                  "type": "boolean"
+                },
+                "wholeWordOverride": {
+                  "type": "number",
+                  "description": "Overrides \"Match Whole Word\" flag.\nThe flag will not be saved for the future.\n0: Do Nothing\n1: True\n2: False"
                 }
               }
             }
@@ -8748,15 +8899,15 @@
             "args": {
               "type": "object",
               "properties": {
-                "levels": {
-                  "type": "number"
-                },
                 "direction": {
                   "type": "string",
                   "enum": [
-                    "up",
-                    "down"
+                    "down",
+                    "up"
                   ]
+                },
+                "levels": {
+                  "type": "number"
                 },
                 "selectionLines": {
                   "type": "array",
@@ -8773,79 +8924,7 @@
         "if": {
           "properties": {
             "command": {
-              "const": "editor.actions.findWithArgs"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "properties": {
-                "searchString": {
-                  "type": "string"
-                },
-                "replaceString": {
-                  "type": "string"
-                },
-                "regex": {
-                  "type": "boolean"
-                },
-                "regexOverride": {
-                  "type": "number",
-                  "description": "Overrides \"Use Regular Expression\" flag.\nThe flag will not be saved for the future.\n0: Do Nothing\n1: True\n2: False"
-                },
-                "wholeWord": {
-                  "type": "boolean"
-                },
-                "wholeWordOverride": {
-                  "type": "number",
-                  "description": "Overrides \"Match Whole Word\" flag.\nThe flag will not be saved for the future.\n0: Do Nothing\n1: True\n2: False"
-                },
-                "matchCase": {
-                  "type": "boolean"
-                },
-                "matchCaseOverride": {
-                  "type": "number",
-                  "description": "Overrides \"Math Case\" flag.\nThe flag will not be saved for the future.\n0: Do Nothing\n1: True\n2: False"
-                },
-                "preserveCase": {
-                  "type": "boolean"
-                },
-                "preserveCaseOverride": {
-                  "type": "number",
-                  "description": "Overrides \"Preserve Case\" flag.\nThe flag will not be saved for the future.\n0: Do Nothing\n1: True\n2: False"
-                },
-                "findInSelection": {
-                  "type": "boolean"
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.action.quickOpen"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "notebook.cell.toggleOutputs"
+              "const": "editor.unfold"
             }
           }
         },
@@ -8854,332 +8933,25 @@
           "properties": {
             "args": {
               "type": "object",
-              "required": [
-                "ranges"
-              ],
               "properties": {
-                "ranges": {
-                  "type": "array",
-                  "items": [
-                    {
-                      "type": "object",
-                      "required": [
-                        "start",
-                        "end"
-                      ],
-                      "properties": {
-                        "start": {
-                          "type": "number"
-                        },
-                        "end": {
-                          "type": "number"
-                        }
-                      }
-                    }
-                  ]
-                },
-                "document": {
-                  "type": "object",
-                  "description": "The document uri"
-                },
-                "autoReveal": {
-                  "type": "boolean",
-                  "description": "Whether the cell should be revealed into view automatically"
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "notebook.cell.execute"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "required": [
-                "ranges"
-              ],
-              "properties": {
-                "ranges": {
-                  "type": "array",
-                  "items": [
-                    {
-                      "type": "object",
-                      "required": [
-                        "start",
-                        "end"
-                      ],
-                      "properties": {
-                        "start": {
-                          "type": "number"
-                        },
-                        "end": {
-                          "type": "number"
-                        }
-                      }
-                    }
-                  ]
-                },
-                "document": {
-                  "type": "object",
-                  "description": "The document uri"
-                },
-                "autoReveal": {
-                  "type": "boolean",
-                  "description": "Whether the cell should be revealed into view automatically"
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "notebook.cell.executeAndFocusContainer"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "required": [
-                "ranges"
-              ],
-              "properties": {
-                "ranges": {
-                  "type": "array",
-                  "items": [
-                    {
-                      "type": "object",
-                      "required": [
-                        "start",
-                        "end"
-                      ],
-                      "properties": {
-                        "start": {
-                          "type": "number"
-                        },
-                        "end": {
-                          "type": "number"
-                        }
-                      }
-                    }
-                  ]
-                },
-                "document": {
-                  "type": "object",
-                  "description": "The document uri"
-                },
-                "autoReveal": {
-                  "type": "boolean",
-                  "description": "Whether the cell should be revealed into view automatically"
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "notebook.cell.cancelExecution"
-            }
-          }
-        },
-        "then": {
-          "required": [
-            "args"
-          ],
-          "properties": {
-            "args": {
-              "type": "object",
-              "required": [
-                "ranges"
-              ],
-              "properties": {
-                "ranges": {
-                  "type": "array",
-                  "items": [
-                    {
-                      "type": "object",
-                      "required": [
-                        "start",
-                        "end"
-                      ],
-                      "properties": {
-                        "start": {
-                          "type": "number"
-                        },
-                        "end": {
-                          "type": "number"
-                        }
-                      }
-                    }
-                  ]
-                },
-                "document": {
-                  "type": "object",
-                  "description": "The document uri"
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "notebook.fold"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "required": [
-                "index",
-                "direction"
-              ],
-              "properties": {
-                "index": {
-                  "type": "number"
-                },
                 "direction": {
                   "type": "string",
                   "enum": [
-                    "up",
-                    "down"
+                    "down",
+                    "up"
                   ],
                   "default": "down"
                 },
                 "levels": {
                   "type": "number",
                   "default": 1
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "notebook.unfold"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "required": [
-                "index",
-                "direction"
-              ],
-              "properties": {
-                "index": {
-                  "type": "number"
                 },
-                "direction": {
-                  "type": "string",
-                  "enum": [
-                    "up",
-                    "down"
-                  ],
-                  "default": "down"
-                },
-                "levels": {
-                  "type": "number",
-                  "default": 1
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "vscode.openIssueReporter"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "oneOf": [
-                {
-                  "type": "string",
-                  "description": "The extension id to preselect."
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "extensionId": {
-                      "type": "string"
-                    },
-                    "issueTitle": {
-                      "type": "string"
-                    },
-                    "issueBody": {
-                      "type": "string"
-                    }
+                "selectionLines": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
                   }
                 }
-              ]
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "_notebook.selectKernel"
-            }
-          }
-        },
-        "then": {
-          "required": [
-            "args"
-          ],
-          "properties": {
-            "args": {
-              "type": "object",
-              "required": [
-                "id",
-                "extension"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "extension": {
-                  "type": "string"
-                },
-                "notebookEditorId": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -9189,249 +8961,7 @@
         "if": {
           "properties": {
             "command": {
-              "const": "workbench.action.findInFiles"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "query": {
-                  "type": "string"
-                },
-                "replace": {
-                  "type": "string"
-                },
-                "preserveCase": {
-                  "type": "boolean"
-                },
-                "triggerSearch": {
-                  "type": "boolean"
-                },
-                "filesToInclude": {
-                  "type": "string"
-                },
-                "filesToExclude": {
-                  "type": "string"
-                },
-                "isRegex": {
-                  "type": "boolean"
-                },
-                "isCaseSensitive": {
-                  "type": "boolean"
-                },
-                "matchWholeWord": {
-                  "type": "boolean"
-                },
-                "useExcludeSettingsAndIgnoreFiles": {
-                  "type": "boolean"
-                },
-                "onlyOpenEditors": {
-                  "type": "boolean"
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "editor.action.insertSnippet"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "snippet": {
-                  "type": "string"
-                },
-                "langId": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "search.action.openNewEditor"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "properties": {
-                "query": {
-                  "type": "string"
-                },
-                "filesToInclude": {
-                  "type": "string"
-                },
-                "filesToExclude": {
-                  "type": "string"
-                },
-                "contextLines": {
-                  "type": "number"
-                },
-                "matchWholeWord": {
-                  "type": "boolean"
-                },
-                "isCaseSensitive": {
-                  "type": "boolean"
-                },
-                "isRegexp": {
-                  "type": "boolean"
-                },
-                "useExcludeSettingsAndIgnoreFiles": {
-                  "type": "boolean"
-                },
-                "showIncludesExcludes": {
-                  "type": "boolean"
-                },
-                "triggerSearch": {
-                  "type": "boolean"
-                },
-                "focusResults": {
-                  "type": "boolean"
-                },
-                "onlyOpenEditors": {
-                  "type": "boolean"
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "search.action.openEditor"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "properties": {
-                "query": {
-                  "type": "string"
-                },
-                "filesToInclude": {
-                  "type": "string"
-                },
-                "filesToExclude": {
-                  "type": "string"
-                },
-                "contextLines": {
-                  "type": "number"
-                },
-                "matchWholeWord": {
-                  "type": "boolean"
-                },
-                "isCaseSensitive": {
-                  "type": "boolean"
-                },
-                "isRegexp": {
-                  "type": "boolean"
-                },
-                "useExcludeSettingsAndIgnoreFiles": {
-                  "type": "boolean"
-                },
-                "showIncludesExcludes": {
-                  "type": "boolean"
-                },
-                "triggerSearch": {
-                  "type": "boolean"
-                },
-                "focusResults": {
-                  "type": "boolean"
-                },
-                "onlyOpenEditors": {
-                  "type": "boolean"
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "search.action.openNewEditorToSide"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "properties": {
-                "query": {
-                  "type": "string"
-                },
-                "filesToInclude": {
-                  "type": "string"
-                },
-                "filesToExclude": {
-                  "type": "string"
-                },
-                "contextLines": {
-                  "type": "number"
-                },
-                "matchWholeWord": {
-                  "type": "boolean"
-                },
-                "isCaseSensitive": {
-                  "type": "boolean"
-                },
-                "isRegexp": {
-                  "type": "boolean"
-                },
-                "useExcludeSettingsAndIgnoreFiles": {
-                  "type": "boolean"
-                },
-                "showIncludesExcludes": {
-                  "type": "boolean"
-                },
-                "triggerSearch": {
-                  "type": "boolean"
-                },
-                "focusResults": {
-                  "type": "boolean"
-                },
-                "onlyOpenEditors": {
-                  "type": "boolean"
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "moveActiveEditor"
+              "const": "editorScroll"
             }
           }
         },
@@ -9446,908 +8976,29 @@
                 "to"
               ],
               "properties": {
-                "to": {
-                  "type": "string",
-                  "enum": [
-                    "left",
-                    "right"
-                  ]
-                },
                 "by": {
                   "type": "string",
                   "enum": [
-                    "tab",
-                    "group"
+                    "editor",
+                    "halfPage",
+                    "line",
+                    "page",
+                    "wrappedLine"
                   ]
                 },
-                "value": {
-                  "type": "number"
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "copyActiveEditor"
-            }
-          }
-        },
-        "then": {
-          "required": [
-            "args"
-          ],
-          "properties": {
-            "args": {
-              "type": "object",
-              "required": [
-                "to"
-              ],
-              "properties": {
+                "revealCursor": {
+                  "type": "boolean"
+                },
                 "to": {
                   "type": "string",
                   "enum": [
-                    "left",
-                    "right"
-                  ]
-                },
-                "by": {
-                  "type": "string",
-                  "enum": [
-                    "tab",
-                    "group"
+                    "down",
+                    "up"
                   ]
                 },
                 "value": {
-                  "type": "number"
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "vscode.setEditorLayout"
-            }
-          }
-        },
-        "then": {
-          "required": [
-            "args"
-          ],
-          "properties": {
-            "args": {
-              "type": "object",
-              "required": [
-                "groups"
-              ],
-              "properties": {
-                "orientation": {
                   "type": "number",
-                  "default": 0,
-                  "enum": [
-                    0,
-                    1
-                  ]
-                },
-                "groups": {
-                  "$ref": "#/definitions/editorGroupsSchema",
-                  "default": [
-                    {},
-                    {}
-                  ]
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.action.files.newUntitledFile"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "viewType": {
-                  "type": "string"
-                },
-                "languageId": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.extensions.uninstallExtension"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.extensions.search"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.action.terminal.newWithCwd"
-            }
-          }
-        },
-        "then": {
-          "required": [
-            "args"
-          ],
-          "properties": {
-            "args": {
-              "type": "object",
-              "required": [
-                "cwd"
-              ],
-              "properties": {
-                "cwd": {
-                  "description": "The directory to start the terminal at",
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.action.terminal.renameWithArg"
-            }
-          }
-        },
-        "then": {
-          "required": [
-            "args"
-          ],
-          "properties": {
-            "args": {
-              "type": "object",
-              "required": [
-                "name"
-              ],
-              "properties": {
-                "name": {
-                  "description": "The new name for the terminal",
-                  "type": "string",
-                  "minLength": 1
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.action.terminal.split"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object"
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.action.terminal.new"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object"
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "refactorPreview.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.panel.repl.view.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.panel.markers.view.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.panel.output.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "terminal.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.debug.welcome.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.debug.action.focusVariablesView"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.debug.action.focusWatchView"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.debug.action.focusCallStackView"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.debug.loadedScriptsView.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.debug.action.focusBreakpointsView"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "outline.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "timeline.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.scm.repositories.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.scm.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.view.search.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.view.testing.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.files.action.focusOpenEditorsView"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.explorer.fileView.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.action.tasks.runTask"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "description": "The task's label or a term to filter by"
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "description": "The contributed task type"
-                    },
-                    "task": {
-                      "type": "string",
-                      "description": "The task's label or a term to filter by"
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.editSessions.data.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.sync.conflicts.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.sync.remoteActivity.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.sync.machines.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.sync.localActivity.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.sync.troubleshoot.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.extensions.installed.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.extensions.popular.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
+                  "default": 1
                 }
               }
             }
@@ -10359,466 +9010,6 @@
           "properties": {
             "command": {
               "const": "extensions.recommendedList.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.extensions.enabled.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.extensions.disabled.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.extensions.marketplace.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.extensions.searchInstalled.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.extensions.searchRecentlyUpdated.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.extensions.searchEnabled.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.extensions.searchDisabled.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.extensions.searchOutdated.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.extensions.searchBuiltin.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.extensions.searchWorkspaceUnsupported.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.extensions.workspaceRecommendations.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.extensions.otherRecommendations.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.extensions.builtinFeatureExtensions.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.extensions.builtinThemeExtensions.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.extensions.builtinProgrammingLanguageExtensions.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.extensions.untrustedUnsupportedExtensions.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.extensions.untrustedPartiallySupportedExtensions.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.extensions.virtualUnsupportedExtensions.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.extensions.virtualPartiallySupportedExtensions.focus"
-            }
-          }
-        },
-        "then": {
-          "required": [],
-          "properties": {
-            "args": {
-              "type": "object",
-              "properties": {
-                "preserveFocus": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "command": {
-              "const": "workbench.views.extensions.deprecatedExtensions.focus"
             }
           }
         },
@@ -10887,7 +9078,368 @@
         "if": {
           "properties": {
             "command": {
+              "const": "moveActiveEditor"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "args"
+          ],
+          "properties": {
+            "args": {
+              "type": "object",
+              "required": [
+                "to"
+              ],
+              "properties": {
+                "by": {
+                  "type": "string",
+                  "enum": [
+                    "group",
+                    "tab"
+                  ]
+                },
+                "to": {
+                  "type": "string",
+                  "enum": [
+                    "left",
+                    "right"
+                  ]
+                },
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "notebook.cell.cancelExecution"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "args"
+          ],
+          "properties": {
+            "args": {
+              "type": "object",
+              "required": [
+                "ranges"
+              ],
+              "properties": {
+                "document": {
+                  "type": "object",
+                  "description": "The document uri"
+                },
+                "ranges": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "start",
+                        "end"
+                      ],
+                      "properties": {
+                        "start": {
+                          "type": "number"
+                        },
+                        "end": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "notebook.cell.execute"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "required": [
+                "ranges"
+              ],
+              "properties": {
+                "autoReveal": {
+                  "type": "boolean",
+                  "description": "Whether the cell should be revealed into view automatically"
+                },
+                "document": {
+                  "type": "object",
+                  "description": "The document uri"
+                },
+                "ranges": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "start",
+                        "end"
+                      ],
+                      "properties": {
+                        "start": {
+                          "type": "number"
+                        },
+                        "end": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "notebook.cell.executeAndFocusContainer"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "required": [
+                "ranges"
+              ],
+              "properties": {
+                "autoReveal": {
+                  "type": "boolean",
+                  "description": "Whether the cell should be revealed into view automatically"
+                },
+                "document": {
+                  "type": "object",
+                  "description": "The document uri"
+                },
+                "ranges": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "start",
+                        "end"
+                      ],
+                      "properties": {
+                        "start": {
+                          "type": "number"
+                        },
+                        "end": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "notebook.cell.toggleOutputs"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "required": [
+                "ranges"
+              ],
+              "properties": {
+                "autoReveal": {
+                  "type": "boolean",
+                  "description": "Whether the cell should be revealed into view automatically"
+                },
+                "document": {
+                  "type": "object",
+                  "description": "The document uri"
+                },
+                "ranges": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "start",
+                        "end"
+                      ],
+                      "properties": {
+                        "start": {
+                          "type": "number"
+                        },
+                        "end": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "notebook.fold"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "required": [
+                "index",
+                "direction"
+              ],
+              "properties": {
+                "direction": {
+                  "type": "string",
+                  "enum": [
+                    "down",
+                    "up"
+                  ],
+                  "default": "down"
+                },
+                "index": {
+                  "type": "number"
+                },
+                "levels": {
+                  "type": "number",
+                  "default": 1
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "notebook.unfold"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "required": [
+                "index",
+                "direction"
+              ],
+              "properties": {
+                "direction": {
+                  "type": "string",
+                  "enum": [
+                    "down",
+                    "up"
+                  ],
+                  "default": "down"
+                },
+                "index": {
+                  "type": "number"
+                },
+                "levels": {
+                  "type": "number",
+                  "default": 1
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
               "const": "npm.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "outline.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "refactorPreview.focus"
             }
           }
         },
@@ -10933,6 +9485,528 @@
         "if": {
           "properties": {
             "command": {
+              "const": "revealLine"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "args"
+          ],
+          "properties": {
+            "args": {
+              "type": "object",
+              "required": [
+                "lineNumber"
+              ],
+              "properties": {
+                "at": {
+                  "type": "string",
+                  "enum": [
+                    "bottom",
+                    "center",
+                    "top"
+                  ]
+                },
+                "lineNumber": {
+                  "type": [
+                    "number",
+                    "string"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "search.action.openEditor"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "properties": {
+                "contextLines": {
+                  "type": "number"
+                },
+                "filesToExclude": {
+                  "type": "string"
+                },
+                "filesToInclude": {
+                  "type": "string"
+                },
+                "focusResults": {
+                  "type": "boolean"
+                },
+                "isCaseSensitive": {
+                  "type": "boolean"
+                },
+                "isRegexp": {
+                  "type": "boolean"
+                },
+                "matchWholeWord": {
+                  "type": "boolean"
+                },
+                "onlyOpenEditors": {
+                  "type": "boolean"
+                },
+                "query": {
+                  "type": "string"
+                },
+                "showIncludesExcludes": {
+                  "type": "boolean"
+                },
+                "triggerSearch": {
+                  "type": "boolean"
+                },
+                "useExcludeSettingsAndIgnoreFiles": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "search.action.openNewEditor"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "properties": {
+                "contextLines": {
+                  "type": "number"
+                },
+                "filesToExclude": {
+                  "type": "string"
+                },
+                "filesToInclude": {
+                  "type": "string"
+                },
+                "focusResults": {
+                  "type": "boolean"
+                },
+                "isCaseSensitive": {
+                  "type": "boolean"
+                },
+                "isRegexp": {
+                  "type": "boolean"
+                },
+                "matchWholeWord": {
+                  "type": "boolean"
+                },
+                "onlyOpenEditors": {
+                  "type": "boolean"
+                },
+                "query": {
+                  "type": "string"
+                },
+                "showIncludesExcludes": {
+                  "type": "boolean"
+                },
+                "triggerSearch": {
+                  "type": "boolean"
+                },
+                "useExcludeSettingsAndIgnoreFiles": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "search.action.openNewEditorToSide"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "properties": {
+                "contextLines": {
+                  "type": "number"
+                },
+                "filesToExclude": {
+                  "type": "string"
+                },
+                "filesToInclude": {
+                  "type": "string"
+                },
+                "focusResults": {
+                  "type": "boolean"
+                },
+                "isCaseSensitive": {
+                  "type": "boolean"
+                },
+                "isRegexp": {
+                  "type": "boolean"
+                },
+                "matchWholeWord": {
+                  "type": "boolean"
+                },
+                "onlyOpenEditors": {
+                  "type": "boolean"
+                },
+                "query": {
+                  "type": "string"
+                },
+                "showIncludesExcludes": {
+                  "type": "boolean"
+                },
+                "triggerSearch": {
+                  "type": "boolean"
+                },
+                "useExcludeSettingsAndIgnoreFiles": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "terminal.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "timeline.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "type"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "args"
+          ],
+          "properties": {
+            "args": {
+              "type": "object",
+              "required": [
+                "text"
+              ],
+              "properties": {
+                "text": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "vscode.openIssueReporter"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "extensionId": {
+                      "type": "string"
+                    },
+                    "issueBody": {
+                      "type": "string"
+                    },
+                    "issueTitle": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "string",
+                  "description": "The extension id to preselect."
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "vscode.setEditorLayout"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "args"
+          ],
+          "properties": {
+            "args": {
+              "type": "object",
+              "required": [
+                "groups"
+              ],
+              "properties": {
+                "groups": {
+                  "$ref": "#/definitions/editorGroupsSchema",
+                  "default": [
+                    {},
+                    {}
+                  ]
+                },
+                "orientation": {
+                  "type": "number",
+                  "default": 0,
+                  "enum": [
+                    0,
+                    1
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.action.files.newUntitledFile"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "languageId": {
+                  "type": "string"
+                },
+                "viewType": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.action.findInFiles"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "filesToExclude": {
+                  "type": "string"
+                },
+                "filesToInclude": {
+                  "type": "string"
+                },
+                "isCaseSensitive": {
+                  "type": "boolean"
+                },
+                "isRegex": {
+                  "type": "boolean"
+                },
+                "matchWholeWord": {
+                  "type": "boolean"
+                },
+                "onlyOpenEditors": {
+                  "type": "boolean"
+                },
+                "preserveCase": {
+                  "type": "boolean"
+                },
+                "query": {
+                  "type": "string"
+                },
+                "replace": {
+                  "type": "string"
+                },
+                "triggerSearch": {
+                  "type": "boolean"
+                },
+                "useExcludeSettingsAndIgnoreFiles": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.action.quickOpen"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.action.tasks.runTask"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "task": {
+                      "type": "string",
+                      "description": "The task's label or a term to filter by"
+                    },
+                    "type": {
+                      "type": "string",
+                      "description": "The contributed task type"
+                    }
+                  }
+                },
+                {
+                  "type": "string",
+                  "description": "The task's label or a term to filter by"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.action.terminal.new"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.action.terminal.newWithCwd"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "args"
+          ],
+          "properties": {
+            "args": {
+              "type": "object",
+              "required": [
+                "cwd"
+              ],
+              "properties": {
+                "cwd": {
+                  "description": "The directory to start the terminal at",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
               "const": "workbench.action.terminal.newWithProfile"
             }
           }
@@ -10954,14 +10028,14 @@
                   "enum": [
                     null,
                     "bash",
-                    "tmux",
-                    "pwsh"
+                    "pwsh",
+                    "tmux"
                   ],
                   "markdownEnumDescriptions": [
                     "Automatically detect the default",
                     "$(terminal-bash) bash\n- path: /usr/bin/bash",
-                    "$(terminal-tmux) tmux\n- path: /usr/bin/tmux",
-                    "$(terminal-powershell) pwsh\n- path: /usr/bin/pwsh"
+                    "$(terminal-powershell) pwsh\n- path: /usr/bin/pwsh",
+                    "$(terminal-tmux) tmux\n- path: /usr/bin/tmux"
                   ]
                 }
               }
@@ -10973,51 +10047,25 @@
         "if": {
           "properties": {
             "command": {
-              "const": "editor.action.codeAction"
+              "const": "workbench.action.terminal.renameWithArg"
             }
           }
         },
         "then": {
+          "required": [
+            "args"
+          ],
           "properties": {
             "args": {
+              "type": "object",
               "required": [
-                "kind"
+                "name"
               ],
               "properties": {
-                "kind": {
-                  "anyOf": [
-                    {
-                      "enum": [
-                        "refactor.extract.constant",
-                        "refactor.extract.function",
-                        "refactor.extract.interface",
-                        "refactor.extract.type",
-                        "refactor.rewrite.import",
-                        "refactor.rewrite.export",
-                        "refactor.rewrite.arrow.braces",
-                        "refactor.rewrite.parameters.toDestructured",
-                        "refactor.rewrite.property.generateAccessors",
-                        "refactor.move.newFile",
-                        "source.organizeImports"
-                      ],
-                      "enumDescriptions": [
-                        "Extract expression to constant.",
-                        "Extract expression to method or function.",
-                        "Extract type to an interface.",
-                        "Extract type to a type alias.",
-                        "Convert between named imports and namespace imports.",
-                        "Convert between default export and named export.",
-                        "Add or remove braces in an arrow function.",
-                        "Convert parameters to destructured object",
-                        "Generate 'get' and 'set' accessors",
-                        "Move the expression to a new file.",
-                        "Organize Imports"
-                      ]
-                    },
-                    {
-                      "type": "string"
-                    }
-                  ]
+                "name": {
+                  "description": "The new name for the terminal",
+                  "type": "string",
+                  "minLength": 1
                 }
               }
             }
@@ -11028,49 +10076,36 @@
         "if": {
           "properties": {
             "command": {
-              "const": "editor.action.refactor"
+              "const": "workbench.action.terminal.split"
             }
           }
         },
         "then": {
+          "required": [],
           "properties": {
             "args": {
-              "required": [
-                "kind"
-              ],
+              "type": "object"
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.debug.action.focusBreakpointsView"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
               "properties": {
-                "kind": {
-                  "anyOf": [
-                    {
-                      "enum": [
-                        "refactor.extract.constant",
-                        "refactor.extract.function",
-                        "refactor.extract.interface",
-                        "refactor.extract.type",
-                        "refactor.rewrite.import",
-                        "refactor.rewrite.export",
-                        "refactor.rewrite.arrow.braces",
-                        "refactor.rewrite.parameters.toDestructured",
-                        "refactor.rewrite.property.generateAccessors",
-                        "refactor.move.newFile"
-                      ],
-                      "enumDescriptions": [
-                        "Extract expression to constant.",
-                        "Extract expression to method or function.",
-                        "Extract type to an interface.",
-                        "Extract type to a type alias.",
-                        "Convert between named imports and namespace imports.",
-                        "Convert between default export and named export.",
-                        "Add or remove braces in an arrow function.",
-                        "Convert parameters to destructured object",
-                        "Generate 'get' and 'set' accessors",
-                        "Move the expression to a new file."
-                      ]
-                    },
-                    {
-                      "type": "string"
-                    }
-                  ]
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
                 }
               }
             }
@@ -11081,31 +10116,996 @@
         "if": {
           "properties": {
             "command": {
-              "const": "editor.action.sourceAction"
+              "const": "workbench.debug.action.focusCallStackView"
             }
           }
         },
         "then": {
+          "required": [],
           "properties": {
             "args": {
-              "required": [
-                "kind"
-              ],
+              "type": "object",
               "properties": {
-                "kind": {
-                  "anyOf": [
-                    {
-                      "enum": [
-                        "source.organizeImports"
-                      ],
-                      "enumDescriptions": [
-                        "Organize Imports"
-                      ]
-                    },
-                    {
-                      "type": "string"
-                    }
-                  ]
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.debug.action.focusVariablesView"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.debug.action.focusWatchView"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.debug.loadedScriptsView.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.debug.welcome.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.explorer.fileView.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.extensions.search"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.extensions.uninstallExtension"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.files.action.focusOpenEditorsView"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.panel.markers.view.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.panel.output.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.panel.repl.view.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.scm.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.scm.repositories.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.view.search.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.view.testing.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.editSessions.data.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.extensions.builtinFeatureExtensions.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.extensions.builtinProgrammingLanguageExtensions.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.extensions.builtinThemeExtensions.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.extensions.deprecatedExtensions.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.extensions.disabled.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.extensions.enabled.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.extensions.installed.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.extensions.marketplace.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.extensions.otherRecommendations.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.extensions.popular.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.extensions.searchBuiltin.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.extensions.searchDisabled.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.extensions.searchEnabled.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.extensions.searchInstalled.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.extensions.searchOutdated.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.extensions.searchRecentlyUpdated.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.extensions.searchWorkspaceUnsupported.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.extensions.untrustedPartiallySupportedExtensions.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.extensions.untrustedUnsupportedExtensions.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.extensions.virtualPartiallySupportedExtensions.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.extensions.virtualUnsupportedExtensions.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.extensions.workspaceRecommendations.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.sync.conflicts.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.sync.localActivity.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.sync.machines.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.sync.remoteActivity.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "command": {
+              "const": "workbench.views.sync.troubleshoot.focus"
+            }
+          }
+        },
+        "then": {
+          "required": [],
+          "properties": {
+            "args": {
+              "type": "object",
+              "properties": {
+                "preserveFocus": {
+                  "type": "boolean",
+                  "default": false
                 }
               }
             }

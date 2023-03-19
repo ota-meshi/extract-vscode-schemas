@@ -528,6 +528,12 @@
     "editor.codeActionsOnSave": {
       "oneOf": [
         {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
           "type": "object",
           "properties": {
             "source.fixAll": {
@@ -537,12 +543,6 @@
           },
           "additionalProperties": {
             "type": "boolean"
-          }
-        },
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
           }
         }
       ],
@@ -740,15 +740,11 @@
       "default": null,
       "enum": [
         null,
-        "vscode.css-language-features",
-        "vscode.html-language-features",
-        "vscode.json-language-features",
-        "vscode.markdown-language-features",
-        "vscode.php-language-features",
-        "vscode.references-view",
-        "vscode.search-result",
-        "vscode.typescript-language-features",
+        "ms-vscode.js-debug",
+        "ms-vscode.js-debug-companion",
+        "ms-vscode.vscode-js-profile-table",
         "vscode.configuration-editing",
+        "vscode.css-language-features",
         "vscode.debug-auto-launch",
         "vscode.debug-server-ready",
         "vscode.emmet",
@@ -759,17 +755,21 @@
         "vscode.github-authentication",
         "vscode.grunt",
         "vscode.gulp",
+        "vscode.html-language-features",
         "vscode.ipynb",
         "vscode.jake",
-        "ms-vscode.js-debug",
-        "ms-vscode.js-debug-companion",
+        "vscode.json-language-features",
+        "vscode.markdown-language-features",
         "vscode.markdown-math",
         "vscode.media-preview",
         "vscode.merge-conflict",
         "vscode.microsoft-authentication",
         "vscode.npm",
+        "vscode.php-language-features",
+        "vscode.references-view",
+        "vscode.search-result",
         "vscode.simple-browser",
-        "ms-vscode.vscode-js-profile-table"
+        "vscode.typescript-language-features"
       ],
       "enumItemLabels": [
         "All",
@@ -806,15 +806,11 @@
       ],
       "markdownEnumDescriptions": [
         "All active folding range providers",
-        "Provides rich language support for CSS, LESS and SCSS files.",
-        "Provides rich language support for HTML and Handlebar files",
-        "Provides rich language support for JSON files.",
-        "Provides rich language support for Markdown.",
-        "Provides rich language support for PHP files.",
-        "Reference Search results as separate, stable view in the sidebar",
-        "Provides syntax highlighting and language features for tabbed search results.",
-        "Provides rich language support for JavaScript and TypeScript.",
+        "An extension for debugging Node.js programs and Chrome.",
+        "Companion extension to js-debug that provides capability for remote debugging",
+        "Text visualizer for profiles taken from the JavaScript debugger",
         "Provides capabilities (advanced IntelliSense, auto-fixing) in configuration files like settings, launch, and extension recommendation files.",
+        "Provides rich language support for CSS, LESS and SCSS files.",
         "Helper for auto-attach feature when node-debug extensions are not active.",
         "Open URI in browser if server under debugging is ready.",
         "Emmet support for VS Code",
@@ -825,17 +821,21 @@
         "GitHub Authentication Provider",
         "Extension to add Grunt capabilities to VS Code.",
         "Extension to add Gulp capabilities to VSCode.",
+        "Provides rich language support for HTML and Handlebar files",
         "Provides basic support for opening and reading Jupyter's .ipynb notebook files",
         "Extension to add Jake capabilities to VS Code.",
-        "An extension for debugging Node.js programs and Chrome.",
-        "Companion extension to js-debug that provides capability for remote debugging",
+        "Provides rich language support for JSON files.",
+        "Provides rich language support for Markdown.",
         "Adds math support to Markdown in notebooks.",
         "Provides VS Code's built-in previews for images, audio, and video",
         "Highlighting and commands for inline merge conflicts.",
         "Microsoft authentication provider",
         "Extension to add task support for npm scripts.",
+        "Provides rich language support for PHP files.",
+        "Reference Search results as separate, stable view in the sidebar",
+        "Provides syntax highlighting and language features for tabbed search results.",
         "A very basic built-in webview for displaying web content.",
-        "Text visualizer for profiles taken from the JavaScript debugger"
+        "Provides rich language support for JavaScript and TypeScript."
       ],
       "defaultDefaultValue": null,
       "scope": 5,
@@ -850,15 +850,11 @@
       "default": null,
       "enum": [
         null,
-        "vscode.css-language-features",
-        "vscode.html-language-features",
-        "vscode.json-language-features",
-        "vscode.markdown-language-features",
-        "vscode.php-language-features",
-        "vscode.references-view",
-        "vscode.search-result",
-        "vscode.typescript-language-features",
+        "ms-vscode.js-debug",
+        "ms-vscode.js-debug-companion",
+        "ms-vscode.vscode-js-profile-table",
         "vscode.configuration-editing",
+        "vscode.css-language-features",
         "vscode.debug-auto-launch",
         "vscode.debug-server-ready",
         "vscode.emmet",
@@ -869,17 +865,21 @@
         "vscode.github-authentication",
         "vscode.grunt",
         "vscode.gulp",
+        "vscode.html-language-features",
         "vscode.ipynb",
         "vscode.jake",
-        "ms-vscode.js-debug",
-        "ms-vscode.js-debug-companion",
+        "vscode.json-language-features",
+        "vscode.markdown-language-features",
         "vscode.markdown-math",
         "vscode.media-preview",
         "vscode.merge-conflict",
         "vscode.microsoft-authentication",
         "vscode.npm",
+        "vscode.php-language-features",
+        "vscode.references-view",
+        "vscode.search-result",
         "vscode.simple-browser",
-        "ms-vscode.vscode-js-profile-table"
+        "vscode.typescript-language-features"
       ],
       "enumItemLabels": [
         "None",
@@ -916,15 +916,11 @@
       ],
       "markdownEnumDescriptions": [
         "None",
-        "Provides rich language support for CSS, LESS and SCSS files.",
-        "Provides rich language support for HTML and Handlebar files",
-        "Provides rich language support for JSON files.",
-        "Provides rich language support for Markdown.",
-        "Provides rich language support for PHP files.",
-        "Reference Search results as separate, stable view in the sidebar",
-        "Provides syntax highlighting and language features for tabbed search results.",
-        "Provides rich language support for JavaScript and TypeScript.",
+        "An extension for debugging Node.js programs and Chrome.",
+        "Companion extension to js-debug that provides capability for remote debugging",
+        "Text visualizer for profiles taken from the JavaScript debugger",
         "Provides capabilities (advanced IntelliSense, auto-fixing) in configuration files like settings, launch, and extension recommendation files.",
+        "Provides rich language support for CSS, LESS and SCSS files.",
         "Helper for auto-attach feature when node-debug extensions are not active.",
         "Open URI in browser if server under debugging is ready.",
         "Emmet support for VS Code",
@@ -935,17 +931,21 @@
         "GitHub Authentication Provider",
         "Extension to add Grunt capabilities to VS Code.",
         "Extension to add Gulp capabilities to VSCode.",
+        "Provides rich language support for HTML and Handlebar files",
         "Provides basic support for opening and reading Jupyter's .ipynb notebook files",
         "Extension to add Jake capabilities to VS Code.",
-        "An extension for debugging Node.js programs and Chrome.",
-        "Companion extension to js-debug that provides capability for remote debugging",
+        "Provides rich language support for JSON files.",
+        "Provides rich language support for Markdown.",
         "Adds math support to Markdown in notebooks.",
         "Provides VS Code's built-in previews for images, audio, and video",
         "Highlighting and commands for inline merge conflicts.",
         "Microsoft authentication provider",
         "Extension to add task support for npm scripts.",
+        "Provides rich language support for PHP files.",
+        "Reference Search results as separate, stable view in the sidebar",
+        "Provides syntax highlighting and language features for tabbed search results.",
         "A very basic built-in webview for displaying web content.",
-        "Text visualizer for profiles taken from the JavaScript debugger"
+        "Provides rich language support for JavaScript and TypeScript."
       ],
       "defaultDefaultValue": null,
       "scope": 5,
@@ -1493,14 +1493,14 @@
         "string"
       ],
       "enum": [
-        true,
         "active",
-        false
+        false,
+        true
       ],
       "enumDescriptions": [
-        "Enables bracket pair guides.",
         "Enables bracket pair guides only for the active bracket pair.",
-        "Disables bracket pair guides."
+        "Disables bracket pair guides.",
+        "Enables bracket pair guides."
       ],
       "default": false,
       "description": "Controls whether bracket pair guides are enabled or not.",
@@ -1514,14 +1514,14 @@
         "string"
       ],
       "enum": [
-        true,
         "active",
-        false
+        false,
+        true
       ],
       "enumDescriptions": [
-        "Enables horizontal guides as addition to vertical bracket pair guides.",
         "Enables horizontal guides only for the active bracket pair.",
-        "Disables horizontal bracket pair guides."
+        "Disables horizontal bracket pair guides.",
+        "Enables horizontal guides as addition to vertical bracket pair guides."
       ],
       "default": "active",
       "description": "Controls whether horizontal bracket pair guides are enabled or not.",
@@ -1543,14 +1543,14 @@
         "string"
       ],
       "enum": [
-        true,
         "always",
-        false
+        false,
+        true
       ],
       "enumDescriptions": [
-        "Highlights the active indent guide.",
         "Highlights the active indent guide even if bracket guides are highlighted.",
-        "Do not highlight the active indent guide."
+        "Do not highlight the active indent guide.",
+        "Highlights the active indent guide."
       ],
       "default": true,
       "description": "Controls whether the editor should highlight the active indent guide.",
@@ -2268,14 +2268,14 @@
               "object"
             ],
             "properties": {
-              "column": {
-                "type": "number",
-                "description": "Number of monospace characters at which this editor ruler will render."
-              },
               "color": {
                 "type": "string",
                 "description": "Color of this editor ruler.",
                 "format": "color-hex"
+              },
+              "column": {
+                "type": "number",
+                "description": "Number of monospace characters at which this editor ruler will render."
               }
             }
           }
@@ -3013,9 +3013,9 @@
         "string"
       ],
       "enum": [
-        true,
         false,
-        "inUntrustedWorkspace"
+        "inUntrustedWorkspace",
+        true
       ],
       "default": "inUntrustedWorkspace",
       "description": "Controls whether characters in comments should also be subject to Unicode highlighting.",
@@ -3029,9 +3029,9 @@
         "string"
       ],
       "enum": [
-        true,
         false,
-        "inUntrustedWorkspace"
+        "inUntrustedWorkspace",
+        true
       ],
       "default": true,
       "description": "Controls whether characters in strings should also be subject to Unicode highlighting.",
@@ -3053,9 +3053,9 @@
         "string"
       ],
       "enum": [
-        true,
         false,
-        "inUntrustedWorkspace"
+        "inUntrustedWorkspace",
+        true
       ],
       "default": "inUntrustedWorkspace",
       "description": "Controls whether all non-basic ASCII characters are highlighted. Only characters between U+0020 and U+007E, tab, line-feed and carriage-return are considered basic ASCII.",

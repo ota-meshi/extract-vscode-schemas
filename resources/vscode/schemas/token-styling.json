@@ -556,11 +556,11 @@
       ],
       "anyOf": [
         {
-          "type": "string",
-          "format": "color-hex"
+          "$ref": "#/definitions/style"
         },
         {
-          "$ref": "#/definitions/style"
+          "type": "string",
+          "format": "color-hex"
         }
       ]
     }

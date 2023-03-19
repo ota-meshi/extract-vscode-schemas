@@ -15077,55 +15077,24 @@
     {
       "allOf": [
         {
-          "type": "object",
-          "required": [
-            "version"
-          ],
-          "properties": {
-            "version": {
-              "type": "string",
-              "enum": [
-                "2.0.0"
-              ],
-              "description": "The config's version number."
-            },
-            "windows": {
-              "$ref": "#/definitions/osSpecificTaskRunnerConfiguration2",
-              "description": "Windows specific command configuration"
-            },
-            "osx": {
-              "$ref": "#/definitions/osSpecificTaskRunnerConfiguration2",
-              "description": "Mac specific command configuration"
-            },
-            "linux": {
-              "$ref": "#/definitions/osSpecificTaskRunnerConfiguration2",
-              "description": "Linux specific command configuration"
-            }
-          }
+          "$ref": "#/definitions/taskRunnerConfiguration1"
         },
         {
-          "$ref": "#/definitions/taskRunnerConfiguration2"
-        }
-      ]
-    },
-    {
-      "allOf": [
-        {
           "type": "object",
           "required": [
             "version"
           ],
           "properties": {
-            "version": {
-              "type": "string",
-              "enum": [
-                "0.1.0"
-              ],
-              "deprecationMessage": "Task version 0.1.0 is deprecated. Please use 2.0.0",
-              "description": "The config's version number"
-            },
             "_runner": {
               "deprecationMessage": "The runner has graduated. Use the official runner property"
+            },
+            "linux": {
+              "$ref": "#/definitions/taskRunnerConfiguration1",
+              "description": "Linux specific command configuration"
+            },
+            "osx": {
+              "$ref": "#/definitions/taskRunnerConfiguration1",
+              "description": "Mac specific command configuration"
             },
             "runner": {
               "type": "string",
@@ -15136,22 +15105,53 @@
               "default": "process",
               "description": "Defines whether the task is executed as a process and the output is shown in the output window or inside the terminal."
             },
+            "version": {
+              "type": "string",
+              "enum": [
+                "0.1.0"
+              ],
+              "deprecationMessage": "Task version 0.1.0 is deprecated. Please use 2.0.0",
+              "description": "The config's version number"
+            },
             "windows": {
               "$ref": "#/definitions/taskRunnerConfiguration1",
               "description": "Windows specific command configuration"
-            },
-            "osx": {
-              "$ref": "#/definitions/taskRunnerConfiguration1",
-              "description": "Mac specific command configuration"
-            },
-            "linux": {
-              "$ref": "#/definitions/taskRunnerConfiguration1",
-              "description": "Linux specific command configuration"
             }
           }
+        }
+      ]
+    },
+    {
+      "allOf": [
+        {
+          "$ref": "#/definitions/taskRunnerConfiguration2"
         },
         {
-          "$ref": "#/definitions/taskRunnerConfiguration1"
+          "type": "object",
+          "required": [
+            "version"
+          ],
+          "properties": {
+            "linux": {
+              "$ref": "#/definitions/osSpecificTaskRunnerConfiguration2",
+              "description": "Linux specific command configuration"
+            },
+            "osx": {
+              "$ref": "#/definitions/osSpecificTaskRunnerConfiguration2",
+              "description": "Mac specific command configuration"
+            },
+            "version": {
+              "type": "string",
+              "enum": [
+                "2.0.0"
+              ],
+              "description": "The config's version number."
+            },
+            "windows": {
+              "$ref": "#/definitions/osSpecificTaskRunnerConfiguration2",
+              "description": "Windows specific command configuration"
+            }
+          }
         }
       ]
     }
