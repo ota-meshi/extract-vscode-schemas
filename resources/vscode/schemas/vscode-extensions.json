@@ -11499,10 +11499,10 @@
                 "anyOf": [
                   {
                     "default": {
-                      "regexp": "^([^\\\\s].*)\\\\((\\\\d+,\\\\d+)\\\\):\\\\s*(.*)$",
                       "file": 1,
                       "location": 2,
-                      "message": 3
+                      "message": 3,
+                      "regexp": "^([^\\\\s].*)\\\\((\\\\d+,\\\\d+)\\\\):\\\\s*(.*)$"
                     },
                     "type": "object",
                     "additionalProperties": false,
@@ -11561,10 +11561,10 @@
                     "type": "array",
                     "items": {
                       "default": {
-                        "regexp": "^([^\\\\s].*)\\\\((\\\\d+,\\\\d+)\\\\):\\\\s*(.*)$",
                         "file": 1,
                         "location": 2,
-                        "message": 3
+                        "message": 3,
+                        "regexp": "^([^\\\\s].*)\\\\((\\\\d+,\\\\d+)\\\\):\\\\s*(.*)$"
                       },
                       "type": "object",
                       "additionalProperties": false,
@@ -11706,10 +11706,10 @@
             "anyOf": [
               {
                 "default": {
-                  "regexp": "^([^\\\\s].*)\\\\((\\\\d+,\\\\d+)\\\\):\\\\s*(.*)$",
                   "file": 1,
                   "location": 2,
-                  "message": 3
+                  "message": 3,
+                  "regexp": "^([^\\\\s].*)\\\\((\\\\d+,\\\\d+)\\\\):\\\\s*(.*)$"
                 },
                 "type": "object",
                 "additionalProperties": false,
@@ -11781,10 +11781,10 @@
                     "description": "The actual patterns.",
                     "items": {
                       "default": {
-                        "regexp": "^([^\\\\s].*)\\\\((\\\\d+,\\\\d+)\\\\):\\\\s*(.*)$",
                         "file": 1,
                         "location": 2,
-                        "message": 3
+                        "message": 3,
+                        "regexp": "^([^\\\\s].*)\\\\((\\\\d+,\\\\d+)\\\\):\\\\s*(.*)$"
                       },
                       "type": "object",
                       "additionalProperties": false,

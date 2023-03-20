@@ -121,9 +121,9 @@
       "errorMessage": "This setting does not support per-language configuration.",
       "$ref": "vscode://schemas/settings/resourceLanguage",
       "default": {
+        "editor.autoIndent": "advanced",
         "editor.insertSpaces": true,
-        "editor.tabSize": 2,
-        "editor.autoIndent": "advanced"
+        "editor.tabSize": 2
       },
       "defaultValueSource": {
         "id": "vscode.yaml",
@@ -421,15 +421,15 @@
       "errorMessage": "This setting does not support per-language configuration.",
       "$ref": "vscode://schemas/settings/resourceLanguage",
       "default": {
-        "editor.unicodeHighlight.ambiguousCharacters": false,
-        "editor.unicodeHighlight.invisibleCharacters": false,
         "diffEditor.ignoreTrimWhitespace": false,
-        "editor.wordWrap": "on",
         "editor.quickSuggestions": {
           "comments": "off",
           "strings": "off",
           "other": "off"
-        }
+        },
+        "editor.unicodeHighlight.ambiguousCharacters": false,
+        "editor.unicodeHighlight.invisibleCharacters": false,
+        "editor.wordWrap": "on"
       },
       "defaultValueSource": {
         "id": "vscode.markdown-language-features",
@@ -658,10 +658,10 @@
       "errorMessage": "This setting does not support per-language configuration.",
       "$ref": "vscode://schemas/settings/resourceLanguage",
       "default": {
-        "editor.insertSpaces": true,
-        "editor.tabSize": 2,
+        "diffEditor.ignoreTrimWhitespace": false,
         "editor.autoIndent": "advanced",
-        "diffEditor.ignoreTrimWhitespace": false
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
       },
       "defaultValueSource": {
         "id": "vscode.yaml",
@@ -2613,9 +2613,9 @@
                       "type": "object",
                       "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                       "default": {
+                        "meteor://💻app/*": "${workspaceFolder}/*",
                         "webpack://?:*/*": "${workspaceFolder}/*",
-                        "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                        "meteor://💻app/*": "${workspaceFolder}/*"
+                        "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                       }
                     },
                     "sourceMapRenames": {
@@ -2884,9 +2884,9 @@
                       "type": "object",
                       "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                       "default": {
+                        "meteor://💻app/*": "${workspaceFolder}/*",
                         "webpack://?:*/*": "${workspaceFolder}/*",
-                        "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                        "meteor://💻app/*": "${workspaceFolder}/*"
+                        "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                       }
                     },
                     "sourceMapRenames": {
@@ -3008,9 +3008,9 @@
               "type": "object",
               "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
               "default": {
+                "meteor://💻app/*": "${workspaceFolder}/*",
                 "webpack://?:*/*": "${workspaceFolder}/*",
-                "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                "meteor://💻app/*": "${workspaceFolder}/*"
+                "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
               }
             },
             "sourceMapRenames": {
@@ -3383,9 +3383,9 @@
           "type": "object",
           "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
           "default": {
+            "meteor://💻app/*": "${workspaceFolder}/*",
             "webpack://?:*/*": "${workspaceFolder}/*",
-            "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-            "meteor://💻app/*": "${workspaceFolder}/*"
+            "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
           }
         },
         "sourceMapRenames": {
@@ -3666,9 +3666,9 @@
           "type": "object",
           "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
           "default": {
+            "meteor://💻app/*": "${workspaceFolder}/*",
             "webpack://?:*/*": "${workspaceFolder}/*",
-            "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-            "meteor://💻app/*": "${workspaceFolder}/*"
+            "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
           }
         },
         "sourceMapRenames": {
@@ -5768,14 +5768,14 @@
         }
       },
       "default": {
-        "other": "on",
         "comments": "off",
+        "other": "on",
         "strings": "off"
       },
       "markdownDescription": "Controls whether suggestions should automatically show up while typing. This can be controlled for typing in comments, strings, and other code. Quick suggestion can be configured to show as ghost text or with the suggest widget. Also be aware of the '#editor.suggestOnTriggerCharacters#'-setting which controls if suggestions are triggered by special characters.",
       "defaultDefaultValue": {
-        "other": "on",
         "comments": "off",
+        "other": "on",
         "strings": "off"
       },
       "scope": 5,
@@ -8336,8 +8336,8 @@
       "type": "object",
       "markdownDescription": "Configure glob patterns for excluding files and folders from being revealed and selected in the Explorer when they are opened. Read more about glob patterns [here](https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options).",
       "default": {
-        "**/node_modules": true,
-        "**/bower_components": true
+        "**/bower_components": true,
+        "**/node_modules": true
       },
       "additionalProperties": {
         "anyOf": [
@@ -8359,8 +8359,8 @@
         ]
       },
       "defaultDefaultValue": {
-        "**/node_modules": true,
-        "**/bower_components": true
+        "**/bower_components": true,
+        "**/node_modules": true
       },
       "scope": 3,
       "restricted": false
@@ -8502,20 +8502,20 @@
       },
       "additionalProperties": false,
       "default": {
-        "*.ts": "${capture}.js",
         "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
         "*.jsx": "${capture}.js",
+        "*.ts": "${capture}.js",
         "*.tsx": "${capture}.ts",
-        "tsconfig.json": "tsconfig.*.json",
-        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml"
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml",
+        "tsconfig.json": "tsconfig.*.json"
       },
       "defaultDefaultValue": {
-        "*.ts": "${capture}.js",
         "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
         "*.jsx": "${capture}.js",
+        "*.ts": "${capture}.js",
         "*.tsx": "${capture}.ts",
-        "tsconfig.json": "tsconfig.*.json",
-        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml"
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml",
+        "tsconfig.json": "tsconfig.*.json"
       },
       "restricted": false
     },
@@ -9038,11 +9038,11 @@
       "type": "object",
       "markdownDescription": "Configure [glob patterns](https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options) for excluding files and folders. For example, the File Explorer decides which files and folders to show or hide based on this setting. Refer to the `#search.exclude#` setting to define search-specific excludes. Refer to the `#explorer.excludeGitIgnore#` setting for ignoring files based on your `.gitignore`.",
       "default": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
         "**/.DS_Store": true,
+        "**/.git": true,
+        "**/.hg": true,
+        "**/.svn": true,
+        "**/CVS": true,
         "**/Thumbs.db": true
       },
       "scope": 4,
@@ -9074,11 +9074,11 @@
         ]
       },
       "defaultDefaultValue": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
         "**/.DS_Store": true,
+        "**/.git": true,
+        "**/.hg": true,
+        "**/.svn": true,
+        "**/CVS": true,
         "**/Thumbs.db": true
       },
       "restricted": false
@@ -9197,16 +9197,16 @@
       "default": {
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
-        "**/node_modules/*/**": true,
-        "**/.hg/store/**": true
+        "**/.hg/store/**": true,
+        "**/node_modules/*/**": true
       },
       "markdownDescription": "Configure paths or glob patterns to exclude from file watching. Paths can either be relative to the watched folder or absolute. Glob patterns are matched relative from the watched folder. When you experience the file watcher process consuming a lot of CPU, make sure to exclude large folders that are of less interest (such as build output folders).",
       "scope": 4,
       "defaultDefaultValue": {
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
-        "**/node_modules/*/**": true,
-        "**/.hg/store/**": true
+        "**/.hg/store/**": true,
+        "**/node_modules/*/**": true
       },
       "restricted": false
     },
@@ -11915,13 +11915,13 @@
       "type": "object",
       "description": "Global debug launch configuration. Should be used as an alternative to 'launch.json' that is shared across workspaces.",
       "default": {
-        "configurations": [],
-        "compounds": []
+        "compounds": [],
+        "configurations": []
       },
       "$ref": "vscode://schemas/launch",
       "defaultDefaultValue": {
-        "configurations": [],
-        "compounds": []
+        "compounds": [],
+        "configurations": []
       },
       "scope": 3,
       "restricted": false
@@ -14567,14 +14567,14 @@
                 }
               },
               "default": {
-                "other": "on",
                 "comments": "off",
+                "other": "on",
                 "strings": "off"
               },
               "markdownDescription": "Controls whether suggestions should automatically show up while typing. This can be controlled for typing in comments, strings, and other code. Quick suggestion can be configured to show as ghost text or with the suggest widget. Also be aware of the '#editor.suggestOnTriggerCharacters#'-setting which controls if suggestions are triggered by special characters.",
               "defaultDefaultValue": {
-                "other": "on",
                 "comments": "off",
+                "other": "on",
                 "strings": "off"
               },
               "scope": 5,
@@ -17506,9 +17506,9 @@
       "type": "object",
       "markdownDescription": "Configure [glob patterns](https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options) for excluding files and folders in fulltext searches and quick open. Inherits all glob patterns from the `#files.exclude#` setting.",
       "default": {
-        "**/node_modules": true,
+        "**/*.code-search": true,
         "**/bower_components": true,
-        "**/*.code-search": true
+        "**/node_modules": true
       },
       "additionalProperties": {
         "anyOf": [
@@ -17531,9 +17531,9 @@
       },
       "scope": 4,
       "defaultDefaultValue": {
-        "**/node_modules": true,
+        "**/*.code-search": true,
         "**/bower_components": true,
-        "**/*.code-search": true
+        "**/node_modules": true
       },
       "restricted": false
     },
@@ -22336,19 +22336,19 @@
           "path": "bash",
           "icon": "terminal-bash"
         },
-        "zsh": {
-          "path": "zsh"
-        },
         "fish": {
           "path": "fish"
+        },
+        "pwsh": {
+          "path": "pwsh",
+          "icon": "terminal-powershell"
         },
         "tmux": {
           "path": "tmux",
           "icon": "terminal-tmux"
         },
-        "pwsh": {
-          "path": "pwsh",
-          "icon": "terminal-powershell"
+        "zsh": {
+          "path": "zsh"
         }
       },
       "additionalProperties": {
@@ -24639,19 +24639,19 @@
           "path": "bash",
           "icon": "terminal-bash"
         },
-        "zsh": {
-          "path": "zsh"
-        },
         "fish": {
           "path": "fish"
+        },
+        "pwsh": {
+          "path": "pwsh",
+          "icon": "terminal-powershell"
         },
         "tmux": {
           "path": "tmux",
           "icon": "terminal-tmux"
         },
-        "pwsh": {
-          "path": "pwsh",
-          "icon": "terminal-powershell"
+        "zsh": {
+          "path": "zsh"
         }
       },
       "scope": 3
@@ -24668,25 +24668,25 @@
           ],
           "icon": "terminal-bash"
         },
-        "zsh": {
-          "path": "zsh",
-          "args": [
-            "-l"
-          ]
-        },
         "fish": {
           "path": "fish",
           "args": [
             "-l"
           ]
         },
+        "pwsh": {
+          "path": "pwsh",
+          "icon": "terminal-powershell"
+        },
         "tmux": {
           "path": "tmux",
           "icon": "terminal-tmux"
         },
-        "pwsh": {
-          "path": "pwsh",
-          "icon": "terminal-powershell"
+        "zsh": {
+          "path": "zsh",
+          "args": [
+            "-l"
+          ]
         }
       },
       "additionalProperties": {
@@ -26980,25 +26980,25 @@
           ],
           "icon": "terminal-bash"
         },
-        "zsh": {
-          "path": "zsh",
-          "args": [
-            "-l"
-          ]
-        },
         "fish": {
           "path": "fish",
           "args": [
             "-l"
           ]
         },
+        "pwsh": {
+          "path": "pwsh",
+          "icon": "terminal-powershell"
+        },
         "tmux": {
           "path": "tmux",
           "icon": "terminal-tmux"
         },
-        "pwsh": {
-          "path": "pwsh",
-          "icon": "terminal-powershell"
+        "zsh": {
+          "path": "zsh",
+          "args": [
+            "-l"
+          ]
         }
       },
       "scope": 3
@@ -27008,10 +27008,6 @@
       "markdownDescription": "The Windows profiles to present when creating a new terminal via the terminal dropdown. Use the `source` property to automatically detect the shell's location. Or set the `path` property manually with an optional `args`.\n\nSet an existing profile to `null` to hide the profile from the list, for example: `\"Ubuntu-20.04 (WSL)\": null`.",
       "type": "object",
       "default": {
-        "PowerShell": {
-          "source": "PowerShell",
-          "icon": "terminal-powershell"
-        },
         "Command Prompt": {
           "path": [
             "${env:windir}\\Sysnative\\cmd.exe",
@@ -27022,6 +27018,10 @@
         },
         "Git Bash": {
           "source": "Git Bash"
+        },
+        "PowerShell": {
+          "source": "PowerShell",
+          "icon": "terminal-powershell"
         }
       },
       "additionalProperties": {
@@ -30441,10 +30441,6 @@
         ]
       },
       "defaultDefaultValue": {
-        "PowerShell": {
-          "source": "PowerShell",
-          "icon": "terminal-powershell"
-        },
         "Command Prompt": {
           "path": [
             "${env:windir}\\Sysnative\\cmd.exe",
@@ -30455,6 +30451,10 @@
         },
         "Git Bash": {
           "source": "Git Bash"
+        },
+        "PowerShell": {
+          "source": "PowerShell",
+          "icon": "terminal-powershell"
         }
       },
       "scope": 3
@@ -33784,30 +33784,30 @@
       },
       "default": {
         "default": false,
-        "workbench.editorinputs.searchEditorInput": false,
-        "jupyter-notebook": false,
         "imagePreview.previewEditor": false,
-        "vscode.audioPreview": false,
-        "vscode.videoPreview": false,
         "jsProfileVisualizer.cpuprofile.table": false,
         "jsProfileVisualizer.heapprofile.table": false,
+        "jupyter-notebook": false,
+        "mainThreadWebview-markdown.preview": false,
         "terminalEditor": true,
-        "workbench.input.interactive": false,
-        "mainThreadWebview-markdown.preview": false
+        "vscode.audioPreview": false,
+        "vscode.videoPreview": false,
+        "workbench.editorinputs.searchEditorInput": false,
+        "workbench.input.interactive": false
       },
       "additionalProperties": false,
       "defaultDefaultValue": {
         "default": false,
-        "workbench.editorinputs.searchEditorInput": false,
-        "jupyter-notebook": false,
         "imagePreview.previewEditor": false,
-        "vscode.audioPreview": false,
-        "vscode.videoPreview": false,
         "jsProfileVisualizer.cpuprofile.table": false,
         "jsProfileVisualizer.heapprofile.table": false,
+        "jupyter-notebook": false,
+        "mainThreadWebview-markdown.preview": false,
         "terminalEditor": true,
-        "workbench.input.interactive": false,
-        "mainThreadWebview-markdown.preview": false
+        "vscode.audioPreview": false,
+        "vscode.videoPreview": false,
+        "workbench.editorinputs.searchEditorInput": false,
+        "workbench.input.interactive": false
       },
       "scope": 3,
       "restricted": false
@@ -33962,8 +33962,8 @@
     "workbench.editor.languageDetectionHints": {
       "type": "object",
       "default": {
-        "untitledEditors": true,
-        "notebookEditors": true
+        "notebookEditors": true,
+        "untitledEditors": true
       },
       "tags": [
         "experimental"
@@ -33981,8 +33981,8 @@
         }
       },
       "defaultDefaultValue": {
-        "untitledEditors": true,
-        "notebookEditors": true
+        "notebookEditors": true,
+        "untitledEditors": true
       },
       "scope": 3,
       "restricted": false

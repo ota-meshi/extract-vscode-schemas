@@ -2,27 +2,6 @@
   "allowComments": true,
   "allowTrailingCommas": true,
   "default": {
-    "comments": {
-      "blockComment": [
-        "/*",
-        "*/"
-      ],
-      "lineComment": "//"
-    },
-    "brackets": [
-      [
-        "(",
-        ")"
-      ],
-      [
-        "[",
-        "]"
-      ],
-      [
-        "{",
-        "}"
-      ]
-    ],
     "autoClosingPairs": [
       [
         "(",
@@ -37,6 +16,27 @@
         "}"
       ]
     ],
+    "brackets": [
+      [
+        "(",
+        ")"
+      ],
+      [
+        "[",
+        "]"
+      ],
+      [
+        "{",
+        "}"
+      ]
+    ],
+    "comments": {
+      "blockComment": [
+        "/*",
+        "*/"
+      ],
+      "lineComment": "//"
+    },
     "surroundingPairs": [
       [
         "(",
@@ -224,8 +224,8 @@
     },
     "indentationRules": {
       "default": {
-        "increaseIndentPattern": "",
-        "decreaseIndentPattern": ""
+        "decreaseIndentPattern": "",
+        "increaseIndentPattern": ""
       },
       "description": "The language's indentation settings.",
       "type": "object",

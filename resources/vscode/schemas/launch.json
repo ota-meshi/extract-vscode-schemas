@@ -6,9 +6,9 @@
   "allowComments": true,
   "required": [],
   "default": {
-    "version": "0.2.0",
+    "compounds": [],
     "configurations": [],
-    "compounds": []
+    "version": "0.2.0"
   },
   "properties": {
     "compounds": {
@@ -80,8 +80,8 @@
               }
             },
             "default": {
-              "hidden": false,
               "group": "",
+              "hidden": false,
               "order": 1
             }
           },
@@ -92,8 +92,8 @@
           }
         },
         "default": {
-          "name": "Compound",
-          "configurations": []
+          "configurations": [],
+          "name": "Compound"
         }
       },
       "default": [
@@ -818,8 +818,8 @@
                       "sourceMapPathOverrides": {
                         "default": {
                           "meteor://💻app/*": "${workspaceFolder}/*",
-                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                          "webpack://?:*/*": "${workspaceFolder}/*"
+                          "webpack://?:*/*": "${workspaceFolder}/*",
+                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                         },
                         "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                         "type": "object"
@@ -1089,8 +1089,8 @@
                       "sourceMapPathOverrides": {
                         "default": {
                           "meteor://💻app/*": "${workspaceFolder}/*",
-                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                          "webpack://?:*/*": "${workspaceFolder}/*"
+                          "webpack://?:*/*": "${workspaceFolder}/*",
+                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                         },
                         "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                         "type": "object"
@@ -1222,8 +1222,8 @@
               "sourceMapPathOverrides": {
                 "default": {
                   "meteor://💻app/*": "${workspaceFolder}/*",
-                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                  "webpack://?:*/*": "${workspaceFolder}/*"
+                  "webpack://?:*/*": "${workspaceFolder}/*",
+                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                 },
                 "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                 "type": "object",
@@ -1857,8 +1857,8 @@
                       "sourceMapPathOverrides": {
                         "default": {
                           "meteor://💻app/*": "${workspaceFolder}/*",
-                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                          "webpack://?:*/*": "${workspaceFolder}/*"
+                          "webpack://?:*/*": "${workspaceFolder}/*",
+                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                         },
                         "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                         "type": "object"
@@ -2128,8 +2128,8 @@
                       "sourceMapPathOverrides": {
                         "default": {
                           "meteor://💻app/*": "${workspaceFolder}/*",
-                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                          "webpack://?:*/*": "${workspaceFolder}/*"
+                          "webpack://?:*/*": "${workspaceFolder}/*",
+                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                         },
                         "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                         "type": "object"
@@ -2261,8 +2261,8 @@
               "sourceMapPathOverrides": {
                 "default": {
                   "meteor://💻app/*": "${workspaceFolder}/*",
-                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                  "webpack://?:*/*": "${workspaceFolder}/*"
+                  "webpack://?:*/*": "${workspaceFolder}/*",
+                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                 },
                 "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                 "type": "object",
@@ -2910,8 +2910,8 @@
                       "sourceMapPathOverrides": {
                         "default": {
                           "meteor://💻app/*": "${workspaceFolder}/*",
-                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                          "webpack://?:*/*": "${workspaceFolder}/*"
+                          "webpack://?:*/*": "${workspaceFolder}/*",
+                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                         },
                         "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                         "type": "object"
@@ -3181,8 +3181,8 @@
                       "sourceMapPathOverrides": {
                         "default": {
                           "meteor://💻app/*": "${workspaceFolder}/*",
-                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                          "webpack://?:*/*": "${workspaceFolder}/*"
+                          "webpack://?:*/*": "${workspaceFolder}/*",
+                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                         },
                         "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                         "type": "object"
@@ -3314,8 +3314,8 @@
               "sourceMapPathOverrides": {
                 "default": {
                   "meteor://💻app/*": "${workspaceFolder}/*",
-                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                  "webpack://?:*/*": "${workspaceFolder}/*"
+                  "webpack://?:*/*": "${workspaceFolder}/*",
+                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                 },
                 "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                 "type": "object",
@@ -3950,8 +3950,8 @@
                       "sourceMapPathOverrides": {
                         "default": {
                           "meteor://💻app/*": "${workspaceFolder}/*",
-                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                          "webpack://?:*/*": "${workspaceFolder}/*"
+                          "webpack://?:*/*": "${workspaceFolder}/*",
+                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                         },
                         "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                         "type": "object"
@@ -4221,8 +4221,8 @@
                       "sourceMapPathOverrides": {
                         "default": {
                           "meteor://💻app/*": "${workspaceFolder}/*",
-                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                          "webpack://?:*/*": "${workspaceFolder}/*"
+                          "webpack://?:*/*": "${workspaceFolder}/*",
+                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                         },
                         "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                         "type": "object"
@@ -4354,8 +4354,8 @@
               "sourceMapPathOverrides": {
                 "default": {
                   "meteor://💻app/*": "${workspaceFolder}/*",
-                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                  "webpack://?:*/*": "${workspaceFolder}/*"
+                  "webpack://?:*/*": "${workspaceFolder}/*",
+                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                 },
                 "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                 "type": "object",
@@ -4849,8 +4849,8 @@
               "sourceMapPathOverrides": {
                 "default": {
                   "meteor://💻app/*": "${workspaceFolder}/*",
-                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                  "webpack://?:*/*": "${workspaceFolder}/*"
+                  "webpack://?:*/*": "${workspaceFolder}/*",
+                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                 },
                 "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                 "type": "object",
@@ -5294,8 +5294,8 @@
               "sourceMapPathOverrides": {
                 "default": {
                   "meteor://💻app/*": "${workspaceFolder}/*",
-                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                  "webpack://?:*/*": "${workspaceFolder}/*"
+                  "webpack://?:*/*": "${workspaceFolder}/*",
+                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                 },
                 "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                 "type": "object",
@@ -5961,8 +5961,8 @@
                       "sourceMapPathOverrides": {
                         "default": {
                           "meteor://💻app/*": "${workspaceFolder}/*",
-                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                          "webpack://?:*/*": "${workspaceFolder}/*"
+                          "webpack://?:*/*": "${workspaceFolder}/*",
+                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                         },
                         "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                         "type": "object"
@@ -6232,8 +6232,8 @@
                       "sourceMapPathOverrides": {
                         "default": {
                           "meteor://💻app/*": "${workspaceFolder}/*",
-                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                          "webpack://?:*/*": "${workspaceFolder}/*"
+                          "webpack://?:*/*": "${workspaceFolder}/*",
+                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                         },
                         "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                         "type": "object"
@@ -6319,10 +6319,10 @@
                     "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
                     "default": {
                       "action": "debugWithEdge",
+                      "killOnServerStop": false,
                       "pattern": "listening on port ([0-9]+)",
                       "uriFormat": "http://localhost:%s",
-                      "webRoot": "${workspaceFolder}",
-                      "killOnServerStop": false
+                      "webRoot": "${workspaceFolder}"
                     },
                     "properties": {
                       "action": {
@@ -6403,8 +6403,8 @@
                     "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
                     "default": {
                       "action": "startDebugging",
-                      "name": "<launch browser config name>",
-                      "killOnServerStop": false
+                      "killOnServerStop": false,
+                      "name": "<launch browser config name>"
                     },
                     "required": [
                       "name"
@@ -6496,8 +6496,8 @@
               "sourceMapPathOverrides": {
                 "default": {
                   "meteor://💻app/*": "${workspaceFolder}/*",
-                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                  "webpack://?:*/*": "${workspaceFolder}/*"
+                  "webpack://?:*/*": "${workspaceFolder}/*",
+                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                 },
                 "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                 "type": "object",
@@ -7203,8 +7203,8 @@
                       "sourceMapPathOverrides": {
                         "default": {
                           "meteor://💻app/*": "${workspaceFolder}/*",
-                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                          "webpack://?:*/*": "${workspaceFolder}/*"
+                          "webpack://?:*/*": "${workspaceFolder}/*",
+                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                         },
                         "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                         "type": "object"
@@ -7474,8 +7474,8 @@
                       "sourceMapPathOverrides": {
                         "default": {
                           "meteor://💻app/*": "${workspaceFolder}/*",
-                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                          "webpack://?:*/*": "${workspaceFolder}/*"
+                          "webpack://?:*/*": "${workspaceFolder}/*",
+                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                         },
                         "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                         "type": "object"
@@ -7561,10 +7561,10 @@
                     "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
                     "default": {
                       "action": "debugWithEdge",
+                      "killOnServerStop": false,
                       "pattern": "listening on port ([0-9]+)",
                       "uriFormat": "http://localhost:%s",
-                      "webRoot": "${workspaceFolder}",
-                      "killOnServerStop": false
+                      "webRoot": "${workspaceFolder}"
                     },
                     "properties": {
                       "action": {
@@ -7645,8 +7645,8 @@
                     "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
                     "default": {
                       "action": "startDebugging",
-                      "name": "<launch browser config name>",
-                      "killOnServerStop": false
+                      "killOnServerStop": false,
+                      "name": "<launch browser config name>"
                     },
                     "required": [
                       "name"
@@ -7738,8 +7738,8 @@
               "sourceMapPathOverrides": {
                 "default": {
                   "meteor://💻app/*": "${workspaceFolder}/*",
-                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                  "webpack://?:*/*": "${workspaceFolder}/*"
+                  "webpack://?:*/*": "${workspaceFolder}/*",
+                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                 },
                 "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                 "type": "object",
@@ -8508,8 +8508,8 @@
                           "sourceMapPathOverrides": {
                             "default": {
                               "meteor://💻app/*": "${workspaceFolder}/*",
-                              "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                              "webpack://?:*/*": "${workspaceFolder}/*"
+                              "webpack://?:*/*": "${workspaceFolder}/*",
+                              "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                             },
                             "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                             "type": "object"
@@ -8779,8 +8779,8 @@
                           "sourceMapPathOverrides": {
                             "default": {
                               "meteor://💻app/*": "${workspaceFolder}/*",
-                              "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                              "webpack://?:*/*": "${workspaceFolder}/*"
+                              "webpack://?:*/*": "${workspaceFolder}/*",
+                              "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                             },
                             "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                             "type": "object"
@@ -8904,8 +8904,8 @@
                   "sourceMapPathOverrides": {
                     "default": {
                       "meteor://💻app/*": "${workspaceFolder}/*",
-                      "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                      "webpack://?:*/*": "${workspaceFolder}/*"
+                      "webpack://?:*/*": "${workspaceFolder}/*",
+                      "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                     },
                     "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                     "type": "object"
@@ -9064,10 +9064,10 @@
                     "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
                     "default": {
                       "action": "debugWithEdge",
+                      "killOnServerStop": false,
                       "pattern": "listening on port ([0-9]+)",
                       "uriFormat": "http://localhost:%s",
-                      "webRoot": "${workspaceFolder}",
-                      "killOnServerStop": false
+                      "webRoot": "${workspaceFolder}"
                     },
                     "properties": {
                       "action": {
@@ -9148,8 +9148,8 @@
                     "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
                     "default": {
                       "action": "startDebugging",
-                      "name": "<launch browser config name>",
-                      "killOnServerStop": false
+                      "killOnServerStop": false,
+                      "name": "<launch browser config name>"
                     },
                     "required": [
                       "name"
@@ -9241,8 +9241,8 @@
               "sourceMapPathOverrides": {
                 "default": {
                   "meteor://💻app/*": "${workspaceFolder}/*",
-                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                  "webpack://?:*/*": "${workspaceFolder}/*"
+                  "webpack://?:*/*": "${workspaceFolder}/*",
+                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                 },
                 "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                 "type": "object",
@@ -9964,8 +9964,8 @@
                           "sourceMapPathOverrides": {
                             "default": {
                               "meteor://💻app/*": "${workspaceFolder}/*",
-                              "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                              "webpack://?:*/*": "${workspaceFolder}/*"
+                              "webpack://?:*/*": "${workspaceFolder}/*",
+                              "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                             },
                             "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                             "type": "object"
@@ -10235,8 +10235,8 @@
                           "sourceMapPathOverrides": {
                             "default": {
                               "meteor://💻app/*": "${workspaceFolder}/*",
-                              "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                              "webpack://?:*/*": "${workspaceFolder}/*"
+                              "webpack://?:*/*": "${workspaceFolder}/*",
+                              "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                             },
                             "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                             "type": "object"
@@ -10360,8 +10360,8 @@
                   "sourceMapPathOverrides": {
                     "default": {
                       "meteor://💻app/*": "${workspaceFolder}/*",
-                      "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                      "webpack://?:*/*": "${workspaceFolder}/*"
+                      "webpack://?:*/*": "${workspaceFolder}/*",
+                      "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                     },
                     "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                     "type": "object"
@@ -10520,10 +10520,10 @@
                     "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
                     "default": {
                       "action": "debugWithEdge",
+                      "killOnServerStop": false,
                       "pattern": "listening on port ([0-9]+)",
                       "uriFormat": "http://localhost:%s",
-                      "webRoot": "${workspaceFolder}",
-                      "killOnServerStop": false
+                      "webRoot": "${workspaceFolder}"
                     },
                     "properties": {
                       "action": {
@@ -10604,8 +10604,8 @@
                     "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
                     "default": {
                       "action": "startDebugging",
-                      "name": "<launch browser config name>",
-                      "killOnServerStop": false
+                      "killOnServerStop": false,
+                      "name": "<launch browser config name>"
                     },
                     "required": [
                       "name"
@@ -10697,8 +10697,8 @@
               "sourceMapPathOverrides": {
                 "default": {
                   "meteor://💻app/*": "${workspaceFolder}/*",
-                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                  "webpack://?:*/*": "${workspaceFolder}/*"
+                  "webpack://?:*/*": "${workspaceFolder}/*",
+                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                 },
                 "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                 "type": "object",
@@ -11147,10 +11147,10 @@
                     "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
                     "default": {
                       "action": "debugWithEdge",
+                      "killOnServerStop": false,
                       "pattern": "listening on port ([0-9]+)",
                       "uriFormat": "http://localhost:%s",
-                      "webRoot": "${workspaceFolder}",
-                      "killOnServerStop": false
+                      "webRoot": "${workspaceFolder}"
                     },
                     "properties": {
                       "action": {
@@ -11231,8 +11231,8 @@
                     "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
                     "default": {
                       "action": "startDebugging",
-                      "name": "<launch browser config name>",
-                      "killOnServerStop": false
+                      "killOnServerStop": false,
+                      "name": "<launch browser config name>"
                     },
                     "required": [
                       "name"
@@ -11324,8 +11324,8 @@
               "sourceMapPathOverrides": {
                 "default": {
                   "meteor://💻app/*": "${workspaceFolder}/*",
-                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                  "webpack://?:*/*": "${workspaceFolder}/*"
+                  "webpack://?:*/*": "${workspaceFolder}/*",
+                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                 },
                 "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                 "type": "object",
@@ -11782,10 +11782,10 @@
                     "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
                     "default": {
                       "action": "debugWithEdge",
+                      "killOnServerStop": false,
                       "pattern": "listening on port ([0-9]+)",
                       "uriFormat": "http://localhost:%s",
-                      "webRoot": "${workspaceFolder}",
-                      "killOnServerStop": false
+                      "webRoot": "${workspaceFolder}"
                     },
                     "properties": {
                       "action": {
@@ -11866,8 +11866,8 @@
                     "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
                     "default": {
                       "action": "startDebugging",
-                      "name": "<launch browser config name>",
-                      "killOnServerStop": false
+                      "killOnServerStop": false,
+                      "name": "<launch browser config name>"
                     },
                     "required": [
                       "name"
@@ -11959,8 +11959,8 @@
               "sourceMapPathOverrides": {
                 "default": {
                   "meteor://💻app/*": "${workspaceFolder}/*",
-                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                  "webpack://?:*/*": "${workspaceFolder}/*"
+                  "webpack://?:*/*": "${workspaceFolder}/*",
+                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                 },
                 "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                 "type": "object",
@@ -12312,10 +12312,10 @@
                     "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
                     "default": {
                       "action": "debugWithEdge",
+                      "killOnServerStop": false,
                       "pattern": "listening on port ([0-9]+)",
                       "uriFormat": "http://localhost:%s",
-                      "webRoot": "${workspaceFolder}",
-                      "killOnServerStop": false
+                      "webRoot": "${workspaceFolder}"
                     },
                     "properties": {
                       "action": {
@@ -12396,8 +12396,8 @@
                     "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
                     "default": {
                       "action": "startDebugging",
-                      "name": "<launch browser config name>",
-                      "killOnServerStop": false
+                      "killOnServerStop": false,
+                      "name": "<launch browser config name>"
                     },
                     "required": [
                       "name"
@@ -12489,8 +12489,8 @@
               "sourceMapPathOverrides": {
                 "default": {
                   "meteor://💻app/*": "${workspaceFolder}/*",
-                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                  "webpack://?:*/*": "${workspaceFolder}/*"
+                  "webpack://?:*/*": "${workspaceFolder}/*",
+                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                 },
                 "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                 "type": "object",
@@ -13142,8 +13142,8 @@
                       "sourceMapPathOverrides": {
                         "default": {
                           "meteor://💻app/*": "${workspaceFolder}/*",
-                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                          "webpack://?:*/*": "${workspaceFolder}/*"
+                          "webpack://?:*/*": "${workspaceFolder}/*",
+                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                         },
                         "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                         "type": "object"
@@ -13413,8 +13413,8 @@
                       "sourceMapPathOverrides": {
                         "default": {
                           "meteor://💻app/*": "${workspaceFolder}/*",
-                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                          "webpack://?:*/*": "${workspaceFolder}/*"
+                          "webpack://?:*/*": "${workspaceFolder}/*",
+                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                         },
                         "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                         "type": "object"
@@ -13500,10 +13500,10 @@
                     "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
                     "default": {
                       "action": "debugWithEdge",
+                      "killOnServerStop": false,
                       "pattern": "listening on port ([0-9]+)",
                       "uriFormat": "http://localhost:%s",
-                      "webRoot": "${workspaceFolder}",
-                      "killOnServerStop": false
+                      "webRoot": "${workspaceFolder}"
                     },
                     "properties": {
                       "action": {
@@ -13584,8 +13584,8 @@
                     "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
                     "default": {
                       "action": "startDebugging",
-                      "name": "<launch browser config name>",
-                      "killOnServerStop": false
+                      "killOnServerStop": false,
+                      "name": "<launch browser config name>"
                     },
                     "required": [
                       "name"
@@ -13677,8 +13677,8 @@
               "sourceMapPathOverrides": {
                 "default": {
                   "meteor://💻app/*": "${workspaceFolder}/*",
-                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                  "webpack://?:*/*": "${workspaceFolder}/*"
+                  "webpack://?:*/*": "${workspaceFolder}/*",
+                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                 },
                 "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                 "type": "object",
@@ -14370,8 +14370,8 @@
                       "sourceMapPathOverrides": {
                         "default": {
                           "meteor://💻app/*": "${workspaceFolder}/*",
-                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                          "webpack://?:*/*": "${workspaceFolder}/*"
+                          "webpack://?:*/*": "${workspaceFolder}/*",
+                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                         },
                         "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                         "type": "object"
@@ -14641,8 +14641,8 @@
                       "sourceMapPathOverrides": {
                         "default": {
                           "meteor://💻app/*": "${workspaceFolder}/*",
-                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                          "webpack://?:*/*": "${workspaceFolder}/*"
+                          "webpack://?:*/*": "${workspaceFolder}/*",
+                          "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                         },
                         "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                         "type": "object"
@@ -14728,10 +14728,10 @@
                     "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
                     "default": {
                       "action": "debugWithEdge",
+                      "killOnServerStop": false,
                       "pattern": "listening on port ([0-9]+)",
                       "uriFormat": "http://localhost:%s",
-                      "webRoot": "${workspaceFolder}",
-                      "killOnServerStop": false
+                      "webRoot": "${workspaceFolder}"
                     },
                     "properties": {
                       "action": {
@@ -14812,8 +14812,8 @@
                     "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
                     "default": {
                       "action": "startDebugging",
-                      "name": "<launch browser config name>",
-                      "killOnServerStop": false
+                      "killOnServerStop": false,
+                      "name": "<launch browser config name>"
                     },
                     "required": [
                       "name"
@@ -14905,8 +14905,8 @@
               "sourceMapPathOverrides": {
                 "default": {
                   "meteor://💻app/*": "${workspaceFolder}/*",
-                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
-                  "webpack://?:*/*": "${workspaceFolder}/*"
+                  "webpack://?:*/*": "${workspaceFolder}/*",
+                  "webpack:///./~/*": "${workspaceFolder}/node_modules/*"
                 },
                 "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
                 "type": "object",

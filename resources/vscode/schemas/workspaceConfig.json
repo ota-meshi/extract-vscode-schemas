@@ -69,8 +69,8 @@
     "launch": {
       "type": "object",
       "default": {
-        "configurations": [],
-        "compounds": []
+        "compounds": [],
+        "configurations": []
       },
       "description": "Workspace launch configurations",
       "$ref": "vscode://schemas/launch"
@@ -89,8 +89,8 @@
     "tasks": {
       "type": "object",
       "default": {
-        "version": "2.0.0",
-        "tasks": []
+        "tasks": [],
+        "version": "2.0.0"
       },
       "description": "Workspace task configurations",
       "$ref": "vscode://schemas/tasks"
