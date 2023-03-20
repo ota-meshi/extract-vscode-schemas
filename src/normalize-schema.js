@@ -35,6 +35,17 @@ function normalizeSchema(schema) {
       normalizeSchema(schema[key]);
     }
   }
+  for (const key of [
+    // unknown properties in json schema
+    "default",
+    "defaultDefaultValue",
+  ]) {
+    if (isPlainObject(schema[key])) {
+      schema[key] = Object.fromEntries(
+        Object.entries(schema[key]).sort(([a], [b]) => compare(a, b))
+      );
+    }
+  }
   if (isPlainObject(schema.properties)) {
     const keys = Object.keys(schema.properties).sort(compare);
     schema.properties = Object.fromEntries(
@@ -50,7 +61,7 @@ function normalizeSchema(schema) {
 }
 
 function isPlainObject(obj) {
-  return !Array.isArray(obj) && typeof obj === "object";
+  return obj != null && !Array.isArray(obj) && typeof obj === "object";
 }
 
 function normalizeEnum(schema) {
