@@ -61,7 +61,7 @@ function normalizeSchema(schema) {
 }
 
 function isPlainObject(obj) {
-  return !Array.isArray(obj) && typeof obj === "object";
+  return obj != null && !Array.isArray(obj) && typeof obj === "object";
 }
 
 function normalizeEnum(schema) {
