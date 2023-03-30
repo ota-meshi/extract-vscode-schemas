@@ -880,8 +880,6 @@
               "-editor.unfoldRecursively",
               "editorScroll",
               "-editorScroll",
-              "emmet.expandAbbreviation",
-              "-emmet.expandAbbreviation",
               "expandLineSelection",
               "-expandLineSelection",
               "explorer.download",
@@ -1036,8 +1034,6 @@
               "-getContextKeyInfo",
               "git-base.api.getRemoteSources",
               "-git-base.api.getRemoteSources",
-              "git._syncAll",
-              "-git._syncAll",
               "git.acceptMerge",
               "-git.acceptMerge",
               "git.addRemote",
@@ -1152,8 +1148,6 @@
               "-git.openRepositoriesInParentFolders",
               "git.openRepository",
               "-git.openRepository",
-              "git.openResource",
-              "-git.openResource",
               "git.publish",
               "-git.publish",
               "git.pull",
@@ -5084,8 +5078,6 @@
               null,
               null,
               null,
-              null,
-              null,
               "Focus on Recommended View",
               "Focus on Recommended View",
               null,
@@ -5126,10 +5118,6 @@
               null,
               "A command that returns information about context keys",
               "A command that returns information about context keys",
-              null,
-              null,
-              null,
-              null,
               null,
               null,
               null,
@@ -10022,16 +10010,10 @@
                   "description": "The name of the profile to create",
                   "type": "string",
                   "enum": [
-                    null,
-                    "bash",
-                    "pwsh",
-                    "tmux"
+                    null
                   ],
                   "markdownEnumDescriptions": [
-                    "Automatically detect the default",
-                    "$(terminal-bash) bash\n- path: /usr/bin/bash",
-                    "$(terminal-powershell) pwsh\n- path: /usr/bin/pwsh",
-                    "$(terminal-tmux) tmux\n- path: /usr/bin/tmux"
+                    "Automatically detect the default"
                   ]
                 }
               }
