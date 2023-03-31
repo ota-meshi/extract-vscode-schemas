@@ -1102,6 +1102,9 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for show previous parameter hint.: $(inline-suggestion-hints-previous)"
     },
+    "insert": {
+      "$ref": "#/definitions/icons"
+    },
     "inspect": {
       "$ref": "#/definitions/icons"
     },
@@ -2017,6 +2020,9 @@
     "selection": {
       "$ref": "#/definitions/icons"
     },
+    "send": {
+      "$ref": "#/definitions/icons"
+    },
     "server": {
       "$ref": "#/definitions/icons"
     },
@@ -2081,6 +2087,9 @@
     "source-control-view-icon": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "View icon of the Source Control view.: $(source-control-view-icon)"
+    },
+    "sparkle": {
+      "$ref": "#/definitions/icons"
     },
     "split-horizontal": {
       "$ref": "#/definitions/icons"
@@ -2349,6 +2358,10 @@
     "terminal-view-icon": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "View icon of the terminal view.: $(terminal-view-icon)"
+    },
+    "test-results-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icons for test results.: $(test-results-icon)"
     },
     "test-view-icon": {
       "$ref": "#/definitions/icons",

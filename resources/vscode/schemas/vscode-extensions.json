@@ -608,8 +608,9 @@
                           "editorGroupHeader.tabsBorder",
                           "editorGutter.addedBackground",
                           "editorGutter.background",
-                          "editorGutter.commentGlyphForground",
+                          "editorGutter.commentGlyphForeground",
                           "editorGutter.commentRangeForeground",
+                          "editorGutter.commentUnresolvedGlyphForeground",
                           "editorGutter.deletedBackground",
                           "editorGutter.foldingControlForeground",
                           "editorGutter.modifiedBackground",
@@ -735,6 +736,14 @@
                           "interactive.activeCodeBorder",
                           "interactive.inactiveCodeBorder",
                           "interactive.inactiveCodeBorder",
+                          "interactive.requestBackground",
+                          "interactive.requestBorder",
+                          "interactiveEditor.border",
+                          "interactiveEditor.shadow",
+                          "interactiveEditorInput.background",
+                          "interactiveEditorInput.border",
+                          "interactiveEditorInput.focusBorder",
+                          "interactiveEditorInput.placeholderForeground",
                           "keybindingLabel.background",
                           "keybindingLabel.border",
                           "keybindingLabel.bottomBorder",
@@ -895,6 +904,7 @@
                           "scrollbarSlider.activeBackground",
                           "scrollbarSlider.background",
                           "scrollbarSlider.hoverBackground",
+                          "search.resultsInfoForeground",
                           "searchEditor.findMatchBackground",
                           "searchEditor.findMatchBorder",
                           "searchEditor.textInputBorder",
@@ -1034,6 +1044,7 @@
                           "terminal.findMatchHighlightBackground",
                           "terminal.findMatchHighlightBorder",
                           "terminal.foreground",
+                          "terminal.hoverHighlightBackground",
                           "terminal.inactiveSelectionBackground",
                           "terminal.selectionBackground",
                           "terminal.selectionForeground",
@@ -1079,7 +1090,6 @@
                           "tree.tableOddRowsBackground",
                           "walkThrough.embeddedEditorBackground",
                           "walkthrough.stepTitle.foreground",
-                          "welcomeOverlay.background",
                           "welcomePage.background",
                           "welcomePage.progress.background",
                           "welcomePage.progress.foreground",
@@ -1284,6 +1294,7 @@
                           "Background color of the editor gutter. The gutter contains the glyph margins and the line numbers.",
                           "Editor gutter decoration color for commenting glyphs.",
                           "Editor gutter decoration color for commenting ranges. This color should be opaque.",
+                          "Editor gutter decoration color for commenting glyphs for unresolved comment threads.",
                           "Editor gutter background color for lines that are deleted.",
                           "Color of the folding control in the editor gutter.",
                           "Editor gutter background color for lines that are modified.",
@@ -1409,6 +1420,14 @@
                           "The border color for the current interactive code cell when the editor has focus.",
                           "The border color for the current interactive code cell when the editor does not have focus.",
                           "The border color for the current interactive code cell when the editor does not have focus.",
+                          "The background color of an interactive request.",
+                          "The border color of an interactive request.",
+                          "Border color of the interactive editor widget",
+                          "Shadow color of the interactive editor widget",
+                          "Background color of the interactive editor input",
+                          "Border color of the interactive editor input",
+                          "Border color of the interactive editor input when focused",
+                          "Foreground color of the interactive editor input placeholder",
                           "Keybinding label background color. The keybinding label is used to represent a keyboard shortcut.",
                           "Keybinding label border color. The keybinding label is used to represent a keyboard shortcut.",
                           "Keybinding label border bottom color. The keybinding label is used to represent a keyboard shortcut.",
@@ -1569,6 +1588,7 @@
                           "Scrollbar slider background color when clicked on.",
                           "Scrollbar slider background color.",
                           "Scrollbar slider background color when hovering.",
+                          "Color of the text in the search viewlet's completion message.",
                           "Color of the Search Editor query matches.",
                           "Border color of the Search Editor query matches.",
                           "Search editor text input box border.",
@@ -1708,6 +1728,7 @@
                           "Color of the other search matches in the terminal. The color must not be opaque so as not to hide underlying terminal content.",
                           "Border color of the other search matches in the terminal.",
                           "The foreground color of the terminal.",
+                          "Border color of the other search matches in the terminal.",
                           "The selection background color of the terminal when it does not have focus.",
                           "The selection background color of the terminal.",
                           "The selection foreground color of the terminal. When this is null the selection foreground will be retained and have the minimum contrast ratio feature applied.",
@@ -1753,7 +1774,6 @@
                           "Background color for odd table rows.",
                           "Background color for the embedded editors on the Interactive Playground.",
                           "Foreground color of the heading of each walkthrough step",
-                          "welcomeOverlay Background color.",
                           "Background color for the Welcome page.",
                           "Foreground color for the Welcome page progress bars.",
                           "Background color for the Welcome page progress bars.",
@@ -1969,8 +1989,9 @@
                           "editorGroupHeader.tabsBorder",
                           "editorGutter.addedBackground",
                           "editorGutter.background",
-                          "editorGutter.commentGlyphForground",
+                          "editorGutter.commentGlyphForeground",
                           "editorGutter.commentRangeForeground",
+                          "editorGutter.commentUnresolvedGlyphForeground",
                           "editorGutter.deletedBackground",
                           "editorGutter.foldingControlForeground",
                           "editorGutter.modifiedBackground",
@@ -2096,6 +2117,14 @@
                           "interactive.activeCodeBorder",
                           "interactive.inactiveCodeBorder",
                           "interactive.inactiveCodeBorder",
+                          "interactive.requestBackground",
+                          "interactive.requestBorder",
+                          "interactiveEditor.border",
+                          "interactiveEditor.shadow",
+                          "interactiveEditorInput.background",
+                          "interactiveEditorInput.border",
+                          "interactiveEditorInput.focusBorder",
+                          "interactiveEditorInput.placeholderForeground",
                           "keybindingLabel.background",
                           "keybindingLabel.border",
                           "keybindingLabel.bottomBorder",
@@ -2256,6 +2285,7 @@
                           "scrollbarSlider.activeBackground",
                           "scrollbarSlider.background",
                           "scrollbarSlider.hoverBackground",
+                          "search.resultsInfoForeground",
                           "searchEditor.findMatchBackground",
                           "searchEditor.findMatchBorder",
                           "searchEditor.textInputBorder",
@@ -2395,6 +2425,7 @@
                           "terminal.findMatchHighlightBackground",
                           "terminal.findMatchHighlightBorder",
                           "terminal.foreground",
+                          "terminal.hoverHighlightBackground",
                           "terminal.inactiveSelectionBackground",
                           "terminal.selectionBackground",
                           "terminal.selectionForeground",
@@ -2440,7 +2471,6 @@
                           "tree.tableOddRowsBackground",
                           "walkThrough.embeddedEditorBackground",
                           "walkthrough.stepTitle.foreground",
-                          "welcomeOverlay.background",
                           "welcomePage.background",
                           "welcomePage.progress.background",
                           "welcomePage.progress.foreground",
@@ -2645,6 +2675,7 @@
                           "Background color of the editor gutter. The gutter contains the glyph margins and the line numbers.",
                           "Editor gutter decoration color for commenting glyphs.",
                           "Editor gutter decoration color for commenting ranges. This color should be opaque.",
+                          "Editor gutter decoration color for commenting glyphs for unresolved comment threads.",
                           "Editor gutter background color for lines that are deleted.",
                           "Color of the folding control in the editor gutter.",
                           "Editor gutter background color for lines that are modified.",
@@ -2770,6 +2801,14 @@
                           "The border color for the current interactive code cell when the editor has focus.",
                           "The border color for the current interactive code cell when the editor does not have focus.",
                           "The border color for the current interactive code cell when the editor does not have focus.",
+                          "The background color of an interactive request.",
+                          "The border color of an interactive request.",
+                          "Border color of the interactive editor widget",
+                          "Shadow color of the interactive editor widget",
+                          "Background color of the interactive editor input",
+                          "Border color of the interactive editor input",
+                          "Border color of the interactive editor input when focused",
+                          "Foreground color of the interactive editor input placeholder",
                           "Keybinding label background color. The keybinding label is used to represent a keyboard shortcut.",
                           "Keybinding label border color. The keybinding label is used to represent a keyboard shortcut.",
                           "Keybinding label border bottom color. The keybinding label is used to represent a keyboard shortcut.",
@@ -2930,6 +2969,7 @@
                           "Scrollbar slider background color when clicked on.",
                           "Scrollbar slider background color.",
                           "Scrollbar slider background color when hovering.",
+                          "Color of the text in the search viewlet's completion message.",
                           "Color of the Search Editor query matches.",
                           "Border color of the Search Editor query matches.",
                           "Search editor text input box border.",
@@ -3069,6 +3109,7 @@
                           "Color of the other search matches in the terminal. The color must not be opaque so as not to hide underlying terminal content.",
                           "Border color of the other search matches in the terminal.",
                           "The foreground color of the terminal.",
+                          "Border color of the other search matches in the terminal.",
                           "The selection background color of the terminal when it does not have focus.",
                           "The selection background color of the terminal.",
                           "The selection foreground color of the terminal. When this is null the selection foreground will be retained and have the minimum contrast ratio feature applied.",
@@ -3114,7 +3155,6 @@
                           "Background color for odd table rows.",
                           "Background color for the embedded editors on the Interactive Playground.",
                           "Foreground color of the heading of each walkthrough step",
-                          "welcomeOverlay Background color.",
                           "Background color for the Welcome page.",
                           "Foreground color for the Welcome page progress bars.",
                           "Background color for the Welcome page progress bars.",
@@ -3330,8 +3370,9 @@
                           "editorGroupHeader.tabsBorder",
                           "editorGutter.addedBackground",
                           "editorGutter.background",
-                          "editorGutter.commentGlyphForground",
+                          "editorGutter.commentGlyphForeground",
                           "editorGutter.commentRangeForeground",
+                          "editorGutter.commentUnresolvedGlyphForeground",
                           "editorGutter.deletedBackground",
                           "editorGutter.foldingControlForeground",
                           "editorGutter.modifiedBackground",
@@ -3457,6 +3498,14 @@
                           "interactive.activeCodeBorder",
                           "interactive.inactiveCodeBorder",
                           "interactive.inactiveCodeBorder",
+                          "interactive.requestBackground",
+                          "interactive.requestBorder",
+                          "interactiveEditor.border",
+                          "interactiveEditor.shadow",
+                          "interactiveEditorInput.background",
+                          "interactiveEditorInput.border",
+                          "interactiveEditorInput.focusBorder",
+                          "interactiveEditorInput.placeholderForeground",
                           "keybindingLabel.background",
                           "keybindingLabel.border",
                           "keybindingLabel.bottomBorder",
@@ -3617,6 +3666,7 @@
                           "scrollbarSlider.activeBackground",
                           "scrollbarSlider.background",
                           "scrollbarSlider.hoverBackground",
+                          "search.resultsInfoForeground",
                           "searchEditor.findMatchBackground",
                           "searchEditor.findMatchBorder",
                           "searchEditor.textInputBorder",
@@ -3756,6 +3806,7 @@
                           "terminal.findMatchHighlightBackground",
                           "terminal.findMatchHighlightBorder",
                           "terminal.foreground",
+                          "terminal.hoverHighlightBackground",
                           "terminal.inactiveSelectionBackground",
                           "terminal.selectionBackground",
                           "terminal.selectionForeground",
@@ -3801,7 +3852,6 @@
                           "tree.tableOddRowsBackground",
                           "walkThrough.embeddedEditorBackground",
                           "walkthrough.stepTitle.foreground",
-                          "welcomeOverlay.background",
                           "welcomePage.background",
                           "welcomePage.progress.background",
                           "welcomePage.progress.foreground",
@@ -4006,6 +4056,7 @@
                           "Background color of the editor gutter. The gutter contains the glyph margins and the line numbers.",
                           "Editor gutter decoration color for commenting glyphs.",
                           "Editor gutter decoration color for commenting ranges. This color should be opaque.",
+                          "Editor gutter decoration color for commenting glyphs for unresolved comment threads.",
                           "Editor gutter background color for lines that are deleted.",
                           "Color of the folding control in the editor gutter.",
                           "Editor gutter background color for lines that are modified.",
@@ -4131,6 +4182,14 @@
                           "The border color for the current interactive code cell when the editor has focus.",
                           "The border color for the current interactive code cell when the editor does not have focus.",
                           "The border color for the current interactive code cell when the editor does not have focus.",
+                          "The background color of an interactive request.",
+                          "The border color of an interactive request.",
+                          "Border color of the interactive editor widget",
+                          "Shadow color of the interactive editor widget",
+                          "Background color of the interactive editor input",
+                          "Border color of the interactive editor input",
+                          "Border color of the interactive editor input when focused",
+                          "Foreground color of the interactive editor input placeholder",
                           "Keybinding label background color. The keybinding label is used to represent a keyboard shortcut.",
                           "Keybinding label border color. The keybinding label is used to represent a keyboard shortcut.",
                           "Keybinding label border bottom color. The keybinding label is used to represent a keyboard shortcut.",
@@ -4291,6 +4350,7 @@
                           "Scrollbar slider background color when clicked on.",
                           "Scrollbar slider background color.",
                           "Scrollbar slider background color when hovering.",
+                          "Color of the text in the search viewlet's completion message.",
                           "Color of the Search Editor query matches.",
                           "Border color of the Search Editor query matches.",
                           "Search editor text input box border.",
@@ -4430,6 +4490,7 @@
                           "Color of the other search matches in the terminal. The color must not be opaque so as not to hide underlying terminal content.",
                           "Border color of the other search matches in the terminal.",
                           "The foreground color of the terminal.",
+                          "Border color of the other search matches in the terminal.",
                           "The selection background color of the terminal when it does not have focus.",
                           "The selection background color of the terminal.",
                           "The selection foreground color of the terminal. When this is null the selection foreground will be retained and have the minimum contrast ratio feature applied.",
@@ -4475,7 +4536,6 @@
                           "Background color for odd table rows.",
                           "Background color for the embedded editors on the Interactive Playground.",
                           "Foreground color of the heading of each walkthrough step",
-                          "welcomeOverlay Background color.",
                           "Background color for the Welcome page.",
                           "Foreground color for the Welcome page progress bars.",
                           "Background color for the Welcome page progress bars.",
@@ -4691,8 +4751,9 @@
                           "editorGroupHeader.tabsBorder",
                           "editorGutter.addedBackground",
                           "editorGutter.background",
-                          "editorGutter.commentGlyphForground",
+                          "editorGutter.commentGlyphForeground",
                           "editorGutter.commentRangeForeground",
+                          "editorGutter.commentUnresolvedGlyphForeground",
                           "editorGutter.deletedBackground",
                           "editorGutter.foldingControlForeground",
                           "editorGutter.modifiedBackground",
@@ -4818,6 +4879,14 @@
                           "interactive.activeCodeBorder",
                           "interactive.inactiveCodeBorder",
                           "interactive.inactiveCodeBorder",
+                          "interactive.requestBackground",
+                          "interactive.requestBorder",
+                          "interactiveEditor.border",
+                          "interactiveEditor.shadow",
+                          "interactiveEditorInput.background",
+                          "interactiveEditorInput.border",
+                          "interactiveEditorInput.focusBorder",
+                          "interactiveEditorInput.placeholderForeground",
                           "keybindingLabel.background",
                           "keybindingLabel.border",
                           "keybindingLabel.bottomBorder",
@@ -4978,6 +5047,7 @@
                           "scrollbarSlider.activeBackground",
                           "scrollbarSlider.background",
                           "scrollbarSlider.hoverBackground",
+                          "search.resultsInfoForeground",
                           "searchEditor.findMatchBackground",
                           "searchEditor.findMatchBorder",
                           "searchEditor.textInputBorder",
@@ -5117,6 +5187,7 @@
                           "terminal.findMatchHighlightBackground",
                           "terminal.findMatchHighlightBorder",
                           "terminal.foreground",
+                          "terminal.hoverHighlightBackground",
                           "terminal.inactiveSelectionBackground",
                           "terminal.selectionBackground",
                           "terminal.selectionForeground",
@@ -5162,7 +5233,6 @@
                           "tree.tableOddRowsBackground",
                           "walkThrough.embeddedEditorBackground",
                           "walkthrough.stepTitle.foreground",
-                          "welcomeOverlay.background",
                           "welcomePage.background",
                           "welcomePage.progress.background",
                           "welcomePage.progress.foreground",
@@ -5367,6 +5437,7 @@
                           "Background color of the editor gutter. The gutter contains the glyph margins and the line numbers.",
                           "Editor gutter decoration color for commenting glyphs.",
                           "Editor gutter decoration color for commenting ranges. This color should be opaque.",
+                          "Editor gutter decoration color for commenting glyphs for unresolved comment threads.",
                           "Editor gutter background color for lines that are deleted.",
                           "Color of the folding control in the editor gutter.",
                           "Editor gutter background color for lines that are modified.",
@@ -5492,6 +5563,14 @@
                           "The border color for the current interactive code cell when the editor has focus.",
                           "The border color for the current interactive code cell when the editor does not have focus.",
                           "The border color for the current interactive code cell when the editor does not have focus.",
+                          "The background color of an interactive request.",
+                          "The border color of an interactive request.",
+                          "Border color of the interactive editor widget",
+                          "Shadow color of the interactive editor widget",
+                          "Background color of the interactive editor input",
+                          "Border color of the interactive editor input",
+                          "Border color of the interactive editor input when focused",
+                          "Foreground color of the interactive editor input placeholder",
                           "Keybinding label background color. The keybinding label is used to represent a keyboard shortcut.",
                           "Keybinding label border color. The keybinding label is used to represent a keyboard shortcut.",
                           "Keybinding label border bottom color. The keybinding label is used to represent a keyboard shortcut.",
@@ -5652,6 +5731,7 @@
                           "Scrollbar slider background color when clicked on.",
                           "Scrollbar slider background color.",
                           "Scrollbar slider background color when hovering.",
+                          "Color of the text in the search viewlet's completion message.",
                           "Color of the Search Editor query matches.",
                           "Border color of the Search Editor query matches.",
                           "Search editor text input box border.",
@@ -5791,6 +5871,7 @@
                           "Color of the other search matches in the terminal. The color must not be opaque so as not to hide underlying terminal content.",
                           "Border color of the other search matches in the terminal.",
                           "The foreground color of the terminal.",
+                          "Border color of the other search matches in the terminal.",
                           "The selection background color of the terminal when it does not have focus.",
                           "The selection background color of the terminal.",
                           "The selection foreground color of the terminal. When this is null the selection foreground will be retained and have the minimum contrast ratio feature applied.",
@@ -5836,7 +5917,6 @@
                           "Background color for odd table rows.",
                           "Background color for the embedded editors on the Interactive Playground.",
                           "Foreground color of the heading of each walkthrough step",
-                          "welcomeOverlay Background color.",
                           "Background color for the Welcome page.",
                           "Foreground color for the Welcome page progress bars.",
                           "Background color for the Welcome page progress bars.",
@@ -7114,6 +7194,9 @@
                       "git-pull-request-new-changes",
                       "search-fuzzy",
                       "comment-draft",
+                      "send",
+                      "sparkle",
+                      "insert",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -7299,6 +7382,7 @@
                       "terminal-command-history-output",
                       "terminal-command-history-fuzzy-search",
                       "test-view-icon",
+                      "test-results-icon",
                       "testing-run-icon",
                       "testing-run-all-icon",
                       "testing-debug-all-icon",
@@ -7342,9 +7426,6 @@
                       "timeline-refresh",
                       "timeline-pin",
                       "timeline-unpin",
-                      "diff-editor-previous-change",
-                      "diff-editor-next-change",
-                      "diff-editor-toggle-whitespace",
                       "panel-maximize",
                       "panel-restore",
                       "panel-close",
@@ -7369,6 +7450,9 @@
                       "configure-layout-icon",
                       "settings-view-bar-icon",
                       "accounts-view-bar-icon",
+                      "diff-editor-previous-change",
+                      "diff-editor-next-change",
+                      "diff-editor-toggle-whitespace",
                       "comments-view-icon",
                       "refactor-preview-view-icon",
                       "explorer-view-icon",
@@ -7923,6 +8007,9 @@
                       "",
                       "",
                       "",
+                      "",
+                      "",
+                      "",
                       "Icon for the close action in widgets.",
                       "Icon for goto previous editor location.",
                       "Icon for goto next editor location.",
@@ -8090,6 +8177,7 @@
                       "Icon for viewing output of a terminal command.",
                       "Icon for toggling fuzzy search of command history.",
                       "View icon of the test view.",
+                      "Icons for test results.",
                       "Icon of the \"run test\" action.",
                       "Icon of the \"run all tests\" action.",
                       "Icon of the \"debug all tests\" action.",
@@ -8133,9 +8221,6 @@
                       "Icon for the refresh timeline action.",
                       "Icon for the pin timeline action.",
                       "Icon for the unpin timeline action.",
-                      "Icon for the previous change action in the diff editor.",
-                      "Icon for the next change action in the diff editor.",
-                      "Icon for the toggle whitespace action in the diff editor.",
                       "Icon to maximize a panel.",
                       "Icon to restore a panel.",
                       "Icon to close a panel.",
@@ -8160,6 +8245,9 @@
                       "Icon represents workbench layout configuration.",
                       "Settings icon in the view bar.",
                       "Accounts icon in the view bar.",
+                      "Icon for the previous change action in the diff editor.",
+                      "Icon for the next change action in the diff editor.",
+                      "Icon for the toggle whitespace action in the diff editor.",
                       "View icon of the comments view.",
                       "View icon of the refactor preview view.",
                       "View icon of the explorer view.",
@@ -8270,6 +8358,45 @@
               "path",
               "id"
             ]
+          }
+        },
+        "interactiveSession": {
+          "description": "Contributes an Interactive Session provider",
+          "type": "array",
+          "items": {
+            "additionalProperties": false,
+            "type": "object",
+            "defaultSnippets": [
+              {
+                "body": {
+                  "id": "",
+                  "program": "",
+                  "runtime": ""
+                }
+              }
+            ],
+            "required": [
+              "id",
+              "label"
+            ],
+            "properties": {
+              "icon": {
+                "description": "An icon for this Interactive Session provider.",
+                "type": "string"
+              },
+              "id": {
+                "description": "Unique identifier for this Interactive Session provider.",
+                "type": "string"
+              },
+              "label": {
+                "description": "Display name for this Interactive Session provider.",
+                "type": "string"
+              },
+              "when": {
+                "description": "A condition which must be true to enable this Interactive Session provider.",
+                "type": "string"
+              }
+            }
           }
         },
         "jsonValidation": {
@@ -9329,6 +9456,58 @@
                 }
               }
             },
+            "editor/lineNumber/context": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribEditorLineNumberMenu\"]` - The contributed editor line number context menu",
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "command"
+                    ],
+                    "properties": {
+                      "alt": {
+                        "description": "Identifier of an alternative command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "command": {
+                        "description": "Identifier of the command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "submenu"
+                    ],
+                    "properties": {
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "submenu": {
+                        "description": "Identifier of the submenu to display in this item.",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
             "editor/title": {
               "markdownDescription": "The editor title menu",
               "type": "array",
@@ -9433,6 +9612,58 @@
                 ]
               }
             },
+            "editor/title/context/share": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribShareMenu\"]` - 'Share' submenu inside the editor title context menu",
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "command"
+                    ],
+                    "properties": {
+                      "alt": {
+                        "description": "Identifier of an alternative command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "command": {
+                        "description": "Identifier of the command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "submenu"
+                    ],
+                    "properties": {
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "submenu": {
+                        "description": "Identifier of the submenu to display in this item.",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
             "editor/title/run": {
               "markdownDescription": "Run submenu inside the editor title menu",
               "type": "array",
@@ -9487,6 +9718,58 @@
             },
             "explorer/context": {
               "markdownDescription": "The file explorer context menu",
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "command"
+                    ],
+                    "properties": {
+                      "alt": {
+                        "description": "Identifier of an alternative command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "command": {
+                        "description": "Identifier of the command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "submenu"
+                    ],
+                    "properties": {
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "submenu": {
+                        "description": "Identifier of the submenu to display in this item.",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "explorer/context/share": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribShareMenu\"]` - 'Share' submenu in the file explorer context menu",
               "type": "array",
               "items": {
                 "oneOf": [
@@ -12222,7 +12505,7 @@
                 "type": "string"
               },
               "outputMatcher": {
-                "markdownDescription": "A regular expression or string to test the output against, which provides groups to be referenced in terminalCommand and uri.\n\nFor example:\n\n `lineMatcher: /git push --set-upstream origin (?<branchName>[^s]+)/;`\n\n`terminalCommand: 'git push --set-upstream origin ${group:branchName}';`\n",
+                "markdownDescription": "A regular expression or string to match a single line of the output against, which provides groups to be referenced in terminalCommand and uri.\n\nFor example:\n\n `lineMatcher: /git push --set-upstream origin (?<branchName>[^s]+)/;`\n\n`terminalCommand: 'git push --set-upstream origin ${group:branchName}';`\n",
                 "type": "object",
                 "required": [
                   "lineMatcher",
@@ -13090,6 +13373,7 @@
           "contribCommentPeekContext",
           "contribCommentThreadAdditionalMenu",
           "contribEditorContentMenu",
+          "contribEditorLineNumberMenu",
           "contribEditSessions",
           "contribLabelFormatterWorkspaceTooltip",
           "contribMenuBarHome",
@@ -13110,18 +13394,21 @@
           "extensionRuntime",
           "extensionsAny",
           "externalUriOpener",
+          "fileComments",
           "fileSearchProvider",
           "findTextInFiles",
           "fsChunks",
+          "getSessions",
           "idToken",
           "indentSize",
           "inlineCompletionsAdditions",
+          "interactive",
           "interactiveWindow",
           "ipc",
           "notebookCellExecutionState",
           "notebookControllerAffinityHidden",
-          "notebookControllerKind",
           "notebookDeprecated",
+          "notebookDocumentWillSave",
           "notebookKernelSource",
           "notebookLiveShare",
           "notebookMessaging",
@@ -13142,7 +13429,6 @@
           "terminalDataWriteEvent",
           "terminalDimensions",
           "terminalQuickFixProvider",
-          "testContinuousRun",
           "testCoverage",
           "testObserver",
           "textSearchProvider",
@@ -13160,6 +13446,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribCommentPeekContext.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribCommentThreadAdditionalMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribEditorContentMenu.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribEditorLineNumberMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribEditSessions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribLabelFormatterWorkspaceTooltip.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribMenuBarHome.d.ts",
@@ -13180,18 +13467,21 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.extensionRuntime.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.extensionsAny.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.externalUriOpener.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.fileComments.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.fileSearchProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.findTextInFiles.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.fsChunks.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.getSessions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.idToken.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.indentSize.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.inlineCompletionsAdditions.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.interactive.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.interactiveWindow.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.ipc.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookCellExecutionState.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookControllerAffinityHidden.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookControllerKind.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookDeprecated.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookDocumentWillSave.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookKernelSource.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookLiveShare.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookMessaging.d.ts",
@@ -13212,7 +13502,6 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalDataWriteEvent.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalDimensions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalQuickFixProvider.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.testContinuousRun.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.testCoverage.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.testObserver.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.textSearchProvider.d.ts",

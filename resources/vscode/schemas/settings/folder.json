@@ -4624,6 +4624,14 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.experimental.asyncTokenizationLogging": {
+      "type": "boolean",
+      "default": false,
+      "description": "Controls whether async tokenization should be logged. For debugging only.",
+      "defaultDefaultValue": false,
+      "scope": 5,
+      "restricted": false
+    },
     "editor.experimental.pasteActions.enabled": {
       "type": "boolean",
       "scope": 5,
@@ -5317,6 +5325,14 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.inlineSuggest.suppressSuggestions": {
+      "type": "boolean",
+      "default": true,
+      "description": "Controls how inline suggestions interact with the suggest widget. If enabled, the suggest widget is not shown automatically when inline suggestions are available.",
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
     "editor.insertSpaces": {
       "type": "boolean",
       "default": true,
@@ -5909,6 +5925,17 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.screenReaderAnnounceInlineSuggestion": {
+      "description": "Control whether inline suggestions are announced by a screen reader. Note that this does not work on macOS with VoiceOver.",
+      "tags": [
+        "accessibility"
+      ],
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 5,
+      "restricted": false
+    },
     "editor.scrollbar.horizontal": {
       "type": "string",
       "enum": [
@@ -6434,6 +6461,19 @@
       "default": false,
       "markdownDescription": "Keep peek editors open even when double-clicking their content or when hitting `Escape`.",
       "defaultDefaultValue": false,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.stickyScroll.defaultModel": {
+      "type": "string",
+      "enum": [
+        "foldingProviderModel",
+        "indentationModel",
+        "outlineModel"
+      ],
+      "default": "outlineModel",
+      "description": "Defines the model to use for determining which lines to stick. If the outline model does not exist, it will fall back on the folding provider model which falls back on the indentation model. This order is respected in all three cases.",
+      "defaultDefaultValue": "outlineModel",
       "scope": 5,
       "restricted": false
     },
@@ -10688,6 +10728,50 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
+    "interactiveSession.editor.fontFamily": {
+      "type": "string",
+      "description": "Controls the font family in Interactive Sessions.",
+      "default": "default",
+      "defaultDefaultValue": "default",
+      "scope": 3,
+      "restricted": false
+    },
+    "interactiveSession.editor.fontSize": {
+      "type": "number",
+      "description": "Controls the font size in pixels in Interactive Sessions.",
+      "default": 14,
+      "defaultDefaultValue": 14,
+      "scope": 3,
+      "restricted": false
+    },
+    "interactiveSession.editor.fontWeight": {
+      "type": "string",
+      "description": "Controls the font weight in Interactive Sessions.",
+      "default": "default",
+      "defaultDefaultValue": "default",
+      "scope": 3,
+      "restricted": false
+    },
+    "interactiveSession.editor.lineHeight": {
+      "type": "number",
+      "description": "Controls the line height in pixels in Interactive Sessions. Use 0 to compute the line height from the font size.",
+      "default": 0,
+      "defaultDefaultValue": 0,
+      "scope": 3,
+      "restricted": false
+    },
+    "interactiveSession.editor.wordWrap": {
+      "type": "string",
+      "description": "Controls whether lines should wrap in Interactive Sessions.",
+      "default": "off",
+      "enum": [
+        "off",
+        "on"
+      ],
+      "defaultDefaultValue": "off",
+      "scope": 3,
+      "restricted": false
+    },
     "interactiveWindow.alwaysScrollOnNewCell": {
       "type": "boolean",
       "default": true,
@@ -12396,6 +12480,23 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
+    "markdown.server.log": {
+      "type": "string",
+      "scope": 3,
+      "enum": [
+        "debug",
+        "off",
+        "trace"
+      ],
+      "default": "off",
+      "description": "Controls the logging level of the Markdown language server.",
+      "source": {
+        "id": "vscode.markdown-language-features",
+        "displayName": "Markdown Language Features"
+      },
+      "defaultDefaultValue": "off",
+      "restricted": false
+    },
     "markdown.styles": {
       "type": "array",
       "items": {
@@ -13932,6 +14033,14 @@
               "scope": 5,
               "restricted": false
             },
+            "editor.inlineSuggest.suppressSuggestions": {
+              "type": "boolean",
+              "default": true,
+              "description": "Controls how inline suggestions interact with the suggest widget. If enabled, the suggest widget is not shown automatically when inline suggestions are available.",
+              "defaultDefaultValue": true,
+              "scope": 5,
+              "restricted": false
+            },
             "editor.letterSpacing": {
               "description": "Controls the letter spacing in pixels.",
               "type": "number",
@@ -14444,6 +14553,17 @@
               "scope": 5,
               "restricted": false
             },
+            "editor.screenReaderAnnounceInlineSuggestion": {
+              "description": "Control whether inline suggestions are announced by a screen reader. Note that this does not work on macOS with VoiceOver.",
+              "tags": [
+                "accessibility"
+              ],
+              "type": "boolean",
+              "default": false,
+              "defaultDefaultValue": false,
+              "scope": 5,
+              "restricted": false
+            },
             "editor.scrollbar.horizontal": {
               "type": "string",
               "enum": [
@@ -14614,6 +14734,19 @@
               ],
               "default": "inline",
               "defaultDefaultValue": "inline",
+              "scope": 5,
+              "restricted": false
+            },
+            "editor.stickyScroll.defaultModel": {
+              "type": "string",
+              "enum": [
+                "foldingProviderModel",
+                "indentationModel",
+                "outlineModel"
+              ],
+              "default": "outlineModel",
+              "description": "Defines the model to use for determining which lines to stick. If the outline model does not exist, it will fall back on the folding provider model which falls back on the indentation model. This order is respected in all three cases.",
+              "defaultDefaultValue": "outlineModel",
               "scope": 5,
               "restricted": false
             },
@@ -15295,8 +15428,8 @@
       "scope": 3,
       "restricted": false
     },
-    "notebook.experimental.outputScrolling": {
-      "markdownDescription": "Use a scrollable region for notebook output when longer than the limit",
+    "notebook.formatOnSave.enabled": {
+      "markdownDescription": "Format a notebook on save. A formatter must be available, the file must not be saved after delay, and the editor must not be shutting down.",
       "type": "boolean",
       "tags": [
         "notebookLayout"
@@ -15356,25 +15489,6 @@
       "scope": 3,
       "restricted": false
     },
-    "notebook.kernelPicker.type": {
-      "markdownDescription": "Controls the type of kernel picker to use.",
-      "type": "string",
-      "enum": [
-        "all",
-        "mru"
-      ],
-      "enumDescriptions": [
-        "Show all kernels.",
-        "Experiment: show recently used kernels."
-      ],
-      "tags": [
-        "notebookLayout"
-      ],
-      "default": "mru",
-      "defaultDefaultValue": "mru",
-      "scope": 3,
-      "restricted": false
-    },
     "notebook.lineNumbers": {
       "type": "string",
       "enum": [
@@ -15414,8 +15528,51 @@
       "scope": 3,
       "restricted": false
     },
+    "notebook.output.fontFamily": {
+      "markdownDescription": "The font family of the output text within notebook cells. When set to empty, the `#editor.fontFamily#` is used.",
+      "type": "string",
+      "tags": [
+        "notebookLayout"
+      ],
+      "default": "",
+      "scope": 3,
+      "restricted": false
+    },
+    "notebook.output.fontSize": {
+      "markdownDescription": "Font size for the output text within notebook cells. When set to 0, `#editor.fontSize#` is used.",
+      "type": "number",
+      "default": 0,
+      "tags": [
+        "notebookLayout"
+      ],
+      "defaultDefaultValue": 0,
+      "scope": 3,
+      "restricted": false
+    },
+    "notebook.output.lineHeight": {
+      "markdownDescription": "Line height of the output text within notebook cells.\n - When set to 0, editor line height is used.\n - Values between 0 and 8 will be used as a multiplier with the font size.\n - Values greater than or equal to 8 will be used as effective values.",
+      "type": "number",
+      "default": 0,
+      "tags": [
+        "notebookLayout"
+      ],
+      "defaultDefaultValue": 0,
+      "scope": 3,
+      "restricted": false
+    },
+    "notebook.output.scrolling": {
+      "markdownDescription": "Use a scrollable region for notebook output when longer than the limit",
+      "type": "boolean",
+      "tags": [
+        "notebookLayout"
+      ],
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
     "notebook.output.textLineLimit": {
-      "description": "Control how many lines of text in a text output is rendered.",
+      "markdownDescription": "Controls how many lines of text are displayed in a text output. If `#notebook.output.scrolling#` is enabled, this setting is used to determine the scroll height of the output.",
       "type": "number",
       "default": 30,
       "tags": [
@@ -15433,38 +15590,6 @@
       ],
       "default": false,
       "defaultDefaultValue": false,
-      "scope": 3,
-      "restricted": false
-    },
-    "notebook.outputFontFamily": {
-      "markdownDescription": "The font family for the output text for notebook cells. When set to empty, the `#editor.fontFamily#` is used.",
-      "type": "string",
-      "tags": [
-        "notebookLayout"
-      ],
-      "default": "",
-      "scope": 3,
-      "restricted": false
-    },
-    "notebook.outputFontSize": {
-      "markdownDescription": "Font size for the output text for notebook cells. When set to 0, `#editor.fontSize#` is used.",
-      "type": "number",
-      "default": 0,
-      "tags": [
-        "notebookLayout"
-      ],
-      "defaultDefaultValue": 0,
-      "scope": 3,
-      "restricted": false
-    },
-    "notebook.outputLineHeight": {
-      "markdownDescription": "Line height of the output text for notebook cells.\n - When set to 0, editor line height is used.\n - Values between 0 and 8 will be used as a multiplier with the font size.\n - Values greater than or equal to 8 will be used as effective values.",
-      "type": "number",
-      "default": 0,
-      "tags": [
-        "notebookLayout"
-      ],
-      "defaultDefaultValue": 0,
       "scope": 3,
       "restricted": false
     },
@@ -16592,6 +16717,14 @@
       "scope": 3,
       "restricted": false
     },
+    "screencastMode.hideSingleEditorCursorMoves": {
+      "type": "boolean",
+      "description": "Hide the single editor cursor move commands in screencast mode.",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
     "screencastMode.keyboardOverlayTimeout": {
       "type": "number",
       "default": 800,
@@ -17253,7 +17386,7 @@
     },
     "search.experimental.notebookSearch": {
       "type": "boolean",
-      "description": "Controls whether to use the experimental notebook search in the global search. Please refresh your search for changes to this setting to take effect.",
+      "description": "Controls whether to use the experimental notebook search in the global search. Please reload your VS Code instance for changes to this setting to take effect.",
       "default": false,
       "defaultDefaultValue": false,
       "scope": 3,
@@ -18001,6 +18134,7 @@
                 "inbox",
                 "indent",
                 "info",
+                "insert",
                 "inspect",
                 "issue-closed",
                 "issue-draft",
@@ -18171,6 +18305,7 @@
                 "search-save",
                 "search-stop",
                 "selection",
+                "send",
                 "server",
                 "server-environment",
                 "server-process",
@@ -18182,6 +18317,7 @@
                 "smiley",
                 "sort-precedence",
                 "source-control",
+                "sparkle",
                 "split-horizontal",
                 "split-vertical",
                 "squirrel",
@@ -18538,6 +18674,7 @@
                 "$(inbox)",
                 "$(indent)",
                 "$(info)",
+                "$(insert)",
                 "$(inspect)",
                 "$(issue-closed)",
                 "$(issue-draft)",
@@ -18708,6 +18845,7 @@
                 "$(search-save)",
                 "$(search-stop)",
                 "$(selection)",
+                "$(send)",
                 "$(server)",
                 "$(server-environment)",
                 "$(server-process)",
@@ -18719,6 +18857,7 @@
                 "$(smiley)",
                 "$(sort-precedence)",
                 "$(source-control)",
+                "$(sparkle)",
                 "$(split-horizontal)",
                 "$(split-vertical)",
                 "$(squirrel)",
@@ -19160,6 +19299,7 @@
                 "inbox",
                 "indent",
                 "info",
+                "insert",
                 "inspect",
                 "issue-closed",
                 "issue-draft",
@@ -19330,6 +19470,7 @@
                 "search-save",
                 "search-stop",
                 "selection",
+                "send",
                 "server",
                 "server-environment",
                 "server-process",
@@ -19341,6 +19482,7 @@
                 "smiley",
                 "sort-precedence",
                 "source-control",
+                "sparkle",
                 "split-horizontal",
                 "split-vertical",
                 "squirrel",
@@ -19697,6 +19839,7 @@
                 "$(inbox)",
                 "$(indent)",
                 "$(info)",
+                "$(insert)",
                 "$(inspect)",
                 "$(issue-closed)",
                 "$(issue-draft)",
@@ -19867,6 +20010,7 @@
                 "$(search-save)",
                 "$(search-stop)",
                 "$(selection)",
+                "$(send)",
                 "$(server)",
                 "$(server-environment)",
                 "$(server-process)",
@@ -19878,6 +20022,7 @@
                 "$(smiley)",
                 "$(sort-precedence)",
                 "$(source-control)",
+                "$(sparkle)",
                 "$(split-horizontal)",
                 "$(split-vertical)",
                 "$(squirrel)",
@@ -20319,6 +20464,7 @@
                 "inbox",
                 "indent",
                 "info",
+                "insert",
                 "inspect",
                 "issue-closed",
                 "issue-draft",
@@ -20489,6 +20635,7 @@
                 "search-save",
                 "search-stop",
                 "selection",
+                "send",
                 "server",
                 "server-environment",
                 "server-process",
@@ -20500,6 +20647,7 @@
                 "smiley",
                 "sort-precedence",
                 "source-control",
+                "sparkle",
                 "split-horizontal",
                 "split-vertical",
                 "squirrel",
@@ -20856,6 +21004,7 @@
                 "$(inbox)",
                 "$(indent)",
                 "$(info)",
+                "$(insert)",
                 "$(inspect)",
                 "$(issue-closed)",
                 "$(issue-draft)",
@@ -21026,6 +21175,7 @@
                 "$(search-save)",
                 "$(search-stop)",
                 "$(selection)",
+                "$(send)",
                 "$(server)",
                 "$(server-environment)",
                 "$(server-process)",
@@ -21037,6 +21187,7 @@
                 "$(smiley)",
                 "$(sort-precedence)",
                 "$(source-control)",
+                "$(sparkle)",
                 "$(split-horizontal)",
                 "$(split-vertical)",
                 "$(squirrel)",
@@ -21253,7 +21404,7 @@
       "restricted": false
     },
     "terminal.integrated.commandsToSkipShell": {
-      "markdownDescription": "A set of command IDs whose keybindings will not be sent to the shell but instead always be handled by VS Code. This allows keybindings that would normally be consumed by the shell to act instead the same as when the terminal is not focused, for example `Ctrl+P` to launch Quick Open.\n\n&nbsp;\n\nMany commands are skipped by default. To override a default and pass that command's keybinding to the shell instead, add the command prefixed with the `-` character. For example add `-workbench.action.quickOpen` to allow `Ctrl+P` to reach the shell.\n\n&nbsp;\n\nThe following list of default skipped commands is truncated when viewed in Settings Editor. To see the full list, [open the default settings JSON](command:workbench.action.openRawDefaultSettings 'Open Default Settings (JSON)') and search for the first command from the list below.\n\n&nbsp;\n\nDefault Skipped Commands:\n\n- editor.action.toggleTabFocusMode\n- notifications.hideList\n- notifications.hideToasts\n- workbench.action.closeQuickOpen\n- workbench.action.debug.continue\n- workbench.action.debug.pause\n- workbench.action.debug.restart\n- workbench.action.debug.run\n- workbench.action.debug.start\n- workbench.action.debug.stepInto\n- workbench.action.debug.stepOut\n- workbench.action.debug.stepOver\n- workbench.action.debug.stop\n- workbench.action.firstEditorInGroup\n- workbench.action.focusActiveEditorGroup\n- workbench.action.focusEighthEditorGroup\n- workbench.action.focusFifthEditorGroup\n- workbench.action.focusFirstEditorGroup\n- workbench.action.focusFourthEditorGroup\n- workbench.action.focusLastEditorGroup\n- workbench.action.focusNextPart\n- workbench.action.focusPreviousPart\n- workbench.action.focusSecondEditorGroup\n- workbench.action.focusSeventhEditorGroup\n- workbench.action.focusSixthEditorGroup\n- workbench.action.focusThirdEditorGroup\n- workbench.action.lastEditorInGroup\n- workbench.action.navigateDown\n- workbench.action.navigateLeft\n- workbench.action.navigateRight\n- workbench.action.navigateUp\n- workbench.action.nextEditor\n- workbench.action.nextEditorInGroup\n- workbench.action.nextPanelView\n- workbench.action.nextSideBarView\n- workbench.action.openNextRecentlyUsedEditor\n- workbench.action.openNextRecentlyUsedEditorInGroup\n- workbench.action.openPreviousRecentlyUsedEditor\n- workbench.action.openPreviousRecentlyUsedEditorInGroup\n- workbench.action.previousEditor\n- workbench.action.previousEditorInGroup\n- workbench.action.previousPanelView\n- workbench.action.previousSideBarView\n- workbench.action.quickOpen\n- workbench.action.quickOpenLeastRecentlyUsedEditor\n- workbench.action.quickOpenLeastRecentlyUsedEditorInGroup\n- workbench.action.quickOpenPreviousEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup\n- workbench.action.quickOpenView\n- workbench.action.showCommands\n- workbench.action.tasks.build\n- workbench.action.tasks.reRunTask\n- workbench.action.tasks.restartTask\n- workbench.action.tasks.runTask\n- workbench.action.tasks.showLog\n- workbench.action.tasks.showTasks\n- workbench.action.tasks.terminate\n- workbench.action.tasks.test\n- workbench.action.terminal.acceptSelectedSuggestion\n- workbench.action.terminal.clear\n- workbench.action.terminal.clearSelection\n- workbench.action.terminal.copyAndClearSelection\n- workbench.action.terminal.copyLastCommandOutput\n- workbench.action.terminal.copySelection\n- workbench.action.terminal.copySelectionAsHtml\n- workbench.action.terminal.deleteToLineStart\n- workbench.action.terminal.deleteWordLeft\n- workbench.action.terminal.deleteWordRight\n- workbench.action.terminal.findNext\n- workbench.action.terminal.findPrevious\n- workbench.action.terminal.focus\n- workbench.action.terminal.focusAtIndex1\n- workbench.action.terminal.focusAtIndex2\n- workbench.action.terminal.focusAtIndex3\n- workbench.action.terminal.focusAtIndex4\n- workbench.action.terminal.focusAtIndex5\n- workbench.action.terminal.focusAtIndex6\n- workbench.action.terminal.focusAtIndex7\n- workbench.action.terminal.focusAtIndex8\n- workbench.action.terminal.focusAtIndex9\n- workbench.action.terminal.focusFind\n- workbench.action.terminal.focusNext\n- workbench.action.terminal.focusNextPane\n- workbench.action.terminal.focusPrevious\n- workbench.action.terminal.focusPreviousPane\n- workbench.action.terminal.goToRecentDirectory\n- workbench.action.terminal.hideFind\n- workbench.action.terminal.hideSuggestWidget\n- workbench.action.terminal.kill\n- workbench.action.terminal.killEditor\n- workbench.action.terminal.moveToEditor\n- workbench.action.terminal.moveToLineEnd\n- workbench.action.terminal.moveToLineStart\n- workbench.action.terminal.moveToTerminalPanel\n- workbench.action.terminal.new\n- workbench.action.terminal.newInActiveWorkspace\n- workbench.action.terminal.paste\n- workbench.action.terminal.pasteSelection\n- workbench.action.terminal.quickFix\n- workbench.action.terminal.resizePaneDown\n- workbench.action.terminal.resizePaneLeft\n- workbench.action.terminal.resizePaneRight\n- workbench.action.terminal.resizePaneUp\n- workbench.action.terminal.runActiveFile\n- workbench.action.terminal.runRecentCommand\n- workbench.action.terminal.runSelectedText\n- workbench.action.terminal.scrollDown\n- workbench.action.terminal.scrollDownPage\n- workbench.action.terminal.scrollToBottom\n- workbench.action.terminal.scrollToNextCommand\n- workbench.action.terminal.scrollToPreviousCommand\n- workbench.action.terminal.scrollToTop\n- workbench.action.terminal.scrollUp\n- workbench.action.terminal.scrollUpPage\n- workbench.action.terminal.selectAll\n- workbench.action.terminal.selectNextPageSuggestion\n- workbench.action.terminal.selectNextSuggestion\n- workbench.action.terminal.selectPrevPageSuggestion\n- workbench.action.terminal.selectPrevSuggestion\n- workbench.action.terminal.selectToNextCommand\n- workbench.action.terminal.selectToNextLine\n- workbench.action.terminal.selectToPreviousCommand\n- workbench.action.terminal.selectToPreviousLine\n- workbench.action.terminal.sendSequence\n- workbench.action.terminal.showAccessibilityHelp\n- workbench.action.terminal.sizeToContentWidth\n- workbench.action.terminal.split\n- workbench.action.terminal.splitInActiveWorkspace\n- workbench.action.terminal.toggleFindCaseSensitive\n- workbench.action.terminal.toggleFindRegex\n- workbench.action.terminal.toggleFindWholeWord\n- workbench.action.terminal.toggleTerminal\n- workbench.action.toggleFullScreen\n- workbench.action.toggleMaximizedPanel\n- workbench.action.togglePanel",
+      "markdownDescription": "A set of command IDs whose keybindings will not be sent to the shell but instead always be handled by VS Code. This allows keybindings that would normally be consumed by the shell to act instead the same as when the terminal is not focused, for example `Ctrl+P` to launch Quick Open.\n\n&nbsp;\n\nMany commands are skipped by default. To override a default and pass that command's keybinding to the shell instead, add the command prefixed with the `-` character. For example add `-workbench.action.quickOpen` to allow `Ctrl+P` to reach the shell.\n\n&nbsp;\n\nThe following list of default skipped commands is truncated when viewed in Settings Editor. To see the full list, [open the default settings JSON](command:workbench.action.openRawDefaultSettings 'Open Default Settings (JSON)') and search for the first command from the list below.\n\n&nbsp;\n\nDefault Skipped Commands:\n\n- editor.action.toggleTabFocusMode\n- notification.acceptPrimaryAction\n- notifications.hideList\n- notifications.hideToasts\n- workbench.action.closeQuickOpen\n- workbench.action.debug.continue\n- workbench.action.debug.pause\n- workbench.action.debug.restart\n- workbench.action.debug.run\n- workbench.action.debug.start\n- workbench.action.debug.stepInto\n- workbench.action.debug.stepOut\n- workbench.action.debug.stepOver\n- workbench.action.debug.stop\n- workbench.action.firstEditorInGroup\n- workbench.action.focusActiveEditorGroup\n- workbench.action.focusEighthEditorGroup\n- workbench.action.focusFifthEditorGroup\n- workbench.action.focusFirstEditorGroup\n- workbench.action.focusFourthEditorGroup\n- workbench.action.focusLastEditorGroup\n- workbench.action.focusNextPart\n- workbench.action.focusPreviousPart\n- workbench.action.focusSecondEditorGroup\n- workbench.action.focusSeventhEditorGroup\n- workbench.action.focusSixthEditorGroup\n- workbench.action.focusThirdEditorGroup\n- workbench.action.lastEditorInGroup\n- workbench.action.navigateDown\n- workbench.action.navigateLeft\n- workbench.action.navigateRight\n- workbench.action.navigateUp\n- workbench.action.nextEditor\n- workbench.action.nextEditorInGroup\n- workbench.action.nextPanelView\n- workbench.action.nextSideBarView\n- workbench.action.openNextRecentlyUsedEditor\n- workbench.action.openNextRecentlyUsedEditorInGroup\n- workbench.action.openPreviousRecentlyUsedEditor\n- workbench.action.openPreviousRecentlyUsedEditorInGroup\n- workbench.action.previousEditor\n- workbench.action.previousEditorInGroup\n- workbench.action.previousPanelView\n- workbench.action.previousSideBarView\n- workbench.action.quickOpen\n- workbench.action.quickOpenLeastRecentlyUsedEditor\n- workbench.action.quickOpenLeastRecentlyUsedEditorInGroup\n- workbench.action.quickOpenPreviousEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup\n- workbench.action.quickOpenView\n- workbench.action.showCommands\n- workbench.action.tasks.build\n- workbench.action.tasks.reRunTask\n- workbench.action.tasks.restartTask\n- workbench.action.tasks.runTask\n- workbench.action.tasks.showLog\n- workbench.action.tasks.showTasks\n- workbench.action.tasks.terminate\n- workbench.action.tasks.test\n- workbench.action.terminal.acceptSelectedSuggestion\n- workbench.action.terminal.clear\n- workbench.action.terminal.clearSelection\n- workbench.action.terminal.copyAndClearSelection\n- workbench.action.terminal.copyLastCommandOutput\n- workbench.action.terminal.copySelection\n- workbench.action.terminal.copySelectionAsHtml\n- workbench.action.terminal.deleteToLineStart\n- workbench.action.terminal.deleteWordLeft\n- workbench.action.terminal.deleteWordRight\n- workbench.action.terminal.findNext\n- workbench.action.terminal.findPrevious\n- workbench.action.terminal.focus\n- workbench.action.terminal.focusAtIndex1\n- workbench.action.terminal.focusAtIndex2\n- workbench.action.terminal.focusAtIndex3\n- workbench.action.terminal.focusAtIndex4\n- workbench.action.terminal.focusAtIndex5\n- workbench.action.terminal.focusAtIndex6\n- workbench.action.terminal.focusAtIndex7\n- workbench.action.terminal.focusAtIndex8\n- workbench.action.terminal.focusAtIndex9\n- workbench.action.terminal.focusFind\n- workbench.action.terminal.focusHover\n- workbench.action.terminal.focusNext\n- workbench.action.terminal.focusNextPane\n- workbench.action.terminal.focusPrevious\n- workbench.action.terminal.focusPreviousPane\n- workbench.action.terminal.goToRecentDirectory\n- workbench.action.terminal.hideFind\n- workbench.action.terminal.hideSuggestWidget\n- workbench.action.terminal.kill\n- workbench.action.terminal.killEditor\n- workbench.action.terminal.moveToEditor\n- workbench.action.terminal.moveToLineEnd\n- workbench.action.terminal.moveToLineStart\n- workbench.action.terminal.moveToTerminalPanel\n- workbench.action.terminal.new\n- workbench.action.terminal.newInActiveWorkspace\n- workbench.action.terminal.paste\n- workbench.action.terminal.pasteSelection\n- workbench.action.terminal.quickFix\n- workbench.action.terminal.resizePaneDown\n- workbench.action.terminal.resizePaneLeft\n- workbench.action.terminal.resizePaneRight\n- workbench.action.terminal.resizePaneUp\n- workbench.action.terminal.runActiveFile\n- workbench.action.terminal.runRecentCommand\n- workbench.action.terminal.runSelectedText\n- workbench.action.terminal.scrollDown\n- workbench.action.terminal.scrollDownPage\n- workbench.action.terminal.scrollToBottom\n- workbench.action.terminal.scrollToNextCommand\n- workbench.action.terminal.scrollToPreviousCommand\n- workbench.action.terminal.scrollToTop\n- workbench.action.terminal.scrollUp\n- workbench.action.terminal.scrollUpPage\n- workbench.action.terminal.selectAll\n- workbench.action.terminal.selectNextPageSuggestion\n- workbench.action.terminal.selectNextSuggestion\n- workbench.action.terminal.selectPrevPageSuggestion\n- workbench.action.terminal.selectPrevSuggestion\n- workbench.action.terminal.selectToNextCommand\n- workbench.action.terminal.selectToNextLine\n- workbench.action.terminal.selectToPreviousCommand\n- workbench.action.terminal.selectToPreviousLine\n- workbench.action.terminal.sendSequence\n- workbench.action.terminal.showAccessibilityHelp\n- workbench.action.terminal.sizeToContentWidth\n- workbench.action.terminal.split\n- workbench.action.terminal.splitInActiveWorkspace\n- workbench.action.terminal.toggleFindCaseSensitive\n- workbench.action.terminal.toggleFindRegex\n- workbench.action.terminal.toggleFindWholeWord\n- workbench.action.terminal.toggleTerminal\n- workbench.action.toggleFullScreen\n- workbench.action.toggleMaximizedPanel\n- workbench.action.togglePanel",
       "type": "array",
       "items": {
         "type": "string"
@@ -21338,7 +21489,7 @@
       "restricted": false
     },
     "terminal.integrated.customGlyphs": {
-      "description": "Whether to draw custom glyphs for block element and box drawing characters instead of using the font, which typically yields better rendering with continuous lines. Note that this doesn't work with the DOM renderer.",
+      "description": "Whether to draw custom glyphs for block element and box drawing characters instead of using the font, which typically yields better rendering with continuous lines. Note that this doesn't work when `#terminal.integrated.gpuAcceleration#` is disabled.",
       "type": "boolean",
       "default": true,
       "defaultDefaultValue": true,
@@ -22407,6 +22558,9 @@
                   "git-pull-request-new-changes",
                   "search-fuzzy",
                   "comment-draft",
+                  "send",
+                  "sparkle",
+                  "insert",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -22944,6 +23098,9 @@
                   "$(git-pull-request-new-changes)",
                   "$(search-fuzzy)",
                   "$(comment-draft)",
+                  "$(send)",
+                  "$(sparkle)",
+                  "$(insert)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -23546,6 +23703,9 @@
                   "git-pull-request-new-changes",
                   "search-fuzzy",
                   "comment-draft",
+                  "send",
+                  "sparkle",
+                  "insert",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -24083,6 +24243,9 @@
                   "$(git-pull-request-new-changes)",
                   "$(search-fuzzy)",
                   "$(comment-draft)",
+                  "$(send)",
+                  "$(sparkle)",
+                  "$(insert)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -24745,6 +24908,9 @@
                   "git-pull-request-new-changes",
                   "search-fuzzy",
                   "comment-draft",
+                  "send",
+                  "sparkle",
+                  "insert",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -25282,6 +25448,9 @@
                   "$(git-pull-request-new-changes)",
                   "$(search-fuzzy)",
                   "$(comment-draft)",
+                  "$(send)",
+                  "$(sparkle)",
+                  "$(insert)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -25884,6 +26053,9 @@
                   "git-pull-request-new-changes",
                   "search-fuzzy",
                   "comment-draft",
+                  "send",
+                  "sparkle",
+                  "insert",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -26421,6 +26593,9 @@
                   "$(git-pull-request-new-changes)",
                   "$(search-fuzzy)",
                   "$(comment-draft)",
+                  "$(send)",
+                  "$(sparkle)",
+                  "$(insert)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -27073,6 +27248,9 @@
                   "git-pull-request-new-changes",
                   "search-fuzzy",
                   "comment-draft",
+                  "send",
+                  "sparkle",
+                  "insert",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -27610,6 +27788,9 @@
                   "$(git-pull-request-new-changes)",
                   "$(search-fuzzy)",
                   "$(comment-draft)",
+                  "$(send)",
+                  "$(sparkle)",
+                  "$(insert)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -28213,6 +28394,9 @@
                   "git-pull-request-new-changes",
                   "search-fuzzy",
                   "comment-draft",
+                  "send",
+                  "sparkle",
+                  "insert",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -28750,6 +28934,9 @@
                   "$(git-pull-request-new-changes)",
                   "$(search-fuzzy)",
                   "$(comment-draft)",
+                  "$(send)",
+                  "$(sparkle)",
+                  "$(insert)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -29352,6 +29539,9 @@
                   "git-pull-request-new-changes",
                   "search-fuzzy",
                   "comment-draft",
+                  "send",
+                  "sparkle",
+                  "insert",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -29889,6 +30079,9 @@
                   "$(git-pull-request-new-changes)",
                   "$(search-fuzzy)",
                   "$(comment-draft)",
+                  "$(send)",
+                  "$(sparkle)",
+                  "$(insert)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -30169,10 +30362,13 @@
       "restricted": false
     },
     "terminal.integrated.tabFocusMode": {
-      "markdownDescription": "Controls whether the terminal receives tabs or defers them to the workbench for navigation.",
-      "type": "boolean",
-      "default": false,
-      "defaultDefaultValue": false,
+      "markdownDescription": "Controls whether the terminal receives tabs or defers them to the workbench for navigation. When set, this overrides `#editor.tabFocusMode#` when the terminal is focused.",
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "default": null,
+      "defaultDefaultValue": null,
       "scope": 3,
       "restricted": false
     },
@@ -30435,6 +30631,7 @@
         "inbox",
         "indent",
         "info",
+        "insert",
         "inspect",
         "issue-closed",
         "issue-draft",
@@ -30605,6 +30802,7 @@
         "search-save",
         "search-stop",
         "selection",
+        "send",
         "server",
         "server-environment",
         "server-process",
@@ -30616,6 +30814,7 @@
         "smiley",
         "sort-precedence",
         "source-control",
+        "sparkle",
         "split-horizontal",
         "split-vertical",
         "squirrel",
@@ -30972,6 +31171,7 @@
         "$(inbox)",
         "$(indent)",
         "$(info)",
+        "$(insert)",
         "$(inspect)",
         "$(issue-closed)",
         "$(issue-draft)",
@@ -31142,6 +31342,7 @@
         "$(search-save)",
         "$(search-stop)",
         "$(selection)",
+        "$(send)",
         "$(server)",
         "$(server-environment)",
         "$(server-process)",
@@ -31153,6 +31354,7 @@
         "$(smiley)",
         "$(sort-precedence)",
         "$(source-control)",
+        "$(sparkle)",
         "$(split-horizontal)",
         "$(split-vertical)",
         "$(squirrel)",
@@ -31453,8 +31655,8 @@
     "terminal.integrated.wordSeparators": {
       "description": "A string containing all characters to be considered word separators by the double-click to select word feature.",
       "type": "string",
-      "default": " ()[]{}',\"`─‘’",
-      "defaultDefaultValue": " ()[]{}',\"`─‘’",
+      "default": " ()[]{}',\"`─‘’|",
+      "defaultDefaultValue": " ()[]{}',\"`─‘’|",
       "scope": 3,
       "restricted": false
     },
@@ -32967,6 +33169,11 @@
           "default": false,
           "description": "Video Preview"
         },
+        "workbench.editor.interactiveSession": {
+          "type": "boolean",
+          "default": false,
+          "description": "Interactive Session"
+        },
         "workbench.editorinputs.searchEditorInput": {
           "type": "boolean",
           "default": false,
@@ -32988,6 +33195,7 @@
         "terminalEditor": true,
         "vscode.audioPreview": false,
         "vscode.videoPreview": false,
+        "workbench.editor.interactiveSession": false,
         "workbench.editorinputs.searchEditorInput": false,
         "workbench.input.interactive": false
       },
@@ -33002,6 +33210,7 @@
         "terminalEditor": true,
         "vscode.audioPreview": false,
         "vscode.videoPreview": false,
+        "workbench.editor.interactiveSession": false,
         "workbench.editorinputs.searchEditorInput": false,
         "workbench.input.interactive": false
       },
@@ -33069,6 +33278,7 @@
         "vscode.audioPreview",
         "vscode.markdown.preview.editor",
         "vscode.videoPreview",
+        "workbench.editor.interactiveSession",
         "workbench.editorinputs.searchEditorInput"
       ],
       "description": "The default editor for files detected as binary. If undefined, the user will be presented with a picker.",
@@ -33482,6 +33692,7 @@
             "vscode.audioPreview",
             "vscode.markdown.preview.editor",
             "vscode.videoPreview",
+            "workbench.editor.interactiveSession",
             "workbench.editorinputs.searchEditorInput"
           ]
         }

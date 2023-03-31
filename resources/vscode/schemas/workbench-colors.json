@@ -1902,7 +1902,7 @@
         }
       ]
     },
-    "editorGutter.commentGlyphForground": {
+    "editorGutter.commentGlyphForeground": {
       "type": "string",
       "description": "Editor gutter decoration color for commenting glyphs.",
       "format": "color-hex",
@@ -1915,6 +1915,16 @@
     "editorGutter.commentRangeForeground": {
       "type": "string",
       "description": "Editor gutter decoration color for commenting ranges. This color should be opaque.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "editorGutter.commentUnresolvedGlyphForeground": {
+      "type": "string",
+      "description": "Editor gutter decoration color for commenting glyphs for unresolved comment threads.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -3145,6 +3155,86 @@
     "interactive.inactiveCodeBorder": {
       "type": "string",
       "description": "The border color for the current interactive code cell when the editor does not have focus.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "interactive.requestBackground": {
+      "type": "string",
+      "description": "The background color of an interactive request.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "interactive.requestBorder": {
+      "type": "string",
+      "description": "The border color of an interactive request.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "interactiveEditor.border": {
+      "type": "string",
+      "description": "Border color of the interactive editor widget",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "interactiveEditor.shadow": {
+      "type": "string",
+      "description": "Shadow color of the interactive editor widget",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "interactiveEditorInput.background": {
+      "type": "string",
+      "description": "Background color of the interactive editor input",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "interactiveEditorInput.border": {
+      "type": "string",
+      "description": "Border color of the interactive editor input",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "interactiveEditorInput.focusBorder": {
+      "type": "string",
+      "description": "Border color of the interactive editor input when focused",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "interactiveEditorInput.placeholderForeground": {
+      "type": "string",
+      "description": "Foreground color of the interactive editor input placeholder",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -4753,6 +4843,16 @@
         }
       ]
     },
+    "search.resultsInfoForeground": {
+      "type": "string",
+      "description": "Color of the text in the search viewlet's completion message.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "searchEditor.findMatchBackground": {
       "type": "string",
       "description": "Color of the Search Editor query matches.",
@@ -6143,6 +6243,16 @@
         }
       ]
     },
+    "terminal.hoverHighlightBackground": {
+      "type": "string",
+      "description": "Border color of the other search matches in the terminal.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "terminal.inactiveSelectionBackground": {
       "type": "string",
       "description": "The selection background color of the terminal when it does not have focus.",
@@ -6586,16 +6696,6 @@
     "walkthrough.stepTitle.foreground": {
       "type": "string",
       "description": "Foreground color of the heading of each walkthrough step",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ]
-    },
-    "welcomeOverlay.background": {
-      "type": "string",
-      "description": "welcomeOverlay Background color.",
       "format": "color-hex",
       "defaultSnippets": [
         {

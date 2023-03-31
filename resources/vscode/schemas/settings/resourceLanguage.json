@@ -1002,6 +1002,14 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.experimental.asyncTokenizationLogging": {
+      "type": "boolean",
+      "default": false,
+      "description": "Controls whether async tokenization should be logged. For debugging only.",
+      "defaultDefaultValue": false,
+      "scope": 5,
+      "restricted": false
+    },
     "editor.experimental.pasteActions.enabled": {
       "type": "boolean",
       "scope": 5,
@@ -1695,6 +1703,14 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.inlineSuggest.suppressSuggestions": {
+      "type": "boolean",
+      "default": true,
+      "description": "Controls how inline suggestions interact with the suggest widget. If enabled, the suggest widget is not shown automatically when inline suggestions are available.",
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
     "editor.insertSpaces": {
       "type": "boolean",
       "default": true,
@@ -2287,6 +2303,17 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.screenReaderAnnounceInlineSuggestion": {
+      "description": "Control whether inline suggestions are announced by a screen reader. Note that this does not work on macOS with VoiceOver.",
+      "tags": [
+        "accessibility"
+      ],
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 5,
+      "restricted": false
+    },
     "editor.scrollbar.horizontal": {
       "type": "string",
       "enum": [
@@ -2490,6 +2517,19 @@
       "default": false,
       "markdownDescription": "Keep peek editors open even when double-clicking their content or when hitting `Escape`.",
       "defaultDefaultValue": false,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.stickyScroll.defaultModel": {
+      "type": "string",
+      "enum": [
+        "foldingProviderModel",
+        "indentationModel",
+        "outlineModel"
+      ],
+      "default": "outlineModel",
+      "description": "Defines the model to use for determining which lines to stick. If the outline model does not exist, it will fall back on the folding provider model which falls back on the indentation model. This order is respected in all three cases.",
+      "defaultDefaultValue": "outlineModel",
       "scope": 5,
       "restricted": false
     },
