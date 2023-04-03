@@ -1632,6 +1632,15 @@
         "workbench.action.openIssueReporter",
         "vscode.openIssueReporter",
         "workbench.action.reportPerformanceIssueUsingReporter",
+        "workbench.action.showWindowLog",
+        "workbench.remoteTunnel.actions.turnOn",
+        "workbench.remoteTunnel.actions.manage",
+        "workbench.remoteTunnel.actions.connecting",
+        "workbench.remoteTunnel.actions.turnOff",
+        "workbench.remoteTunnel.actions.showLog",
+        "workbench.remoteTunnel.actions.configure",
+        "workbench.remoteTunnel.actions.copyToClipboard",
+        "workbench.remoteTunnel.actions.learnMore",
         "workbench.action.tasks.runTask",
         "workbench.action.tasks.reRunTask",
         "workbench.action.tasks.restartTask",
@@ -1646,15 +1655,8 @@
         "workbench.action.tasks.toggleProblems",
         "workbench.action.tasks.openUserTasks",
         "workbench.action.tasks.openWorkspaceFileTasks",
-        "workbench.action.showWindowLog",
-        "workbench.remoteTunnel.actions.turnOn",
-        "workbench.remoteTunnel.actions.manage",
-        "workbench.remoteTunnel.actions.connecting",
-        "workbench.remoteTunnel.actions.turnOff",
-        "workbench.remoteTunnel.actions.showLog",
-        "workbench.remoteTunnel.actions.configure",
-        "workbench.remoteTunnel.actions.copyToClipboard",
-        "workbench.remoteTunnel.actions.learnMore",
+        "userDataProfiles.resetViewContainerLocation",
+        "userDataProfiles",
         "update.check",
         "update.checking",
         "update.downloadNow",
@@ -1677,49 +1679,16 @@
         "workbench.editSessions.actions.deleteAll",
         "workbench.output.action.switchBetweenOutputs",
         "workbench.action.output.show.tasks",
+        "workbench.action.output.show.main",
+        "workbench.action.output.show.rendererLog",
+        "workbench.action.output.show.sharedprocess",
+        "workbench.action.output.show.userDataSync",
         "workbench.action.showOutputChannels",
         "workbench.output.action.clearOutput",
         "workbench.output.action.toggleAutoScroll",
         "workbench.action.openActiveLogOutputFile",
         "workbench.action.showLogs",
         "workbench.action.openLogFile",
-        "workbench.action.output.show.main",
-        "workbench.action.output.show.rendererLog",
-        "workbench.view.extension.references-view.resetViewContainerLocation",
-        "workbench.view.extension.references-view",
-        "jsBrowserBreakpoints.focus",
-        "jsBrowserBreakpoints.resetViewLocation",
-        "jsExcludedCallers.focus",
-        "jsExcludedCallers.resetViewLocation",
-        "npm.focus",
-        "npm.resetViewLocation",
-        "references-view.tree.focus",
-        "references-view.tree.resetViewLocation",
-        "workbench.panel.markers.view.toggleVisibility",
-        "workbench.panel.markers.view.removeView",
-        "workbench.panel.output.toggleVisibility",
-        "workbench.panel.output.removeView",
-        "terminal.toggleVisibility",
-        "terminal.removeView",
-        "workbench.explorer.openEditorsView.toggleVisibility",
-        "workbench.explorer.openEditorsView.removeView",
-        "workbench.explorer.emptyView.toggleVisibility",
-        "workbench.explorer.emptyView.removeView",
-        "outline.toggleVisibility",
-        "outline.removeView",
-        "timeline.toggleVisibility",
-        "timeline.removeView",
-        "workbench.scm.toggleVisibility",
-        "workbench.scm.removeView",
-        "workbench.view.search.toggleVisibility",
-        "workbench.view.search.removeView",
-        "workbench.action.openRemoteSettings",
-        "workbench.action.openRemoteSettingsFile",
-        "workbench.action.output.show.sharedprocess",
-        "workbench.action.output.show.userDataSync",
-        "userDataProfiles.resetViewContainerLocation",
-        "userDataProfiles",
-        "workbench.action.output.show.editSessions",
         "workbench.userDataSync.actions.turnOn",
         "workbench.userDataSync.actions.turnOff",
         "workbench.userData.actions.turningOn",
@@ -1877,13 +1846,44 @@
         "workbench.views.extensions.deprecatedExtensions.resetViewLocation",
         "workbench.extensions.action.openExtensionsFolder",
         "workbench.action.output.show.ptyhost",
+        "workbench.view.extension.references-view.resetViewContainerLocation",
+        "workbench.view.extension.references-view",
+        "jsBrowserBreakpoints.focus",
+        "jsBrowserBreakpoints.resetViewLocation",
+        "jsExcludedCallers.focus",
+        "jsExcludedCallers.resetViewLocation",
+        "npm.focus",
+        "npm.resetViewLocation",
+        "references-view.tree.focus",
+        "references-view.tree.resetViewLocation",
+        "workbench.panel.markers.view.toggleVisibility",
+        "workbench.panel.markers.view.removeView",
+        "workbench.panel.output.toggleVisibility",
+        "workbench.panel.output.removeView",
+        "terminal.toggleVisibility",
+        "terminal.removeView",
+        "workbench.explorer.openEditorsView.toggleVisibility",
+        "workbench.explorer.openEditorsView.removeView",
+        "workbench.explorer.emptyView.toggleVisibility",
+        "workbench.explorer.emptyView.removeView",
+        "outline.toggleVisibility",
+        "outline.removeView",
+        "timeline.toggleVisibility",
+        "timeline.removeView",
+        "workbench.scm.toggleVisibility",
+        "workbench.scm.removeView",
+        "workbench.view.search.toggleVisibility",
+        "workbench.view.search.removeView",
+        "workbench.action.openRemoteSettings",
+        "workbench.action.openRemoteSettingsFile",
         "workbench.panel.repl.view.toggleVisibility",
         "workbench.panel.repl.view.removeView",
         "workbench.debug.welcome.toggleVisibility",
         "workbench.debug.welcome.removeView",
-        "workbench.action.output.show.notebook.rendering",
+        "workbench.action.output.show.exthost",
         "workbench.action.output.show.remoteTunnelService",
         "git-base.api.getRemoteSources",
+        "workbench.action.output.show.vscode.git.Git",
         "git.showOutput",
         "git.refresh",
         "git.openResource",
@@ -2002,6 +2002,8 @@
         "github.copyVscodeDevLinkFile",
         "github.copyVscodeDevLinkWithoutRange",
         "github.openOnVscodeDev",
+        "workbench.action.output.show.notebook.rendering",
+        "workbench.action.output.show.editSessions",
         "extension.node-debug.toggleAutoAttach",
         "merge-conflict.accept.current",
         "merge-conflict.accept.incoming",
@@ -2014,7 +2016,6 @@
         "merge-conflict.previous",
         "merge-conflict.compare",
         "workbench.action.terminal.newWithProfile",
-        "workbench.action.output.show.exthost",
         "editor.emmet.action.wrapWithAbbreviation",
         "editor.emmet.action.removeTag",
         "editor.emmet.action.updateTag",
@@ -3729,6 +3730,15 @@
         "Open the issue reporter and optionally prefill part of the form.",
         "Open the issue reporter and optionally prefill part of the form.",
         null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         "Run Task",
         null,
         null,
@@ -3759,47 +3769,7 @@
         null,
         null,
         null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         "Focus on Cloud Changes View",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        "Focus on Browser breakpoints View",
-        null,
-        "Focus on Excluded Callers View",
-        null,
-        "Focus on NPM Scripts View",
-        null,
-        "Focus on Reference Search Results View",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         null,
         null,
         null,
@@ -3976,6 +3946,39 @@
         null,
         null,
         null,
+        "Focus on Browser breakpoints View",
+        null,
+        "Focus on Excluded Callers View",
+        null,
+        "Focus on NPM Scripts View",
+        null,
+        "Focus on Reference Search Results View",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -4111,7 +4114,6 @@
         null,
         null,
         "workbench.action.terminal.newWithProfile",
-        null,
         null,
         null,
         null,
@@ -5835,6 +5837,15 @@
             "-workbench.action.openIssueReporter",
             "-vscode.openIssueReporter",
             "-workbench.action.reportPerformanceIssueUsingReporter",
+            "-workbench.action.showWindowLog",
+            "-workbench.remoteTunnel.actions.turnOn",
+            "-workbench.remoteTunnel.actions.manage",
+            "-workbench.remoteTunnel.actions.connecting",
+            "-workbench.remoteTunnel.actions.turnOff",
+            "-workbench.remoteTunnel.actions.showLog",
+            "-workbench.remoteTunnel.actions.configure",
+            "-workbench.remoteTunnel.actions.copyToClipboard",
+            "-workbench.remoteTunnel.actions.learnMore",
             "-workbench.action.tasks.runTask",
             "-workbench.action.tasks.reRunTask",
             "-workbench.action.tasks.restartTask",
@@ -5849,15 +5860,8 @@
             "-workbench.action.tasks.toggleProblems",
             "-workbench.action.tasks.openUserTasks",
             "-workbench.action.tasks.openWorkspaceFileTasks",
-            "-workbench.action.showWindowLog",
-            "-workbench.remoteTunnel.actions.turnOn",
-            "-workbench.remoteTunnel.actions.manage",
-            "-workbench.remoteTunnel.actions.connecting",
-            "-workbench.remoteTunnel.actions.turnOff",
-            "-workbench.remoteTunnel.actions.showLog",
-            "-workbench.remoteTunnel.actions.configure",
-            "-workbench.remoteTunnel.actions.copyToClipboard",
-            "-workbench.remoteTunnel.actions.learnMore",
+            "-userDataProfiles.resetViewContainerLocation",
+            "-userDataProfiles",
             "-update.check",
             "-update.checking",
             "-update.downloadNow",
@@ -5880,49 +5884,16 @@
             "-workbench.editSessions.actions.deleteAll",
             "-workbench.output.action.switchBetweenOutputs",
             "-workbench.action.output.show.tasks",
+            "-workbench.action.output.show.main",
+            "-workbench.action.output.show.rendererLog",
+            "-workbench.action.output.show.sharedprocess",
+            "-workbench.action.output.show.userDataSync",
             "-workbench.action.showOutputChannels",
             "-workbench.output.action.clearOutput",
             "-workbench.output.action.toggleAutoScroll",
             "-workbench.action.openActiveLogOutputFile",
             "-workbench.action.showLogs",
             "-workbench.action.openLogFile",
-            "-workbench.action.output.show.main",
-            "-workbench.action.output.show.rendererLog",
-            "-workbench.view.extension.references-view.resetViewContainerLocation",
-            "-workbench.view.extension.references-view",
-            "-jsBrowserBreakpoints.focus",
-            "-jsBrowserBreakpoints.resetViewLocation",
-            "-jsExcludedCallers.focus",
-            "-jsExcludedCallers.resetViewLocation",
-            "-npm.focus",
-            "-npm.resetViewLocation",
-            "-references-view.tree.focus",
-            "-references-view.tree.resetViewLocation",
-            "-workbench.panel.markers.view.toggleVisibility",
-            "-workbench.panel.markers.view.removeView",
-            "-workbench.panel.output.toggleVisibility",
-            "-workbench.panel.output.removeView",
-            "-terminal.toggleVisibility",
-            "-terminal.removeView",
-            "-workbench.explorer.openEditorsView.toggleVisibility",
-            "-workbench.explorer.openEditorsView.removeView",
-            "-workbench.explorer.emptyView.toggleVisibility",
-            "-workbench.explorer.emptyView.removeView",
-            "-outline.toggleVisibility",
-            "-outline.removeView",
-            "-timeline.toggleVisibility",
-            "-timeline.removeView",
-            "-workbench.scm.toggleVisibility",
-            "-workbench.scm.removeView",
-            "-workbench.view.search.toggleVisibility",
-            "-workbench.view.search.removeView",
-            "-workbench.action.openRemoteSettings",
-            "-workbench.action.openRemoteSettingsFile",
-            "-workbench.action.output.show.sharedprocess",
-            "-workbench.action.output.show.userDataSync",
-            "-userDataProfiles.resetViewContainerLocation",
-            "-userDataProfiles",
-            "-workbench.action.output.show.editSessions",
             "-workbench.userDataSync.actions.turnOn",
             "-workbench.userDataSync.actions.turnOff",
             "-workbench.userData.actions.turningOn",
@@ -6080,13 +6051,44 @@
             "-workbench.views.extensions.deprecatedExtensions.resetViewLocation",
             "-workbench.extensions.action.openExtensionsFolder",
             "-workbench.action.output.show.ptyhost",
+            "-workbench.view.extension.references-view.resetViewContainerLocation",
+            "-workbench.view.extension.references-view",
+            "-jsBrowserBreakpoints.focus",
+            "-jsBrowserBreakpoints.resetViewLocation",
+            "-jsExcludedCallers.focus",
+            "-jsExcludedCallers.resetViewLocation",
+            "-npm.focus",
+            "-npm.resetViewLocation",
+            "-references-view.tree.focus",
+            "-references-view.tree.resetViewLocation",
+            "-workbench.panel.markers.view.toggleVisibility",
+            "-workbench.panel.markers.view.removeView",
+            "-workbench.panel.output.toggleVisibility",
+            "-workbench.panel.output.removeView",
+            "-terminal.toggleVisibility",
+            "-terminal.removeView",
+            "-workbench.explorer.openEditorsView.toggleVisibility",
+            "-workbench.explorer.openEditorsView.removeView",
+            "-workbench.explorer.emptyView.toggleVisibility",
+            "-workbench.explorer.emptyView.removeView",
+            "-outline.toggleVisibility",
+            "-outline.removeView",
+            "-timeline.toggleVisibility",
+            "-timeline.removeView",
+            "-workbench.scm.toggleVisibility",
+            "-workbench.scm.removeView",
+            "-workbench.view.search.toggleVisibility",
+            "-workbench.view.search.removeView",
+            "-workbench.action.openRemoteSettings",
+            "-workbench.action.openRemoteSettingsFile",
             "-workbench.panel.repl.view.toggleVisibility",
             "-workbench.panel.repl.view.removeView",
             "-workbench.debug.welcome.toggleVisibility",
             "-workbench.debug.welcome.removeView",
-            "-workbench.action.output.show.notebook.rendering",
+            "-workbench.action.output.show.exthost",
             "-workbench.action.output.show.remoteTunnelService",
             "-git-base.api.getRemoteSources",
+            "-workbench.action.output.show.vscode.git.Git",
             "-git.showOutput",
             "-git.refresh",
             "-git.openResource",
@@ -6205,6 +6207,8 @@
             "-github.copyVscodeDevLinkFile",
             "-github.copyVscodeDevLinkWithoutRange",
             "-github.openOnVscodeDev",
+            "-workbench.action.output.show.notebook.rendering",
+            "-workbench.action.output.show.editSessions",
             "-extension.node-debug.toggleAutoAttach",
             "-merge-conflict.accept.current",
             "-merge-conflict.accept.incoming",
@@ -6217,7 +6221,6 @@
             "-merge-conflict.previous",
             "-merge-conflict.compare",
             "-workbench.action.terminal.newWithProfile",
-            "-workbench.action.output.show.exthost",
             "-editor.emmet.action.wrapWithAbbreviation",
             "-editor.emmet.action.removeTag",
             "-editor.emmet.action.updateTag",
@@ -7932,6 +7935,15 @@
             "Open the issue reporter and optionally prefill part of the form.",
             "Open the issue reporter and optionally prefill part of the form.",
             null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
             "Run Task",
             null,
             null,
@@ -7962,47 +7974,7 @@
             null,
             null,
             null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
             "Focus on Cloud Changes View",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            "Focus on Browser breakpoints View",
-            null,
-            "Focus on Excluded Callers View",
-            null,
-            "Focus on NPM Scripts View",
-            null,
-            "Focus on Reference Search Results View",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
             null,
             null,
             null,
@@ -8179,6 +8151,39 @@
             null,
             null,
             null,
+            "Focus on Browser breakpoints View",
+            null,
+            "Focus on Excluded Callers View",
+            null,
+            "Focus on NPM Scripts View",
+            null,
+            "Focus on Reference Search Results View",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
             null,
             null,
             null,
@@ -8314,7 +8319,6 @@
             null,
             null,
             "workbench.action.terminal.newWithProfile",
-            null,
             null,
             null,
             null,
@@ -10656,110 +10660,6 @@
             ],
             "properties": {
               "command": {
-                "const": "jsBrowserBreakpoints.focus"
-              }
-            }
-          },
-          "then": {
-            "required": [],
-            "properties": {
-              "args": {
-                "type": "object",
-                "properties": {
-                  "preserveFocus": {
-                    "type": "boolean",
-                    "default": false
-                  }
-                }
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "required": [
-              "command"
-            ],
-            "properties": {
-              "command": {
-                "const": "jsExcludedCallers.focus"
-              }
-            }
-          },
-          "then": {
-            "required": [],
-            "properties": {
-              "args": {
-                "type": "object",
-                "properties": {
-                  "preserveFocus": {
-                    "type": "boolean",
-                    "default": false
-                  }
-                }
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "required": [
-              "command"
-            ],
-            "properties": {
-              "command": {
-                "const": "npm.focus"
-              }
-            }
-          },
-          "then": {
-            "required": [],
-            "properties": {
-              "args": {
-                "type": "object",
-                "properties": {
-                  "preserveFocus": {
-                    "type": "boolean",
-                    "default": false
-                  }
-                }
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "required": [
-              "command"
-            ],
-            "properties": {
-              "command": {
-                "const": "references-view.tree.focus"
-              }
-            }
-          },
-          "then": {
-            "required": [],
-            "properties": {
-              "args": {
-                "type": "object",
-                "properties": {
-                  "preserveFocus": {
-                    "type": "boolean",
-                    "default": false
-                  }
-                }
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "required": [
-              "command"
-            ],
-            "properties": {
-              "command": {
                 "const": "workbench.views.sync.conflicts.focus"
               }
             }
@@ -11463,6 +11363,110 @@
             "properties": {
               "command": {
                 "const": "workbench.views.extensions.deprecatedExtensions.focus"
+              }
+            }
+          },
+          "then": {
+            "required": [],
+            "properties": {
+              "args": {
+                "type": "object",
+                "properties": {
+                  "preserveFocus": {
+                    "type": "boolean",
+                    "default": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "jsBrowserBreakpoints.focus"
+              }
+            }
+          },
+          "then": {
+            "required": [],
+            "properties": {
+              "args": {
+                "type": "object",
+                "properties": {
+                  "preserveFocus": {
+                    "type": "boolean",
+                    "default": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "jsExcludedCallers.focus"
+              }
+            }
+          },
+          "then": {
+            "required": [],
+            "properties": {
+              "args": {
+                "type": "object",
+                "properties": {
+                  "preserveFocus": {
+                    "type": "boolean",
+                    "default": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "npm.focus"
+              }
+            }
+          },
+          "then": {
+            "required": [],
+            "properties": {
+              "args": {
+                "type": "object",
+                "properties": {
+                  "preserveFocus": {
+                    "type": "boolean",
+                    "default": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "references-view.tree.focus"
               }
             }
           },
