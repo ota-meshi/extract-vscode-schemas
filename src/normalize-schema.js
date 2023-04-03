@@ -46,11 +46,16 @@ function normalizeSchema(schema) {
       );
     }
   }
-  if (isPlainObject(schema.properties)) {
-    const keys = Object.keys(schema.properties).sort(compare);
-    schema.properties = Object.fromEntries(
-      keys.map((key) => [key, normalizeSchema(schema.properties[key])])
-    );
+
+  for (const key of ["definitions", "properties"]) {
+    if (isPlainObject(schema[key])) {
+      const values = Object.entries(schema[key]).sort(([a], [b]) =>
+        compare(a, b)
+      );
+      schema[key] = Object.fromEntries(
+        values.map(([key, value]) => [key, normalizeSchema(value)])
+      );
+    }
   }
   if (isPlainObject(schema.patternProperties)) {
     for (const property of Object.values(schema.patternProperties)) {
