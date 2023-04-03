@@ -3,33 +3,38 @@
   "allowComments": true,
   "allowTrailingCommas": true,
   "definitions": {
-    "folderExpanded": {
-      "type": "string",
-      "description": "The folder icon for expanded folders. The expanded folder icon is optional. If not set, the icon defined for folder will be shown."
-    },
-    "folder": {
-      "type": "string",
-      "description": "The folder icon for collapsed folders, and if folderExpanded is not set, also for expanded folders."
+    "associations": {
+      "type": "object",
+      "properties": {
+        "file": {
+          "$ref": "#/definitions/file"
+        },
+        "fileExtensions": {
+          "$ref": "#/definitions/fileExtensions"
+        },
+        "fileNames": {
+          "$ref": "#/definitions/fileNames"
+        },
+        "folder": {
+          "$ref": "#/definitions/folder"
+        },
+        "folderExpanded": {
+          "$ref": "#/definitions/folderExpanded"
+        },
+        "folderNames": {
+          "$ref": "#/definitions/folderNames"
+        },
+        "folderNamesExpanded": {
+          "$ref": "#/definitions/folderNamesExpanded"
+        },
+        "languageIds": {
+          "$ref": "#/definitions/languageIds"
+        }
+      }
     },
     "file": {
       "type": "string",
       "description": "The default file icon, shown for all files that don't match any extension, filename or language id."
-    },
-    "folderNames": {
-      "type": "object",
-      "description": "Associates folder names to icons. The object key is the folder name, not including any path segments. No patterns or wildcards are allowed. Folder name matching is case insensitive.",
-      "additionalProperties": {
-        "type": "string",
-        "description": "The ID of the icon definition for the association."
-      }
-    },
-    "folderNamesExpanded": {
-      "type": "object",
-      "description": "Associates folder names to icons for expanded folders. The object key is the folder name, not including any path segments. No patterns or wildcards are allowed. Folder name matching is case insensitive.",
-      "additionalProperties": {
-        "type": "string",
-        "description": "The ID of the icon definition for the association."
-      }
     },
     "fileExtensions": {
       "type": "object",
@@ -47,41 +52,36 @@
         "description": "The ID of the icon definition for the association."
       }
     },
+    "folder": {
+      "type": "string",
+      "description": "The folder icon for collapsed folders, and if folderExpanded is not set, also for expanded folders."
+    },
+    "folderExpanded": {
+      "type": "string",
+      "description": "The folder icon for expanded folders. The expanded folder icon is optional. If not set, the icon defined for folder will be shown."
+    },
+    "folderNames": {
+      "type": "object",
+      "description": "Associates folder names to icons. The object key is the folder name, not including any path segments. No patterns or wildcards are allowed. Folder name matching is case insensitive.",
+      "additionalProperties": {
+        "type": "string",
+        "description": "The ID of the icon definition for the association."
+      }
+    },
+    "folderNamesExpanded": {
+      "type": "object",
+      "description": "Associates folder names to icons for expanded folders. The object key is the folder name, not including any path segments. No patterns or wildcards are allowed. Folder name matching is case insensitive.",
+      "additionalProperties": {
+        "type": "string",
+        "description": "The ID of the icon definition for the association."
+      }
+    },
     "languageIds": {
       "type": "object",
       "description": "Associates languages to icons. The object key is the language id as defined in the language contribution point.",
       "additionalProperties": {
         "type": "string",
         "description": "The ID of the icon definition for the association."
-      }
-    },
-    "associations": {
-      "type": "object",
-      "properties": {
-        "folderExpanded": {
-          "$ref": "#/definitions/folderExpanded"
-        },
-        "folder": {
-          "$ref": "#/definitions/folder"
-        },
-        "file": {
-          "$ref": "#/definitions/file"
-        },
-        "folderNames": {
-          "$ref": "#/definitions/folderNames"
-        },
-        "folderNamesExpanded": {
-          "$ref": "#/definitions/folderNamesExpanded"
-        },
-        "fileExtensions": {
-          "$ref": "#/definitions/fileExtensions"
-        },
-        "fileNames": {
-          "$ref": "#/definitions/fileNames"
-        },
-        "languageIds": {
-          "$ref": "#/definitions/languageIds"
-        }
       }
     }
   },

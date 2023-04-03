@@ -5,11 +5,11 @@
       "default": "#FF0000",
       "anyOf": [
         {
-          "type": "string",
-          "format": "color-hex"
+          "$ref": "#/definitions/settings"
         },
         {
-          "$ref": "#/definitions/settings"
+          "type": "string",
+          "format": "color-hex"
         }
       ]
     },
@@ -17,12 +17,6 @@
       "type": "object",
       "description": "Colors and styles for the token.",
       "properties": {
-        "foreground": {
-          "type": "string",
-          "description": "Foreground color for the token.",
-          "format": "color-hex",
-          "default": "#ff0000"
-        },
         "background": {
           "type": "string",
           "deprecationMessage": "Token background colors are currently not supported."
@@ -83,6 +77,12 @@
               "body": "italic bold underline strikethrough"
             }
           ]
+        },
+        "foreground": {
+          "type": "string",
+          "description": "Foreground color for the token.",
+          "format": "color-hex",
+          "default": "#ff0000"
         }
       },
       "additionalProperties": false,

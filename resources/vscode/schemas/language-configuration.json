@@ -53,14 +53,6 @@
     ]
   },
   "definitions": {
-    "openBracket": {
-      "type": "string",
-      "description": "The opening bracket character or string sequence."
-    },
-    "closeBracket": {
-      "type": "string",
-      "description": "The closing bracket character or string sequence."
-    },
     "bracketPair": {
       "type": "array",
       "items": [
@@ -71,6 +63,14 @@
           "$ref": "#/definitions/closeBracket"
         }
       ]
+    },
+    "closeBracket": {
+      "type": "string",
+      "description": "The closing bracket character or string sequence."
+    },
+    "openBracket": {
+      "type": "string",
+      "description": "The opening bracket character or string sequence."
     }
   },
   "properties": {

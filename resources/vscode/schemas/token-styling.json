@@ -571,15 +571,13 @@
       "type": "object",
       "description": "Colors and styles for the token.",
       "properties": {
-        "foreground": {
-          "type": "string",
-          "description": "Foreground color for the token.",
-          "format": "color-hex",
-          "default": "#ff0000"
-        },
         "background": {
           "type": "string",
           "deprecationMessage": "Token background colors are currently not supported."
+        },
+        "bold": {
+          "type": "boolean",
+          "description": "Sets or unsets the font style to bold. Note, the presence of 'fontStyle' overrides this setting."
         },
         "fontStyle": {
           "type": "string",
@@ -638,21 +636,23 @@
             }
           ]
         },
-        "bold": {
-          "type": "boolean",
-          "description": "Sets or unsets the font style to bold. Note, the presence of 'fontStyle' overrides this setting."
+        "foreground": {
+          "type": "string",
+          "description": "Foreground color for the token.",
+          "format": "color-hex",
+          "default": "#ff0000"
         },
         "italic": {
           "type": "boolean",
           "description": "Sets or unsets the font style to italic. Note, the presence of 'fontStyle' overrides this setting."
         },
-        "underline": {
-          "type": "boolean",
-          "description": "Sets or unsets the font style to underline. Note, the presence of 'fontStyle' overrides this setting."
-        },
         "strikethrough": {
           "type": "boolean",
           "description": "Sets or unsets the font style to strikethrough. Note, the presence of 'fontStyle' overrides this setting."
+        },
+        "underline": {
+          "type": "boolean",
+          "description": "Sets or unsets the font style to underline. Note, the presence of 'fontStyle' overrides this setting."
         }
       },
       "defaultSnippets": [

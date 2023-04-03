@@ -3,13 +3,13 @@
     "icons": {
       "type": "object",
       "properties": {
-        "fontId": {
-          "type": "string",
-          "description": "The id of the font to use. If not set, the font that is defined first is used."
-        },
         "fontCharacter": {
           "type": "string",
           "description": "The font character associated with the icon definition."
+        },
+        "fontId": {
+          "type": "string",
+          "description": "The id of the font to use. If not set, the font that is defined first is used."
         }
       },
       "additionalProperties": false,
