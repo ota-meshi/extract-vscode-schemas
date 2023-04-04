@@ -1,6 +1,7 @@
 "use strict";
 
 const { spawn } = require("node:child_process");
+const { getMeta, getOldMeta } = require("./meta");
 
 main();
 
@@ -9,6 +10,27 @@ async function main() {
   if (!(await checkDiff())) {
     console.log("Didn't commit because there are no changes.");
     return;
+  }
+
+  const newMeta = getMeta();
+  const oldMeta = getOldMeta();
+  if (oldMeta.vscodeVersion === newMeta.vscodeVersion) {
+    if (
+      Object.keys(newMeta.resources).every((url) => {
+        if (oldMeta.resources[url] == null) {
+          return false;
+        }
+        if (newMeta.resources[url].lines < oldMeta.resources[url].lines) {
+          return false;
+        }
+        return true;
+      })
+    ) {
+      console.log(
+        "Didn't commit because the information seems to be declining."
+      );
+      return;
+    }
   }
 
   // eslint-disable-next-line no-process-env -- ignore

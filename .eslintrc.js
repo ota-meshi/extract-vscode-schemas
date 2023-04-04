@@ -7,7 +7,11 @@ module.exports = {
     sourceType: "script",
     ecmaVersion: "latest",
   },
-  ignorePatterns: ["resources/**/*.json"],
+  ignorePatterns: [
+    "resources/**/*.json",
+    "meta-data.json",
+    "old-meta-data.json",
+  ],
   extends: [
     "plugin:@ota-meshi/recommended",
     "plugin:@ota-meshi/+node",

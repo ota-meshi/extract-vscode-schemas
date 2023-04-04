@@ -6,8 +6,9 @@ const path = require("node:path");
 const vscode = require("vscode");
 const { normalizeSchema } = require("./normalize-schema");
 const { URI_LIST } = require("./uri-list");
+const { RESOURCES_PATH_ROOT } = require("./const");
+const { updateMetadata } = require("./meta");
 
-const RESOURCES_PATH_ROOT = path.join(__dirname, "..", "resources");
 module.exports = { run };
 
 async function run() {
@@ -49,6 +50,7 @@ async function run() {
   }
 
   updateREADME(processedUri);
+  updateMetadata(vscode.version);
 }
 
 async function openByVSCode(uri) {
