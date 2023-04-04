@@ -1527,7 +1527,6 @@
         "workbench.action.output.show.sharedprocess",
         "workbench.action.output.show.tasks",
         "workbench.action.output.show.userDataSync",
-        "workbench.action.output.show.vscode.git.Git",
         "workbench.action.output.toggleOutput",
         "workbench.action.pauseSocketWriting",
         "workbench.action.pinEditor",
@@ -3583,7 +3582,6 @@
         null,
         null,
         "Open the issue reporter and optionally prefill part of the form.",
-        null,
         null,
         null,
         null,
@@ -6198,10 +6196,16 @@
                     "description": "The name of the profile to create",
                     "type": "string",
                     "enum": [
-                      null
+                      null,
+                      "bash",
+                      "pwsh",
+                      "tmux"
                     ],
                     "markdownEnumDescriptions": [
-                      "Automatically detect the default"
+                      "Automatically detect the default",
+                      "$(terminal-bash) bash\n- path: /usr/bin/bash",
+                      "$(terminal-powershell) pwsh\n- path: /usr/bin/pwsh",
+                      "$(terminal-tmux) tmux\n- path: /usr/bin/tmux"
                     ]
                   }
                 }
@@ -8974,7 +8978,6 @@
             "-workbench.action.output.show.sharedprocess",
             "-workbench.action.output.show.tasks",
             "-workbench.action.output.show.userDataSync",
-            "-workbench.action.output.show.vscode.git.Git",
             "-workbench.action.output.toggleOutput",
             "-workbench.action.pauseSocketWriting",
             "-workbench.action.pinEditor",
@@ -11030,7 +11033,6 @@
             null,
             null,
             "Open the issue reporter and optionally prefill part of the form.",
-            null,
             null,
             null,
             null,
