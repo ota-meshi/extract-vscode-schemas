@@ -33489,13 +33489,14 @@
     "window.experimental.useSandbox": {
       "type": "boolean",
       "description": "Experimental: When enabled, the window will have sandbox mode enabled via Electron API.",
-      "default": false,
+      "default": true,
       "tags": [
         "experimental"
       ],
       "scope": 1,
       "ignoreSync": true,
       "defaultDefaultValue": false,
+      "defaultValueSource": "Experiments",
       "restricted": false
     },
     "window.menuBarVisibility": {
