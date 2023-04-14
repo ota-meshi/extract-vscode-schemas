@@ -20,7 +20,7 @@ async function main() {
         if (oldMeta.resources[url] == null) {
           return false;
         }
-        if (newMeta.resources[url].lines < oldMeta.resources[url].lines) {
+        if (newMeta.resources[url].lines <= oldMeta.resources[url].lines) {
           return false;
         }
         return true;
