@@ -15,17 +15,19 @@ async function main() {
   const newMeta = getMeta();
   const oldMeta = getOldMeta();
   if (oldMeta.vscodeVersion === newMeta.vscodeVersion) {
-    if (
-      Object.keys(newMeta.resources).every((url) => {
-        if (oldMeta.resources[url] == null) {
-          return false;
-        }
-        if (newMeta.resources[url].lines <= oldMeta.resources[url].lines) {
-          return false;
-        }
+    const hasDec = Object.keys(newMeta.resources).some((url) => {
+      if (oldMeta.resources[url] == null) {
+        return false;
+      }
+      return newMeta.resources[url].lines < oldMeta.resources[url].lines;
+    });
+    const hasInc = Object.keys(newMeta.resources).some((url) => {
+      if (oldMeta.resources[url] == null) {
         return true;
-      })
-    ) {
+      }
+      return newMeta.resources[url].lines > oldMeta.resources[url].lines;
+    });
+    if (hasDec && !hasInc) {
       console.log(
         "Didn't commit because the information seems to be declining."
       );
