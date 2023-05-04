@@ -668,6 +668,28 @@
         "displayName": "YAML Language Basics"
       }
     },
+    "accessibility.verbosity.diff-editor": {
+      "description": "Provide information about how to navigate changes in the diff editor when it is focused",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.verbosity.terminal": {
+      "description": "Provide information about how to access the terminal accessibility help menu when the terminal is focused",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
     "application.experimental.rendererProfiling": {
       "type": "boolean",
       "default": false,
@@ -3280,6 +3302,10 @@
           "description": "ID of process to attach to.",
           "default": "${command:PickProcess}"
         },
+        "remoteHostHeader": {
+          "type": "string",
+          "description": "Explicit Host header to use when connecting to the websocket of inspector. If unspecified, the host header will be set to 'localhost'. This is useful when the inspector is running behind a proxy that only accept particular Host header."
+        },
         "remoteRoot": {
           "type": [
             "string",
@@ -3887,15 +3913,18 @@
     "diffEditor.diffAlgorithm": {
       "type": "string",
       "enum": [
-        "experimental",
-        "smart"
+        "advanced",
+        "legacy"
       ],
-      "default": "smart",
+      "default": "legacy",
       "markdownEnumDescriptions": [
-        "Uses an experimental diffing algorithm.",
-        "Uses the default diffing algorithm."
+        "Uses the advanced diffing algorithm.",
+        "Uses the legacy diffing algorithm."
       ],
-      "defaultDefaultValue": "smart",
+      "tags": [
+        "experimental"
+      ],
+      "defaultDefaultValue": "legacy",
       "scope": 5,
       "restricted": false
     },
@@ -4364,6 +4393,14 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.defaultColorDecorators": {
+      "markdownDescription": "Controls whether inline color decorations should be shown using the default document color provider",
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 5,
+      "restricted": false
+    },
     "editor.defaultFoldingRangeProvider": {
       "description": "Defines a default folding range provider that takes precedence over all other folding range providers. Must be the identifier of an extension contributing a folding range provider.",
       "type": [
@@ -4616,6 +4653,22 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.dropIntoEditor.showDropSelector": {
+      "type": "string",
+      "markdownDescription": "Controls if a widget is shown when dropping files into the editor. This widget lets you control how the file is dropped.",
+      "enum": [
+        "afterDrop",
+        "never"
+      ],
+      "enumDescriptions": [
+        "Show the drop selector widget after a file is dropped into the editor.",
+        "Never show the drop selector widget. Instead the default drop provider is always used."
+      ],
+      "default": "afterDrop",
+      "defaultDefaultValue": "afterDrop",
+      "scope": 5,
+      "restricted": false
+    },
     "editor.emptySelectionClipboard": {
       "description": "Controls whether copying without a selection copies the current line.",
       "type": "boolean",
@@ -4639,6 +4692,14 @@
       "type": "boolean",
       "default": false,
       "description": "Controls whether async tokenization should be logged. For debugging only.",
+      "defaultDefaultValue": false,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.experimental.asyncTokenizationVerification": {
+      "type": "boolean",
+      "default": false,
+      "description": "Controls whether async tokenization should be verified against legacy background tokenization. Might slow down tokenization. For debugging only.",
       "defaultDefaultValue": false,
       "scope": 5,
       "restricted": false
@@ -5338,9 +5399,9 @@
     },
     "editor.inlineSuggest.suppressSuggestions": {
       "type": "boolean",
-      "default": true,
+      "default": false,
       "description": "Controls how inline suggestions interact with the suggest widget. If enabled, the suggest widget is not shown automatically when inline suggestions are available.",
-      "defaultDefaultValue": true,
+      "defaultDefaultValue": false,
       "scope": 5,
       "restricted": false
     },
@@ -6089,7 +6150,7 @@
               },
               "additionalProperties": false
             },
-            "[Default Dark+ Experimental]": {
+            "[Default Dark Modern]": {
               "type": "object",
               "properties": {
                 "enabled": {
@@ -6153,7 +6214,7 @@
               },
               "additionalProperties": false
             },
-            "[Default Light+ Experimental]": {
+            "[Default Light Modern]": {
               "type": "object",
               "properties": {
                 "enabled": {
@@ -6998,7 +7059,7 @@
               },
               "additionalProperties": false
             },
-            "[Default Dark+ Experimental]": {
+            "[Default Dark Modern]": {
               "properties": {
                 "comments": {
                   "description": "Sets the colors and styles for comments",
@@ -7170,7 +7231,7 @@
               },
               "additionalProperties": false
             },
-            "[Default Light+ Experimental]": {
+            "[Default Light Modern]": {
               "properties": {
                 "comments": {
                   "description": "Sets the colors and styles for comments",
@@ -9149,16 +9210,6 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "files.maxMemoryForLargeFilesMB": {
-      "type": "number",
-      "default": 4096,
-      "minimum": 0,
-      "markdownDescription": "Controls the memory available to VS Code after restart when trying to open large files. Same effect as specifying `--max-memory=NEWSIZE` on the command line.",
-      "included": true,
-      "defaultDefaultValue": 4096,
-      "scope": 3,
-      "restricted": false
-    },
     "files.participants.timeout": {
       "type": "number",
       "default": 60000,
@@ -10502,6 +10553,18 @@
       "default": "",
       "restricted": true
     },
+    "github.branchProtection": {
+      "type": "boolean",
+      "scope": 4,
+      "default": false,
+      "description": "Controls whether to query repository rules for GitHub repositories",
+      "source": {
+        "id": "vscode.github",
+        "displayName": "GitHub"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
     "github.gitAuthentication": {
       "type": "boolean",
       "scope": 4,
@@ -10956,6 +11019,19 @@
       "restricted": true,
       "defaultDefaultValue": true,
       "scope": 1
+    },
+    "interactiveEditor.editMode": {
+      "description": "Configure if changes crafted in the interactive editor are applied directly or previewed first",
+      "default": "live",
+      "type": "string",
+      "enum": [
+        "live",
+        "livePreview",
+        "preview"
+      ],
+      "defaultDefaultValue": "live",
+      "scope": 3,
+      "restricted": false
     },
     "interactiveSession.editor.fontFamily": {
       "type": "string",
@@ -11464,10 +11540,16 @@
         "js",
         "minimal"
       ],
+      "enumItemLabels": [
+        null,
+        null,
+        null,
+        ".js / .ts"
+      ],
       "markdownEnumDescriptions": [
         "Use project settings to select a default.",
         "Shorten `./component/index.js` to `./component/index`.",
-        "Do not shorten path endings; include the `.js` extension.",
+        "Do not shorten path endings; include the `.js` or `.ts` extension.",
         "Shorten `./component/index.js` to `./component`."
       ],
       "default": "auto",
@@ -11524,6 +11606,18 @@
       "defaultDefaultValue": "auto",
       "restricted": false
     },
+    "javascript.preferences.renameMatchingJsxTags": {
+      "type": "boolean",
+      "default": true,
+      "description": "When on a JSX tag, try to rename the matching tag instead of renaming the symbol. Requires using TypeScript 5.1+ in the workspace.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
     "javascript.preferences.renameShorthandProperties": {
       "type": "boolean",
       "default": true,
@@ -11547,6 +11641,18 @@
         "displayName": "TypeScript and JavaScript Language Features"
       },
       "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "javascript.preferGoToSourceDefinition": {
+      "type": "boolean",
+      "default": false,
+      "description": "Makes Go to Definition avoid type declaration files when possible by triggering Go to Source Definition instead. This allows Go to Source Definition to be triggered with the mouse gesture. Requires using TypeScript 4.7+ in the workspace.",
+      "scope": 3,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": false,
       "restricted": false
     },
     "javascript.referencesCodeLens.enabled": {
@@ -13084,15 +13190,15 @@
     "mergeEditor.diffAlgorithm": {
       "type": "string",
       "enum": [
-        "experimental",
-        "smart"
+        "advanced",
+        "legacy"
       ],
-      "default": "experimental",
+      "default": "advanced",
       "markdownEnumDescriptions": [
-        "Uses an experimental diffing algorithm.",
-        "Uses the default diffing algorithm."
+        "Uses the advanced diffing algorithm.",
+        "Uses the legacy diffing algorithm."
       ],
-      "defaultDefaultValue": "experimental",
+      "defaultDefaultValue": "advanced",
       "scope": 3,
       "restricted": false
     },
@@ -13102,6 +13208,28 @@
       "description": "Controls if deletions in base or one of the inputs should be indicated by a vertical bar.",
       "defaultDefaultValue": true,
       "scope": 3,
+      "restricted": false
+    },
+    "microsoft-sovereign-cloud.endpoint": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "Azure China",
+            "Azure US Government"
+          ]
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "description": "Login endpoint for Azure authentication. Select a national cloud or enter the login URL for a custom Azure cloud.",
+      "scope": 3,
+      "source": {
+        "id": "vscode.microsoft-authentication",
+        "displayName": "Microsoft Account"
+      },
+      "default": null,
       "restricted": false
     },
     "notebook.breadcrumbs.showCodeCells": {
@@ -13177,6 +13305,14 @@
       "scope": 3,
       "restricted": false
     },
+    "notebook.confirmDeleteRunningCell": {
+      "markdownDescription": "Control whether a confirmation prompt is required to delete a running cell.",
+      "type": "boolean",
+      "default": true,
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
     "notebook.consolidatedOutputButton": {
       "description": "Control whether outputs action should be rendered in the output toolbar.",
       "type": "boolean",
@@ -13222,6 +13358,17 @@
       "type": "boolean",
       "default": false,
       "markdownDescription": "Hide Outputs Differences",
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
+    "notebook.diff.overviewRuler": {
+      "description": "Whether to render the overview ruler in the diff editor for notebook.",
+      "type": "boolean",
+      "default": false,
+      "tags": [
+        "notebookLayout"
+      ],
       "defaultDefaultValue": false,
       "scope": 3,
       "restricted": false
@@ -13609,6 +13756,14 @@
               "scope": 5,
               "restricted": false
             },
+            "editor.defaultColorDecorators": {
+              "markdownDescription": "Controls whether inline color decorations should be shown using the default document color provider",
+              "type": "boolean",
+              "default": false,
+              "defaultDefaultValue": false,
+              "scope": 5,
+              "restricted": false
+            },
             "editor.definitionLinkOpensInPeek": {
               "description": "Controls whether the Go to Definition mouse gesture always opens the peek widget.",
               "type": "boolean",
@@ -13630,6 +13785,22 @@
               "default": true,
               "markdownDescription": "Controls whether you can drag and drop a file into a text editor by holding down `shift` (instead of opening the file in an editor).",
               "defaultDefaultValue": true,
+              "scope": 5,
+              "restricted": false
+            },
+            "editor.dropIntoEditor.showDropSelector": {
+              "type": "string",
+              "markdownDescription": "Controls if a widget is shown when dropping files into the editor. This widget lets you control how the file is dropped.",
+              "enum": [
+                "afterDrop",
+                "never"
+              ],
+              "enumDescriptions": [
+                "Show the drop selector widget after a file is dropped into the editor.",
+                "Never show the drop selector widget. Instead the default drop provider is always used."
+              ],
+              "default": "afterDrop",
+              "defaultDefaultValue": "afterDrop",
               "scope": 5,
               "restricted": false
             },
@@ -14293,9 +14464,9 @@
             },
             "editor.inlineSuggest.suppressSuggestions": {
               "type": "boolean",
-              "default": true,
+              "default": false,
               "description": "Controls how inline suggestions interact with the suggest widget. If enabled, the suggest widget is not shown automatically when inline suggestions are available.",
-              "defaultDefaultValue": true,
+              "defaultDefaultValue": false,
               "scope": 5,
               "restricted": false
             },
@@ -15686,6 +15857,45 @@
       "scope": 3,
       "restricted": false
     },
+    "notebook.find.scope": {
+      "markdownDescription": "Customize the Find Widget behavior for searching within notebook cells. When both markup source and markup preview are enabled, the Find Widget will search either the source code or preview based on the current state of the cell.",
+      "type": "object",
+      "properties": {
+        "codeOutput": {
+          "type": "boolean",
+          "default": true
+        },
+        "codeSource": {
+          "type": "boolean",
+          "default": true
+        },
+        "markupPreview": {
+          "type": "boolean",
+          "default": true
+        },
+        "markupSource": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "default": {
+        "codeOutput": true,
+        "codeSource": true,
+        "markupPreview": true,
+        "markupSource": true
+      },
+      "tags": [
+        "notebookLayout"
+      ],
+      "defaultDefaultValue": {
+        "codeOutput": true,
+        "codeSource": true,
+        "markupPreview": true,
+        "markupSource": true
+      },
+      "scope": 3,
+      "restricted": false
+    },
     "notebook.formatOnSave.enabled": {
       "markdownDescription": "Format a notebook on save. A formatter must be available, the file must not be saved after delay, and the editor must not be shutting down.",
       "type": "boolean",
@@ -15790,7 +16000,8 @@
       "markdownDescription": "The font family of the output text within notebook cells. When set to empty, the `#editor.fontFamily#` is used.",
       "type": "string",
       "tags": [
-        "notebookLayout"
+        "notebookLayout",
+        "notebookOutputLayout"
       ],
       "default": "",
       "scope": 3,
@@ -15801,7 +16012,8 @@
       "type": "number",
       "default": 0,
       "tags": [
-        "notebookLayout"
+        "notebookLayout",
+        "notebookOutputLayout"
       ],
       "defaultDefaultValue": 0,
       "scope": 3,
@@ -15812,17 +16024,19 @@
       "type": "number",
       "default": 0,
       "tags": [
-        "notebookLayout"
+        "notebookLayout",
+        "notebookOutputLayout"
       ],
       "defaultDefaultValue": 0,
       "scope": 3,
       "restricted": false
     },
     "notebook.output.scrolling": {
-      "markdownDescription": "Use a scrollable region for notebook output when longer than the limit",
+      "markdownDescription": "Initially render notebook outputs in a scrollable region when longer than the limit",
       "type": "boolean",
       "tags": [
-        "notebookLayout"
+        "notebookLayout",
+        "notebookOutputLayout"
       ],
       "default": false,
       "defaultDefaultValue": false,
@@ -15834,7 +16048,8 @@
       "type": "number",
       "default": 30,
       "tags": [
-        "notebookLayout"
+        "notebookLayout",
+        "notebookOutputLayout"
       ],
       "defaultDefaultValue": 30,
       "scope": 3,
@@ -15844,7 +16059,8 @@
       "markdownDescription": "Controls whether the lines in output should wrap.",
       "type": "boolean",
       "tags": [
-        "notebookLayout"
+        "notebookLayout",
+        "notebookOutputLayout"
       ],
       "default": false,
       "defaultDefaultValue": false,
@@ -16460,12 +16676,14 @@
     },
     "remote.autoForwardPortsSource": {
       "type": "string",
-      "markdownDescription": "Sets the source from which ports are automatically forwarded when `#remote.autoForwardPorts#` is true. On Windows and Mac remotes, the `process` option has no effect and `output` will be used. Requires a reload to take effect.",
+      "markdownDescription": "Sets the source from which ports are automatically forwarded when `#remote.autoForwardPorts#` is true. On Windows and Mac remotes, the `process` and `hybrid` options have no effect and `output` will be used. Requires a reload to take effect.",
       "enum": [
+        "hybrid",
         "output",
         "process"
       ],
       "enumDescriptions": [
+        "Ports will be automatically forwarded when discovered by reading terminal and debug output. Not all processes that use ports will print to the integrated terminal or debug console, so some ports will be missed. Ports will be \"un-forwarded\" by watching for processes that listen on that port to be terminated.",
         "Ports will be automatically forwarded when discovered by reading terminal and debug output. Not all processes that use ports will print to the integrated terminal or debug console, so some ports will be missed. Ports forwarded based on output will not be \"un-forwarded\" until reload or until the port is closed by the user in the Ports view.",
         "Ports will be automatically forwarded when discovered by watching for processes that are started and include a port."
       ],
@@ -18254,10 +18472,12 @@
     "terminal.explorerKind": {
       "type": "string",
       "enum": [
+        "both",
         "external",
         "integrated"
       ],
       "enumDescriptions": [
+        "Use the other two together.",
         "Use the configured external terminal.",
         "Use VS Code's integrated terminal."
       ],
@@ -21877,7 +22097,7 @@
       "restricted": false
     },
     "terminal.integrated.commandsToSkipShell": {
-      "markdownDescription": "A set of command IDs whose keybindings will not be sent to the shell but instead always be handled by VS Code. This allows keybindings that would normally be consumed by the shell to act instead the same as when the terminal is not focused, for example `Ctrl+P` to launch Quick Open.\n\n&nbsp;\n\nMany commands are skipped by default. To override a default and pass that command's keybinding to the shell instead, add the command prefixed with the `-` character. For example add `-workbench.action.quickOpen` to allow `Ctrl+P` to reach the shell.\n\n&nbsp;\n\nThe following list of default skipped commands is truncated when viewed in Settings Editor. To see the full list, [open the default settings JSON](command:workbench.action.openRawDefaultSettings 'Open Default Settings (JSON)') and search for the first command from the list below.\n\n&nbsp;\n\nDefault Skipped Commands:\n\n- editor.action.toggleTabFocusMode\n- notification.acceptPrimaryAction\n- notifications.hideList\n- notifications.hideToasts\n- workbench.action.closeQuickOpen\n- workbench.action.debug.continue\n- workbench.action.debug.pause\n- workbench.action.debug.restart\n- workbench.action.debug.run\n- workbench.action.debug.start\n- workbench.action.debug.stepInto\n- workbench.action.debug.stepOut\n- workbench.action.debug.stepOver\n- workbench.action.debug.stop\n- workbench.action.firstEditorInGroup\n- workbench.action.focusActiveEditorGroup\n- workbench.action.focusEighthEditorGroup\n- workbench.action.focusFifthEditorGroup\n- workbench.action.focusFirstEditorGroup\n- workbench.action.focusFourthEditorGroup\n- workbench.action.focusLastEditorGroup\n- workbench.action.focusNextPart\n- workbench.action.focusPreviousPart\n- workbench.action.focusSecondEditorGroup\n- workbench.action.focusSeventhEditorGroup\n- workbench.action.focusSixthEditorGroup\n- workbench.action.focusThirdEditorGroup\n- workbench.action.lastEditorInGroup\n- workbench.action.navigateDown\n- workbench.action.navigateLeft\n- workbench.action.navigateRight\n- workbench.action.navigateUp\n- workbench.action.nextEditor\n- workbench.action.nextEditorInGroup\n- workbench.action.nextPanelView\n- workbench.action.nextSideBarView\n- workbench.action.openNextRecentlyUsedEditor\n- workbench.action.openNextRecentlyUsedEditorInGroup\n- workbench.action.openPreviousRecentlyUsedEditor\n- workbench.action.openPreviousRecentlyUsedEditorInGroup\n- workbench.action.previousEditor\n- workbench.action.previousEditorInGroup\n- workbench.action.previousPanelView\n- workbench.action.previousSideBarView\n- workbench.action.quickOpen\n- workbench.action.quickOpenLeastRecentlyUsedEditor\n- workbench.action.quickOpenLeastRecentlyUsedEditorInGroup\n- workbench.action.quickOpenPreviousEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup\n- workbench.action.quickOpenView\n- workbench.action.showCommands\n- workbench.action.tasks.build\n- workbench.action.tasks.reRunTask\n- workbench.action.tasks.restartTask\n- workbench.action.tasks.runTask\n- workbench.action.tasks.showLog\n- workbench.action.tasks.showTasks\n- workbench.action.tasks.terminate\n- workbench.action.tasks.test\n- workbench.action.terminal.acceptSelectedSuggestion\n- workbench.action.terminal.clear\n- workbench.action.terminal.clearSelection\n- workbench.action.terminal.copyAndClearSelection\n- workbench.action.terminal.copyLastCommandOutput\n- workbench.action.terminal.copySelection\n- workbench.action.terminal.copySelectionAsHtml\n- workbench.action.terminal.deleteToLineStart\n- workbench.action.terminal.deleteWordLeft\n- workbench.action.terminal.deleteWordRight\n- workbench.action.terminal.findNext\n- workbench.action.terminal.findPrevious\n- workbench.action.terminal.focus\n- workbench.action.terminal.focusAtIndex1\n- workbench.action.terminal.focusAtIndex2\n- workbench.action.terminal.focusAtIndex3\n- workbench.action.terminal.focusAtIndex4\n- workbench.action.terminal.focusAtIndex5\n- workbench.action.terminal.focusAtIndex6\n- workbench.action.terminal.focusAtIndex7\n- workbench.action.terminal.focusAtIndex8\n- workbench.action.terminal.focusAtIndex9\n- workbench.action.terminal.focusFind\n- workbench.action.terminal.focusHover\n- workbench.action.terminal.focusNext\n- workbench.action.terminal.focusNextPane\n- workbench.action.terminal.focusPrevious\n- workbench.action.terminal.focusPreviousPane\n- workbench.action.terminal.goToRecentDirectory\n- workbench.action.terminal.hideFind\n- workbench.action.terminal.hideSuggestWidget\n- workbench.action.terminal.kill\n- workbench.action.terminal.killEditor\n- workbench.action.terminal.moveToEditor\n- workbench.action.terminal.moveToLineEnd\n- workbench.action.terminal.moveToLineStart\n- workbench.action.terminal.moveToTerminalPanel\n- workbench.action.terminal.new\n- workbench.action.terminal.newInActiveWorkspace\n- workbench.action.terminal.paste\n- workbench.action.terminal.pasteSelection\n- workbench.action.terminal.quickFix\n- workbench.action.terminal.resizePaneDown\n- workbench.action.terminal.resizePaneLeft\n- workbench.action.terminal.resizePaneRight\n- workbench.action.terminal.resizePaneUp\n- workbench.action.terminal.runActiveFile\n- workbench.action.terminal.runRecentCommand\n- workbench.action.terminal.runSelectedText\n- workbench.action.terminal.scrollDown\n- workbench.action.terminal.scrollDownPage\n- workbench.action.terminal.scrollToBottom\n- workbench.action.terminal.scrollToNextCommand\n- workbench.action.terminal.scrollToPreviousCommand\n- workbench.action.terminal.scrollToTop\n- workbench.action.terminal.scrollUp\n- workbench.action.terminal.scrollUpPage\n- workbench.action.terminal.selectAll\n- workbench.action.terminal.selectNextPageSuggestion\n- workbench.action.terminal.selectNextSuggestion\n- workbench.action.terminal.selectPrevPageSuggestion\n- workbench.action.terminal.selectPrevSuggestion\n- workbench.action.terminal.selectToNextCommand\n- workbench.action.terminal.selectToNextLine\n- workbench.action.terminal.selectToPreviousCommand\n- workbench.action.terminal.selectToPreviousLine\n- workbench.action.terminal.sendSequence\n- workbench.action.terminal.showAccessibilityHelp\n- workbench.action.terminal.sizeToContentWidth\n- workbench.action.terminal.split\n- workbench.action.terminal.splitInActiveWorkspace\n- workbench.action.terminal.toggleFindCaseSensitive\n- workbench.action.terminal.toggleFindRegex\n- workbench.action.terminal.toggleFindWholeWord\n- workbench.action.terminal.toggleTerminal\n- workbench.action.toggleFullScreen\n- workbench.action.toggleMaximizedPanel\n- workbench.action.togglePanel",
+      "markdownDescription": "A set of command IDs whose keybindings will not be sent to the shell but instead always be handled by VS Code. This allows keybindings that would normally be consumed by the shell to act instead the same as when the terminal is not focused, for example `Ctrl+P` to launch Quick Open.\n\n&nbsp;\n\nMany commands are skipped by default. To override a default and pass that command's keybinding to the shell instead, add the command prefixed with the `-` character. For example add `-workbench.action.quickOpen` to allow `Ctrl+P` to reach the shell.\n\n&nbsp;\n\nThe following list of default skipped commands is truncated when viewed in Settings Editor. To see the full list, [open the default settings JSON](command:workbench.action.openRawDefaultSettings 'Open Default Settings (JSON)') and search for the first command from the list below.\n\n&nbsp;\n\nDefault Skipped Commands:\n\n- editor.action.toggleTabFocusMode\n- notification.acceptPrimaryAction\n- notifications.hideList\n- notifications.hideToasts\n- workbench.action.closeQuickOpen\n- workbench.action.debug.continue\n- workbench.action.debug.pause\n- workbench.action.debug.restart\n- workbench.action.debug.run\n- workbench.action.debug.start\n- workbench.action.debug.stepInto\n- workbench.action.debug.stepOut\n- workbench.action.debug.stepOver\n- workbench.action.debug.stop\n- workbench.action.firstEditorInGroup\n- workbench.action.focusActiveEditorGroup\n- workbench.action.focusEighthEditorGroup\n- workbench.action.focusFifthEditorGroup\n- workbench.action.focusFirstEditorGroup\n- workbench.action.focusFourthEditorGroup\n- workbench.action.focusLastEditorGroup\n- workbench.action.focusNextPart\n- workbench.action.focusPreviousPart\n- workbench.action.focusSecondEditorGroup\n- workbench.action.focusSeventhEditorGroup\n- workbench.action.focusSixthEditorGroup\n- workbench.action.focusThirdEditorGroup\n- workbench.action.lastEditorInGroup\n- workbench.action.navigateDown\n- workbench.action.navigateLeft\n- workbench.action.navigateRight\n- workbench.action.navigateUp\n- workbench.action.nextEditor\n- workbench.action.nextEditorInGroup\n- workbench.action.nextPanelView\n- workbench.action.nextSideBarView\n- workbench.action.openNextRecentlyUsedEditor\n- workbench.action.openNextRecentlyUsedEditorInGroup\n- workbench.action.openPreviousRecentlyUsedEditor\n- workbench.action.openPreviousRecentlyUsedEditorInGroup\n- workbench.action.previousEditor\n- workbench.action.previousEditorInGroup\n- workbench.action.previousPanelView\n- workbench.action.previousSideBarView\n- workbench.action.quickOpen\n- workbench.action.quickOpenLeastRecentlyUsedEditor\n- workbench.action.quickOpenLeastRecentlyUsedEditorInGroup\n- workbench.action.quickOpenPreviousEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup\n- workbench.action.quickOpenView\n- workbench.action.showCommands\n- workbench.action.tasks.build\n- workbench.action.tasks.reRunTask\n- workbench.action.tasks.restartTask\n- workbench.action.tasks.runTask\n- workbench.action.tasks.showLog\n- workbench.action.tasks.showTasks\n- workbench.action.tasks.terminate\n- workbench.action.tasks.test\n- workbench.action.terminal.acceptSelectedSuggestion\n- workbench.action.terminal.clear\n- workbench.action.terminal.clearSelection\n- workbench.action.terminal.copyAndClearSelection\n- workbench.action.terminal.copyLastCommandOutput\n- workbench.action.terminal.copySelection\n- workbench.action.terminal.copySelectionAsHtml\n- workbench.action.terminal.deleteToLineStart\n- workbench.action.terminal.deleteWordLeft\n- workbench.action.terminal.deleteWordRight\n- workbench.action.terminal.findNext\n- workbench.action.terminal.findPrevious\n- workbench.action.terminal.focus\n- workbench.action.terminal.focusAtIndex1\n- workbench.action.terminal.focusAtIndex2\n- workbench.action.terminal.focusAtIndex3\n- workbench.action.terminal.focusAtIndex4\n- workbench.action.terminal.focusAtIndex5\n- workbench.action.terminal.focusAtIndex6\n- workbench.action.terminal.focusAtIndex7\n- workbench.action.terminal.focusAtIndex8\n- workbench.action.terminal.focusAtIndex9\n- workbench.action.terminal.focusFind\n- workbench.action.terminal.focusHover\n- workbench.action.terminal.focusNext\n- workbench.action.terminal.focusNextPane\n- workbench.action.terminal.focusPrevious\n- workbench.action.terminal.focusPreviousPane\n- workbench.action.terminal.goToRecentDirectory\n- workbench.action.terminal.hideFind\n- workbench.action.terminal.hideSuggestWidget\n- workbench.action.terminal.kill\n- workbench.action.terminal.killEditor\n- workbench.action.terminal.moveToEditor\n- workbench.action.terminal.moveToLineEnd\n- workbench.action.terminal.moveToLineStart\n- workbench.action.terminal.moveToTerminalPanel\n- workbench.action.terminal.new\n- workbench.action.terminal.newInActiveWorkspace\n- workbench.action.terminal.paste\n- workbench.action.terminal.pasteSelection\n- workbench.action.terminal.resizePaneDown\n- workbench.action.terminal.resizePaneLeft\n- workbench.action.terminal.resizePaneRight\n- workbench.action.terminal.resizePaneUp\n- workbench.action.terminal.runActiveFile\n- workbench.action.terminal.runRecentCommand\n- workbench.action.terminal.runSelectedText\n- workbench.action.terminal.scrollDown\n- workbench.action.terminal.scrollDownPage\n- workbench.action.terminal.scrollToBottom\n- workbench.action.terminal.scrollToNextCommand\n- workbench.action.terminal.scrollToPreviousCommand\n- workbench.action.terminal.scrollToTop\n- workbench.action.terminal.scrollUp\n- workbench.action.terminal.scrollUpPage\n- workbench.action.terminal.selectAll\n- workbench.action.terminal.selectNextPageSuggestion\n- workbench.action.terminal.selectNextSuggestion\n- workbench.action.terminal.selectPrevPageSuggestion\n- workbench.action.terminal.selectPrevSuggestion\n- workbench.action.terminal.selectToNextCommand\n- workbench.action.terminal.selectToNextLine\n- workbench.action.terminal.selectToPreviousCommand\n- workbench.action.terminal.selectToPreviousLine\n- workbench.action.terminal.sendSequence\n- workbench.action.terminal.showAccessibilityHelp\n- workbench.action.terminal.sizeToContentWidth\n- workbench.action.terminal.split\n- workbench.action.terminal.splitInActiveWorkspace\n- workbench.action.terminal.toggleFindCaseSensitive\n- workbench.action.terminal.toggleFindRegex\n- workbench.action.terminal.toggleFindWholeWord\n- workbench.action.terminal.toggleTerminal\n- workbench.action.toggleFullScreen\n- workbench.action.toggleMaximizedPanel\n- workbench.action.togglePanel",
       "type": "array",
       "items": {
         "type": "string"
@@ -32354,6 +32574,18 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
+    "typescript.format.indentSwitchCase": {
+      "type": "boolean",
+      "default": true,
+      "description": "Indent case clauses in switch statements. Requires using TypeScript 5.1+ in the workspace.",
+      "scope": 4,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
     "typescript.format.insertSpaceAfterCommaDelimiter": {
       "type": "boolean",
       "default": true,
@@ -32768,10 +33000,16 @@
         "js",
         "minimal"
       ],
+      "enumItemLabels": [
+        null,
+        null,
+        null,
+        ".js / .ts"
+      ],
       "markdownEnumDescriptions": [
         "Use project settings to select a default.",
         "Shorten `./component/index.js` to `./component/index`.",
-        "Do not shorten path endings; include the `.js` extension.",
+        "Do not shorten path endings; include the `.js` or `.ts` extension.",
         "Shorten `./component/index.js` to `./component`."
       ],
       "default": "auto",
@@ -32850,6 +33088,18 @@
       "defaultDefaultValue": "auto",
       "restricted": false
     },
+    "typescript.preferences.renameMatchingJsxTags": {
+      "type": "boolean",
+      "default": true,
+      "description": "When on a JSX tag, try to rename the matching tag instead of renaming the symbol. Requires using TypeScript 5.1+ in the workspace.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
     "typescript.preferences.renameShorthandProperties": {
       "type": "boolean",
       "default": true,
@@ -32873,6 +33123,18 @@
         "displayName": "TypeScript and JavaScript Language Features"
       },
       "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "typescript.preferGoToSourceDefinition": {
+      "type": "boolean",
+      "default": false,
+      "description": "Makes Go to Definition avoid type declaration files when possible by triggering Go to Source Definition instead. This allows Go to Source Definition to be triggered with the mouse gesture. Requires using TypeScript 4.7+ in the workspace.",
+      "scope": 3,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": false,
       "restricted": false
     },
     "typescript.referencesCodeLens.enabled": {
@@ -33163,23 +33425,6 @@
       "defaultDefaultValue": [],
       "restricted": true
     },
-    "typescript.tsserver.trace": {
-      "type": "string",
-      "enum": [
-        "messages",
-        "off",
-        "verbose"
-      ],
-      "default": "off",
-      "description": "Enables tracing of messages sent to the TS server. This trace can be used to diagnose TS Server issues. The trace may contain file paths, source code, and other potentially sensitive information from your project.",
-      "scope": 3,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": "off",
-      "restricted": false
-    },
     "typescript.tsserver.useSeparateSyntaxServer": {
       "type": "boolean",
       "default": true,
@@ -33397,7 +33642,7 @@
     "window.autoDetectHighContrast": {
       "type": "boolean",
       "default": true,
-      "markdownDescription": "If enabled, will automatically change to high contrast theme if the OS is using a high contrast theme. The high contrast theme to use is specified by `#workbench.preferredHighContrastColorTheme#` and `#workbench.preferredHighContrastLightColorTheme#`.",
+      "markdownDescription": "If enabled, will automatically change to high contrast theme if the OS is using a high contrast theme. The high contrast theme to use is specified by `#workbench.preferredHighContrastColorTheme#` and `#workbench.preferredHighContrastLightColorTheme#`",
       "scope": 1,
       "defaultDefaultValue": true,
       "restricted": false
@@ -33474,15 +33719,6 @@
       "scope": 1,
       "description": "Controls whether the main menus can be opened via Alt-key shortcuts. Disabling mnemonics allows to bind these Alt-key shortcuts to editor commands instead.",
       "included": true,
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "window.experimental.sharedProcessUseUtilityProcess": {
-      "type": "boolean",
-      "description": "Experimental: When enabled, the window will have sandbox mode enabled via Electron API.",
-      "default": true,
-      "scope": 1,
-      "ignoreSync": true,
       "defaultDefaultValue": true,
       "restricted": false
     },
@@ -33742,7 +33978,7 @@
               "$ref": "vscode://schemas/workbench-colors",
               "additionalProperties": false
             },
-            "[Default Dark+ Experimental]": {
+            "[Default Dark Modern]": {
               "$ref": "vscode://schemas/workbench-colors",
               "additionalProperties": false
             },
@@ -33758,7 +33994,7 @@
               "$ref": "vscode://schemas/workbench-colors",
               "additionalProperties": false
             },
-            "[Default Light+ Experimental]": {
+            "[Default Light Modern]": {
               "$ref": "vscode://schemas/workbench-colors",
               "additionalProperties": false
             },
@@ -33828,15 +34064,15 @@
     "workbench.colorTheme": {
       "type": "string",
       "description": "Specifies the color theme used in the workbench.",
-      "default": "Default Dark+",
+      "default": "Default Dark Modern",
       "enum": [
         "Abyss",
+        "Default Dark Modern",
         "Default Dark+",
-        "Default Dark+ Experimental",
         "Default High Contrast",
         "Default High Contrast Light",
+        "Default Light Modern",
         "Default Light+",
-        "Default Light+ Experimental",
         "Kimbie Dark",
         "Monokai",
         "Monokai Dimmed",
@@ -33871,13 +34107,13 @@
         "Abyss",
         "Dark (Visual Studio)",
         "Dark High Contrast",
-        "Dark+ (default dark)",
-        "Dark+ V2 (Experimental)",
+        "Dark Modern",
+        "Dark+",
         "Kimbie Dark",
         "Light (Visual Studio)",
         "Light High Contrast",
-        "Light+ (default light)",
-        "Light+ V2 (Experimental)",
+        "Light Modern",
+        "Light+",
         "Monokai",
         "Monokai Dimmed",
         "Quiet Light",
@@ -33887,7 +34123,7 @@
         "Tomorrow Night Blue"
       ],
       "errorMessage": "Theme is unknown or not installed.",
-      "defaultDefaultValue": "Default Dark+",
+      "defaultDefaultValue": "Default Dark Modern",
       "scope": 3,
       "restricted": false
     },
@@ -34883,15 +35119,15 @@
     "workbench.preferredDarkColorTheme": {
       "type": "string",
       "markdownDescription": "Specifies the preferred color theme for dark OS appearance when `#window.autoDetectColorScheme#` is enabled.",
-      "default": "Default Dark+",
+      "default": "Default Dark Modern",
       "enum": [
         "Abyss",
+        "Default Dark Modern",
         "Default Dark+",
-        "Default Dark+ Experimental",
         "Default High Contrast",
         "Default High Contrast Light",
+        "Default Light Modern",
         "Default Light+",
-        "Default Light+ Experimental",
         "Kimbie Dark",
         "Monokai",
         "Monokai Dimmed",
@@ -34926,13 +35162,13 @@
         "Abyss",
         "Dark (Visual Studio)",
         "Dark High Contrast",
-        "Dark+ (default dark)",
-        "Dark+ V2 (Experimental)",
+        "Dark Modern",
+        "Dark+",
         "Kimbie Dark",
         "Light (Visual Studio)",
         "Light High Contrast",
-        "Light+ (default light)",
-        "Light+ V2 (Experimental)",
+        "Light Modern",
+        "Light+",
         "Monokai",
         "Monokai Dimmed",
         "Quiet Light",
@@ -34942,7 +35178,7 @@
         "Tomorrow Night Blue"
       ],
       "errorMessage": "Theme is unknown or not installed.",
-      "defaultDefaultValue": "Default Dark+",
+      "defaultDefaultValue": "Default Dark Modern",
       "scope": 3,
       "restricted": false
     },
@@ -34952,12 +35188,12 @@
       "default": "Default High Contrast",
       "enum": [
         "Abyss",
+        "Default Dark Modern",
         "Default Dark+",
-        "Default Dark+ Experimental",
         "Default High Contrast",
         "Default High Contrast Light",
+        "Default Light Modern",
         "Default Light+",
-        "Default Light+ Experimental",
         "Kimbie Dark",
         "Monokai",
         "Monokai Dimmed",
@@ -34992,13 +35228,13 @@
         "Abyss",
         "Dark (Visual Studio)",
         "Dark High Contrast",
-        "Dark+ (default dark)",
-        "Dark+ V2 (Experimental)",
+        "Dark Modern",
+        "Dark+",
         "Kimbie Dark",
         "Light (Visual Studio)",
         "Light High Contrast",
-        "Light+ (default light)",
-        "Light+ V2 (Experimental)",
+        "Light Modern",
+        "Light+",
         "Monokai",
         "Monokai Dimmed",
         "Quiet Light",
@@ -35018,12 +35254,12 @@
       "default": "Default High Contrast Light",
       "enum": [
         "Abyss",
+        "Default Dark Modern",
         "Default Dark+",
-        "Default Dark+ Experimental",
         "Default High Contrast",
         "Default High Contrast Light",
+        "Default Light Modern",
         "Default Light+",
-        "Default Light+ Experimental",
         "Kimbie Dark",
         "Monokai",
         "Monokai Dimmed",
@@ -35058,13 +35294,13 @@
         "Abyss",
         "Dark (Visual Studio)",
         "Dark High Contrast",
-        "Dark+ (default dark)",
-        "Dark+ V2 (Experimental)",
+        "Dark Modern",
+        "Dark+",
         "Kimbie Dark",
         "Light (Visual Studio)",
         "Light High Contrast",
-        "Light+ (default light)",
-        "Light+ V2 (Experimental)",
+        "Light Modern",
+        "Light+",
         "Monokai",
         "Monokai Dimmed",
         "Quiet Light",
@@ -35081,15 +35317,15 @@
     "workbench.preferredLightColorTheme": {
       "type": "string",
       "markdownDescription": "Specifies the preferred color theme for light OS appearance when `#window.autoDetectColorScheme#` is enabled.",
-      "default": "Default Light+",
+      "default": "Default Light Modern",
       "enum": [
         "Abyss",
+        "Default Dark Modern",
         "Default Dark+",
-        "Default Dark+ Experimental",
         "Default High Contrast",
         "Default High Contrast Light",
+        "Default Light Modern",
         "Default Light+",
-        "Default Light+ Experimental",
         "Kimbie Dark",
         "Monokai",
         "Monokai Dimmed",
@@ -35124,13 +35360,13 @@
         "Abyss",
         "Dark (Visual Studio)",
         "Dark High Contrast",
-        "Dark+ (default dark)",
-        "Dark+ V2 (Experimental)",
+        "Dark Modern",
+        "Dark+",
         "Kimbie Dark",
         "Light (Visual Studio)",
         "Light High Contrast",
-        "Light+ (default light)",
-        "Light+ V2 (Experimental)",
+        "Light Modern",
+        "Light+",
         "Monokai",
         "Monokai Dimmed",
         "Quiet Light",
@@ -35140,7 +35376,7 @@
         "Tomorrow Night Blue"
       ],
       "errorMessage": "Theme is unknown or not installed.",
-      "defaultDefaultValue": "Default Light+",
+      "defaultDefaultValue": "Default Light Modern",
       "scope": 3,
       "restricted": false
     },

@@ -1724,7 +1724,7 @@
     },
     "editorError.border": {
       "type": "string",
-      "description": "Border color of error boxes in the editor.",
+      "description": "If set, color of double underlines for errors in the editor.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -1964,7 +1964,7 @@
     },
     "editorHint.border": {
       "type": "string",
-      "description": "Border color of hint boxes in the editor.",
+      "description": "If set, color of double underlines for hints in the editor.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -2064,7 +2064,7 @@
     },
     "editorInfo.border": {
       "type": "string",
-      "description": "Border color of info boxes in the editor.",
+      "description": "If set, color of double underlines for infos in the editor.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -2634,7 +2634,7 @@
     },
     "editorWarning.border": {
       "type": "string",
-      "description": "Border color of warning boxes in the editor.",
+      "description": "If set, color of double underlines for warnings in the editor.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -3192,9 +3192,39 @@
         }
       ]
     },
+    "interactiveEditor.regionHighlight": {
+      "type": "string",
+      "description": "Background highlighting of the current interactive region. Must be transparent.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "interactiveEditor.shadow": {
       "type": "string",
       "description": "Shadow color of the interactive editor widget",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "interactiveEditorDiff.inserted": {
+      "type": "string",
+      "description": "Background color of inserted text in the interactive editor input",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "interactiveEditorDiff.removed": {
+      "type": "string",
+      "description": "Background color of removed text in the interactive editor input",
       "format": "color-hex",
       "defaultSnippets": [
         {

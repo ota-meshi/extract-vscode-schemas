@@ -254,15 +254,18 @@
     "diffEditor.diffAlgorithm": {
       "type": "string",
       "enum": [
-        "experimental",
-        "smart"
+        "advanced",
+        "legacy"
       ],
-      "default": "smart",
+      "default": "legacy",
       "markdownEnumDescriptions": [
-        "Uses an experimental diffing algorithm.",
-        "Uses the default diffing algorithm."
+        "Uses the advanced diffing algorithm.",
+        "Uses the legacy diffing algorithm."
       ],
-      "defaultDefaultValue": "smart",
+      "tags": [
+        "experimental"
+      ],
+      "defaultDefaultValue": "legacy",
       "scope": 5,
       "restricted": false
     },
@@ -731,6 +734,14 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.defaultColorDecorators": {
+      "markdownDescription": "Controls whether inline color decorations should be shown using the default document color provider",
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 5,
+      "restricted": false
+    },
     "editor.defaultFoldingRangeProvider": {
       "description": "Defines a default folding range provider that takes precedence over all other folding range providers. Must be the identifier of an extension contributing a folding range provider.",
       "type": [
@@ -983,6 +994,22 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.dropIntoEditor.showDropSelector": {
+      "type": "string",
+      "markdownDescription": "Controls if a widget is shown when dropping files into the editor. This widget lets you control how the file is dropped.",
+      "enum": [
+        "afterDrop",
+        "never"
+      ],
+      "enumDescriptions": [
+        "Show the drop selector widget after a file is dropped into the editor.",
+        "Never show the drop selector widget. Instead the default drop provider is always used."
+      ],
+      "default": "afterDrop",
+      "defaultDefaultValue": "afterDrop",
+      "scope": 5,
+      "restricted": false
+    },
     "editor.emptySelectionClipboard": {
       "description": "Controls whether copying without a selection copies the current line.",
       "type": "boolean",
@@ -1006,6 +1033,14 @@
       "type": "boolean",
       "default": false,
       "description": "Controls whether async tokenization should be logged. For debugging only.",
+      "defaultDefaultValue": false,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.experimental.asyncTokenizationVerification": {
+      "type": "boolean",
+      "default": false,
+      "description": "Controls whether async tokenization should be verified against legacy background tokenization. Might slow down tokenization. For debugging only.",
       "defaultDefaultValue": false,
       "scope": 5,
       "restricted": false
@@ -1705,9 +1740,9 @@
     },
     "editor.inlineSuggest.suppressSuggestions": {
       "type": "boolean",
-      "default": true,
+      "default": false,
       "description": "Controls how inline suggestions interact with the suggest widget. If enabled, the suggest widget is not shown automatically when inline suggestions are available.",
-      "defaultDefaultValue": true,
+      "defaultDefaultValue": false,
       "scope": 5,
       "restricted": false
     },
@@ -3532,10 +3567,16 @@
         "js",
         "minimal"
       ],
+      "enumItemLabels": [
+        null,
+        null,
+        null,
+        ".js / .ts"
+      ],
       "markdownEnumDescriptions": [
         "Use project settings to select a default.",
         "Shorten `./component/index.js` to `./component/index`.",
-        "Do not shorten path endings; include the `.js` extension.",
+        "Do not shorten path endings; include the `.js` or `.ts` extension.",
         "Shorten `./component/index.js` to `./component`."
       ],
       "default": "auto",
@@ -3590,6 +3631,18 @@
         "displayName": "TypeScript and JavaScript Language Features"
       },
       "defaultDefaultValue": "auto",
+      "restricted": false
+    },
+    "javascript.preferences.renameMatchingJsxTags": {
+      "type": "boolean",
+      "default": true,
+      "description": "When on a JSX tag, try to rename the matching tag instead of renaming the symbol. Requires using TypeScript 5.1+ in the workspace.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
       "restricted": false
     },
     "javascript.preferences.renameShorthandProperties": {
@@ -3921,10 +3974,16 @@
         "js",
         "minimal"
       ],
+      "enumItemLabels": [
+        null,
+        null,
+        null,
+        ".js / .ts"
+      ],
       "markdownEnumDescriptions": [
         "Use project settings to select a default.",
         "Shorten `./component/index.js` to `./component/index`.",
-        "Do not shorten path endings; include the `.js` extension.",
+        "Do not shorten path endings; include the `.js` or `.ts` extension.",
         "Shorten `./component/index.js` to `./component`."
       ],
       "default": "auto",
@@ -3979,6 +4038,18 @@
         "displayName": "TypeScript and JavaScript Language Features"
       },
       "defaultDefaultValue": "auto",
+      "restricted": false
+    },
+    "typescript.preferences.renameMatchingJsxTags": {
+      "type": "boolean",
+      "default": true,
+      "description": "When on a JSX tag, try to rename the matching tag instead of renaming the symbol. Requires using TypeScript 5.1+ in the workspace.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
       "restricted": false
     },
     "typescript.preferences.renameShorthandProperties": {

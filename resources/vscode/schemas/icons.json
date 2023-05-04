@@ -2375,6 +2375,10 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon on the button to cancel refreshing tests.: $(testing-cancel-refresh-tests)"
     },
+    "testing-continuous-is-on": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon when continuous run is on for a test ite,.: $(testing-continuous-is-on)"
+    },
     "testing-debug-all-icon": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon of the \"debug all tests\" action.: $(testing-debug-all-icon)"
@@ -2427,13 +2431,13 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon shown for tests that are skipped.: $(testing-skipped-icon)"
     },
+    "testing-turn-continuous-run-off": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon to turn continuous test runs off.: $(testing-turn-continuous-run-off)"
+    },
     "testing-turn-continuous-run-on": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon to turn continuous test runs on.: $(testing-turn-continuous-run-on)"
-    },
-    "testing-turn-continuous-run-pff": {
-      "$ref": "#/definitions/icons",
-      "markdownDescription": "Icon to turn continuous test runs off.: $(testing-turn-continuous-run-pff)"
     },
     "testing-unset-icon": {
       "$ref": "#/definitions/icons",
