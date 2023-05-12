@@ -519,7 +519,6 @@
         "focusSuggestion",
         "getContextKeyInfo",
         "git-base.api.getRemoteSources",
-        "git._syncAll",
         "git.acceptMerge",
         "git.addRemote",
         "git.api.getRemoteSources",
@@ -577,7 +576,6 @@
         "git.openMergeEditor",
         "git.openRepositoriesInParentFolders",
         "git.openRepository",
-        "git.openResource",
         "git.publish",
         "git.pull",
         "git.pullFrom",
@@ -2637,8 +2635,6 @@
         null,
         null,
         "A command that returns information about context keys",
-        null,
-        null,
         null,
         null,
         null,
@@ -6220,16 +6216,10 @@
                     "description": "The name of the profile to create",
                     "type": "string",
                     "enum": [
-                      null,
-                      "bash",
-                      "pwsh",
-                      "tmux"
+                      null
                     ],
                     "markdownEnumDescriptions": [
-                      "Automatically detect the default",
-                      "$(terminal-bash) bash\n- path: /usr/bin/bash",
-                      "$(terminal-powershell) pwsh\n- path: /usr/bin/pwsh",
-                      "$(terminal-tmux) tmux\n- path: /usr/bin/tmux"
+                      "Automatically detect the default"
                     ]
                   }
                 }
@@ -7974,7 +7964,6 @@
             "-focusSuggestion",
             "-getContextKeyInfo",
             "-git-base.api.getRemoteSources",
-            "-git._syncAll",
             "-git.acceptMerge",
             "-git.addRemote",
             "-git.api.getRemoteSources",
@@ -8032,7 +8021,6 @@
             "-git.openMergeEditor",
             "-git.openRepositoriesInParentFolders",
             "-git.openRepository",
-            "-git.openResource",
             "-git.publish",
             "-git.pull",
             "-git.pullFrom",
@@ -10092,8 +10080,6 @@
             null,
             null,
             "A command that returns information about context keys",
-            null,
-            null,
             null,
             null,
             null,
