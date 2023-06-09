@@ -140,7 +140,7 @@
           "}"
         ]
       ],
-      "description": "Defines the bracket symbols that increase or decrease the indentation.",
+      "markdownDescription": "Defines the bracket symbols that increase or decrease the indentation. When bracket pair colorization is enabled and `colorizedBracketPairs` is not defined, this also defines the bracket pairs that are colorized by their nesting level.",
       "type": "array",
       "items": {
         "$ref": "#/definitions/bracketPair"
@@ -161,7 +161,7 @@
           "}"
         ]
       ],
-      "description": "Defines the bracket pairs that are colorized by their nesting level if bracket pair colorization is enabled.",
+      "markdownDescription": "Defines the bracket pairs that are colorized by their nesting level if bracket pair colorization is enabled. Any brackets included here that are not included in `brackets` will be automatically included in `brackets`.",
       "type": "array",
       "items": {
         "$ref": "#/definitions/bracketPair"

@@ -269,6 +269,22 @@
       "scope": 5,
       "restricted": false
     },
+    "diffEditor.experimental.collapseUnchangedRegions": {
+      "type": "boolean",
+      "default": false,
+      "description": "Controls whether the diff editor shows unchanged regions. Only works when 'diffEditor.experimental.useVersion2' is set.",
+      "defaultDefaultValue": false,
+      "scope": 5,
+      "restricted": false
+    },
+    "diffEditor.experimental.useVersion2": {
+      "type": "boolean",
+      "default": false,
+      "description": "Controls whether the diff editor uses the new or the old implementation.",
+      "defaultDefaultValue": false,
+      "scope": 5,
+      "restricted": false
+    },
     "diffEditor.ignoreTrimWhitespace": {
       "type": "boolean",
       "default": true,
@@ -1043,14 +1059,6 @@
       "description": "Controls whether async tokenization should be verified against legacy background tokenization. Might slow down tokenization. For debugging only.",
       "defaultDefaultValue": false,
       "scope": 5,
-      "restricted": false
-    },
-    "editor.experimental.pasteActions.enabled": {
-      "type": "boolean",
-      "scope": 5,
-      "description": "Enable/disable running edits from extensions on paste.",
-      "default": false,
-      "defaultDefaultValue": false,
       "restricted": false
     },
     "editor.experimentalWhitespaceRendering": {
@@ -2098,6 +2106,30 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.pasteAs.enabled": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "Controls whether you can paste content in different ways.",
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.pasteAs.showPasteSelector": {
+      "type": "string",
+      "markdownDescription": "Controls if a widget is shown when pasting content in to the editor. This widget lets you control how the file is pasted.",
+      "enum": [
+        "afterPaste",
+        "never"
+      ],
+      "enumDescriptions": [
+        "Show the paste selector widget after content is pasted into the editor.",
+        "Never show the paste selector widget. Instead the default pasting behavior is always used."
+      ],
+      "default": "afterPaste",
+      "defaultDefaultValue": "afterPaste",
+      "scope": 5,
+      "restricted": false
+    },
     "editor.peekWidgetDefaultFocus": {
       "enumDescriptions": [
         "Focus the editor when opening peek",
@@ -2339,13 +2371,13 @@
       "restricted": false
     },
     "editor.screenReaderAnnounceInlineSuggestion": {
-      "description": "Control whether inline suggestions are announced by a screen reader. Note that this does not work on macOS with VoiceOver.",
+      "description": "Control whether inline suggestions are announced by a screen reader.",
       "tags": [
         "accessibility"
       ],
       "type": "boolean",
-      "default": false,
-      "defaultDefaultValue": false,
+      "default": true,
+      "defaultDefaultValue": true,
       "scope": 5,
       "restricted": false
     },
@@ -2942,9 +2974,9 @@
     },
     "editor.suggest.snippetsPreventQuickSuggestions": {
       "type": "boolean",
-      "default": true,
+      "default": false,
       "description": "Controls whether an active snippet prevents quick suggestions.",
-      "defaultDefaultValue": true,
+      "defaultDefaultValue": false,
       "scope": 5,
       "restricted": false
     },

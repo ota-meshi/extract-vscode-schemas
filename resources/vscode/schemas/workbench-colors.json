@@ -361,6 +361,26 @@
         }
       ]
     },
+    "chat.requestBackground": {
+      "type": "string",
+      "description": "The background color of a chat request.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "chat.requestBorder": {
+      "type": "string",
+      "description": "The border color of a chat request.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "checkbox.background": {
       "type": "string",
       "description": "Background color of checkbox widget.",
@@ -484,6 +504,26 @@
     "commandCenter.inactiveForeground": {
       "type": "string",
       "description": "Foreground color of the command center when the window is inactive",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "commentsView.resolvedIcon": {
+      "type": "string",
+      "description": "Icon color for resolved comments.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "commentsView.unresolvedIcon": {
+      "type": "string",
+      "description": "Icon color for unresolved comments.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -944,6 +984,16 @@
     "diffEditor.removedTextBorder": {
       "type": "string",
       "description": "Outline color for text that got removed.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "diffEditor.unchangedRegionBackground": {
+      "type": "string",
+      "description": "The color of unchanged blocks in diff editor.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -2312,6 +2362,26 @@
         }
       ]
     },
+    "editorOverviewRuler.commentForeground": {
+      "type": "string",
+      "description": "Editor overview ruler decoration color for resolved comments. This color should be opaque.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "editorOverviewRuler.commentUnresolvedForeground": {
+      "type": "string",
+      "description": "Editor overview ruler decoration color for unresolved comments. This color should be opaque.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "editorOverviewRuler.commonContentForeground": {
       "type": "string",
       "description": "Common ancestor overview ruler foreground for inline merge-conflicts.",
@@ -3162,26 +3232,6 @@
         }
       ]
     },
-    "interactive.requestBackground": {
-      "type": "string",
-      "description": "The background color of an interactive request.",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ]
-    },
-    "interactive.requestBorder": {
-      "type": "string",
-      "description": "The border color of an interactive request.",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ]
-    },
     "interactiveEditor.border": {
       "type": "string",
       "description": "Border color of the interactive editor widget",
@@ -3594,7 +3644,7 @@
     },
     "listFilterWidget.shadow": {
       "type": "string",
-      "description": "Shadown color of the type filter widget in lists and trees.",
+      "description": "Shadow color of the type filter widget in lists and trees.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -5326,6 +5376,26 @@
     "statusBar.noFolderForeground": {
       "type": "string",
       "description": "Status bar foreground color when no folder is opened. The status bar is shown in the bottom of the window.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "statusBar.offlineBackground": {
+      "type": "string",
+      "description": "Status bar background color when the workbench is offline. The status bar is shown in the bottom of the window",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "statusBar.offlineForeground": {
+      "type": "string",
+      "description": "Status bar foreground color when the workbench is offline. The status bar is shown in the bottom of the window",
       "format": "color-hex",
       "defaultSnippets": [
         {
