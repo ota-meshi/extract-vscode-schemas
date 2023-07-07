@@ -10,6 +10,10 @@
       "type": "string",
       "markdownDescription": "Unique id used for correlating crash reports sent from this app instance."
     },
+    "disable-chromium-sandbox": {
+      "type": "boolean",
+      "description": "Disables the Chromium sandbox. This is useful when running VS Code as elevated on Linux and running under Applocker on Windows."
+    },
     "disable-hardware-acceleration": {
       "type": "boolean",
       "description": "Disables hardware acceleration. ONLY change this option if you encounter graphic issues."

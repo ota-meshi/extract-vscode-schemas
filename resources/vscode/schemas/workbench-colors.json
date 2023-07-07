@@ -961,6 +961,16 @@
         }
       ]
     },
+    "diffEditor.move.border": {
+      "type": "string",
+      "description": "The border color for text that got moved in the diff editor.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "diffEditor.removedLineBackground": {
       "type": "string",
       "description": "Background color for lines that got removed. The color must not be opaque so as not to hide underlying decorations.",
@@ -991,9 +1001,29 @@
         }
       ]
     },
+    "diffEditor.unchangedCodeBackground": {
+      "type": "string",
+      "description": "The background color of unchanged code in the diff editor.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "diffEditor.unchangedRegionBackground": {
       "type": "string",
-      "description": "The color of unchanged blocks in diff editor.",
+      "description": "The background color of unchanged blocks in the diff editor.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "diffEditor.unchangedRegionForeground": {
+      "type": "string",
+      "description": "The foreground color of unchanged blocks in the diff editor.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -3042,6 +3072,106 @@
         }
       ]
     },
+    "inlineChat.background": {
+      "type": "string",
+      "description": "Background color of the interactive editor widget",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "inlineChat.border": {
+      "type": "string",
+      "description": "Border color of the interactive editor widget",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "inlineChat.regionHighlight": {
+      "type": "string",
+      "description": "Background highlighting of the current interactive region. Must be transparent.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "inlineChat.shadow": {
+      "type": "string",
+      "description": "Shadow color of the interactive editor widget",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "inlineChatDiff.inserted": {
+      "type": "string",
+      "description": "Background color of inserted text in the interactive editor input",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "inlineChatInput.background": {
+      "type": "string",
+      "description": "Background color of the interactive editor input",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "inlineChatInput.border": {
+      "type": "string",
+      "description": "Border color of the interactive editor input",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "inlineChatInput.focusBorder": {
+      "type": "string",
+      "description": "Border color of the interactive editor input when focused",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "inlineChatInput.placeholderForeground": {
+      "type": "string",
+      "description": "Foreground color of the interactive editor input placeholder",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "inlineChatrDiff.removed": {
+      "type": "string",
+      "description": "Background color of removed text in the interactive editor input",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "input.background": {
       "type": "string",
       "description": "Input box background.",
@@ -3225,96 +3355,6 @@
     "interactive.inactiveCodeBorder": {
       "type": "string",
       "description": "The border color for the current interactive code cell when the editor does not have focus.",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ]
-    },
-    "interactiveEditor.border": {
-      "type": "string",
-      "description": "Border color of the interactive editor widget",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ]
-    },
-    "interactiveEditor.regionHighlight": {
-      "type": "string",
-      "description": "Background highlighting of the current interactive region. Must be transparent.",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ]
-    },
-    "interactiveEditor.shadow": {
-      "type": "string",
-      "description": "Shadow color of the interactive editor widget",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ]
-    },
-    "interactiveEditorDiff.inserted": {
-      "type": "string",
-      "description": "Background color of inserted text in the interactive editor input",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ]
-    },
-    "interactiveEditorDiff.removed": {
-      "type": "string",
-      "description": "Background color of removed text in the interactive editor input",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ]
-    },
-    "interactiveEditorInput.background": {
-      "type": "string",
-      "description": "Background color of the interactive editor input",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ]
-    },
-    "interactiveEditorInput.border": {
-      "type": "string",
-      "description": "Border color of the interactive editor input",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ]
-    },
-    "interactiveEditorInput.focusBorder": {
-      "type": "string",
-      "description": "Border color of the interactive editor input when focused",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ]
-    },
-    "interactiveEditorInput.placeholderForeground": {
-      "type": "string",
-      "description": "Foreground color of the interactive editor input placeholder",
       "format": "color-hex",
       "defaultSnippets": [
         {

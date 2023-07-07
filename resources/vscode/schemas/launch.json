@@ -612,11 +612,6 @@
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                         "type": "boolean"
                       },
-                      "enableTurboSourcemaps": {
-                        "default": true,
-                        "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                        "type": "boolean"
-                      },
                       "env": {
                         "additionalProperties": {
                           "type": [
@@ -946,11 +941,6 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                        "type": "boolean"
-                      },
-                      "enableTurboSourcemaps": {
-                        "default": true,
-                        "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                         "type": "boolean"
                       },
                       "env": {
@@ -1648,11 +1638,6 @@
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                         "type": "boolean"
                       },
-                      "enableTurboSourcemaps": {
-                        "default": true,
-                        "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                        "type": "boolean"
-                      },
                       "env": {
                         "additionalProperties": {
                           "type": [
@@ -1982,11 +1967,6 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                        "type": "boolean"
-                      },
-                      "enableTurboSourcemaps": {
-                        "default": true,
-                        "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                         "type": "boolean"
                       },
                       "env": {
@@ -2698,11 +2678,6 @@
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                         "type": "boolean"
                       },
-                      "enableTurboSourcemaps": {
-                        "default": true,
-                        "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                        "type": "boolean"
-                      },
                       "env": {
                         "additionalProperties": {
                           "type": [
@@ -3032,11 +3007,6 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                        "type": "boolean"
-                      },
-                      "enableTurboSourcemaps": {
-                        "default": true,
-                        "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                         "type": "boolean"
                       },
                       "env": {
@@ -3735,11 +3705,6 @@
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                         "type": "boolean"
                       },
-                      "enableTurboSourcemaps": {
-                        "default": true,
-                        "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                        "type": "boolean"
-                      },
                       "env": {
                         "additionalProperties": {
                           "type": [
@@ -4069,11 +4034,6 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                        "type": "boolean"
-                      },
-                      "enableTurboSourcemaps": {
-                        "default": true,
-                        "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                         "type": "boolean"
                       },
                       "env": {
@@ -4587,13 +4547,6 @@
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
-              "enableTurboSourcemaps": {
-                "default": true,
-                "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                "type": "boolean",
-                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
-                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
-              },
               "env": {
                 "additionalProperties": {
                   "type": [
@@ -5031,13 +4984,6 @@
               "enableContentValidation": {
                 "default": true,
                 "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                "type": "boolean",
-                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
-                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
-              },
-              "enableTurboSourcemaps": {
-                "default": true,
-                "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                 "type": "boolean",
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
@@ -5749,11 +5695,6 @@
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                         "type": "boolean"
                       },
-                      "enableTurboSourcemaps": {
-                        "default": true,
-                        "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                        "type": "boolean"
-                      },
                       "env": {
                         "additionalProperties": {
                           "type": [
@@ -6083,11 +6024,6 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                        "type": "boolean"
-                      },
-                      "enableTurboSourcemaps": {
-                        "default": true,
-                        "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                         "type": "boolean"
                       },
                       "env": {
@@ -6988,11 +6924,6 @@
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                         "type": "boolean"
                       },
-                      "enableTurboSourcemaps": {
-                        "default": true,
-                        "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                        "type": "boolean"
-                      },
                       "env": {
                         "additionalProperties": {
                           "type": [
@@ -7322,11 +7253,6 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                        "type": "boolean"
-                      },
-                      "enableTurboSourcemaps": {
-                        "default": true,
-                        "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                         "type": "boolean"
                       },
                       "env": {
@@ -7972,13 +7898,6 @@
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
-              "enableTurboSourcemaps": {
-                "default": true,
-                "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                "type": "boolean",
-                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
-                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
-              },
               "env": {
                 "additionalProperties": {
                   "type": [
@@ -8288,11 +8207,6 @@
                           "enableContentValidation": {
                             "default": true,
                             "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                            "type": "boolean"
-                          },
-                          "enableTurboSourcemaps": {
-                            "default": true,
-                            "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                             "type": "boolean"
                           },
                           "env": {
@@ -8624,11 +8538,6 @@
                           "enableContentValidation": {
                             "default": true,
                             "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                            "type": "boolean"
-                          },
-                          "enableTurboSourcemaps": {
-                            "default": true,
-                            "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                             "type": "boolean"
                           },
                           "env": {
@@ -9425,13 +9334,6 @@
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
-              "enableTurboSourcemaps": {
-                "default": true,
-                "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                "type": "boolean",
-                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
-                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
-              },
               "env": {
                 "additionalProperties": {
                   "type": [
@@ -9741,11 +9643,6 @@
                           "enableContentValidation": {
                             "default": true,
                             "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                            "type": "boolean"
-                          },
-                          "enableTurboSourcemaps": {
-                            "default": true,
-                            "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                             "type": "boolean"
                           },
                           "env": {
@@ -10077,11 +9974,6 @@
                           "enableContentValidation": {
                             "default": true,
                             "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                            "type": "boolean"
-                          },
-                          "enableTurboSourcemaps": {
-                            "default": true,
-                            "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                             "type": "boolean"
                           },
                           "env": {
@@ -10886,13 +10778,6 @@
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
-              "enableTurboSourcemaps": {
-                "default": true,
-                "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                "type": "boolean",
-                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
-                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
-              },
               "env": {
                 "additionalProperties": {
                   "type": [
@@ -11518,13 +11403,6 @@
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
-              "enableTurboSourcemaps": {
-                "default": true,
-                "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                "type": "boolean",
-                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
-                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
-              },
               "env": {
                 "additionalProperties": {
                   "type": [
@@ -12120,13 +11998,6 @@
               "enableContentValidation": {
                 "default": true,
                 "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                "type": "boolean",
-                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
-                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
-              },
-              "enableTurboSourcemaps": {
-                "default": true,
-                "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                 "type": "boolean",
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
@@ -12909,11 +12780,6 @@
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                         "type": "boolean"
                       },
-                      "enableTurboSourcemaps": {
-                        "default": true,
-                        "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                        "type": "boolean"
-                      },
                       "env": {
                         "additionalProperties": {
                           "type": [
@@ -13243,11 +13109,6 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                        "type": "boolean"
-                      },
-                      "enableTurboSourcemaps": {
-                        "default": true,
-                        "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                         "type": "boolean"
                       },
                       "env": {
@@ -14134,11 +13995,6 @@
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                         "type": "boolean"
                       },
-                      "enableTurboSourcemaps": {
-                        "default": true,
-                        "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                        "type": "boolean"
-                      },
                       "env": {
                         "additionalProperties": {
                           "type": [
@@ -14468,11 +14324,6 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                        "type": "boolean"
-                      },
-                      "enableTurboSourcemaps": {
-                        "default": true,
-                        "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                         "type": "boolean"
                       },
                       "env": {
@@ -15457,11 +15308,6 @@
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                   "type": "boolean"
                 },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                  "type": "boolean"
-                },
                 "env": {
                   "additionalProperties": {
                     "type": [
@@ -15791,11 +15637,6 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                  "type": "boolean"
-                },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                   "type": "boolean"
                 },
                 "env": {
@@ -16470,11 +16311,6 @@
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                   "type": "boolean"
                 },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                  "type": "boolean"
-                },
                 "env": {
                   "additionalProperties": {
                     "type": [
@@ -16804,11 +16640,6 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                  "type": "boolean"
-                },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                   "type": "boolean"
                 },
                 "env": {
@@ -17533,11 +17364,6 @@
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                   "type": "boolean"
                 },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                  "type": "boolean"
-                },
                 "env": {
                   "additionalProperties": {
                     "type": [
@@ -17867,11 +17693,6 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                  "type": "boolean"
-                },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                   "type": "boolean"
                 },
                 "env": {
@@ -18735,11 +18556,6 @@
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                   "type": "boolean"
                 },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                  "type": "boolean"
-                },
                 "env": {
                   "additionalProperties": {
                     "type": [
@@ -19069,11 +18885,6 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                  "type": "boolean"
-                },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                   "type": "boolean"
                 },
                 "env": {
@@ -19788,13 +19599,6 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
-        "enableTurboSourcemaps": {
-          "default": true,
-          "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-          "type": "boolean",
-          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
-          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
-        },
         "env": {
           "additionalProperties": {
             "type": [
@@ -20096,11 +19900,6 @@
                     "enableContentValidation": {
                       "default": true,
                       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                      "type": "boolean"
-                    },
-                    "enableTurboSourcemaps": {
-                      "default": true,
-                      "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                       "type": "boolean"
                     },
                     "env": {
@@ -20432,11 +20231,6 @@
                     "enableContentValidation": {
                       "default": true,
                       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                      "type": "boolean"
-                    },
-                    "enableTurboSourcemaps": {
-                      "default": true,
-                      "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                       "type": "boolean"
                     },
                     "env": {
@@ -21231,13 +21025,6 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
-        "enableTurboSourcemaps": {
-          "default": true,
-          "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-          "type": "boolean",
-          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
-          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
-        },
         "env": {
           "additionalProperties": {
             "type": [
@@ -21534,11 +21321,6 @@
                     "enableContentValidation": {
                       "default": true,
                       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                      "type": "boolean"
-                    },
-                    "enableTurboSourcemaps": {
-                      "default": true,
-                      "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                       "type": "boolean"
                     },
                     "env": {
@@ -21870,11 +21652,6 @@
                     "enableContentValidation": {
                       "default": true,
                       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                      "type": "boolean"
-                    },
-                    "enableTurboSourcemaps": {
-                      "default": true,
-                      "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                       "type": "boolean"
                     },
                     "env": {
@@ -22820,11 +22597,6 @@
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                   "type": "boolean"
                 },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                  "type": "boolean"
-                },
                 "env": {
                   "additionalProperties": {
                     "type": [
@@ -23154,11 +22926,6 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                  "type": "boolean"
-                },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                   "type": "boolean"
                 },
                 "env": {
@@ -23847,11 +23614,6 @@
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                   "type": "boolean"
                 },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                  "type": "boolean"
-                },
                 "env": {
                   "additionalProperties": {
                     "type": [
@@ -24181,11 +23943,6 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                  "type": "boolean"
-                },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                   "type": "boolean"
                 },
                 "env": {
@@ -24931,11 +24688,6 @@
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                   "type": "boolean"
                 },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                  "type": "boolean"
-                },
                 "env": {
                   "additionalProperties": {
                     "type": [
@@ -25265,11 +25017,6 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                  "type": "boolean"
-                },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                   "type": "boolean"
                 },
                 "env": {
@@ -26147,11 +25894,6 @@
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                   "type": "boolean"
                 },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                  "type": "boolean"
-                },
                 "env": {
                   "additionalProperties": {
                     "type": [
@@ -26481,11 +26223,6 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                  "type": "boolean"
-                },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                   "type": "boolean"
                 },
                 "env": {
@@ -27086,13 +26823,6 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
-        "enableTurboSourcemaps": {
-          "default": true,
-          "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-          "type": "boolean",
-          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
-          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
-        },
         "env": {
           "additionalProperties": {
             "type": [
@@ -27592,13 +27322,6 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
-        "enableTurboSourcemaps": {
-          "default": true,
-          "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-          "type": "boolean",
-          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
-          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
-        },
         "env": {
           "additionalProperties": {
             "type": [
@@ -28074,13 +27797,6 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
-        "enableTurboSourcemaps": {
-          "default": true,
-          "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-          "type": "boolean",
-          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
-          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
-        },
         "env": {
           "additionalProperties": {
             "type": [
@@ -28512,13 +28228,6 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
-        "enableTurboSourcemaps": {
-          "default": true,
-          "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-          "type": "boolean",
-          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
-          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
-        },
         "env": {
           "additionalProperties": {
             "type": [
@@ -28927,13 +28636,6 @@
         "enableContentValidation": {
           "default": true,
           "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-          "type": "boolean",
-          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
-          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
-        },
-        "enableTurboSourcemaps": {
-          "default": true,
-          "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
           "type": "boolean",
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
@@ -29549,13 +29251,6 @@
         "enableContentValidation": {
           "default": true,
           "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-          "type": "boolean",
-          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
-          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
-        },
-        "enableTurboSourcemaps": {
-          "default": true,
-          "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
           "type": "boolean",
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
@@ -30315,11 +30010,6 @@
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                   "type": "boolean"
                 },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                  "type": "boolean"
-                },
                 "env": {
                   "additionalProperties": {
                     "type": [
@@ -30649,11 +30339,6 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                  "type": "boolean"
-                },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                   "type": "boolean"
                 },
                 "env": {
@@ -31329,11 +31014,6 @@
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                   "type": "boolean"
                 },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                  "type": "boolean"
-                },
                 "env": {
                   "additionalProperties": {
                     "type": [
@@ -31663,11 +31343,6 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                  "type": "boolean"
-                },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                   "type": "boolean"
                 },
                 "env": {
@@ -32392,11 +32067,6 @@
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                   "type": "boolean"
                 },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                  "type": "boolean"
-                },
                 "env": {
                   "additionalProperties": {
                     "type": [
@@ -32726,11 +32396,6 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                  "type": "boolean"
-                },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                   "type": "boolean"
                 },
                 "env": {
@@ -33595,11 +33260,6 @@
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                   "type": "boolean"
                 },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                  "type": "boolean"
-                },
                 "env": {
                   "additionalProperties": {
                     "type": [
@@ -33929,11 +33589,6 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                  "type": "boolean"
-                },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                   "type": "boolean"
                 },
                 "env": {
@@ -34547,13 +34202,6 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
-        "enableTurboSourcemaps": {
-          "default": true,
-          "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-          "type": "boolean",
-          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
-          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
-        },
         "env": {
           "additionalProperties": {
             "type": [
@@ -34855,11 +34503,6 @@
                     "enableContentValidation": {
                       "default": true,
                       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                      "type": "boolean"
-                    },
-                    "enableTurboSourcemaps": {
-                      "default": true,
-                      "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                       "type": "boolean"
                     },
                     "env": {
@@ -35191,11 +34834,6 @@
                     "enableContentValidation": {
                       "default": true,
                       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                      "type": "boolean"
-                    },
-                    "enableTurboSourcemaps": {
-                      "default": true,
-                      "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                       "type": "boolean"
                     },
                     "env": {
@@ -35991,13 +35629,6 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
-        "enableTurboSourcemaps": {
-          "default": true,
-          "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-          "type": "boolean",
-          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
-          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
-        },
         "env": {
           "additionalProperties": {
             "type": [
@@ -36294,11 +35925,6 @@
                     "enableContentValidation": {
                       "default": true,
                       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                      "type": "boolean"
-                    },
-                    "enableTurboSourcemaps": {
-                      "default": true,
-                      "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                       "type": "boolean"
                     },
                     "env": {
@@ -36630,11 +36256,6 @@
                     "enableContentValidation": {
                       "default": true,
                       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                      "type": "boolean"
-                    },
-                    "enableTurboSourcemaps": {
-                      "default": true,
-                      "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                       "type": "boolean"
                     },
                     "env": {
@@ -37580,11 +37201,6 @@
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                   "type": "boolean"
                 },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                  "type": "boolean"
-                },
                 "env": {
                   "additionalProperties": {
                     "type": [
@@ -37914,11 +37530,6 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                  "type": "boolean"
-                },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                   "type": "boolean"
                 },
                 "env": {
@@ -38608,11 +38219,6 @@
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                   "type": "boolean"
                 },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                  "type": "boolean"
-                },
                 "env": {
                   "additionalProperties": {
                     "type": [
@@ -38942,11 +38548,6 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                  "type": "boolean"
-                },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                   "type": "boolean"
                 },
                 "env": {
@@ -39692,11 +39293,6 @@
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                   "type": "boolean"
                 },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                  "type": "boolean"
-                },
                 "env": {
                   "additionalProperties": {
                     "type": [
@@ -40026,11 +39622,6 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                  "type": "boolean"
-                },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                   "type": "boolean"
                 },
                 "env": {
@@ -40909,11 +40500,6 @@
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                   "type": "boolean"
                 },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-                  "type": "boolean"
-                },
                 "env": {
                   "additionalProperties": {
                     "type": [
@@ -41243,11 +40829,6 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-                  "type": "boolean"
-                },
-                "enableTurboSourcemaps": {
-                  "default": true,
-                  "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
                   "type": "boolean"
                 },
                 "env": {
@@ -41859,13 +41440,6 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
-        "enableTurboSourcemaps": {
-          "default": true,
-          "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-          "type": "boolean",
-          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
-          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
-        },
         "env": {
           "additionalProperties": {
             "type": [
@@ -42298,13 +41872,6 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
-        "enableTurboSourcemaps": {
-          "default": true,
-          "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
-          "type": "boolean",
-          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
-          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
-        },
         "env": {
           "additionalProperties": {
             "type": [
@@ -42713,13 +42280,6 @@
         "enableContentValidation": {
           "default": true,
           "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-          "type": "boolean",
-          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
-          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
-        },
-        "enableTurboSourcemaps": {
-          "default": true,
-          "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
           "type": "boolean",
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
@@ -43336,13 +42896,6 @@
         "enableContentValidation": {
           "default": true,
           "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
-          "type": "boolean",
-          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
-          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
-        },
-        "enableTurboSourcemaps": {
-          "default": true,
-          "description": "Configures whether to use a new, faster mechanism for sourcemap discovery",
           "type": "boolean",
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."

@@ -272,7 +272,23 @@
     "diffEditor.experimental.collapseUnchangedRegions": {
       "type": "boolean",
       "default": false,
-      "description": "Controls whether the diff editor shows unchanged regions. Only works when 'diffEditor.experimental.useVersion2' is set.",
+      "markdownDescription": "Controls whether the diff editor shows unchanged regions. Only works when `#diffEditor.experimental.useVersion2#` is set.",
+      "defaultDefaultValue": false,
+      "scope": 5,
+      "restricted": false
+    },
+    "diffEditor.experimental.showEmptyDecorations": {
+      "type": "boolean",
+      "default": true,
+      "description": "Controls whether the diff editor shows empty decorations to see where characters got inserted or deleted.",
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
+    "diffEditor.experimental.showMoves": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "Controls whether the diff editor should show detected code moves. Only works when `#diffEditor.experimental.useVersion2#` is set.",
       "defaultDefaultValue": false,
       "scope": 5,
       "restricted": false
@@ -620,6 +636,24 @@
       "type": "boolean",
       "default": true,
       "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.colorDecoratorsActivatedOn": {
+      "enumDescriptions": [
+        "Make the color picker appear on click of the color decorator",
+        "Make the color picker appear both on click and hover of the color decorator",
+        "Make the color picker appear on hover of the color decorator"
+      ],
+      "description": "Controls the condition to make a color picker appear from a color decorator",
+      "type": "string",
+      "enum": [
+        "click",
+        "clickAndHover",
+        "hover"
+      ],
+      "default": "clickAndHover",
+      "defaultDefaultValue": "clickAndHover",
       "scope": 5,
       "restricted": false
     },
@@ -2537,6 +2571,14 @@
     },
     "editor.smartSelect.selectLeadingAndTrailingWhitespace": {
       "description": "Whether leading and trailing whitespace should always be selected.",
+      "default": true,
+      "type": "boolean",
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.smartSelect.selectSubwords": {
+      "description": "Whether subwords (like 'foo' in 'fooBar' or 'foo_bar') should be selected.",
       "default": true,
       "type": "boolean",
       "defaultDefaultValue": true,
