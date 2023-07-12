@@ -31,7 +31,7 @@ async function run() {
     const normalizedJson = normalizeJson(json, uri);
     const resourcePath = path.join(
       RESOURCES_PATH_ROOT,
-      `${uri.replaceAll("vscode:", "vscode")}.json`
+      `${uri.replaceAll("vscode:", "vscode")}.json`,
     );
     fs.mkdirSync(path.dirname(resourcePath), { recursive: true });
     fs.writeFileSync(resourcePath, normalizedJson);
@@ -95,7 +95,7 @@ ${[...processedUri]
   .map((uri) => {
     const path = `${uri.replaceAll("vscode:", "vscode")}.json`.replace(
       /\/\//gu,
-      "/"
+      "/",
     );
     const rawLink = `https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/${path}`;
     const link = `https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/${path}`;
@@ -104,8 +104,8 @@ ${[...processedUri]
   })
   .join("\n")}
 
-<!--EXTRACT-INFO-END-->`
+<!--EXTRACT-INFO-END-->`,
     ),
-    "utf8"
+    "utf8",
   );
 }

@@ -42,7 +42,7 @@ function normalizeSchema(schema) {
   ]) {
     if (isPlainObject(schema[key])) {
       schema[key] = Object.fromEntries(
-        Object.entries(schema[key]).sort(([a], [b]) => compare(a, b))
+        Object.entries(schema[key]).sort(([a], [b]) => compare(a, b)),
       );
     }
   }
@@ -50,10 +50,10 @@ function normalizeSchema(schema) {
   for (const key of ["definitions", "properties"]) {
     if (isPlainObject(schema[key])) {
       const values = Object.entries(schema[key]).sort(([a], [b]) =>
-        compare(a, b)
+        compare(a, b),
       );
       schema[key] = Object.fromEntries(
-        values.map(([key, value]) => [key, normalizeSchema(value)])
+        values.map(([key, value]) => [key, normalizeSchema(value)]),
       );
     }
   }
@@ -82,8 +82,8 @@ function normalizeEnum(schema) {
     .filter(
       (array) =>
         !array.some(
-          (e) => typeof e === "string" && e.includes("/.vscode-test/")
-        )
+          (e) => typeof e === "string" && e.includes("/.vscode-test/"),
+        ),
     )
     .sort(([a], [b]) => compare(a, b));
   schema.enum = enumValues.map(([e]) => e);
