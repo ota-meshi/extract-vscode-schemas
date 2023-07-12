@@ -29,7 +29,7 @@ async function main() {
     });
     if (hasDec && !hasInc) {
       console.log(
-        "Didn't commit because the information seems to be declining."
+        "Didn't commit because the information seems to be declining.",
       );
       return;
     }
@@ -43,7 +43,7 @@ async function main() {
     await git(
       "config",
       "user.email",
-      `${GITHUB_ACTOR}@users.noreply.github.com`
+      `${GITHUB_ACTOR}@users.noreply.github.com`,
     );
   }
   await git("add", ".");
@@ -54,7 +54,7 @@ async function main() {
   await git(
     "push",
     `https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/ota-meshi/extract-vscode-schemas.git`,
-    "main"
+    "main",
   );
 }
 
