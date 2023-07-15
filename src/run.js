@@ -2,7 +2,7 @@
 
 const fs = require("node:fs");
 const path = require("node:path");
-// eslint-disable-next-line node/no-missing-require -- only type
+// eslint-disable-next-line n/no-missing-require -- only type
 const vscode = require("vscode");
 const { normalizeSchema } = require("./normalize-schema");
 const { URI_LIST } = require("./uri-list");
