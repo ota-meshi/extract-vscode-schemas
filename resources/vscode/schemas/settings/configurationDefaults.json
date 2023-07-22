@@ -4053,7 +4053,7 @@
         "advanced",
         "legacy"
       ],
-      "default": "legacy",
+      "default": "advanced",
       "markdownEnumDescriptions": [
         "Uses the advanced diffing algorithm.",
         "Uses the legacy diffing algorithm."
@@ -4062,6 +4062,7 @@
         "experimental"
       ],
       "defaultDefaultValue": "legacy",
+      "defaultValueSource": "Experiments",
       "scope": 5,
       "restricted": false
     },
