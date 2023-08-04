@@ -688,8 +688,19 @@
       "scope": 3,
       "restricted": false
     },
+    "accessibility.verbosity.hover": {
+      "description": "Provide information about how to open the hover in an accessible view.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
     "accessibility.verbosity.inlineChat": {
-      "description": "Provide information about how to access the inline editor chat accessibility help menu when the input is focused",
+      "description": "Provide information about how to access the inline editor chat accessibility help menu and alert with hints which describe how to use the feature when the input is focused",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -712,6 +723,17 @@
     },
     "accessibility.verbosity.notebook": {
       "description": "Provide information about how to focus the cell container or inner editor when a notebook cell is focused.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.verbosity.notification": {
+      "description": "Provide information about how to open the notification in an accessible view.",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -829,7 +851,7 @@
       "restricted": false
     },
     "audioCues.diffLineDeleted": {
-      "description": "Plays a sound when the focus moves to a deleted line in diff review mode or to the next/previous change",
+      "description": "Plays a sound when the focus moves to a deleted line in accessible diff viewer mode or to the next/previous change",
       "type": "string",
       "enum": [
         "auto",
@@ -850,7 +872,7 @@
       "restricted": false
     },
     "audioCues.diffLineInserted": {
-      "description": "Plays a sound when the focus moves to an inserted line in diff review mode or to the next/previous change",
+      "description": "Plays a sound when the focus moves to an inserted line in accessible diff viewer mode or to the next/previous change",
       "type": "string",
       "enum": [
         "auto",
@@ -871,7 +893,7 @@
       "restricted": false
     },
     "audioCues.diffLineModified": {
-      "description": "Plays a sound when the focus moves to a modified line in diff review mode or to the next/previous change",
+      "description": "Plays a sound when the focus moves to a modified line in accessible diff viewer mode or to the next/previous change",
       "type": "string",
       "enum": [
         "auto",
@@ -1506,6 +1528,43 @@
         "on"
       ],
       "defaultDefaultValue": "off",
+      "scope": 3,
+      "restricted": false
+    },
+    "chat.experimental.defaultMode": {
+      "type": "string",
+      "tags": [
+        "experimental"
+      ],
+      "enum": [
+        "both",
+        "chatView",
+        "quickQuestion"
+      ],
+      "enumDescriptions": [
+        "Displays the chat icon in the Activity Bar and the Title Bar which open their respective chat modes.",
+        "Use the chat view as the default mode. Displays the chat icon in the Activity Bar.",
+        "Use the quick question as the default mode. Displays the chat icon in the Title Bar."
+      ],
+      "description": "Controls the default mode of the chat experience.",
+      "default": "chatView",
+      "defaultDefaultValue": "chatView",
+      "scope": 3,
+      "restricted": false
+    },
+    "chat.experimental.quickQuestion.mode": {
+      "type": "string",
+      "tags": [
+        "experimental"
+      ],
+      "enum": [
+        "inputOnBottomChat",
+        "inputOnTopChat",
+        "singleQuestion"
+      ],
+      "description": "Controls the mode of quick question chat experience.",
+      "default": "inputOnTopChat",
+      "defaultDefaultValue": "inputOnTopChat",
       "scope": 3,
       "restricted": false
     },
@@ -4061,8 +4120,7 @@
       "tags": [
         "experimental"
       ],
-      "defaultDefaultValue": "legacy",
-      "defaultValueSource": "Experiments",
+      "defaultDefaultValue": "advanced",
       "scope": 5,
       "restricted": false
     },
@@ -4094,6 +4152,9 @@
       "type": "boolean",
       "default": false,
       "description": "Controls whether the diff editor uses the new or the old implementation.",
+      "tags": [
+        "experimental"
+      ],
       "defaultDefaultValue": false,
       "scope": 5,
       "restricted": false
@@ -10702,13 +10763,13 @@
     "github.branchProtection": {
       "type": "boolean",
       "scope": 4,
-      "default": false,
+      "default": true,
       "description": "Controls whether to query repository rules for GitHub repositories",
       "source": {
         "id": "vscode.github",
         "displayName": "GitHub"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "restricted": false
     },
     "github.gitAuthentication": {
@@ -11094,6 +11155,14 @@
         "Changes are previewed only and need to be accepted via the apply button. Ending a session will discard the changes."
       ],
       "defaultDefaultValue": "livePreview",
+      "scope": 3,
+      "restricted": false
+    },
+    "inlineChat.showDiff": {
+      "description": "Enable/disable showing the diff when edits are generated. Works only with inlineChat.mode equal to live or livePreview.",
+      "default": true,
+      "type": "boolean",
+      "defaultDefaultValue": true,
       "scope": 3,
       "restricted": false
     },
@@ -11495,7 +11564,7 @@
       "items": {
         "type": "string"
       },
-      "markdownDescription": "Specify glob patterns of files to exclude from auto imports. Requires using TypeScript 4.8 or newer in the workspace.",
+      "markdownDescription": "Specify glob patterns of files to exclude from auto imports. Relative paths are resolved relative to the workspace root. Patterns are evaluated using tsconfig.json [`exclude`](https://www.typescriptlang.org/tsconfig#exclude) semantics. Requires using TypeScript 4.8 or newer in the workspace.",
       "scope": 4,
       "source": {
         "id": "vscode.typescript-language-features",
@@ -12679,15 +12748,25 @@
       "restricted": false
     },
     "markdown.editor.pasteUrlAsFormattedLink.enabled": {
-      "type": "boolean",
+      "type": "string",
       "scope": 4,
-      "markdownDescription": "Controls if a Markdown link is created when a URL is pasted into the Markdown editor. Requires enabling `#editor.pasteAs.enabled#`.",
-      "default": false,
+      "markdownDescription": "Controls how a Markdown link is created when a URL is pasted into the Markdown editor. Requires enabling `#editor.pasteAs.enabled#`.",
+      "default": "never",
+      "enum": [
+        "always",
+        "never",
+        "smart"
+      ],
+      "markdownEnumDescriptions": [
+        "Always creates a Markdown link when a URL is pasted into the Markdown editor.",
+        "Never creates a Markdown link when a URL is pasted into the Markdown editor.",
+        "Smartly avoids creating a Markdown link in specific cases, such as within code brackets or inside an existing Markdown link."
+      ],
       "source": {
         "id": "vscode.markdown-language-features",
         "displayName": "Markdown Language Features"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": "never",
       "restricted": false
     },
     "markdown.links.openLocation": {
@@ -16054,6 +16133,14 @@
       "scope": 3,
       "restricted": false
     },
+    "notebook.experimental.remoteSave": {
+      "markdownDescription": "Enables the incremental saving of notebooks in Remote environment. When enabled, only the changes to the notebook are sent to the extension host, improving performance for large notebooks and slow network connections.",
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
     "notebook.find.scope": {
       "markdownDescription": "Customize the Find Widget behavior for searching within notebook cells. When both markup source and markup preview are enabled, the Find Widget will search either the source code or preview based on the current state of the cell.",
       "type": "object",
@@ -16311,6 +16398,17 @@
         "notebookLayout"
       ],
       "defaultDefaultValue": "mouseover",
+      "scope": 3,
+      "restricted": false
+    },
+    "notebook.stickyScroll.enabled": {
+      "description": "Experimental. Control whether to render notebook Sticky Scroll headers in the notebook editor.",
+      "type": "boolean",
+      "default": false,
+      "tags": [
+        "notebookLayout"
+      ],
+      "defaultDefaultValue": false,
       "scope": 3,
       "restricted": false
     },
@@ -17398,11 +17496,44 @@
       "scope": 3,
       "restricted": false
     },
-    "screencastMode.hideSingleEditorCursorMoves": {
-      "type": "boolean",
-      "description": "Hide the single editor cursor move commands in screencast mode.",
-      "default": false,
-      "defaultDefaultValue": false,
+    "screencastMode.keyboardOptions": {
+      "type": "object",
+      "description": "Options for customizing the keyboard overlay in screencast mode.",
+      "properties": {
+        "showCommandGroups": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show command group names, when commands are also shown."
+        },
+        "showCommands": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show command names."
+        },
+        "showKeys": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show raw keys."
+        },
+        "showSingleEditorCursorMoves": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show single editor cursor move commands."
+        }
+      },
+      "default": {
+        "showCommandGroups": false,
+        "showCommands": true,
+        "showKeys": true,
+        "showSingleEditorCursorMoves": true
+      },
+      "additionalProperties": false,
+      "defaultDefaultValue": {
+        "showCommandGroups": false,
+        "showCommands": true,
+        "showKeys": true,
+        "showSingleEditorCursorMoves": true
+      },
       "scope": 3,
       "restricted": false
     },
@@ -17413,27 +17544,6 @@
       "maximum": 5000,
       "description": "Controls how long (in milliseconds) the keyboard overlay is shown in screencast mode.",
       "defaultDefaultValue": 800,
-      "scope": 3,
-      "restricted": false
-    },
-    "screencastMode.keyboardShortcutsFormat": {
-      "enum": [
-        "command",
-        "commandAndKeys",
-        "commandWithGroup",
-        "commandWithGroupAndKeys",
-        "keys"
-      ],
-      "enumDescriptions": [
-        "Command title.",
-        "Command title and keys.",
-        "Command title prefixed by its group.",
-        "Command title and keys, with the command prefixed by its group.",
-        "Keys."
-      ],
-      "description": "Controls what is displayed in the keyboard overlay when showing shortcuts.",
-      "default": "commandAndKeys",
-      "defaultDefaultValue": "commandAndKeys",
       "scope": 3,
       "restricted": false
     },
@@ -17453,14 +17563,6 @@
       "maximum": 100,
       "description": "Controls the size (in pixels) of the mouse indicator in screencast mode.",
       "defaultDefaultValue": 20,
-      "scope": 3,
-      "restricted": false
-    },
-    "screencastMode.onlyKeyboardShortcuts": {
-      "type": "boolean",
-      "description": "Show only keyboard shortcuts in screencast mode (do not include action names).",
-      "default": false,
-      "defaultDefaultValue": false,
       "scope": 3,
       "restricted": false
     },
@@ -18063,6 +18165,14 @@
         "**/bower_components": true,
         "**/node_modules": true
       },
+      "restricted": false
+    },
+    "search.experimental.closedNotebookRichContentResults": {
+      "type": "boolean",
+      "description": "Show notebook editor rich content results for closed notebooks. Please refresh your search results after changing this setting.",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 3,
       "restricted": false
     },
     "search.followSymlinks": {
@@ -32222,10 +32332,28 @@
       "restricted": false
     },
     "terminal.integrated.wordSeparators": {
-      "description": "A string containing all characters to be considered word separators by the double-click to select word feature.",
+      "markdownDescription": "A string containing all characters to be considered word separators when double-clicking to select word and in the fallback 'word' link detection. Since this is used for link detection, including characters such as `:` that are used when detecting links will cause the line and column part of links like `file:10:5` to be ignored.",
       "type": "string",
       "default": " ()[]{}',\"`─‘’|",
       "defaultDefaultValue": " ()[]{}',\"`─‘’|",
+      "scope": 3,
+      "restricted": false
+    },
+    "terminal.sourceControlRepositoriesKind": {
+      "type": "string",
+      "enum": [
+        "both",
+        "external",
+        "integrated"
+      ],
+      "enumDescriptions": [
+        "Use the other two together.",
+        "Use the configured external terminal.",
+        "Use VS Code's integrated terminal."
+      ],
+      "description": "When opening a repository from the Source Control Repositories view in a terminal, determines what kind of terminal will be launched",
+      "default": "integrated",
+      "defaultDefaultValue": "integrated",
       "scope": 3,
       "restricted": false
     },
@@ -32428,14 +32556,14 @@
     },
     "typescript.experimental.aiQuickFix": {
       "type": "boolean",
-      "default": true,
+      "default": false,
       "description": "Enable/disable AI-assisted quick fixes. Requires an extension providing AI chat functionality.",
       "scope": 4,
       "source": {
         "id": "vscode.typescript-language-features",
         "displayName": "TypeScript and JavaScript Language Features"
       },
-      "defaultDefaultValue": true,
+      "defaultDefaultValue": false,
       "restricted": false
     },
     "typescript.format.enable": {
@@ -32824,7 +32952,7 @@
       "items": {
         "type": "string"
       },
-      "markdownDescription": "Specify glob patterns of files to exclude from auto imports. Requires using TypeScript 4.8 or newer in the workspace.",
+      "markdownDescription": "Specify glob patterns of files to exclude from auto imports. Relative paths are resolved relative to the workspace root. Patterns are evaluated using tsconfig.json [`exclude`](https://www.typescriptlang.org/tsconfig#exclude) semantics. Requires using TypeScript 4.8 or newer in the workspace.",
       "scope": 4,
       "source": {
         "id": "vscode.typescript-language-features",
@@ -34261,7 +34389,7 @@
       ],
       "default": "auto",
       "enumDescriptions": [
-        "Splits all the editor groups to equal parts unless a part has been changed in size.",
+        "Splits the active editor group to equal parts, unless all editor groups are already in equal parts. In that case, splits all the editor groups to equal parts.",
         "Splits all the editor groups to equal parts.",
         "Splits the active editor group to equal parts."
       ],

@@ -265,8 +265,7 @@
       "tags": [
         "experimental"
       ],
-      "defaultDefaultValue": "legacy",
-      "defaultValueSource": "Experiments",
+      "defaultDefaultValue": "advanced",
       "scope": 5,
       "restricted": false
     },
@@ -298,6 +297,9 @@
       "type": "boolean",
       "default": false,
       "description": "Controls whether the diff editor uses the new or the old implementation.",
+      "tags": [
+        "experimental"
+      ],
       "defaultDefaultValue": false,
       "scope": 5,
       "restricted": false

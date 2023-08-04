@@ -2120,11 +2120,133 @@
         {
           "body": "${1:#ff0000}"
         }
+      ],
+      "deprecationMessage": "'editorIndentGuide.activeBackground' is deprecated. Use 'editorIndentGuide.activeBackground1' instead."
+    },
+    "editorIndentGuide.activeBackground1": {
+      "type": "string",
+      "description": "Color of the active editor indentation guides (1).",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "editorIndentGuide.activeBackground2": {
+      "type": "string",
+      "description": "Color of the active editor indentation guides (2).",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "editorIndentGuide.activeBackground3": {
+      "type": "string",
+      "description": "Color of the active editor indentation guides (3).",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "editorIndentGuide.activeBackground4": {
+      "type": "string",
+      "description": "Color of the active editor indentation guides (4).",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "editorIndentGuide.activeBackground5": {
+      "type": "string",
+      "description": "Color of the active editor indentation guides (5).",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "editorIndentGuide.activeBackground6": {
+      "type": "string",
+      "description": "Color of the active editor indentation guides (6).",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
       ]
     },
     "editorIndentGuide.background": {
       "type": "string",
       "description": "Color of the editor indentation guides.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "deprecationMessage": "'editorIndentGuide.background' is deprecated. Use 'editorIndentGuide.background1' instead."
+    },
+    "editorIndentGuide.background1": {
+      "type": "string",
+      "description": "Color of the editor indentation guides (1).",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "editorIndentGuide.background2": {
+      "type": "string",
+      "description": "Color of the editor indentation guides (2).",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "editorIndentGuide.background3": {
+      "type": "string",
+      "description": "Color of the editor indentation guides (3).",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "editorIndentGuide.background4": {
+      "type": "string",
+      "description": "Color of the editor indentation guides (4).",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "editorIndentGuide.background5": {
+      "type": "string",
+      "description": "Color of the editor indentation guides (5).",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "editorIndentGuide.background6": {
+      "type": "string",
+      "description": "Color of the editor indentation guides (6).",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -3122,6 +3244,16 @@
         }
       ]
     },
+    "inlineChatDiff.removed": {
+      "type": "string",
+      "description": "Background color of removed text in the interactive editor input",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "inlineChatInput.background": {
       "type": "string",
       "description": "Background color of the interactive editor input",
@@ -3155,16 +3287,6 @@
     "inlineChatInput.placeholderForeground": {
       "type": "string",
       "description": "Foreground color of the interactive editor input placeholder",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ]
-    },
-    "inlineChatrDiff.removed": {
-      "type": "string",
-      "description": "Background color of removed text in the interactive editor input",
       "format": "color-hex",
       "defaultSnippets": [
         {
