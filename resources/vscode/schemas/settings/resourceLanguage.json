@@ -295,12 +295,13 @@
     },
     "diffEditor.experimental.useVersion2": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "description": "Controls whether the diff editor uses the new or the old implementation.",
       "tags": [
         "experimental"
       ],
       "defaultDefaultValue": false,
+      "defaultValueSource": "Experiments",
       "scope": 5,
       "restricted": false
     },
