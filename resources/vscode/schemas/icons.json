@@ -1005,6 +1005,9 @@
     "git-pull-request-abandoned": {
       "$ref": "#/definitions/icons"
     },
+    "git-pull-request-assignee": {
+      "$ref": "#/definitions/icons"
+    },
     "git-pull-request-closed": {
       "$ref": "#/definitions/icons"
     },
@@ -1017,7 +1020,16 @@
     "git-pull-request-go-to-changes": {
       "$ref": "#/definitions/icons"
     },
+    "git-pull-request-label": {
+      "$ref": "#/definitions/icons"
+    },
+    "git-pull-request-milestone": {
+      "$ref": "#/definitions/icons"
+    },
     "git-pull-request-new-changes": {
+      "$ref": "#/definitions/icons"
+    },
+    "git-pull-request-reviewer": {
       "$ref": "#/definitions/icons"
     },
     "github": {
@@ -1361,6 +1373,9 @@
     "merge": {
       "$ref": "#/definitions/icons"
     },
+    "mic": {
+      "$ref": "#/definitions/icons"
+    },
     "microscope": {
       "$ref": "#/definitions/icons"
     },
@@ -1416,6 +1431,10 @@
     "notebook-collapsed": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon to annotate a collapsed section in notebook editors.: $(notebook-collapsed)"
+    },
+    "notebook-copy": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon to copy content to clipboard: $(notebook-copy)"
     },
     "notebook-delete-cell": {
       "$ref": "#/definitions/icons",
@@ -1978,6 +1997,10 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for the action to open a new search editor.: $(search-new-editor)"
     },
+    "search-open-in-file": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for the action to go to the file of the current search result.: $(search-open-in-file)"
+    },
     "search-refresh": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for refresh in the search view.: $(search-refresh)"
@@ -2414,6 +2437,10 @@
     "testing-refresh-tests": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon on the button to refresh tests.: $(testing-refresh-tests)"
+    },
+    "testing-rerun-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon of the \"rerun tests\" action.: $(testing-rerun-icon)"
     },
     "testing-run-all-icon": {
       "$ref": "#/definitions/icons",

@@ -418,6 +418,7 @@
                       {
                         "type": "string",
                         "enum": [
+                          "actionBar.toggledBackground",
                           "activityBar.activeBackground",
                           "activityBar.activeBorder",
                           "activityBar.activeFocusBorder",
@@ -454,8 +455,9 @@
                           "charts.purple",
                           "charts.red",
                           "charts.yellow",
-                          "chat.requestBackground",
                           "chat.requestBorder",
+                          "chat.slashCommandBackground",
+                          "chat.slashCommandForeground",
                           "checkbox.background",
                           "checkbox.border",
                           "checkbox.foreground",
@@ -515,6 +517,7 @@
                           "diffEditor.insertedTextBackground",
                           "diffEditor.insertedTextBorder",
                           "diffEditor.move.border",
+                          "diffEditor.moveActive.border",
                           "diffEditor.removedLineBackground",
                           "diffEditor.removedTextBackground",
                           "diffEditor.removedTextBorder",
@@ -590,9 +593,7 @@
                           "editorBracketPairGuide.background6",
                           "editorCodeLens.foreground",
                           "editorCommentsWidget.rangeActiveBackground",
-                          "editorCommentsWidget.rangeActiveBorder",
                           "editorCommentsWidget.rangeBackground",
-                          "editorCommentsWidget.rangeBorder",
                           "editorCommentsWidget.resolvedBorder",
                           "editorCommentsWidget.unresolvedBorder",
                           "editorCursor.background",
@@ -964,6 +965,7 @@
                           "sideBarTitle.foreground",
                           "sideBySideEditor.horizontalBorder",
                           "sideBySideEditor.verticalBorder",
+                          "simpleFindWidget.sashBorder",
                           "statusBar.background",
                           "statusBar.border",
                           "statusBar.debuggingBackground",
@@ -974,21 +976,31 @@
                           "statusBar.noFolderBackground",
                           "statusBar.noFolderBorder",
                           "statusBar.noFolderForeground",
-                          "statusBar.offlineBackground",
-                          "statusBar.offlineForeground",
                           "statusBarItem.activeBackground",
                           "statusBarItem.compactHoverBackground",
                           "statusBarItem.errorBackground",
                           "statusBarItem.errorForeground",
+                          "statusBarItem.errorHoverBackground",
+                          "statusBarItem.errorHoverForeground",
                           "statusBarItem.focusBorder",
                           "statusBarItem.hoverBackground",
+                          "statusBarItem.hoverForeground",
+                          "statusBarItem.offlineBackground",
+                          "statusBarItem.offlineForeground",
+                          "statusBarItem.offlineHoverBackground",
+                          "statusBarItem.offlineHoverForeground",
                           "statusBarItem.prominentBackground",
                           "statusBarItem.prominentForeground",
                           "statusBarItem.prominentHoverBackground",
+                          "statusBarItem.prominentHoverForeground",
                           "statusBarItem.remoteBackground",
                           "statusBarItem.remoteForeground",
+                          "statusBarItem.remoteHoverBackground",
+                          "statusBarItem.remoteHoverForeground",
                           "statusBarItem.warningBackground",
                           "statusBarItem.warningForeground",
+                          "statusBarItem.warningHoverBackground",
+                          "statusBarItem.warningHoverForeground",
                           "symbolIcon.arrayForeground",
                           "symbolIcon.booleanForeground",
                           "symbolIcon.classForeground",
@@ -1128,6 +1140,7 @@
                           "window.inactiveBorder"
                         ],
                         "enumDescriptions": [
+                          "Background color for toggled action items in action bar.",
                           "Activity bar background color for the active item. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
                           "Activity bar border color for the active item. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
                           "Activity bar focus border color for the active item. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
@@ -1164,8 +1177,9 @@
                           "The purple color used in chart visualizations.",
                           "The red color used in chart visualizations.",
                           "The yellow color used in chart visualizations.",
-                          "The background color of a chat request.",
                           "The border color of a chat request.",
+                          "The background color of a chat slash command.",
+                          "The foreground color of a chat slash command.",
                           "Background color of checkbox widget.",
                           "Border color of checkbox widget.",
                           "Foreground color of checkbox widget.",
@@ -1225,6 +1239,7 @@
                           "Background color for text that got inserted. The color must not be opaque so as not to hide underlying decorations.",
                           "Outline color for the text that got inserted.",
                           "The border color for text that got moved in the diff editor.",
+                          "The active border color for text that got moved in the diff editor.",
                           "Background color for lines that got removed. The color must not be opaque so as not to hide underlying decorations.",
                           "Background color for text that got removed. The color must not be opaque so as not to hide underlying decorations.",
                           "Outline color for text that got removed.",
@@ -1300,9 +1315,7 @@
                           "Background color of inactive bracket pair guides (6). Requires enabling bracket pair guides.",
                           "Foreground color of editor CodeLens",
                           "Color of background for currently selected or hovered comment range.",
-                          "Color of border for currently selected or hovered comment range.",
                           "Color of background for comment ranges.",
-                          "Color of border for comment ranges.",
                           "Color of borders and arrow for resolved comments.",
                           "Color of borders and arrow for unresolved comments.",
                           "The background color of the editor cursor. Allows customizing the color of a character overlapped by a block cursor.",
@@ -1674,6 +1687,7 @@
                           "Side bar title foreground color. The side bar is the container for views like explorer and search.",
                           "Color to separate two editors from each other when shown side by side in an editor group from top to bottom.",
                           "Color to separate two editors from each other when shown side by side in an editor group from left to right.",
+                          "Border color of the sash border.",
                           "Status bar background color when a workspace or folder is opened. The status bar is shown in the bottom of the window.",
                           "Status bar border color separating to the sidebar and editor. The status bar is shown in the bottom of the window.",
                           "Status bar background color when a program is being debugged. The status bar is shown in the bottom of the window",
@@ -1684,21 +1698,31 @@
                           "Status bar background color when no folder is opened. The status bar is shown in the bottom of the window.",
                           "Status bar border color separating to the sidebar and editor when no folder is opened. The status bar is shown in the bottom of the window.",
                           "Status bar foreground color when no folder is opened. The status bar is shown in the bottom of the window.",
-                          "Status bar background color when the workbench is offline. The status bar is shown in the bottom of the window",
-                          "Status bar foreground color when the workbench is offline. The status bar is shown in the bottom of the window",
                           "Status bar item background color when clicking. The status bar is shown in the bottom of the window.",
                           "Status bar item background color when hovering an item that contains two hovers. The status bar is shown in the bottom of the window.",
                           "Status bar error items background color. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.",
                           "Status bar error items foreground color. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.",
+                          "Status bar error items background color when hovering. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.",
+                          "Status bar error items foreground color when hovering. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.",
                           "Status bar item border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.",
                           "Status bar item background color when hovering. The status bar is shown in the bottom of the window.",
-                          "Status bar prominent items background color. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window.",
-                          "Status bar prominent items foreground color. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window.",
-                          "Status bar prominent items background color when hovering. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window.",
+                          "Status bar item foreground color when hovering. The status bar is shown in the bottom of the window.",
+                          "Status bar item background color when the workbench is offline.",
+                          "Status bar item foreground color when the workbench is offline.",
+                          "Status bar item background hover color when the workbench is offline.",
+                          "Status bar item foreground hover color when the workbench is offline.",
+                          "Status bar prominent items background color. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.",
+                          "Status bar prominent items foreground color. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.",
+                          "Status bar prominent items background color when hovering. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.",
+                          "Status bar prominent items foreground color when hovering. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.",
                           "Background color for the remote indicator on the status bar.",
                           "Foreground color for the remote indicator on the status bar.",
+                          "Background color for the remote indicator on the status bar when hovering.",
+                          "Foreground color for the remote indicator on the status bar when hovering.",
                           "Status bar warning items background color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.",
                           "Status bar warning items foreground color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.",
+                          "Status bar warning items background color when hovering. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.",
+                          "Status bar warning items foreground color when hovering. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.",
                           "The foreground color for array symbols. These symbols appear in the outline, breadcrumb, and suggest widget.",
                           "The foreground color for boolean symbols. These symbols appear in the outline, breadcrumb, and suggest widget.",
                           "The foreground color for class symbols. These symbols appear in the outline, breadcrumb, and suggest widget.",
@@ -1851,6 +1875,7 @@
                       {
                         "type": "string",
                         "enum": [
+                          "actionBar.toggledBackground",
                           "activityBar.activeBackground",
                           "activityBar.activeBorder",
                           "activityBar.activeFocusBorder",
@@ -1887,8 +1912,9 @@
                           "charts.purple",
                           "charts.red",
                           "charts.yellow",
-                          "chat.requestBackground",
                           "chat.requestBorder",
+                          "chat.slashCommandBackground",
+                          "chat.slashCommandForeground",
                           "checkbox.background",
                           "checkbox.border",
                           "checkbox.foreground",
@@ -1948,6 +1974,7 @@
                           "diffEditor.insertedTextBackground",
                           "diffEditor.insertedTextBorder",
                           "diffEditor.move.border",
+                          "diffEditor.moveActive.border",
                           "diffEditor.removedLineBackground",
                           "diffEditor.removedTextBackground",
                           "diffEditor.removedTextBorder",
@@ -2023,9 +2050,7 @@
                           "editorBracketPairGuide.background6",
                           "editorCodeLens.foreground",
                           "editorCommentsWidget.rangeActiveBackground",
-                          "editorCommentsWidget.rangeActiveBorder",
                           "editorCommentsWidget.rangeBackground",
-                          "editorCommentsWidget.rangeBorder",
                           "editorCommentsWidget.resolvedBorder",
                           "editorCommentsWidget.unresolvedBorder",
                           "editorCursor.background",
@@ -2397,6 +2422,7 @@
                           "sideBarTitle.foreground",
                           "sideBySideEditor.horizontalBorder",
                           "sideBySideEditor.verticalBorder",
+                          "simpleFindWidget.sashBorder",
                           "statusBar.background",
                           "statusBar.border",
                           "statusBar.debuggingBackground",
@@ -2407,21 +2433,31 @@
                           "statusBar.noFolderBackground",
                           "statusBar.noFolderBorder",
                           "statusBar.noFolderForeground",
-                          "statusBar.offlineBackground",
-                          "statusBar.offlineForeground",
                           "statusBarItem.activeBackground",
                           "statusBarItem.compactHoverBackground",
                           "statusBarItem.errorBackground",
                           "statusBarItem.errorForeground",
+                          "statusBarItem.errorHoverBackground",
+                          "statusBarItem.errorHoverForeground",
                           "statusBarItem.focusBorder",
                           "statusBarItem.hoverBackground",
+                          "statusBarItem.hoverForeground",
+                          "statusBarItem.offlineBackground",
+                          "statusBarItem.offlineForeground",
+                          "statusBarItem.offlineHoverBackground",
+                          "statusBarItem.offlineHoverForeground",
                           "statusBarItem.prominentBackground",
                           "statusBarItem.prominentForeground",
                           "statusBarItem.prominentHoverBackground",
+                          "statusBarItem.prominentHoverForeground",
                           "statusBarItem.remoteBackground",
                           "statusBarItem.remoteForeground",
+                          "statusBarItem.remoteHoverBackground",
+                          "statusBarItem.remoteHoverForeground",
                           "statusBarItem.warningBackground",
                           "statusBarItem.warningForeground",
+                          "statusBarItem.warningHoverBackground",
+                          "statusBarItem.warningHoverForeground",
                           "symbolIcon.arrayForeground",
                           "symbolIcon.booleanForeground",
                           "symbolIcon.classForeground",
@@ -2561,6 +2597,7 @@
                           "window.inactiveBorder"
                         ],
                         "enumDescriptions": [
+                          "Background color for toggled action items in action bar.",
                           "Activity bar background color for the active item. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
                           "Activity bar border color for the active item. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
                           "Activity bar focus border color for the active item. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
@@ -2597,8 +2634,9 @@
                           "The purple color used in chart visualizations.",
                           "The red color used in chart visualizations.",
                           "The yellow color used in chart visualizations.",
-                          "The background color of a chat request.",
                           "The border color of a chat request.",
+                          "The background color of a chat slash command.",
+                          "The foreground color of a chat slash command.",
                           "Background color of checkbox widget.",
                           "Border color of checkbox widget.",
                           "Foreground color of checkbox widget.",
@@ -2658,6 +2696,7 @@
                           "Background color for text that got inserted. The color must not be opaque so as not to hide underlying decorations.",
                           "Outline color for the text that got inserted.",
                           "The border color for text that got moved in the diff editor.",
+                          "The active border color for text that got moved in the diff editor.",
                           "Background color for lines that got removed. The color must not be opaque so as not to hide underlying decorations.",
                           "Background color for text that got removed. The color must not be opaque so as not to hide underlying decorations.",
                           "Outline color for text that got removed.",
@@ -2733,9 +2772,7 @@
                           "Background color of inactive bracket pair guides (6). Requires enabling bracket pair guides.",
                           "Foreground color of editor CodeLens",
                           "Color of background for currently selected or hovered comment range.",
-                          "Color of border for currently selected or hovered comment range.",
                           "Color of background for comment ranges.",
-                          "Color of border for comment ranges.",
                           "Color of borders and arrow for resolved comments.",
                           "Color of borders and arrow for unresolved comments.",
                           "The background color of the editor cursor. Allows customizing the color of a character overlapped by a block cursor.",
@@ -3107,6 +3144,7 @@
                           "Side bar title foreground color. The side bar is the container for views like explorer and search.",
                           "Color to separate two editors from each other when shown side by side in an editor group from top to bottom.",
                           "Color to separate two editors from each other when shown side by side in an editor group from left to right.",
+                          "Border color of the sash border.",
                           "Status bar background color when a workspace or folder is opened. The status bar is shown in the bottom of the window.",
                           "Status bar border color separating to the sidebar and editor. The status bar is shown in the bottom of the window.",
                           "Status bar background color when a program is being debugged. The status bar is shown in the bottom of the window",
@@ -3117,21 +3155,31 @@
                           "Status bar background color when no folder is opened. The status bar is shown in the bottom of the window.",
                           "Status bar border color separating to the sidebar and editor when no folder is opened. The status bar is shown in the bottom of the window.",
                           "Status bar foreground color when no folder is opened. The status bar is shown in the bottom of the window.",
-                          "Status bar background color when the workbench is offline. The status bar is shown in the bottom of the window",
-                          "Status bar foreground color when the workbench is offline. The status bar is shown in the bottom of the window",
                           "Status bar item background color when clicking. The status bar is shown in the bottom of the window.",
                           "Status bar item background color when hovering an item that contains two hovers. The status bar is shown in the bottom of the window.",
                           "Status bar error items background color. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.",
                           "Status bar error items foreground color. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.",
+                          "Status bar error items background color when hovering. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.",
+                          "Status bar error items foreground color when hovering. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.",
                           "Status bar item border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.",
                           "Status bar item background color when hovering. The status bar is shown in the bottom of the window.",
-                          "Status bar prominent items background color. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window.",
-                          "Status bar prominent items foreground color. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window.",
-                          "Status bar prominent items background color when hovering. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window.",
+                          "Status bar item foreground color when hovering. The status bar is shown in the bottom of the window.",
+                          "Status bar item background color when the workbench is offline.",
+                          "Status bar item foreground color when the workbench is offline.",
+                          "Status bar item background hover color when the workbench is offline.",
+                          "Status bar item foreground hover color when the workbench is offline.",
+                          "Status bar prominent items background color. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.",
+                          "Status bar prominent items foreground color. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.",
+                          "Status bar prominent items background color when hovering. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.",
+                          "Status bar prominent items foreground color when hovering. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.",
                           "Background color for the remote indicator on the status bar.",
                           "Foreground color for the remote indicator on the status bar.",
+                          "Background color for the remote indicator on the status bar when hovering.",
+                          "Foreground color for the remote indicator on the status bar when hovering.",
                           "Status bar warning items background color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.",
                           "Status bar warning items foreground color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.",
+                          "Status bar warning items background color when hovering. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.",
+                          "Status bar warning items foreground color when hovering. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.",
                           "The foreground color for array symbols. These symbols appear in the outline, breadcrumb, and suggest widget.",
                           "The foreground color for boolean symbols. These symbols appear in the outline, breadcrumb, and suggest widget.",
                           "The foreground color for class symbols. These symbols appear in the outline, breadcrumb, and suggest widget.",
@@ -3284,6 +3332,7 @@
                       {
                         "type": "string",
                         "enum": [
+                          "actionBar.toggledBackground",
                           "activityBar.activeBackground",
                           "activityBar.activeBorder",
                           "activityBar.activeFocusBorder",
@@ -3320,8 +3369,9 @@
                           "charts.purple",
                           "charts.red",
                           "charts.yellow",
-                          "chat.requestBackground",
                           "chat.requestBorder",
+                          "chat.slashCommandBackground",
+                          "chat.slashCommandForeground",
                           "checkbox.background",
                           "checkbox.border",
                           "checkbox.foreground",
@@ -3381,6 +3431,7 @@
                           "diffEditor.insertedTextBackground",
                           "diffEditor.insertedTextBorder",
                           "diffEditor.move.border",
+                          "diffEditor.moveActive.border",
                           "diffEditor.removedLineBackground",
                           "diffEditor.removedTextBackground",
                           "diffEditor.removedTextBorder",
@@ -3456,9 +3507,7 @@
                           "editorBracketPairGuide.background6",
                           "editorCodeLens.foreground",
                           "editorCommentsWidget.rangeActiveBackground",
-                          "editorCommentsWidget.rangeActiveBorder",
                           "editorCommentsWidget.rangeBackground",
-                          "editorCommentsWidget.rangeBorder",
                           "editorCommentsWidget.resolvedBorder",
                           "editorCommentsWidget.unresolvedBorder",
                           "editorCursor.background",
@@ -3830,6 +3879,7 @@
                           "sideBarTitle.foreground",
                           "sideBySideEditor.horizontalBorder",
                           "sideBySideEditor.verticalBorder",
+                          "simpleFindWidget.sashBorder",
                           "statusBar.background",
                           "statusBar.border",
                           "statusBar.debuggingBackground",
@@ -3840,21 +3890,31 @@
                           "statusBar.noFolderBackground",
                           "statusBar.noFolderBorder",
                           "statusBar.noFolderForeground",
-                          "statusBar.offlineBackground",
-                          "statusBar.offlineForeground",
                           "statusBarItem.activeBackground",
                           "statusBarItem.compactHoverBackground",
                           "statusBarItem.errorBackground",
                           "statusBarItem.errorForeground",
+                          "statusBarItem.errorHoverBackground",
+                          "statusBarItem.errorHoverForeground",
                           "statusBarItem.focusBorder",
                           "statusBarItem.hoverBackground",
+                          "statusBarItem.hoverForeground",
+                          "statusBarItem.offlineBackground",
+                          "statusBarItem.offlineForeground",
+                          "statusBarItem.offlineHoverBackground",
+                          "statusBarItem.offlineHoverForeground",
                           "statusBarItem.prominentBackground",
                           "statusBarItem.prominentForeground",
                           "statusBarItem.prominentHoverBackground",
+                          "statusBarItem.prominentHoverForeground",
                           "statusBarItem.remoteBackground",
                           "statusBarItem.remoteForeground",
+                          "statusBarItem.remoteHoverBackground",
+                          "statusBarItem.remoteHoverForeground",
                           "statusBarItem.warningBackground",
                           "statusBarItem.warningForeground",
+                          "statusBarItem.warningHoverBackground",
+                          "statusBarItem.warningHoverForeground",
                           "symbolIcon.arrayForeground",
                           "symbolIcon.booleanForeground",
                           "symbolIcon.classForeground",
@@ -3994,6 +4054,7 @@
                           "window.inactiveBorder"
                         ],
                         "enumDescriptions": [
+                          "Background color for toggled action items in action bar.",
                           "Activity bar background color for the active item. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
                           "Activity bar border color for the active item. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
                           "Activity bar focus border color for the active item. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
@@ -4030,8 +4091,9 @@
                           "The purple color used in chart visualizations.",
                           "The red color used in chart visualizations.",
                           "The yellow color used in chart visualizations.",
-                          "The background color of a chat request.",
                           "The border color of a chat request.",
+                          "The background color of a chat slash command.",
+                          "The foreground color of a chat slash command.",
                           "Background color of checkbox widget.",
                           "Border color of checkbox widget.",
                           "Foreground color of checkbox widget.",
@@ -4091,6 +4153,7 @@
                           "Background color for text that got inserted. The color must not be opaque so as not to hide underlying decorations.",
                           "Outline color for the text that got inserted.",
                           "The border color for text that got moved in the diff editor.",
+                          "The active border color for text that got moved in the diff editor.",
                           "Background color for lines that got removed. The color must not be opaque so as not to hide underlying decorations.",
                           "Background color for text that got removed. The color must not be opaque so as not to hide underlying decorations.",
                           "Outline color for text that got removed.",
@@ -4166,9 +4229,7 @@
                           "Background color of inactive bracket pair guides (6). Requires enabling bracket pair guides.",
                           "Foreground color of editor CodeLens",
                           "Color of background for currently selected or hovered comment range.",
-                          "Color of border for currently selected or hovered comment range.",
                           "Color of background for comment ranges.",
-                          "Color of border for comment ranges.",
                           "Color of borders and arrow for resolved comments.",
                           "Color of borders and arrow for unresolved comments.",
                           "The background color of the editor cursor. Allows customizing the color of a character overlapped by a block cursor.",
@@ -4540,6 +4601,7 @@
                           "Side bar title foreground color. The side bar is the container for views like explorer and search.",
                           "Color to separate two editors from each other when shown side by side in an editor group from top to bottom.",
                           "Color to separate two editors from each other when shown side by side in an editor group from left to right.",
+                          "Border color of the sash border.",
                           "Status bar background color when a workspace or folder is opened. The status bar is shown in the bottom of the window.",
                           "Status bar border color separating to the sidebar and editor. The status bar is shown in the bottom of the window.",
                           "Status bar background color when a program is being debugged. The status bar is shown in the bottom of the window",
@@ -4550,21 +4612,31 @@
                           "Status bar background color when no folder is opened. The status bar is shown in the bottom of the window.",
                           "Status bar border color separating to the sidebar and editor when no folder is opened. The status bar is shown in the bottom of the window.",
                           "Status bar foreground color when no folder is opened. The status bar is shown in the bottom of the window.",
-                          "Status bar background color when the workbench is offline. The status bar is shown in the bottom of the window",
-                          "Status bar foreground color when the workbench is offline. The status bar is shown in the bottom of the window",
                           "Status bar item background color when clicking. The status bar is shown in the bottom of the window.",
                           "Status bar item background color when hovering an item that contains two hovers. The status bar is shown in the bottom of the window.",
                           "Status bar error items background color. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.",
                           "Status bar error items foreground color. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.",
+                          "Status bar error items background color when hovering. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.",
+                          "Status bar error items foreground color when hovering. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.",
                           "Status bar item border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.",
                           "Status bar item background color when hovering. The status bar is shown in the bottom of the window.",
-                          "Status bar prominent items background color. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window.",
-                          "Status bar prominent items foreground color. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window.",
-                          "Status bar prominent items background color when hovering. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window.",
+                          "Status bar item foreground color when hovering. The status bar is shown in the bottom of the window.",
+                          "Status bar item background color when the workbench is offline.",
+                          "Status bar item foreground color when the workbench is offline.",
+                          "Status bar item background hover color when the workbench is offline.",
+                          "Status bar item foreground hover color when the workbench is offline.",
+                          "Status bar prominent items background color. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.",
+                          "Status bar prominent items foreground color. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.",
+                          "Status bar prominent items background color when hovering. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.",
+                          "Status bar prominent items foreground color when hovering. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.",
                           "Background color for the remote indicator on the status bar.",
                           "Foreground color for the remote indicator on the status bar.",
+                          "Background color for the remote indicator on the status bar when hovering.",
+                          "Foreground color for the remote indicator on the status bar when hovering.",
                           "Status bar warning items background color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.",
                           "Status bar warning items foreground color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.",
+                          "Status bar warning items background color when hovering. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.",
+                          "Status bar warning items foreground color when hovering. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.",
                           "The foreground color for array symbols. These symbols appear in the outline, breadcrumb, and suggest widget.",
                           "The foreground color for boolean symbols. These symbols appear in the outline, breadcrumb, and suggest widget.",
                           "The foreground color for class symbols. These symbols appear in the outline, breadcrumb, and suggest widget.",
@@ -4717,6 +4789,7 @@
                       {
                         "type": "string",
                         "enum": [
+                          "actionBar.toggledBackground",
                           "activityBar.activeBackground",
                           "activityBar.activeBorder",
                           "activityBar.activeFocusBorder",
@@ -4753,8 +4826,9 @@
                           "charts.purple",
                           "charts.red",
                           "charts.yellow",
-                          "chat.requestBackground",
                           "chat.requestBorder",
+                          "chat.slashCommandBackground",
+                          "chat.slashCommandForeground",
                           "checkbox.background",
                           "checkbox.border",
                           "checkbox.foreground",
@@ -4814,6 +4888,7 @@
                           "diffEditor.insertedTextBackground",
                           "diffEditor.insertedTextBorder",
                           "diffEditor.move.border",
+                          "diffEditor.moveActive.border",
                           "diffEditor.removedLineBackground",
                           "diffEditor.removedTextBackground",
                           "diffEditor.removedTextBorder",
@@ -4889,9 +4964,7 @@
                           "editorBracketPairGuide.background6",
                           "editorCodeLens.foreground",
                           "editorCommentsWidget.rangeActiveBackground",
-                          "editorCommentsWidget.rangeActiveBorder",
                           "editorCommentsWidget.rangeBackground",
-                          "editorCommentsWidget.rangeBorder",
                           "editorCommentsWidget.resolvedBorder",
                           "editorCommentsWidget.unresolvedBorder",
                           "editorCursor.background",
@@ -5263,6 +5336,7 @@
                           "sideBarTitle.foreground",
                           "sideBySideEditor.horizontalBorder",
                           "sideBySideEditor.verticalBorder",
+                          "simpleFindWidget.sashBorder",
                           "statusBar.background",
                           "statusBar.border",
                           "statusBar.debuggingBackground",
@@ -5273,21 +5347,31 @@
                           "statusBar.noFolderBackground",
                           "statusBar.noFolderBorder",
                           "statusBar.noFolderForeground",
-                          "statusBar.offlineBackground",
-                          "statusBar.offlineForeground",
                           "statusBarItem.activeBackground",
                           "statusBarItem.compactHoverBackground",
                           "statusBarItem.errorBackground",
                           "statusBarItem.errorForeground",
+                          "statusBarItem.errorHoverBackground",
+                          "statusBarItem.errorHoverForeground",
                           "statusBarItem.focusBorder",
                           "statusBarItem.hoverBackground",
+                          "statusBarItem.hoverForeground",
+                          "statusBarItem.offlineBackground",
+                          "statusBarItem.offlineForeground",
+                          "statusBarItem.offlineHoverBackground",
+                          "statusBarItem.offlineHoverForeground",
                           "statusBarItem.prominentBackground",
                           "statusBarItem.prominentForeground",
                           "statusBarItem.prominentHoverBackground",
+                          "statusBarItem.prominentHoverForeground",
                           "statusBarItem.remoteBackground",
                           "statusBarItem.remoteForeground",
+                          "statusBarItem.remoteHoverBackground",
+                          "statusBarItem.remoteHoverForeground",
                           "statusBarItem.warningBackground",
                           "statusBarItem.warningForeground",
+                          "statusBarItem.warningHoverBackground",
+                          "statusBarItem.warningHoverForeground",
                           "symbolIcon.arrayForeground",
                           "symbolIcon.booleanForeground",
                           "symbolIcon.classForeground",
@@ -5427,6 +5511,7 @@
                           "window.inactiveBorder"
                         ],
                         "enumDescriptions": [
+                          "Background color for toggled action items in action bar.",
                           "Activity bar background color for the active item. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
                           "Activity bar border color for the active item. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
                           "Activity bar focus border color for the active item. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
@@ -5463,8 +5548,9 @@
                           "The purple color used in chart visualizations.",
                           "The red color used in chart visualizations.",
                           "The yellow color used in chart visualizations.",
-                          "The background color of a chat request.",
                           "The border color of a chat request.",
+                          "The background color of a chat slash command.",
+                          "The foreground color of a chat slash command.",
                           "Background color of checkbox widget.",
                           "Border color of checkbox widget.",
                           "Foreground color of checkbox widget.",
@@ -5524,6 +5610,7 @@
                           "Background color for text that got inserted. The color must not be opaque so as not to hide underlying decorations.",
                           "Outline color for the text that got inserted.",
                           "The border color for text that got moved in the diff editor.",
+                          "The active border color for text that got moved in the diff editor.",
                           "Background color for lines that got removed. The color must not be opaque so as not to hide underlying decorations.",
                           "Background color for text that got removed. The color must not be opaque so as not to hide underlying decorations.",
                           "Outline color for text that got removed.",
@@ -5599,9 +5686,7 @@
                           "Background color of inactive bracket pair guides (6). Requires enabling bracket pair guides.",
                           "Foreground color of editor CodeLens",
                           "Color of background for currently selected or hovered comment range.",
-                          "Color of border for currently selected or hovered comment range.",
                           "Color of background for comment ranges.",
-                          "Color of border for comment ranges.",
                           "Color of borders and arrow for resolved comments.",
                           "Color of borders and arrow for unresolved comments.",
                           "The background color of the editor cursor. Allows customizing the color of a character overlapped by a block cursor.",
@@ -5973,6 +6058,7 @@
                           "Side bar title foreground color. The side bar is the container for views like explorer and search.",
                           "Color to separate two editors from each other when shown side by side in an editor group from top to bottom.",
                           "Color to separate two editors from each other when shown side by side in an editor group from left to right.",
+                          "Border color of the sash border.",
                           "Status bar background color when a workspace or folder is opened. The status bar is shown in the bottom of the window.",
                           "Status bar border color separating to the sidebar and editor. The status bar is shown in the bottom of the window.",
                           "Status bar background color when a program is being debugged. The status bar is shown in the bottom of the window",
@@ -5983,21 +6069,31 @@
                           "Status bar background color when no folder is opened. The status bar is shown in the bottom of the window.",
                           "Status bar border color separating to the sidebar and editor when no folder is opened. The status bar is shown in the bottom of the window.",
                           "Status bar foreground color when no folder is opened. The status bar is shown in the bottom of the window.",
-                          "Status bar background color when the workbench is offline. The status bar is shown in the bottom of the window",
-                          "Status bar foreground color when the workbench is offline. The status bar is shown in the bottom of the window",
                           "Status bar item background color when clicking. The status bar is shown in the bottom of the window.",
                           "Status bar item background color when hovering an item that contains two hovers. The status bar is shown in the bottom of the window.",
                           "Status bar error items background color. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.",
                           "Status bar error items foreground color. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.",
+                          "Status bar error items background color when hovering. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.",
+                          "Status bar error items foreground color when hovering. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.",
                           "Status bar item border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.",
                           "Status bar item background color when hovering. The status bar is shown in the bottom of the window.",
-                          "Status bar prominent items background color. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window.",
-                          "Status bar prominent items foreground color. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window.",
-                          "Status bar prominent items background color when hovering. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window.",
+                          "Status bar item foreground color when hovering. The status bar is shown in the bottom of the window.",
+                          "Status bar item background color when the workbench is offline.",
+                          "Status bar item foreground color when the workbench is offline.",
+                          "Status bar item background hover color when the workbench is offline.",
+                          "Status bar item foreground hover color when the workbench is offline.",
+                          "Status bar prominent items background color. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.",
+                          "Status bar prominent items foreground color. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.",
+                          "Status bar prominent items background color when hovering. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.",
+                          "Status bar prominent items foreground color when hovering. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.",
                           "Background color for the remote indicator on the status bar.",
                           "Foreground color for the remote indicator on the status bar.",
+                          "Background color for the remote indicator on the status bar when hovering.",
+                          "Foreground color for the remote indicator on the status bar when hovering.",
                           "Status bar warning items background color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.",
                           "Status bar warning items foreground color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.",
+                          "Status bar warning items background color when hovering. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.",
+                          "Status bar warning items foreground color when hovering. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.",
                           "The foreground color for array symbols. These symbols appear in the outline, breadcrumb, and suggest widget.",
                           "The foreground color for boolean symbols. These symbols appear in the outline, breadcrumb, and suggest widget.",
                           "The foreground color for class symbols. These symbols appear in the outline, breadcrumb, and suggest widget.",
@@ -6902,6 +6998,7 @@
                       "tag",
                       "tag-add",
                       "tag-remove",
+                      "git-pull-request-label",
                       "person",
                       "person-follow",
                       "person-outline",
@@ -7156,6 +7253,7 @@
                       "megaphone",
                       "mention",
                       "milestone",
+                      "git-pull-request-milestone",
                       "mortar-board",
                       "move",
                       "multiple-windows",
@@ -7280,9 +7378,11 @@
                       "menu",
                       "expand-all",
                       "feedback",
+                      "git-pull-request-reviewer",
                       "group-by-ref-type",
                       "ungroup-by-ref-type",
                       "account",
+                      "git-pull-request-assignee",
                       "bell-dot",
                       "debug-console",
                       "library",
@@ -7405,6 +7505,7 @@
                       "send",
                       "sparkle",
                       "insert",
+                      "mic",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -7531,6 +7632,7 @@
                       "notebook-revert",
                       "notebook-render-output",
                       "notebook-mimetype",
+                      "notebook-copy",
                       "notebook-diff-editor-previous-change",
                       "notebook-diff-editor-next-change",
                       "find-filter",
@@ -7577,6 +7679,7 @@
                       "search-clear-results",
                       "search-view-icon",
                       "search-new-editor",
+                      "search-open-in-file",
                       "terminal-view-icon",
                       "terminal-rename",
                       "terminal-kill",
@@ -7592,6 +7695,7 @@
                       "test-view-icon",
                       "test-results-icon",
                       "testing-run-icon",
+                      "testing-rerun-icon",
                       "testing-run-all-icon",
                       "testing-debug-all-icon",
                       "testing-debug-icon",
@@ -7681,6 +7785,7 @@
                       "workspace-trust-editor-remove-folder"
                     ],
                     "enumDescriptions": [
+                      "",
                       "",
                       "",
                       "",
@@ -7998,6 +8103,7 @@
                       "",
                       "",
                       "",
+                      "",
                       "Icon for stop in the search view.",
                       "",
                       "",
@@ -8080,7 +8186,10 @@
                       "",
                       "",
                       "",
+                      "",
+                      "",
                       "Icon for the debug console open action.",
+                      "",
                       "",
                       "",
                       "",
@@ -8327,6 +8436,7 @@
                       "Icon to revert in notebook editors.",
                       "Icon to render output in diff editor.",
                       "Icon for a mime type in notebook editors.",
+                      "Icon to copy content to clipboard",
                       "Icon for the previous change action in the diff editor.",
                       "Icon for the next change action in the diff editor.",
                       "Icon for Find Filter in find widget.",
@@ -8373,6 +8483,7 @@
                       "Icon for clear results in the search view.",
                       "View icon of the search view.",
                       "Icon for the action to open a new search editor.",
+                      "Icon for the action to go to the file of the current search result.",
                       "View icon of the terminal view.",
                       "Icon for rename in the terminal quick menu.",
                       "Icon for killing a terminal instance.",
@@ -8388,6 +8499,7 @@
                       "View icon of the test view.",
                       "Icons for test results.",
                       "Icon of the \"run test\" action.",
+                      "Icon of the \"rerun tests\" action.",
                       "Icon of the \"run all tests\" action.",
                       "Icon of the \"debug all tests\" action.",
                       "Icon of the \"debug test\" action.",
@@ -11102,6 +11214,110 @@
                 }
               }
             },
+            "terminal/context": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"terminalContextMenu\"]` - The terminal context menu",
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "command"
+                    ],
+                    "properties": {
+                      "alt": {
+                        "description": "Identifier of an alternative command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "command": {
+                        "description": "Identifier of the command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "submenu"
+                    ],
+                    "properties": {
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "submenu": {
+                        "description": "Identifier of the submenu to display in this item.",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "terminal/title/context": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"terminalContextMenu\"]` - The terminal tabs context menu",
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "command"
+                    ],
+                    "properties": {
+                      "alt": {
+                        "description": "Identifier of an alternative command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "command": {
+                        "description": "Identifier of the command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "submenu"
+                    ],
+                    "properties": {
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "submenu": {
+                        "description": "Identifier of the submenu to display in this item.",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
             "testing/item/context": {
               "markdownDescription": "The contributed test item menu",
               "type": "array",
@@ -11156,6 +11372,110 @@
             },
             "testing/item/gutter": {
               "markdownDescription": "The menu for a gutter decoration for a test item",
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "command"
+                    ],
+                    "properties": {
+                      "alt": {
+                        "description": "Identifier of an alternative command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "command": {
+                        "description": "Identifier of the command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "submenu"
+                    ],
+                    "properties": {
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "submenu": {
+                        "description": "Identifier of the submenu to display in this item.",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "testing/message/content": {
+              "markdownDescription": "Context menu for the message in the results tree",
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "command"
+                    ],
+                    "properties": {
+                      "alt": {
+                        "description": "Identifier of an alternative command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "command": {
+                        "description": "Identifier of the command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "submenu"
+                    ],
+                    "properties": {
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "submenu": {
+                        "description": "Identifier of the submenu to display in this item.",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "testing/message/context": {
+              "markdownDescription": "A prominent button overlaying editor content where the message is displayed",
               "type": "array",
               "items": {
                 "oneOf": [
@@ -12535,6 +12855,48 @@
             }
           }
         },
+        "slashes": {
+          "description": "Contributes slash commands to chat",
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "command",
+                  "detail"
+                ],
+                "properties": {
+                  "command": {
+                    "type": "string",
+                    "markdownDescription": "The name of the slash command which will be used as prefix."
+                  },
+                  "detail": {
+                    "type": "string",
+                    "markdownDescription": "The details of the slash command."
+                  }
+                }
+              }
+            },
+            {
+              "type": "object",
+              "required": [
+                "command",
+                "detail"
+              ],
+              "properties": {
+                "command": {
+                  "type": "string",
+                  "markdownDescription": "The name of the slash command which will be used as prefix."
+                },
+                "detail": {
+                  "type": "string",
+                  "markdownDescription": "The details of the slash command."
+                }
+              }
+            }
+          ]
+        },
         "snippets": {
           "description": "Contributes snippets.",
           "type": "array",
@@ -12863,6 +13225,17 @@
               "id": {
                 "description": "The ID of the quick fix provider",
                 "type": "string"
+              },
+              "kind": {
+                "description": "The kind of the resulting quick fix. This changes how the quick fix is presented. Defaults to `\"fix\"`.",
+                "enum": [
+                  "default",
+                  "explain"
+                ],
+                "enumDescriptions": [
+                  "A high confidence quick fix.",
+                  "An explanation of the problem."
+                ]
               },
               "outputMatcher": {
                 "markdownDescription": "A regular expression or string to match a single line of the output against, which provides groups to be referenced in terminalCommand and uri.\n\nFor example:\n\n `lineMatcher: /git push --set-upstream origin (?<branchName>[^s]+)/;`\n\n`terminalCommand: 'git push --set-upstream origin ${group:branchName}';`\n",
@@ -13727,9 +14100,15 @@
       "items": {
         "type": "string",
         "enum": [
+          "aiRelatedInformation",
           "authGetSessions",
           "authSession",
           "canonicalUriProvider",
+          "chat",
+          "chatProvider",
+          "chatRequestAccess",
+          "chatSlashCommands",
+          "chatVariables",
           "codiconDecoration",
           "commentsDraftState",
           "contribCommentEditorActionsMenu",
@@ -13755,8 +14134,6 @@
           "dropMetadata",
           "editorInsets",
           "editSessionIdentityProvider",
-          "envCollectionOptions",
-          "envCollectionWorkspace",
           "envShellEvent",
           "extensionRuntime",
           "extensionsAny",
@@ -13764,18 +14141,17 @@
           "fileComments",
           "fileSearchProvider",
           "findTextInFiles",
-          "formatMultipleRanges",
           "fsChunks",
           "handleIssueUri",
           "idToken",
           "indentSize",
           "inlineCompletionsAdditions",
           "interactive",
-          "interactiveSlashCommands",
           "interactiveUserActions",
           "interactiveWindow",
           "ipc",
           "languageConfigurationAutoClosingPairs",
+          "mappedEditsProvider",
           "notebookCellExecutionState",
           "notebookCodeActions",
           "notebookControllerAffinityHidden",
@@ -13797,17 +14173,19 @@
           "scmSelectedProvider",
           "scmTextDocument",
           "scmValidation",
-          "semanticSimilarity",
           "shareProvider",
           "showLocal",
           "tabInputTextMerge",
           "taskPresentationGroup",
           "telemetry",
+          "terminalContextMenu",
           "terminalDataWriteEvent",
           "terminalDimensions",
+          "terminalExecuteCommandEvent",
           "terminalQuickFixProvider",
           "terminalSelection",
           "testCoverage",
+          "testMessageContextValue",
           "testObserver",
           "textSearchProvider",
           "timeline",
@@ -13821,9 +14199,15 @@
           "workspaceTrust"
         ],
         "markdownEnumDescriptions": [
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiRelatedInformation.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authGetSessions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authSession.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.canonicalUriProvider.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chat.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatProvider.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatRequestAccess.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatSlashCommands.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatVariables.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.codiconDecoration.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.commentsDraftState.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribCommentEditorActionsMenu.d.ts",
@@ -13849,8 +14233,6 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.dropMetadata.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.editorInsets.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.editSessionIdentityProvider.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.envCollectionOptions.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.envCollectionWorkspace.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.envShellEvent.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.extensionRuntime.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.extensionsAny.d.ts",
@@ -13858,18 +14240,17 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.fileComments.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.fileSearchProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.findTextInFiles.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.formatMultipleRanges.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.fsChunks.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.handleIssueUri.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.idToken.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.indentSize.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.inlineCompletionsAdditions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.interactive.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.interactiveSlashCommands.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.interactiveUserActions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.interactiveWindow.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.ipc.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageConfigurationAutoClosingPairs.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.mappedEditsProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookCellExecutionState.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookCodeActions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookControllerAffinityHidden.d.ts",
@@ -13891,17 +14272,19 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmSelectedProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmTextDocument.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmValidation.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.semanticSimilarity.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.shareProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.showLocal.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.tabInputTextMerge.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.taskPresentationGroup.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.telemetry.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalContextMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalDataWriteEvent.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalDimensions.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalExecuteCommandEvent.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalQuickFixProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalSelection.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.testCoverage.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.testMessageContextValue.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.testObserver.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.textSearchProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.timeline.d.ts",
@@ -14037,6 +14420,15 @@
     "preview": {
       "type": "boolean",
       "description": "Sets the extension to be flagged as a Preview in the Marketplace."
+    },
+    "pricing": {
+      "type": "string",
+      "markdownDescription": "The pricing information for the extension. Can be Free (default) or Trial. For more details visit: https://code.visualstudio.com/api/working-with-extensions/publishing-extension#extension-pricing-label",
+      "enum": [
+        "Free",
+        "Trial"
+      ],
+      "default": "Free"
     },
     "publisher": {
       "description": "The publisher of the VS Code extension.",

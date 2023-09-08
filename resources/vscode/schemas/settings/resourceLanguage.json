@@ -269,14 +269,6 @@
       "scope": 5,
       "restricted": false
     },
-    "diffEditor.experimental.collapseUnchangedRegions": {
-      "type": "boolean",
-      "default": false,
-      "markdownDescription": "Controls whether the diff editor shows unchanged regions. Only works when `#diffEditor.experimental.useVersion2#` is set.",
-      "defaultDefaultValue": false,
-      "scope": 5,
-      "restricted": false
-    },
     "diffEditor.experimental.showEmptyDecorations": {
       "type": "boolean",
       "default": true,
@@ -300,8 +292,42 @@
       "tags": [
         "experimental"
       ],
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
+    "diffEditor.hideUnchangedRegions.contextLineCount": {
+      "type": "integer",
+      "default": 3,
+      "markdownDescription": "Controls how many lines are used as context when comparing unchanged regions. Only works when `#diffEditor.experimental.useVersion2#` is set.",
+      "minimum": 1,
+      "defaultDefaultValue": 3,
+      "scope": 5,
+      "restricted": false
+    },
+    "diffEditor.hideUnchangedRegions.enabled": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "Controls whether the diff editor shows unchanged regions. Only works when `#diffEditor.experimental.useVersion2#` is set.",
       "defaultDefaultValue": false,
-      "defaultValueSource": "Experiments",
+      "scope": 5,
+      "restricted": false
+    },
+    "diffEditor.hideUnchangedRegions.minimumLineCount": {
+      "type": "integer",
+      "default": 3,
+      "markdownDescription": "Controls how many lines are used as a minimum for unchanged regions. Only works when `#diffEditor.experimental.useVersion2#` is set.",
+      "minimum": 1,
+      "defaultDefaultValue": 3,
+      "scope": 5,
+      "restricted": false
+    },
+    "diffEditor.hideUnchangedRegions.revealLineCount": {
+      "type": "integer",
+      "default": 20,
+      "markdownDescription": "Controls how many lines are used for unchanged regions. Only works when `#diffEditor.experimental.useVersion2#` is set.",
+      "minimum": 1,
+      "defaultDefaultValue": 20,
       "scope": 5,
       "restricted": false
     },
@@ -349,6 +375,22 @@
       "type": "boolean",
       "default": true,
       "description": "Controls whether the diff editor shows the diff side by side or inline.",
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
+    "diffEditor.renderSideBySideInlineBreakpoint": {
+      "type": "number",
+      "default": 900,
+      "description": "If the diff editor width is smaller than this value, the inline view is used.",
+      "defaultDefaultValue": 900,
+      "scope": 5,
+      "restricted": false
+    },
+    "diffEditor.useInlineViewWhenSpaceIsLimited": {
+      "type": "boolean",
+      "default": true,
+      "description": "If enabled and the editor width is too small, the inline view is used.",
       "defaultDefaultValue": true,
       "scope": 5,
       "restricted": false
@@ -834,6 +876,7 @@
         "vscode.references-view",
         "vscode.search-result",
         "vscode.simple-browser",
+        "vscode.tunnel-forwarding",
         "vscode.typescript-language-features"
       ],
       "enumItemLabels": [
@@ -867,6 +910,7 @@
         "Microsoft Account",
         "NPM support for VS Code",
         "Simple Browser",
+        "Local Tunnel Port Forwarding",
         "Table Visualizer for JavaScript Profiles"
       ],
       "markdownEnumDescriptions": [
@@ -900,6 +944,7 @@
         "Reference Search results as separate, stable view in the sidebar",
         "Provides syntax highlighting and language features for tabbed search results.",
         "A very basic built-in webview for displaying web content.",
+        "Allows forwarding local ports to be accessible over the internet.",
         "Provides rich language support for JavaScript and TypeScript."
       ],
       "defaultDefaultValue": null,
@@ -944,6 +989,7 @@
         "vscode.references-view",
         "vscode.search-result",
         "vscode.simple-browser",
+        "vscode.tunnel-forwarding",
         "vscode.typescript-language-features"
       ],
       "enumItemLabels": [
@@ -977,6 +1023,7 @@
         "Microsoft Account",
         "NPM support for VS Code",
         "Simple Browser",
+        "Local Tunnel Port Forwarding",
         "Table Visualizer for JavaScript Profiles"
       ],
       "markdownEnumDescriptions": [
@@ -1010,6 +1057,7 @@
         "Reference Search results as separate, stable view in the sidebar",
         "Provides syntax highlighting and language features for tabbed search results.",
         "A very basic built-in webview for displaying web content.",
+        "Allows forwarding local ports to be accessible over the internet.",
         "Provides rich language support for JavaScript and TypeScript."
       ],
       "defaultDefaultValue": null,
@@ -1096,8 +1144,22 @@
       "type": "boolean",
       "default": false,
       "description": "Controls whether async tokenization should be verified against legacy background tokenization. Might slow down tokenization. For debugging only.",
+      "tags": [
+        "experimental"
+      ],
       "defaultDefaultValue": false,
       "scope": 5,
+      "restricted": false
+    },
+    "editor.experimental.dropIntoEditor.defaultProvider": {
+      "type": "object",
+      "scope": 5,
+      "description": "Configures the default drop provider to use for content of a given mime type.",
+      "default": {},
+      "additionalProperties": {
+        "type": "string"
+      },
+      "defaultDefaultValue": {},
       "restricted": false
     },
     "editor.experimentalWhitespaceRendering": {
@@ -1757,6 +1819,14 @@
       "type": "boolean",
       "default": false,
       "description": "Enables the padding around the inlay hints in the editor.",
+      "defaultDefaultValue": false,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.inlineCompletionsAccessibilityVerbose": {
+      "description": "Controls whether the accessibility hint should be provided to screen reader users when an inline completion is shown.",
+      "type": "boolean",
+      "default": false,
       "defaultDefaultValue": false,
       "scope": 5,
       "restricted": false
@@ -2662,6 +2732,14 @@
       "maximum": 10,
       "description": "Defines the maximum number of sticky lines to show.",
       "defaultDefaultValue": 5,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.stickyScroll.scrollWithEditor": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable scrolling of the sticky scroll widget with the editor's horizontal scrollbar.",
+      "defaultDefaultValue": true,
       "scope": 5,
       "restricted": false
     },

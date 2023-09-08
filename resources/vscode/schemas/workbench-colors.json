@@ -1,6 +1,16 @@
 {
   "type": "object",
   "properties": {
+    "actionBar.toggledBackground": {
+      "type": "string",
+      "description": "Background color for toggled action items in action bar.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "activityBar.activeBackground": {
       "type": "string",
       "description": "Activity bar background color for the active item. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
@@ -361,9 +371,9 @@
         }
       ]
     },
-    "chat.requestBackground": {
+    "chat.requestBorder": {
       "type": "string",
-      "description": "The background color of a chat request.",
+      "description": "The border color of a chat request.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -371,9 +381,19 @@
         }
       ]
     },
-    "chat.requestBorder": {
+    "chat.slashCommandBackground": {
       "type": "string",
-      "description": "The border color of a chat request.",
+      "description": "The background color of a chat slash command.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "chat.slashCommandForeground": {
+      "type": "string",
+      "description": "The foreground color of a chat slash command.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -964,6 +984,16 @@
     "diffEditor.move.border": {
       "type": "string",
       "description": "The border color for text that got moved in the diff editor.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "diffEditor.moveActive.border": {
+      "type": "string",
+      "description": "The active border color for text that got moved in the diff editor.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -1722,29 +1752,9 @@
         }
       ]
     },
-    "editorCommentsWidget.rangeActiveBorder": {
-      "type": "string",
-      "description": "Color of border for currently selected or hovered comment range.",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ]
-    },
     "editorCommentsWidget.rangeBackground": {
       "type": "string",
       "description": "Color of background for comment ranges.",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ]
-    },
-    "editorCommentsWidget.rangeBorder": {
-      "type": "string",
-      "description": "Color of border for comment ranges.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -5445,6 +5455,16 @@
         }
       ]
     },
+    "simpleFindWidget.sashBorder": {
+      "type": "string",
+      "description": "Border color of the sash border.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "statusBar.background": {
       "type": "string",
       "description": "Status bar background color when a workspace or folder is opened. The status bar is shown in the bottom of the window.",
@@ -5545,26 +5565,6 @@
         }
       ]
     },
-    "statusBar.offlineBackground": {
-      "type": "string",
-      "description": "Status bar background color when the workbench is offline. The status bar is shown in the bottom of the window",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ]
-    },
-    "statusBar.offlineForeground": {
-      "type": "string",
-      "description": "Status bar foreground color when the workbench is offline. The status bar is shown in the bottom of the window",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ]
-    },
     "statusBarItem.activeBackground": {
       "type": "string",
       "description": "Status bar item background color when clicking. The status bar is shown in the bottom of the window.",
@@ -5605,6 +5605,26 @@
         }
       ]
     },
+    "statusBarItem.errorHoverBackground": {
+      "type": "string",
+      "description": "Status bar error items background color when hovering. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "statusBarItem.errorHoverForeground": {
+      "type": "string",
+      "description": "Status bar error items foreground color when hovering. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "statusBarItem.focusBorder": {
       "type": "string",
       "description": "Status bar item border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.",
@@ -5625,9 +5645,59 @@
         }
       ]
     },
+    "statusBarItem.hoverForeground": {
+      "type": "string",
+      "description": "Status bar item foreground color when hovering. The status bar is shown in the bottom of the window.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "statusBarItem.offlineBackground": {
+      "type": "string",
+      "description": "Status bar item background color when the workbench is offline.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "statusBarItem.offlineForeground": {
+      "type": "string",
+      "description": "Status bar item foreground color when the workbench is offline.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "statusBarItem.offlineHoverBackground": {
+      "type": "string",
+      "description": "Status bar item background hover color when the workbench is offline.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "statusBarItem.offlineHoverForeground": {
+      "type": "string",
+      "description": "Status bar item foreground hover color when the workbench is offline.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "statusBarItem.prominentBackground": {
       "type": "string",
-      "description": "Status bar prominent items background color. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window.",
+      "description": "Status bar prominent items background color. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -5637,7 +5707,7 @@
     },
     "statusBarItem.prominentForeground": {
       "type": "string",
-      "description": "Status bar prominent items foreground color. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window.",
+      "description": "Status bar prominent items foreground color. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -5647,7 +5717,17 @@
     },
     "statusBarItem.prominentHoverBackground": {
       "type": "string",
-      "description": "Status bar prominent items background color when hovering. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window.",
+      "description": "Status bar prominent items background color when hovering. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "statusBarItem.prominentHoverForeground": {
+      "type": "string",
+      "description": "Status bar prominent items foreground color when hovering. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -5675,6 +5755,26 @@
         }
       ]
     },
+    "statusBarItem.remoteHoverBackground": {
+      "type": "string",
+      "description": "Background color for the remote indicator on the status bar when hovering.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "statusBarItem.remoteHoverForeground": {
+      "type": "string",
+      "description": "Foreground color for the remote indicator on the status bar when hovering.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "statusBarItem.warningBackground": {
       "type": "string",
       "description": "Status bar warning items background color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.",
@@ -5688,6 +5788,26 @@
     "statusBarItem.warningForeground": {
       "type": "string",
       "description": "Status bar warning items foreground color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "statusBarItem.warningHoverBackground": {
+      "type": "string",
+      "description": "Status bar warning items background color when hovering. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "statusBarItem.warningHoverForeground": {
+      "type": "string",
+      "description": "Status bar warning items foreground color when hovering. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.",
       "format": "color-hex",
       "defaultSnippets": [
         {
