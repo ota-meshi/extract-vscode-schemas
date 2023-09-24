@@ -13,7 +13,7 @@ module.exports = { run };
 
 async function run() {
   // Wait for VSCode initialization to stabilize.
-  await new Promise((resolve) => setTimeout(resolve, 30000));
+  await new Promise((resolve) => setTimeout(resolve, 120000));
   const processedUri = new Set();
   const buffer = [...URI_LIST];
   let uri;
