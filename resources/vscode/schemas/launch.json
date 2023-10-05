@@ -410,6 +410,13 @@
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
+              "enableDWARF": {
+                "default": true,
+                "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+                "type": "boolean",
+                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+              },
               "inspectUri": {
                 "default": null,
                 "description": "Format to use to rewrite the inspectUri: It's a template string that interpolates keys in `{curlyBraces}`. Available keys are:\n - `url.*` is the parsed address of the running application. For instance, `{url.port}`, `{url.hostname}`\n - `port` is the debug port that Chrome is listening on.\n - `browserInspectUri` is the inspector URI on the launched browser\n - `browserInspectUriPath` is the path part of the inspector URI on the launched browser (e.g.: \"/devtools/browser/e9ec0098-306e-472a-8133-5e42488929c2\").\n - `wsProtocol` is the hinted websocket protocol. This is set to `wss` if the original URL is `https`, or `ws` otherwise.\n",
@@ -610,6 +617,11 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                        "type": "boolean"
+                      },
+                      "enableDWARF": {
+                        "default": true,
+                        "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                         "type": "boolean"
                       },
                       "env": {
@@ -941,6 +953,11 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                        "type": "boolean"
+                      },
+                      "enableDWARF": {
+                        "default": true,
+                        "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                         "type": "boolean"
                       },
                       "env": {
@@ -1436,6 +1453,13 @@
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
+              "enableDWARF": {
+                "default": true,
+                "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+                "type": "boolean",
+                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+              },
               "inspectUri": {
                 "default": null,
                 "description": "Format to use to rewrite the inspectUri: It's a template string that interpolates keys in `{curlyBraces}`. Available keys are:\n - `url.*` is the parsed address of the running application. For instance, `{url.port}`, `{url.hostname}`\n - `port` is the debug port that Chrome is listening on.\n - `browserInspectUri` is the inspector URI on the launched browser\n - `browserInspectUriPath` is the path part of the inspector URI on the launched browser (e.g.: \"/devtools/browser/e9ec0098-306e-472a-8133-5e42488929c2\").\n - `wsProtocol` is the hinted websocket protocol. This is set to `wss` if the original URL is `https`, or `ws` otherwise.\n",
@@ -1636,6 +1660,11 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                        "type": "boolean"
+                      },
+                      "enableDWARF": {
+                        "default": true,
+                        "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                         "type": "boolean"
                       },
                       "env": {
@@ -1967,6 +1996,11 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                        "type": "boolean"
+                      },
+                      "enableDWARF": {
+                        "default": true,
+                        "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                         "type": "boolean"
                       },
                       "env": {
@@ -2476,6 +2510,13 @@
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
+              "enableDWARF": {
+                "default": true,
+                "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+                "type": "boolean",
+                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+              },
               "inspectUri": {
                 "default": null,
                 "description": "Format to use to rewrite the inspectUri: It's a template string that interpolates keys in `{curlyBraces}`. Available keys are:\n - `url.*` is the parsed address of the running application. For instance, `{url.port}`, `{url.hostname}`\n - `port` is the debug port that Chrome is listening on.\n - `browserInspectUri` is the inspector URI on the launched browser\n - `browserInspectUriPath` is the path part of the inspector URI on the launched browser (e.g.: \"/devtools/browser/e9ec0098-306e-472a-8133-5e42488929c2\").\n - `wsProtocol` is the hinted websocket protocol. This is set to `wss` if the original URL is `https`, or `ws` otherwise.\n",
@@ -2676,6 +2717,11 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                        "type": "boolean"
+                      },
+                      "enableDWARF": {
+                        "default": true,
+                        "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                         "type": "boolean"
                       },
                       "env": {
@@ -3007,6 +3053,11 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                        "type": "boolean"
+                      },
+                      "enableDWARF": {
+                        "default": true,
+                        "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                         "type": "boolean"
                       },
                       "env": {
@@ -3503,6 +3554,13 @@
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
+              "enableDWARF": {
+                "default": true,
+                "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+                "type": "boolean",
+                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+              },
               "inspectUri": {
                 "default": null,
                 "description": "Format to use to rewrite the inspectUri: It's a template string that interpolates keys in `{curlyBraces}`. Available keys are:\n - `url.*` is the parsed address of the running application. For instance, `{url.port}`, `{url.hostname}`\n - `port` is the debug port that Chrome is listening on.\n - `browserInspectUri` is the inspector URI on the launched browser\n - `browserInspectUriPath` is the path part of the inspector URI on the launched browser (e.g.: \"/devtools/browser/e9ec0098-306e-472a-8133-5e42488929c2\").\n - `wsProtocol` is the hinted websocket protocol. This is set to `wss` if the original URL is `https`, or `ws` otherwise.\n",
@@ -3703,6 +3761,11 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                        "type": "boolean"
+                      },
+                      "enableDWARF": {
+                        "default": true,
+                        "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                         "type": "boolean"
                       },
                       "env": {
@@ -4034,6 +4097,11 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                        "type": "boolean"
+                      },
+                      "enableDWARF": {
+                        "default": true,
+                        "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                         "type": "boolean"
                       },
                       "env": {
@@ -4547,6 +4615,13 @@
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
+              "enableDWARF": {
+                "default": true,
+                "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+                "type": "boolean",
+                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+              },
               "env": {
                 "additionalProperties": {
                   "type": [
@@ -4984,6 +5059,13 @@
               "enableContentValidation": {
                 "default": true,
                 "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                "type": "boolean",
+                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+              },
+              "enableDWARF": {
+                "default": true,
+                "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                 "type": "boolean",
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
@@ -5445,6 +5527,13 @@
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
+              "enableDWARF": {
+                "default": true,
+                "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+                "type": "boolean",
+                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+              },
               "env": {
                 "default": {},
                 "description": "Optional dictionary of environment key/value pairs for the browser.",
@@ -5693,6 +5782,11 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                        "type": "boolean"
+                      },
+                      "enableDWARF": {
+                        "default": true,
+                        "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                         "type": "boolean"
                       },
                       "env": {
@@ -6024,6 +6118,11 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                        "type": "boolean"
+                      },
+                      "enableDWARF": {
+                        "default": true,
+                        "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                         "type": "boolean"
                       },
                       "env": {
@@ -6674,6 +6773,13 @@
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
+              "enableDWARF": {
+                "default": true,
+                "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+                "type": "boolean",
+                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+              },
               "env": {
                 "default": {},
                 "description": "Optional dictionary of environment key/value pairs for the browser.",
@@ -6922,6 +7028,11 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                        "type": "boolean"
+                      },
+                      "enableDWARF": {
+                        "default": true,
+                        "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                         "type": "boolean"
                       },
                       "env": {
@@ -7253,6 +7364,11 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                        "type": "boolean"
+                      },
+                      "enableDWARF": {
+                        "default": true,
+                        "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                         "type": "boolean"
                       },
                       "env": {
@@ -7898,6 +8014,13 @@
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
+              "enableDWARF": {
+                "default": true,
+                "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+                "type": "boolean",
+                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+              },
               "env": {
                 "additionalProperties": {
                   "type": [
@@ -8066,6 +8189,11 @@
                     "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                     "type": "boolean"
                   },
+                  "enableDWARF": {
+                    "default": true,
+                    "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+                    "type": "boolean"
+                  },
                   "inspectUri": {
                     "default": null,
                     "description": "Format to use to rewrite the inspectUri: It's a template string that interpolates keys in `{curlyBraces}`. Available keys are:\n - `url.*` is the parsed address of the running application. For instance, `{url.port}`, `{url.hostname}`\n - `port` is the debug port that Chrome is listening on.\n - `browserInspectUri` is the inspector URI on the launched browser\n - `browserInspectUriPath` is the path part of the inspector URI on the launched browser (e.g.: \"/devtools/browser/e9ec0098-306e-472a-8133-5e42488929c2\").\n - `wsProtocol` is the hinted websocket protocol. This is set to `wss` if the original URL is `https`, or `ws` otherwise.\n",
@@ -8207,6 +8335,11 @@
                           "enableContentValidation": {
                             "default": true,
                             "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                            "type": "boolean"
+                          },
+                          "enableDWARF": {
+                            "default": true,
+                            "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                             "type": "boolean"
                           },
                           "env": {
@@ -8538,6 +8671,11 @@
                           "enableContentValidation": {
                             "default": true,
                             "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                            "type": "boolean"
+                          },
+                          "enableDWARF": {
+                            "default": true,
+                            "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                             "type": "boolean"
                           },
                           "env": {
@@ -9334,6 +9472,13 @@
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
+              "enableDWARF": {
+                "default": true,
+                "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+                "type": "boolean",
+                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+              },
               "env": {
                 "additionalProperties": {
                   "type": [
@@ -9502,6 +9647,11 @@
                     "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
                     "type": "boolean"
                   },
+                  "enableDWARF": {
+                    "default": true,
+                    "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+                    "type": "boolean"
+                  },
                   "inspectUri": {
                     "default": null,
                     "description": "Format to use to rewrite the inspectUri: It's a template string that interpolates keys in `{curlyBraces}`. Available keys are:\n - `url.*` is the parsed address of the running application. For instance, `{url.port}`, `{url.hostname}`\n - `port` is the debug port that Chrome is listening on.\n - `browserInspectUri` is the inspector URI on the launched browser\n - `browserInspectUriPath` is the path part of the inspector URI on the launched browser (e.g.: \"/devtools/browser/e9ec0098-306e-472a-8133-5e42488929c2\").\n - `wsProtocol` is the hinted websocket protocol. This is set to `wss` if the original URL is `https`, or `ws` otherwise.\n",
@@ -9643,6 +9793,11 @@
                           "enableContentValidation": {
                             "default": true,
                             "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                            "type": "boolean"
+                          },
+                          "enableDWARF": {
+                            "default": true,
+                            "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                             "type": "boolean"
                           },
                           "env": {
@@ -9974,6 +10129,11 @@
                           "enableContentValidation": {
                             "default": true,
                             "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                            "type": "boolean"
+                          },
+                          "enableDWARF": {
+                            "default": true,
+                            "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                             "type": "boolean"
                           },
                           "env": {
@@ -10778,6 +10938,13 @@
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
+              "enableDWARF": {
+                "default": true,
+                "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+                "type": "boolean",
+                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+              },
               "env": {
                 "additionalProperties": {
                   "type": [
@@ -11403,6 +11570,13 @@
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
+              "enableDWARF": {
+                "default": true,
+                "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+                "type": "boolean",
+                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+              },
               "env": {
                 "additionalProperties": {
                   "type": [
@@ -12002,6 +12176,13 @@
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
+              "enableDWARF": {
+                "default": true,
+                "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+                "type": "boolean",
+                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+              },
               "env": {
                 "additionalProperties": {
                   "type": [
@@ -12530,6 +12711,13 @@
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
+              "enableDWARF": {
+                "default": true,
+                "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+                "type": "boolean",
+                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+              },
               "env": {
                 "default": {},
                 "description": "Optional dictionary of environment key/value pairs for the browser.",
@@ -12778,6 +12966,11 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                        "type": "boolean"
+                      },
+                      "enableDWARF": {
+                        "default": true,
+                        "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                         "type": "boolean"
                       },
                       "env": {
@@ -13109,6 +13302,11 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                        "type": "boolean"
+                      },
+                      "enableDWARF": {
+                        "default": true,
+                        "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                         "type": "boolean"
                       },
                       "env": {
@@ -13745,6 +13943,13 @@
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
+              "enableDWARF": {
+                "default": true,
+                "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+                "type": "boolean",
+                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+              },
               "env": {
                 "default": {},
                 "description": "Optional dictionary of environment key/value pairs for the browser.",
@@ -13993,6 +14198,11 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                        "type": "boolean"
+                      },
+                      "enableDWARF": {
+                        "default": true,
+                        "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                         "type": "boolean"
                       },
                       "env": {
@@ -14324,6 +14534,11 @@
                       "enableContentValidation": {
                         "default": true,
                         "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                        "type": "boolean"
+                      },
+                      "enableDWARF": {
+                        "default": true,
+                        "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                         "type": "boolean"
                       },
                       "env": {
@@ -15114,6 +15329,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "inspectUri": {
           "default": null,
           "description": "Format to use to rewrite the inspectUri: It's a template string that interpolates keys in `{curlyBraces}`. Available keys are:\n - `url.*` is the parsed address of the running application. For instance, `{url.port}`, `{url.hostname}`\n - `port` is the debug port that Chrome is listening on.\n - `browserInspectUri` is the inspector URI on the launched browser\n - `browserInspectUriPath` is the path part of the inspector URI on the launched browser (e.g.: \"/devtools/browser/e9ec0098-306e-472a-8133-5e42488929c2\").\n - `wsProtocol` is the hinted websocket protocol. This is set to `wss` if the original URL is `https`, or `ws` otherwise.\n",
@@ -15306,6 +15528,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -15637,6 +15864,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -16130,6 +16362,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "inspectUri": {
           "default": null,
           "description": "Format to use to rewrite the inspectUri: It's a template string that interpolates keys in `{curlyBraces}`. Available keys are:\n - `url.*` is the parsed address of the running application. For instance, `{url.port}`, `{url.hostname}`\n - `port` is the debug port that Chrome is listening on.\n - `browserInspectUri` is the inspector URI on the launched browser\n - `browserInspectUriPath` is the path part of the inspector URI on the launched browser (e.g.: \"/devtools/browser/e9ec0098-306e-472a-8133-5e42488929c2\").\n - `wsProtocol` is the hinted websocket protocol. This is set to `wss` if the original URL is `https`, or `ws` otherwise.\n",
@@ -16309,6 +16548,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -16640,6 +16884,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -17122,6 +17371,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "env": {
           "default": {},
           "description": "Optional dictionary of environment key/value pairs for the browser.",
@@ -17362,6 +17618,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -17693,6 +17954,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -18327,6 +18593,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "env": {
           "default": {},
           "description": "Optional dictionary of environment key/value pairs for the browser.",
@@ -18554,6 +18827,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -18885,6 +19163,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -19599,6 +19882,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "env": {
           "additionalProperties": {
             "type": [
@@ -19759,6 +20049,11 @@
               "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
               "type": "boolean"
             },
+            "enableDWARF": {
+              "default": true,
+              "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+              "type": "boolean"
+            },
             "inspectUri": {
               "default": null,
               "description": "Format to use to rewrite the inspectUri: It's a template string that interpolates keys in `{curlyBraces}`. Available keys are:\n - `url.*` is the parsed address of the running application. For instance, `{url.port}`, `{url.hostname}`\n - `port` is the debug port that Chrome is listening on.\n - `browserInspectUri` is the inspector URI on the launched browser\n - `browserInspectUriPath` is the path part of the inspector URI on the launched browser (e.g.: \"/devtools/browser/e9ec0098-306e-472a-8133-5e42488929c2\").\n - `wsProtocol` is the hinted websocket protocol. This is set to `wss` if the original URL is `https`, or `ws` otherwise.\n",
@@ -19900,6 +20195,11 @@
                     "enableContentValidation": {
                       "default": true,
                       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                      "type": "boolean"
+                    },
+                    "enableDWARF": {
+                      "default": true,
+                      "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                       "type": "boolean"
                     },
                     "env": {
@@ -20231,6 +20531,11 @@
                     "enableContentValidation": {
                       "default": true,
                       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                      "type": "boolean"
+                    },
+                    "enableDWARF": {
+                      "default": true,
+                      "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                       "type": "boolean"
                     },
                     "env": {
@@ -21025,6 +21330,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "env": {
           "additionalProperties": {
             "type": [
@@ -21180,6 +21492,11 @@
               "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
               "type": "boolean"
             },
+            "enableDWARF": {
+              "default": true,
+              "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+              "type": "boolean"
+            },
             "inspectUri": {
               "default": null,
               "description": "Format to use to rewrite the inspectUri: It's a template string that interpolates keys in `{curlyBraces}`. Available keys are:\n - `url.*` is the parsed address of the running application. For instance, `{url.port}`, `{url.hostname}`\n - `port` is the debug port that Chrome is listening on.\n - `browserInspectUri` is the inspector URI on the launched browser\n - `browserInspectUriPath` is the path part of the inspector URI on the launched browser (e.g.: \"/devtools/browser/e9ec0098-306e-472a-8133-5e42488929c2\").\n - `wsProtocol` is the hinted websocket protocol. This is set to `wss` if the original URL is `https`, or `ws` otherwise.\n",
@@ -21321,6 +21638,11 @@
                     "enableContentValidation": {
                       "default": true,
                       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                      "type": "boolean"
+                    },
+                    "enableDWARF": {
+                      "default": true,
+                      "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                       "type": "boolean"
                     },
                     "env": {
@@ -21652,6 +21974,11 @@
                     "enableContentValidation": {
                       "default": true,
                       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                      "type": "boolean"
+                    },
+                    "enableDWARF": {
+                      "default": true,
+                      "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                       "type": "boolean"
                     },
                     "env": {
@@ -22403,6 +22730,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "inspectUri": {
           "default": null,
           "description": "Format to use to rewrite the inspectUri: It's a template string that interpolates keys in `{curlyBraces}`. Available keys are:\n - `url.*` is the parsed address of the running application. For instance, `{url.port}`, `{url.hostname}`\n - `port` is the debug port that Chrome is listening on.\n - `browserInspectUri` is the inspector URI on the launched browser\n - `browserInspectUriPath` is the path part of the inspector URI on the launched browser (e.g.: \"/devtools/browser/e9ec0098-306e-472a-8133-5e42488929c2\").\n - `wsProtocol` is the hinted websocket protocol. This is set to `wss` if the original URL is `https`, or `ws` otherwise.\n",
@@ -22595,6 +22929,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -22926,6 +23265,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -23433,6 +23777,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "inspectUri": {
           "default": null,
           "description": "Format to use to rewrite the inspectUri: It's a template string that interpolates keys in `{curlyBraces}`. Available keys are:\n - `url.*` is the parsed address of the running application. For instance, `{url.port}`, `{url.hostname}`\n - `port` is the debug port that Chrome is listening on.\n - `browserInspectUri` is the inspector URI on the launched browser\n - `browserInspectUriPath` is the path part of the inspector URI on the launched browser (e.g.: \"/devtools/browser/e9ec0098-306e-472a-8133-5e42488929c2\").\n - `wsProtocol` is the hinted websocket protocol. This is set to `wss` if the original URL is `https`, or `ws` otherwise.\n",
@@ -23612,6 +23963,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -23943,6 +24299,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -24446,6 +24807,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "env": {
           "default": {},
           "description": "Optional dictionary of environment key/value pairs for the browser.",
@@ -24686,6 +25054,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -25017,6 +25390,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -25665,6 +26043,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "env": {
           "default": {},
           "description": "Optional dictionary of environment key/value pairs for the browser.",
@@ -25892,6 +26277,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -26223,6 +26613,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -26823,6 +27218,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "env": {
           "additionalProperties": {
             "type": [
@@ -27322,6 +27724,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "env": {
           "additionalProperties": {
             "type": [
@@ -27797,6 +28206,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "env": {
           "additionalProperties": {
             "type": [
@@ -28228,6 +28644,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "env": {
           "additionalProperties": {
             "type": [
@@ -28636,6 +29059,13 @@
         "enableContentValidation": {
           "default": true,
           "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
           "type": "boolean",
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
@@ -29255,6 +29685,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "env": {
           "additionalProperties": {
             "type": [
@@ -29816,6 +30253,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "inspectUri": {
           "default": null,
           "description": "Format to use to rewrite the inspectUri: It's a template string that interpolates keys in `{curlyBraces}`. Available keys are:\n - `url.*` is the parsed address of the running application. For instance, `{url.port}`, `{url.hostname}`\n - `port` is the debug port that Chrome is listening on.\n - `browserInspectUri` is the inspector URI on the launched browser\n - `browserInspectUriPath` is the path part of the inspector URI on the launched browser (e.g.: \"/devtools/browser/e9ec0098-306e-472a-8133-5e42488929c2\").\n - `wsProtocol` is the hinted websocket protocol. This is set to `wss` if the original URL is `https`, or `ws` otherwise.\n",
@@ -30008,6 +30452,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -30339,6 +30788,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -30833,6 +31287,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "inspectUri": {
           "default": null,
           "description": "Format to use to rewrite the inspectUri: It's a template string that interpolates keys in `{curlyBraces}`. Available keys are:\n - `url.*` is the parsed address of the running application. For instance, `{url.port}`, `{url.hostname}`\n - `port` is the debug port that Chrome is listening on.\n - `browserInspectUri` is the inspector URI on the launched browser\n - `browserInspectUriPath` is the path part of the inspector URI on the launched browser (e.g.: \"/devtools/browser/e9ec0098-306e-472a-8133-5e42488929c2\").\n - `wsProtocol` is the hinted websocket protocol. This is set to `wss` if the original URL is `https`, or `ws` otherwise.\n",
@@ -31012,6 +31473,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -31343,6 +31809,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -31825,6 +32296,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "env": {
           "default": {},
           "description": "Optional dictionary of environment key/value pairs for the browser.",
@@ -32065,6 +32543,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -32396,6 +32879,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -33031,6 +33519,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "env": {
           "default": {},
           "description": "Optional dictionary of environment key/value pairs for the browser.",
@@ -33258,6 +33753,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -33589,6 +34089,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -34202,6 +34707,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "env": {
           "additionalProperties": {
             "type": [
@@ -34362,6 +34874,11 @@
               "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
               "type": "boolean"
             },
+            "enableDWARF": {
+              "default": true,
+              "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+              "type": "boolean"
+            },
             "inspectUri": {
               "default": null,
               "description": "Format to use to rewrite the inspectUri: It's a template string that interpolates keys in `{curlyBraces}`. Available keys are:\n - `url.*` is the parsed address of the running application. For instance, `{url.port}`, `{url.hostname}`\n - `port` is the debug port that Chrome is listening on.\n - `browserInspectUri` is the inspector URI on the launched browser\n - `browserInspectUriPath` is the path part of the inspector URI on the launched browser (e.g.: \"/devtools/browser/e9ec0098-306e-472a-8133-5e42488929c2\").\n - `wsProtocol` is the hinted websocket protocol. This is set to `wss` if the original URL is `https`, or `ws` otherwise.\n",
@@ -34503,6 +35020,11 @@
                     "enableContentValidation": {
                       "default": true,
                       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                      "type": "boolean"
+                    },
+                    "enableDWARF": {
+                      "default": true,
+                      "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                       "type": "boolean"
                     },
                     "env": {
@@ -34834,6 +35356,11 @@
                     "enableContentValidation": {
                       "default": true,
                       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                      "type": "boolean"
+                    },
+                    "enableDWARF": {
+                      "default": true,
+                      "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                       "type": "boolean"
                     },
                     "env": {
@@ -35629,6 +36156,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "env": {
           "additionalProperties": {
             "type": [
@@ -35784,6 +36318,11 @@
               "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
               "type": "boolean"
             },
+            "enableDWARF": {
+              "default": true,
+              "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+              "type": "boolean"
+            },
             "inspectUri": {
               "default": null,
               "description": "Format to use to rewrite the inspectUri: It's a template string that interpolates keys in `{curlyBraces}`. Available keys are:\n - `url.*` is the parsed address of the running application. For instance, `{url.port}`, `{url.hostname}`\n - `port` is the debug port that Chrome is listening on.\n - `browserInspectUri` is the inspector URI on the launched browser\n - `browserInspectUriPath` is the path part of the inspector URI on the launched browser (e.g.: \"/devtools/browser/e9ec0098-306e-472a-8133-5e42488929c2\").\n - `wsProtocol` is the hinted websocket protocol. This is set to `wss` if the original URL is `https`, or `ws` otherwise.\n",
@@ -35925,6 +36464,11 @@
                     "enableContentValidation": {
                       "default": true,
                       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                      "type": "boolean"
+                    },
+                    "enableDWARF": {
+                      "default": true,
+                      "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                       "type": "boolean"
                     },
                     "env": {
@@ -36256,6 +36800,11 @@
                     "enableContentValidation": {
                       "default": true,
                       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                      "type": "boolean"
+                    },
+                    "enableDWARF": {
+                      "default": true,
+                      "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                       "type": "boolean"
                     },
                     "env": {
@@ -37007,6 +37556,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "inspectUri": {
           "default": null,
           "description": "Format to use to rewrite the inspectUri: It's a template string that interpolates keys in `{curlyBraces}`. Available keys are:\n - `url.*` is the parsed address of the running application. For instance, `{url.port}`, `{url.hostname}`\n - `port` is the debug port that Chrome is listening on.\n - `browserInspectUri` is the inspector URI on the launched browser\n - `browserInspectUriPath` is the path part of the inspector URI on the launched browser (e.g.: \"/devtools/browser/e9ec0098-306e-472a-8133-5e42488929c2\").\n - `wsProtocol` is the hinted websocket protocol. This is set to `wss` if the original URL is `https`, or `ws` otherwise.\n",
@@ -37199,6 +37755,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -37530,6 +38091,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -38038,6 +38604,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "inspectUri": {
           "default": null,
           "description": "Format to use to rewrite the inspectUri: It's a template string that interpolates keys in `{curlyBraces}`. Available keys are:\n - `url.*` is the parsed address of the running application. For instance, `{url.port}`, `{url.hostname}`\n - `port` is the debug port that Chrome is listening on.\n - `browserInspectUri` is the inspector URI on the launched browser\n - `browserInspectUriPath` is the path part of the inspector URI on the launched browser (e.g.: \"/devtools/browser/e9ec0098-306e-472a-8133-5e42488929c2\").\n - `wsProtocol` is the hinted websocket protocol. This is set to `wss` if the original URL is `https`, or `ws` otherwise.\n",
@@ -38217,6 +38790,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -38548,6 +39126,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -39051,6 +39634,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "env": {
           "default": {},
           "description": "Optional dictionary of environment key/value pairs for the browser.",
@@ -39291,6 +39881,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -39622,6 +40217,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -40271,6 +40871,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "env": {
           "default": {},
           "description": "Optional dictionary of environment key/value pairs for the browser.",
@@ -40498,6 +41105,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -40829,6 +41441,11 @@
                 "enableContentValidation": {
                   "default": true,
                   "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+                  "type": "boolean"
+                },
+                "enableDWARF": {
+                  "default": true,
+                  "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
                   "type": "boolean"
                 },
                 "env": {
@@ -41440,6 +42057,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "env": {
           "additionalProperties": {
             "type": [
@@ -41872,6 +42496,13 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "env": {
           "additionalProperties": {
             "type": [
@@ -42280,6 +42911,13 @@
         "enableContentValidation": {
           "default": true,
           "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
           "type": "boolean",
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
@@ -42896,6 +43534,13 @@
         "enableContentValidation": {
           "default": true,
           "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
+          "type": "boolean",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
+        "enableDWARF": {
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
           "type": "boolean",
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."

@@ -280,26 +280,15 @@
     "diffEditor.experimental.showMoves": {
       "type": "boolean",
       "default": false,
-      "markdownDescription": "Controls whether the diff editor should show detected code moves. Only works when `#diffEditor.experimental.useVersion2#` is set.",
+      "markdownDescription": "Controls whether the diff editor should show detected code moves.",
       "defaultDefaultValue": false,
-      "scope": 5,
-      "restricted": false
-    },
-    "diffEditor.experimental.useVersion2": {
-      "type": "boolean",
-      "default": true,
-      "description": "Controls whether the diff editor uses the new or the old implementation.",
-      "tags": [
-        "experimental"
-      ],
-      "defaultDefaultValue": true,
       "scope": 5,
       "restricted": false
     },
     "diffEditor.hideUnchangedRegions.contextLineCount": {
       "type": "integer",
       "default": 3,
-      "markdownDescription": "Controls how many lines are used as context when comparing unchanged regions. Only works when `#diffEditor.experimental.useVersion2#` is set.",
+      "markdownDescription": "Controls how many lines are used as context when comparing unchanged regions.",
       "minimum": 1,
       "defaultDefaultValue": 3,
       "scope": 5,
@@ -308,7 +297,7 @@
     "diffEditor.hideUnchangedRegions.enabled": {
       "type": "boolean",
       "default": false,
-      "markdownDescription": "Controls whether the diff editor shows unchanged regions. Only works when `#diffEditor.experimental.useVersion2#` is set.",
+      "markdownDescription": "Controls whether the diff editor shows unchanged regions.",
       "defaultDefaultValue": false,
       "scope": 5,
       "restricted": false
@@ -316,7 +305,7 @@
     "diffEditor.hideUnchangedRegions.minimumLineCount": {
       "type": "integer",
       "default": 3,
-      "markdownDescription": "Controls how many lines are used as a minimum for unchanged regions. Only works when `#diffEditor.experimental.useVersion2#` is set.",
+      "markdownDescription": "Controls how many lines are used as a minimum for unchanged regions.",
       "minimum": 1,
       "defaultDefaultValue": 3,
       "scope": 5,
@@ -325,7 +314,7 @@
     "diffEditor.hideUnchangedRegions.revealLineCount": {
       "type": "integer",
       "default": 20,
-      "markdownDescription": "Controls how many lines are used for unchanged regions. Only works when `#diffEditor.experimental.useVersion2#` is set.",
+      "markdownDescription": "Controls how many lines are used for unchanged regions.",
       "minimum": 1,
       "defaultDefaultValue": 20,
       "scope": 5,
@@ -492,6 +481,26 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.autoClosingComments": {
+      "enumDescriptions": [
+        "",
+        "Autoclose comments only when the cursor is to the left of whitespace.",
+        "Use language configurations to determine when to autoclose comments.",
+        ""
+      ],
+      "description": "Controls whether the editor should automatically close comments after the user adds an opening comment.",
+      "type": "string",
+      "enum": [
+        "always",
+        "beforeWhitespace",
+        "languageDefined",
+        "never"
+      ],
+      "default": "languageDefined",
+      "defaultDefaultValue": "languageDefined",
+      "scope": 5,
+      "restricted": false
+    },
     "editor.autoClosingDelete": {
       "enumDescriptions": [
         "",
@@ -618,30 +627,109 @@
           "type": "object",
           "properties": {
             "source.fixAll": {
-              "type": "boolean",
+              "type": [
+                "string",
+                "boolean"
+              ],
+              "enum": [
+                "always",
+                "explicit",
+                false,
+                "never",
+                true
+              ],
+              "enumDescriptions": [
+                "Triggers Code Actions on explicit saves and auto saves triggered by window or focus changes.",
+                "Triggers Code Actions only when explicitly saved",
+                "Never triggers Code Actions on save. This value will be deprecated in favor of \"never\".",
+                "Never triggers Code Actions on save",
+                "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\"."
+              ],
+              "default": true,
               "description": "Controls whether auto fix action should be run on file save."
             }
           },
           "additionalProperties": {
-            "type": "boolean"
+            "type": [
+              "string",
+              "boolean"
+            ]
           }
         }
       ],
+      "markdownDescription": "Run CodeActions for the editor on save. CodeActions must be specified and the editor must not be shutting down. Example: `\"source.organizeImports\": \"explicit\" `",
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "string",
+          "boolean"
+        ],
+        "enum": [
+          "always",
+          "explicit",
+          "never",
+          true,
+          false
+        ]
+      },
       "default": {},
-      "description": "Code Action kinds to be run on save.",
       "scope": 5,
       "defaultDefaultValue": {},
       "restricted": false,
       "properties": {
         "source.fixAll": {
-          "type": "boolean",
+          "type": [
+            "string",
+            "boolean"
+          ],
+          "enum": [
+            "always",
+            "explicit",
+            false,
+            "never",
+            true
+          ],
+          "enumDescriptions": [
+            "Triggers Code Actions on explicit saves and auto saves triggered by window or focus changes.",
+            "Triggers Code Actions only when explicitly saved",
+            "Never triggers Code Actions on save. This value will be deprecated in favor of \"never\".",
+            "Never triggers Code Actions on save",
+            "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\"."
+          ],
+          "default": true,
           "description": "Controls whether auto fix action should be run on file save."
         },
         "source.organizeImports": {
-          "type": "boolean",
+          "type": [
+            "string",
+            "boolean"
+          ],
+          "enum": [
+            "always",
+            "explicit",
+            false,
+            "never",
+            true
+          ],
+          "enumDescriptions": [
+            "Triggers Code Actions on explicit saves and auto saves triggered by window or focus changes.",
+            "Triggers Code Actions only when explicitly saved",
+            "Never triggers Code Actions on save. This value will be deprecated in favor of \"never\".",
+            "Never triggers Code Actions on save",
+            "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\"."
+          ],
+          "default": true,
           "description": "Controls whether 'Organize Imports' actions should be run on file save."
         }
       }
+    },
+    "editor.codeActionWidget.includeNearbyQuickfixes": {
+      "type": "boolean",
+      "scope": 5,
+      "description": "Enable/disable showing nearest quickfix within a line when not currently on a diagnostic.",
+      "default": false,
+      "defaultDefaultValue": false,
+      "restricted": false
     },
     "editor.codeActionWidget.showHeaders": {
       "type": "boolean",
@@ -809,7 +897,7 @@
         "`cursorSurroundingLines` is enforced always.",
         "`cursorSurroundingLines` is enforced only when triggered via the keyboard or API."
       ],
-      "description": "Controls when `cursorSurroundingLines` should be enforced.",
+      "markdownDescription": "Controls when `#cursorSurroundingLines#` should be enforced.",
       "type": "string",
       "enum": [
         "all",
@@ -1122,13 +1210,12 @@
     },
     "editor.experimental.asyncTokenization": {
       "type": "boolean",
-      "default": true,
+      "default": false,
       "description": "Controls whether the tokenization should happen asynchronously on a web worker.",
       "tags": [
         "experimental"
       ],
       "defaultDefaultValue": false,
-      "defaultValueSource": "Experiments",
       "scope": 5,
       "restricted": false
     },
@@ -1749,6 +1836,15 @@
       "default": true,
       "description": "Controls whether the hover is shown.",
       "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.hover.hidingDelay": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 300,
+      "description": "Controls the delay in milliseconds after thich the hover is hidden. Requires `editor.hover.sticky` to be enabled.",
+      "defaultDefaultValue": 300,
       "scope": 5,
       "restricted": false
     },

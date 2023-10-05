@@ -466,13 +466,6 @@
       "$ref": "vscode://schemas/settings/resourceLanguage",
       "default": {}
     },
-    "[perl6]": {
-      "type": "object",
-      "description": "Configure editor settings to be overridden for a language.",
-      "errorMessage": "This setting does not support per-language configuration.",
-      "$ref": "vscode://schemas/settings/resourceLanguage",
-      "default": {}
-    },
     "[php]": {
       "type": "object",
       "description": "Configure editor settings to be overridden for a language.",
@@ -518,6 +511,13 @@
       }
     },
     "[r]": {
+      "type": "object",
+      "description": "Configure editor settings to be overridden for a language.",
+      "errorMessage": "This setting does not support per-language configuration.",
+      "$ref": "vscode://schemas/settings/resourceLanguage",
+      "default": {}
+    },
+    "[raku]": {
       "type": "object",
       "description": "Configure editor settings to be overridden for a language.",
       "errorMessage": "This setting does not support per-language configuration.",
@@ -691,8 +691,30 @@
         "displayName": "YAML Language Basics"
       }
     },
+    "accessibility.verbosity.comments": {
+      "description": "Provide information about actions that can be taken in the comment widget or in a file which contains comments.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
     "accessibility.verbosity.diffEditor": {
       "description": "Provide information about how to navigate changes in the diff editor when it is focused",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.verbosity.emptyEditorHint": {
+      "description": "Provide information about relevant actions in an empty text editor.",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -781,17 +803,6 @@
     },
     "accessibility.verbosity.terminal": {
       "description": "Provide information about how to access the terminal accessibility help menu when the terminal is focused",
-      "type": "boolean",
-      "default": true,
-      "tags": [
-        "accessibility"
-      ],
-      "defaultDefaultValue": true,
-      "scope": 3,
-      "restricted": false
-    },
-    "accessibility.verbosity.untitledHint": {
-      "description": "Provide information about relevant actions in an untitled text editor.",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -1567,6 +1578,14 @@
       "scope": 3,
       "restricted": false
     },
+    "comments.collapseOnResolve": {
+      "type": "boolean",
+      "default": true,
+      "description": "Controls whether the comment thread should collapse when the thread is resolved.",
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
     "comments.maxHeight": {
       "type": "boolean",
       "default": true,
@@ -1593,11 +1612,13 @@
       "enum": [
         "file",
         "firstFile",
+        "firstFileUnresolved",
         "never"
       ],
       "enumDescriptions": [
         "The comments view will open when a file with comments is active.",
         "If the comments view has not been opened yet during this session it will open the first time during a session that a file with comments is active.",
+        "If the comments view has not been opened yet during this session and the comment is not resolved, it will open the first time during a session that a file with comments is active.",
         "The comments view will never be opened."
       ],
       "default": "firstFile",
@@ -2465,6 +2486,11 @@
                 "on"
               ]
             },
+            "enableDWARF": {
+              "type": "boolean",
+              "default": true,
+              "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function."
+            },
             "env": {
               "type": "object",
               "description": "Optional dictionary of environment key/value pairs for the browser.",
@@ -2644,6 +2670,11 @@
                       "default": true,
                       "type": "boolean",
                       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example."
+                    },
+                    "enableDWARF": {
+                      "type": "boolean",
+                      "default": true,
+                      "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function."
                     },
                     "env": {
                       "type": "object",
@@ -2975,6 +3006,11 @@
                       "default": true,
                       "type": "boolean",
                       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example."
+                    },
+                    "enableDWARF": {
+                      "type": "boolean",
+                      "default": true,
+                      "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function."
                     },
                     "env": {
                       "type": "object",
@@ -3436,6 +3472,11 @@
           "type": "boolean",
           "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example."
         },
+        "enableDWARF": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function."
+        },
         "env": {
           "type": "object",
           "additionalProperties": {
@@ -3751,6 +3792,11 @@
           "default": true,
           "type": "boolean",
           "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example."
+        },
+        "enableDWARF": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function."
         },
         "env": {
           "type": "object",
@@ -4087,12 +4133,19 @@
     },
     "debug.toolBarLocation": {
       "enum": [
+        "commandCenter",
         "docked",
         "floating",
         "hidden"
       ],
-      "markdownDescription": "Controls the location of the debug toolbar. Either `floating` in all views, `docked` in the debug view, or `hidden`.",
+      "markdownDescription": "Controls the location of the debug toolbar. Either `floating` in all views, `docked` in the debug view, `commandCenter` (requires `#window.commandCenter#`), or `hidden`.",
       "default": "floating",
+      "markdownEnumDescriptions": [
+        "`(Experimental)` Show debug toolbar in the command center.",
+        "Show debug toolbar only in debug views.",
+        "Show debug toolbar in all views.",
+        "Do not show debug toolbar."
+      ],
       "defaultDefaultValue": "floating",
       "scope": 3,
       "restricted": false
@@ -4134,26 +4187,15 @@
     "diffEditor.experimental.showMoves": {
       "type": "boolean",
       "default": false,
-      "markdownDescription": "Controls whether the diff editor should show detected code moves. Only works when `#diffEditor.experimental.useVersion2#` is set.",
+      "markdownDescription": "Controls whether the diff editor should show detected code moves.",
       "defaultDefaultValue": false,
-      "scope": 5,
-      "restricted": false
-    },
-    "diffEditor.experimental.useVersion2": {
-      "type": "boolean",
-      "default": true,
-      "description": "Controls whether the diff editor uses the new or the old implementation.",
-      "tags": [
-        "experimental"
-      ],
-      "defaultDefaultValue": true,
       "scope": 5,
       "restricted": false
     },
     "diffEditor.hideUnchangedRegions.contextLineCount": {
       "type": "integer",
       "default": 3,
-      "markdownDescription": "Controls how many lines are used as context when comparing unchanged regions. Only works when `#diffEditor.experimental.useVersion2#` is set.",
+      "markdownDescription": "Controls how many lines are used as context when comparing unchanged regions.",
       "minimum": 1,
       "defaultDefaultValue": 3,
       "scope": 5,
@@ -4162,7 +4204,7 @@
     "diffEditor.hideUnchangedRegions.enabled": {
       "type": "boolean",
       "default": false,
-      "markdownDescription": "Controls whether the diff editor shows unchanged regions. Only works when `#diffEditor.experimental.useVersion2#` is set.",
+      "markdownDescription": "Controls whether the diff editor shows unchanged regions.",
       "defaultDefaultValue": false,
       "scope": 5,
       "restricted": false
@@ -4170,7 +4212,7 @@
     "diffEditor.hideUnchangedRegions.minimumLineCount": {
       "type": "integer",
       "default": 3,
-      "markdownDescription": "Controls how many lines are used as a minimum for unchanged regions. Only works when `#diffEditor.experimental.useVersion2#` is set.",
+      "markdownDescription": "Controls how many lines are used as a minimum for unchanged regions.",
       "minimum": 1,
       "defaultDefaultValue": 3,
       "scope": 5,
@@ -4179,7 +4221,7 @@
     "diffEditor.hideUnchangedRegions.revealLineCount": {
       "type": "integer",
       "default": 20,
-      "markdownDescription": "Controls how many lines are used for unchanged regions. Only works when `#diffEditor.experimental.useVersion2#` is set.",
+      "markdownDescription": "Controls how many lines are used for unchanged regions.",
       "minimum": 1,
       "defaultDefaultValue": 20,
       "scope": 5,
@@ -4346,6 +4388,26 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.autoClosingComments": {
+      "enumDescriptions": [
+        "",
+        "Autoclose comments only when the cursor is to the left of whitespace.",
+        "Use language configurations to determine when to autoclose comments.",
+        ""
+      ],
+      "description": "Controls whether the editor should automatically close comments after the user adds an opening comment.",
+      "type": "string",
+      "enum": [
+        "always",
+        "beforeWhitespace",
+        "languageDefined",
+        "never"
+      ],
+      "default": "languageDefined",
+      "defaultDefaultValue": "languageDefined",
+      "scope": 5,
+      "restricted": false
+    },
     "editor.autoClosingDelete": {
       "enumDescriptions": [
         "",
@@ -4472,30 +4534,109 @@
           "type": "object",
           "properties": {
             "source.fixAll": {
-              "type": "boolean",
+              "type": [
+                "string",
+                "boolean"
+              ],
+              "enum": [
+                "always",
+                "explicit",
+                false,
+                "never",
+                true
+              ],
+              "enumDescriptions": [
+                "Triggers Code Actions on explicit saves and auto saves triggered by window or focus changes.",
+                "Triggers Code Actions only when explicitly saved",
+                "Never triggers Code Actions on save. This value will be deprecated in favor of \"never\".",
+                "Never triggers Code Actions on save",
+                "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\"."
+              ],
+              "default": true,
               "description": "Controls whether auto fix action should be run on file save."
             }
           },
           "additionalProperties": {
-            "type": "boolean"
+            "type": [
+              "string",
+              "boolean"
+            ]
           }
         }
       ],
+      "markdownDescription": "Run CodeActions for the editor on save. CodeActions must be specified and the editor must not be shutting down. Example: `\"source.organizeImports\": \"explicit\" `",
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "string",
+          "boolean"
+        ],
+        "enum": [
+          "always",
+          "explicit",
+          "never",
+          true,
+          false
+        ]
+      },
       "default": {},
-      "description": "Code Action kinds to be run on save.",
       "scope": 5,
       "defaultDefaultValue": {},
       "restricted": false,
       "properties": {
         "source.fixAll": {
-          "type": "boolean",
+          "type": [
+            "string",
+            "boolean"
+          ],
+          "enum": [
+            "always",
+            "explicit",
+            false,
+            "never",
+            true
+          ],
+          "enumDescriptions": [
+            "Triggers Code Actions on explicit saves and auto saves triggered by window or focus changes.",
+            "Triggers Code Actions only when explicitly saved",
+            "Never triggers Code Actions on save. This value will be deprecated in favor of \"never\".",
+            "Never triggers Code Actions on save",
+            "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\"."
+          ],
+          "default": true,
           "description": "Controls whether auto fix action should be run on file save."
         },
         "source.organizeImports": {
-          "type": "boolean",
+          "type": [
+            "string",
+            "boolean"
+          ],
+          "enum": [
+            "always",
+            "explicit",
+            false,
+            "never",
+            true
+          ],
+          "enumDescriptions": [
+            "Triggers Code Actions on explicit saves and auto saves triggered by window or focus changes.",
+            "Triggers Code Actions only when explicitly saved",
+            "Never triggers Code Actions on save. This value will be deprecated in favor of \"never\".",
+            "Never triggers Code Actions on save",
+            "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\"."
+          ],
+          "default": true,
           "description": "Controls whether 'Organize Imports' actions should be run on file save."
         }
       }
+    },
+    "editor.codeActionWidget.includeNearbyQuickfixes": {
+      "type": "boolean",
+      "scope": 5,
+      "description": "Enable/disable showing nearest quickfix within a line when not currently on a diagnostic.",
+      "default": false,
+      "defaultDefaultValue": false,
+      "restricted": false
     },
     "editor.codeActionWidget.showHeaders": {
       "type": "boolean",
@@ -4663,7 +4804,7 @@
         "`cursorSurroundingLines` is enforced always.",
         "`cursorSurroundingLines` is enforced only when triggered via the keyboard or API."
       ],
-      "description": "Controls when `cursorSurroundingLines` should be enforced.",
+      "markdownDescription": "Controls when `#cursorSurroundingLines#` should be enforced.",
       "type": "string",
       "enum": [
         "all",
@@ -4976,13 +5117,12 @@
     },
     "editor.experimental.asyncTokenization": {
       "type": "boolean",
-      "default": true,
+      "default": false,
       "description": "Controls whether the tokenization should happen asynchronously on a web worker.",
       "tags": [
         "experimental"
       ],
       "defaultDefaultValue": false,
-      "defaultValueSource": "Experiments",
       "scope": 5,
       "restricted": false
     },
@@ -5603,6 +5743,15 @@
       "default": true,
       "description": "Controls whether the hover is shown.",
       "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.hover.hidingDelay": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 300,
+      "description": "Controls the delay in milliseconds after thich the hover is hidden. Requires `editor.hover.sticky` to be enabled.",
+      "defaultDefaultValue": 300,
       "scope": 5,
       "restricted": false
     },
@@ -10116,14 +10265,15 @@
       "restricted": false
     },
     "git.githubAuthentication": {
-      "deprecationMessage": "This setting is now deprecated, please use `github.gitAuthentication` instead.",
+      "markdownDeprecationMessage": "This setting is now deprecated, please use `#github.gitAuthentication#` instead.",
       "scope": 3,
       "source": {
         "id": "vscode.git",
         "displayName": "Git"
       },
       "default": null,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is now deprecated, please use `#github.gitAuthentication#` instead."
     },
     "git.ignoredRepositories": {
       "type": "array",
@@ -10247,7 +10397,7 @@
         "null"
       ],
       "default": 50,
-      "description": "Controls the commit message subject length threshold for showing a warning. Unset it to inherit the value of `config.inputValidationLength`.",
+      "markdownDescription": "Controls the commit message subject length threshold for showing a warning. Unset it to inherit the value of `#git.inputValidationLength#`.",
       "scope": 3,
       "source": {
         "id": "vscode.git",
@@ -10917,7 +11067,7 @@
         "Attribute value is set to ''."
       ],
       "default": "doublequotes",
-      "description": "Controls the default value for attributes when completion is accepted.",
+      "markdownDescription": "Controls the default value for attributes when completion is accepted.",
       "source": {
         "id": "vscode.html-language-features",
         "displayName": "HTML Language Features"
@@ -11109,7 +11259,7 @@
       ],
       "scope": 4,
       "default": null,
-      "markdownDescription": "Indent wrapped attributes to after N characters. Use `null` to use the default indent size. Ignored if `#html.format.wrapAttributes#` is set to 'aligned'.",
+      "markdownDescription": "Indent wrapped attributes to after N characters. Use `null` to use the default indent size. Ignored if `#html.format.wrapAttributes#` is set to `aligned`.",
       "source": {
         "id": "vscode.html-language-features",
         "displayName": "HTML Language Features"
@@ -12192,18 +12342,6 @@
         "displayName": "JSON Language Features"
       },
       "default": [],
-      "restricted": false
-    },
-    "json.sortOnSave.enable": {
-      "type": "boolean",
-      "scope": 3,
-      "default": false,
-      "description": "Enable/disable default sorting on save",
-      "source": {
-        "id": "vscode.json-language-features",
-        "displayName": "JSON Language Features"
-      },
-      "defaultDefaultValue": false,
       "restricted": false
     },
     "json.trace.server": {
@@ -13601,10 +13739,25 @@
       "restricted": false
     },
     "notebook.codeActionsOnSave": {
-      "markdownDescription": "Experimental. Run a series of CodeActions for a notebook on save. CodeActions must be specified, the file must not be saved after delay, and the editor must not be shutting down. Example: `source.fixAll: true`",
+      "markdownDescription": "Run a series of CodeActions for a notebook on save. CodeActions must be specified, the file must not be saved after delay, and the editor must not be shutting down. Example: `\"notebook.source.organizeImports\": \"explicit\"`",
       "type": "object",
       "additionalProperties": {
-        "type": "boolean"
+        "type": [
+          "string",
+          "boolean"
+        ],
+        "enum": [
+          "explicit",
+          "never",
+          true,
+          false
+        ],
+        "enumDescriptions": [
+          "Triggers Code Actions only when explicitly saved.",
+          "Never triggers Code Actions on save.",
+          "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\".",
+          "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"never\"."
+        ]
       },
       "default": {},
       "defaultDefaultValue": {},
@@ -13786,6 +13939,26 @@
                 ""
               ],
               "description": "Controls whether the editor should automatically close brackets after the user adds an opening bracket.",
+              "type": "string",
+              "enum": [
+                "always",
+                "beforeWhitespace",
+                "languageDefined",
+                "never"
+              ],
+              "default": "languageDefined",
+              "defaultDefaultValue": "languageDefined",
+              "scope": 5,
+              "restricted": false
+            },
+            "editor.autoClosingComments": {
+              "enumDescriptions": [
+                "",
+                "Autoclose comments only when the cursor is to the left of whitespace.",
+                "Use language configurations to determine when to autoclose comments.",
+                ""
+              ],
+              "description": "Controls whether the editor should automatically close comments after the user adds an opening comment.",
               "type": "string",
               "enum": [
                 "always",
@@ -14070,7 +14243,7 @@
                 "`cursorSurroundingLines` is enforced always.",
                 "`cursorSurroundingLines` is enforced only when triggered via the keyboard or API."
               ],
-              "description": "Controls when `cursorSurroundingLines` should be enforced.",
+              "markdownDescription": "Controls when `#cursorSurroundingLines#` should be enforced.",
               "type": "string",
               "enum": [
                 "all",
@@ -14718,6 +14891,15 @@
               "default": true,
               "description": "Controls whether the hover is shown.",
               "defaultDefaultValue": true,
+              "scope": 5,
+              "restricted": false
+            },
+            "editor.hover.hidingDelay": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 300,
+              "description": "Controls the delay in milliseconds after thich the hover is hidden. Requires `editor.hover.sticky` to be enabled.",
+              "defaultDefaultValue": 300,
               "scope": 5,
               "restricted": false
             },
@@ -16333,6 +16515,14 @@
       "scope": 3,
       "restricted": false
     },
+    "notebook.gotoSymbols.showAllSymbols": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "When enabled goto symbol quickpick will display full code symbols from the notebook, as well as markdown headers.",
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
     "notebook.insertToolbarLocation": {
       "description": "Control where the insert cell actions should appear.",
       "type": "string",
@@ -16463,6 +16653,42 @@
       ],
       "default": false,
       "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
+    "notebook.scrolling.experimental.anchorToFocusedCell": {
+      "markdownDescription": "Experimental. Keep the focused cell steady while surrounding cells change size.",
+      "type": "string",
+      "enum": [
+        "auto",
+        "off",
+        "on"
+      ],
+      "markdownEnumDescriptions": [
+        "Anchor the viewport to the focused cell depending on context unless notebook.scrolling.revealCellBehavior is set to none.",
+        "The focused cell may shift around as cells resize.",
+        "Always anchor the viewport to the focused cell."
+      ],
+      "default": "auto",
+      "defaultDefaultValue": "auto",
+      "scope": 3,
+      "restricted": false
+    },
+    "notebook.scrolling.revealNextCellOnExecute": {
+      "markdownDescription": "How far to scroll when revealing the next cell upon running notebook.cell.executeAndSelectBelow.",
+      "type": "string",
+      "enum": [
+        "firstLine",
+        "fullCell",
+        "none"
+      ],
+      "markdownEnumDescriptions": [
+        "Scroll to reveal the first line of the next cell.",
+        "Scroll to fully reveal the next cell.",
+        "Do not scroll."
+      ],
+      "default": "fullCell",
+      "defaultDefaultValue": "fullCell",
       "scope": 3,
       "restricted": false
     },
@@ -17522,6 +17748,14 @@
       "description": "Controls whether leading and trailing whitespace is ignored in Source Control diff gutter decorations.",
       "default": "false",
       "defaultDefaultValue": "false",
+      "scope": 4,
+      "restricted": false
+    },
+    "scm.experimental.showSyncView": {
+      "type": "boolean",
+      "description": "Controls whether the Source Control Sync view is shown.",
+      "default": false,
+      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },
@@ -22401,7 +22635,7 @@
       "restricted": false
     },
     "terminal.integrated.customGlyphs": {
-      "description": "Whether to draw custom glyphs for block element and box drawing characters instead of using the font, which typically yields better rendering with continuous lines. Note that this doesn't work when `#terminal.integrated.gpuAcceleration#` is disabled.",
+      "markdownDescription": "Whether to draw custom glyphs for block element and box drawing characters instead of using the font, which typically yields better rendering with continuous lines. Note that this doesn't work when `#terminal.integrated.gpuAcceleration#` is disabled.",
       "type": "boolean",
       "default": true,
       "defaultDefaultValue": true,
@@ -22631,7 +22865,7 @@
       "restricted": false
     },
     "terminal.integrated.environmentChangesRelaunch": {
-      "markdownDescription": "Whether to relaunch terminals automatically if extension want to contribute to their environment and have not been interacted with yet.",
+      "markdownDescription": "Whether to relaunch terminals automatically if extensions want to contribute to their environment and have not been interacted with yet.",
       "type": "boolean",
       "default": true,
       "defaultDefaultValue": true,
@@ -22798,7 +23032,7 @@
       "restricted": false
     },
     "terminal.integrated.ignoreProcessNames": {
-      "description": "A set of process names to ignore when using the `terminal.integrated.confirmOnKill` setting.",
+      "markdownDescription": "A set of process names to ignore when using the `#terminal.integrated.confirmOnKill#` setting.",
       "type": "array",
       "items": {
         "type": "string",
@@ -31320,17 +31554,6 @@
       "scope": 3,
       "restricted": false
     },
-    "terminal.integrated.tabFocusMode": {
-      "markdownDescription": "Controls whether the terminal receives tabs or defers them to the workbench for navigation. When set, this overrides `#editor.tabFocusMode#` when the terminal is focused.",
-      "type": [
-        "boolean",
-        "null"
-      ],
-      "default": null,
-      "defaultDefaultValue": null,
-      "scope": 3,
-      "restricted": false
-    },
     "terminal.integrated.tabs.defaultColor": {
       "description": "A theme color ID to associate with terminal icons by default.",
       "type": [
@@ -32527,7 +32750,7 @@
     "terminal.integrated.tabs.separator": {
       "type": "string",
       "default": " - ",
-      "markdownDescription": "Separator used by `terminal.integrated.tabs.title` and `terminal.integrated.tabs.title`.",
+      "markdownDescription": "Separator used by `#terminal.integrated.tabs.title#` and `#terminal.integrated.tabs.description#`.",
       "defaultDefaultValue": " - ",
       "scope": 3,
       "restricted": false
@@ -32744,13 +32967,15 @@
     "testing.openTesting": {
       "enum": [
         "neverOpen",
+        "openExplorerOnTestStart",
         "openOnTestFailure",
         "openOnTestStart"
       ],
       "enumDescriptions": [
-        "Never automatically open the testing view",
-        "Open the testing view on any test failure",
-        "Open the testing view when tests start"
+        "Never automatically open the testing views",
+        "Open the test explorer when tests start",
+        "Open the test result view on any test failure",
+        "Open the test results view when tests start"
       ],
       "default": "openOnTestStart",
       "description": "Controls when the testing view should open.",
@@ -32844,16 +33069,63 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "typescript.experimental.aiQuickFix": {
-      "type": "boolean",
-      "default": false,
-      "description": "Enable/disable AI-assisted quick fixes. Requires an extension providing AI chat functionality.",
+    "typescript.experimental.aiCodeActions": {
+      "type": "object",
+      "default": {},
+      "description": "Enable/disable AI-assisted code actions. Requires an extension providing AI chat functionality.",
       "scope": 4,
+      "properties": {
+        "addNameToNamelessParameter": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable/disable AI assistance for Add Name to Nameless Parameter quickfix. Requires an extension providing AI chat functionality."
+        },
+        "classDoesntImplementInheritedAbstractMember": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable/disable AI assistance for Class Doesn't Implement Inherited Abstract Member quickfix. Requires an extension providing AI chat functionality."
+        },
+        "classIncorrectlyImplementsInterface": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable/disable AI assistance for Class Incorrectly Implements Interface quickfix. Requires an extension providing AI chat functionality."
+        },
+        "extractConstant": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable/disable AI assistance for Extract Constant refactor. Requires an extension providing AI chat functionality."
+        },
+        "extractFunction": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable/disable AI assistance for Extract Function refactor. Requires an extension providing AI chat functionality."
+        },
+        "extractInterface": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable/disable AI assistance for Extract Interface refactor. Requires an extension providing AI chat functionality."
+        },
+        "extractType": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable/disable AI assistance for Extract Type refactor. Requires an extension providing AI chat functionality."
+        },
+        "inferAndAddTypes": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable/disable AI assistance for Infer and Add Types refactor. Requires an extension providing AI chat functionality."
+        },
+        "missingFunctionDeclaration": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable/disable AI assistance for Missing Function Declaration quickfix. Requires an extension providing AI chat functionality."
+        }
+      },
       "source": {
         "id": "vscode.typescript-language-features",
         "displayName": "TypeScript and JavaScript Language Features"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": {},
       "restricted": false
     },
     "typescript.experimental.tsserver.web.typeAcquisition.enabled": {
@@ -33698,7 +33970,7 @@
     "typescript.tsserver.maxTsServerMemory": {
       "type": "number",
       "default": 3072,
-      "description": "The maximum amount of memory (in MB) to allocate to the TypeScript server process.",
+      "markdownDescription": "The maximum amount of memory (in MB) to allocate to the TypeScript server process. To use a memory limit greater than 4 GB, use `#typescript.tsserver.nodePath#` to run TS Server with a custom Node installation.",
       "scope": 3,
       "source": {
         "id": "vscode.typescript-language-features",
@@ -33706,6 +33978,17 @@
       },
       "defaultDefaultValue": 3072,
       "restricted": false
+    },
+    "typescript.tsserver.nodePath": {
+      "type": "string",
+      "description": "Run TS Server on a custom Node installation. This can be a path to a Node executable, or 'node' if you want VS Code to detect a Node installation.",
+      "scope": 3,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "default": "",
+      "restricted": true
     },
     "typescript.tsserver.useSeparateSyntaxServer": {
       "type": "boolean",
@@ -33870,6 +34153,18 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
+    "typescript.workspaceSymbols.excludeLibrarySymbols": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "Exclude symbols that come from library files in `Go To Symbol in Workspace` results. Requires using TypeScript 5.3+ in the workspace.",
+      "scope": 3,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
     "typescript.workspaceSymbols.scope": {
       "type": "string",
       "enum": [
@@ -33911,6 +34206,18 @@
       "default": true,
       "markdownDescription": "Show command launcher together with the window title. This setting only has an effect when `#window.titleBarStyle#` is set to `custom`.",
       "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "window.density.editorTabHeight": {
+      "type": "string",
+      "enum": [
+        "compact",
+        "default"
+      ],
+      "default": "default",
+      "markdownDescription": "Controls the height of editor tabs. Also applies to the title control bar when `#workbench.editor.showTabs#` is disabled.",
+      "defaultDefaultValue": "default",
       "scope": 3,
       "restricted": false
     },
@@ -34167,6 +34474,25 @@
       "scope": 3,
       "restricted": false
     },
+    "workbench.commandPalette.experimental.askChatLocation": {
+      "type": "string",
+      "tags": [
+        "experimental"
+      ],
+      "description": "Controls where the command palette should ask chat questions.",
+      "default": "chatView",
+      "enum": [
+        "chatView",
+        "quickChat"
+      ],
+      "enumDescriptions": [
+        "Ask chat questions in the Chat view.",
+        "Ask chat questions in Quick Chat."
+      ],
+      "defaultDefaultValue": "chatView",
+      "scope": 3,
+      "restricted": false
+    },
     "workbench.commandPalette.experimental.enableNaturalLanguageSearch": {
       "type": "boolean",
       "tags": [
@@ -34388,6 +34714,18 @@
       "scope": 3,
       "restricted": false
     },
+    "workbench.editor.empty.hint": {
+      "type": "string",
+      "enum": [
+        "hidden",
+        "text"
+      ],
+      "default": "text",
+      "markdownDescription": "Controls if the empty editor text hint should be visible in the editor.",
+      "defaultDefaultValue": "text",
+      "scope": 3,
+      "restricted": false
+    },
     "workbench.editor.enablePreview": {
       "type": "boolean",
       "description": "Controls whether opened editors show as preview editors. Preview editors do not stay open, are reused until explicitly set to be kept open (via double-click or editing), and show file names in italics.",
@@ -34598,15 +34936,22 @@
       "scope": 3,
       "restricted": false
     },
+    "workbench.editor.pinnedTabsOnSeparateRow": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "When enabled, displays pinned tabs in a separate row above all other tabs. This value is ignored when `#workbench.editor.showTabs#` is disabled.",
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
     "workbench.editor.preferHistoryBasedLanguageDetection": {
       "type": "boolean",
-      "default": true,
+      "default": false,
       "tags": [
         "experimental"
       ],
       "description": "When enabled, a language detection model that takes into account editor history will be given higher precedence.",
       "defaultDefaultValue": false,
-      "defaultValueSource": "Experiments",
       "scope": 3,
       "restricted": false
     },
@@ -34782,18 +35127,6 @@
       "description": "Controls the height of the scrollbars used for tabs and breadcrumbs in the editor title area.",
       "default": "default",
       "defaultDefaultValue": "default",
-      "scope": 3,
-      "restricted": false
-    },
-    "workbench.editor.untitled.hint": {
-      "type": "string",
-      "enum": [
-        "hidden",
-        "text"
-      ],
-      "default": "text",
-      "markdownDescription": "Controls if the untitled text hint should be visible in the editor.",
-      "defaultDefaultValue": "text",
       "scope": 3,
       "restricted": false
     },
@@ -35123,7 +35456,7 @@
         "trigger"
       ],
       "default": "automatic",
-      "description": "Controls the how type navigation works in lists and trees in the workbench. When set to 'trigger', type navigation begins once the 'list.triggerTypeNavigation' command is run.",
+      "markdownDescription": "Controls how type navigation works in lists and trees in the workbench. When set to `trigger`, type navigation begins once the `list.triggerTypeNavigation` command is run.",
       "defaultDefaultValue": "automatic",
       "scope": 3,
       "restricted": false
@@ -35598,8 +35931,8 @@
         "hide"
       ],
       "enumDescriptions": [
-        "Filter the Table of Contents to just categories that have matching settings. Clicking a category will filter the results to that category.",
-        "Hide the Table of Contents while searching."
+        "Filter the Table of Contents to just categories that have matching settings. Clicking a category will filter the results to that category. The search results will be grouped by category.",
+        "Hide the Table of Contents while searching. The search results will not be grouped by category, and instead will be sorted by similarity to the query, with exact keyword matches coming first."
       ],
       "description": "Controls the behavior of the settings editor Table of Contents while searching.",
       "default": "filter",

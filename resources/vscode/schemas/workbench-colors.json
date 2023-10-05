@@ -501,6 +501,16 @@
         }
       ]
     },
+    "commandCenter.debuggingBackground": {
+      "type": "string",
+      "description": "Command center background color when a program is being debugged",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "commandCenter.foreground": {
       "type": "string",
       "description": "Foreground color of the command center",
@@ -4157,6 +4167,16 @@
     "minimap.foregroundOpacity": {
       "type": "string",
       "description": "Opacity of foreground elements rendered in the minimap. For example, \"#000000c0\" will render the elements with 75% opacity.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "minimap.infoHighlight": {
+      "type": "string",
+      "description": "Minimap marker color for infos.",
       "format": "color-hex",
       "defaultSnippets": [
         {

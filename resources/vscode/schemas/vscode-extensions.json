@@ -308,6 +308,48 @@
       "description": "All contributions of the VS Code extension represented by this package.",
       "type": "object",
       "properties": {
+        "agents": {
+          "description": "Contributes agents to chat",
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "agent",
+                  "detail"
+                ],
+                "properties": {
+                  "agent": {
+                    "type": "string",
+                    "markdownDescription": "The name of the agent which will be used as prefix."
+                  },
+                  "detail": {
+                    "type": "string",
+                    "markdownDescription": "The details of the agent."
+                  }
+                }
+              }
+            },
+            {
+              "type": "object",
+              "required": [
+                "agent",
+                "detail"
+              ],
+              "properties": {
+                "agent": {
+                  "type": "string",
+                  "markdownDescription": "The name of the agent which will be used as prefix."
+                },
+                "detail": {
+                  "type": "string",
+                  "markdownDescription": "The details of the agent."
+                }
+              }
+            }
+          ]
+        },
         "authentication": {
           "description": "Contributes authentication",
           "type": "array",
@@ -468,6 +510,7 @@
                           "commandCenter.activeForeground",
                           "commandCenter.background",
                           "commandCenter.border",
+                          "commandCenter.debuggingBackground",
                           "commandCenter.foreground",
                           "commandCenter.inactiveBorder",
                           "commandCenter.inactiveForeground",
@@ -836,6 +879,7 @@
                           "minimap.errorHighlight",
                           "minimap.findMatchHighlight",
                           "minimap.foregroundOpacity",
+                          "minimap.infoHighlight",
                           "minimap.selectionHighlight",
                           "minimap.selectionOccurrenceHighlight",
                           "minimap.warningHighlight",
@@ -1190,6 +1234,7 @@
                           "Active foreground color of the command center",
                           "Background color of the command center",
                           "Border color of the command center",
+                          "Command center background color when a program is being debugged",
                           "Foreground color of the command center",
                           "Border color of the command center when the window is inactive",
                           "Foreground color of the command center when the window is inactive",
@@ -1558,6 +1603,7 @@
                           "Minimap marker color for errors.",
                           "Minimap marker color for find matches.",
                           "Opacity of foreground elements rendered in the minimap. For example, \"#000000c0\" will render the elements with 75% opacity.",
+                          "Minimap marker color for infos.",
                           "Minimap marker color for the editor selection.",
                           "Minimap marker color for repeating editor selections.",
                           "Minimap marker color for warnings.",
@@ -1925,6 +1971,7 @@
                           "commandCenter.activeForeground",
                           "commandCenter.background",
                           "commandCenter.border",
+                          "commandCenter.debuggingBackground",
                           "commandCenter.foreground",
                           "commandCenter.inactiveBorder",
                           "commandCenter.inactiveForeground",
@@ -2293,6 +2340,7 @@
                           "minimap.errorHighlight",
                           "minimap.findMatchHighlight",
                           "minimap.foregroundOpacity",
+                          "minimap.infoHighlight",
                           "minimap.selectionHighlight",
                           "minimap.selectionOccurrenceHighlight",
                           "minimap.warningHighlight",
@@ -2647,6 +2695,7 @@
                           "Active foreground color of the command center",
                           "Background color of the command center",
                           "Border color of the command center",
+                          "Command center background color when a program is being debugged",
                           "Foreground color of the command center",
                           "Border color of the command center when the window is inactive",
                           "Foreground color of the command center when the window is inactive",
@@ -3015,6 +3064,7 @@
                           "Minimap marker color for errors.",
                           "Minimap marker color for find matches.",
                           "Opacity of foreground elements rendered in the minimap. For example, \"#000000c0\" will render the elements with 75% opacity.",
+                          "Minimap marker color for infos.",
                           "Minimap marker color for the editor selection.",
                           "Minimap marker color for repeating editor selections.",
                           "Minimap marker color for warnings.",
@@ -3382,6 +3432,7 @@
                           "commandCenter.activeForeground",
                           "commandCenter.background",
                           "commandCenter.border",
+                          "commandCenter.debuggingBackground",
                           "commandCenter.foreground",
                           "commandCenter.inactiveBorder",
                           "commandCenter.inactiveForeground",
@@ -3750,6 +3801,7 @@
                           "minimap.errorHighlight",
                           "minimap.findMatchHighlight",
                           "minimap.foregroundOpacity",
+                          "minimap.infoHighlight",
                           "minimap.selectionHighlight",
                           "minimap.selectionOccurrenceHighlight",
                           "minimap.warningHighlight",
@@ -4104,6 +4156,7 @@
                           "Active foreground color of the command center",
                           "Background color of the command center",
                           "Border color of the command center",
+                          "Command center background color when a program is being debugged",
                           "Foreground color of the command center",
                           "Border color of the command center when the window is inactive",
                           "Foreground color of the command center when the window is inactive",
@@ -4472,6 +4525,7 @@
                           "Minimap marker color for errors.",
                           "Minimap marker color for find matches.",
                           "Opacity of foreground elements rendered in the minimap. For example, \"#000000c0\" will render the elements with 75% opacity.",
+                          "Minimap marker color for infos.",
                           "Minimap marker color for the editor selection.",
                           "Minimap marker color for repeating editor selections.",
                           "Minimap marker color for warnings.",
@@ -4839,6 +4893,7 @@
                           "commandCenter.activeForeground",
                           "commandCenter.background",
                           "commandCenter.border",
+                          "commandCenter.debuggingBackground",
                           "commandCenter.foreground",
                           "commandCenter.inactiveBorder",
                           "commandCenter.inactiveForeground",
@@ -5207,6 +5262,7 @@
                           "minimap.errorHighlight",
                           "minimap.findMatchHighlight",
                           "minimap.foregroundOpacity",
+                          "minimap.infoHighlight",
                           "minimap.selectionHighlight",
                           "minimap.selectionOccurrenceHighlight",
                           "minimap.warningHighlight",
@@ -5561,6 +5617,7 @@
                           "Active foreground color of the command center",
                           "Background color of the command center",
                           "Border color of the command center",
+                          "Command center background color when a program is being debugged",
                           "Foreground color of the command center",
                           "Border color of the command center when the window is inactive",
                           "Foreground color of the command center when the window is inactive",
@@ -5929,6 +5986,7 @@
                           "Minimap marker color for errors.",
                           "Minimap marker color for find matches.",
                           "Opacity of foreground elements rendered in the minimap. For example, \"#000000c0\" will render the elements with 75% opacity.",
+                          "Minimap marker color for infos.",
                           "Minimap marker color for the editor selection.",
                           "Minimap marker color for repeating editor selections.",
                           "Minimap marker color for warnings.",
@@ -6756,6 +6814,11 @@
               },
               "deprecated": {
                 "description": "Optional message to mark this debug type as being deprecated.",
+                "type": "string",
+                "default": ""
+              },
+              "hiddenWhen": {
+                "description": "When this condition is true, this debugger type is hidden from the debugger list, but is still enabled.",
                 "type": "string",
                 "default": ""
               },
@@ -7735,6 +7798,7 @@
                       "getting-started-intermediate",
                       "theme-selection-manage-extension",
                       "defaultProfile-icon",
+                      "settings-view-bar-icon",
                       "settings-sync-view-icon",
                       "timeline-refresh",
                       "timeline-pin",
@@ -7761,7 +7825,6 @@
                       "centerLayoutIcon",
                       "zenMode",
                       "configure-layout-icon",
-                      "settings-view-bar-icon",
                       "accounts-view-bar-icon",
                       "diff-editor-previous-change",
                       "diff-editor-next-change",
@@ -8331,9 +8394,9 @@
                       "Icon for the close action in widgets.",
                       "Icon for goto previous editor location.",
                       "Icon for goto next editor location.",
-                      "Icon for 'Insert' in diff review.",
-                      "Icon for 'Remove' in diff review.",
-                      "Icon for 'Close' in diff review.",
+                      "Icon for 'Insert' in accessible diff viewer.",
+                      "Icon for 'Remove' in accessible diff viewer.",
+                      "Icon for 'Close' in accessible diff viewer.",
                       "Icon for show next parameter hint.",
                       "Icon for show previous parameter hint.",
                       "Icon for more information in the suggest widget.",
@@ -8539,6 +8602,7 @@
                       "Icon used for the intermediate category of welcome page",
                       "Icon for the 'Manage' action in the theme selection quick pick.",
                       "Icon for Default Profile.",
+                      "Settings icon in the view bar.",
                       "View icon of the Settings Sync view.",
                       "Icon for the refresh timeline action.",
                       "Icon for the pin timeline action.",
@@ -8565,7 +8629,6 @@
                       "Represents centered layout mode",
                       "Represents zen mode",
                       "Icon represents workbench layout configuration.",
-                      "Settings icon in the view bar.",
                       "Accounts icon in the view bar.",
                       "Icon for the previous change action in the diff editor.",
                       "Icon for the next change action in the diff editor.",
@@ -11215,7 +11278,7 @@
               }
             },
             "terminal/context": {
-              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"terminalContextMenu\"]` - The terminal context menu",
+              "markdownDescription": "The terminal context menu",
               "type": "array",
               "items": {
                 "oneOf": [
@@ -11267,7 +11330,7 @@
               }
             },
             "terminal/title/context": {
-              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"terminalContextMenu\"]` - The terminal tabs context menu",
+              "markdownDescription": "The terminal tabs context menu",
               "type": "array",
               "items": {
                 "oneOf": [
@@ -14105,6 +14168,7 @@
           "authSession",
           "canonicalUriProvider",
           "chat",
+          "chatAgents",
           "chatProvider",
           "chatRequestAccess",
           "chatSlashCommands",
@@ -14134,7 +14198,6 @@
           "dropMetadata",
           "editorInsets",
           "editSessionIdentityProvider",
-          "envShellEvent",
           "extensionRuntime",
           "extensionsAny",
           "externalUriOpener",
@@ -14144,16 +14207,13 @@
           "fsChunks",
           "handleIssueUri",
           "idToken",
-          "indentSize",
           "inlineCompletionsAdditions",
           "interactive",
           "interactiveUserActions",
           "interactiveWindow",
           "ipc",
-          "languageConfigurationAutoClosingPairs",
           "mappedEditsProvider",
           "notebookCellExecutionState",
-          "notebookCodeActions",
           "notebookControllerAffinityHidden",
           "notebookDeprecated",
           "notebookExecution",
@@ -14170,6 +14230,7 @@
           "resolvers",
           "saveEditor",
           "scmActionButton",
+          "scmHistoryProvider",
           "scmSelectedProvider",
           "scmTextDocument",
           "scmValidation",
@@ -14178,7 +14239,6 @@
           "tabInputTextMerge",
           "taskPresentationGroup",
           "telemetry",
-          "terminalContextMenu",
           "terminalDataWriteEvent",
           "terminalDimensions",
           "terminalExecuteCommandEvent",
@@ -14204,6 +14264,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authSession.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.canonicalUriProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chat.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatAgents.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatRequestAccess.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatSlashCommands.d.ts",
@@ -14233,7 +14294,6 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.dropMetadata.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.editorInsets.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.editSessionIdentityProvider.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.envShellEvent.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.extensionRuntime.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.extensionsAny.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.externalUriOpener.d.ts",
@@ -14243,16 +14303,13 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.fsChunks.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.handleIssueUri.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.idToken.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.indentSize.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.inlineCompletionsAdditions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.interactive.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.interactiveUserActions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.interactiveWindow.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.ipc.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageConfigurationAutoClosingPairs.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.mappedEditsProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookCellExecutionState.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookCodeActions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookControllerAffinityHidden.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookDeprecated.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookExecution.d.ts",
@@ -14269,6 +14326,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.resolvers.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.saveEditor.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmActionButton.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmHistoryProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmSelectedProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmTextDocument.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmValidation.d.ts",
@@ -14277,7 +14335,6 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.tabInputTextMerge.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.taskPresentationGroup.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.telemetry.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalContextMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalDataWriteEvent.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalDimensions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalExecuteCommandEvent.d.ts",
