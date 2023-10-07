@@ -5117,13 +5117,12 @@
     },
     "editor.experimental.asyncTokenization": {
       "type": "boolean",
-      "default": true,
+      "default": false,
       "description": "Controls whether the tokenization should happen asynchronously on a web worker.",
       "tags": [
         "experimental"
       ],
       "defaultDefaultValue": false,
-      "defaultValueSource": "Experiments",
       "scope": 5,
       "restricted": false
     },
