@@ -4598,7 +4598,10 @@
         }
       ],
       "markdownDescription": "Run CodeActions for the editor on save. CodeActions must be specified and the editor must not be shutting down. Example: `\"source.organizeImports\": \"explicit\" `",
-      "type": "object",
+      "type": [
+        "object",
+        "array"
+      ],
       "additionalProperties": {
         "type": [
           "string",
@@ -23201,7 +23204,6 @@
         "bash (2)",
         "dash",
         "dash (2)",
-        "JavaScript Debug Terminal",
         "pwsh",
         "pwsh (2)",
         "rbash",
@@ -23217,7 +23219,6 @@
         "$(terminal) bash (2)\n- path: /usr/bin/bash",
         "$(terminal) dash\n- path: /bin/dash",
         "$(terminal) dash (2)\n- path: /usr/bin/dash",
-        "$($(debug)) JavaScript Debug Terminal\n- extensionIdentifier: ms-vscode.js-debug",
         "$(terminal-powershell) pwsh\n- path: /usr/bin/pwsh",
         "$(terminal) pwsh (2)\n- path: /opt/microsoft/powershell/7/pwsh",
         "$(terminal) rbash\n- path: /bin/rbash",
@@ -35771,12 +35772,13 @@
     },
     "workbench.editor.preferHistoryBasedLanguageDetection": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "tags": [
         "experimental"
       ],
       "description": "When enabled, a language detection model that takes into account editor history will be given higher precedence.",
       "defaultDefaultValue": false,
+      "defaultValueSource": "Experiments",
       "scope": 3,
       "restricted": false
     },
