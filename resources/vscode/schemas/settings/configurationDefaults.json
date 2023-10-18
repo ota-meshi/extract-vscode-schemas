@@ -5120,12 +5120,13 @@
     },
     "editor.experimental.asyncTokenization": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "description": "Controls whether the tokenization should happen asynchronously on a web worker.",
       "tags": [
         "experimental"
       ],
       "defaultDefaultValue": false,
+      "defaultValueSource": "Experiments",
       "scope": 5,
       "restricted": false
     },
@@ -22682,7 +22683,6 @@
         "bash (2)",
         "dash",
         "dash (2)",
-        "JavaScript Debug Terminal",
         "pwsh",
         "pwsh (2)",
         "rbash",
@@ -22698,7 +22698,6 @@
         "$(terminal) bash (2)\n- path: /usr/bin/bash",
         "$(terminal) dash\n- path: /bin/dash",
         "$(terminal) dash (2)\n- path: /usr/bin/dash",
-        "$($(debug)) JavaScript Debug Terminal\n- extensionIdentifier: ms-vscode.js-debug",
         "$(terminal-powershell) pwsh\n- path: /usr/bin/pwsh",
         "$(terminal) pwsh (2)\n- path: /opt/microsoft/powershell/7/pwsh",
         "$(terminal) rbash\n- path: /bin/rbash",
@@ -34951,13 +34950,12 @@
     },
     "workbench.editor.preferHistoryBasedLanguageDetection": {
       "type": "boolean",
-      "default": true,
+      "default": false,
       "tags": [
         "experimental"
       ],
       "description": "When enabled, a language detection model that takes into account editor history will be given higher precedence.",
       "defaultDefaultValue": false,
-      "defaultValueSource": "Experiments",
       "scope": 3,
       "restricted": false
     },
