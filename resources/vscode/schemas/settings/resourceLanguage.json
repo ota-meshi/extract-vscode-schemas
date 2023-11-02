@@ -448,9 +448,9 @@
         "on"
       ],
       "enumDescriptions": [
-        "Use platform APIs to detect when a Screen Reader is attached",
-        "Assume a screen reader is not attached",
-        "Optimize for usage with a Screen Reader"
+        "Use platform APIs to detect when a Screen Reader is attached.",
+        "Assume a screen reader is not attached.",
+        "Optimize for usage with a Screen Reader."
       ],
       "default": "auto",
       "tags": [
@@ -657,7 +657,7 @@
           }
         }
       ],
-      "markdownDescription": "Run CodeActions for the editor on save. CodeActions must be specified and the editor must not be shutting down. Example: `\"source.organizeImports\": \"explicit\" `",
+      "markdownDescription": "Run Code Actions for the editor on save. Code Actions must be specified and the editor must not be shutting down. Example: `\"source.organizeImports\": \"explicit\" `",
       "type": [
         "object",
         "array"
@@ -726,12 +726,12 @@
         }
       }
     },
-    "editor.codeActionWidget.includeNearbyQuickfixes": {
+    "editor.codeActionWidget.includeNearbyQuickFixes": {
       "type": "boolean",
       "scope": 5,
-      "description": "Enable/disable showing nearest quickfix within a line when not currently on a diagnostic.",
-      "default": false,
-      "defaultDefaultValue": false,
+      "description": "Enable/disable showing nearest Quick Fix within a line when not currently on a diagnostic.",
+      "default": true,
+      "defaultDefaultValue": true,
       "restricted": false
     },
     "editor.codeActionWidget.showHeaders": {
@@ -1847,7 +1847,7 @@
       "type": "integer",
       "minimum": 0,
       "default": 300,
-      "description": "Controls the delay in milliseconds after thich the hover is hidden. Requires `editor.hover.sticky` to be enabled.",
+      "description": "Controls the delay in milliseconds after which the hover is hidden. Requires `editor.hover.sticky` to be enabled.",
       "defaultDefaultValue": 300,
       "scope": 5,
       "restricted": false
@@ -2263,6 +2263,14 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.multiDocumentOccurrencesHighlight": {
+      "description": "Experimental: Controls whether the editor should highlight word occurrences accross multiple open editors.",
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 5,
+      "restricted": false
+    },
     "editor.occurrencesHighlight": {
       "description": "Controls whether the editor should highlight semantic symbol occurrences.",
       "type": "boolean",
@@ -2616,6 +2624,14 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.scrollbar.ignoreHorizontalScrollbarInContentHeight": {
+      "type": "boolean",
+      "default": false,
+      "description": "When set, the horizontal scrollbar will not increase the size of the editor's content.",
+      "defaultDefaultValue": false,
+      "scope": 5,
+      "restricted": false
+    },
     "editor.scrollbar.scrollByPage": {
       "type": "boolean",
       "default": false,
@@ -2838,7 +2854,7 @@
     "editor.stickyScroll.scrollWithEditor": {
       "type": "boolean",
       "default": true,
-      "description": "Enable scrolling of the sticky scroll widget with the editor's horizontal scrollbar.",
+      "description": "Enable scrolling of Sticky Scroll with the editor's horizontal scrollbar.",
       "defaultDefaultValue": true,
       "scope": 5,
       "restricted": false

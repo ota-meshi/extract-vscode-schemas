@@ -371,6 +371,26 @@
         }
       ]
     },
+    "chat.avatarBackground": {
+      "type": "string",
+      "description": "The background color of a chat avatar.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "chat.avatarForeground": {
+      "type": "string",
+      "description": "The foreground color of a chat avatar.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "chat.requestBorder": {
       "type": "string",
       "description": "The border color of a chat request.",
@@ -1954,7 +1974,7 @@
     },
     "editorGroupHeader.noTabsBackground": {
       "type": "string",
-      "description": "Background color of the editor group title header when tabs are disabled (`\"workbench.editor.showTabs\": false`). Editor groups are the containers of editors.",
+      "description": "Background color of the editor group title header when (`\"workbench.editor.showTabs\": \"single\"`). Editor groups are the containers of editors.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -5065,16 +5085,6 @@
         }
       ]
     },
-    "scm.providerBorder": {
-      "type": "string",
-      "description": "SCM Provider separator border.",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ]
-    },
     "scrollbar.shadow": {
       "type": "string",
       "description": "Scrollbar shadow to indicate that the view is scrolled.",
@@ -6938,6 +6948,16 @@
     "textLink.foreground": {
       "type": "string",
       "description": "Foreground color for links in text.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "textPreformat.background": {
+      "type": "string",
+      "description": "Background color for preformatted text segments.",
       "format": "color-hex",
       "defaultSnippets": [
         {

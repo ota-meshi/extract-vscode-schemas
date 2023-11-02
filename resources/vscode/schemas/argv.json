@@ -47,6 +47,14 @@
         "array"
       ],
       "description": "Log level to use. Default is 'info'. Allowed values are 'error', 'warn', 'info', 'debug', 'trace', 'off'."
+    },
+    "password-store": {
+      "type": "string",
+      "description": "Configures the backend used to store secrets on Linux. This argument is ignored on Windows & macOS."
+    },
+    "use-inmemory-secretstorage": {
+      "type": "boolean",
+      "description": "Ensures that an in-memory store will be used for secret storage instead of using the OS's credential store. This is often used when running VS Code extension tests or when you're experiencing difficulties with the credential store."
     }
   }
 }

@@ -691,6 +691,59 @@
         "displayName": "YAML Language Basics"
       }
     },
+    "accessibility.alert.format": {
+      "markdownDescription": "When in screen reader mode, alerts when a file or notebook cell is formatted. Note that this will be ignored when `#audioCues.format#` is enabled.",
+      "type": "string",
+      "enum": [
+        "always",
+        "never",
+        "userGesture"
+      ],
+      "default": "always",
+      "enumDescriptions": [
+        "Alerts whenever is a file is formatted, including auto save, on cell execution, and more.",
+        "Never alerts.",
+        "Alerts when a file is formatted via user gesture."
+      ],
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": "always",
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.alert.save": {
+      "markdownDescription": "When in screen reader mode, alerts when a file is saved. Note that this will be ignored when `#audioCues.save#` is enabled.",
+      "type": "string",
+      "enum": [
+        "always",
+        "never",
+        "userGesture"
+      ],
+      "default": "always",
+      "enumDescriptions": [
+        "Alerts whenever is a file is saved, including auto save.",
+        "Never alerts.",
+        "Alerts when a file is saved via user gesture."
+      ],
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": "always",
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.hideAccessibleView": {
+      "description": "Controls whether the accessible view is hidden.",
+      "type": "boolean",
+      "default": false,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
     "accessibility.verbosity.comments": {
       "description": "Provide information about actions that can be taken in the comment widget or in a file which contains comments.",
       "type": "boolean",
@@ -703,7 +756,7 @@
       "restricted": false
     },
     "accessibility.verbosity.diffEditor": {
-      "description": "Provide information about how to navigate changes in the diff editor when it is focused",
+      "description": "Provide information about how to navigate changes in the diff editor when it is focused.",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -736,7 +789,7 @@
       "restricted": false
     },
     "accessibility.verbosity.inlineChat": {
-      "description": "Provide information about how to access the inline editor chat accessibility help menu and alert with hints which describe how to use the feature when the input is focused",
+      "description": "Provide information about how to access the inline editor chat accessibility help menu and alert with hints that describe how to use the feature when the input is focused.",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -747,7 +800,7 @@
       "restricted": false
     },
     "accessibility.verbosity.inlineCompletions": {
-      "description": "Provide information about how to access the inline completions hover and accessible view",
+      "description": "Provide information about how to access the inline completions hover and accessible view.",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -758,7 +811,7 @@
       "restricted": false
     },
     "accessibility.verbosity.keybindingsEditor": {
-      "description": "Provide information about how to change a keybinding in the keybindings editor when a row is focused",
+      "description": "Provide information about how to change a keybinding in the keybindings editor when a row is focused.",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -791,7 +844,7 @@
       "restricted": false
     },
     "accessibility.verbosity.panelChat": {
-      "description": "Provide information about how to access the chat help menu when the chat input is focused",
+      "description": "Provide information about how to access the chat help menu when the chat input is focused.",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -802,7 +855,7 @@
       "restricted": false
     },
     "accessibility.verbosity.terminal": {
-      "description": "Provide information about how to access the terminal accessibility help menu when the terminal is focused",
+      "description": "Provide information about how to access the terminal accessibility help menu when the terminal is focused.",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -886,6 +939,27 @@
       "scope": 3,
       "restricted": false
     },
+    "audioCues.clear": {
+      "description": "Plays a sound when a feature is cleared (for example, the terminal, debug console, or output channel). When this is disabled, an aria alert will announce 'Cleared'.",
+      "type": "string",
+      "enum": [
+        "auto",
+        "off",
+        "on"
+      ],
+      "default": "off",
+      "enumDescriptions": [
+        "Enable audio cue when a screen reader is attached.",
+        "Disable audio cue.",
+        "Enable audio cue."
+      ],
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": "off",
+      "scope": 3,
+      "restricted": false
+    },
     "audioCues.debouncePositionChanges": {
       "description": "Whether or not position changes should be debounced",
       "type": "boolean",
@@ -898,7 +972,7 @@
       "restricted": false
     },
     "audioCues.diffLineDeleted": {
-      "description": "Plays a sound when the focus moves to a deleted line in accessible diff viewer mode or to the next/previous change",
+      "description": "Plays a sound when the focus moves to a deleted line in Accessible Diff Viewer mode or to the next/previous change.",
       "type": "string",
       "enum": [
         "auto",
@@ -919,7 +993,7 @@
       "restricted": false
     },
     "audioCues.diffLineInserted": {
-      "description": "Plays a sound when the focus moves to an inserted line in accessible diff viewer mode or to the next/previous change",
+      "description": "Plays a sound when the focus moves to an inserted line in Accessible Diff Viewer mode or to the next/previous change.",
       "type": "string",
       "enum": [
         "auto",
@@ -940,7 +1014,7 @@
       "restricted": false
     },
     "audioCues.diffLineModified": {
-      "description": "Plays a sound when the focus moves to a modified line in accessible diff viewer mode or to the next/previous change",
+      "description": "Plays a sound when the focus moves to a modified line in Accessible Diff Viewer mode or to the next/previous change.",
       "type": "string",
       "enum": [
         "auto",
@@ -969,6 +1043,27 @@
       "scope": 3,
       "restricted": false,
       "deprecationMessage": "Deprecated. Use the specific setting for each audio cue instead (`audioCues.*`)."
+    },
+    "audioCues.format": {
+      "markdownDescription": "Plays a sound when a file or notebook is formatted. Also see `#accessibility.alert.format#`",
+      "type": "string",
+      "enum": [
+        "always",
+        "never",
+        "userGesture"
+      ],
+      "default": "never",
+      "enumDescriptions": [
+        "Plays the audio cue whenever a file is formatted, including if it is set to format on save, type, or, paste, or run of a cell.",
+        "Never plays the audio cue.",
+        "Plays the audio cue when a user explicitly formats a file."
+      ],
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": "never",
+      "scope": 3,
+      "restricted": false
     },
     "audioCues.lineHasBreakpoint": {
       "description": "Plays a sound when the active line has a breakpoint.",
@@ -1156,6 +1251,27 @@
         "accessibility"
       ],
       "defaultDefaultValue": "auto",
+      "scope": 3,
+      "restricted": false
+    },
+    "audioCues.save": {
+      "markdownDescription": "Plays a sound when a file is saved. Also see `#accessibility.alert.save#`",
+      "type": "string",
+      "enum": [
+        "always",
+        "never",
+        "userGesture"
+      ],
+      "default": "never",
+      "enumDescriptions": [
+        "Plays the audio cue whenever a file is saved, including auto save.",
+        "Never plays the audio cue.",
+        "Plays the audio cue when a user explicitly saves a file."
+      ],
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": "never",
       "scope": 3,
       "restricted": false
     },
@@ -2274,7 +2390,7 @@
     },
     "debug.enableStatusBarColor": {
       "type": "boolean",
-      "description": "Color status bar when debugger is active",
+      "description": "Color of the Status bar when debugger is active.",
       "default": true,
       "defaultDefaultValue": true,
       "scope": 3,
@@ -2293,6 +2409,14 @@
       "description": "Controls whether the workbench window should be focused when the debugger breaks.",
       "default": true,
       "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "debug.hideLauncherWhileDebugging": {
+      "type": "boolean",
+      "markdownDescription": "Hide 'Start Debugging' control in title bar of 'Run and Debug' view while debugging is active. Only relevant when `#debug.toolBarLocation#` is not `docked`.",
+      "default": false,
+      "defaultDefaultValue": false,
       "scope": 3,
       "restricted": false
     },
@@ -4355,9 +4479,9 @@
         "on"
       ],
       "enumDescriptions": [
-        "Use platform APIs to detect when a Screen Reader is attached",
-        "Assume a screen reader is not attached",
-        "Optimize for usage with a Screen Reader"
+        "Use platform APIs to detect when a Screen Reader is attached.",
+        "Assume a screen reader is not attached.",
+        "Optimize for usage with a Screen Reader."
       ],
       "default": "auto",
       "tags": [
@@ -4564,7 +4688,7 @@
           }
         }
       ],
-      "markdownDescription": "Run CodeActions for the editor on save. CodeActions must be specified and the editor must not be shutting down. Example: `\"source.organizeImports\": \"explicit\" `",
+      "markdownDescription": "Run Code Actions for the editor on save. Code Actions must be specified and the editor must not be shutting down. Example: `\"source.organizeImports\": \"explicit\" `",
       "type": [
         "object",
         "array"
@@ -4633,12 +4757,12 @@
         }
       }
     },
-    "editor.codeActionWidget.includeNearbyQuickfixes": {
+    "editor.codeActionWidget.includeNearbyQuickFixes": {
       "type": "boolean",
       "scope": 5,
-      "description": "Enable/disable showing nearest quickfix within a line when not currently on a diagnostic.",
-      "default": false,
-      "defaultDefaultValue": false,
+      "description": "Enable/disable showing nearest Quick Fix within a line when not currently on a diagnostic.",
+      "default": true,
+      "defaultDefaultValue": true,
       "restricted": false
     },
     "editor.codeActionWidget.showHeaders": {
@@ -5754,7 +5878,7 @@
       "type": "integer",
       "minimum": 0,
       "default": 300,
-      "description": "Controls the delay in milliseconds after thich the hover is hidden. Requires `editor.hover.sticky` to be enabled.",
+      "description": "Controls the delay in milliseconds after which the hover is hidden. Requires `editor.hover.sticky` to be enabled.",
       "defaultDefaultValue": 300,
       "scope": 5,
       "restricted": false
@@ -6170,6 +6294,14 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.multiDocumentOccurrencesHighlight": {
+      "description": "Experimental: Controls whether the editor should highlight word occurrences accross multiple open editors.",
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 5,
+      "restricted": false
+    },
     "editor.occurrencesHighlight": {
       "description": "Controls whether the editor should highlight semantic symbol occurrences.",
       "type": "boolean",
@@ -6520,6 +6652,14 @@
       "default": 12,
       "description": "The height of the horizontal scrollbar.",
       "defaultDefaultValue": 12,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.scrollbar.ignoreHorizontalScrollbarInContentHeight": {
+      "type": "boolean",
+      "default": false,
+      "description": "When set, the horizontal scrollbar will not increase the size of the editor's content.",
+      "defaultDefaultValue": false,
       "scope": 5,
       "restricted": false
     },
@@ -7067,7 +7207,7 @@
     "editor.stickyScroll.scrollWithEditor": {
       "type": "boolean",
       "default": true,
-      "description": "Enable scrolling of the sticky scroll widget with the editor's horizontal scrollbar.",
+      "description": "Enable scrolling of Sticky Scroll with the editor's horizontal scrollbar.",
       "defaultDefaultValue": true,
       "scope": 5,
       "restricted": false
@@ -9137,7 +9277,7 @@
         "Appends the word \"copy\" at the end of the duplicated name potentially followed by a number.",
         "Adds a number at the end of the duplicated name. If some number is already part of the name, tries to increase that number."
       ],
-      "description": "Controls what naming strategy to use when a giving a new name to a duplicated Explorer item on paste.",
+      "description": "Controls which naming strategy to use when giving a new name to a duplicated Explorer item on paste.",
       "default": "simple",
       "defaultDefaultValue": "simple",
       "scope": 3,
@@ -10033,7 +10173,7 @@
         ]
       },
       "uniqueItems": true,
-      "markdownDescription": "Controls what type of git refs are listed when running `Checkout to...`.",
+      "markdownDescription": "Controls what type of Git refs are listed when running `Checkout to...`.",
       "default": [
         "local",
         "remote",
@@ -10116,7 +10256,7 @@
     },
     "git.confirmSync": {
       "type": "boolean",
-      "description": "Confirm before synchronizing git repositories.",
+      "description": "Confirm before synchronizing Git repositories.",
       "default": true,
       "scope": 3,
       "source": {
@@ -10162,7 +10302,7 @@
     },
     "git.defaultBranchName": {
       "type": "string",
-      "markdownDescription": "The name of the default branch (ex: main, trunk, development) when initializing a new git repository. When set to empty, the default branch name configured in git will be used. **Note:** Requires git version `2.28.0` or later.",
+      "markdownDescription": "The name of the default branch (example: main, trunk, development) when initializing a new Git repository. When set to empty, the default branch name configured in Git will be used. **Note:** Requires Git version `2.28.0` or later.",
       "default": "main",
       "scope": 4,
       "source": {
@@ -10176,7 +10316,7 @@
       "type": "boolean",
       "scope": 4,
       "default": true,
-      "description": "Controls whether to automatically detect git submodules.",
+      "description": "Controls whether to automatically detect Git submodules.",
       "source": {
         "id": "vscode.git",
         "displayName": "Git"
@@ -10188,7 +10328,7 @@
       "type": "number",
       "scope": 4,
       "default": 10,
-      "description": "Controls the limit of git submodules detected.",
+      "description": "Controls the limit of Git submodules detected.",
       "source": {
         "id": "vscode.git",
         "displayName": "Git"
@@ -10211,7 +10351,7 @@
     "git.enabled": {
       "type": "boolean",
       "scope": 4,
-      "description": "Whether git is enabled.",
+      "description": "Whether Git is enabled.",
       "default": true,
       "source": {
         "id": "vscode.git",
@@ -10286,7 +10426,7 @@
       },
       "default": [],
       "scope": 3,
-      "description": "List of git repositories to ignore.",
+      "description": "List of Git repositories to ignore.",
       "source": {
         "id": "vscode.git",
         "displayName": "Git"
@@ -10601,7 +10741,7 @@
       "type": "boolean",
       "scope": 4,
       "default": false,
-      "description": "Force git to use rebase when running the sync command.",
+      "description": "Force Git to use rebase when running the sync command.",
       "source": {
         "id": "vscode.git",
         "displayName": "Git"
@@ -10671,7 +10811,7 @@
       },
       "default": [],
       "scope": 4,
-      "description": "List of paths to search for git repositories in.",
+      "description": "List of paths to search for Git repositories in.",
       "source": {
         "id": "vscode.git",
         "displayName": "Git"
@@ -10740,7 +10880,7 @@
     },
     "git.showProgress": {
       "type": "boolean",
-      "description": "Controls whether git actions should show progress.",
+      "description": "Controls whether Git actions should show progress.",
       "default": true,
       "scope": 4,
       "source": {
@@ -10767,7 +10907,7 @@
       "default": 50,
       "minimum": 0,
       "maximum": 100,
-      "markdownDescription": "Controls the threshold of the similarity index (i.e. amount of additions/deletions compared to the file's size) for changes in a pair of added/deleted files to be considered a rename. **Note:** Requires git version `2.18.0` or later.",
+      "markdownDescription": "Controls the threshold of the similarity index (the amount of additions/deletions compared to the file's size) for changes in a pair of added/deleted files to be considered a rename. **Note:** Requires Git version `2.18.0` or later.",
       "scope": 4,
       "source": {
         "id": "vscode.git",
@@ -10938,6 +11078,18 @@
       "type": "boolean",
       "description": "Controls whether a full text editor will be used to author commit messages, whenever no message is provided in the commit input box.",
       "default": true,
+      "scope": 3,
+      "source": {
+        "id": "vscode.git",
+        "displayName": "Git"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "git.useForcePushIfIncludes": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "Controls whether force pushing uses the safer force-if-includes variant. Note: This setting requires the `#git.useForcePushWithLease#` setting to be enabled, and Git version `2.30.0` or later.",
       "scope": 3,
       "source": {
         "id": "vscode.git",
@@ -11399,6 +11551,14 @@
       "scope": 3,
       "restricted": false
     },
+    "inlineChat.showGutterIcon": {
+      "description": "Show/hide a gutter icon for spawning inline chat on empty lines.",
+      "default": false,
+      "type": "boolean",
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
     "interactiveWindow.alwaysScrollOnNewCell": {
       "type": "boolean",
       "default": true,
@@ -11783,7 +11943,7 @@
     "javascript.inlayHints.variableTypes.suppressWhenTypeMatchesName": {
       "type": "boolean",
       "default": true,
-      "markdownDescription": "Suppress type hints on variables whose name is identical to the type name. Requires using TypeScript 4.8+ in the workspace.",
+      "markdownDescription": "Suppress type hints on variables whose name is identical to the type name.",
       "scope": 4,
       "source": {
         "id": "vscode.typescript-language-features",
@@ -11797,7 +11957,7 @@
       "items": {
         "type": "string"
       },
-      "markdownDescription": "Specify glob patterns of files to exclude from auto imports. Relative paths are resolved relative to the workspace root. Patterns are evaluated using tsconfig.json [`exclude`](https://www.typescriptlang.org/tsconfig#exclude) semantics. Requires using TypeScript 4.8 or newer in the workspace.",
+      "markdownDescription": "Specify glob patterns of files to exclude from auto imports. Relative paths are resolved relative to the workspace root. Patterns are evaluated using tsconfig.json [`exclude`](https://www.typescriptlang.org/tsconfig#exclude) semantics.",
       "scope": 4,
       "source": {
         "id": "vscode.typescript-language-features",
@@ -11944,7 +12104,7 @@
     "javascript.preferGoToSourceDefinition": {
       "type": "boolean",
       "default": false,
-      "description": "Makes Go to Definition avoid type declaration files when possible by triggering Go to Source Definition instead. This allows Go to Source Definition to be triggered with the mouse gesture. Requires using TypeScript 4.7+ in the workspace.",
+      "description": "Makes Go to Definition avoid type declaration files when possible by triggering Go to Source Definition instead. This allows Go to Source Definition to be triggered with the mouse gesture.",
       "scope": 3,
       "source": {
         "id": "vscode.typescript-language-features",
@@ -12337,7 +12497,7 @@
           "url": {
             "type": "string",
             "default": "/user.schema.json",
-            "description": "A URL or absolute file path to a schema. Can be a relative path in workspace and workspace folder settings."
+            "description": "A URL or absolute file path to a schema. Can be a relative path (starting with './') in workspace and workspace folder settings."
           }
         }
       },
@@ -13064,7 +13224,7 @@
     "markdown.preferredMdPathExtensionStyle": {
       "type": "string",
       "default": "auto",
-      "markdownDescription": "Controls if file extensions (e.g. `.md`) are added or not for links to Markdown files. This setting is used when file paths are added by tooling such as path completions or file renames.",
+      "markdownDescription": "Controls if file extensions (for example `.md`) are added or not for links to Markdown files. This setting is used when file paths are added by tooling such as path completions or file renames.",
       "enum": [
         "auto",
         "includeExtension",
@@ -13086,7 +13246,7 @@
     "markdown.preview.breaks": {
       "type": "boolean",
       "default": false,
-      "description": "Sets how line-breaks are rendered in the Markdown preview. Setting it to 'true' creates a <br> for newlines inside paragraphs.",
+      "markdownDescription": "Sets how line-breaks are rendered in the Markdown preview. Setting it to `true` creates a `<br>` for newlines inside paragraphs.",
       "scope": 4,
       "source": {
         "id": "vscode.markdown-language-features",
@@ -13743,7 +13903,7 @@
       "restricted": false
     },
     "notebook.codeActionsOnSave": {
-      "markdownDescription": "Run a series of CodeActions for a notebook on save. CodeActions must be specified, the file must not be saved after delay, and the editor must not be shutting down. Example: `\"notebook.source.organizeImports\": \"explicit\"`",
+      "markdownDescription": "Run a series of Code Actions for a notebook on save. Code Actions must be specified, the file must not be saved after delay, and the editor must not be shutting down. Example: `\"notebook.source.organizeImports\": \"explicit\"`",
       "type": "object",
       "additionalProperties": {
         "type": [
@@ -13922,9 +14082,9 @@
                 "on"
               ],
               "enumDescriptions": [
-                "Use platform APIs to detect when a Screen Reader is attached",
-                "Assume a screen reader is not attached",
-                "Optimize for usage with a Screen Reader"
+                "Use platform APIs to detect when a Screen Reader is attached.",
+                "Assume a screen reader is not attached.",
+                "Optimize for usage with a Screen Reader."
               ],
               "default": "auto",
               "tags": [
@@ -14902,7 +15062,7 @@
               "type": "integer",
               "minimum": 0,
               "default": 300,
-              "description": "Controls the delay in milliseconds after thich the hover is hidden. Requires `editor.hover.sticky` to be enabled.",
+              "description": "Controls the delay in milliseconds after which the hover is hidden. Requires `editor.hover.sticky` to be enabled.",
               "defaultDefaultValue": 300,
               "scope": 5,
               "restricted": false
@@ -15224,6 +15384,14 @@
               ],
               "default": "spread",
               "defaultDefaultValue": "spread",
+              "scope": 5,
+              "restricted": false
+            },
+            "editor.multiDocumentOccurrencesHighlight": {
+              "description": "Experimental: Controls whether the editor should highlight word occurrences accross multiple open editors.",
+              "type": "boolean",
+              "default": false,
+              "defaultDefaultValue": false,
               "scope": 5,
               "restricted": false
             },
@@ -15572,6 +15740,14 @@
               "scope": 5,
               "restricted": false
             },
+            "editor.scrollbar.ignoreHorizontalScrollbarInContentHeight": {
+              "type": "boolean",
+              "default": false,
+              "description": "When set, the horizontal scrollbar will not increase the size of the editor's content.",
+              "defaultDefaultValue": false,
+              "scope": 5,
+              "restricted": false
+            },
             "editor.scrollbar.scrollByPage": {
               "type": "boolean",
               "default": false,
@@ -15761,7 +15937,7 @@
             "editor.stickyScroll.scrollWithEditor": {
               "type": "boolean",
               "default": true,
-              "description": "Enable scrolling of the sticky scroll widget with the editor's horizontal scrollbar.",
+              "description": "Enable scrolling of Sticky Scroll with the editor's horizontal scrollbar.",
               "defaultDefaultValue": true,
               "scope": 5,
               "restricted": false
@@ -16522,7 +16698,7 @@
     "notebook.gotoSymbols.showAllSymbols": {
       "type": "boolean",
       "default": false,
-      "markdownDescription": "When enabled goto symbol quickpick will display full code symbols from the notebook, as well as markdown headers.",
+      "markdownDescription": "When enabled the Go to Symbol Quick Pick will display full code symbols from the notebook, as well as Markdown headers.",
       "defaultDefaultValue": false,
       "scope": 3,
       "restricted": false
@@ -16625,7 +16801,7 @@
       "restricted": false
     },
     "notebook.output.scrolling": {
-      "markdownDescription": "Initially render notebook outputs in a scrollable region when longer than the limit",
+      "markdownDescription": "Initially render notebook outputs in a scrollable region when longer than the limit.",
       "type": "boolean",
       "tags": [
         "notebookLayout",
@@ -17791,7 +17967,7 @@
         "Hide Source Control Provider count badges.",
         "Show Source Control Provider count badges."
       ],
-      "description": "Controls the count badges on Source Control Provider headers. These headers only appear when there is more than one provider.",
+      "markdownDescription": "Controls the count badges on Source Control Provider headers. These headers appear in the \"Source Control\", and \"Source Control Sync\" views when there is more than one provider or when the `#scm.alwaysShowRepositories#` setting is enabled, as well as in the \"Source Control Repositories\" view.",
       "default": "hidden",
       "defaultDefaultValue": "hidden",
       "scope": 4,
@@ -18737,7 +18913,7 @@
     },
     "search.useGlobalIgnoreFiles": {
       "type": "boolean",
-      "markdownDescription": "Controls whether to use your global gitignore file (e.g., from `$HOME/.config/git/ignore`) when searching for files. Requires `#search.useIgnoreFiles#` to be enabled.",
+      "markdownDescription": "Controls whether to use your global gitignore file (for example, from `$HOME/.config/git/ignore`) when searching for files. Requires `#search.useIgnoreFiles#` to be enabled.",
       "default": false,
       "scope": 4,
       "defaultDefaultValue": false,
@@ -18963,6 +19139,14 @@
       "scope": 3,
       "restricted": false
     },
+    "terminal.integrated.accessibleViewPreserveCursorPosition": {
+      "markdownDescription": "Preserve the cursor position on reopen of the terminal's accessible view rather than setting it to the bottom of the buffer.",
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
     "terminal.integrated.allowChords": {
       "markdownDescription": "Whether or not to allow chord keybindings in the terminal. Note that when this is true and the keystroke results in a chord it will bypass `#terminal.integrated.commandsToSkipShell#`, setting this to false is particularly useful when you want ctrl+k to go to your shell (not VS Code).",
       "type": "boolean",
@@ -19094,6 +19278,7 @@
                 "chevron-left",
                 "chevron-right",
                 "chevron-up",
+                "chip",
                 "chrome-close",
                 "chrome-maximize",
                 "chrome-minimize",
@@ -19119,6 +19304,7 @@
                 "cloud-download",
                 "cloud-upload",
                 "code",
+                "coffee",
                 "collapse-all",
                 "color-mode",
                 "combine",
@@ -19132,6 +19318,7 @@
                 "compass-active",
                 "compass-dot",
                 "console",
+                "copilot",
                 "copy",
                 "credit-card",
                 "dash",
@@ -19235,6 +19422,7 @@
                 "folder-active",
                 "folder-library",
                 "folder-opened",
+                "game",
                 "gather",
                 "gear",
                 "gift",
@@ -19248,6 +19436,7 @@
                 "git-branch-delete",
                 "git-commit",
                 "git-compare",
+                "git-fetch",
                 "git-fork-private",
                 "git-merge",
                 "git-pull-request",
@@ -19353,6 +19542,7 @@
                 "menubar-more",
                 "merge",
                 "mic",
+                "mic-filled",
                 "microscope",
                 "milestone",
                 "mirror",
@@ -19362,6 +19552,7 @@
                 "mortar-board",
                 "move",
                 "multiple-windows",
+                "music",
                 "mute",
                 "new-file",
                 "new-folder",
@@ -19386,6 +19577,7 @@
                 "person-filled",
                 "person-follow",
                 "person-outline",
+                "piano",
                 "pie-chart",
                 "pin",
                 "pinned",
@@ -19465,6 +19657,7 @@
                 "sign-in",
                 "sign-out",
                 "smiley",
+                "snake",
                 "sort-precedence",
                 "source-control",
                 "sparkle",
@@ -19539,7 +19732,9 @@
                 "text-size",
                 "three-bars",
                 "thumbsdown",
+                "thumbsdown-filled",
                 "thumbsup",
+                "thumbsup-filled",
                 "toolbar-more",
                 "tools",
                 "trash",
@@ -19572,6 +19767,7 @@
                 "vm-connect",
                 "vm-outline",
                 "vm-running",
+                "vr",
                 "wand",
                 "warning",
                 "watch",
@@ -19639,6 +19835,7 @@
                 "$(chevron-left)",
                 "$(chevron-right)",
                 "$(chevron-up)",
+                "$(chip)",
                 "$(chrome-close)",
                 "$(chrome-maximize)",
                 "$(chrome-minimize)",
@@ -19664,6 +19861,7 @@
                 "$(cloud-download)",
                 "$(cloud-upload)",
                 "$(code)",
+                "$(coffee)",
                 "$(collapse-all)",
                 "$(color-mode)",
                 "$(combine)",
@@ -19677,6 +19875,7 @@
                 "$(compass-active)",
                 "$(compass-dot)",
                 "$(console)",
+                "$(copilot)",
                 "$(copy)",
                 "$(credit-card)",
                 "$(dash)",
@@ -19780,6 +19979,7 @@
                 "$(folder-active)",
                 "$(folder-library)",
                 "$(folder-opened)",
+                "$(game)",
                 "$(gather)",
                 "$(gear)",
                 "$(gift)",
@@ -19793,6 +19993,7 @@
                 "$(git-branch-delete)",
                 "$(git-commit)",
                 "$(git-compare)",
+                "$(git-fetch)",
                 "$(git-fork-private)",
                 "$(git-merge)",
                 "$(git-pull-request)",
@@ -19898,6 +20099,7 @@
                 "$(menubar-more)",
                 "$(merge)",
                 "$(mic)",
+                "$(mic-filled)",
                 "$(microscope)",
                 "$(milestone)",
                 "$(mirror)",
@@ -19907,6 +20109,7 @@
                 "$(mortar-board)",
                 "$(move)",
                 "$(multiple-windows)",
+                "$(music)",
                 "$(mute)",
                 "$(new-file)",
                 "$(new-folder)",
@@ -19931,6 +20134,7 @@
                 "$(person-filled)",
                 "$(person-follow)",
                 "$(person-outline)",
+                "$(piano)",
                 "$(pie-chart)",
                 "$(pin)",
                 "$(pinned)",
@@ -20010,6 +20214,7 @@
                 "$(sign-in)",
                 "$(sign-out)",
                 "$(smiley)",
+                "$(snake)",
                 "$(sort-precedence)",
                 "$(source-control)",
                 "$(sparkle)",
@@ -20084,7 +20289,9 @@
                 "$(text-size)",
                 "$(three-bars)",
                 "$(thumbsdown)",
+                "$(thumbsdown-filled)",
                 "$(thumbsup)",
+                "$(thumbsup-filled)",
                 "$(toolbar-more)",
                 "$(tools)",
                 "$(trash)",
@@ -20117,6 +20324,7 @@
                 "$(vm-connect)",
                 "$(vm-outline)",
                 "$(vm-running)",
+                "$(vr)",
                 "$(wand)",
                 "$(warning)",
                 "$(watch)",
@@ -20269,6 +20477,7 @@
                 "chevron-left",
                 "chevron-right",
                 "chevron-up",
+                "chip",
                 "chrome-close",
                 "chrome-maximize",
                 "chrome-minimize",
@@ -20294,6 +20503,7 @@
                 "cloud-download",
                 "cloud-upload",
                 "code",
+                "coffee",
                 "collapse-all",
                 "color-mode",
                 "combine",
@@ -20307,6 +20517,7 @@
                 "compass-active",
                 "compass-dot",
                 "console",
+                "copilot",
                 "copy",
                 "credit-card",
                 "dash",
@@ -20410,6 +20621,7 @@
                 "folder-active",
                 "folder-library",
                 "folder-opened",
+                "game",
                 "gather",
                 "gear",
                 "gift",
@@ -20423,6 +20635,7 @@
                 "git-branch-delete",
                 "git-commit",
                 "git-compare",
+                "git-fetch",
                 "git-fork-private",
                 "git-merge",
                 "git-pull-request",
@@ -20528,6 +20741,7 @@
                 "menubar-more",
                 "merge",
                 "mic",
+                "mic-filled",
                 "microscope",
                 "milestone",
                 "mirror",
@@ -20537,6 +20751,7 @@
                 "mortar-board",
                 "move",
                 "multiple-windows",
+                "music",
                 "mute",
                 "new-file",
                 "new-folder",
@@ -20561,6 +20776,7 @@
                 "person-filled",
                 "person-follow",
                 "person-outline",
+                "piano",
                 "pie-chart",
                 "pin",
                 "pinned",
@@ -20640,6 +20856,7 @@
                 "sign-in",
                 "sign-out",
                 "smiley",
+                "snake",
                 "sort-precedence",
                 "source-control",
                 "sparkle",
@@ -20714,7 +20931,9 @@
                 "text-size",
                 "three-bars",
                 "thumbsdown",
+                "thumbsdown-filled",
                 "thumbsup",
+                "thumbsup-filled",
                 "toolbar-more",
                 "tools",
                 "trash",
@@ -20747,6 +20966,7 @@
                 "vm-connect",
                 "vm-outline",
                 "vm-running",
+                "vr",
                 "wand",
                 "warning",
                 "watch",
@@ -20814,6 +21034,7 @@
                 "$(chevron-left)",
                 "$(chevron-right)",
                 "$(chevron-up)",
+                "$(chip)",
                 "$(chrome-close)",
                 "$(chrome-maximize)",
                 "$(chrome-minimize)",
@@ -20839,6 +21060,7 @@
                 "$(cloud-download)",
                 "$(cloud-upload)",
                 "$(code)",
+                "$(coffee)",
                 "$(collapse-all)",
                 "$(color-mode)",
                 "$(combine)",
@@ -20852,6 +21074,7 @@
                 "$(compass-active)",
                 "$(compass-dot)",
                 "$(console)",
+                "$(copilot)",
                 "$(copy)",
                 "$(credit-card)",
                 "$(dash)",
@@ -20955,6 +21178,7 @@
                 "$(folder-active)",
                 "$(folder-library)",
                 "$(folder-opened)",
+                "$(game)",
                 "$(gather)",
                 "$(gear)",
                 "$(gift)",
@@ -20968,6 +21192,7 @@
                 "$(git-branch-delete)",
                 "$(git-commit)",
                 "$(git-compare)",
+                "$(git-fetch)",
                 "$(git-fork-private)",
                 "$(git-merge)",
                 "$(git-pull-request)",
@@ -21073,6 +21298,7 @@
                 "$(menubar-more)",
                 "$(merge)",
                 "$(mic)",
+                "$(mic-filled)",
                 "$(microscope)",
                 "$(milestone)",
                 "$(mirror)",
@@ -21082,6 +21308,7 @@
                 "$(mortar-board)",
                 "$(move)",
                 "$(multiple-windows)",
+                "$(music)",
                 "$(mute)",
                 "$(new-file)",
                 "$(new-folder)",
@@ -21106,6 +21333,7 @@
                 "$(person-filled)",
                 "$(person-follow)",
                 "$(person-outline)",
+                "$(piano)",
                 "$(pie-chart)",
                 "$(pin)",
                 "$(pinned)",
@@ -21185,6 +21413,7 @@
                 "$(sign-in)",
                 "$(sign-out)",
                 "$(smiley)",
+                "$(snake)",
                 "$(sort-precedence)",
                 "$(source-control)",
                 "$(sparkle)",
@@ -21259,7 +21488,9 @@
                 "$(text-size)",
                 "$(three-bars)",
                 "$(thumbsdown)",
+                "$(thumbsdown-filled)",
                 "$(thumbsup)",
+                "$(thumbsup-filled)",
                 "$(toolbar-more)",
                 "$(tools)",
                 "$(trash)",
@@ -21292,6 +21523,7 @@
                 "$(vm-connect)",
                 "$(vm-outline)",
                 "$(vm-running)",
+                "$(vr)",
                 "$(wand)",
                 "$(warning)",
                 "$(watch)",
@@ -21444,6 +21676,7 @@
                 "chevron-left",
                 "chevron-right",
                 "chevron-up",
+                "chip",
                 "chrome-close",
                 "chrome-maximize",
                 "chrome-minimize",
@@ -21469,6 +21702,7 @@
                 "cloud-download",
                 "cloud-upload",
                 "code",
+                "coffee",
                 "collapse-all",
                 "color-mode",
                 "combine",
@@ -21482,6 +21716,7 @@
                 "compass-active",
                 "compass-dot",
                 "console",
+                "copilot",
                 "copy",
                 "credit-card",
                 "dash",
@@ -21585,6 +21820,7 @@
                 "folder-active",
                 "folder-library",
                 "folder-opened",
+                "game",
                 "gather",
                 "gear",
                 "gift",
@@ -21598,6 +21834,7 @@
                 "git-branch-delete",
                 "git-commit",
                 "git-compare",
+                "git-fetch",
                 "git-fork-private",
                 "git-merge",
                 "git-pull-request",
@@ -21703,6 +21940,7 @@
                 "menubar-more",
                 "merge",
                 "mic",
+                "mic-filled",
                 "microscope",
                 "milestone",
                 "mirror",
@@ -21712,6 +21950,7 @@
                 "mortar-board",
                 "move",
                 "multiple-windows",
+                "music",
                 "mute",
                 "new-file",
                 "new-folder",
@@ -21736,6 +21975,7 @@
                 "person-filled",
                 "person-follow",
                 "person-outline",
+                "piano",
                 "pie-chart",
                 "pin",
                 "pinned",
@@ -21815,6 +22055,7 @@
                 "sign-in",
                 "sign-out",
                 "smiley",
+                "snake",
                 "sort-precedence",
                 "source-control",
                 "sparkle",
@@ -21889,7 +22130,9 @@
                 "text-size",
                 "three-bars",
                 "thumbsdown",
+                "thumbsdown-filled",
                 "thumbsup",
+                "thumbsup-filled",
                 "toolbar-more",
                 "tools",
                 "trash",
@@ -21922,6 +22165,7 @@
                 "vm-connect",
                 "vm-outline",
                 "vm-running",
+                "vr",
                 "wand",
                 "warning",
                 "watch",
@@ -21989,6 +22233,7 @@
                 "$(chevron-left)",
                 "$(chevron-right)",
                 "$(chevron-up)",
+                "$(chip)",
                 "$(chrome-close)",
                 "$(chrome-maximize)",
                 "$(chrome-minimize)",
@@ -22014,6 +22259,7 @@
                 "$(cloud-download)",
                 "$(cloud-upload)",
                 "$(code)",
+                "$(coffee)",
                 "$(collapse-all)",
                 "$(color-mode)",
                 "$(combine)",
@@ -22027,6 +22273,7 @@
                 "$(compass-active)",
                 "$(compass-dot)",
                 "$(console)",
+                "$(copilot)",
                 "$(copy)",
                 "$(credit-card)",
                 "$(dash)",
@@ -22130,6 +22377,7 @@
                 "$(folder-active)",
                 "$(folder-library)",
                 "$(folder-opened)",
+                "$(game)",
                 "$(gather)",
                 "$(gear)",
                 "$(gift)",
@@ -22143,6 +22391,7 @@
                 "$(git-branch-delete)",
                 "$(git-commit)",
                 "$(git-compare)",
+                "$(git-fetch)",
                 "$(git-fork-private)",
                 "$(git-merge)",
                 "$(git-pull-request)",
@@ -22248,6 +22497,7 @@
                 "$(menubar-more)",
                 "$(merge)",
                 "$(mic)",
+                "$(mic-filled)",
                 "$(microscope)",
                 "$(milestone)",
                 "$(mirror)",
@@ -22257,6 +22507,7 @@
                 "$(mortar-board)",
                 "$(move)",
                 "$(multiple-windows)",
+                "$(music)",
                 "$(mute)",
                 "$(new-file)",
                 "$(new-folder)",
@@ -22281,6 +22532,7 @@
                 "$(person-filled)",
                 "$(person-follow)",
                 "$(person-outline)",
+                "$(piano)",
                 "$(pie-chart)",
                 "$(pin)",
                 "$(pinned)",
@@ -22360,6 +22612,7 @@
                 "$(sign-in)",
                 "$(sign-out)",
                 "$(smiley)",
+                "$(snake)",
                 "$(sort-precedence)",
                 "$(source-control)",
                 "$(sparkle)",
@@ -22434,7 +22687,9 @@
                 "$(text-size)",
                 "$(three-bars)",
                 "$(thumbsdown)",
+                "$(thumbsdown-filled)",
                 "$(thumbsup)",
+                "$(thumbsup-filled)",
                 "$(toolbar-more)",
                 "$(tools)",
                 "$(trash)",
@@ -22467,6 +22722,7 @@
                 "$(vm-connect)",
                 "$(vm-outline)",
                 "$(vm-running)",
+                "$(vr)",
                 "$(wand)",
                 "$(warning)",
                 "$(watch)",
@@ -22683,7 +22939,6 @@
         "bash (2)",
         "dash",
         "dash (2)",
-        "JavaScript Debug Terminal",
         "pwsh",
         "pwsh (2)",
         "rbash",
@@ -22699,7 +22954,6 @@
         "$(terminal) bash (2)\n- path: /usr/bin/bash",
         "$(terminal) dash\n- path: /bin/dash",
         "$(terminal) dash (2)\n- path: /usr/bin/dash",
-        "$($(debug)) JavaScript Debug Terminal\n- extensionIdentifier: ms-vscode.js-debug",
         "$(terminal-powershell) pwsh\n- path: /usr/bin/pwsh",
         "$(terminal) pwsh (2)\n- path: /opt/microsoft/powershell/7/pwsh",
         "$(terminal) rbash\n- path: /bin/rbash",
@@ -23786,6 +24040,18 @@
                   "sparkle",
                   "insert",
                   "mic",
+                  "thumbsdown-filled",
+                  "thumbsup-filled",
+                  "coffee",
+                  "snake",
+                  "game",
+                  "vr",
+                  "chip",
+                  "piano",
+                  "music",
+                  "mic-filled",
+                  "git-fetch",
+                  "copilot",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -24331,6 +24597,18 @@
                   "$(sparkle)",
                   "$(insert)",
                   "$(mic)",
+                  "$(thumbsdown-filled)",
+                  "$(thumbsup-filled)",
+                  "$(coffee)",
+                  "$(snake)",
+                  "$(game)",
+                  "$(vr)",
+                  "$(chip)",
+                  "$(piano)",
+                  "$(music)",
+                  "$(mic-filled)",
+                  "$(git-fetch)",
+                  "$(copilot)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -24941,6 +25219,18 @@
                   "sparkle",
                   "insert",
                   "mic",
+                  "thumbsdown-filled",
+                  "thumbsup-filled",
+                  "coffee",
+                  "snake",
+                  "game",
+                  "vr",
+                  "chip",
+                  "piano",
+                  "music",
+                  "mic-filled",
+                  "git-fetch",
+                  "copilot",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -25486,6 +25776,18 @@
                   "$(sparkle)",
                   "$(insert)",
                   "$(mic)",
+                  "$(thumbsdown-filled)",
+                  "$(thumbsup-filled)",
+                  "$(coffee)",
+                  "$(snake)",
+                  "$(game)",
+                  "$(vr)",
+                  "$(chip)",
+                  "$(piano)",
+                  "$(music)",
+                  "$(mic-filled)",
+                  "$(git-fetch)",
+                  "$(copilot)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -26156,6 +26458,18 @@
                   "sparkle",
                   "insert",
                   "mic",
+                  "thumbsdown-filled",
+                  "thumbsup-filled",
+                  "coffee",
+                  "snake",
+                  "game",
+                  "vr",
+                  "chip",
+                  "piano",
+                  "music",
+                  "mic-filled",
+                  "git-fetch",
+                  "copilot",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -26701,6 +27015,18 @@
                   "$(sparkle)",
                   "$(insert)",
                   "$(mic)",
+                  "$(thumbsdown-filled)",
+                  "$(thumbsup-filled)",
+                  "$(coffee)",
+                  "$(snake)",
+                  "$(game)",
+                  "$(vr)",
+                  "$(chip)",
+                  "$(piano)",
+                  "$(music)",
+                  "$(mic-filled)",
+                  "$(git-fetch)",
+                  "$(copilot)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -27311,6 +27637,18 @@
                   "sparkle",
                   "insert",
                   "mic",
+                  "thumbsdown-filled",
+                  "thumbsup-filled",
+                  "coffee",
+                  "snake",
+                  "game",
+                  "vr",
+                  "chip",
+                  "piano",
+                  "music",
+                  "mic-filled",
+                  "git-fetch",
+                  "copilot",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -27856,6 +28194,18 @@
                   "$(sparkle)",
                   "$(insert)",
                   "$(mic)",
+                  "$(thumbsdown-filled)",
+                  "$(thumbsup-filled)",
+                  "$(coffee)",
+                  "$(snake)",
+                  "$(game)",
+                  "$(vr)",
+                  "$(chip)",
+                  "$(piano)",
+                  "$(music)",
+                  "$(mic-filled)",
+                  "$(git-fetch)",
+                  "$(copilot)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -28516,6 +28866,18 @@
                   "sparkle",
                   "insert",
                   "mic",
+                  "thumbsdown-filled",
+                  "thumbsup-filled",
+                  "coffee",
+                  "snake",
+                  "game",
+                  "vr",
+                  "chip",
+                  "piano",
+                  "music",
+                  "mic-filled",
+                  "git-fetch",
+                  "copilot",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -29061,6 +29423,18 @@
                   "$(sparkle)",
                   "$(insert)",
                   "$(mic)",
+                  "$(thumbsdown-filled)",
+                  "$(thumbsup-filled)",
+                  "$(coffee)",
+                  "$(snake)",
+                  "$(game)",
+                  "$(vr)",
+                  "$(chip)",
+                  "$(piano)",
+                  "$(music)",
+                  "$(mic-filled)",
+                  "$(git-fetch)",
+                  "$(copilot)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -29672,6 +30046,18 @@
                   "sparkle",
                   "insert",
                   "mic",
+                  "thumbsdown-filled",
+                  "thumbsup-filled",
+                  "coffee",
+                  "snake",
+                  "game",
+                  "vr",
+                  "chip",
+                  "piano",
+                  "music",
+                  "mic-filled",
+                  "git-fetch",
+                  "copilot",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -30217,6 +30603,18 @@
                   "$(sparkle)",
                   "$(insert)",
                   "$(mic)",
+                  "$(thumbsdown-filled)",
+                  "$(thumbsup-filled)",
+                  "$(coffee)",
+                  "$(snake)",
+                  "$(game)",
+                  "$(vr)",
+                  "$(chip)",
+                  "$(piano)",
+                  "$(music)",
+                  "$(mic-filled)",
+                  "$(git-fetch)",
+                  "$(copilot)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -30827,6 +31225,18 @@
                   "sparkle",
                   "insert",
                   "mic",
+                  "thumbsdown-filled",
+                  "thumbsup-filled",
+                  "coffee",
+                  "snake",
+                  "game",
+                  "vr",
+                  "chip",
+                  "piano",
+                  "music",
+                  "mic-filled",
+                  "git-fetch",
+                  "copilot",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -31372,6 +31782,18 @@
                   "$(sparkle)",
                   "$(insert)",
                   "$(mic)",
+                  "$(thumbsdown-filled)",
+                  "$(thumbsup-filled)",
+                  "$(coffee)",
+                  "$(snake)",
+                  "$(game)",
+                  "$(vr)",
+                  "$(chip)",
+                  "$(piano)",
+                  "$(music)",
+                  "$(mic-filled)",
+                  "$(git-fetch)",
+                  "$(copilot)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -31634,6 +32056,7 @@
         "chevron-left",
         "chevron-right",
         "chevron-up",
+        "chip",
         "chrome-close",
         "chrome-maximize",
         "chrome-minimize",
@@ -31659,6 +32082,7 @@
         "cloud-download",
         "cloud-upload",
         "code",
+        "coffee",
         "collapse-all",
         "color-mode",
         "combine",
@@ -31672,6 +32096,7 @@
         "compass-active",
         "compass-dot",
         "console",
+        "copilot",
         "copy",
         "credit-card",
         "dash",
@@ -31775,6 +32200,7 @@
         "folder-active",
         "folder-library",
         "folder-opened",
+        "game",
         "gather",
         "gear",
         "gift",
@@ -31788,6 +32214,7 @@
         "git-branch-delete",
         "git-commit",
         "git-compare",
+        "git-fetch",
         "git-fork-private",
         "git-merge",
         "git-pull-request",
@@ -31893,6 +32320,7 @@
         "menubar-more",
         "merge",
         "mic",
+        "mic-filled",
         "microscope",
         "milestone",
         "mirror",
@@ -31902,6 +32330,7 @@
         "mortar-board",
         "move",
         "multiple-windows",
+        "music",
         "mute",
         "new-file",
         "new-folder",
@@ -31926,6 +32355,7 @@
         "person-filled",
         "person-follow",
         "person-outline",
+        "piano",
         "pie-chart",
         "pin",
         "pinned",
@@ -32005,6 +32435,7 @@
         "sign-in",
         "sign-out",
         "smiley",
+        "snake",
         "sort-precedence",
         "source-control",
         "sparkle",
@@ -32079,7 +32510,9 @@
         "text-size",
         "three-bars",
         "thumbsdown",
+        "thumbsdown-filled",
         "thumbsup",
+        "thumbsup-filled",
         "toolbar-more",
         "tools",
         "trash",
@@ -32112,6 +32545,7 @@
         "vm-connect",
         "vm-outline",
         "vm-running",
+        "vr",
         "wand",
         "warning",
         "watch",
@@ -32179,6 +32613,7 @@
         "$(chevron-left)",
         "$(chevron-right)",
         "$(chevron-up)",
+        "$(chip)",
         "$(chrome-close)",
         "$(chrome-maximize)",
         "$(chrome-minimize)",
@@ -32204,6 +32639,7 @@
         "$(cloud-download)",
         "$(cloud-upload)",
         "$(code)",
+        "$(coffee)",
         "$(collapse-all)",
         "$(color-mode)",
         "$(combine)",
@@ -32217,6 +32653,7 @@
         "$(compass-active)",
         "$(compass-dot)",
         "$(console)",
+        "$(copilot)",
         "$(copy)",
         "$(credit-card)",
         "$(dash)",
@@ -32320,6 +32757,7 @@
         "$(folder-active)",
         "$(folder-library)",
         "$(folder-opened)",
+        "$(game)",
         "$(gather)",
         "$(gear)",
         "$(gift)",
@@ -32333,6 +32771,7 @@
         "$(git-branch-delete)",
         "$(git-commit)",
         "$(git-compare)",
+        "$(git-fetch)",
         "$(git-fork-private)",
         "$(git-merge)",
         "$(git-pull-request)",
@@ -32438,6 +32877,7 @@
         "$(menubar-more)",
         "$(merge)",
         "$(mic)",
+        "$(mic-filled)",
         "$(microscope)",
         "$(milestone)",
         "$(mirror)",
@@ -32447,6 +32887,7 @@
         "$(mortar-board)",
         "$(move)",
         "$(multiple-windows)",
+        "$(music)",
         "$(mute)",
         "$(new-file)",
         "$(new-folder)",
@@ -32471,6 +32912,7 @@
         "$(person-filled)",
         "$(person-follow)",
         "$(person-outline)",
+        "$(piano)",
         "$(pie-chart)",
         "$(pin)",
         "$(pinned)",
@@ -32550,6 +32992,7 @@
         "$(sign-in)",
         "$(sign-out)",
         "$(smiley)",
+        "$(snake)",
         "$(sort-precedence)",
         "$(source-control)",
         "$(sparkle)",
@@ -32624,7 +33067,9 @@
         "$(text-size)",
         "$(three-bars)",
         "$(thumbsdown)",
+        "$(thumbsdown-filled)",
         "$(thumbsup)",
+        "$(thumbsup-filled)",
         "$(toolbar-more)",
         "$(tools)",
         "$(trash)",
@@ -32657,6 +33102,7 @@
         "$(vm-connect)",
         "$(vm-outline)",
         "$(vm-running)",
+        "$(vr)",
         "$(wand)",
         "$(warning)",
         "$(watch)",
@@ -33496,7 +33942,7 @@
     "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": {
       "type": "boolean",
       "default": true,
-      "markdownDescription": "Suppress type hints on variables whose name is identical to the type name. Requires using TypeScript 4.8+ in the workspace.",
+      "markdownDescription": "Suppress type hints on variables whose name is identical to the type name.",
       "scope": 4,
       "source": {
         "id": "vscode.typescript-language-features",
@@ -33521,6 +33967,19 @@
         "zh-CN",
         "zh-TW"
       ],
+      "enumDescriptions": [
+        "Use VS Code's configured display language",
+        "Deutsch",
+        "English",
+        "español",
+        "français",
+        "italiano",
+        "日本語",
+        "한국어",
+        "русский",
+        "中文(简体)",
+        "中文(繁體)"
+      ],
       "markdownDescription": "Sets the locale used to report JavaScript and TypeScript errors. Defaults to use VS Code's locale.",
       "scope": 3,
       "source": {
@@ -33535,7 +33994,7 @@
       "items": {
         "type": "string"
       },
-      "markdownDescription": "Specify glob patterns of files to exclude from auto imports. Relative paths are resolved relative to the workspace root. Patterns are evaluated using tsconfig.json [`exclude`](https://www.typescriptlang.org/tsconfig#exclude) semantics. Requires using TypeScript 4.8 or newer in the workspace.",
+      "markdownDescription": "Specify glob patterns of files to exclude from auto imports. Relative paths are resolved relative to the workspace root. Patterns are evaluated using tsconfig.json [`exclude`](https://www.typescriptlang.org/tsconfig#exclude) semantics.",
       "scope": 4,
       "source": {
         "id": "vscode.typescript-language-features",
@@ -33704,7 +34163,7 @@
     "typescript.preferGoToSourceDefinition": {
       "type": "boolean",
       "default": false,
-      "description": "Makes Go to Definition avoid type declaration files when possible by triggering Go to Source Definition instead. This allows Go to Source Definition to be triggered with the mouse gesture. Requires using TypeScript 4.7+ in the workspace.",
+      "description": "Makes Go to Definition avoid type declaration files when possible by triggering Go to Source Definition instead. This allows Go to Source Definition to be triggered with the mouse gesture.",
       "scope": 3,
       "source": {
         "id": "vscode.typescript-language-features",
@@ -33848,7 +34307,7 @@
     "typescript.suggest.objectLiteralMethodSnippets.enabled": {
       "type": "boolean",
       "default": true,
-      "description": "Enable/disable snippet completions for methods in object literals. Requires using TypeScript 4.7+ in the workspace.",
+      "description": "Enable/disable snippet completions for methods in object literals.",
       "scope": 4,
       "source": {
         "id": "vscode.typescript-language-features",
@@ -34162,7 +34621,7 @@
     "typescript.workspaceSymbols.excludeLibrarySymbols": {
       "type": "boolean",
       "default": true,
-      "markdownDescription": "Exclude symbols that come from library files in `Go To Symbol in Workspace` results. Requires using TypeScript 5.3+ in the workspace.",
+      "markdownDescription": "Exclude symbols that come from library files in Go to Symbol in Workspace results. Requires using TypeScript 5.3+ in the workspace.",
       "scope": 3,
       "source": {
         "id": "vscode.typescript-language-features",
@@ -34222,7 +34681,7 @@
         "default"
       ],
       "default": "default",
-      "markdownDescription": "Controls the height of editor tabs. Also applies to the title control bar when `#workbench.editor.showTabs#` is disabled.",
+      "markdownDescription": "Controls the height of editor tabs. Also applies to the title control bar when `#workbench.editor.showTabs#` is not set to `multiple`.",
       "defaultDefaultValue": "default",
       "scope": 3,
       "restricted": false
@@ -34272,11 +34731,21 @@
       "scope": 3,
       "restricted": false
     },
-    "workbench.activityBar.visible": {
-      "type": "boolean",
-      "default": true,
-      "description": "Controls the visibility of the activity bar in the workbench.",
-      "defaultDefaultValue": true,
+    "workbench.activityBar.location": {
+      "type": "string",
+      "enum": [
+        "hidden",
+        "side",
+        "top"
+      ],
+      "default": "side",
+      "markdownDescription": "Controls the location of the activity bar. It can either show to the `side` or `top` (requires `#window.titleBarStyle#` set to `custom`) of the primary side bar or `hidden`.",
+      "enumDescriptions": [
+        "Hide the activity bar.",
+        "Show the activity bar to the side of the primary side bar.",
+        "Show the activity bar on top of the primary side bar."
+      ],
+      "defaultDefaultValue": "side",
       "scope": 3,
       "restricted": false
     },
@@ -34713,10 +35182,20 @@
       "restricted": false
     },
     "workbench.editor.doubleClickTabToToggleEditorGroupSizes": {
-      "type": "boolean",
-      "default": true,
-      "markdownDescription": "Controls whether to maximize/restore the editor group when double clicking on a tab. This value is ignored when `#workbench.editor.showTabs#` is disabled.",
-      "defaultDefaultValue": true,
+      "type": "string",
+      "enum": [
+        "expand",
+        "maximize",
+        "off"
+      ],
+      "default": "expand",
+      "markdownDescription": "Controls how the editor group is resized when double clicking on a tab. This value is ignored when `#workbench.editor.showTabs#` is not set to `multiple`.",
+      "enumDescriptions": [
+        "The editor group takes as much space as possible by making all other editor groups as small as possible.",
+        "All other editor groups are hidden and the current editor group is maximized to take up the entire editor area.",
+        "No editor group is resized when double clicking on a tab."
+      ],
+      "defaultDefaultValue": "expand",
       "scope": 3,
       "restricted": false
     },
@@ -34766,7 +35245,7 @@
     },
     "workbench.editor.highlightModifiedTabs": {
       "type": "boolean",
-      "markdownDescription": "Controls whether a top border is drawn on tabs for editors that have unsaved changes. This value is ignored when `#workbench.editor.showTabs#` is disabled.",
+      "markdownDescription": "Controls whether a top border is drawn on tabs for editors that have unsaved changes. This value is ignored when `#workbench.editor.showTabs#` is not set to `multiple`.",
       "default": false,
       "defaultDefaultValue": false,
       "scope": 3,
@@ -34937,7 +35416,7 @@
         "A pinned tab inherits the look of non pinned tabs.",
         "A pinned tab shrinks to a compact fixed size showing parts of the editor name."
       ],
-      "markdownDescription": "Controls the size of pinned editor tabs. Pinned tabs are sorted to the beginning of all opened tabs and typically do not close until unpinned. This value is ignored when `#workbench.editor.showTabs#` is disabled.",
+      "markdownDescription": "Controls the size of pinned editor tabs. Pinned tabs are sorted to the beginning of all opened tabs and typically do not close until unpinned. This value is ignored when `#workbench.editor.showTabs#` is not set to `multiple`.",
       "defaultDefaultValue": "normal",
       "scope": 3,
       "restricted": false
@@ -34945,7 +35424,7 @@
     "workbench.editor.pinnedTabsOnSeparateRow": {
       "type": "boolean",
       "default": false,
-      "markdownDescription": "When enabled, displays pinned tabs in a separate row above all other tabs. This value is ignored when `#workbench.editor.showTabs#` is disabled.",
+      "markdownDescription": "When enabled, displays pinned tabs in a separate row above all other tabs. This value is ignored when `#workbench.editor.showTabs#` is not set to `multiple`.",
       "defaultDefaultValue": false,
       "scope": 3,
       "restricted": false
@@ -35000,7 +35479,7 @@
     },
     "workbench.editor.scrollToSwitchTabs": {
       "type": "boolean",
-      "markdownDescription": "Controls whether scrolling over tabs will open them or not. By default tabs will only reveal upon scrolling, but not open. You can press and hold the Shift-key while scrolling to change this behavior for that duration. This value is ignored when `#workbench.editor.showTabs#` is disabled.",
+      "markdownDescription": "Controls whether scrolling over tabs will open them or not. By default tabs will only reveal upon scrolling, but not open. You can press and hold the Shift-key while scrolling to change this behavior for that duration. This value is ignored when `#workbench.editor.showTabs#` is not set to `multiple`.",
       "default": false,
       "defaultDefaultValue": false,
       "scope": 3,
@@ -35023,10 +35502,20 @@
       "restricted": false
     },
     "workbench.editor.showTabs": {
-      "type": "boolean",
-      "description": "Controls whether opened editors should show in tabs or not.",
-      "default": true,
-      "defaultDefaultValue": true,
+      "type": "string",
+      "enum": [
+        "multiple",
+        "none",
+        "single"
+      ],
+      "enumDescriptions": [
+        "Each editor is displayed as a tab in the editor title area.",
+        "The editor title area is not displayed.",
+        "The active editor is displayed as a single large tab in the editor title area."
+      ],
+      "description": "Controls whether opened editors should show as individual tabs, one single large tab or if the title area should not be shown.",
+      "default": "multiple",
+      "defaultDefaultValue": "multiple",
       "scope": 3,
       "restricted": false
     },
@@ -35080,7 +35569,7 @@
         "right"
       ],
       "default": "right",
-      "markdownDescription": "Controls the position of the editor's tabs close buttons, or disables them when set to 'off'. This value is ignored when `#workbench.editor.showTabs#` is disabled.",
+      "markdownDescription": "Controls the position of the editor's tabs close buttons, or disables them when set to 'off'. This value is ignored when `#workbench.editor.showTabs#` is not set to `multiple`.",
       "defaultDefaultValue": "right",
       "scope": 3,
       "restricted": false
@@ -35098,7 +35587,7 @@
         "Make all tabs the same size, while allowing them to get smaller when the available space is not enough to show all tabs at once.",
         "Allow tabs to get smaller when the available space is not enough to show all tabs at once."
       ],
-      "markdownDescription": "Controls the size of editor tabs. This value is ignored when `#workbench.editor.showTabs#` is disabled.",
+      "markdownDescription": "Controls the size of editor tabs. This value is ignored when `#workbench.editor.showTabs#` is not set to `multiple`.",
       "defaultDefaultValue": "fit",
       "scope": 3,
       "restricted": false
@@ -35155,7 +35644,7 @@
     },
     "workbench.editor.wrapTabs": {
       "type": "boolean",
-      "markdownDescription": "Controls whether tabs should be wrapped over multiple lines when exceeding available space or whether a scrollbar should appear instead. This value is ignored when `#workbench.editor.showTabs#` is disabled.",
+      "markdownDescription": "Controls whether tabs should be wrapped over multiple lines when exceeding available space or whether a scrollbar should appear instead. This value is ignored when `#workbench.editor.showTabs#` is not set to `multiple`.",
       "default": false,
       "defaultDefaultValue": false,
       "scope": 3,
@@ -35941,7 +36430,7 @@
         "Filter the Table of Contents to just categories that have matching settings. Clicking a category will filter the results to that category. The search results will be grouped by category.",
         "Hide the Table of Contents while searching. The search results will not be grouped by category, and instead will be sorted by similarity to the query, with exact keyword matches coming first."
       ],
-      "description": "Controls the behavior of the settings editor Table of Contents while searching.",
+      "description": "Controls the behavior of the Settings editor Table of Contents while searching. If this setting is being changed in the Settings editor, the setting will take effect after the search query is modified.",
       "default": "filter",
       "scope": 3,
       "defaultDefaultValue": "filter",
@@ -36088,19 +36577,29 @@
       "scope": 3,
       "restricted": false
     },
-    "zenMode.hideTabs": {
-      "type": "boolean",
-      "default": true,
-      "description": "Controls whether turning on Zen Mode also hides workbench tabs.",
-      "defaultDefaultValue": true,
-      "scope": 3,
-      "restricted": false
-    },
     "zenMode.restore": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether a window should restore to Zen Mode if it was exited in Zen Mode.",
       "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "zenMode.showTabs": {
+      "type": "string",
+      "enum": [
+        "multiple",
+        "none",
+        "single"
+      ],
+      "description": "Controls whether turning on Zen Mode should show multiple editor tabs, a single editor tab or hide the editor title area completely.",
+      "enumDescriptions": [
+        "Each editor is displayed as a tab in the editor title area.",
+        "The editor title area is not displayed.",
+        "The active editor is displayed as a single large tab in the editor title area."
+      ],
+      "default": "multiple",
+      "defaultDefaultValue": "multiple",
       "scope": 3,
       "restricted": false
     },

@@ -29,6 +29,18 @@
         },
         "languageIds": {
           "$ref": "#/definitions/languageIds"
+        },
+        "rootFolder": {
+          "$ref": "#/definitions/rootFolder"
+        },
+        "rootFolderExpanded": {
+          "$ref": "#/definitions/rootFolderExpanded"
+        },
+        "rootFolderNames": {
+          "$ref": "#/definitions/rootFolderNames"
+        },
+        "rootFolderNamesExpanded": {
+          "$ref": "#/definitions/rootFolderNamesExpanded"
         }
       }
     },
@@ -79,6 +91,30 @@
     "languageIds": {
       "type": "object",
       "description": "Associates languages to icons. The object key is the language id as defined in the language contribution point.",
+      "additionalProperties": {
+        "type": "string",
+        "description": "The ID of the icon definition for the association."
+      }
+    },
+    "rootFolder": {
+      "type": "string",
+      "description": "The folder icon for collapsed root folders, and if rootFolderExpanded is not set, also for expanded root folders."
+    },
+    "rootFolderExpanded": {
+      "type": "string",
+      "description": "The folder icon for expanded root folders. The expanded root folder icon is optional. If not set, the icon defined for root folder will be shown."
+    },
+    "rootFolderNames": {
+      "type": "object",
+      "description": "Associates root folder names to icons. The object key is the root folder name. No patterns or wildcards are allowed. Root folder name matching is case insensitive.",
+      "additionalProperties": {
+        "type": "string",
+        "description": "The ID of the icon definition for the association."
+      }
+    },
+    "rootFolderNamesExpanded": {
+      "type": "object",
+      "description": "Associates root folder names to icons for expanded root folders. The object key is the root folder name. No patterns or wildcards are allowed. Root folder name matching is case insensitive.",
       "additionalProperties": {
         "type": "string",
         "description": "The ID of the icon definition for the association."
@@ -216,6 +252,18 @@
     "light": {
       "$ref": "#/definitions/associations",
       "description": "Optional associations for file icons in light color themes."
+    },
+    "rootFolder": {
+      "$ref": "#/definitions/rootFolder"
+    },
+    "rootFolderExpanded": {
+      "$ref": "#/definitions/rootFolderExpanded"
+    },
+    "rootFolderNames": {
+      "$ref": "#/definitions/rootFolderNames"
+    },
+    "rootFolderNamesExpanded": {
+      "$ref": "#/definitions/rootFolderNamesExpanded"
     },
     "showLanguageModeIcons": {
       "type": "boolean",
