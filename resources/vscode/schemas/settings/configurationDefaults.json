@@ -5244,12 +5244,13 @@
     },
     "editor.experimental.asyncTokenization": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "description": "Controls whether the tokenization should happen asynchronously on a web worker.",
       "tags": [
         "experimental"
       ],
       "defaultDefaultValue": false,
+      "defaultValueSource": "Experiments",
       "scope": 5,
       "restricted": false
     },
@@ -35430,13 +35431,12 @@
     },
     "workbench.editor.preferHistoryBasedLanguageDetection": {
       "type": "boolean",
-      "default": true,
+      "default": false,
       "tags": [
         "experimental"
       ],
       "description": "When enabled, a language detection model that takes into account editor history will be given higher precedence.",
       "defaultDefaultValue": false,
-      "defaultValueSource": "Experiments",
       "scope": 3,
       "restricted": false
     },
