@@ -1182,7 +1182,7 @@
     "editor.dropIntoEditor.enabled": {
       "type": "boolean",
       "default": true,
-      "markdownDescription": "Controls whether you can drag and drop a file into a text editor by holding down `shift` (instead of opening the file in an editor).",
+      "markdownDescription": "Controls whether you can drag and drop a file into a text editor by holding down `Shift`-key (instead of opening the file in an editor).",
       "defaultDefaultValue": true,
       "scope": 5,
       "restricted": false
@@ -1944,10 +1944,12 @@
       "default": "onHover",
       "enum": [
         "always",
+        "never",
         "onHover"
       ],
       "enumDescriptions": [
         "Show the inline suggestion toolbar whenever an inline suggestion is shown.",
+        "Never show the inline suggestion toolbar.",
         "Show the inline suggestion toolbar when hovering over an inline suggestion."
       ],
       "description": "Controls when to show the inline suggestion toolbar.",
@@ -2040,6 +2042,24 @@
       "default": true,
       "description": "Enables the Code Action lightbulb in the editor.",
       "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.lightbulb.experimental.showAiIcon": {
+      "type": "string",
+      "enum": [
+        "off",
+        "on",
+        "onCode"
+      ],
+      "default": "off",
+      "enumDescriptions": [
+        "Don not show the AI icon.",
+        "Show an AI icon when the code action menu contains an AI action, on code and empty lines.",
+        "Show an AI icon when the code action menu contains an AI action, but only on code."
+      ],
+      "description": "Show an AI icon along with the lightbulb when the code action menu contains an AI action.",
+      "defaultDefaultValue": "off",
       "scope": 5,
       "restricted": false
     },
@@ -2263,19 +2283,21 @@
       "scope": 5,
       "restricted": false
     },
-    "editor.multiDocumentOccurrencesHighlight": {
-      "description": "Experimental: Controls whether the editor should highlight word occurrences accross multiple open editors.",
-      "type": "boolean",
-      "default": false,
-      "defaultDefaultValue": false,
-      "scope": 5,
-      "restricted": false
-    },
     "editor.occurrencesHighlight": {
-      "description": "Controls whether the editor should highlight semantic symbol occurrences.",
-      "type": "boolean",
-      "default": true,
-      "defaultDefaultValue": true,
+      "markdownEnumDescriptions": [
+        "Experimental: Highlights occurrences across all valid open files.",
+        "Does not highlight occurrences.",
+        "Highlights occurrences only in the current file."
+      ],
+      "markdownDescription": "Controls whether occurrences should be highlighted across open files.",
+      "type": "string",
+      "enum": [
+        "multiFile",
+        "off",
+        "singleFile"
+      ],
+      "default": "singleFile",
+      "defaultDefaultValue": "singleFile",
       "scope": 5,
       "restricted": false
     },
@@ -3437,26 +3459,20 @@
       "restricted": false
     },
     "editor.wordBasedSuggestions": {
-      "type": "boolean",
-      "default": true,
-      "description": "Controls whether completions should be computed based on words in the document.",
-      "defaultDefaultValue": true,
-      "scope": 5,
-      "restricted": false
-    },
-    "editor.wordBasedSuggestionsMode": {
       "enum": [
         "allDocuments",
         "currentDocument",
-        "matchingDocuments"
+        "matchingDocuments",
+        "off"
       ],
       "default": "matchingDocuments",
       "enumDescriptions": [
         "Suggest words from all open documents.",
         "Only suggest words from the active document.",
-        "Suggest words from all open documents of the same language."
+        "Suggest words from all open documents of the same language.",
+        "Turn off Word Based Suggestions."
       ],
-      "description": "Controls from which documents word based completions are computed.",
+      "description": "Controls whether completions should be computed based on words in the document and from which documents they are computed.",
       "defaultDefaultValue": "matchingDocuments",
       "scope": 5,
       "restricted": false

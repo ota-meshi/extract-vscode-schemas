@@ -499,7 +499,15 @@
               "port": {
                 "default": 9229,
                 "description": "Port to use to remote debugging the browser, given as `--remote-debugging-port` when launching the browser.",
-                "type": "number",
+                "oneOf": [
+                  {
+                    "pattern": "^\\${.*}$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ],
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
@@ -569,7 +577,15 @@
                       "attachSimplePort": {
                         "default": 9229,
                         "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                        "type": "integer"
+                        "oneOf": [
+                          {
+                            "pattern": "^\\${.*}$",
+                            "type": "string"
+                          },
+                          {
+                            "type": "integer"
+                          }
+                        ]
                       },
                       "autoAttachChildProcesses": {
                         "default": true,
@@ -1542,7 +1558,15 @@
               "port": {
                 "default": 9229,
                 "description": "Port to use to remote debugging the browser, given as `--remote-debugging-port` when launching the browser.",
-                "type": "number",
+                "oneOf": [
+                  {
+                    "pattern": "^\\${.*}$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ],
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
@@ -1612,7 +1636,15 @@
                       "attachSimplePort": {
                         "default": 9229,
                         "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                        "type": "integer"
+                        "oneOf": [
+                          {
+                            "pattern": "^\\${.*}$",
+                            "type": "string"
+                          },
+                          {
+                            "type": "integer"
+                          }
+                        ]
                       },
                       "autoAttachChildProcesses": {
                         "default": true,
@@ -2599,7 +2631,15 @@
               "port": {
                 "default": 9229,
                 "description": "Port to use to remote debugging the browser, given as `--remote-debugging-port` when launching the browser.",
-                "type": "number",
+                "oneOf": [
+                  {
+                    "pattern": "^\\${.*}$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ],
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
@@ -2669,7 +2709,15 @@
                       "attachSimplePort": {
                         "default": 9229,
                         "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                        "type": "integer"
+                        "oneOf": [
+                          {
+                            "pattern": "^\\${.*}$",
+                            "type": "string"
+                          },
+                          {
+                            "type": "integer"
+                          }
+                        ]
                       },
                       "autoAttachChildProcesses": {
                         "default": true,
@@ -3643,7 +3691,15 @@
               "port": {
                 "default": 9229,
                 "description": "Port to use to remote debugging the browser, given as `--remote-debugging-port` when launching the browser.",
-                "type": "number",
+                "oneOf": [
+                  {
+                    "pattern": "^\\${.*}$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ],
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
@@ -3713,7 +3769,15 @@
                       "attachSimplePort": {
                         "default": 9229,
                         "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                        "type": "integer"
+                        "oneOf": [
+                          {
+                            "pattern": "^\\${.*}$",
+                            "type": "string"
+                          },
+                          {
+                            "type": "integer"
+                          }
+                        ]
                       },
                       "autoAttachChildProcesses": {
                         "default": true,
@@ -4713,7 +4777,15 @@
               "port": {
                 "default": 9229,
                 "description": "Debug port to attach to. Default is 9229.",
-                "type": "number",
+                "oneOf": [
+                  {
+                    "pattern": "^\\${.*}$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ],
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
@@ -5161,7 +5233,15 @@
               "port": {
                 "default": 9229,
                 "description": "Debug port to attach to. Default is 9229.",
-                "type": "number",
+                "oneOf": [
+                  {
+                    "pattern": "^\\${.*}$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ],
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
@@ -5734,7 +5814,15 @@
                       "attachSimplePort": {
                         "default": 9229,
                         "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                        "type": "integer"
+                        "oneOf": [
+                          {
+                            "pattern": "^\\${.*}$",
+                            "type": "string"
+                          },
+                          {
+                            "type": "integer"
+                          }
+                        ]
                       },
                       "autoAttachChildProcesses": {
                         "default": true,
@@ -6430,6 +6518,50 @@
                     "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
                     "default": {
                       "action": "startDebugging",
+                      "config": {
+                        "type": "node",
+                        "request": "launch"
+                      },
+                      "killOnServerStop": false
+                    },
+                    "required": [
+                      "config"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "startDebugging"
+                        ],
+                        "enumDescriptions": [
+                          "Run another launch configuration."
+                        ],
+                        "markdownDescription": "What to do with the URI when the server is ready.",
+                        "default": "startDebugging"
+                      },
+                      "config": {
+                        "type": "object",
+                        "markdownDescription": "The debug configuration to run.",
+                        "default": {}
+                      },
+                      "killOnServerStop": {
+                        "type": "boolean",
+                        "markdownDescription": "Stop the child session when the parent session stopped.",
+                        "default": false
+                      },
+                      "pattern": {
+                        "type": "string",
+                        "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                        "default": "listening on port ([0-9]+)"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+                    "default": {
+                      "action": "startDebugging",
                       "killOnServerStop": false,
                       "name": "<launch browser config name>"
                     },
@@ -6980,7 +7112,15 @@
                       "attachSimplePort": {
                         "default": 9229,
                         "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                        "type": "integer"
+                        "oneOf": [
+                          {
+                            "pattern": "^\\${.*}$",
+                            "type": "string"
+                          },
+                          {
+                            "type": "integer"
+                          }
+                        ]
                       },
                       "autoAttachChildProcesses": {
                         "default": true,
@@ -7667,6 +7807,50 @@
                         "type": "string",
                         "markdownDescription": "A format string used when constructing the URI from a port number. The first '%s' is substituted with the port number.",
                         "default": "http://localhost:%s"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+                    "default": {
+                      "action": "startDebugging",
+                      "config": {
+                        "type": "node",
+                        "request": "launch"
+                      },
+                      "killOnServerStop": false
+                    },
+                    "required": [
+                      "config"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "startDebugging"
+                        ],
+                        "enumDescriptions": [
+                          "Run another launch configuration."
+                        ],
+                        "markdownDescription": "What to do with the URI when the server is ready.",
+                        "default": "startDebugging"
+                      },
+                      "config": {
+                        "type": "object",
+                        "markdownDescription": "The debug configuration to run.",
+                        "default": {}
+                      },
+                      "killOnServerStop": {
+                        "type": "boolean",
+                        "markdownDescription": "Stop the child session when the parent session stopped.",
+                        "default": false
+                      },
+                      "pattern": {
+                        "type": "string",
+                        "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                        "default": "listening on port ([0-9]+)"
                       }
                     }
                   },
@@ -8246,7 +8430,15 @@
                   "port": {
                     "default": 9229,
                     "description": "Port to use to remote debugging the browser, given as `--remote-debugging-port` when launching the browser.",
-                    "type": "number"
+                    "oneOf": [
+                      {
+                        "pattern": "^\\${.*}$",
+                        "type": "string"
+                      },
+                      {
+                        "type": "integer"
+                      }
+                    ]
                   },
                   "resolveSourceMapLocations": {
                     "default": null,
@@ -8287,7 +8479,15 @@
                           "attachSimplePort": {
                             "default": 9229,
                             "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                            "type": "integer"
+                            "oneOf": [
+                              {
+                                "pattern": "^\\${.*}$",
+                                "type": "string"
+                              },
+                              {
+                                "type": "integer"
+                              }
+                            ]
                           },
                           "autoAttachChildProcesses": {
                             "default": true,
@@ -9172,6 +9372,50 @@
                         "type": "string",
                         "markdownDescription": "A format string used when constructing the URI from a port number. The first '%s' is substituted with the port number.",
                         "default": "http://localhost:%s"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+                    "default": {
+                      "action": "startDebugging",
+                      "config": {
+                        "type": "node",
+                        "request": "launch"
+                      },
+                      "killOnServerStop": false
+                    },
+                    "required": [
+                      "config"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "startDebugging"
+                        ],
+                        "enumDescriptions": [
+                          "Run another launch configuration."
+                        ],
+                        "markdownDescription": "What to do with the URI when the server is ready.",
+                        "default": "startDebugging"
+                      },
+                      "config": {
+                        "type": "object",
+                        "markdownDescription": "The debug configuration to run.",
+                        "default": {}
+                      },
+                      "killOnServerStop": {
+                        "type": "boolean",
+                        "markdownDescription": "Stop the child session when the parent session stopped.",
+                        "default": false
+                      },
+                      "pattern": {
+                        "type": "string",
+                        "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                        "default": "listening on port ([0-9]+)"
                       }
                     }
                   },
@@ -9704,7 +9948,15 @@
                   "port": {
                     "default": 9229,
                     "description": "Port to use to remote debugging the browser, given as `--remote-debugging-port` when launching the browser.",
-                    "type": "number"
+                    "oneOf": [
+                      {
+                        "pattern": "^\\${.*}$",
+                        "type": "string"
+                      },
+                      {
+                        "type": "integer"
+                      }
+                    ]
                   },
                   "resolveSourceMapLocations": {
                     "default": null,
@@ -9745,7 +9997,15 @@
                           "attachSimplePort": {
                             "default": 9229,
                             "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                            "type": "integer"
+                            "oneOf": [
+                              {
+                                "pattern": "^\\${.*}$",
+                                "type": "string"
+                              },
+                              {
+                                "type": "integer"
+                              }
+                            ]
                           },
                           "autoAttachChildProcesses": {
                             "default": true,
@@ -10639,6 +10899,50 @@
                     "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
                     "default": {
                       "action": "startDebugging",
+                      "config": {
+                        "type": "node",
+                        "request": "launch"
+                      },
+                      "killOnServerStop": false
+                    },
+                    "required": [
+                      "config"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "startDebugging"
+                        ],
+                        "enumDescriptions": [
+                          "Run another launch configuration."
+                        ],
+                        "markdownDescription": "What to do with the URI when the server is ready.",
+                        "default": "startDebugging"
+                      },
+                      "config": {
+                        "type": "object",
+                        "markdownDescription": "The debug configuration to run.",
+                        "default": {}
+                      },
+                      "killOnServerStop": {
+                        "type": "boolean",
+                        "markdownDescription": "Stop the child session when the parent session stopped.",
+                        "default": false
+                      },
+                      "pattern": {
+                        "type": "string",
+                        "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                        "default": "listening on port ([0-9]+)"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+                    "default": {
+                      "action": "startDebugging",
                       "killOnServerStop": false,
                       "name": "<launch browser config name>"
                     },
@@ -10867,7 +11171,15 @@
               "attachSimplePort": {
                 "default": 9229,
                 "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                "type": "integer",
+                "oneOf": [
+                  {
+                    "pattern": "^\\${.*}$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ],
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
@@ -11263,6 +11575,50 @@
                     "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
                     "default": {
                       "action": "startDebugging",
+                      "config": {
+                        "type": "node",
+                        "request": "launch"
+                      },
+                      "killOnServerStop": false
+                    },
+                    "required": [
+                      "config"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "startDebugging"
+                        ],
+                        "enumDescriptions": [
+                          "Run another launch configuration."
+                        ],
+                        "markdownDescription": "What to do with the URI when the server is ready.",
+                        "default": "startDebugging"
+                      },
+                      "config": {
+                        "type": "object",
+                        "markdownDescription": "The debug configuration to run.",
+                        "default": {}
+                      },
+                      "killOnServerStop": {
+                        "type": "boolean",
+                        "markdownDescription": "Stop the child session when the parent session stopped.",
+                        "default": false
+                      },
+                      "pattern": {
+                        "type": "string",
+                        "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                        "default": "listening on port ([0-9]+)"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+                    "default": {
+                      "action": "startDebugging",
                       "killOnServerStop": false,
                       "name": "<launch browser config name>"
                     },
@@ -11499,7 +11855,15 @@
               "attachSimplePort": {
                 "default": 9229,
                 "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                "type": "integer",
+                "oneOf": [
+                  {
+                    "pattern": "^\\${.*}$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ],
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
@@ -11886,6 +12250,50 @@
                         "type": "string",
                         "markdownDescription": "A format string used when constructing the URI from a port number. The first '%s' is substituted with the port number.",
                         "default": "http://localhost:%s"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+                    "default": {
+                      "action": "startDebugging",
+                      "config": {
+                        "type": "node",
+                        "request": "launch"
+                      },
+                      "killOnServerStop": false
+                    },
+                    "required": [
+                      "config"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "startDebugging"
+                        ],
+                        "enumDescriptions": [
+                          "Run another launch configuration."
+                        ],
+                        "markdownDescription": "What to do with the URI when the server is ready.",
+                        "default": "startDebugging"
+                      },
+                      "config": {
+                        "type": "object",
+                        "markdownDescription": "The debug configuration to run.",
+                        "default": {}
+                      },
+                      "killOnServerStop": {
+                        "type": "boolean",
+                        "markdownDescription": "Stop the child session when the parent session stopped.",
+                        "default": false
+                      },
+                      "pattern": {
+                        "type": "string",
+                        "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                        "default": "listening on port ([0-9]+)"
                       }
                     }
                   },
@@ -12422,6 +12830,50 @@
                     "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
                     "default": {
                       "action": "startDebugging",
+                      "config": {
+                        "type": "node",
+                        "request": "launch"
+                      },
+                      "killOnServerStop": false
+                    },
+                    "required": [
+                      "config"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "startDebugging"
+                        ],
+                        "enumDescriptions": [
+                          "Run another launch configuration."
+                        ],
+                        "markdownDescription": "What to do with the URI when the server is ready.",
+                        "default": "startDebugging"
+                      },
+                      "config": {
+                        "type": "object",
+                        "markdownDescription": "The debug configuration to run.",
+                        "default": {}
+                      },
+                      "killOnServerStop": {
+                        "type": "boolean",
+                        "markdownDescription": "Stop the child session when the parent session stopped.",
+                        "default": false
+                      },
+                      "pattern": {
+                        "type": "string",
+                        "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                        "default": "listening on port ([0-9]+)"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+                    "default": {
+                      "action": "startDebugging",
                       "killOnServerStop": false,
                       "name": "<launch browser config name>"
                     },
@@ -12918,7 +13370,15 @@
                       "attachSimplePort": {
                         "default": 9229,
                         "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                        "type": "integer"
+                        "oneOf": [
+                          {
+                            "pattern": "^\\${.*}$",
+                            "type": "string"
+                          },
+                          {
+                            "type": "integer"
+                          }
+                        ]
                       },
                       "autoAttachChildProcesses": {
                         "default": true,
@@ -13605,6 +14065,50 @@
                         "type": "string",
                         "markdownDescription": "A format string used when constructing the URI from a port number. The first '%s' is substituted with the port number.",
                         "default": "http://localhost:%s"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+                    "default": {
+                      "action": "startDebugging",
+                      "config": {
+                        "type": "node",
+                        "request": "launch"
+                      },
+                      "killOnServerStop": false
+                    },
+                    "required": [
+                      "config"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "startDebugging"
+                        ],
+                        "enumDescriptions": [
+                          "Run another launch configuration."
+                        ],
+                        "markdownDescription": "What to do with the URI when the server is ready.",
+                        "default": "startDebugging"
+                      },
+                      "config": {
+                        "type": "object",
+                        "markdownDescription": "The debug configuration to run.",
+                        "default": {}
+                      },
+                      "killOnServerStop": {
+                        "type": "boolean",
+                        "markdownDescription": "Stop the child session when the parent session stopped.",
+                        "default": false
+                      },
+                      "pattern": {
+                        "type": "string",
+                        "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                        "default": "listening on port ([0-9]+)"
                       }
                     }
                   },
@@ -14150,7 +14654,15 @@
                       "attachSimplePort": {
                         "default": 9229,
                         "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                        "type": "integer"
+                        "oneOf": [
+                          {
+                            "pattern": "^\\${.*}$",
+                            "type": "string"
+                          },
+                          {
+                            "type": "integer"
+                          }
+                        ]
                       },
                       "autoAttachChildProcesses": {
                         "default": true,
@@ -14837,6 +15349,50 @@
                         "type": "string",
                         "markdownDescription": "A format string used when constructing the URI from a port number. The first '%s' is substituted with the port number.",
                         "default": "http://localhost:%s"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+                    "default": {
+                      "action": "startDebugging",
+                      "config": {
+                        "type": "node",
+                        "request": "launch"
+                      },
+                      "killOnServerStop": false
+                    },
+                    "required": [
+                      "config"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "startDebugging"
+                        ],
+                        "enumDescriptions": [
+                          "Run another launch configuration."
+                        ],
+                        "markdownDescription": "What to do with the URI when the server is ready.",
+                        "default": "startDebugging"
+                      },
+                      "config": {
+                        "type": "object",
+                        "markdownDescription": "The debug configuration to run.",
+                        "default": {}
+                      },
+                      "killOnServerStop": {
+                        "type": "boolean",
+                        "markdownDescription": "Stop the child session when the parent session stopped.",
+                        "default": false
+                      },
+                      "pattern": {
+                        "type": "string",
+                        "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                        "default": "listening on port ([0-9]+)"
                       }
                     }
                   },
@@ -15410,7 +15966,15 @@
         "port": {
           "default": 9229,
           "description": "Port to use to remote debugging the browser, given as `--remote-debugging-port` when launching the browser.",
-          "type": "number",
+          "oneOf": [
+            {
+              "pattern": "^\\${.*}$",
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            }
+          ],
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
@@ -15480,7 +16044,15 @@
                 "attachSimplePort": {
                   "default": 9229,
                   "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                  "type": "integer"
+                  "oneOf": [
+                    {
+                      "pattern": "^\\${.*}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 },
                 "autoAttachChildProcesses": {
                   "default": true,
@@ -16438,7 +17010,15 @@
         "port": {
           "default": 9229,
           "description": "Port to use to remote debugging the browser, given as `--remote-debugging-port` when launching the browser.",
-          "type": "number",
+          "oneOf": [
+            {
+              "pattern": "^\\${.*}$",
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            }
+          ],
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
@@ -16500,7 +17080,15 @@
                 "attachSimplePort": {
                   "default": 9229,
                   "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                  "type": "integer"
+                  "oneOf": [
+                    {
+                      "pattern": "^\\${.*}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 },
                 "autoAttachChildProcesses": {
                   "default": true,
@@ -17570,7 +18158,15 @@
                 "attachSimplePort": {
                   "default": 9229,
                   "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                  "type": "integer"
+                  "oneOf": [
+                    {
+                      "pattern": "^\\${.*}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 },
                 "autoAttachChildProcesses": {
                   "default": true,
@@ -18266,6 +18862,50 @@
               "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
               "default": {
                 "action": "startDebugging",
+                "config": {
+                  "type": "node",
+                  "request": "launch"
+                },
+                "killOnServerStop": false
+              },
+              "required": [
+                "config"
+              ],
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "startDebugging"
+                  ],
+                  "enumDescriptions": [
+                    "Run another launch configuration."
+                  ],
+                  "markdownDescription": "What to do with the URI when the server is ready.",
+                  "default": "startDebugging"
+                },
+                "config": {
+                  "type": "object",
+                  "markdownDescription": "The debug configuration to run.",
+                  "default": {}
+                },
+                "killOnServerStop": {
+                  "type": "boolean",
+                  "markdownDescription": "Stop the child session when the parent session stopped.",
+                  "default": false
+                },
+                "pattern": {
+                  "type": "string",
+                  "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                  "default": "listening on port ([0-9]+)"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+              "default": {
+                "action": "startDebugging",
                 "killOnServerStop": false,
                 "name": "<launch browser config name>"
               },
@@ -18779,7 +19419,15 @@
                 "attachSimplePort": {
                   "default": 9229,
                   "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                  "type": "integer"
+                  "oneOf": [
+                    {
+                      "pattern": "^\\${.*}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 },
                 "autoAttachChildProcesses": {
                   "default": true,
@@ -19466,6 +20114,50 @@
                   "type": "string",
                   "markdownDescription": "A format string used when constructing the URI from a port number. The first '%s' is substituted with the port number.",
                   "default": "http://localhost:%s"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+              "default": {
+                "action": "startDebugging",
+                "config": {
+                  "type": "node",
+                  "request": "launch"
+                },
+                "killOnServerStop": false
+              },
+              "required": [
+                "config"
+              ],
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "startDebugging"
+                  ],
+                  "enumDescriptions": [
+                    "Run another launch configuration."
+                  ],
+                  "markdownDescription": "What to do with the URI when the server is ready.",
+                  "default": "startDebugging"
+                },
+                "config": {
+                  "type": "object",
+                  "markdownDescription": "The debug configuration to run.",
+                  "default": {}
+                },
+                "killOnServerStop": {
+                  "type": "boolean",
+                  "markdownDescription": "Stop the child session when the parent session stopped.",
+                  "default": false
+                },
+                "pattern": {
+                  "type": "string",
+                  "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                  "default": "listening on port ([0-9]+)"
                 }
               }
             },
@@ -20106,7 +20798,15 @@
             "port": {
               "default": 9229,
               "description": "Port to use to remote debugging the browser, given as `--remote-debugging-port` when launching the browser.",
-              "type": "number"
+              "oneOf": [
+                {
+                  "pattern": "^\\${.*}$",
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
             },
             "resolveSourceMapLocations": {
               "default": null,
@@ -20147,7 +20847,15 @@
                     "attachSimplePort": {
                       "default": 9229,
                       "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                      "type": "integer"
+                      "oneOf": [
+                        {
+                          "pattern": "^\\${.*}$",
+                          "type": "string"
+                        },
+                        {
+                          "type": "integer"
+                        }
+                      ]
                     },
                     "autoAttachChildProcesses": {
                       "default": true,
@@ -21041,6 +21749,50 @@
               "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
               "default": {
                 "action": "startDebugging",
+                "config": {
+                  "type": "node",
+                  "request": "launch"
+                },
+                "killOnServerStop": false
+              },
+              "required": [
+                "config"
+              ],
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "startDebugging"
+                  ],
+                  "enumDescriptions": [
+                    "Run another launch configuration."
+                  ],
+                  "markdownDescription": "What to do with the URI when the server is ready.",
+                  "default": "startDebugging"
+                },
+                "config": {
+                  "type": "object",
+                  "markdownDescription": "The debug configuration to run.",
+                  "default": {}
+                },
+                "killOnServerStop": {
+                  "type": "boolean",
+                  "markdownDescription": "Stop the child session when the parent session stopped.",
+                  "default": false
+                },
+                "pattern": {
+                  "type": "string",
+                  "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                  "default": "listening on port ([0-9]+)"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+              "default": {
+                "action": "startDebugging",
                 "killOnServerStop": false,
                 "name": "<launch browser config name>"
               },
@@ -21549,7 +22301,15 @@
             "port": {
               "default": 9229,
               "description": "Port to use to remote debugging the browser, given as `--remote-debugging-port` when launching the browser.",
-              "type": "number"
+              "oneOf": [
+                {
+                  "pattern": "^\\${.*}$",
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
             },
             "resolveSourceMapLocations": {
               "default": null,
@@ -21590,7 +22350,15 @@
                     "attachSimplePort": {
                       "default": 9229,
                       "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                      "type": "integer"
+                      "oneOf": [
+                        {
+                          "pattern": "^\\${.*}$",
+                          "type": "string"
+                        },
+                        {
+                          "type": "integer"
+                        }
+                      ]
                     },
                     "autoAttachChildProcesses": {
                       "default": true,
@@ -22476,6 +23244,50 @@
               "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
               "default": {
                 "action": "startDebugging",
+                "config": {
+                  "type": "node",
+                  "request": "launch"
+                },
+                "killOnServerStop": false
+              },
+              "required": [
+                "config"
+              ],
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "startDebugging"
+                  ],
+                  "enumDescriptions": [
+                    "Run another launch configuration."
+                  ],
+                  "markdownDescription": "What to do with the URI when the server is ready.",
+                  "default": "startDebugging"
+                },
+                "config": {
+                  "type": "object",
+                  "markdownDescription": "The debug configuration to run.",
+                  "default": {}
+                },
+                "killOnServerStop": {
+                  "type": "boolean",
+                  "markdownDescription": "Stop the child session when the parent session stopped.",
+                  "default": false
+                },
+                "pattern": {
+                  "type": "string",
+                  "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                  "default": "listening on port ([0-9]+)"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+              "default": {
+                "action": "startDebugging",
                 "killOnServerStop": false,
                 "name": "<launch browser config name>"
               },
@@ -22811,7 +23623,15 @@
         "port": {
           "default": 9229,
           "description": "Port to use to remote debugging the browser, given as `--remote-debugging-port` when launching the browser.",
-          "type": "number",
+          "oneOf": [
+            {
+              "pattern": "^\\${.*}$",
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            }
+          ],
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
@@ -22881,7 +23701,15 @@
                 "attachSimplePort": {
                   "default": 9229,
                   "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                  "type": "integer"
+                  "oneOf": [
+                    {
+                      "pattern": "^\\${.*}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 },
                 "autoAttachChildProcesses": {
                   "default": true,
@@ -23853,7 +24681,15 @@
         "port": {
           "default": 9229,
           "description": "Port to use to remote debugging the browser, given as `--remote-debugging-port` when launching the browser.",
-          "type": "number",
+          "oneOf": [
+            {
+              "pattern": "^\\${.*}$",
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            }
+          ],
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
@@ -23915,7 +24751,15 @@
                 "attachSimplePort": {
                   "default": 9229,
                   "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                  "type": "integer"
+                  "oneOf": [
+                    {
+                      "pattern": "^\\${.*}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 },
                 "autoAttachChildProcesses": {
                   "default": true,
@@ -25006,7 +25850,15 @@
                 "attachSimplePort": {
                   "default": 9229,
                   "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                  "type": "integer"
+                  "oneOf": [
+                    {
+                      "pattern": "^\\${.*}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 },
                 "autoAttachChildProcesses": {
                   "default": true,
@@ -25702,6 +26554,50 @@
               "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
               "default": {
                 "action": "startDebugging",
+                "config": {
+                  "type": "node",
+                  "request": "launch"
+                },
+                "killOnServerStop": false
+              },
+              "required": [
+                "config"
+              ],
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "startDebugging"
+                  ],
+                  "enumDescriptions": [
+                    "Run another launch configuration."
+                  ],
+                  "markdownDescription": "What to do with the URI when the server is ready.",
+                  "default": "startDebugging"
+                },
+                "config": {
+                  "type": "object",
+                  "markdownDescription": "The debug configuration to run.",
+                  "default": {}
+                },
+                "killOnServerStop": {
+                  "type": "boolean",
+                  "markdownDescription": "Stop the child session when the parent session stopped.",
+                  "default": false
+                },
+                "pattern": {
+                  "type": "string",
+                  "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                  "default": "listening on port ([0-9]+)"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+              "default": {
+                "action": "startDebugging",
                 "killOnServerStop": false,
                 "name": "<launch browser config name>"
               },
@@ -26229,7 +27125,15 @@
                 "attachSimplePort": {
                   "default": 9229,
                   "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                  "type": "integer"
+                  "oneOf": [
+                    {
+                      "pattern": "^\\${.*}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 },
                 "autoAttachChildProcesses": {
                   "default": true,
@@ -26916,6 +27820,50 @@
                   "type": "string",
                   "markdownDescription": "A format string used when constructing the URI from a port number. The first '%s' is substituted with the port number.",
                   "default": "http://localhost:%s"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+              "default": {
+                "action": "startDebugging",
+                "config": {
+                  "type": "node",
+                  "request": "launch"
+                },
+                "killOnServerStop": false
+              },
+              "required": [
+                "config"
+              ],
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "startDebugging"
+                  ],
+                  "enumDescriptions": [
+                    "Run another launch configuration."
+                  ],
+                  "markdownDescription": "What to do with the URI when the server is ready.",
+                  "default": "startDebugging"
+                },
+                "config": {
+                  "type": "object",
+                  "markdownDescription": "The debug configuration to run.",
+                  "default": {}
+                },
+                "killOnServerStop": {
+                  "type": "boolean",
+                  "markdownDescription": "Stop the child session when the parent session stopped.",
+                  "default": false
+                },
+                "pattern": {
+                  "type": "string",
+                  "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                  "default": "listening on port ([0-9]+)"
                 }
               }
             },
@@ -27456,6 +28404,50 @@
               "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
               "default": {
                 "action": "startDebugging",
+                "config": {
+                  "type": "node",
+                  "request": "launch"
+                },
+                "killOnServerStop": false
+              },
+              "required": [
+                "config"
+              ],
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "startDebugging"
+                  ],
+                  "enumDescriptions": [
+                    "Run another launch configuration."
+                  ],
+                  "markdownDescription": "What to do with the URI when the server is ready.",
+                  "default": "startDebugging"
+                },
+                "config": {
+                  "type": "object",
+                  "markdownDescription": "The debug configuration to run.",
+                  "default": {}
+                },
+                "killOnServerStop": {
+                  "type": "boolean",
+                  "markdownDescription": "Stop the child session when the parent session stopped.",
+                  "default": false
+                },
+                "pattern": {
+                  "type": "string",
+                  "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                  "default": "listening on port ([0-9]+)"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+              "default": {
+                "action": "startDebugging",
                 "killOnServerStop": false,
                 "name": "<launch browser config name>"
               },
@@ -27949,6 +28941,50 @@
               "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
               "default": {
                 "action": "startDebugging",
+                "config": {
+                  "type": "node",
+                  "request": "launch"
+                },
+                "killOnServerStop": false
+              },
+              "required": [
+                "config"
+              ],
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "startDebugging"
+                  ],
+                  "enumDescriptions": [
+                    "Run another launch configuration."
+                  ],
+                  "markdownDescription": "What to do with the URI when the server is ready.",
+                  "default": "startDebugging"
+                },
+                "config": {
+                  "type": "object",
+                  "markdownDescription": "The debug configuration to run.",
+                  "default": {}
+                },
+                "killOnServerStop": {
+                  "type": "boolean",
+                  "markdownDescription": "Stop the child session when the parent session stopped.",
+                  "default": false
+                },
+                "pattern": {
+                  "type": "string",
+                  "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                  "default": "listening on port ([0-9]+)"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+              "default": {
+                "action": "startDebugging",
                 "killOnServerStop": false,
                 "name": "<launch browser config name>"
               },
@@ -28296,7 +29332,15 @@
         "port": {
           "default": 9229,
           "description": "Debug port to attach to. Default is 9229.",
-          "type": "number",
+          "oneOf": [
+            {
+              "pattern": "^\\${.*}$",
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            }
+          ],
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
@@ -28729,7 +29773,15 @@
         "port": {
           "default": 9229,
           "description": "Debug port to attach to. Default is 9229.",
-          "type": "number",
+          "oneOf": [
+            {
+              "pattern": "^\\${.*}$",
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            }
+          ],
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
@@ -28992,7 +30044,15 @@
         "attachSimplePort": {
           "default": 9229,
           "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-          "type": "integer",
+          "oneOf": [
+            {
+              "pattern": "^\\${.*}$",
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            }
+          ],
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
@@ -29380,6 +30440,50 @@
               "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
               "default": {
                 "action": "startDebugging",
+                "config": {
+                  "type": "node",
+                  "request": "launch"
+                },
+                "killOnServerStop": false
+              },
+              "required": [
+                "config"
+              ],
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "startDebugging"
+                  ],
+                  "enumDescriptions": [
+                    "Run another launch configuration."
+                  ],
+                  "markdownDescription": "What to do with the URI when the server is ready.",
+                  "default": "startDebugging"
+                },
+                "config": {
+                  "type": "object",
+                  "markdownDescription": "The debug configuration to run.",
+                  "default": {}
+                },
+                "killOnServerStop": {
+                  "type": "boolean",
+                  "markdownDescription": "Stop the child session when the parent session stopped.",
+                  "default": false
+                },
+                "pattern": {
+                  "type": "string",
+                  "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                  "default": "listening on port ([0-9]+)"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+              "default": {
+                "action": "startDebugging",
                 "killOnServerStop": false,
                 "name": "<launch browser config name>"
               },
@@ -29614,7 +30718,15 @@
         "attachSimplePort": {
           "default": 9229,
           "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-          "type": "integer",
+          "oneOf": [
+            {
+              "pattern": "^\\${.*}$",
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            }
+          ],
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
@@ -29989,6 +31101,50 @@
               "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
               "default": {
                 "action": "startDebugging",
+                "config": {
+                  "type": "node",
+                  "request": "launch"
+                },
+                "killOnServerStop": false
+              },
+              "required": [
+                "config"
+              ],
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "startDebugging"
+                  ],
+                  "enumDescriptions": [
+                    "Run another launch configuration."
+                  ],
+                  "markdownDescription": "What to do with the URI when the server is ready.",
+                  "default": "startDebugging"
+                },
+                "config": {
+                  "type": "object",
+                  "markdownDescription": "The debug configuration to run.",
+                  "default": {}
+                },
+                "killOnServerStop": {
+                  "type": "boolean",
+                  "markdownDescription": "Stop the child session when the parent session stopped.",
+                  "default": false
+                },
+                "pattern": {
+                  "type": "string",
+                  "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                  "default": "listening on port ([0-9]+)"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+              "default": {
+                "action": "startDebugging",
                 "killOnServerStop": false,
                 "name": "<launch browser config name>"
               },
@@ -30334,7 +31490,15 @@
         "port": {
           "default": 9229,
           "description": "Port to use to remote debugging the browser, given as `--remote-debugging-port` when launching the browser.",
-          "type": "number",
+          "oneOf": [
+            {
+              "pattern": "^\\${.*}$",
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            }
+          ],
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
@@ -30404,7 +31568,15 @@
                 "attachSimplePort": {
                   "default": 9229,
                   "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                  "type": "integer"
+                  "oneOf": [
+                    {
+                      "pattern": "^\\${.*}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 },
                 "autoAttachChildProcesses": {
                   "default": true,
@@ -31363,7 +32535,15 @@
         "port": {
           "default": 9229,
           "description": "Port to use to remote debugging the browser, given as `--remote-debugging-port` when launching the browser.",
-          "type": "number",
+          "oneOf": [
+            {
+              "pattern": "^\\${.*}$",
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            }
+          ],
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
@@ -31425,7 +32605,15 @@
                 "attachSimplePort": {
                   "default": 9229,
                   "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                  "type": "integer"
+                  "oneOf": [
+                    {
+                      "pattern": "^\\${.*}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 },
                 "autoAttachChildProcesses": {
                   "default": true,
@@ -32495,7 +33683,15 @@
                 "attachSimplePort": {
                   "default": 9229,
                   "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                  "type": "integer"
+                  "oneOf": [
+                    {
+                      "pattern": "^\\${.*}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 },
                 "autoAttachChildProcesses": {
                   "default": true,
@@ -33191,6 +34387,50 @@
               "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
               "default": {
                 "action": "startDebugging",
+                "config": {
+                  "type": "node",
+                  "request": "launch"
+                },
+                "killOnServerStop": false
+              },
+              "required": [
+                "config"
+              ],
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "startDebugging"
+                  ],
+                  "enumDescriptions": [
+                    "Run another launch configuration."
+                  ],
+                  "markdownDescription": "What to do with the URI when the server is ready.",
+                  "default": "startDebugging"
+                },
+                "config": {
+                  "type": "object",
+                  "markdownDescription": "The debug configuration to run.",
+                  "default": {}
+                },
+                "killOnServerStop": {
+                  "type": "boolean",
+                  "markdownDescription": "Stop the child session when the parent session stopped.",
+                  "default": false
+                },
+                "pattern": {
+                  "type": "string",
+                  "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                  "default": "listening on port ([0-9]+)"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+              "default": {
+                "action": "startDebugging",
                 "killOnServerStop": false,
                 "name": "<launch browser config name>"
               },
@@ -33705,7 +34945,15 @@
                 "attachSimplePort": {
                   "default": 9229,
                   "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                  "type": "integer"
+                  "oneOf": [
+                    {
+                      "pattern": "^\\${.*}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 },
                 "autoAttachChildProcesses": {
                   "default": true,
@@ -34392,6 +35640,50 @@
                   "type": "string",
                   "markdownDescription": "A format string used when constructing the URI from a port number. The first '%s' is substituted with the port number.",
                   "default": "http://localhost:%s"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+              "default": {
+                "action": "startDebugging",
+                "config": {
+                  "type": "node",
+                  "request": "launch"
+                },
+                "killOnServerStop": false
+              },
+              "required": [
+                "config"
+              ],
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "startDebugging"
+                  ],
+                  "enumDescriptions": [
+                    "Run another launch configuration."
+                  ],
+                  "markdownDescription": "What to do with the URI when the server is ready.",
+                  "default": "startDebugging"
+                },
+                "config": {
+                  "type": "object",
+                  "markdownDescription": "The debug configuration to run.",
+                  "default": {}
+                },
+                "killOnServerStop": {
+                  "type": "boolean",
+                  "markdownDescription": "Stop the child session when the parent session stopped.",
+                  "default": false
+                },
+                "pattern": {
+                  "type": "string",
+                  "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                  "default": "listening on port ([0-9]+)"
                 }
               }
             },
@@ -34931,7 +36223,15 @@
             "port": {
               "default": 9229,
               "description": "Port to use to remote debugging the browser, given as `--remote-debugging-port` when launching the browser.",
-              "type": "number"
+              "oneOf": [
+                {
+                  "pattern": "^\\${.*}$",
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
             },
             "resolveSourceMapLocations": {
               "default": null,
@@ -34972,7 +36272,15 @@
                     "attachSimplePort": {
                       "default": 9229,
                       "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                      "type": "integer"
+                      "oneOf": [
+                        {
+                          "pattern": "^\\${.*}$",
+                          "type": "string"
+                        },
+                        {
+                          "type": "integer"
+                        }
+                      ]
                     },
                     "autoAttachChildProcesses": {
                       "default": true,
@@ -35866,6 +37174,50 @@
               "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
               "default": {
                 "action": "startDebugging",
+                "config": {
+                  "type": "node",
+                  "request": "launch"
+                },
+                "killOnServerStop": false
+              },
+              "required": [
+                "config"
+              ],
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "startDebugging"
+                  ],
+                  "enumDescriptions": [
+                    "Run another launch configuration."
+                  ],
+                  "markdownDescription": "What to do with the URI when the server is ready.",
+                  "default": "startDebugging"
+                },
+                "config": {
+                  "type": "object",
+                  "markdownDescription": "The debug configuration to run.",
+                  "default": {}
+                },
+                "killOnServerStop": {
+                  "type": "boolean",
+                  "markdownDescription": "Stop the child session when the parent session stopped.",
+                  "default": false
+                },
+                "pattern": {
+                  "type": "string",
+                  "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                  "default": "listening on port ([0-9]+)"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+              "default": {
+                "action": "startDebugging",
                 "killOnServerStop": false,
                 "name": "<launch browser config name>"
               },
@@ -36375,7 +37727,15 @@
             "port": {
               "default": 9229,
               "description": "Port to use to remote debugging the browser, given as `--remote-debugging-port` when launching the browser.",
-              "type": "number"
+              "oneOf": [
+                {
+                  "pattern": "^\\${.*}$",
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
             },
             "resolveSourceMapLocations": {
               "default": null,
@@ -36416,7 +37776,15 @@
                     "attachSimplePort": {
                       "default": 9229,
                       "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                      "type": "integer"
+                      "oneOf": [
+                        {
+                          "pattern": "^\\${.*}$",
+                          "type": "string"
+                        },
+                        {
+                          "type": "integer"
+                        }
+                      ]
                     },
                     "autoAttachChildProcesses": {
                       "default": true,
@@ -37302,6 +38670,50 @@
               "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
               "default": {
                 "action": "startDebugging",
+                "config": {
+                  "type": "node",
+                  "request": "launch"
+                },
+                "killOnServerStop": false
+              },
+              "required": [
+                "config"
+              ],
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "startDebugging"
+                  ],
+                  "enumDescriptions": [
+                    "Run another launch configuration."
+                  ],
+                  "markdownDescription": "What to do with the URI when the server is ready.",
+                  "default": "startDebugging"
+                },
+                "config": {
+                  "type": "object",
+                  "markdownDescription": "The debug configuration to run.",
+                  "default": {}
+                },
+                "killOnServerStop": {
+                  "type": "boolean",
+                  "markdownDescription": "Stop the child session when the parent session stopped.",
+                  "default": false
+                },
+                "pattern": {
+                  "type": "string",
+                  "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                  "default": "listening on port ([0-9]+)"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+              "default": {
+                "action": "startDebugging",
                 "killOnServerStop": false,
                 "name": "<launch browser config name>"
               },
@@ -37637,7 +39049,15 @@
         "port": {
           "default": 9229,
           "description": "Port to use to remote debugging the browser, given as `--remote-debugging-port` when launching the browser.",
-          "type": "number",
+          "oneOf": [
+            {
+              "pattern": "^\\${.*}$",
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            }
+          ],
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
@@ -37707,7 +39127,15 @@
                 "attachSimplePort": {
                   "default": 9229,
                   "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                  "type": "integer"
+                  "oneOf": [
+                    {
+                      "pattern": "^\\${.*}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 },
                 "autoAttachChildProcesses": {
                   "default": true,
@@ -38680,7 +40108,15 @@
         "port": {
           "default": 9229,
           "description": "Port to use to remote debugging the browser, given as `--remote-debugging-port` when launching the browser.",
-          "type": "number",
+          "oneOf": [
+            {
+              "pattern": "^\\${.*}$",
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            }
+          ],
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
@@ -38742,7 +40178,15 @@
                 "attachSimplePort": {
                   "default": 9229,
                   "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                  "type": "integer"
+                  "oneOf": [
+                    {
+                      "pattern": "^\\${.*}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 },
                 "autoAttachChildProcesses": {
                   "default": true,
@@ -39833,7 +41277,15 @@
                 "attachSimplePort": {
                   "default": 9229,
                   "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                  "type": "integer"
+                  "oneOf": [
+                    {
+                      "pattern": "^\\${.*}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 },
                 "autoAttachChildProcesses": {
                   "default": true,
@@ -40520,6 +41972,50 @@
                   "type": "string",
                   "markdownDescription": "A format string used when constructing the URI from a port number. The first '%s' is substituted with the port number.",
                   "default": "http://localhost:%s"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+              "default": {
+                "action": "startDebugging",
+                "config": {
+                  "type": "node",
+                  "request": "launch"
+                },
+                "killOnServerStop": false
+              },
+              "required": [
+                "config"
+              ],
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "startDebugging"
+                  ],
+                  "enumDescriptions": [
+                    "Run another launch configuration."
+                  ],
+                  "markdownDescription": "What to do with the URI when the server is ready.",
+                  "default": "startDebugging"
+                },
+                "config": {
+                  "type": "object",
+                  "markdownDescription": "The debug configuration to run.",
+                  "default": {}
+                },
+                "killOnServerStop": {
+                  "type": "boolean",
+                  "markdownDescription": "Stop the child session when the parent session stopped.",
+                  "default": false
+                },
+                "pattern": {
+                  "type": "string",
+                  "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                  "default": "listening on port ([0-9]+)"
                 }
               }
             },
@@ -41057,7 +42553,15 @@
                 "attachSimplePort": {
                   "default": 9229,
                   "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-                  "type": "integer"
+                  "oneOf": [
+                    {
+                      "pattern": "^\\${.*}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 },
                 "autoAttachChildProcesses": {
                   "default": true,
@@ -41753,6 +43257,50 @@
               "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
               "default": {
                 "action": "startDebugging",
+                "config": {
+                  "type": "node",
+                  "request": "launch"
+                },
+                "killOnServerStop": false
+              },
+              "required": [
+                "config"
+              ],
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "startDebugging"
+                  ],
+                  "enumDescriptions": [
+                    "Run another launch configuration."
+                  ],
+                  "markdownDescription": "What to do with the URI when the server is ready.",
+                  "default": "startDebugging"
+                },
+                "config": {
+                  "type": "object",
+                  "markdownDescription": "The debug configuration to run.",
+                  "default": {}
+                },
+                "killOnServerStop": {
+                  "type": "boolean",
+                  "markdownDescription": "Stop the child session when the parent session stopped.",
+                  "default": false
+                },
+                "pattern": {
+                  "type": "string",
+                  "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                  "default": "listening on port ([0-9]+)"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+              "default": {
+                "action": "startDebugging",
                 "killOnServerStop": false,
                 "name": "<launch browser config name>"
               },
@@ -42147,7 +43695,15 @@
         "port": {
           "default": 9229,
           "description": "Debug port to attach to. Default is 9229.",
-          "type": "number",
+          "oneOf": [
+            {
+              "pattern": "^\\${.*}$",
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            }
+          ],
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
@@ -42581,7 +44137,15 @@
         "port": {
           "default": 9229,
           "description": "Debug port to attach to. Default is 9229.",
-          "type": "number",
+          "oneOf": [
+            {
+              "pattern": "^\\${.*}$",
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            }
+          ],
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
@@ -42844,7 +44408,15 @@
         "attachSimplePort": {
           "default": 9229,
           "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-          "type": "integer",
+          "oneOf": [
+            {
+              "pattern": "^\\${.*}$",
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            }
+          ],
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
@@ -43232,6 +44804,50 @@
               "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
               "default": {
                 "action": "startDebugging",
+                "config": {
+                  "type": "node",
+                  "request": "launch"
+                },
+                "killOnServerStop": false
+              },
+              "required": [
+                "config"
+              ],
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "startDebugging"
+                  ],
+                  "enumDescriptions": [
+                    "Run another launch configuration."
+                  ],
+                  "markdownDescription": "What to do with the URI when the server is ready.",
+                  "default": "startDebugging"
+                },
+                "config": {
+                  "type": "object",
+                  "markdownDescription": "The debug configuration to run.",
+                  "default": {}
+                },
+                "killOnServerStop": {
+                  "type": "boolean",
+                  "markdownDescription": "Stop the child session when the parent session stopped.",
+                  "default": false
+                },
+                "pattern": {
+                  "type": "string",
+                  "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                  "default": "listening on port ([0-9]+)"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+              "default": {
+                "action": "startDebugging",
                 "killOnServerStop": false,
                 "name": "<launch browser config name>"
               },
@@ -43467,7 +45083,15 @@
         "attachSimplePort": {
           "default": 9229,
           "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
-          "type": "integer",
+          "oneOf": [
+            {
+              "pattern": "^\\${.*}$",
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            }
+          ],
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
@@ -43833,6 +45457,50 @@
                   "type": "string",
                   "markdownDescription": "A format string used when constructing the URI from a port number. The first '%s' is substituted with the port number.",
                   "default": "http://localhost:%s"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "markdownDescription": "Act upon a URI when a server program under debugging is ready (indicated by sending output of the form 'listening on port 3000' or 'Now listening on: https://localhost:5001' to the debug console.)",
+              "default": {
+                "action": "startDebugging",
+                "config": {
+                  "type": "node",
+                  "request": "launch"
+                },
+                "killOnServerStop": false
+              },
+              "required": [
+                "config"
+              ],
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "startDebugging"
+                  ],
+                  "enumDescriptions": [
+                    "Run another launch configuration."
+                  ],
+                  "markdownDescription": "What to do with the URI when the server is ready.",
+                  "default": "startDebugging"
+                },
+                "config": {
+                  "type": "object",
+                  "markdownDescription": "The debug configuration to run.",
+                  "default": {}
+                },
+                "killOnServerStop": {
+                  "type": "boolean",
+                  "markdownDescription": "Stop the child session when the parent session stopped.",
+                  "default": false
+                },
+                "pattern": {
+                  "type": "string",
+                  "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
+                  "default": "listening on port ([0-9]+)"
                 }
               }
             },

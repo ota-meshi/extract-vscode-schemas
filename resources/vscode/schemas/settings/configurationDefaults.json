@@ -691,6 +691,14 @@
         "displayName": "YAML Language Basics"
       }
     },
+    "accessibility.accessibleView.closeOnKeyPress": {
+      "markdownDescription": "On keypress, close the accessible view and focus the element from which it was invoked.",
+      "type": "boolean",
+      "default": true,
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
     "accessibility.alert.format": {
       "markdownDescription": "When in screen reader mode, alerts when a file or notebook cell is formatted. Note that this will be ignored when `#audioCues.format#` is enabled.",
       "type": "string",
@@ -862,6 +870,18 @@
         "accessibility"
       ],
       "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.voice.speechTimeout": {
+      "markdownDescription": "Define the duration for which the voice speech recognition remains active after you stop speaking. For example in a chat session the transcribed text is submitted automatically after the timeout is met. Set to `0` to disable this feature.",
+      "type": "number",
+      "default": 1200,
+      "minimum": 0,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": 1200,
       "scope": 3,
       "restricted": false
     },
@@ -2743,7 +2763,15 @@
                       "default": []
                     },
                     "attachSimplePort": {
-                      "type": "integer",
+                      "oneOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^\\${.*}$"
+                        }
+                      ],
                       "description": "If set, attaches to the process via the given port. This is generally no longer necessary for Node.js programs and loses the ability to debug child processes, but can be useful in more esoteric scenarios such as with Deno and Docker launches. If set to 0, a random port will be chosen and --inspect-brk added to the launch arguments automatically.",
                       "default": 9229
                     },
@@ -3658,9 +3686,17 @@
           "default": false
         },
         "port": {
-          "type": "number",
           "description": "Debug port to attach to. Default is 9229.",
-          "default": 9229
+          "default": 9229,
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string",
+              "pattern": "^\\${.*}$"
+            }
+          ]
         },
         "processId": {
           "type": "string",
@@ -5213,7 +5249,7 @@
     "editor.dropIntoEditor.enabled": {
       "type": "boolean",
       "default": true,
-      "markdownDescription": "Controls whether you can drag and drop a file into a text editor by holding down `shift` (instead of opening the file in an editor).",
+      "markdownDescription": "Controls whether you can drag and drop a file into a text editor by holding down `Shift`-key (instead of opening the file in an editor).",
       "defaultDefaultValue": true,
       "scope": 5,
       "restricted": false
@@ -5975,10 +6011,12 @@
       "default": "onHover",
       "enum": [
         "always",
+        "never",
         "onHover"
       ],
       "enumDescriptions": [
         "Show the inline suggestion toolbar whenever an inline suggestion is shown.",
+        "Never show the inline suggestion toolbar.",
         "Show the inline suggestion toolbar when hovering over an inline suggestion."
       ],
       "description": "Controls when to show the inline suggestion toolbar.",
@@ -6071,6 +6109,24 @@
       "default": true,
       "description": "Enables the Code Action lightbulb in the editor.",
       "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.lightbulb.experimental.showAiIcon": {
+      "type": "string",
+      "enum": [
+        "off",
+        "on",
+        "onCode"
+      ],
+      "default": "off",
+      "enumDescriptions": [
+        "Don not show the AI icon.",
+        "Show an AI icon when the code action menu contains an AI action, on code and empty lines.",
+        "Show an AI icon when the code action menu contains an AI action, but only on code."
+      ],
+      "description": "Show an AI icon along with the lightbulb when the code action menu contains an AI action.",
+      "defaultDefaultValue": "off",
       "scope": 5,
       "restricted": false
     },
@@ -6294,19 +6350,21 @@
       "scope": 5,
       "restricted": false
     },
-    "editor.multiDocumentOccurrencesHighlight": {
-      "description": "Experimental: Controls whether the editor should highlight word occurrences accross multiple open editors.",
-      "type": "boolean",
-      "default": false,
-      "defaultDefaultValue": false,
-      "scope": 5,
-      "restricted": false
-    },
     "editor.occurrencesHighlight": {
-      "description": "Controls whether the editor should highlight semantic symbol occurrences.",
-      "type": "boolean",
-      "default": true,
-      "defaultDefaultValue": true,
+      "markdownEnumDescriptions": [
+        "Experimental: Highlights occurrences across all valid open files.",
+        "Does not highlight occurrences.",
+        "Highlights occurrences only in the current file."
+      ],
+      "markdownDescription": "Controls whether occurrences should be highlighted across open files.",
+      "type": "string",
+      "enum": [
+        "multiFile",
+        "off",
+        "singleFile"
+      ],
+      "default": "singleFile",
+      "defaultDefaultValue": "singleFile",
       "scope": 5,
       "restricted": false
     },
@@ -8626,26 +8684,20 @@
       "restricted": false
     },
     "editor.wordBasedSuggestions": {
-      "type": "boolean",
-      "default": true,
-      "description": "Controls whether completions should be computed based on words in the document.",
-      "defaultDefaultValue": true,
-      "scope": 5,
-      "restricted": false
-    },
-    "editor.wordBasedSuggestionsMode": {
       "enum": [
         "allDocuments",
         "currentDocument",
-        "matchingDocuments"
+        "matchingDocuments",
+        "off"
       ],
       "default": "matchingDocuments",
       "enumDescriptions": [
         "Suggest words from all open documents.",
         "Only suggest words from the active document.",
-        "Suggest words from all open documents of the same language."
+        "Suggest words from all open documents of the same language.",
+        "Turn off Word Based Suggestions."
       ],
-      "description": "Controls from which documents word based completions are computed.",
+      "description": "Controls whether completions should be computed based on words in the document and from which documents they are computed.",
       "defaultDefaultValue": "matchingDocuments",
       "scope": 5,
       "restricted": false
@@ -9130,6 +9182,14 @@
     "explorer.confirmDragAndDrop": {
       "type": "boolean",
       "description": "Controls whether the Explorer should ask for confirmation to move files and folders via drag and drop.",
+      "default": true,
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "explorer.confirmPasteNative": {
+      "type": "boolean",
+      "description": "Controls whether the Explorer should ask for confirmation when pasting native files and folders.",
       "default": true,
       "defaultDefaultValue": true,
       "scope": 3,
@@ -10513,14 +10573,14 @@
         "off",
         "warn"
       ],
-      "default": "warn",
+      "default": "off",
       "description": "Controls when to show commit message input validation.",
       "scope": 3,
       "source": {
         "id": "vscode.git",
         "displayName": "Git"
       },
-      "defaultDefaultValue": "warn",
+      "defaultDefaultValue": "off",
       "restricted": false
     },
     "git.inputValidationLength": {
@@ -11552,7 +11612,25 @@
       "restricted": false
     },
     "inlineChat.showGutterIcon": {
-      "description": "Show/hide a gutter icon for spawning inline chat on empty lines.",
+      "description": "Controls when the gutter icon for spawning inline chat is shown.",
+      "default": "never",
+      "type": "string",
+      "enum": [
+        "always",
+        "mouseover",
+        "never"
+      ],
+      "markdownEnumDescriptions": [
+        "Always show the gutter icon.",
+        "Show the gutter icon when the mouse is over the icon.",
+        "Never show the gutter icon."
+      ],
+      "defaultDefaultValue": "never",
+      "scope": 3,
+      "restricted": false
+    },
+    "inlineChat.showToolbarIcon": {
+      "description": "Controls whether the toolbar icon spawning the inline chat is enabled.",
       "default": false,
       "type": "boolean",
       "defaultDefaultValue": false,
@@ -13840,6 +13918,14 @@
       "default": "",
       "restricted": false
     },
+    "multiDiffEditor.experimental.enabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable experimental multi diff editor.",
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
     "notebook.breadcrumbs.showCodeCells": {
       "type": "boolean",
       "default": true,
@@ -14455,7 +14541,7 @@
             "editor.dropIntoEditor.enabled": {
               "type": "boolean",
               "default": true,
-              "markdownDescription": "Controls whether you can drag and drop a file into a text editor by holding down `shift` (instead of opening the file in an editor).",
+              "markdownDescription": "Controls whether you can drag and drop a file into a text editor by holding down `Shift`-key (instead of opening the file in an editor).",
               "defaultDefaultValue": true,
               "scope": 5,
               "restricted": false
@@ -15140,10 +15226,12 @@
               "default": "onHover",
               "enum": [
                 "always",
+                "never",
                 "onHover"
               ],
               "enumDescriptions": [
                 "Show the inline suggestion toolbar whenever an inline suggestion is shown.",
+                "Never show the inline suggestion toolbar.",
                 "Show the inline suggestion toolbar when hovering over an inline suggestion."
               ],
               "description": "Controls when to show the inline suggestion toolbar.",
@@ -15172,6 +15260,24 @@
               "default": true,
               "description": "Enables the Code Action lightbulb in the editor.",
               "defaultDefaultValue": true,
+              "scope": 5,
+              "restricted": false
+            },
+            "editor.lightbulb.experimental.showAiIcon": {
+              "type": "string",
+              "enum": [
+                "off",
+                "on",
+                "onCode"
+              ],
+              "default": "off",
+              "enumDescriptions": [
+                "Don not show the AI icon.",
+                "Show an AI icon when the code action menu contains an AI action, on code and empty lines.",
+                "Show an AI icon when the code action menu contains an AI action, but only on code."
+              ],
+              "description": "Show an AI icon along with the lightbulb when the code action menu contains an AI action.",
+              "defaultDefaultValue": "off",
               "scope": 5,
               "restricted": false
             },
@@ -15387,19 +15493,21 @@
               "scope": 5,
               "restricted": false
             },
-            "editor.multiDocumentOccurrencesHighlight": {
-              "description": "Experimental: Controls whether the editor should highlight word occurrences accross multiple open editors.",
-              "type": "boolean",
-              "default": false,
-              "defaultDefaultValue": false,
-              "scope": 5,
-              "restricted": false
-            },
             "editor.occurrencesHighlight": {
-              "description": "Controls whether the editor should highlight semantic symbol occurrences.",
-              "type": "boolean",
-              "default": true,
-              "defaultDefaultValue": true,
+              "markdownEnumDescriptions": [
+                "Experimental: Highlights occurrences across all valid open files.",
+                "Does not highlight occurrences.",
+                "Highlights occurrences only in the current file."
+              ],
+              "markdownDescription": "Controls whether occurrences should be highlighted across open files.",
+              "type": "string",
+              "enum": [
+                "multiFile",
+                "off",
+                "singleFile"
+              ],
+              "default": "singleFile",
+              "defaultDefaultValue": "singleFile",
               "scope": 5,
               "restricted": false
             },
@@ -16602,6 +16710,14 @@
       "scope": 3,
       "restricted": false
     },
+    "notebook.experimental.cellChat": {
+      "markdownDescription": "Enable experimental cell chat for notebooks.",
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
     "notebook.experimental.remoteSave": {
       "markdownDescription": "Enables the incremental saving of notebooks in Remote environment. When enabled, only the changes to the notebook are sent to the extension host, improving performance for large notebooks and slow network connections.",
       "type": "boolean",
@@ -16699,6 +16815,17 @@
       "type": "boolean",
       "default": false,
       "markdownDescription": "When enabled the Go to Symbol Quick Pick will display full code symbols from the notebook, as well as Markdown headers.",
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
+    "notebook.insertFinalNewline": {
+      "markdownDescription": "When enabled, insert a final new line into the end of code cells when saving a notebook.",
+      "type": "boolean",
+      "tags": [
+        "notebookLayout"
+      ],
+      "default": false,
       "defaultDefaultValue": false,
       "scope": 3,
       "restricted": false
@@ -17014,12 +17141,14 @@
       "type": "string",
       "enum": [
         "auto",
+        "bun",
         "npm",
         "pnpm",
         "yarn"
       ],
       "enumDescriptions": [
         "Auto-detect which package manager to use for running scripts based on lock files and installed package managers.",
+        "Use bun as the package manager for running scripts.",
         "Use npm as the package manager for running scripts.",
         "Use pnpm as the package manager for running scripts.",
         "Use yarn as the package manager for running scripts."
@@ -17113,7 +17242,7 @@
       "restricted": false
     },
     "outline.problems.badges": {
-      "description": "Use badges for errors and warnings on Outline elements.",
+      "markdownDescription": "Use badges for errors and warnings on Outline elements. Overwritten by `#problems.visibility#` when it is off.",
       "type": "boolean",
       "default": true,
       "defaultDefaultValue": true,
@@ -17121,7 +17250,7 @@
       "restricted": false
     },
     "outline.problems.colors": {
-      "description": "Use colors for errors and warnings on Outline elements.",
+      "markdownDescription": "Use colors for errors and warnings on Outline elements. Overwritten by `#problems.visibility#` when it is off.",
       "type": "boolean",
       "default": true,
       "defaultDefaultValue": true,
@@ -17129,7 +17258,7 @@
       "restricted": false
     },
     "outline.problems.enabled": {
-      "description": "Show errors and warnings on Outline elements.",
+      "markdownDescription": "Show errors and warnings on Outline elements. Overwritten by `#problems.visibility#` when it is off.",
       "type": "boolean",
       "default": true,
       "defaultDefaultValue": true,
@@ -17419,7 +17548,7 @@
       "restricted": false
     },
     "problems.decorations.enabled": {
-      "description": "Show Errors & Warnings on files and folder.",
+      "markdownDescription": "Show Errors & Warnings on files and folder. Overwritten by `#problems.visibility#` when it is off.",
       "type": "boolean",
       "default": true,
       "defaultDefaultValue": true,
@@ -17462,6 +17591,17 @@
       "scope": 3,
       "restricted": false
     },
+    "problems.visibility": {
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "experimental"
+      ],
+      "description": "Controls whether the problems are visible throughout the editor and workbench.",
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
     "references.preferredLocation": {
       "description": "Controls whether 'Peek References' or 'Find References' is invoked when selecting CodeLens references.",
       "type": "string",
@@ -17492,7 +17632,7 @@
     },
     "remote.autoForwardPortsSource": {
       "type": "string",
-      "markdownDescription": "Sets the source from which ports are automatically forwarded when `#remote.autoForwardPorts#` is true. On Windows and Mac remotes, the `process` and `hybrid` options have no effect and `output` will be used. Requires a reload to take effect.",
+      "markdownDescription": "Sets the source from which ports are automatically forwarded when `#remote.autoForwardPorts#` is true. On Windows and Mac remotes, the `process` and `hybrid` options have no effect and `output` will be used.",
       "enum": [
         "hybrid",
         "output",
@@ -17931,14 +18071,6 @@
       "scope": 4,
       "restricted": false
     },
-    "scm.experimental.showSyncView": {
-      "type": "boolean",
-      "description": "Controls whether the Source Control Sync view is shown.",
-      "default": false,
-      "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
-    },
     "scm.inputFontFamily": {
       "type": "string",
       "markdownDescription": "Controls the font for the input message. Use `default` for the workbench user interface font family, `editor` for the `#editor.fontFamily#`'s value, or a custom font family.",
@@ -17955,6 +18087,16 @@
       "scope": 4,
       "restricted": false
     },
+    "scm.inputMaxLines": {
+      "type": "number",
+      "markdownDescription": "Controls the maximum number of lines that the input will auto-grow to.",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 10,
+      "defaultDefaultValue": 10,
+      "scope": 4,
+      "restricted": false
+    },
     "scm.providerCountBadge": {
       "type": "string",
       "enum": [
@@ -17967,7 +18109,7 @@
         "Hide Source Control Provider count badges.",
         "Show Source Control Provider count badges."
       ],
-      "markdownDescription": "Controls the count badges on Source Control Provider headers. These headers appear in the \"Source Control\", and \"Source Control Sync\" views when there is more than one provider or when the `#scm.alwaysShowRepositories#` setting is enabled, as well as in the \"Source Control Repositories\" view.",
+      "markdownDescription": "Controls the count badges on Source Control Provider headers. These headers appear in the Source Control view when there is more than one provider or when the `#scm.alwaysShowRepositories#` setting is enabled, and in the Source Control Repositories view.",
       "default": "hidden",
       "defaultDefaultValue": "hidden",
       "scope": 4,
@@ -18004,6 +18146,50 @@
       "markdownDescription": "Controls whether an action button can be shown in the Source Control view.",
       "default": true,
       "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
+    "scm.showIncomingChanges": {
+      "type": "string",
+      "enum": [
+        "always",
+        "auto",
+        "never"
+      ],
+      "enumDescriptions": [
+        "Always show incoming changes in the Source Control view.",
+        "Only show incoming changes in the Source Control view when any exist.",
+        "Never show incoming changes in the Source Control view."
+      ],
+      "description": "Controls whether incoming changes are shown in the Source Control view.",
+      "default": "auto",
+      "defaultDefaultValue": "auto",
+      "scope": 4,
+      "restricted": false
+    },
+    "scm.showInputActionButton": {
+      "type": "boolean",
+      "markdownDescription": "Controls whether an action button can be shown in the Source Control input.",
+      "default": true,
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
+    "scm.showOutgoingChanges": {
+      "type": "string",
+      "enum": [
+        "always",
+        "auto",
+        "never"
+      ],
+      "enumDescriptions": [
+        "Always show outgoing changes in the Source Control view.",
+        "Only show outgoing changes in the Source Control view when any exist.",
+        "Never show outgoing changes in the Source Control view."
+      ],
+      "description": "Controls whether outgoing changes are shown in the Source Control view.",
+      "default": "auto",
+      "defaultDefaultValue": "auto",
       "scope": 4,
       "restricted": false
     },
@@ -19107,6 +19293,14 @@
       "scope": 3,
       "restricted": false
     },
+    "task.verboseLogging": {
+      "type": "boolean",
+      "description": "Enable verbose logging for tasks.",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
     "telemetry.enableCrashReporter": {
       "type": "boolean",
       "description": "Enable crash reports to be collected. This helps us improve stability. \nThis option requires restart to take effect.",
@@ -19136,6 +19330,14 @@
       "description": "When opening a file from the Explorer in a terminal, determines what kind of terminal will be launched",
       "default": "integrated",
       "defaultDefaultValue": "integrated",
+      "scope": 3,
+      "restricted": false
+    },
+    "terminal.integrated.accessibleViewFocusOnCommandExecution": {
+      "markdownDescription": "Focus the terminal accessible view when a command is executed.",
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
       "scope": 3,
       "restricted": false
     },
@@ -19379,8 +19581,10 @@
                 "diff-added",
                 "diff-ignored",
                 "diff-modified",
+                "diff-multiple",
                 "diff-removed",
                 "diff-renamed",
+                "diff-single",
                 "discard",
                 "drop-down-button",
                 "edit",
@@ -19510,6 +19714,8 @@
                 "light-bulb",
                 "lightbulb",
                 "lightbulb-autofix",
+                "lightbulb-sparkle",
+                "lightbulb-sparkle-autofix",
                 "link",
                 "link-external",
                 "list-filter",
@@ -19623,6 +19829,7 @@
                 "repo-sync",
                 "report",
                 "request-changes",
+                "robot",
                 "rocket",
                 "root-folder",
                 "root-folder-opened",
@@ -19661,6 +19868,7 @@
                 "sort-precedence",
                 "source-control",
                 "sparkle",
+                "sparkle-filled",
                 "split-horizontal",
                 "split-vertical",
                 "squirrel",
@@ -19936,8 +20144,10 @@
                 "$(diff-added)",
                 "$(diff-ignored)",
                 "$(diff-modified)",
+                "$(diff-multiple)",
                 "$(diff-removed)",
                 "$(diff-renamed)",
+                "$(diff-single)",
                 "$(discard)",
                 "$(drop-down-button)",
                 "$(edit)",
@@ -20067,6 +20277,8 @@
                 "$(light-bulb)",
                 "$(lightbulb)",
                 "$(lightbulb-autofix)",
+                "$(lightbulb-sparkle)",
+                "$(lightbulb-sparkle-autofix)",
                 "$(link)",
                 "$(link-external)",
                 "$(list-filter)",
@@ -20180,6 +20392,7 @@
                 "$(repo-sync)",
                 "$(report)",
                 "$(request-changes)",
+                "$(robot)",
                 "$(rocket)",
                 "$(root-folder)",
                 "$(root-folder-opened)",
@@ -20218,6 +20431,7 @@
                 "$(sort-precedence)",
                 "$(source-control)",
                 "$(sparkle)",
+                "$(sparkle-filled)",
                 "$(split-horizontal)",
                 "$(split-vertical)",
                 "$(squirrel)",
@@ -20344,7 +20558,7 @@
               ]
             },
             "overrideName": {
-              "description": "Controls whether or not the profile name overrides the auto detected one.",
+              "description": "Whether or not to replace the dynamic terminal title that detects what program is running with the static profile name.",
               "type": "boolean"
             },
             "path": {
@@ -20578,8 +20792,10 @@
                 "diff-added",
                 "diff-ignored",
                 "diff-modified",
+                "diff-multiple",
                 "diff-removed",
                 "diff-renamed",
+                "diff-single",
                 "discard",
                 "drop-down-button",
                 "edit",
@@ -20709,6 +20925,8 @@
                 "light-bulb",
                 "lightbulb",
                 "lightbulb-autofix",
+                "lightbulb-sparkle",
+                "lightbulb-sparkle-autofix",
                 "link",
                 "link-external",
                 "list-filter",
@@ -20822,6 +21040,7 @@
                 "repo-sync",
                 "report",
                 "request-changes",
+                "robot",
                 "rocket",
                 "root-folder",
                 "root-folder-opened",
@@ -20860,6 +21079,7 @@
                 "sort-precedence",
                 "source-control",
                 "sparkle",
+                "sparkle-filled",
                 "split-horizontal",
                 "split-vertical",
                 "squirrel",
@@ -21135,8 +21355,10 @@
                 "$(diff-added)",
                 "$(diff-ignored)",
                 "$(diff-modified)",
+                "$(diff-multiple)",
                 "$(diff-removed)",
                 "$(diff-renamed)",
+                "$(diff-single)",
                 "$(discard)",
                 "$(drop-down-button)",
                 "$(edit)",
@@ -21266,6 +21488,8 @@
                 "$(light-bulb)",
                 "$(lightbulb)",
                 "$(lightbulb-autofix)",
+                "$(lightbulb-sparkle)",
+                "$(lightbulb-sparkle-autofix)",
                 "$(link)",
                 "$(link-external)",
                 "$(list-filter)",
@@ -21379,6 +21603,7 @@
                 "$(repo-sync)",
                 "$(report)",
                 "$(request-changes)",
+                "$(robot)",
                 "$(rocket)",
                 "$(root-folder)",
                 "$(root-folder-opened)",
@@ -21417,6 +21642,7 @@
                 "$(sort-precedence)",
                 "$(source-control)",
                 "$(sparkle)",
+                "$(sparkle-filled)",
                 "$(split-horizontal)",
                 "$(split-vertical)",
                 "$(squirrel)",
@@ -21543,7 +21769,7 @@
               ]
             },
             "overrideName": {
-              "description": "Controls whether or not the profile name overrides the auto detected one.",
+              "description": "Whether or not to replace the dynamic terminal title that detects what program is running with the static profile name.",
               "type": "boolean"
             },
             "path": {
@@ -21777,8 +22003,10 @@
                 "diff-added",
                 "diff-ignored",
                 "diff-modified",
+                "diff-multiple",
                 "diff-removed",
                 "diff-renamed",
+                "diff-single",
                 "discard",
                 "drop-down-button",
                 "edit",
@@ -21908,6 +22136,8 @@
                 "light-bulb",
                 "lightbulb",
                 "lightbulb-autofix",
+                "lightbulb-sparkle",
+                "lightbulb-sparkle-autofix",
                 "link",
                 "link-external",
                 "list-filter",
@@ -22021,6 +22251,7 @@
                 "repo-sync",
                 "report",
                 "request-changes",
+                "robot",
                 "rocket",
                 "root-folder",
                 "root-folder-opened",
@@ -22059,6 +22290,7 @@
                 "sort-precedence",
                 "source-control",
                 "sparkle",
+                "sparkle-filled",
                 "split-horizontal",
                 "split-vertical",
                 "squirrel",
@@ -22334,8 +22566,10 @@
                 "$(diff-added)",
                 "$(diff-ignored)",
                 "$(diff-modified)",
+                "$(diff-multiple)",
                 "$(diff-removed)",
                 "$(diff-renamed)",
+                "$(diff-single)",
                 "$(discard)",
                 "$(drop-down-button)",
                 "$(edit)",
@@ -22465,6 +22699,8 @@
                 "$(light-bulb)",
                 "$(lightbulb)",
                 "$(lightbulb-autofix)",
+                "$(lightbulb-sparkle)",
+                "$(lightbulb-sparkle-autofix)",
                 "$(link)",
                 "$(link-external)",
                 "$(list-filter)",
@@ -22578,6 +22814,7 @@
                 "$(repo-sync)",
                 "$(report)",
                 "$(request-changes)",
+                "$(robot)",
                 "$(rocket)",
                 "$(root-folder)",
                 "$(root-folder-opened)",
@@ -22616,6 +22853,7 @@
                 "$(sort-precedence)",
                 "$(source-control)",
                 "$(sparkle)",
+                "$(sparkle-filled)",
                 "$(split-horizontal)",
                 "$(split-vertical)",
                 "$(squirrel)",
@@ -22742,7 +22980,7 @@
               ]
             },
             "overrideName": {
-              "description": "Controls whether or not the profile name overrides the auto detected one.",
+              "description": "Whether or not to replace the dynamic terminal title that detects what program is running with the static profile name.",
               "type": "boolean"
             },
             "path": {
@@ -22796,7 +23034,7 @@
       "restricted": false
     },
     "terminal.integrated.commandsToSkipShell": {
-      "markdownDescription": "A set of command IDs whose keybindings will not be sent to the shell but instead always be handled by VS Code. This allows keybindings that would normally be consumed by the shell to act instead the same as when the terminal is not focused, for example `Ctrl+P` to launch Quick Open.\n\n&nbsp;\n\nMany commands are skipped by default. To override a default and pass that command's keybinding to the shell instead, add the command prefixed with the `-` character. For example add `-workbench.action.quickOpen` to allow `Ctrl+P` to reach the shell.\n\n&nbsp;\n\nThe following list of default skipped commands is truncated when viewed in Settings Editor. To see the full list, [open the default settings JSON](command:workbench.action.openRawDefaultSettings 'Open Default Settings (JSON)') and search for the first command from the list below.\n\n&nbsp;\n\nDefault Skipped Commands:\n\n- editor.action.accessibilityHelp\n- editor.action.toggleTabFocusMode\n- notification.acceptPrimaryAction\n- notifications.hideList\n- notifications.hideToasts\n- runCommands\n- workbench.action.closeQuickOpen\n- workbench.action.debug.continue\n- workbench.action.debug.pause\n- workbench.action.debug.restart\n- workbench.action.debug.run\n- workbench.action.debug.start\n- workbench.action.debug.stepInto\n- workbench.action.debug.stepOut\n- workbench.action.debug.stepOver\n- workbench.action.debug.stop\n- workbench.action.firstEditorInGroup\n- workbench.action.focusActiveEditorGroup\n- workbench.action.focusEighthEditorGroup\n- workbench.action.focusFifthEditorGroup\n- workbench.action.focusFirstEditorGroup\n- workbench.action.focusFourthEditorGroup\n- workbench.action.focusLastEditorGroup\n- workbench.action.focusNextPart\n- workbench.action.focusPreviousPart\n- workbench.action.focusSecondEditorGroup\n- workbench.action.focusSeventhEditorGroup\n- workbench.action.focusSixthEditorGroup\n- workbench.action.focusThirdEditorGroup\n- workbench.action.lastEditorInGroup\n- workbench.action.navigateDown\n- workbench.action.navigateLeft\n- workbench.action.navigateRight\n- workbench.action.navigateUp\n- workbench.action.nextEditor\n- workbench.action.nextEditorInGroup\n- workbench.action.nextPanelView\n- workbench.action.nextSideBarView\n- workbench.action.openNextRecentlyUsedEditor\n- workbench.action.openNextRecentlyUsedEditorInGroup\n- workbench.action.openPreviousRecentlyUsedEditor\n- workbench.action.openPreviousRecentlyUsedEditorInGroup\n- workbench.action.previousEditor\n- workbench.action.previousEditorInGroup\n- workbench.action.previousPanelView\n- workbench.action.previousSideBarView\n- workbench.action.quickOpen\n- workbench.action.quickOpenLeastRecentlyUsedEditor\n- workbench.action.quickOpenLeastRecentlyUsedEditorInGroup\n- workbench.action.quickOpenPreviousEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup\n- workbench.action.quickOpenView\n- workbench.action.showCommands\n- workbench.action.tasks.build\n- workbench.action.tasks.reRunTask\n- workbench.action.tasks.restartTask\n- workbench.action.tasks.runTask\n- workbench.action.tasks.showLog\n- workbench.action.tasks.showTasks\n- workbench.action.tasks.terminate\n- workbench.action.tasks.test\n- workbench.action.terminal.acceptSelectedSuggestion\n- workbench.action.terminal.clear\n- workbench.action.terminal.clearSelection\n- workbench.action.terminal.copyAndClearSelection\n- workbench.action.terminal.copyLastCommandOutput\n- workbench.action.terminal.copySelection\n- workbench.action.terminal.copySelectionAsHtml\n- workbench.action.terminal.deleteToLineStart\n- workbench.action.terminal.deleteWordLeft\n- workbench.action.terminal.deleteWordRight\n- workbench.action.terminal.findNext\n- workbench.action.terminal.findPrevious\n- workbench.action.terminal.focus\n- workbench.action.terminal.focusAccessibleBuffer\n- workbench.action.terminal.focusAtIndex1\n- workbench.action.terminal.focusAtIndex2\n- workbench.action.terminal.focusAtIndex3\n- workbench.action.terminal.focusAtIndex4\n- workbench.action.terminal.focusAtIndex5\n- workbench.action.terminal.focusAtIndex6\n- workbench.action.terminal.focusAtIndex7\n- workbench.action.terminal.focusAtIndex8\n- workbench.action.terminal.focusAtIndex9\n- workbench.action.terminal.focusFind\n- workbench.action.terminal.focusHover\n- workbench.action.terminal.focusNext\n- workbench.action.terminal.focusNextPane\n- workbench.action.terminal.focusPrevious\n- workbench.action.terminal.focusPreviousPane\n- workbench.action.terminal.goToRecentDirectory\n- workbench.action.terminal.hideFind\n- workbench.action.terminal.hideSuggestWidget\n- workbench.action.terminal.kill\n- workbench.action.terminal.killEditor\n- workbench.action.terminal.moveToEditor\n- workbench.action.terminal.moveToLineEnd\n- workbench.action.terminal.moveToLineStart\n- workbench.action.terminal.moveToTerminalPanel\n- workbench.action.terminal.new\n- workbench.action.terminal.newInActiveWorkspace\n- workbench.action.terminal.paste\n- workbench.action.terminal.pasteSelection\n- workbench.action.terminal.resizePaneDown\n- workbench.action.terminal.resizePaneLeft\n- workbench.action.terminal.resizePaneRight\n- workbench.action.terminal.resizePaneUp\n- workbench.action.terminal.runActiveFile\n- workbench.action.terminal.runRecentCommand\n- workbench.action.terminal.runSelectedText\n- workbench.action.terminal.scrollDown\n- workbench.action.terminal.scrollDownPage\n- workbench.action.terminal.scrollToBottom\n- workbench.action.terminal.scrollToNextCommand\n- workbench.action.terminal.scrollToPreviousCommand\n- workbench.action.terminal.scrollToTop\n- workbench.action.terminal.scrollUp\n- workbench.action.terminal.scrollUpPage\n- workbench.action.terminal.selectAll\n- workbench.action.terminal.selectNextPageSuggestion\n- workbench.action.terminal.selectNextSuggestion\n- workbench.action.terminal.selectPrevPageSuggestion\n- workbench.action.terminal.selectPrevSuggestion\n- workbench.action.terminal.selectToNextCommand\n- workbench.action.terminal.selectToNextLine\n- workbench.action.terminal.selectToPreviousCommand\n- workbench.action.terminal.selectToPreviousLine\n- workbench.action.terminal.sendSequence\n- workbench.action.terminal.sizeToContentWidth\n- workbench.action.terminal.split\n- workbench.action.terminal.splitInActiveWorkspace\n- workbench.action.terminal.toggleFindCaseSensitive\n- workbench.action.terminal.toggleFindRegex\n- workbench.action.terminal.toggleFindWholeWord\n- workbench.action.terminal.toggleTerminal\n- workbench.action.toggleFullScreen\n- workbench.action.toggleMaximizedPanel\n- workbench.action.togglePanel",
+      "markdownDescription": "A set of command IDs whose keybindings will not be sent to the shell but instead always be handled by VS Code. This allows keybindings that would normally be consumed by the shell to act instead the same as when the terminal is not focused, for example `Ctrl+P` to launch Quick Open.\n\n&nbsp;\n\nMany commands are skipped by default. To override a default and pass that command's keybinding to the shell instead, add the command prefixed with the `-` character. For example add `-workbench.action.quickOpen` to allow `Ctrl+P` to reach the shell.\n\n&nbsp;\n\nThe following list of default skipped commands is truncated when viewed in Settings Editor. To see the full list, [open the default settings JSON](command:workbench.action.openRawDefaultSettings 'Open Default Settings (JSON)') and search for the first command from the list below.\n\n&nbsp;\n\nDefault Skipped Commands:\n\n- editor.action.accessibilityHelp\n- editor.action.toggleTabFocusMode\n- notification.acceptPrimaryAction\n- notifications.hideList\n- notifications.hideToasts\n- runCommands\n- workbench.action.closeQuickOpen\n- workbench.action.debug.continue\n- workbench.action.debug.pause\n- workbench.action.debug.restart\n- workbench.action.debug.run\n- workbench.action.debug.start\n- workbench.action.debug.stepInto\n- workbench.action.debug.stepOut\n- workbench.action.debug.stepOver\n- workbench.action.debug.stop\n- workbench.action.firstEditorInGroup\n- workbench.action.focusActiveEditorGroup\n- workbench.action.focusEighthEditorGroup\n- workbench.action.focusFifthEditorGroup\n- workbench.action.focusFirstEditorGroup\n- workbench.action.focusFourthEditorGroup\n- workbench.action.focusLastEditorGroup\n- workbench.action.focusNextPart\n- workbench.action.focusPreviousPart\n- workbench.action.focusSecondEditorGroup\n- workbench.action.focusSeventhEditorGroup\n- workbench.action.focusSixthEditorGroup\n- workbench.action.focusThirdEditorGroup\n- workbench.action.lastEditorInGroup\n- workbench.action.navigateDown\n- workbench.action.navigateLeft\n- workbench.action.navigateRight\n- workbench.action.navigateUp\n- workbench.action.nextEditor\n- workbench.action.nextEditorInGroup\n- workbench.action.nextPanelView\n- workbench.action.nextSideBarView\n- workbench.action.openNextRecentlyUsedEditor\n- workbench.action.openNextRecentlyUsedEditorInGroup\n- workbench.action.openPreviousRecentlyUsedEditor\n- workbench.action.openPreviousRecentlyUsedEditorInGroup\n- workbench.action.previousEditor\n- workbench.action.previousEditorInGroup\n- workbench.action.previousPanelView\n- workbench.action.previousSideBarView\n- workbench.action.quickOpen\n- workbench.action.quickOpenLeastRecentlyUsedEditor\n- workbench.action.quickOpenLeastRecentlyUsedEditorInGroup\n- workbench.action.quickOpenPreviousEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup\n- workbench.action.quickOpenView\n- workbench.action.showCommands\n- workbench.action.tasks.build\n- workbench.action.tasks.reRunTask\n- workbench.action.tasks.restartTask\n- workbench.action.tasks.runTask\n- workbench.action.tasks.showLog\n- workbench.action.tasks.showTasks\n- workbench.action.tasks.terminate\n- workbench.action.tasks.test\n- workbench.action.terminal.acceptSelectedSuggestion\n- workbench.action.terminal.clear\n- workbench.action.terminal.clearSelection\n- workbench.action.terminal.copyAndClearSelection\n- workbench.action.terminal.copyLastCommand\n- workbench.action.terminal.copyLastCommandAndLastCommandOutput\n- workbench.action.terminal.copyLastCommandOutput\n- workbench.action.terminal.copySelection\n- workbench.action.terminal.copySelectionAsHtml\n- workbench.action.terminal.deleteToLineStart\n- workbench.action.terminal.deleteWordLeft\n- workbench.action.terminal.deleteWordRight\n- workbench.action.terminal.findNext\n- workbench.action.terminal.findPrevious\n- workbench.action.terminal.focus\n- workbench.action.terminal.focusAccessibleBuffer\n- workbench.action.terminal.focusAtIndex1\n- workbench.action.terminal.focusAtIndex2\n- workbench.action.terminal.focusAtIndex3\n- workbench.action.terminal.focusAtIndex4\n- workbench.action.terminal.focusAtIndex5\n- workbench.action.terminal.focusAtIndex6\n- workbench.action.terminal.focusAtIndex7\n- workbench.action.terminal.focusAtIndex8\n- workbench.action.terminal.focusAtIndex9\n- workbench.action.terminal.focusFind\n- workbench.action.terminal.focusHover\n- workbench.action.terminal.focusNext\n- workbench.action.terminal.focusNextPane\n- workbench.action.terminal.focusPrevious\n- workbench.action.terminal.focusPreviousPane\n- workbench.action.terminal.goToRecentDirectory\n- workbench.action.terminal.hideFind\n- workbench.action.terminal.hideSuggestWidget\n- workbench.action.terminal.kill\n- workbench.action.terminal.killEditor\n- workbench.action.terminal.moveToEditor\n- workbench.action.terminal.moveToLineEnd\n- workbench.action.terminal.moveToLineStart\n- workbench.action.terminal.moveToTerminalPanel\n- workbench.action.terminal.new\n- workbench.action.terminal.newInActiveWorkspace\n- workbench.action.terminal.paste\n- workbench.action.terminal.pasteSelection\n- workbench.action.terminal.resizePaneDown\n- workbench.action.terminal.resizePaneLeft\n- workbench.action.terminal.resizePaneRight\n- workbench.action.terminal.resizePaneUp\n- workbench.action.terminal.runActiveFile\n- workbench.action.terminal.runRecentCommand\n- workbench.action.terminal.runSelectedText\n- workbench.action.terminal.scrollDown\n- workbench.action.terminal.scrollDownPage\n- workbench.action.terminal.scrollToBottom\n- workbench.action.terminal.scrollToNextCommand\n- workbench.action.terminal.scrollToPreviousCommand\n- workbench.action.terminal.scrollToTop\n- workbench.action.terminal.scrollUp\n- workbench.action.terminal.scrollUpPage\n- workbench.action.terminal.selectAll\n- workbench.action.terminal.selectNextPageSuggestion\n- workbench.action.terminal.selectNextSuggestion\n- workbench.action.terminal.selectPrevPageSuggestion\n- workbench.action.terminal.selectPrevSuggestion\n- workbench.action.terminal.selectToNextCommand\n- workbench.action.terminal.selectToNextLine\n- workbench.action.terminal.selectToPreviousCommand\n- workbench.action.terminal.selectToPreviousLine\n- workbench.action.terminal.sendSequence\n- workbench.action.terminal.sizeToContentWidth\n- workbench.action.terminal.split\n- workbench.action.terminal.splitInActiveWorkspace\n- workbench.action.terminal.toggleFindCaseSensitive\n- workbench.action.terminal.toggleFindRegex\n- workbench.action.terminal.toggleFindWholeWord\n- workbench.action.terminal.toggleTerminal\n- workbench.action.toggleFullScreen\n- workbench.action.toggleMaximizedPanel\n- workbench.action.togglePanel",
       "type": "array",
       "items": {
         "type": "string"
@@ -23508,7 +23746,7 @@
                 }
               },
               "overrideName": {
-                "description": "Controls whether or not the profile name overrides the auto detected one.",
+                "description": "Whether or not to replace the dynamic terminal title that detects what program is running with the static profile name.",
                 "type": "boolean"
               },
               "icon": {
@@ -24052,6 +24290,12 @@
                   "mic-filled",
                   "git-fetch",
                   "copilot",
+                  "lightbulb-sparkle",
+                  "lightbulb-sparkle-autofix",
+                  "robot",
+                  "sparkle-filled",
+                  "diff-single",
+                  "diff-multiple",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -24609,6 +24853,12 @@
                   "$(mic-filled)",
                   "$(git-fetch)",
                   "$(copilot)",
+                  "$(lightbulb-sparkle)",
+                  "$(lightbulb-sparkle-autofix)",
+                  "$(robot)",
+                  "$(sparkle-filled)",
+                  "$(diff-single)",
+                  "$(diff-multiple)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -24687,7 +24937,7 @@
                 }
               },
               "overrideName": {
-                "description": "Controls whether or not the profile name overrides the auto detected one.",
+                "description": "Whether or not to replace the dynamic terminal title that detects what program is running with the static profile name.",
                 "type": "boolean"
               },
               "icon": {
@@ -25231,6 +25481,12 @@
                   "mic-filled",
                   "git-fetch",
                   "copilot",
+                  "lightbulb-sparkle",
+                  "lightbulb-sparkle-autofix",
+                  "robot",
+                  "sparkle-filled",
+                  "diff-single",
+                  "diff-multiple",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -25788,6 +26044,12 @@
                   "$(mic-filled)",
                   "$(git-fetch)",
                   "$(copilot)",
+                  "$(lightbulb-sparkle)",
+                  "$(lightbulb-sparkle-autofix)",
+                  "$(robot)",
+                  "$(sparkle-filled)",
+                  "$(diff-single)",
+                  "$(diff-multiple)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -25926,7 +26188,7 @@
                 }
               },
               "overrideName": {
-                "description": "Controls whether or not the profile name overrides the auto detected one.",
+                "description": "Whether or not to replace the dynamic terminal title that detects what program is running with the static profile name.",
                 "type": "boolean"
               },
               "icon": {
@@ -26470,6 +26732,12 @@
                   "mic-filled",
                   "git-fetch",
                   "copilot",
+                  "lightbulb-sparkle",
+                  "lightbulb-sparkle-autofix",
+                  "robot",
+                  "sparkle-filled",
+                  "diff-single",
+                  "diff-multiple",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -27027,6 +27295,12 @@
                   "$(mic-filled)",
                   "$(git-fetch)",
                   "$(copilot)",
+                  "$(lightbulb-sparkle)",
+                  "$(lightbulb-sparkle-autofix)",
+                  "$(robot)",
+                  "$(sparkle-filled)",
+                  "$(diff-single)",
+                  "$(diff-multiple)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -27105,7 +27379,7 @@
                 }
               },
               "overrideName": {
-                "description": "Controls whether or not the profile name overrides the auto detected one.",
+                "description": "Whether or not to replace the dynamic terminal title that detects what program is running with the static profile name.",
                 "type": "boolean"
               },
               "icon": {
@@ -27649,6 +27923,12 @@
                   "mic-filled",
                   "git-fetch",
                   "copilot",
+                  "lightbulb-sparkle",
+                  "lightbulb-sparkle-autofix",
+                  "robot",
+                  "sparkle-filled",
+                  "diff-single",
+                  "diff-multiple",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -28206,6 +28486,12 @@
                   "$(mic-filled)",
                   "$(git-fetch)",
                   "$(copilot)",
+                  "$(lightbulb-sparkle)",
+                  "$(lightbulb-sparkle-autofix)",
+                  "$(robot)",
+                  "$(sparkle-filled)",
+                  "$(diff-single)",
+                  "$(diff-multiple)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -28334,7 +28620,7 @@
                 }
               },
               "overrideName": {
-                "description": "Controls whether or not the profile name overrides the auto detected one.",
+                "description": "Whether or not to replace the dynamic terminal title that detects what program is running with the static profile name.",
                 "type": "boolean"
               },
               "icon": {
@@ -28878,6 +29164,12 @@
                   "mic-filled",
                   "git-fetch",
                   "copilot",
+                  "lightbulb-sparkle",
+                  "lightbulb-sparkle-autofix",
+                  "robot",
+                  "sparkle-filled",
+                  "diff-single",
+                  "diff-multiple",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -29435,6 +29727,12 @@
                   "$(mic-filled)",
                   "$(git-fetch)",
                   "$(copilot)",
+                  "$(lightbulb-sparkle)",
+                  "$(lightbulb-sparkle-autofix)",
+                  "$(robot)",
+                  "$(sparkle-filled)",
+                  "$(diff-single)",
+                  "$(diff-multiple)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -29514,7 +29812,7 @@
                 }
               },
               "overrideName": {
-                "description": "Controls whether or not the profile name overrides the auto detected one.",
+                "description": "Whether or not to replace the dynamic terminal title that detects what program is running with the static profile name.",
                 "type": "boolean"
               },
               "icon": {
@@ -30058,6 +30356,12 @@
                   "mic-filled",
                   "git-fetch",
                   "copilot",
+                  "lightbulb-sparkle",
+                  "lightbulb-sparkle-autofix",
+                  "robot",
+                  "sparkle-filled",
+                  "diff-single",
+                  "diff-multiple",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -30615,6 +30919,12 @@
                   "$(mic-filled)",
                   "$(git-fetch)",
                   "$(copilot)",
+                  "$(lightbulb-sparkle)",
+                  "$(lightbulb-sparkle-autofix)",
+                  "$(robot)",
+                  "$(sparkle-filled)",
+                  "$(diff-single)",
+                  "$(diff-multiple)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -30693,7 +31003,7 @@
                 }
               },
               "overrideName": {
-                "description": "Controls whether or not the profile name overrides the auto detected one.",
+                "description": "Whether or not to replace the dynamic terminal title that detects what program is running with the static profile name.",
                 "type": "boolean"
               },
               "icon": {
@@ -31237,6 +31547,12 @@
                   "mic-filled",
                   "git-fetch",
                   "copilot",
+                  "lightbulb-sparkle",
+                  "lightbulb-sparkle-autofix",
+                  "robot",
+                  "sparkle-filled",
+                  "diff-single",
+                  "diff-multiple",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -31794,6 +32110,12 @@
                   "$(mic-filled)",
                   "$(git-fetch)",
                   "$(copilot)",
+                  "$(lightbulb-sparkle)",
+                  "$(lightbulb-sparkle-autofix)",
+                  "$(robot)",
+                  "$(sparkle-filled)",
+                  "$(diff-single)",
+                  "$(diff-multiple)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -31982,6 +32304,24 @@
       "scope": 3,
       "restricted": false
     },
+    "terminal.integrated.stickyScroll.enabled": {
+      "markdownDescription": "Experimental: Shows the current command at the top of the terminal.",
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
+    "terminal.integrated.stickyScroll.maxLineCount": {
+      "markdownDescription": "Defines the maximum number of sticky lines to show. Sticky scroll lines will never exceed 40% of the viewport regardless of this setting.",
+      "type": "number",
+      "default": 5,
+      "minimum": 1,
+      "maximum": 10,
+      "defaultDefaultValue": 5,
+      "scope": 3,
+      "restricted": false
+    },
     "terminal.integrated.tabs.defaultColor": {
       "description": "A theme color ID to associate with terminal icons by default.",
       "type": [
@@ -32157,8 +32497,10 @@
         "diff-added",
         "diff-ignored",
         "diff-modified",
+        "diff-multiple",
         "diff-removed",
         "diff-renamed",
+        "diff-single",
         "discard",
         "drop-down-button",
         "edit",
@@ -32288,6 +32630,8 @@
         "light-bulb",
         "lightbulb",
         "lightbulb-autofix",
+        "lightbulb-sparkle",
+        "lightbulb-sparkle-autofix",
         "link",
         "link-external",
         "list-filter",
@@ -32401,6 +32745,7 @@
         "repo-sync",
         "report",
         "request-changes",
+        "robot",
         "rocket",
         "root-folder",
         "root-folder-opened",
@@ -32439,6 +32784,7 @@
         "sort-precedence",
         "source-control",
         "sparkle",
+        "sparkle-filled",
         "split-horizontal",
         "split-vertical",
         "squirrel",
@@ -32714,8 +33060,10 @@
         "$(diff-added)",
         "$(diff-ignored)",
         "$(diff-modified)",
+        "$(diff-multiple)",
         "$(diff-removed)",
         "$(diff-renamed)",
+        "$(diff-single)",
         "$(discard)",
         "$(drop-down-button)",
         "$(edit)",
@@ -32845,6 +33193,8 @@
         "$(light-bulb)",
         "$(lightbulb)",
         "$(lightbulb-autofix)",
+        "$(lightbulb-sparkle)",
+        "$(lightbulb-sparkle-autofix)",
         "$(link)",
         "$(link-external)",
         "$(list-filter)",
@@ -32958,6 +33308,7 @@
         "$(repo-sync)",
         "$(report)",
         "$(request-changes)",
+        "$(robot)",
         "$(rocket)",
         "$(root-folder)",
         "$(root-folder-opened)",
@@ -32996,6 +33347,7 @@
         "$(sort-precedence)",
         "$(source-control)",
         "$(sparkle)",
+        "$(sparkle-filled)",
         "$(split-horizontal)",
         "$(split-vertical)",
         "$(squirrel)",
@@ -33400,6 +33752,23 @@
       "scope": 3,
       "restricted": false
     },
+    "testing.displayedCoveragePercent": {
+      "markdownDescription": "Configures what percentage is displayed by default for test coverage.",
+      "default": "totalCoverage",
+      "enum": [
+        "minimum",
+        "statement",
+        "totalCoverage"
+      ],
+      "enumDescriptions": [
+        "The minimum of statement, function, and branch coverage.",
+        "The statement coverage.",
+        "A calculation of the combined statement, function, and branch coverage."
+      ],
+      "defaultDefaultValue": "totalCoverage",
+      "scope": 3,
+      "restricted": false
+    },
     "testing.followRunningTest": {
       "description": "Controls whether the running test should be followed in the Test Explorer view.",
       "type": "boolean",
@@ -33448,6 +33817,14 @@
       "type": "boolean",
       "default": false,
       "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
+    "testing.showCoverageInExplorer": {
+      "description": "Whether test coverage should be down in the File Explorer view.",
+      "type": "boolean",
+      "default": true,
+      "defaultDefaultValue": true,
       "scope": 3,
       "restricted": false
     },
@@ -33845,6 +34222,18 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
+    "typescript.implementationsCodeLens.showOnInterfaceMethods": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable/disable implementations CodeLens on interface methods.",
+      "scope": 3,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
     "typescript.inlayHints.enumMemberValues.enabled": {
       "type": "boolean",
       "default": false,
@@ -34099,6 +34488,18 @@
         "displayName": "TypeScript and JavaScript Language Features"
       },
       "defaultDefaultValue": "auto",
+      "restricted": false
+    },
+    "typescript.preferences.preferTypeOnlyAutoImports": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "Include the `type` keyword in auto-imports whenever possible. Requires using TypeScript 5.3+ in the workspace.",
+      "scope": 4,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": false,
       "restricted": false
     },
     "typescript.preferences.quoteStyle": {
@@ -35031,6 +35432,11 @@
           "default": false,
           "description": "Heap Profile Table Visualizer"
         },
+        "jsProfileVisualizer.heapsnapshot.table": {
+          "type": "boolean",
+          "default": false,
+          "description": "Heap Snapshot Table Visualizer"
+        },
         "jupyter-notebook": {
           "type": "boolean",
           "default": false,
@@ -35082,6 +35488,7 @@
         "imagePreview.previewEditor": false,
         "jsProfileVisualizer.cpuprofile.table": false,
         "jsProfileVisualizer.heapprofile.table": false,
+        "jsProfileVisualizer.heapsnapshot.table": false,
         "jupyter-notebook": false,
         "mainThreadWebview-markdown.preview": false,
         "terminalEditor": true,
@@ -35098,6 +35505,7 @@
         "imagePreview.previewEditor": false,
         "jsProfileVisualizer.cpuprofile.table": false,
         "jsProfileVisualizer.heapprofile.table": false,
+        "jsProfileVisualizer.heapsnapshot.table": false,
         "jupyter-notebook": false,
         "mainThreadWebview-markdown.preview": false,
         "terminalEditor": true,
@@ -35168,6 +35576,7 @@
         "imagePreview.previewEditor",
         "jsProfileVisualizer.cpuprofile.table",
         "jsProfileVisualizer.heapprofile.table",
+        "jsProfileVisualizer.heapsnapshot.table",
         "jupyter-notebook",
         "vscode.audioPreview",
         "vscode.markdown.preview.editor",
@@ -35196,6 +35605,32 @@
         "No editor group is resized when double clicking on a tab."
       ],
       "defaultDefaultValue": "expand",
+      "scope": 3,
+      "restricted": false
+    },
+    "workbench.editor.dragToOpenWindow": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "Controls if editors can be dragged out of the window to open them in a new window. Press and hold `Alt`-key while dragging to toggle this dynamically.",
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "workbench.editor.editorActionsLocation": {
+      "type": "string",
+      "enum": [
+        "default",
+        "hidden",
+        "titleBar"
+      ],
+      "enumDescriptions": [
+        "Show editor actions in the window title bar when `#workbench.editor.showTabs#` is set to `none`. Otherwise, editor actions are shown in the editor tab bar.",
+        "Editor actions are not shown.",
+        "Show editor actions in the window title bar. If `#window.titleBarStyle#` is set to `native`, editor actions are hidden."
+      ],
+      "markdownDescription": "Controls where the editor actions are shown.",
+      "default": "default",
+      "defaultDefaultValue": "default",
       "scope": 3,
       "restricted": false
     },
@@ -35561,16 +35996,31 @@
       "scope": 3,
       "restricted": false
     },
-    "workbench.editor.tabCloseButton": {
+    "workbench.editor.tabActionCloseVisibility": {
+      "type": "boolean",
+      "default": true,
+      "description": "Controls the visibility of the tab close action button.",
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "workbench.editor.tabActionLocation": {
       "type": "string",
       "enum": [
         "left",
-        "off",
         "right"
       ],
       "default": "right",
-      "markdownDescription": "Controls the position of the editor's tabs close buttons, or disables them when set to 'off'. This value is ignored when `#workbench.editor.showTabs#` is not set to `multiple`.",
+      "markdownDescription": "Controls the position of the editor's tabs action buttons (close, unpin). This value is ignored when `#workbench.editor.showTabs#` is not set to `multiple`.",
       "defaultDefaultValue": "right",
+      "scope": 3,
+      "restricted": false
+    },
+    "workbench.editor.tabActionUnpinVisibility": {
+      "type": "boolean",
+      "default": true,
+      "description": "Controls the visibility of the tab unpin action button.",
+      "defaultDefaultValue": true,
       "scope": 3,
       "restricted": false
     },
@@ -35661,6 +36111,7 @@
             "imagePreview.previewEditor",
             "jsProfileVisualizer.cpuprofile.table",
             "jsProfileVisualizer.heapprofile.table",
+            "jsProfileVisualizer.heapsnapshot.table",
             "jupyter-notebook",
             "vscode.audioPreview",
             "vscode.markdown.preview.editor",
@@ -36427,8 +36878,8 @@
         "hide"
       ],
       "enumDescriptions": [
-        "Filter the Table of Contents to just categories that have matching settings. Clicking a category will filter the results to that category. The search results will be grouped by category.",
-        "Hide the Table of Contents while searching. The search results will not be grouped by category, and instead will be sorted by similarity to the query, with exact keyword matches coming first."
+        "Filter the Table of Contents to just categories that have matching settings. Clicking on a category will filter the results to that category.",
+        "Hide the Table of Contents while searching."
       ],
       "description": "Controls the behavior of the Settings editor Table of Contents while searching. If this setting is being changed in the Settings editor, the setting will take effect after the search query is modified.",
       "default": "filter",
@@ -36494,6 +36945,14 @@
       "scope": 3,
       "restricted": false
     },
+    "workbench.tree.enableStickyScroll": {
+      "type": "boolean",
+      "default": false,
+      "description": "Controls whether sticky scrolling is enabled in trees.",
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
     "workbench.tree.expandMode": {
       "type": "string",
       "enum": [
@@ -36526,6 +36985,15 @@
       "default": "onHover",
       "description": "Controls whether the tree should render indent guides.",
       "defaultDefaultValue": "onHover",
+      "scope": 3,
+      "restricted": false
+    },
+    "workbench.tree.stickyScrollMaxItemCount": {
+      "type": "number",
+      "minimum": 1,
+      "default": 7,
+      "markdownDescription": "Controls the number of sticky elements displayed in the tree when `#workbench.tree.enableStickyScroll#` is enabled.",
+      "defaultDefaultValue": 7,
       "scope": 3,
       "restricted": false
     },

@@ -1091,6 +1091,16 @@
         }
       ]
     },
+    "diffEditor.unchangedRegionShadow": {
+      "type": "string",
+      "description": "The color of the shadow around unchanged region widgets.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "diffEditorGutter.insertedLineBackground": {
       "type": "string",
       "description": "Background color for the margin where lines got inserted.",
@@ -1792,6 +1802,16 @@
         }
       ]
     },
+    "editorCommentsWidget.replyInputBackground": {
+      "type": "string",
+      "description": "Background color for comment reply input box.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "editorCommentsWidget.resolvedBorder": {
       "type": "string",
       "description": "Color of borders and arrow for resolved comments.",
@@ -2387,6 +2407,16 @@
     "editorLightBulb.foreground": {
       "type": "string",
       "description": "The color used for the lightbulb actions icon.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "editorLightBulbAi.foreground": {
+      "type": "string",
+      "description": "The color used for the lightbulb AI icon.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -4294,6 +4324,16 @@
         }
       ]
     },
+    "multiDiffEditor.headerBackground": {
+      "type": "string",
+      "description": "The background color of the diff editor's header",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "notebook.cellBorderColor": {
       "type": "string",
       "description": "The border color for notebook cells.",
@@ -5078,6 +5118,46 @@
     "sash.hoverBorder": {
       "type": "string",
       "description": "Border color of active sashes.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "scm.historyItemAdditionsForeground": {
+      "type": "string",
+      "description": "History item additions foreground color.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "scm.historyItemDeletionsForeground": {
+      "type": "string",
+      "description": "History item deletions foreground color.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "scm.historyItemSelectedStatisticsBorder": {
+      "type": "string",
+      "description": "History item selected statistics border color.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "scm.historyItemStatisticsBorder": {
+      "type": "string",
+      "description": "History item statistics border color.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -6768,6 +6848,26 @@
     "terminalOverviewRuler.findMatchForeground": {
       "type": "string",
       "description": "Overview ruler marker color for find matches in the terminal.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "terminalStickyScroll.background": {
+      "type": "string",
+      "description": "The background color of the sticky scroll overlay in the terminal.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "terminalStickyScrollHover.background": {
+      "type": "string",
+      "description": "The background color of the sticky scroll overlay in the terminal when hovered.",
       "format": "color-hex",
       "defaultSnippets": [
         {

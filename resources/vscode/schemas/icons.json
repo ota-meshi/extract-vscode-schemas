@@ -642,6 +642,9 @@
     "diff-modified": {
       "$ref": "#/definitions/icons"
     },
+    "diff-multiple": {
+      "$ref": "#/definitions/icons"
+    },
     "diff-remove": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Line decoration for removals in the diff editor.: $(diff-remove)"
@@ -663,6 +666,9 @@
     "diff-review-remove": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for 'Remove' in accessible diff viewer.: $(diff-review-remove)"
+    },
+    "diff-single": {
+      "$ref": "#/definitions/icons"
     },
     "discard": {
       "$ref": "#/definitions/icons"
@@ -956,10 +962,6 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon used for the beginner category of welcome page: $(getting-started-beginner)"
     },
-    "getting-started-intermediate": {
-      "$ref": "#/definitions/icons",
-      "markdownDescription": "Icon used for the intermediate category of welcome page: $(getting-started-intermediate)"
-    },
     "getting-started-setup": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon used for the setup category of welcome page: $(getting-started-setup)"
@@ -1121,9 +1123,13 @@
     "info": {
       "$ref": "#/definitions/icons"
     },
-    "inline-chat": {
+    "inline-chat-opaque": {
       "$ref": "#/definitions/icons",
-      "markdownDescription": "Icon which spawns the inline chat from the gutter: $(inline-chat)"
+      "markdownDescription": "Icon which spawns the inline chat from the gutter. It is half opaque by default and becomes completely opaque on hover.: $(inline-chat-opaque)"
+    },
+    "inline-chat-transparent": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon which spawns the inline chat from the gutter. It is transparent by default and becomes opaque on hover.: $(inline-chat-transparent)"
     },
     "inline-suggestion-hints-next": {
       "$ref": "#/definitions/icons",
@@ -1261,6 +1267,12 @@
       "$ref": "#/definitions/icons"
     },
     "lightbulb-autofix": {
+      "$ref": "#/definitions/icons"
+    },
+    "lightbulb-sparkle": {
+      "$ref": "#/definitions/icons"
+    },
+    "lightbulb-sparkle-autofix": {
       "$ref": "#/definitions/icons"
     },
     "link": {
@@ -1930,6 +1942,9 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon to collapse a review comment.: $(review-comment-collapse)"
     },
+    "robot": {
+      "$ref": "#/definitions/icons"
+    },
     "rocket": {
       "$ref": "#/definitions/icons"
     },
@@ -2145,6 +2160,9 @@
     "sparkle": {
       "$ref": "#/definitions/icons"
     },
+    "sparkle-filled": {
+      "$ref": "#/definitions/icons"
+    },
     "split-horizontal": {
       "$ref": "#/definitions/icons"
     },
@@ -2171,6 +2189,10 @@
     },
     "star-half": {
       "$ref": "#/definitions/icons"
+    },
+    "start-inline-chat": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon which spawns the inline chat from the editor toolbar.: $(start-inline-chat)"
     },
     "statusBar": {
       "$ref": "#/definitions/icons",
@@ -2432,6 +2454,10 @@
     "testing-continuous-is-on": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon when continuous run is on for a test ite,.: $(testing-continuous-is-on)"
+    },
+    "testing-coverage": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon representing test coverage: $(testing-coverage)"
     },
     "testing-debug-all-icon": {
       "$ref": "#/definitions/icons",
