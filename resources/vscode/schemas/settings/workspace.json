@@ -35864,13 +35864,12 @@
     },
     "workbench.editor.preferHistoryBasedLanguageDetection": {
       "type": "boolean",
-      "default": true,
+      "default": false,
       "tags": [
         "experimental"
       ],
       "description": "When enabled, a language detection model that takes into account editor history will be given higher precedence.",
       "defaultDefaultValue": false,
-      "defaultValueSource": "Experiments",
       "scope": 3,
       "restricted": false
     },
