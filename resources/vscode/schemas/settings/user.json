@@ -35961,12 +35961,13 @@
     "workbench.accounts.experimental.showEntitlements": {
       "scope": 2,
       "type": "boolean",
-      "default": false,
+      "default": true,
       "tags": [
         "experimental"
       ],
       "description": "When enabled, available entitlements for the account will be show in the accounts menu.",
       "defaultDefaultValue": false,
+      "defaultValueSource": "Experiments",
       "restricted": false
     },
     "workbench.activityBar.iconClickBehavior": {
