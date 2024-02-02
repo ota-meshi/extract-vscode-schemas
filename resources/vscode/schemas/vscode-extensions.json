@@ -434,6 +434,10 @@
                           "activityBar.inactiveForeground",
                           "activityBarBadge.background",
                           "activityBarBadge.foreground",
+                          "activityBarTop.activeBorder",
+                          "activityBarTop.dropBorder",
+                          "activityBarTop.foreground",
+                          "activityBarTop.inactiveForeground",
                           "badge.background",
                           "badge.foreground",
                           "banner.background",
@@ -690,6 +694,8 @@
                           "editorOverviewRuler.findMatchForeground",
                           "editorOverviewRuler.incomingContentForeground",
                           "editorOverviewRuler.infoForeground",
+                          "editorOverviewRuler.inlineChatInserted",
+                          "editorOverviewRuler.inlineChatRemoved",
                           "editorOverviewRuler.modifiedForeground",
                           "editorOverviewRuler.rangeHighlightForeground",
                           "editorOverviewRuler.selectionHighlightForeground",
@@ -700,6 +706,8 @@
                           "editorPane.background",
                           "editorRuler.foreground",
                           "editorStickyScroll.background",
+                          "editorStickyScroll.border",
+                          "editorStickyScroll.shadow",
                           "editorStickyScrollHover.background",
                           "editorSuggestWidget.background",
                           "editorSuggestWidget.border",
@@ -717,6 +725,7 @@
                           "editorWarning.background",
                           "editorWarning.border",
                           "editorWarning.foreground",
+                          "editorWatermark.foreground",
                           "editorWhitespace.foreground",
                           "editorWidget.background",
                           "editorWidget.border",
@@ -777,8 +786,6 @@
                           "inputValidation.warningBorder",
                           "inputValidation.warningForeground",
                           "interactive.activeCodeBorder",
-                          "interactive.activeCodeBorder",
-                          "interactive.inactiveCodeBorder",
                           "interactive.inactiveCodeBorder",
                           "keybindingLabel.background",
                           "keybindingLabel.border",
@@ -791,6 +798,7 @@
                           "list.activeSelectionIconForeground",
                           "list.deemphasizedForeground",
                           "list.dropBackground",
+                          "list.dropBetweenBackground",
                           "list.errorForeground",
                           "list.filterMatchBackground",
                           "list.filterMatchBorder",
@@ -857,6 +865,8 @@
                           "minimapSlider.activeBackground",
                           "minimapSlider.background",
                           "minimapSlider.hoverBackground",
+                          "multiDiffEditor.background",
+                          "multiDiffEditor.border",
                           "multiDiffEditor.headerBackground",
                           "notebook.cellBorderColor",
                           "notebook.cellEditorBackground",
@@ -893,6 +903,8 @@
                           "notificationsInfoIcon.foreground",
                           "notificationsWarningIcon.foreground",
                           "notificationToast.border",
+                          "outputView.background",
+                          "outputViewStickyScroll.background",
                           "panel.background",
                           "panel.border",
                           "panel.dropBorder",
@@ -1112,6 +1124,11 @@
                           "terminalOverviewRuler.findMatchForeground",
                           "terminalStickyScroll.background",
                           "terminalStickyScrollHover.background",
+                          "testing.coverCountBadgeBackground",
+                          "testing.coverCountBadgeForeground",
+                          "testing.coveredBackground",
+                          "testing.coveredBorder",
+                          "testing.coveredGutterBackground",
                           "testing.iconErrored",
                           "testing.iconFailed",
                           "testing.iconPassed",
@@ -1122,9 +1139,15 @@
                           "testing.message.error.lineBackground",
                           "testing.message.info.decorationForeground",
                           "testing.message.info.lineBackground",
+                          "testing.messagePeekBorder",
+                          "testing.messagePeekHeaderBackground",
                           "testing.peekBorder",
                           "testing.peekHeaderBackground",
                           "testing.runAction",
+                          "testing.uncoveredBackground",
+                          "testing.uncoveredBorder",
+                          "testing.uncoveredBranchBackground",
+                          "testing.uncoveredGutterBackground",
                           "textBlockQuote.background",
                           "textBlockQuote.border",
                           "textCodeBlock.background",
@@ -1170,6 +1193,10 @@
                           "Activity bar item foreground color when it is inactive. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
                           "Activity notification badge background color. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
                           "Activity notification badge foreground color. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
+                          "Focus border color for the active item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
+                          "Drag and drop feedback color for the items in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
+                          "Active foreground color of the item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
+                          "Inactive foreground color of the item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
                           "Badge background color. Badges are small information labels, e.g. for search results count.",
                           "Badge foreground color. Badges are small information labels, e.g. for search results count.",
                           "Banner background color. The banner is shown under the title bar of the window.",
@@ -1426,6 +1453,8 @@
                           "Overview ruler marker color for find matches. The color must not be opaque so as not to hide underlying decorations.",
                           "Incoming overview ruler foreground for inline merge-conflicts.",
                           "Overview ruler marker color for infos.",
+                          "Overview ruler marker color for inline chat inserted content.",
+                          "Overview ruler marker color for inline chat removed content.",
                           "Overview ruler marker color for modified content.",
                           "Overview ruler marker color for range highlights. The color must not be opaque so as not to hide underlying decorations.",
                           "Overview ruler marker color for selection highlights. The color must not be opaque so as not to hide underlying decorations.",
@@ -1435,8 +1464,10 @@
                           "Overview ruler marker color of a textual occurrence for a symbol. The color must not be opaque so as not to hide underlying decorations.",
                           "Background color of the editor pane visible on the left and right side of the centered editor layout.",
                           "Color of the editor rulers.",
-                          "Sticky scroll background color for the editor",
-                          "Sticky scroll on hover background color for the editor",
+                          "Background color of sticky scroll in the editor",
+                          "Border color of sticky scroll in the editor",
+                          " Shadow color of sticky scroll in the editor",
+                          "Background color of sticky scroll on hover in the editor",
                           "Background color of the suggest widget.",
                           "Border color of the suggest widget.",
                           "Color of the match highlights in the suggest widget when an item is focused.",
@@ -1453,6 +1484,7 @@
                           "Background color of warning text in the editor. The color must not be opaque so as not to hide underlying decorations.",
                           "If set, color of double underlines for warnings in the editor.",
                           "Foreground color of warning squigglies in the editor.",
+                          "Foreground color for the labels in the editor watermark.",
                           "Color of whitespace characters in the editor.",
                           "Background color of editor widgets, such as find/replace.",
                           "Border color of editor widgets. The color is only used if the widget chooses to have a border and if the color is not overridden by a widget.",
@@ -1513,8 +1545,6 @@
                           "Input validation border color for warning severity.",
                           "Input validation foreground color for warning severity.",
                           "The border color for the current interactive code cell when the editor has focus.",
-                          "The border color for the current interactive code cell when the editor has focus.",
-                          "The border color for the current interactive code cell when the editor does not have focus.",
                           "The border color for the current interactive code cell when the editor does not have focus.",
                           "Keybinding label background color. The keybinding label is used to represent a keyboard shortcut.",
                           "Keybinding label border color. The keybinding label is used to represent a keyboard shortcut.",
@@ -1526,7 +1556,8 @@
                           "List/Tree foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.",
                           "List/Tree icon foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.",
                           "List/Tree foreground color for items that are deemphasized. ",
-                          "List/Tree drag and drop background when moving items around using the mouse.",
+                          "List/Tree drag and drop background when moving items over other items when using the mouse.",
+                          "List/Tree drag and drop border color when moving items between items when using the mouse.",
                           "Foreground color of list items containing errors.",
                           "Background color of the filtered match.",
                           "Border color of the filtered match.",
@@ -1593,6 +1624,8 @@
                           "Minimap slider background color when clicked on.",
                           "Minimap slider background color.",
                           "Minimap slider background color when hovering.",
+                          "The background color of the multi file diff editor",
+                          "The border color of the multi file diff editor",
                           "The background color of the diff editor's header",
                           "The border color for notebook cells.",
                           "Cell editor background color.",
@@ -1629,6 +1662,8 @@
                           "The color used for the icon of info notifications. Notifications slide in from the bottom right of the window.",
                           "The color used for the icon of warning notifications. Notifications slide in from the bottom right of the window.",
                           "Notification toast border color. Notifications slide in from the bottom right of the window.",
+                          "Output view background color.",
+                          "Output view sticky scroll background color.",
                           "Panel background color. Panels are shown below the editor area and contain views like output and integrated terminal.",
                           "Panel border color to separate the panel from the editor. Panels are shown below the editor area and contain views like output and integrated terminal.",
                           "Drag and drop feedback color for the panel titles. Panels are shown below the editor area and contain views like output and integrated terminal.",
@@ -1848,6 +1883,11 @@
                           "Overview ruler marker color for find matches in the terminal.",
                           "The background color of the sticky scroll overlay in the terminal.",
                           "The background color of the sticky scroll overlay in the terminal when hovered.",
+                          "Background for the badge indicating execution count",
+                          "Foreground for the badge indicating execution count",
+                          "Background color of text that was covered.",
+                          "Border color of text that was covered.",
+                          "Gutter color of regions where code was covered.",
                           "Color for the 'Errored' icon in the test explorer.",
                           "Color for the 'failed' icon in the test explorer.",
                           "Color for the 'passed' icon in the test explorer.",
@@ -1858,9 +1898,15 @@
                           "Margin color beside error messages shown inline in the editor.",
                           "Text color of test info messages shown inline in the editor.",
                           "Margin color beside info messages shown inline in the editor.",
+                          "Color of the peek view borders and arrow when peeking a logged message.",
+                          "Color of the peek view borders and arrow when peeking a logged message.",
                           "Color of the peek view borders and arrow.",
                           "Color of the peek view borders and arrow.",
                           "Color for 'run' icons in the editor.",
+                          "Background color of text that was not covered.",
+                          "Border color of text that was not covered.",
+                          "Background of the widget shown for an uncovered branch.",
+                          "Gutter color of regions where code not covered.",
                           "Background color for block quotes in text.",
                           "Border color for block quotes in text.",
                           "Background color for code blocks in text.",
@@ -1919,6 +1965,10 @@
                           "activityBar.inactiveForeground",
                           "activityBarBadge.background",
                           "activityBarBadge.foreground",
+                          "activityBarTop.activeBorder",
+                          "activityBarTop.dropBorder",
+                          "activityBarTop.foreground",
+                          "activityBarTop.inactiveForeground",
                           "badge.background",
                           "badge.foreground",
                           "banner.background",
@@ -2175,6 +2225,8 @@
                           "editorOverviewRuler.findMatchForeground",
                           "editorOverviewRuler.incomingContentForeground",
                           "editorOverviewRuler.infoForeground",
+                          "editorOverviewRuler.inlineChatInserted",
+                          "editorOverviewRuler.inlineChatRemoved",
                           "editorOverviewRuler.modifiedForeground",
                           "editorOverviewRuler.rangeHighlightForeground",
                           "editorOverviewRuler.selectionHighlightForeground",
@@ -2185,6 +2237,8 @@
                           "editorPane.background",
                           "editorRuler.foreground",
                           "editorStickyScroll.background",
+                          "editorStickyScroll.border",
+                          "editorStickyScroll.shadow",
                           "editorStickyScrollHover.background",
                           "editorSuggestWidget.background",
                           "editorSuggestWidget.border",
@@ -2202,6 +2256,7 @@
                           "editorWarning.background",
                           "editorWarning.border",
                           "editorWarning.foreground",
+                          "editorWatermark.foreground",
                           "editorWhitespace.foreground",
                           "editorWidget.background",
                           "editorWidget.border",
@@ -2262,8 +2317,6 @@
                           "inputValidation.warningBorder",
                           "inputValidation.warningForeground",
                           "interactive.activeCodeBorder",
-                          "interactive.activeCodeBorder",
-                          "interactive.inactiveCodeBorder",
                           "interactive.inactiveCodeBorder",
                           "keybindingLabel.background",
                           "keybindingLabel.border",
@@ -2276,6 +2329,7 @@
                           "list.activeSelectionIconForeground",
                           "list.deemphasizedForeground",
                           "list.dropBackground",
+                          "list.dropBetweenBackground",
                           "list.errorForeground",
                           "list.filterMatchBackground",
                           "list.filterMatchBorder",
@@ -2342,6 +2396,8 @@
                           "minimapSlider.activeBackground",
                           "minimapSlider.background",
                           "minimapSlider.hoverBackground",
+                          "multiDiffEditor.background",
+                          "multiDiffEditor.border",
                           "multiDiffEditor.headerBackground",
                           "notebook.cellBorderColor",
                           "notebook.cellEditorBackground",
@@ -2378,6 +2434,8 @@
                           "notificationsInfoIcon.foreground",
                           "notificationsWarningIcon.foreground",
                           "notificationToast.border",
+                          "outputView.background",
+                          "outputViewStickyScroll.background",
                           "panel.background",
                           "panel.border",
                           "panel.dropBorder",
@@ -2597,6 +2655,11 @@
                           "terminalOverviewRuler.findMatchForeground",
                           "terminalStickyScroll.background",
                           "terminalStickyScrollHover.background",
+                          "testing.coverCountBadgeBackground",
+                          "testing.coverCountBadgeForeground",
+                          "testing.coveredBackground",
+                          "testing.coveredBorder",
+                          "testing.coveredGutterBackground",
                           "testing.iconErrored",
                           "testing.iconFailed",
                           "testing.iconPassed",
@@ -2607,9 +2670,15 @@
                           "testing.message.error.lineBackground",
                           "testing.message.info.decorationForeground",
                           "testing.message.info.lineBackground",
+                          "testing.messagePeekBorder",
+                          "testing.messagePeekHeaderBackground",
                           "testing.peekBorder",
                           "testing.peekHeaderBackground",
                           "testing.runAction",
+                          "testing.uncoveredBackground",
+                          "testing.uncoveredBorder",
+                          "testing.uncoveredBranchBackground",
+                          "testing.uncoveredGutterBackground",
                           "textBlockQuote.background",
                           "textBlockQuote.border",
                           "textCodeBlock.background",
@@ -2655,6 +2724,10 @@
                           "Activity bar item foreground color when it is inactive. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
                           "Activity notification badge background color. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
                           "Activity notification badge foreground color. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
+                          "Focus border color for the active item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
+                          "Drag and drop feedback color for the items in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
+                          "Active foreground color of the item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
+                          "Inactive foreground color of the item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
                           "Badge background color. Badges are small information labels, e.g. for search results count.",
                           "Badge foreground color. Badges are small information labels, e.g. for search results count.",
                           "Banner background color. The banner is shown under the title bar of the window.",
@@ -2911,6 +2984,8 @@
                           "Overview ruler marker color for find matches. The color must not be opaque so as not to hide underlying decorations.",
                           "Incoming overview ruler foreground for inline merge-conflicts.",
                           "Overview ruler marker color for infos.",
+                          "Overview ruler marker color for inline chat inserted content.",
+                          "Overview ruler marker color for inline chat removed content.",
                           "Overview ruler marker color for modified content.",
                           "Overview ruler marker color for range highlights. The color must not be opaque so as not to hide underlying decorations.",
                           "Overview ruler marker color for selection highlights. The color must not be opaque so as not to hide underlying decorations.",
@@ -2920,8 +2995,10 @@
                           "Overview ruler marker color of a textual occurrence for a symbol. The color must not be opaque so as not to hide underlying decorations.",
                           "Background color of the editor pane visible on the left and right side of the centered editor layout.",
                           "Color of the editor rulers.",
-                          "Sticky scroll background color for the editor",
-                          "Sticky scroll on hover background color for the editor",
+                          "Background color of sticky scroll in the editor",
+                          "Border color of sticky scroll in the editor",
+                          " Shadow color of sticky scroll in the editor",
+                          "Background color of sticky scroll on hover in the editor",
                           "Background color of the suggest widget.",
                           "Border color of the suggest widget.",
                           "Color of the match highlights in the suggest widget when an item is focused.",
@@ -2938,6 +3015,7 @@
                           "Background color of warning text in the editor. The color must not be opaque so as not to hide underlying decorations.",
                           "If set, color of double underlines for warnings in the editor.",
                           "Foreground color of warning squigglies in the editor.",
+                          "Foreground color for the labels in the editor watermark.",
                           "Color of whitespace characters in the editor.",
                           "Background color of editor widgets, such as find/replace.",
                           "Border color of editor widgets. The color is only used if the widget chooses to have a border and if the color is not overridden by a widget.",
@@ -2998,8 +3076,6 @@
                           "Input validation border color for warning severity.",
                           "Input validation foreground color for warning severity.",
                           "The border color for the current interactive code cell when the editor has focus.",
-                          "The border color for the current interactive code cell when the editor has focus.",
-                          "The border color for the current interactive code cell when the editor does not have focus.",
                           "The border color for the current interactive code cell when the editor does not have focus.",
                           "Keybinding label background color. The keybinding label is used to represent a keyboard shortcut.",
                           "Keybinding label border color. The keybinding label is used to represent a keyboard shortcut.",
@@ -3011,7 +3087,8 @@
                           "List/Tree foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.",
                           "List/Tree icon foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.",
                           "List/Tree foreground color for items that are deemphasized. ",
-                          "List/Tree drag and drop background when moving items around using the mouse.",
+                          "List/Tree drag and drop background when moving items over other items when using the mouse.",
+                          "List/Tree drag and drop border color when moving items between items when using the mouse.",
                           "Foreground color of list items containing errors.",
                           "Background color of the filtered match.",
                           "Border color of the filtered match.",
@@ -3078,6 +3155,8 @@
                           "Minimap slider background color when clicked on.",
                           "Minimap slider background color.",
                           "Minimap slider background color when hovering.",
+                          "The background color of the multi file diff editor",
+                          "The border color of the multi file diff editor",
                           "The background color of the diff editor's header",
                           "The border color for notebook cells.",
                           "Cell editor background color.",
@@ -3114,6 +3193,8 @@
                           "The color used for the icon of info notifications. Notifications slide in from the bottom right of the window.",
                           "The color used for the icon of warning notifications. Notifications slide in from the bottom right of the window.",
                           "Notification toast border color. Notifications slide in from the bottom right of the window.",
+                          "Output view background color.",
+                          "Output view sticky scroll background color.",
                           "Panel background color. Panels are shown below the editor area and contain views like output and integrated terminal.",
                           "Panel border color to separate the panel from the editor. Panels are shown below the editor area and contain views like output and integrated terminal.",
                           "Drag and drop feedback color for the panel titles. Panels are shown below the editor area and contain views like output and integrated terminal.",
@@ -3333,6 +3414,11 @@
                           "Overview ruler marker color for find matches in the terminal.",
                           "The background color of the sticky scroll overlay in the terminal.",
                           "The background color of the sticky scroll overlay in the terminal when hovered.",
+                          "Background for the badge indicating execution count",
+                          "Foreground for the badge indicating execution count",
+                          "Background color of text that was covered.",
+                          "Border color of text that was covered.",
+                          "Gutter color of regions where code was covered.",
                           "Color for the 'Errored' icon in the test explorer.",
                           "Color for the 'failed' icon in the test explorer.",
                           "Color for the 'passed' icon in the test explorer.",
@@ -3343,9 +3429,15 @@
                           "Margin color beside error messages shown inline in the editor.",
                           "Text color of test info messages shown inline in the editor.",
                           "Margin color beside info messages shown inline in the editor.",
+                          "Color of the peek view borders and arrow when peeking a logged message.",
+                          "Color of the peek view borders and arrow when peeking a logged message.",
                           "Color of the peek view borders and arrow.",
                           "Color of the peek view borders and arrow.",
                           "Color for 'run' icons in the editor.",
+                          "Background color of text that was not covered.",
+                          "Border color of text that was not covered.",
+                          "Background of the widget shown for an uncovered branch.",
+                          "Gutter color of regions where code not covered.",
                           "Background color for block quotes in text.",
                           "Border color for block quotes in text.",
                           "Background color for code blocks in text.",
@@ -3404,6 +3496,10 @@
                           "activityBar.inactiveForeground",
                           "activityBarBadge.background",
                           "activityBarBadge.foreground",
+                          "activityBarTop.activeBorder",
+                          "activityBarTop.dropBorder",
+                          "activityBarTop.foreground",
+                          "activityBarTop.inactiveForeground",
                           "badge.background",
                           "badge.foreground",
                           "banner.background",
@@ -3660,6 +3756,8 @@
                           "editorOverviewRuler.findMatchForeground",
                           "editorOverviewRuler.incomingContentForeground",
                           "editorOverviewRuler.infoForeground",
+                          "editorOverviewRuler.inlineChatInserted",
+                          "editorOverviewRuler.inlineChatRemoved",
                           "editorOverviewRuler.modifiedForeground",
                           "editorOverviewRuler.rangeHighlightForeground",
                           "editorOverviewRuler.selectionHighlightForeground",
@@ -3670,6 +3768,8 @@
                           "editorPane.background",
                           "editorRuler.foreground",
                           "editorStickyScroll.background",
+                          "editorStickyScroll.border",
+                          "editorStickyScroll.shadow",
                           "editorStickyScrollHover.background",
                           "editorSuggestWidget.background",
                           "editorSuggestWidget.border",
@@ -3687,6 +3787,7 @@
                           "editorWarning.background",
                           "editorWarning.border",
                           "editorWarning.foreground",
+                          "editorWatermark.foreground",
                           "editorWhitespace.foreground",
                           "editorWidget.background",
                           "editorWidget.border",
@@ -3747,8 +3848,6 @@
                           "inputValidation.warningBorder",
                           "inputValidation.warningForeground",
                           "interactive.activeCodeBorder",
-                          "interactive.activeCodeBorder",
-                          "interactive.inactiveCodeBorder",
                           "interactive.inactiveCodeBorder",
                           "keybindingLabel.background",
                           "keybindingLabel.border",
@@ -3761,6 +3860,7 @@
                           "list.activeSelectionIconForeground",
                           "list.deemphasizedForeground",
                           "list.dropBackground",
+                          "list.dropBetweenBackground",
                           "list.errorForeground",
                           "list.filterMatchBackground",
                           "list.filterMatchBorder",
@@ -3827,6 +3927,8 @@
                           "minimapSlider.activeBackground",
                           "minimapSlider.background",
                           "minimapSlider.hoverBackground",
+                          "multiDiffEditor.background",
+                          "multiDiffEditor.border",
                           "multiDiffEditor.headerBackground",
                           "notebook.cellBorderColor",
                           "notebook.cellEditorBackground",
@@ -3863,6 +3965,8 @@
                           "notificationsInfoIcon.foreground",
                           "notificationsWarningIcon.foreground",
                           "notificationToast.border",
+                          "outputView.background",
+                          "outputViewStickyScroll.background",
                           "panel.background",
                           "panel.border",
                           "panel.dropBorder",
@@ -4082,6 +4186,11 @@
                           "terminalOverviewRuler.findMatchForeground",
                           "terminalStickyScroll.background",
                           "terminalStickyScrollHover.background",
+                          "testing.coverCountBadgeBackground",
+                          "testing.coverCountBadgeForeground",
+                          "testing.coveredBackground",
+                          "testing.coveredBorder",
+                          "testing.coveredGutterBackground",
                           "testing.iconErrored",
                           "testing.iconFailed",
                           "testing.iconPassed",
@@ -4092,9 +4201,15 @@
                           "testing.message.error.lineBackground",
                           "testing.message.info.decorationForeground",
                           "testing.message.info.lineBackground",
+                          "testing.messagePeekBorder",
+                          "testing.messagePeekHeaderBackground",
                           "testing.peekBorder",
                           "testing.peekHeaderBackground",
                           "testing.runAction",
+                          "testing.uncoveredBackground",
+                          "testing.uncoveredBorder",
+                          "testing.uncoveredBranchBackground",
+                          "testing.uncoveredGutterBackground",
                           "textBlockQuote.background",
                           "textBlockQuote.border",
                           "textCodeBlock.background",
@@ -4140,6 +4255,10 @@
                           "Activity bar item foreground color when it is inactive. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
                           "Activity notification badge background color. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
                           "Activity notification badge foreground color. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
+                          "Focus border color for the active item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
+                          "Drag and drop feedback color for the items in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
+                          "Active foreground color of the item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
+                          "Inactive foreground color of the item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
                           "Badge background color. Badges are small information labels, e.g. for search results count.",
                           "Badge foreground color. Badges are small information labels, e.g. for search results count.",
                           "Banner background color. The banner is shown under the title bar of the window.",
@@ -4396,6 +4515,8 @@
                           "Overview ruler marker color for find matches. The color must not be opaque so as not to hide underlying decorations.",
                           "Incoming overview ruler foreground for inline merge-conflicts.",
                           "Overview ruler marker color for infos.",
+                          "Overview ruler marker color for inline chat inserted content.",
+                          "Overview ruler marker color for inline chat removed content.",
                           "Overview ruler marker color for modified content.",
                           "Overview ruler marker color for range highlights. The color must not be opaque so as not to hide underlying decorations.",
                           "Overview ruler marker color for selection highlights. The color must not be opaque so as not to hide underlying decorations.",
@@ -4405,8 +4526,10 @@
                           "Overview ruler marker color of a textual occurrence for a symbol. The color must not be opaque so as not to hide underlying decorations.",
                           "Background color of the editor pane visible on the left and right side of the centered editor layout.",
                           "Color of the editor rulers.",
-                          "Sticky scroll background color for the editor",
-                          "Sticky scroll on hover background color for the editor",
+                          "Background color of sticky scroll in the editor",
+                          "Border color of sticky scroll in the editor",
+                          " Shadow color of sticky scroll in the editor",
+                          "Background color of sticky scroll on hover in the editor",
                           "Background color of the suggest widget.",
                           "Border color of the suggest widget.",
                           "Color of the match highlights in the suggest widget when an item is focused.",
@@ -4423,6 +4546,7 @@
                           "Background color of warning text in the editor. The color must not be opaque so as not to hide underlying decorations.",
                           "If set, color of double underlines for warnings in the editor.",
                           "Foreground color of warning squigglies in the editor.",
+                          "Foreground color for the labels in the editor watermark.",
                           "Color of whitespace characters in the editor.",
                           "Background color of editor widgets, such as find/replace.",
                           "Border color of editor widgets. The color is only used if the widget chooses to have a border and if the color is not overridden by a widget.",
@@ -4483,8 +4607,6 @@
                           "Input validation border color for warning severity.",
                           "Input validation foreground color for warning severity.",
                           "The border color for the current interactive code cell when the editor has focus.",
-                          "The border color for the current interactive code cell when the editor has focus.",
-                          "The border color for the current interactive code cell when the editor does not have focus.",
                           "The border color for the current interactive code cell when the editor does not have focus.",
                           "Keybinding label background color. The keybinding label is used to represent a keyboard shortcut.",
                           "Keybinding label border color. The keybinding label is used to represent a keyboard shortcut.",
@@ -4496,7 +4618,8 @@
                           "List/Tree foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.",
                           "List/Tree icon foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.",
                           "List/Tree foreground color for items that are deemphasized. ",
-                          "List/Tree drag and drop background when moving items around using the mouse.",
+                          "List/Tree drag and drop background when moving items over other items when using the mouse.",
+                          "List/Tree drag and drop border color when moving items between items when using the mouse.",
                           "Foreground color of list items containing errors.",
                           "Background color of the filtered match.",
                           "Border color of the filtered match.",
@@ -4563,6 +4686,8 @@
                           "Minimap slider background color when clicked on.",
                           "Minimap slider background color.",
                           "Minimap slider background color when hovering.",
+                          "The background color of the multi file diff editor",
+                          "The border color of the multi file diff editor",
                           "The background color of the diff editor's header",
                           "The border color for notebook cells.",
                           "Cell editor background color.",
@@ -4599,6 +4724,8 @@
                           "The color used for the icon of info notifications. Notifications slide in from the bottom right of the window.",
                           "The color used for the icon of warning notifications. Notifications slide in from the bottom right of the window.",
                           "Notification toast border color. Notifications slide in from the bottom right of the window.",
+                          "Output view background color.",
+                          "Output view sticky scroll background color.",
                           "Panel background color. Panels are shown below the editor area and contain views like output and integrated terminal.",
                           "Panel border color to separate the panel from the editor. Panels are shown below the editor area and contain views like output and integrated terminal.",
                           "Drag and drop feedback color for the panel titles. Panels are shown below the editor area and contain views like output and integrated terminal.",
@@ -4818,6 +4945,11 @@
                           "Overview ruler marker color for find matches in the terminal.",
                           "The background color of the sticky scroll overlay in the terminal.",
                           "The background color of the sticky scroll overlay in the terminal when hovered.",
+                          "Background for the badge indicating execution count",
+                          "Foreground for the badge indicating execution count",
+                          "Background color of text that was covered.",
+                          "Border color of text that was covered.",
+                          "Gutter color of regions where code was covered.",
                           "Color for the 'Errored' icon in the test explorer.",
                           "Color for the 'failed' icon in the test explorer.",
                           "Color for the 'passed' icon in the test explorer.",
@@ -4828,9 +4960,15 @@
                           "Margin color beside error messages shown inline in the editor.",
                           "Text color of test info messages shown inline in the editor.",
                           "Margin color beside info messages shown inline in the editor.",
+                          "Color of the peek view borders and arrow when peeking a logged message.",
+                          "Color of the peek view borders and arrow when peeking a logged message.",
                           "Color of the peek view borders and arrow.",
                           "Color of the peek view borders and arrow.",
                           "Color for 'run' icons in the editor.",
+                          "Background color of text that was not covered.",
+                          "Border color of text that was not covered.",
+                          "Background of the widget shown for an uncovered branch.",
+                          "Gutter color of regions where code not covered.",
                           "Background color for block quotes in text.",
                           "Border color for block quotes in text.",
                           "Background color for code blocks in text.",
@@ -4889,6 +5027,10 @@
                           "activityBar.inactiveForeground",
                           "activityBarBadge.background",
                           "activityBarBadge.foreground",
+                          "activityBarTop.activeBorder",
+                          "activityBarTop.dropBorder",
+                          "activityBarTop.foreground",
+                          "activityBarTop.inactiveForeground",
                           "badge.background",
                           "badge.foreground",
                           "banner.background",
@@ -5145,6 +5287,8 @@
                           "editorOverviewRuler.findMatchForeground",
                           "editorOverviewRuler.incomingContentForeground",
                           "editorOverviewRuler.infoForeground",
+                          "editorOverviewRuler.inlineChatInserted",
+                          "editorOverviewRuler.inlineChatRemoved",
                           "editorOverviewRuler.modifiedForeground",
                           "editorOverviewRuler.rangeHighlightForeground",
                           "editorOverviewRuler.selectionHighlightForeground",
@@ -5155,6 +5299,8 @@
                           "editorPane.background",
                           "editorRuler.foreground",
                           "editorStickyScroll.background",
+                          "editorStickyScroll.border",
+                          "editorStickyScroll.shadow",
                           "editorStickyScrollHover.background",
                           "editorSuggestWidget.background",
                           "editorSuggestWidget.border",
@@ -5172,6 +5318,7 @@
                           "editorWarning.background",
                           "editorWarning.border",
                           "editorWarning.foreground",
+                          "editorWatermark.foreground",
                           "editorWhitespace.foreground",
                           "editorWidget.background",
                           "editorWidget.border",
@@ -5232,8 +5379,6 @@
                           "inputValidation.warningBorder",
                           "inputValidation.warningForeground",
                           "interactive.activeCodeBorder",
-                          "interactive.activeCodeBorder",
-                          "interactive.inactiveCodeBorder",
                           "interactive.inactiveCodeBorder",
                           "keybindingLabel.background",
                           "keybindingLabel.border",
@@ -5246,6 +5391,7 @@
                           "list.activeSelectionIconForeground",
                           "list.deemphasizedForeground",
                           "list.dropBackground",
+                          "list.dropBetweenBackground",
                           "list.errorForeground",
                           "list.filterMatchBackground",
                           "list.filterMatchBorder",
@@ -5312,6 +5458,8 @@
                           "minimapSlider.activeBackground",
                           "minimapSlider.background",
                           "minimapSlider.hoverBackground",
+                          "multiDiffEditor.background",
+                          "multiDiffEditor.border",
                           "multiDiffEditor.headerBackground",
                           "notebook.cellBorderColor",
                           "notebook.cellEditorBackground",
@@ -5348,6 +5496,8 @@
                           "notificationsInfoIcon.foreground",
                           "notificationsWarningIcon.foreground",
                           "notificationToast.border",
+                          "outputView.background",
+                          "outputViewStickyScroll.background",
                           "panel.background",
                           "panel.border",
                           "panel.dropBorder",
@@ -5567,6 +5717,11 @@
                           "terminalOverviewRuler.findMatchForeground",
                           "terminalStickyScroll.background",
                           "terminalStickyScrollHover.background",
+                          "testing.coverCountBadgeBackground",
+                          "testing.coverCountBadgeForeground",
+                          "testing.coveredBackground",
+                          "testing.coveredBorder",
+                          "testing.coveredGutterBackground",
                           "testing.iconErrored",
                           "testing.iconFailed",
                           "testing.iconPassed",
@@ -5577,9 +5732,15 @@
                           "testing.message.error.lineBackground",
                           "testing.message.info.decorationForeground",
                           "testing.message.info.lineBackground",
+                          "testing.messagePeekBorder",
+                          "testing.messagePeekHeaderBackground",
                           "testing.peekBorder",
                           "testing.peekHeaderBackground",
                           "testing.runAction",
+                          "testing.uncoveredBackground",
+                          "testing.uncoveredBorder",
+                          "testing.uncoveredBranchBackground",
+                          "testing.uncoveredGutterBackground",
                           "textBlockQuote.background",
                           "textBlockQuote.border",
                           "textCodeBlock.background",
@@ -5625,6 +5786,10 @@
                           "Activity bar item foreground color when it is inactive. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
                           "Activity notification badge background color. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
                           "Activity notification badge foreground color. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
+                          "Focus border color for the active item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
+                          "Drag and drop feedback color for the items in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
+                          "Active foreground color of the item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
+                          "Inactive foreground color of the item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
                           "Badge background color. Badges are small information labels, e.g. for search results count.",
                           "Badge foreground color. Badges are small information labels, e.g. for search results count.",
                           "Banner background color. The banner is shown under the title bar of the window.",
@@ -5881,6 +6046,8 @@
                           "Overview ruler marker color for find matches. The color must not be opaque so as not to hide underlying decorations.",
                           "Incoming overview ruler foreground for inline merge-conflicts.",
                           "Overview ruler marker color for infos.",
+                          "Overview ruler marker color for inline chat inserted content.",
+                          "Overview ruler marker color for inline chat removed content.",
                           "Overview ruler marker color for modified content.",
                           "Overview ruler marker color for range highlights. The color must not be opaque so as not to hide underlying decorations.",
                           "Overview ruler marker color for selection highlights. The color must not be opaque so as not to hide underlying decorations.",
@@ -5890,8 +6057,10 @@
                           "Overview ruler marker color of a textual occurrence for a symbol. The color must not be opaque so as not to hide underlying decorations.",
                           "Background color of the editor pane visible on the left and right side of the centered editor layout.",
                           "Color of the editor rulers.",
-                          "Sticky scroll background color for the editor",
-                          "Sticky scroll on hover background color for the editor",
+                          "Background color of sticky scroll in the editor",
+                          "Border color of sticky scroll in the editor",
+                          " Shadow color of sticky scroll in the editor",
+                          "Background color of sticky scroll on hover in the editor",
                           "Background color of the suggest widget.",
                           "Border color of the suggest widget.",
                           "Color of the match highlights in the suggest widget when an item is focused.",
@@ -5908,6 +6077,7 @@
                           "Background color of warning text in the editor. The color must not be opaque so as not to hide underlying decorations.",
                           "If set, color of double underlines for warnings in the editor.",
                           "Foreground color of warning squigglies in the editor.",
+                          "Foreground color for the labels in the editor watermark.",
                           "Color of whitespace characters in the editor.",
                           "Background color of editor widgets, such as find/replace.",
                           "Border color of editor widgets. The color is only used if the widget chooses to have a border and if the color is not overridden by a widget.",
@@ -5968,8 +6138,6 @@
                           "Input validation border color for warning severity.",
                           "Input validation foreground color for warning severity.",
                           "The border color for the current interactive code cell when the editor has focus.",
-                          "The border color for the current interactive code cell when the editor has focus.",
-                          "The border color for the current interactive code cell when the editor does not have focus.",
                           "The border color for the current interactive code cell when the editor does not have focus.",
                           "Keybinding label background color. The keybinding label is used to represent a keyboard shortcut.",
                           "Keybinding label border color. The keybinding label is used to represent a keyboard shortcut.",
@@ -5981,7 +6149,8 @@
                           "List/Tree foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.",
                           "List/Tree icon foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.",
                           "List/Tree foreground color for items that are deemphasized. ",
-                          "List/Tree drag and drop background when moving items around using the mouse.",
+                          "List/Tree drag and drop background when moving items over other items when using the mouse.",
+                          "List/Tree drag and drop border color when moving items between items when using the mouse.",
                           "Foreground color of list items containing errors.",
                           "Background color of the filtered match.",
                           "Border color of the filtered match.",
@@ -6048,6 +6217,8 @@
                           "Minimap slider background color when clicked on.",
                           "Minimap slider background color.",
                           "Minimap slider background color when hovering.",
+                          "The background color of the multi file diff editor",
+                          "The border color of the multi file diff editor",
                           "The background color of the diff editor's header",
                           "The border color for notebook cells.",
                           "Cell editor background color.",
@@ -6084,6 +6255,8 @@
                           "The color used for the icon of info notifications. Notifications slide in from the bottom right of the window.",
                           "The color used for the icon of warning notifications. Notifications slide in from the bottom right of the window.",
                           "Notification toast border color. Notifications slide in from the bottom right of the window.",
+                          "Output view background color.",
+                          "Output view sticky scroll background color.",
                           "Panel background color. Panels are shown below the editor area and contain views like output and integrated terminal.",
                           "Panel border color to separate the panel from the editor. Panels are shown below the editor area and contain views like output and integrated terminal.",
                           "Drag and drop feedback color for the panel titles. Panels are shown below the editor area and contain views like output and integrated terminal.",
@@ -6303,6 +6476,11 @@
                           "Overview ruler marker color for find matches in the terminal.",
                           "The background color of the sticky scroll overlay in the terminal.",
                           "The background color of the sticky scroll overlay in the terminal when hovered.",
+                          "Background for the badge indicating execution count",
+                          "Foreground for the badge indicating execution count",
+                          "Background color of text that was covered.",
+                          "Border color of text that was covered.",
+                          "Gutter color of regions where code was covered.",
                           "Color for the 'Errored' icon in the test explorer.",
                           "Color for the 'failed' icon in the test explorer.",
                           "Color for the 'passed' icon in the test explorer.",
@@ -6313,9 +6491,15 @@
                           "Margin color beside error messages shown inline in the editor.",
                           "Text color of test info messages shown inline in the editor.",
                           "Margin color beside info messages shown inline in the editor.",
+                          "Color of the peek view borders and arrow when peeking a logged message.",
+                          "Color of the peek view borders and arrow when peeking a logged message.",
                           "Color of the peek view borders and arrow.",
                           "Color of the peek view borders and arrow.",
                           "Color for 'run' icons in the editor.",
+                          "Background color of text that was not covered.",
+                          "Border color of text that was not covered.",
+                          "Background of the widget shown for an uncovered branch.",
+                          "Gutter color of regions where code not covered.",
                           "Background color for block quotes in text.",
                           "Border color for block quotes in text.",
                           "Background color for code blocks in text.",
@@ -6964,6 +7148,26 @@
             }
           }
         },
+        "debugVisualizers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Name of the debug visualizer"
+              },
+              "when": {
+                "type": "string",
+                "description": "Condition when the debug visualizer is applicable"
+              }
+            },
+            "required": [
+              "id",
+              "when"
+            ]
+          }
+        },
         "documentation": {
           "type": "object",
           "description": "Contributed documentation.",
@@ -7153,6 +7357,7 @@
                       "close-dirty",
                       "debug-breakpoint",
                       "debug-breakpoint-disabled",
+                      "debug-breakpoint-pending",
                       "debug-hint",
                       "primitive-square",
                       "edit",
@@ -7646,6 +7851,10 @@
                       "sparkle-filled",
                       "diff-single",
                       "diff-multiple",
+                      "surround-with",
+                      "git-stash",
+                      "git-stash-apply",
+                      "git-stash-pop",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -7699,6 +7908,7 @@
                       "notifications-configure",
                       "notifications-do-not-disturb",
                       "default-view-icon",
+                      "chat-editor-label-icon",
                       "review-comment-collapse",
                       "debug-console-view-icon",
                       "run-view-icon",
@@ -7723,6 +7933,7 @@
                       "debug-console-evaluation-input",
                       "debug-console-evaluation-prompt",
                       "debug-inspect-memory",
+                      "disassembly-editor-label-icon",
                       "edit-sessions-view-icon",
                       "extensions-view-icon",
                       "extensions-manage",
@@ -7747,8 +7958,11 @@
                       "extensions-info-message",
                       "extension-workspace-trust",
                       "extension-activation-time",
+                      "extensions-editor-label-icon",
+                      "runtime-extensions-editor-label-icon",
                       "localHistory-icon",
                       "localHistory-restore",
+                      "multi-diff-editor-label-icon",
                       "notebook-kernel-select",
                       "notebook-execute",
                       "notebook-execute-above",
@@ -7775,7 +7989,6 @@
                       "notebook-copy",
                       "notebook-diff-editor-previous-change",
                       "notebook-diff-editor-next-change",
-                      "find-filter",
                       "settings-folder-dropdown",
                       "settings-more-action",
                       "keybindings-record-keys",
@@ -7805,6 +8018,7 @@
                       "ports-forwarded-without-process-icon",
                       "ports-forwarded-with-process-icon",
                       "search-details",
+                      "search-see-more",
                       "search-show-context",
                       "search-hide-replace",
                       "search-show-replace",
@@ -7839,6 +8053,8 @@
                       "testing-run-all-icon",
                       "testing-debug-all-icon",
                       "testing-debug-icon",
+                      "testing-coverage-icon",
+                      "testing-coverage-all-icon",
                       "testing-cancel-icon",
                       "testing-filter",
                       "testing-hidden",
@@ -7850,6 +8066,8 @@
                       "testing-continuous-is-on",
                       "testing-cancel-refresh-tests",
                       "testing-coverage",
+                      "testing-was-covered",
+                      "testing-missing-branch",
                       "testing-error-icon",
                       "testing-failed-icon",
                       "testing-passed-icon",
@@ -7864,10 +8082,20 @@
                       "markers-view-multi-line-collapsed",
                       "tasks-list-configure",
                       "tasks-remove",
+                      "find-filter",
                       "auxiliarybar-right-layout-icon",
                       "auxiliarybar-right-off-layout-icon",
                       "auxiliarybar-left-layout-icon",
                       "auxiliarybar-left-off-layout-icon",
+                      "keybindings-editor-label-icon",
+                      "settings-editor-label-icon",
+                      "breadcrumb-separator",
+                      "getting-started-setup",
+                      "getting-started-beginner",
+                      "theme-selection-manage-extension",
+                      "defaultProfile-icon",
+                      "settings-view-bar-icon",
+                      "settings-sync-view-icon",
                       "panel-maximize",
                       "panel-restore",
                       "panel-close",
@@ -7892,31 +8120,24 @@
                       "configure-layout-icon",
                       "view-pane-container-expanded",
                       "view-pane-container-collapsed",
-                      "breadcrumb-separator",
-                      "getting-started-setup",
-                      "getting-started-beginner",
-                      "theme-selection-manage-extension",
-                      "defaultProfile-icon",
-                      "settings-view-bar-icon",
-                      "settings-sync-view-icon",
                       "timeline-refresh",
                       "timeline-pin",
                       "timeline-unpin",
                       "diff-editor-previous-change",
                       "diff-editor-next-change",
                       "diff-editor-toggle-whitespace",
+                      "workspace-trust-editor-label-icon",
                       "accounts-view-bar-icon",
                       "comments-view-icon",
                       "refactor-preview-view-icon",
                       "explorer-view-icon",
                       "open-editors-view-icon",
                       "start-inline-chat",
-                      "inline-chat-opaque",
-                      "inline-chat-transparent",
                       "markers-view-icon",
                       "outline-view-icon",
                       "output-view-icon",
                       "source-control-view-icon",
+                      "search-editor-label-icon",
                       "timeline-view-icon",
                       "timeline-open",
                       "timeline-filter",
@@ -7978,6 +8199,7 @@
                       "",
                       "Icon for breakpoints.",
                       "Icon for disabled breakpoints.",
+                      "Icon for breakpoints waiting on another breakpoint.",
                       "Icon for breakpoint hints shown on hover in editor glyph margin.",
                       "",
                       "",
@@ -8489,6 +8711,10 @@
                       "",
                       "",
                       "",
+                      "",
+                      "",
+                      "",
+                      "",
                       "Icon for the close action in widgets.",
                       "Icon for goto previous editor location.",
                       "Icon for goto next editor location.",
@@ -8524,6 +8750,7 @@
                       "Icon for the configure action in notifications.",
                       "Icon for the mute all action in notifications.",
                       "Default view icon.",
+                      "Icon of the chat editor label.",
                       "Icon to collapse a review comment.",
                       "View icon of the debug console view.",
                       "View icon of the run view.",
@@ -8548,6 +8775,7 @@
                       "Icon for the debug evaluation input marker.",
                       "Icon for the debug evaluation prompt.",
                       "Icon for the inspect memory action.",
+                      "Icon of the disassembly editor label.",
                       "View icon of the cloud changes view.",
                       "View icon of the extensions view.",
                       "Icon for the 'Manage' action in the extensions view.",
@@ -8572,8 +8800,11 @@
                       "Icon shown with an info message in the extensions editor.",
                       "Icon shown with a workspace trust message in the extension editor.",
                       "Icon shown with a activation time message in the extension editor.",
+                      "Icon of the extensions editor label.",
+                      "Icon of the runtime extensions editor label.",
                       "Icon for a local history entry in the timeline view.",
                       "Icon for restoring contents of a local history entry.",
+                      "Icon of the multi diff editor label.",
                       "Configure icon to select a kernel in notebook editors.",
                       "Icon to execute in notebook editors.",
                       "Icon to execute above cells in notebook editors.",
@@ -8600,7 +8831,6 @@
                       "Icon to copy content to clipboard",
                       "Icon for the previous change action in the diff editor.",
                       "Icon for the next change action in the diff editor.",
-                      "Icon for Find Filter in find widget.",
                       "Icon for the folder dropdown button in the split JSON Settings editor.",
                       "Icon for the 'more actions' action in the Settings UI.",
                       "Icon for the 'record keys' action in the keybinding UI.",
@@ -8630,6 +8860,7 @@
                       "Icon for forwarded ports that don't have a running process.",
                       "Icon for forwarded ports that do have a running process.",
                       "Icon to make search details visible.",
+                      "Icon to view more context in the search view.",
                       "Icon for toggle the context in the search editor.",
                       "Icon to collapse the replace section in the search view.",
                       "Icon to expand the replace section in the search view.",
@@ -8664,6 +8895,8 @@
                       "Icon of the \"run all tests\" action.",
                       "Icon of the \"debug all tests\" action.",
                       "Icon of the \"debug test\" action.",
+                      "Icon of the \"run test with coverage\" action.",
+                      "Icon of the \"run all tests with coverage\" action.",
                       "Icon to cancel ongoing test runs.",
                       "Icon for the 'Filter' action in the testing view.",
                       "Icon shown beside hidden tests, when they've been shown.",
@@ -8675,6 +8908,8 @@
                       "Icon when continuous run is on for a test ite,.",
                       "Icon on the button to cancel refreshing tests.",
                       "Icon representing test coverage",
+                      "Icon representing that an element was covered",
+                      "Icon representing a uncovered block without a range",
                       "Icon shown for tests that have an error.",
                       "Icon shown for tests that failed.",
                       "Icon shown for tests that passed.",
@@ -8689,10 +8924,20 @@
                       "Icon indicating that multiple lines are collapsed in the markers view.",
                       "Configuration icon in the tasks selection list.",
                       "Icon for remove in the tasks selection list.",
+                      "Icon for Find Filter in find widget.",
                       "Icon to toggle the auxiliary bar off in its right position.",
                       "Icon to toggle the auxiliary bar on in its right position.",
                       "Icon to toggle the auxiliary bar in its left position.",
                       "Icon to toggle the auxiliary bar on in its left position.",
+                      "Icon of the keybindings editor label.",
+                      "Icon of the settings editor label.",
+                      "Icon for the separator in the breadcrumbs.",
+                      "Icon used for the setup category of welcome page",
+                      "Icon used for the beginner category of welcome page",
+                      "Icon for the 'Manage' action in the theme selection quick pick.",
+                      "Icon for Default Profile.",
+                      "Settings icon in the view bar.",
+                      "View icon of the Settings Sync view.",
                       "Icon to maximize a panel.",
                       "Icon to restore a panel.",
                       "Icon to close a panel.",
@@ -8717,31 +8962,24 @@
                       "Icon represents workbench layout configuration.",
                       "Icon for an expanded view pane container.",
                       "Icon for a collapsed view pane container.",
-                      "Icon for the separator in the breadcrumbs.",
-                      "Icon used for the setup category of welcome page",
-                      "Icon used for the beginner category of welcome page",
-                      "Icon for the 'Manage' action in the theme selection quick pick.",
-                      "Icon for Default Profile.",
-                      "Settings icon in the view bar.",
-                      "View icon of the Settings Sync view.",
                       "Icon for the refresh timeline action.",
                       "Icon for the pin timeline action.",
                       "Icon for the unpin timeline action.",
                       "Icon for the previous change action in the diff editor.",
                       "Icon for the next change action in the diff editor.",
                       "Icon for the toggle whitespace action in the diff editor.",
+                      "Icon of the workspace trust editor label.",
                       "Accounts icon in the view bar.",
                       "View icon of the comments view.",
                       "View icon of the refactor preview view.",
                       "View icon of the explorer view.",
                       "View icon of the open editors view.",
                       "Icon which spawns the inline chat from the editor toolbar.",
-                      "Icon which spawns the inline chat from the gutter. It is half opaque by default and becomes completely opaque on hover.",
-                      "Icon which spawns the inline chat from the gutter. It is transparent by default and becomes opaque on hover.",
                       "View icon of the markers view.",
                       "View icon of the outline view.",
                       "View icon of the output view.",
                       "View icon of the Source Control view.",
+                      "Icon of the search editor label.",
                       "View icon of the timeline view.",
                       "Icon for the open timeline action.",
                       "Icon for the filter timeline action.",
@@ -10674,6 +10912,58 @@
                 ]
               }
             },
+            "multiDiffEditor/resource/title": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribMultiDiffEditorMenus\"]` - The resource toolbar in the multi diff editor",
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "command"
+                    ],
+                    "properties": {
+                      "alt": {
+                        "description": "Identifier of an alternative command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "command": {
+                        "description": "Identifier of the command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "submenu"
+                    ],
+                    "properties": {
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "submenu": {
+                        "description": "Identifier of the submenu to display in this item.",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
             "notebook/cell/execute": {
               "markdownDescription": "The contributed notebook cell execution menu",
               "type": "array",
@@ -11090,8 +11380,320 @@
                 ]
               }
             },
+            "scm/incomingChanges": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlHistoryItemGroupMenu\"]` - The Source Control incoming changes menu",
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "command"
+                    ],
+                    "properties": {
+                      "alt": {
+                        "description": "Identifier of an alternative command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "command": {
+                        "description": "Identifier of the command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "submenu"
+                    ],
+                    "properties": {
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "submenu": {
+                        "description": "Identifier of the submenu to display in this item.",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "scm/incomingChanges/allChanges/context": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlHistoryItemMenu\"]` - The Source Control all incoming changes context menu",
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "command"
+                    ],
+                    "properties": {
+                      "alt": {
+                        "description": "Identifier of an alternative command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "command": {
+                        "description": "Identifier of the command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "submenu"
+                    ],
+                    "properties": {
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "submenu": {
+                        "description": "Identifier of the submenu to display in this item.",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "scm/incomingChanges/historyItem/context": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlHistoryItemMenu\"]` - The Source Control incoming changes history item context menu",
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "command"
+                    ],
+                    "properties": {
+                      "alt": {
+                        "description": "Identifier of an alternative command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "command": {
+                        "description": "Identifier of the command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "submenu"
+                    ],
+                    "properties": {
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "submenu": {
+                        "description": "Identifier of the submenu to display in this item.",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
             "scm/inputBox": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlInputBoxMenu\"]` - The Source Control input box menu",
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "command"
+                    ],
+                    "properties": {
+                      "alt": {
+                        "description": "Identifier of an alternative command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "command": {
+                        "description": "Identifier of the command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "submenu"
+                    ],
+                    "properties": {
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "submenu": {
+                        "description": "Identifier of the submenu to display in this item.",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "scm/outgoingChanges": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlHistoryItemGroupMenu\"]` - The Source Control outgoing changes menu",
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "command"
+                    ],
+                    "properties": {
+                      "alt": {
+                        "description": "Identifier of an alternative command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "command": {
+                        "description": "Identifier of the command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "submenu"
+                    ],
+                    "properties": {
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "submenu": {
+                        "description": "Identifier of the submenu to display in this item.",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "scm/outgoingChanges/allChanges/context": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlHistoryItemMenu\"]` - The Source Control all outgoing changes context menu",
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "command"
+                    ],
+                    "properties": {
+                      "alt": {
+                        "description": "Identifier of an alternative command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "command": {
+                        "description": "Identifier of the command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "submenu"
+                    ],
+                    "properties": {
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "submenu": {
+                        "description": "Identifier of the submenu to display in this item.",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "scm/outgoingChanges/historyItem/context": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlHistoryItemMenu\"]` - The Source Control outgoing changes history item context menu",
               "type": "array",
               "items": {
                 "oneOf": [
@@ -14284,9 +14886,10 @@
           "chatProvider",
           "chatRequestAccess",
           "chatTab",
-          "chatVariables",
           "codeActionAI",
+          "codeActionRanges",
           "codiconDecoration",
+          "commentReactor",
           "commentsDraftState",
           "contribCommentEditorActionsMenu",
           "contribCommentPeekContext",
@@ -14296,9 +14899,12 @@
           "contribLabelFormatterWorkspaceTooltip",
           "contribMenuBarHome",
           "contribMergeEditorMenus",
+          "contribMultiDiffEditorMenus",
           "contribNotebookStaticPreloads",
           "contribRemoteHelp",
           "contribShareMenu",
+          "contribSourceControlHistoryItemGroupMenu",
+          "contribSourceControlHistoryItemMenu",
           "contribSourceControlInputBoxMenu",
           "contribStatusBarItems",
           "contribViewsRemote",
@@ -14306,6 +14912,7 @@
           "createFileSystemWatcher",
           "customEditorMove",
           "debugFocus",
+          "debugVisualization",
           "defaultChatAgent",
           "diffCommand",
           "diffContentOptions",
@@ -14325,7 +14932,6 @@
           "idToken",
           "inlineCompletionsAdditions",
           "interactive",
-          "interactiveUserActions",
           "interactiveWindow",
           "ipc",
           "languageStatusText",
@@ -14345,13 +14951,10 @@
           "quickDiffProvider",
           "quickPickItemTooltip",
           "quickPickSortByLabel",
-          "readonlyMessage",
           "resolvers",
-          "saveEditor",
           "scmActionButton",
           "scmHistoryProvider",
-          "scmInputBoxActionButton",
-          "scmInputBoxValueProvider",
+          "scmMultiDiffEditor",
           "scmSelectedProvider",
           "scmTextDocument",
           "scmValidation",
@@ -14367,7 +14970,6 @@
           "terminalQuickFixProvider",
           "terminalSelection",
           "testCoverage",
-          "testingActiveProfile",
           "testObserver",
           "textSearchProvider",
           "timeline",
@@ -14391,9 +14993,10 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatRequestAccess.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatTab.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatVariables.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.codeActionAI.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.codeActionRanges.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.codiconDecoration.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.commentReactor.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.commentsDraftState.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribCommentEditorActionsMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribCommentPeekContext.d.ts",
@@ -14403,9 +15006,12 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribLabelFormatterWorkspaceTooltip.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribMenuBarHome.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribMergeEditorMenus.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribMultiDiffEditorMenus.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribNotebookStaticPreloads.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribRemoteHelp.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribShareMenu.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribSourceControlHistoryItemGroupMenu.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribSourceControlHistoryItemMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribSourceControlInputBoxMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribStatusBarItems.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribViewsRemote.d.ts",
@@ -14413,6 +15019,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.createFileSystemWatcher.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.customEditorMove.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.debugFocus.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.debugVisualization.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.defaultChatAgent.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.diffCommand.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.diffContentOptions.d.ts",
@@ -14432,7 +15039,6 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.idToken.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.inlineCompletionsAdditions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.interactive.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.interactiveUserActions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.interactiveWindow.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.ipc.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageStatusText.d.ts",
@@ -14452,13 +15058,10 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.quickDiffProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.quickPickItemTooltip.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.quickPickSortByLabel.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.readonlyMessage.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.resolvers.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.saveEditor.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmActionButton.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmHistoryProvider.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmInputBoxActionButton.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmInputBoxValueProvider.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmMultiDiffEditor.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmSelectedProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmTextDocument.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmValidation.d.ts",
@@ -14474,7 +15077,6 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalQuickFixProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalSelection.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.testCoverage.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.testingActiveProfile.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.testObserver.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.textSearchProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.timeline.d.ts",

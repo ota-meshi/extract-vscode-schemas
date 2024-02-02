@@ -111,6 +111,46 @@
         }
       ]
     },
+    "activityBarTop.activeBorder": {
+      "type": "string",
+      "description": "Focus border color for the active item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "activityBarTop.dropBorder": {
+      "type": "string",
+      "description": "Drag and drop feedback color for the items in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "activityBarTop.foreground": {
+      "type": "string",
+      "description": "Active foreground color of the item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "activityBarTop.inactiveForeground": {
+      "type": "string",
+      "description": "Inactive foreground color of the item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "badge.background": {
       "type": "string",
       "description": "Badge background color. Badges are small information labels, e.g. for search results count.",
@@ -529,7 +569,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "commandCenter.foreground": {
       "type": "string",
@@ -989,7 +1031,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "diffEditor.insertedTextBackground": {
       "type": "string",
@@ -999,7 +1043,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "diffEditor.insertedTextBorder": {
       "type": "string",
@@ -1039,7 +1085,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "diffEditor.removedTextBackground": {
       "type": "string",
@@ -1049,7 +1097,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "diffEditor.removedTextBorder": {
       "type": "string",
@@ -1229,7 +1279,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editor.findMatchHighlightBorder": {
       "type": "string",
@@ -1249,7 +1301,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editor.findRangeHighlightBorder": {
       "type": "string",
@@ -1259,7 +1313,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editor.focusedStackFrameHighlightBackground": {
       "type": "string",
@@ -1279,7 +1335,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editor.foreground": {
       "type": "string",
@@ -1299,7 +1357,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editor.inactiveSelectionBackground": {
       "type": "string",
@@ -1309,7 +1369,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editor.inlineValuesBackground": {
       "type": "string",
@@ -1369,7 +1431,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editor.rangeHighlightBorder": {
       "type": "string",
@@ -1379,7 +1443,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editor.selectionBackground": {
       "type": "string",
@@ -1409,7 +1475,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editor.selectionHighlightBorder": {
       "type": "string",
@@ -1479,7 +1547,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editor.symbolHighlightBorder": {
       "type": "string",
@@ -1489,7 +1559,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editor.wordHighlightBackground": {
       "type": "string",
@@ -1499,7 +1571,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editor.wordHighlightBorder": {
       "type": "string",
@@ -1519,7 +1593,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editor.wordHighlightStrongBorder": {
       "type": "string",
@@ -1539,7 +1615,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editor.wordHighlightTextBorder": {
       "type": "string",
@@ -1860,7 +1938,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editorError.border": {
       "type": "string",
@@ -2322,7 +2402,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editorInfo.border": {
       "type": "string",
@@ -2652,7 +2734,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editorOverviewRuler.incomingContentForeground": {
       "type": "string",
@@ -2667,6 +2751,26 @@
     "editorOverviewRuler.infoForeground": {
       "type": "string",
       "description": "Overview ruler marker color for infos.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "editorOverviewRuler.inlineChatInserted": {
+      "type": "string",
+      "description": "Overview ruler marker color for inline chat inserted content.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "editorOverviewRuler.inlineChatRemoved": {
+      "type": "string",
+      "description": "Overview ruler marker color for inline chat removed content.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -2692,7 +2796,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editorOverviewRuler.selectionHighlightForeground": {
       "type": "string",
@@ -2702,7 +2808,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editorOverviewRuler.warningForeground": {
       "type": "string",
@@ -2722,7 +2830,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editorOverviewRuler.wordHighlightStrongForeground": {
       "type": "string",
@@ -2732,7 +2842,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editorOverviewRuler.wordHighlightTextForeground": {
       "type": "string",
@@ -2742,7 +2854,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editorPane.background": {
       "type": "string",
@@ -2766,7 +2880,27 @@
     },
     "editorStickyScroll.background": {
       "type": "string",
-      "description": "Sticky scroll background color for the editor",
+      "description": "Background color of sticky scroll in the editor",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "editorStickyScroll.border": {
+      "type": "string",
+      "description": "Border color of sticky scroll in the editor",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "editorStickyScroll.shadow": {
+      "type": "string",
+      "description": " Shadow color of sticky scroll in the editor",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -2776,7 +2910,7 @@
     },
     "editorStickyScrollHover.background": {
       "type": "string",
-      "description": "Sticky scroll on hover background color for the editor",
+      "description": "Background color of sticky scroll on hover in the editor",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -2922,7 +3056,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editorWarning.border": {
       "type": "string",
@@ -2937,6 +3073,16 @@
     "editorWarning.foreground": {
       "type": "string",
       "description": "Foreground color of warning squigglies in the editor.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "editorWatermark.foreground": {
+      "type": "string",
+      "description": "Foreground color for the labels in the editor watermark.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -3102,7 +3248,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "extensionIcon.sponsorForeground": {
       "type": "string",
@@ -3112,7 +3260,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "extensionIcon.starForeground": {
       "type": "string",
@@ -3122,7 +3272,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "extensionIcon.verifiedForeground": {
       "type": "string",
@@ -3132,7 +3284,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "focusBorder": {
       "type": "string",
@@ -3292,7 +3446,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "inlineChat.shadow": {
       "type": "string",
@@ -3656,7 +3812,17 @@
     },
     "list.dropBackground": {
       "type": "string",
-      "description": "List/Tree drag and drop background when moving items around using the mouse.",
+      "description": "List/Tree drag and drop background when moving items over other items when using the mouse.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "list.dropBetweenBackground": {
+      "type": "string",
+      "description": "List/Tree drag and drop border color when moving items between items when using the mouse.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -4002,7 +4168,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "merge.commonHeaderBackground": {
       "type": "string",
@@ -4012,7 +4180,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "merge.currentContentBackground": {
       "type": "string",
@@ -4022,7 +4192,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "merge.currentHeaderBackground": {
       "type": "string",
@@ -4032,7 +4204,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "merge.incomingContentBackground": {
       "type": "string",
@@ -4042,7 +4216,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "merge.incomingHeaderBackground": {
       "type": "string",
@@ -4052,7 +4228,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "mergeEditor.change.background": {
       "type": "string",
@@ -4212,7 +4390,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "minimap.foregroundOpacity": {
       "type": "string",
@@ -4242,7 +4422,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "minimap.selectionOccurrenceHighlight": {
       "type": "string",
@@ -4252,7 +4434,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "minimap.warningHighlight": {
       "type": "string",
@@ -4317,6 +4501,26 @@
     "minimapSlider.hoverBackground": {
       "type": "string",
       "description": "Minimap slider background color when hovering.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "multiDiffEditor.background": {
+      "type": "string",
+      "description": "The background color of the multi file diff editor",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "multiDiffEditor.border": {
+      "type": "string",
+      "description": "The border color of the multi file diff editor",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -4677,6 +4881,26 @@
     "notificationToast.border": {
       "type": "string",
       "description": "Notification toast border color. Notifications slide in from the bottom right of the window.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "outputView.background": {
+      "type": "string",
+      "description": "Output view background color.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "outputViewStickyScroll.background": {
+      "type": "string",
+      "description": "Output view sticky scroll background color.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -6683,7 +6907,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "terminal.findMatchBackground": {
       "type": "string",
@@ -6693,7 +6919,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "terminal.findMatchBorder": {
       "type": "string",
@@ -6713,7 +6941,9 @@
         {
           "body": "${1:#ff0000}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "terminal.findMatchHighlightBorder": {
       "type": "string",
@@ -6875,6 +7105,56 @@
         }
       ]
     },
+    "testing.coverCountBadgeBackground": {
+      "type": "string",
+      "description": "Background for the badge indicating execution count",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "testing.coverCountBadgeForeground": {
+      "type": "string",
+      "description": "Foreground for the badge indicating execution count",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "testing.coveredBackground": {
+      "type": "string",
+      "description": "Background color of text that was covered.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "testing.coveredBorder": {
+      "type": "string",
+      "description": "Border color of text that was covered.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "testing.coveredGutterBackground": {
+      "type": "string",
+      "description": "Gutter color of regions where code was covered.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "testing.iconErrored": {
       "type": "string",
       "description": "Color for the 'Errored' icon in the test explorer.",
@@ -6975,6 +7255,26 @@
         }
       ]
     },
+    "testing.messagePeekBorder": {
+      "type": "string",
+      "description": "Color of the peek view borders and arrow when peeking a logged message.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "testing.messagePeekHeaderBackground": {
+      "type": "string",
+      "description": "Color of the peek view borders and arrow when peeking a logged message.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "testing.peekBorder": {
       "type": "string",
       "description": "Color of the peek view borders and arrow.",
@@ -6998,6 +7298,46 @@
     "testing.runAction": {
       "type": "string",
       "description": "Color for 'run' icons in the editor.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "testing.uncoveredBackground": {
+      "type": "string",
+      "description": "Background color of text that was not covered.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "testing.uncoveredBorder": {
+      "type": "string",
+      "description": "Border color of text that was not covered.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "testing.uncoveredBranchBackground": {
+      "type": "string",
+      "description": "Background of the widget shown for an uncovered branch.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "testing.uncoveredGutterBackground": {
+      "type": "string",
+      "description": "Gutter color of regions where code not covered.",
       "format": "color-hex",
       "defaultSnippets": [
         {

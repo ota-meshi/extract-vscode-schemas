@@ -447,7 +447,7 @@
               },
               "outFiles": {
                 "default": [
-                  "${workspaceFolder}/**/*.js",
+                  "${workspaceFolder}/**/*.(m|c|)js",
                   "!**/node_modules/**"
                 ],
                 "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -682,7 +682,7 @@
                       },
                       "outFiles": {
                         "default": [
-                          "${workspaceFolder}/**/*.js",
+                          "${workspaceFolder}/**/*.(m|c|)js",
                           "!**/node_modules/**"
                         ],
                         "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -1008,7 +1008,7 @@
                       },
                       "outFiles": {
                         "default": [
-                          "${workspaceFolder}/**/*.js",
+                          "${workspaceFolder}/**/*.(m|c|)js",
                           "!**/node_modules/**"
                         ],
                         "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -1506,7 +1506,7 @@
               },
               "outFiles": {
                 "default": [
-                  "${workspaceFolder}/**/*.js",
+                  "${workspaceFolder}/**/*.(m|c|)js",
                   "!**/node_modules/**"
                 ],
                 "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -1741,7 +1741,7 @@
                       },
                       "outFiles": {
                         "default": [
-                          "${workspaceFolder}/**/*.js",
+                          "${workspaceFolder}/**/*.(m|c|)js",
                           "!**/node_modules/**"
                         ],
                         "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -2067,7 +2067,7 @@
                       },
                       "outFiles": {
                         "default": [
-                          "${workspaceFolder}/**/*.js",
+                          "${workspaceFolder}/**/*.(m|c|)js",
                           "!**/node_modules/**"
                         ],
                         "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -2579,7 +2579,7 @@
               },
               "outFiles": {
                 "default": [
-                  "${workspaceFolder}/**/*.js",
+                  "${workspaceFolder}/**/*.(m|c|)js",
                   "!**/node_modules/**"
                 ],
                 "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -2814,7 +2814,7 @@
                       },
                       "outFiles": {
                         "default": [
-                          "${workspaceFolder}/**/*.js",
+                          "${workspaceFolder}/**/*.(m|c|)js",
                           "!**/node_modules/**"
                         ],
                         "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -3140,7 +3140,7 @@
                       },
                       "outFiles": {
                         "default": [
-                          "${workspaceFolder}/**/*.js",
+                          "${workspaceFolder}/**/*.(m|c|)js",
                           "!**/node_modules/**"
                         ],
                         "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -3639,7 +3639,7 @@
               },
               "outFiles": {
                 "default": [
-                  "${workspaceFolder}/**/*.js",
+                  "${workspaceFolder}/**/*.(m|c|)js",
                   "!**/node_modules/**"
                 ],
                 "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -3874,7 +3874,7 @@
                       },
                       "outFiles": {
                         "default": [
-                          "${workspaceFolder}/**/*.js",
+                          "${workspaceFolder}/**/*.(m|c|)js",
                           "!**/node_modules/**"
                         ],
                         "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -4200,7 +4200,7 @@
                       },
                       "outFiles": {
                         "default": [
-                          "${workspaceFolder}/**/*.js",
+                          "${workspaceFolder}/**/*.(m|c|)js",
                           "!**/node_modules/**"
                         ],
                         "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -4744,7 +4744,7 @@
               },
               "outFiles": {
                 "default": [
-                  "${workspaceFolder}/**/*.js",
+                  "${workspaceFolder}/**/*.(m|c|)js",
                   "!**/node_modules/**"
                 ],
                 "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -5200,7 +5200,7 @@
               },
               "outFiles": {
                 "default": [
-                  "${workspaceFolder}/**/*.js",
+                  "${workspaceFolder}/**/*.(m|c|)js",
                   "!**/node_modules/**"
                 ],
                 "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -5672,7 +5672,7 @@
               },
               "outFiles": {
                 "default": [
-                  "${workspaceFolder}/**/*.js",
+                  "${workspaceFolder}/**/*.(m|c|)js",
                   "!**/node_modules/**"
                 ],
                 "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -5919,7 +5919,7 @@
                       },
                       "outFiles": {
                         "default": [
-                          "${workspaceFolder}/**/*.js",
+                          "${workspaceFolder}/**/*.(m|c|)js",
                           "!**/node_modules/**"
                         ],
                         "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -6245,7 +6245,7 @@
                       },
                       "outFiles": {
                         "default": [
-                          "${workspaceFolder}/**/*.js",
+                          "${workspaceFolder}/**/*.(m|c|)js",
                           "!**/node_modules/**"
                         ],
                         "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -6970,7 +6970,7 @@
               },
               "outFiles": {
                 "default": [
-                  "${workspaceFolder}/**/*.js",
+                  "${workspaceFolder}/**/*.(m|c|)js",
                   "!**/node_modules/**"
                 ],
                 "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -7217,7 +7217,7 @@
                       },
                       "outFiles": {
                         "default": [
-                          "${workspaceFolder}/**/*.js",
+                          "${workspaceFolder}/**/*.(m|c|)js",
                           "!**/node_modules/**"
                         ],
                         "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -7543,7 +7543,7 @@
                       },
                       "outFiles": {
                         "default": [
-                          "${workspaceFolder}/**/*.js",
+                          "${workspaceFolder}/**/*.(m|c|)js",
                           "!**/node_modules/**"
                         ],
                         "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -8263,7 +8263,7 @@
               },
               "outFiles": {
                 "default": [
-                  "${workspaceFolder}/**/*.js",
+                  "${workspaceFolder}/**/*.(m|c|)js",
                   "!**/node_modules/**"
                 ],
                 "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -8388,7 +8388,7 @@
                   },
                   "outFiles": {
                     "default": [
-                      "${workspaceFolder}/**/*.js",
+                      "${workspaceFolder}/**/*.(m|c|)js",
                       "!**/node_modules/**"
                     ],
                     "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -8584,7 +8584,7 @@
                           },
                           "outFiles": {
                             "default": [
-                              "${workspaceFolder}/**/*.js",
+                              "${workspaceFolder}/**/*.(m|c|)js",
                               "!**/node_modules/**"
                             ],
                             "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -8910,7 +8910,7 @@
                           },
                           "outFiles": {
                             "default": [
-                              "${workspaceFolder}/**/*.js",
+                              "${workspaceFolder}/**/*.(m|c|)js",
                               "!**/node_modules/**"
                             ],
                             "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -9781,7 +9781,7 @@
               },
               "outFiles": {
                 "default": [
-                  "${workspaceFolder}/**/*.js",
+                  "${workspaceFolder}/**/*.(m|c|)js",
                   "!**/node_modules/**"
                 ],
                 "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -9906,7 +9906,7 @@
                   },
                   "outFiles": {
                     "default": [
-                      "${workspaceFolder}/**/*.js",
+                      "${workspaceFolder}/**/*.(m|c|)js",
                       "!**/node_modules/**"
                     ],
                     "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -10102,7 +10102,7 @@
                           },
                           "outFiles": {
                             "default": [
-                              "${workspaceFolder}/**/*.js",
+                              "${workspaceFolder}/**/*.(m|c|)js",
                               "!**/node_modules/**"
                             ],
                             "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -10428,7 +10428,7 @@
                           },
                           "outFiles": {
                             "default": [
-                              "${workspaceFolder}/**/*.js",
+                              "${workspaceFolder}/**/*.(m|c|)js",
                               "!**/node_modules/**"
                             ],
                             "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -11327,7 +11327,7 @@
               },
               "outFiles": {
                 "default": [
-                  "${workspaceFolder}/**/*.js",
+                  "${workspaceFolder}/**/*.(m|c|)js",
                   "!**/node_modules/**"
                 ],
                 "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -12011,7 +12011,7 @@
               },
               "outFiles": {
                 "default": [
-                  "${workspaceFolder}/**/*.js",
+                  "${workspaceFolder}/**/*.(m|c|)js",
                   "!**/node_modules/**"
                 ],
                 "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -12649,7 +12649,7 @@
               },
               "outFiles": {
                 "default": [
-                  "${workspaceFolder}/**/*.js",
+                  "${workspaceFolder}/**/*.(m|c|)js",
                   "!**/node_modules/**"
                 ],
                 "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -13228,7 +13228,7 @@
               },
               "outFiles": {
                 "default": [
-                  "${workspaceFolder}/**/*.js",
+                  "${workspaceFolder}/**/*.(m|c|)js",
                   "!**/node_modules/**"
                 ],
                 "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -13475,7 +13475,7 @@
                       },
                       "outFiles": {
                         "default": [
-                          "${workspaceFolder}/**/*.js",
+                          "${workspaceFolder}/**/*.(m|c|)js",
                           "!**/node_modules/**"
                         ],
                         "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -13801,7 +13801,7 @@
                       },
                       "outFiles": {
                         "default": [
-                          "${workspaceFolder}/**/*.js",
+                          "${workspaceFolder}/**/*.(m|c|)js",
                           "!**/node_modules/**"
                         ],
                         "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -14512,7 +14512,7 @@
               },
               "outFiles": {
                 "default": [
-                  "${workspaceFolder}/**/*.js",
+                  "${workspaceFolder}/**/*.(m|c|)js",
                   "!**/node_modules/**"
                 ],
                 "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -14759,7 +14759,7 @@
                       },
                       "outFiles": {
                         "default": [
-                          "${workspaceFolder}/**/*.js",
+                          "${workspaceFolder}/**/*.(m|c|)js",
                           "!**/node_modules/**"
                         ],
                         "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -15085,7 +15085,7 @@
                       },
                       "outFiles": {
                         "default": [
-                          "${workspaceFolder}/**/*.js",
+                          "${workspaceFolder}/**/*.(m|c|)js",
                           "!**/node_modules/**"
                         ],
                         "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -15914,7 +15914,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -16149,7 +16149,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -16475,7 +16475,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -16958,7 +16958,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -17185,7 +17185,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -17511,7 +17511,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -18016,7 +18016,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -18263,7 +18263,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -18589,7 +18589,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -19285,7 +19285,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -19524,7 +19524,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -19850,7 +19850,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -20418,126 +20418,7 @@
         "postDebugTask": {
           "anyOf": [
             {
-              "oneOf": [
-                {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "script"
-                  ],
-                  "properties": {
-                    "path": {
-                      "type": "string",
-                      "description": "The path to the folder of the package.json file that provides the script. Can be omitted."
-                    },
-                    "script": {
-                      "type": "string",
-                      "description": "The npm script to customize."
-                    },
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "npm"
-                      ]
-                    }
-                  }
-                },
-                {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "task"
-                  ],
-                  "properties": {
-                    "args": {
-                      "type": "array",
-                      "description": "Command line arguments to pass to the grunt task"
-                    },
-                    "file": {
-                      "type": "string",
-                      "description": "The Grunt file that provides the task. Can be omitted."
-                    },
-                    "task": {
-                      "type": "string",
-                      "description": "The Grunt task to customize."
-                    },
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "grunt"
-                      ]
-                    }
-                  }
-                },
-                {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "task"
-                  ],
-                  "properties": {
-                    "file": {
-                      "type": "string",
-                      "description": "The Gulp file that provides the task. Can be omitted."
-                    },
-                    "task": {
-                      "type": "string",
-                      "description": "The Gulp task to customize."
-                    },
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "gulp"
-                      ]
-                    }
-                  }
-                },
-                {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "task"
-                  ],
-                  "properties": {
-                    "file": {
-                      "type": "string",
-                      "description": "The Jake file that provides the task. Can be omitted."
-                    },
-                    "task": {
-                      "type": "string",
-                      "description": "The Jake task to customize."
-                    },
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "jake"
-                      ]
-                    }
-                  }
-                },
-                {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "tsconfig"
-                  ],
-                  "properties": {
-                    "option": {
-                      "type": "string"
-                    },
-                    "tsconfig": {
-                      "type": "string",
-                      "description": "The tsconfig file that defines the TS build."
-                    },
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "typescript"
-                      ]
-                    }
-                  }
-                }
-              ]
+              "oneOf": []
             },
             {
               "type": [
@@ -20559,126 +20440,7 @@
         "preLaunchTask": {
           "anyOf": [
             {
-              "oneOf": [
-                {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "script"
-                  ],
-                  "properties": {
-                    "path": {
-                      "type": "string",
-                      "description": "The path to the folder of the package.json file that provides the script. Can be omitted."
-                    },
-                    "script": {
-                      "type": "string",
-                      "description": "The npm script to customize."
-                    },
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "npm"
-                      ]
-                    }
-                  }
-                },
-                {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "task"
-                  ],
-                  "properties": {
-                    "args": {
-                      "type": "array",
-                      "description": "Command line arguments to pass to the grunt task"
-                    },
-                    "file": {
-                      "type": "string",
-                      "description": "The Grunt file that provides the task. Can be omitted."
-                    },
-                    "task": {
-                      "type": "string",
-                      "description": "The Grunt task to customize."
-                    },
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "grunt"
-                      ]
-                    }
-                  }
-                },
-                {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "task"
-                  ],
-                  "properties": {
-                    "file": {
-                      "type": "string",
-                      "description": "The Gulp file that provides the task. Can be omitted."
-                    },
-                    "task": {
-                      "type": "string",
-                      "description": "The Gulp task to customize."
-                    },
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "gulp"
-                      ]
-                    }
-                  }
-                },
-                {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "task"
-                  ],
-                  "properties": {
-                    "file": {
-                      "type": "string",
-                      "description": "The Jake file that provides the task. Can be omitted."
-                    },
-                    "task": {
-                      "type": "string",
-                      "description": "The Jake task to customize."
-                    },
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "jake"
-                      ]
-                    }
-                  }
-                },
-                {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "tsconfig"
-                  ],
-                  "properties": {
-                    "option": {
-                      "type": "string"
-                    },
-                    "tsconfig": {
-                      "type": "string",
-                      "description": "The tsconfig file that defines the TS build."
-                    },
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "typescript"
-                      ]
-                    }
-                  }
-                }
-              ]
+              "oneOf": []
             },
             {
               "type": [
@@ -20869,7 +20631,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -20994,7 +20756,7 @@
             },
             "outFiles": {
               "default": [
-                "${workspaceFolder}/**/*.js",
+                "${workspaceFolder}/**/*.(m|c|)js",
                 "!**/node_modules/**"
               ],
               "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -21190,7 +20952,7 @@
                     },
                     "outFiles": {
                       "default": [
-                        "${workspaceFolder}/**/*.js",
+                        "${workspaceFolder}/**/*.(m|c|)js",
                         "!**/node_modules/**"
                       ],
                       "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -21516,7 +21278,7 @@
                     },
                     "outFiles": {
                       "default": [
-                        "${workspaceFolder}/**/*.js",
+                        "${workspaceFolder}/**/*.(m|c|)js",
                         "!**/node_modules/**"
                       ],
                       "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -22372,7 +22134,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -22497,7 +22259,7 @@
             },
             "outFiles": {
               "default": [
-                "${workspaceFolder}/**/*.js",
+                "${workspaceFolder}/**/*.(m|c|)js",
                 "!**/node_modules/**"
               ],
               "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -22693,7 +22455,7 @@
                     },
                     "outFiles": {
                       "default": [
-                        "${workspaceFolder}/**/*.js",
+                        "${workspaceFolder}/**/*.(m|c|)js",
                         "!**/node_modules/**"
                       ],
                       "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -23019,7 +22781,7 @@
                     },
                     "outFiles": {
                       "default": [
-                        "${workspaceFolder}/**/*.js",
+                        "${workspaceFolder}/**/*.(m|c|)js",
                         "!**/node_modules/**"
                       ],
                       "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -23809,7 +23571,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -24044,7 +23806,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -24370,7 +24132,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -24867,7 +24629,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -25094,7 +24856,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -25420,7 +25182,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -25946,7 +25708,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -26193,7 +25955,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -26519,7 +26281,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -27229,7 +26991,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -27468,7 +27230,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -27794,7 +27556,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -28461,7 +28223,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -29006,7 +28768,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -29537,7 +29299,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -29978,7 +29740,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -30430,7 +30192,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -31099,7 +30861,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -31676,7 +31438,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -31911,7 +31673,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -32237,7 +31999,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -32721,7 +32483,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -32948,7 +32710,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -33274,7 +33036,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -33779,7 +33541,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -34026,7 +33788,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -34352,7 +34114,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -35049,7 +34811,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -35288,7 +35050,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -35614,7 +35376,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -36294,7 +36056,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -36419,7 +36181,7 @@
             },
             "outFiles": {
               "default": [
-                "${workspaceFolder}/**/*.js",
+                "${workspaceFolder}/**/*.(m|c|)js",
                 "!**/node_modules/**"
               ],
               "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -36615,7 +36377,7 @@
                     },
                     "outFiles": {
                       "default": [
-                        "${workspaceFolder}/**/*.js",
+                        "${workspaceFolder}/**/*.(m|c|)js",
                         "!**/node_modules/**"
                       ],
                       "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -36941,7 +36703,7 @@
                     },
                     "outFiles": {
                       "default": [
-                        "${workspaceFolder}/**/*.js",
+                        "${workspaceFolder}/**/*.(m|c|)js",
                         "!**/node_modules/**"
                       ],
                       "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -37798,7 +37560,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -37923,7 +37685,7 @@
             },
             "outFiles": {
               "default": [
-                "${workspaceFolder}/**/*.js",
+                "${workspaceFolder}/**/*.(m|c|)js",
                 "!**/node_modules/**"
               ],
               "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -38119,7 +37881,7 @@
                     },
                     "outFiles": {
                       "default": [
-                        "${workspaceFolder}/**/*.js",
+                        "${workspaceFolder}/**/*.(m|c|)js",
                         "!**/node_modules/**"
                       ],
                       "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -38445,7 +38207,7 @@
                     },
                     "outFiles": {
                       "default": [
-                        "${workspaceFolder}/**/*.js",
+                        "${workspaceFolder}/**/*.(m|c|)js",
                         "!**/node_modules/**"
                       ],
                       "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -39235,7 +38997,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -39470,7 +39232,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -39796,7 +39558,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -40294,7 +40056,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -40521,7 +40283,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -40847,7 +40609,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -41373,7 +41135,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -41620,7 +41382,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -41946,7 +41708,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -42657,7 +42419,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -42896,7 +42658,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -43222,7 +42984,7 @@
                 },
                 "outFiles": {
                   "default": [
-                    "${workspaceFolder}/**/*.js",
+                    "${workspaceFolder}/**/*.(m|c|)js",
                     "!**/node_modules/**"
                   ],
                   "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -43900,7 +43662,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -44342,7 +44104,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -44794,7 +44556,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
@@ -45464,7 +45226,7 @@
         },
         "outFiles": {
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",

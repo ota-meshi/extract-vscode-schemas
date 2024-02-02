@@ -165,8 +165,10 @@
       "$ref": "vscode://schemas/settings/resourceLanguage",
       "default": {
         "editor.rulers": [
+          50,
           72
         ],
+        "editor.wordWrap": "off",
         "workbench.editor.restoreViewState": false
       },
       "defaultValueSource": {
@@ -690,15 +692,81 @@
       }
     },
     "accessibility.accessibleView.closeOnKeyPress": {
-      "markdownDescription": "On keypress, close the accessible view and focus the element from which it was invoked.",
+      "markdownDescription": "On keypress, close the Accessible View and focus the element from which it was invoked.",
       "type": "boolean",
       "default": true,
       "defaultDefaultValue": true,
       "scope": 3,
       "restricted": false
     },
+    "accessibility.alert.breakpoint": {
+      "markdownDescription": "Alerts when the active line has a breakpoint. Also see `#audioCues.onDebugBreak#`.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.alert.chatRequestSent": {
+      "markdownDescription": "Alerts when a chat request is sent. Also see `#audioCues.chatRequestSent#`.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.alert.chatResponsePending": {
+      "markdownDescription": "Alerts when a chat response is pending. Also see `#audioCues.chatResponsePending#`.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.alert.clear": {
+      "markdownDescription": "Alerts when a feature is cleared (for example, the terminal, Debug Console, or Output channel). Also see `#audioCues.clear#`.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.alert.error": {
+      "markdownDescription": "Alerts when the active line has an error. Also see `#audioCues.lineHasError#`.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.alert.foldedArea": {
+      "markdownDescription": "Alerts when the active line has a folded area that can be unfolded. Also see `#audioCues.lineHasFoldedArea#`.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
     "accessibility.alert.format": {
-      "markdownDescription": "When in screen reader mode, alerts when a file or notebook cell is formatted. Note that this will be ignored when `#audioCues.format#` is enabled.",
+      "markdownDescription": "Alerts when a file or notebook cell is formatted. Also see `#audioCues.format#`.",
       "type": "string",
       "enum": [
         "always",
@@ -718,9 +786,63 @@
       "scope": 3,
       "restricted": false
     },
+    "accessibility.alert.lineHasBreakpoint": {
+      "markdownDescription": "Alerts when on a line with a breakpoint. Also see `#audioCues.lineHasBreakpoint#`.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.alert.noInlayHints": {
+      "markdownDescription": "Alerts when there are no inlay hints. Also see `#audioCues.noInlayHints#`.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.alert.notebookCellCompleted": {
+      "markdownDescription": "Alerts when a notebook cell completes successfully. Also see `#audioCues.notebookCellCompleted#`.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.alert.notebookCellFailed": {
+      "markdownDescription": "Alerts when a notebook cell fails. Also see `#audioCues.notebookCellFailed#`.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.alert.onDebugBreak": {
+      "markdownDescription": "Alerts when the debugger breaks. Also see `#audioCues.onDebugBreak#`.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
     "accessibility.alert.save": {
-      "markdownDescription": "When in screen reader mode, alerts when a file is saved. Note that this will be ignored when `#audioCues.save#` is enabled.",
-      "type": "string",
+      "markdownDescription": "Alerts when a file is saved. Also see `#audioCues.save#`.",
       "enum": [
         "always",
         "never",
@@ -739,8 +861,74 @@
       "scope": 3,
       "restricted": false
     },
+    "accessibility.alert.taskCompleted": {
+      "markdownDescription": "Alerts when a task completes successfully (zero exit code). Also see `#audioCues.taskCompleted#`.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.alert.taskFailed": {
+      "markdownDescription": "Alerts when a task fails (non-zero exit code). Also see `#audioCues.taskFailed#`.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.alert.terminalBell": {
+      "markdownDescription": "Alerts when the terminal bell is activated.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.alert.terminalCommandFailed": {
+      "markdownDescription": "Alerts when a terminal command fails (non-zero exit code). Also see `#audioCues.terminalCommandFailed#`.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.alert.terminalQuickFix": {
+      "markdownDescription": "Alerts when there is an available terminal quick fix. Also see `#audioCues.terminalQuickFix#`.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.alert.warning": {
+      "markdownDescription": "Alerts when the active line has a warning. Also see `#audioCues.lineHasWarning#`.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
     "accessibility.hideAccessibleView": {
-      "description": "Controls whether the accessible view is hidden.",
+      "description": "Controls whether the Accessible View is hidden.",
       "type": "boolean",
       "default": false,
       "tags": [
@@ -784,7 +972,7 @@
       "restricted": false
     },
     "accessibility.verbosity.hover": {
-      "description": "Provide information about how to open the hover in an accessible view.",
+      "description": "Provide information about how to open the hover in an Accessible View.",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -806,7 +994,7 @@
       "restricted": false
     },
     "accessibility.verbosity.inlineCompletions": {
-      "description": "Provide information about how to access the inline completions hover and accessible view.",
+      "description": "Provide information about how to access the inline completions hover and Accessible View.",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -839,7 +1027,7 @@
       "restricted": false
     },
     "accessibility.verbosity.notification": {
-      "description": "Provide information about how to open the notification in an accessible view.",
+      "description": "Provide information about how to open the notification in an Accessible View.",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -868,18 +1056,6 @@
         "accessibility"
       ],
       "defaultDefaultValue": true,
-      "scope": 3,
-      "restricted": false
-    },
-    "accessibility.voice.speechTimeout": {
-      "markdownDescription": "Define the duration for which the voice speech recognition remains active after you stop speaking. For example in a chat session the transcribed text is submitted automatically after the timeout is met. Set to `0` to disable this feature.",
-      "type": "number",
-      "default": 1200,
-      "minimum": 0,
-      "tags": [
-        "accessibility"
-      ],
-      "defaultDefaultValue": 1200,
       "scope": 3,
       "restricted": false
     },
@@ -958,7 +1134,7 @@
       "restricted": false
     },
     "audioCues.clear": {
-      "description": "Plays a sound when a feature is cleared (for example, the terminal, debug console, or output channel). When this is disabled, an aria alert will announce 'Cleared'.",
+      "description": "Plays a sound when a feature is cleared (for example, the terminal, Debug Console, or Output channel). When this is disabled, an ARIA alert will announce 'Cleared'.",
       "type": "string",
       "enum": [
         "auto",
@@ -1803,7 +1979,7 @@
     },
     "css.customData": {
       "type": "array",
-      "markdownDescription": "A list of relative file paths pointing to JSON files following the [custom data format](https://github.com/microsoft/vscode-css-languageservice/blob/master/docs/customData.md).\n\nVS Code loads custom data on startup to enhance its CSS support for the custom CSS properties, at directives, pseudo classes and pseudo elements you specify in the JSON files.\n\nThe file paths are relative to workspace and only workspace folder settings are considered.",
+      "markdownDescription": "A list of relative file paths pointing to JSON files following the [custom data format](https://github.com/microsoft/vscode-css-languageservice/blob/master/docs/customData.md).\n\nVS Code loads custom data on startup to enhance its CSS support for CSS custom properties (variables), at-rules, pseudo-classes, and pseudo-elements you specify in the JSON files.\n\nThe file paths are relative to workspace and only workspace folder settings are considered.",
       "default": [],
       "items": {
         "type": "string"
@@ -1911,7 +2087,7 @@
       "type": "boolean",
       "scope": 4,
       "default": true,
-      "description": "Show tag and attribute documentation in CSS hovers.",
+      "description": "Show property and value documentation in CSS hovers.",
       "source": {
         "id": "vscode.css-language-features",
         "displayName": "CSS Language Features"
@@ -2315,6 +2491,14 @@
       "scope": 3,
       "restricted": false
     },
+    "debug.closeReadonlyTabsOnEnd": {
+      "type": "boolean",
+      "description": "At the end of a debug session, all the read-only tabs associated with that session will be closed",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
     "debug.confirmOnExit": {
       "description": "Controls whether to confirm when the window closes if there are active debug sessions.",
       "type": "string",
@@ -2667,7 +2851,7 @@
               ],
               "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
               "default": [
-                "${workspaceFolder}/**/*.js",
+                "${workspaceFolder}/**/*.(m|c|)js",
                 "!**/node_modules/**"
               ],
               "items": {
@@ -2872,7 +3056,7 @@
                       ],
                       "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
                       "default": [
-                        "${workspaceFolder}/**/*.js",
+                        "${workspaceFolder}/**/*.(m|c|)js",
                         "!**/node_modules/**"
                       ],
                       "items": {
@@ -3198,7 +3382,7 @@
                       ],
                       "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
                       "default": [
-                        "${workspaceFolder}/**/*.js",
+                        "${workspaceFolder}/**/*.(m|c|)js",
                         "!**/node_modules/**"
                       ],
                       "items": {
@@ -3663,7 +3847,7 @@
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "items": {
@@ -3992,7 +4176,7 @@
           ],
           "description": "If source maps are enabled, these glob patterns specify the generated JavaScript files. If a pattern starts with `!` the files are excluded. If not specified, the generated code is expected in the same directory as its source.",
           "default": [
-            "${workspaceFolder}/**/*.js",
+            "${workspaceFolder}/**/*.(m|c|)js",
             "!**/node_modules/**"
           ],
           "items": {
@@ -4692,10 +4876,7 @@
           "type": "object",
           "properties": {
             "source.fixAll": {
-              "type": [
-                "string",
-                "boolean"
-              ],
+              "type": "string",
               "enum": [
                 "always",
                 "explicit",
@@ -4710,15 +4891,12 @@
                 "Never triggers Code Actions on save",
                 "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\"."
               ],
-              "default": true,
+              "default": "explicit",
               "description": "Controls whether auto fix action should be run on file save."
             }
           },
           "additionalProperties": {
-            "type": [
-              "string",
-              "boolean"
-            ]
+            "type": "string"
           }
         }
       ],
@@ -4728,10 +4906,7 @@
         "array"
       ],
       "additionalProperties": {
-        "type": [
-          "string",
-          "boolean"
-        ],
+        "type": "string",
         "enum": [
           "always",
           "explicit",
@@ -4746,10 +4921,7 @@
       "restricted": false,
       "properties": {
         "source.fixAll": {
-          "type": [
-            "string",
-            "boolean"
-          ],
+          "type": "string",
           "enum": [
             "always",
             "explicit",
@@ -4764,14 +4936,11 @@
             "Never triggers Code Actions on save",
             "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\"."
           ],
-          "default": true,
+          "default": "explicit",
           "description": "Controls whether auto fix action should be run on file save."
         },
         "source.organizeImports": {
-          "type": [
-            "string",
-            "boolean"
-          ],
+          "type": "string",
           "enum": [
             "always",
             "explicit",
@@ -4786,7 +4955,7 @@
             "Never triggers Code Actions on save",
             "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\"."
           ],
-          "default": true,
+          "default": "explicit",
           "description": "Controls whether 'Organize Imports' actions should be run on file save."
         }
       }
@@ -5041,9 +5210,8 @@
         "HTML Language Features",
         "JSON Language Features",
         "Markdown Language Features",
+        "Markdown Math",
         "PHP Language Features",
-        "Reference Search View",
-        "Search Result",
         "TypeScript and JavaScript Language Features",
         "Configuration Editing",
         "Node Debug Auto-attach",
@@ -5060,11 +5228,12 @@
         "Jake support for VS Code",
         "JavaScript Debugger",
         "JavaScript Debugger Companion Extension",
-        "Markdown Math",
         "Media Preview",
         "Merge Conflict",
         "Microsoft Account",
         "NPM support for VS Code",
+        "Reference Search View",
+        "Search Result",
         "Simple Browser",
         "Local Tunnel Port Forwarding",
         "Table Visualizer for JavaScript Profiles"
@@ -5154,9 +5323,8 @@
         "HTML Language Features",
         "JSON Language Features",
         "Markdown Language Features",
+        "Markdown Math",
         "PHP Language Features",
-        "Reference Search View",
-        "Search Result",
         "TypeScript and JavaScript Language Features",
         "Configuration Editing",
         "Node Debug Auto-attach",
@@ -5173,11 +5341,12 @@
         "Jake support for VS Code",
         "JavaScript Debugger",
         "JavaScript Debugger Companion Extension",
-        "Markdown Math",
         "Media Preview",
         "Merge Conflict",
         "Microsoft Account",
         "NPM support for VS Code",
+        "Reference Search View",
+        "Search Result",
         "Simple Browser",
         "Local Tunnel Port Forwarding",
         "Table Visualizer for JavaScript Profiles"
@@ -5247,7 +5416,7 @@
     "editor.dropIntoEditor.enabled": {
       "type": "boolean",
       "default": true,
-      "markdownDescription": "Controls whether you can drag and drop a file into a text editor by holding down `Shift`-key (instead of opening the file in an editor).",
+      "markdownDescription": "Controls whether you can drag and drop a file into a text editor by holding down the `Shift` key (instead of opening the file in an editor).",
       "defaultDefaultValue": true,
       "scope": 5,
       "restricted": false
@@ -6004,6 +6173,14 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.inlineSuggest.fontFamily": {
+      "type": "string",
+      "default": "default",
+      "description": "Controls the font family of the inline suggestions.",
+      "defaultDefaultValue": "default",
+      "scope": 5,
+      "restricted": false
+    },
     "editor.inlineSuggest.showToolbar": {
       "type": "string",
       "default": "onHover",
@@ -6103,28 +6280,23 @@
       "restricted": false
     },
     "editor.lightbulb.enabled": {
-      "type": "boolean",
-      "default": true,
-      "description": "Enables the Code Action lightbulb in the editor.",
-      "defaultDefaultValue": true,
-      "scope": 5,
-      "restricted": false
-    },
-    "editor.lightbulb.experimental.showAiIcon": {
       "type": "string",
+      "tags": [
+        "experimental"
+      ],
       "enum": [
         "off",
         "on",
         "onCode"
       ],
-      "default": "off",
+      "default": "onCode",
       "enumDescriptions": [
-        "Don not show the AI icon.",
-        "Show an AI icon when the code action menu contains an AI action, on code and empty lines.",
-        "Show an AI icon when the code action menu contains an AI action, but only on code."
+        "Disable the code action menu.",
+        "Show the code action menu when the cursor is on lines with code or on empty lines.",
+        "Show the code action menu when the cursor is on lines with code."
       ],
-      "description": "Show an AI icon along with the lightbulb when the code action menu contains an AI action.",
-      "defaultDefaultValue": "off",
+      "description": "Enables the Code Action lightbulb in the editor.",
+      "defaultDefaultValue": "onCode",
       "scope": 5,
       "restricted": false
     },
@@ -7246,6 +7418,9 @@
       "type": "boolean",
       "default": false,
       "description": "Shows the nested current scopes during the scroll at the top of the editor.",
+      "tags": [
+        "experimental"
+      ],
       "defaultDefaultValue": false,
       "scope": 5,
       "restricted": false
@@ -9310,7 +9485,7 @@
         "*.jsx": "${capture}.js",
         "*.ts": "${capture}.js",
         "*.tsx": "${capture}.ts",
-        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml",
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
         "tsconfig.json": "tsconfig.*.json"
       },
       "defaultDefaultValue": {
@@ -9318,7 +9493,7 @@
         "*.jsx": "${capture}.js",
         "*.ts": "${capture}.js",
         "*.tsx": "${capture}.ts",
-        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml",
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
         "tsconfig.json": "tsconfig.*.json"
       },
       "restricted": false
@@ -9555,8 +9730,8 @@
       ],
       "default": "off",
       "markdownDescription": "Controls [auto save](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save) of editors that have unsaved changes.",
+      "scope": 5,
       "defaultDefaultValue": "off",
-      "scope": 3,
       "restricted": false
     },
     "files.autoSaveDelay": {
@@ -9564,8 +9739,24 @@
       "default": 1000,
       "minimum": 0,
       "markdownDescription": "Controls the delay in milliseconds after which an editor with unsaved changes is saved automatically. Only applies when `#files.autoSave#` is set to `afterDelay`.",
+      "scope": 5,
       "defaultDefaultValue": 1000,
-      "scope": 3,
+      "restricted": false
+    },
+    "files.autoSaveWhenNoErrors": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "When enabled, will limit [auto save](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save) of editors to files that have no errors reported in them at the time the auto save is triggered. Only applies when `#files.autoSave#` is enabled.",
+      "scope": 5,
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "files.autoSaveWorkspaceFilesOnly": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "When enabled, will limit [auto save](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save) of editors to files that are inside the opened workspace. Only applies when `#files.autoSave#` is enabled.",
+      "scope": 5,
+      "defaultDefaultValue": false,
       "restricted": false
     },
     "files.defaultLanguage": {
@@ -10421,7 +10612,7 @@
     "git.enableCommitSigning": {
       "type": "boolean",
       "scope": 4,
-      "description": "Enables commit signing with GPG or X.509.",
+      "description": "Enables commit signing with GPG, X.509, or SSH.",
       "default": false,
       "source": {
         "id": "vscode.git",
@@ -11623,8 +11814,32 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
+    "inlineChat.acceptedOrDiscardBeforeSave": {
+      "description": "Whether pending inline chat sessions prevent saving.",
+      "default": true,
+      "type": "boolean",
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "inlineChat.finishOnType": {
+      "description": "Whether to finish an inline chat session when typing outside of changed regions.",
+      "default": false,
+      "type": "boolean",
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
+    "inlineChat.holdToSpeech": {
+      "description": "Whether holding the inline chat keybinding will automatically enable speech recognition.",
+      "default": true,
+      "type": "boolean",
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
     "inlineChat.mode": {
-      "description": "Configure if changes crafted in the interactive editor are applied directly to the document or are previewed first.",
+      "description": "Configure if changes crafted with inline chat are applied directly to the document or are previewed first.",
       "default": "livePreview",
       "type": "string",
       "enum": [
@@ -11633,45 +11848,14 @@
         "preview"
       ],
       "markdownEnumDescriptions": [
-        "Changes are applied directly to the document but can be highlighted via inline diffs. Ending a session will keep the changes.",
+        "Changes are applied directly to the document, can be highlighted via inline diffs, and accepted/discarded by hunks. Ending a session will keep the changes.",
         "Changes are applied directly to the document and are highlighted visually via inline or side-by-side diffs. Ending a session will keep the changes.",
         "Changes are previewed only and need to be accepted via the apply button. Ending a session will discard the changes."
       ],
+      "tags": [
+        "experimental"
+      ],
       "defaultDefaultValue": "livePreview",
-      "scope": 3,
-      "restricted": false
-    },
-    "inlineChat.showDiff": {
-      "description": "Enable/disable showing the diff when edits are generated. Works only with inlineChat.mode equal to live or livePreview.",
-      "default": true,
-      "type": "boolean",
-      "defaultDefaultValue": true,
-      "scope": 3,
-      "restricted": false
-    },
-    "inlineChat.showGutterIcon": {
-      "description": "Controls when the gutter icon for spawning inline chat is shown.",
-      "default": "never",
-      "type": "string",
-      "enum": [
-        "always",
-        "mouseover",
-        "never"
-      ],
-      "markdownEnumDescriptions": [
-        "Always show the gutter icon.",
-        "Show the gutter icon when the mouse is over the icon.",
-        "Never show the gutter icon."
-      ],
-      "defaultDefaultValue": "never",
-      "scope": 3,
-      "restricted": false
-    },
-    "inlineChat.showToolbarIcon": {
-      "description": "Controls whether the toolbar icon spawning the inline chat is enabled.",
-      "default": false,
-      "type": "boolean",
-      "defaultDefaultValue": false,
       "scope": 3,
       "restricted": false
     },
@@ -12787,7 +12971,7 @@
       "type": "boolean",
       "scope": 4,
       "default": true,
-      "description": "Show tag and attribute documentation in LESS hovers.",
+      "description": "Show property and value documentation in LESS hovers.",
       "source": {
         "id": "vscode.css-language-features",
         "displayName": "CSS Language Features"
@@ -13160,7 +13344,7 @@
     },
     "markdown.copyFiles.destination": {
       "type": "object",
-      "markdownDescription": "Defines where files copied created by drop or paste should be created. This is a map from globs that match on the Markdown document to destinations.\n\nThe destinations may use the following variables:\n\n- `${documentFileName}` — The full filename of the Markdown document, for example: `readme.md`.\n- `${documentBaseName}` — The basename of Markdown document, for example: `readme`.\n- `${documentExtName}` — The extension of the Markdown document, for example: `md`.\n- `${documentDirName}` — The name of the Markdown document's parent directory.\n- `${documentWorkspaceFolder}` — The workspace folder for the Markdown document, for example: `/Users/me/myProject`. This is the same as `${documentDirName}` if the file is not part of a workspace.\n- `${fileName}` — The file name of the dropped file, for example: `image.png`.",
+      "markdownDescription": "Defines where files copied created by drop or paste should be created. This is a map from globs that match on the Markdown document to destinations.\n\nThe destinations may use the following variables:\n\n- `${documentDirName}` — Absolute parent directory path of the Markdown document, e.g. `/Users/me/myProject/docs`.\n- `${documentRelativeDirName}` — Relative parent directory path of the Markdown document, e.g. `docs`. This is the same as `${documentDirName}` if the file is not part of a workspace.\n- `${documentFileName}` — The full filename of the Markdown document, e.g. `README.md`.\n- `${documentBaseName}` — The basename of the Markdown document, e.g. `README`.\n- `${documentExtName}` — The extension of the Markdown document, e.g. `md`.\n- `${documentFilePath}` — Absolute path of the Markdown document, e.g. `/Users/me/myProject/docs/README.md`.\n- `${documentRelativeFilePath}` — Relative path of the Markdown document, e.g. `docs/README.md`. This is the same as `${documentFilePath}` if the file is not part of a workspace.\n- `${documentWorkspaceFolder}` — The workspace folder for the Markdown document, e.g. `/Users/me/myProject`. This is the same as `${documentDirName}` if the file is not part of a workspace.\n- `${fileName}` — The file name of the dropped file, e.g. `image.png`.\n- `${fileExtName}` — The extension of the dropped file, e.g. `png`.",
       "additionalProperties": {
         "type": "string"
       },
@@ -13224,6 +13408,18 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
+    "markdown.editor.filePaste.audioSnippet": {
+      "type": "string",
+      "markdownDescription": "Snippet used when adding audio to Markdown. This snippet can use the following variables:\n- `${src}` — The resolved path of the audio  file.\n- `${title}` — The title used for the audio. A snippet placeholder will automatically be created for this variable.",
+      "default": "<audio controls src=\"${src}\" title=\"${title}\"></audio>",
+      "scope": 3,
+      "source": {
+        "id": "vscode.markdown-language-features",
+        "displayName": "Markdown Language Features"
+      },
+      "defaultDefaultValue": "<audio controls src=\"${src}\" title=\"${title}\"></audio>",
+      "restricted": false
+    },
     "markdown.editor.filePaste.copyIntoWorkspace": {
       "type": "string",
       "markdownDescription": "Controls if files outside of the workspace that are pasted into a Markdown editor should be copied into the workspace.\n\nUse `#markdown.copyFiles.destination#` to configure where copied files should be created.",
@@ -13256,26 +13452,40 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
+    "markdown.editor.filePaste.videoSnippet": {
+      "type": "string",
+      "markdownDescription": "Snippet used when adding videos to Markdown. This snippet can use the following variables:\n- `${src}` — The resolved path of the video file.\n- `${title}` — The title used for the video. A snippet placeholder will automatically be created for this variable.",
+      "default": "<video controls src=\"${src}\" title=\"${title}\"></video>",
+      "scope": 3,
+      "source": {
+        "id": "vscode.markdown-language-features",
+        "displayName": "Markdown Language Features"
+      },
+      "defaultDefaultValue": "<video controls src=\"${src}\" title=\"${title}\"></video>",
+      "restricted": false
+    },
     "markdown.editor.pasteUrlAsFormattedLink.enabled": {
       "type": "string",
       "scope": 4,
-      "markdownDescription": "Controls how a Markdown link is created when a URL is pasted into the Markdown editor. Requires enabling `#editor.pasteAs.enabled#`.",
-      "default": "never",
+      "markdownDescription": "Controls if Markdown links are created when URLs are pasted into a Markdown editor. Requires enabling `#editor.pasteAs.enabled#`.",
+      "default": "smartWithSelection",
       "enum": [
         "always",
         "never",
-        "smart"
+        "smart",
+        "smartWithSelection"
       ],
       "markdownEnumDescriptions": [
-        "Always creates a Markdown link when a URL is pasted into the Markdown editor.",
-        "Never creates a Markdown link when a URL is pasted into the Markdown editor.",
-        "Smartly avoids creating a Markdown link in specific cases, such as within code brackets or inside an existing Markdown link."
+        "Always insert Markdown links.",
+        "Never create Markdown links.",
+        "Smartly create Markdown links by default when not pasting into a code block or other special element. Use the paste widget to switch between pasting as plain text or as Markdown links.",
+        "Smartly create Markdown links by default when you have selected text and are not pasting into a code block or other special element. Use the paste widget to switch between pasting as plain text or as Markdown links."
       ],
       "source": {
         "id": "vscode.markdown-language-features",
         "displayName": "Markdown Language Features"
       },
-      "defaultDefaultValue": "never",
+      "defaultDefaultValue": "smartWithSelection",
       "restricted": false
     },
     "markdown.links.openLocation": {
@@ -13958,9 +14168,9 @@
     },
     "multiDiffEditor.experimental.enabled": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "description": "Enable experimental multi diff editor.",
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 3,
       "restricted": false
     },
@@ -14579,7 +14789,7 @@
             "editor.dropIntoEditor.enabled": {
               "type": "boolean",
               "default": true,
-              "markdownDescription": "Controls whether you can drag and drop a file into a text editor by holding down `Shift`-key (instead of opening the file in an editor).",
+              "markdownDescription": "Controls whether you can drag and drop a file into a text editor by holding down the `Shift` key (instead of opening the file in an editor).",
               "defaultDefaultValue": true,
               "scope": 5,
               "restricted": false
@@ -15259,6 +15469,14 @@
               "scope": 5,
               "restricted": false
             },
+            "editor.inlineSuggest.fontFamily": {
+              "type": "string",
+              "default": "default",
+              "description": "Controls the font family of the inline suggestions.",
+              "defaultDefaultValue": "default",
+              "scope": 5,
+              "restricted": false
+            },
             "editor.inlineSuggest.showToolbar": {
               "type": "string",
               "default": "onHover",
@@ -15294,28 +15512,23 @@
               "restricted": false
             },
             "editor.lightbulb.enabled": {
-              "type": "boolean",
-              "default": true,
-              "description": "Enables the Code Action lightbulb in the editor.",
-              "defaultDefaultValue": true,
-              "scope": 5,
-              "restricted": false
-            },
-            "editor.lightbulb.experimental.showAiIcon": {
               "type": "string",
+              "tags": [
+                "experimental"
+              ],
               "enum": [
                 "off",
                 "on",
                 "onCode"
               ],
-              "default": "off",
+              "default": "onCode",
               "enumDescriptions": [
-                "Don not show the AI icon.",
-                "Show an AI icon when the code action menu contains an AI action, on code and empty lines.",
-                "Show an AI icon when the code action menu contains an AI action, but only on code."
+                "Disable the code action menu.",
+                "Show the code action menu when the cursor is on lines with code or on empty lines.",
+                "Show the code action menu when the cursor is on lines with code."
               ],
-              "description": "Show an AI icon along with the lightbulb when the code action menu contains an AI action.",
-              "defaultDefaultValue": "off",
+              "description": "Enables the Code Action lightbulb in the editor.",
+              "defaultDefaultValue": "onCode",
               "scope": 5,
               "restricted": false
             },
@@ -16066,6 +16279,9 @@
               "type": "boolean",
               "default": false,
               "description": "Shows the nested current scopes during the scroll at the top of the editor.",
+              "tags": [
+                "experimental"
+              ],
               "defaultDefaultValue": false,
               "scope": 5,
               "restricted": false
@@ -16764,6 +16980,14 @@
       "scope": 3,
       "restricted": false
     },
+    "notebook.experimental.variablesView": {
+      "markdownDescription": "Enable the experimental notebook variables view within the debug panel.",
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
     "notebook.find.scope": {
       "markdownDescription": "Customize the Find Widget behavior for searching within notebook cells. When both markup source and markup preview are enabled, the Find Widget will search either the source code or preview based on the current state of the cell.",
       "type": "object",
@@ -16851,9 +17075,9 @@
     },
     "notebook.gotoSymbols.showAllSymbols": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "markdownDescription": "When enabled the Go to Symbol Quick Pick will display full code symbols from the notebook, as well as Markdown headers.",
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 3,
       "restricted": false
     },
@@ -16965,6 +17189,17 @@
       "scope": 3,
       "restricted": false
     },
+    "notebook.output.linkifyFilePaths": {
+      "description": "Control whether to disable filepath links in the output of notebook cells.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "notebookOutputLayout"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
     "notebook.output.scrolling": {
       "markdownDescription": "Initially render notebook outputs in a scrollable region when longer than the limit.",
       "type": "boolean",
@@ -16985,6 +17220,7 @@
         "notebookLayout",
         "notebookOutputLayout"
       ],
+      "minimum": 1,
       "defaultDefaultValue": 30,
       "scope": 3,
       "restricted": false
@@ -17087,6 +17323,25 @@
         "notebookLayout"
       ],
       "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
+    "notebook.stickyScroll.mode": {
+      "description": "Control whether nested sticky lines appear to stack flat or indented.",
+      "type": "string",
+      "enum": [
+        "flat",
+        "indented"
+      ],
+      "enumDescriptions": [
+        "Nested sticky lines appear flat.",
+        "Nested sticky lines appear indented."
+      ],
+      "default": "indented",
+      "tags": [
+        "notebookLayout"
+      ],
+      "defaultDefaultValue": "indented",
       "scope": 3,
       "restricted": false
     },
@@ -17668,9 +17923,17 @@
       "scope": 3,
       "restricted": false
     },
+    "remote.autoForwardPortsFallback": {
+      "type": "number",
+      "default": 20,
+      "markdownDescription": "The number of auto forwarded ports that will trigger the switch from `process` to `hybrid` when automatically forwarding ports and `remote.autoForwardPortsSource` is set to `process`. Set to `0` to disable the fallback.",
+      "defaultDefaultValue": 20,
+      "scope": 3,
+      "restricted": false
+    },
     "remote.autoForwardPortsSource": {
       "type": "string",
-      "markdownDescription": "Sets the source from which ports are automatically forwarded when `#remote.autoForwardPorts#` is true. On Windows and Mac remotes, the `process` and `hybrid` options have no effect and `output` will be used.",
+      "markdownDescription": "Sets the source from which ports are automatically forwarded when `#remote.autoForwardPorts#` is true. On Windows and macOS remotes, the `process` and `hybrid` options have no effect and `output` will be used.",
       "enum": [
         "hybrid",
         "output",
@@ -18125,13 +18388,23 @@
       "scope": 4,
       "restricted": false
     },
-    "scm.inputMaxLines": {
+    "scm.inputMaxLineCount": {
       "type": "number",
       "markdownDescription": "Controls the maximum number of lines that the input will auto-grow to.",
       "minimum": 1,
       "maximum": 50,
       "default": 10,
       "defaultDefaultValue": 10,
+      "scope": 4,
+      "restricted": false
+    },
+    "scm.inputMinLineCount": {
+      "type": "number",
+      "markdownDescription": "Controls the minimum number of lines that the input will auto-grow from.",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 1,
+      "defaultDefaultValue": 1,
       "scope": 4,
       "restricted": false
     },
@@ -18182,6 +18455,14 @@
     "scm.showActionButton": {
       "type": "boolean",
       "markdownDescription": "Controls whether an action button can be shown in the Source Control view.",
+      "default": true,
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
+    "scm.showChangesSummary": {
+      "type": "boolean",
+      "description": "Controls whether the All Changes entry is shown for incoming/outgoing changes in the Source Control view.",
       "default": true,
       "defaultDefaultValue": true,
       "scope": 4,
@@ -18447,7 +18728,7 @@
       "type": "boolean",
       "scope": 4,
       "default": true,
-      "description": "Show tag and attribute documentation in SCSS hovers.",
+      "description": "Show property and value documentation in SCSS hovers.",
       "source": {
         "id": "vscode.css-language-features",
         "displayName": "CSS Language Features"
@@ -19598,6 +19879,7 @@
                 "debug-breakpoint-log",
                 "debug-breakpoint-log-disabled",
                 "debug-breakpoint-log-unverified",
+                "debug-breakpoint-pending",
                 "debug-breakpoint-unsupported",
                 "debug-breakpoint-unverified",
                 "debug-console",
@@ -19708,6 +19990,9 @@
                 "git-pull-request-milestone",
                 "git-pull-request-new-changes",
                 "git-pull-request-reviewer",
+                "git-stash",
+                "git-stash-apply",
+                "git-stash-pop",
                 "github",
                 "github-action",
                 "github-alt",
@@ -19934,6 +20219,7 @@
                 "star-half",
                 "stop",
                 "stop-circle",
+                "surround-with",
                 "symbol-array",
                 "symbol-boolean",
                 "symbol-class",
@@ -20161,6 +20447,7 @@
                 "$(debug-breakpoint-log)",
                 "$(debug-breakpoint-log-disabled)",
                 "$(debug-breakpoint-log-unverified)",
+                "$(debug-breakpoint-pending)",
                 "$(debug-breakpoint-unsupported)",
                 "$(debug-breakpoint-unverified)",
                 "$(debug-console)",
@@ -20271,6 +20558,9 @@
                 "$(git-pull-request-milestone)",
                 "$(git-pull-request-new-changes)",
                 "$(git-pull-request-reviewer)",
+                "$(git-stash)",
+                "$(git-stash-apply)",
+                "$(git-stash-pop)",
                 "$(github)",
                 "$(github-action)",
                 "$(github-alt)",
@@ -20497,6 +20787,7 @@
                 "$(star-half)",
                 "$(stop)",
                 "$(stop-circle)",
+                "$(surround-with)",
                 "$(symbol-array)",
                 "$(symbol-boolean)",
                 "$(symbol-class)",
@@ -20809,6 +21100,7 @@
                 "debug-breakpoint-log",
                 "debug-breakpoint-log-disabled",
                 "debug-breakpoint-log-unverified",
+                "debug-breakpoint-pending",
                 "debug-breakpoint-unsupported",
                 "debug-breakpoint-unverified",
                 "debug-console",
@@ -20919,6 +21211,9 @@
                 "git-pull-request-milestone",
                 "git-pull-request-new-changes",
                 "git-pull-request-reviewer",
+                "git-stash",
+                "git-stash-apply",
+                "git-stash-pop",
                 "github",
                 "github-action",
                 "github-alt",
@@ -21145,6 +21440,7 @@
                 "star-half",
                 "stop",
                 "stop-circle",
+                "surround-with",
                 "symbol-array",
                 "symbol-boolean",
                 "symbol-class",
@@ -21372,6 +21668,7 @@
                 "$(debug-breakpoint-log)",
                 "$(debug-breakpoint-log-disabled)",
                 "$(debug-breakpoint-log-unverified)",
+                "$(debug-breakpoint-pending)",
                 "$(debug-breakpoint-unsupported)",
                 "$(debug-breakpoint-unverified)",
                 "$(debug-console)",
@@ -21482,6 +21779,9 @@
                 "$(git-pull-request-milestone)",
                 "$(git-pull-request-new-changes)",
                 "$(git-pull-request-reviewer)",
+                "$(git-stash)",
+                "$(git-stash-apply)",
+                "$(git-stash-pop)",
                 "$(github)",
                 "$(github-action)",
                 "$(github-alt)",
@@ -21708,6 +22008,7 @@
                 "$(star-half)",
                 "$(stop)",
                 "$(stop-circle)",
+                "$(surround-with)",
                 "$(symbol-array)",
                 "$(symbol-boolean)",
                 "$(symbol-class)",
@@ -22020,6 +22321,7 @@
                 "debug-breakpoint-log",
                 "debug-breakpoint-log-disabled",
                 "debug-breakpoint-log-unverified",
+                "debug-breakpoint-pending",
                 "debug-breakpoint-unsupported",
                 "debug-breakpoint-unverified",
                 "debug-console",
@@ -22130,6 +22432,9 @@
                 "git-pull-request-milestone",
                 "git-pull-request-new-changes",
                 "git-pull-request-reviewer",
+                "git-stash",
+                "git-stash-apply",
+                "git-stash-pop",
                 "github",
                 "github-action",
                 "github-alt",
@@ -22356,6 +22661,7 @@
                 "star-half",
                 "stop",
                 "stop-circle",
+                "surround-with",
                 "symbol-array",
                 "symbol-boolean",
                 "symbol-class",
@@ -22583,6 +22889,7 @@
                 "$(debug-breakpoint-log)",
                 "$(debug-breakpoint-log-disabled)",
                 "$(debug-breakpoint-log-unverified)",
+                "$(debug-breakpoint-pending)",
                 "$(debug-breakpoint-unsupported)",
                 "$(debug-breakpoint-unverified)",
                 "$(debug-console)",
@@ -22693,6 +23000,9 @@
                 "$(git-pull-request-milestone)",
                 "$(git-pull-request-new-changes)",
                 "$(git-pull-request-reviewer)",
+                "$(git-stash)",
+                "$(git-stash-apply)",
+                "$(git-stash-pop)",
                 "$(github)",
                 "$(github-action)",
                 "$(github-alt)",
@@ -22919,6 +23229,7 @@
                 "$(star-half)",
                 "$(stop)",
                 "$(stop-circle)",
+                "$(surround-with)",
                 "$(symbol-array)",
                 "$(symbol-boolean)",
                 "$(symbol-class)",
@@ -23231,7 +23542,6 @@
         "bash (2)",
         "dash",
         "dash (2)",
-        "JavaScript Debug Terminal",
         "pwsh",
         "pwsh (2)",
         "rbash",
@@ -23247,7 +23557,6 @@
         "$(terminal) bash (2)\n- path: /usr/bin/bash",
         "$(terminal) dash\n- path: /bin/dash",
         "$(terminal) dash (2)\n- path: /usr/bin/dash",
-        "$($(debug)) JavaScript Debug Terminal\n- extensionIdentifier: ms-vscode.js-debug",
         "$(terminal-powershell) pwsh\n- path: /usr/bin/pwsh",
         "$(terminal) pwsh (2)\n- path: /opt/microsoft/powershell/7/pwsh",
         "$(terminal) rbash\n- path: /bin/rbash",
@@ -23343,10 +23652,20 @@
       "scope": 3
     },
     "terminal.integrated.enableMultiLinePasteWarning": {
-      "markdownDescription": "Show a warning dialog when pasting multiple lines into the terminal. The dialog does not show when:\n\n- Bracketed paste mode is enabled (the shell supports multi-line paste natively)\n- The paste is handled by the shell's readline (in the case of pwsh)",
-      "type": "boolean",
-      "default": true,
-      "defaultDefaultValue": true,
+      "markdownDescription": "Controls whether to show a warning dialog when pasting multiple lines into the terminal.",
+      "type": "string",
+      "enum": [
+        "always",
+        "auto",
+        "never"
+      ],
+      "markdownEnumDescriptions": [
+        "Always show the warning if the text contains a new line.",
+        "Enable the warning but do not show it when:\n\n- Bracketed paste mode is enabled (the shell supports multi-line paste natively)\n- The paste is handled by the shell's readline (in the case of pwsh)",
+        "Never show the warning."
+      ],
+      "default": "auto",
+      "defaultDefaultValue": "auto",
       "scope": 3,
       "restricted": false
     },
@@ -23730,6 +24049,14 @@
       "scope": 3,
       "restricted": false
     },
+    "terminal.integrated.mouseWheelZoom": {
+      "markdownDescription": "Zoom the font of the terminal when using mouse wheel and holding `Ctrl`.",
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
     "terminal.integrated.persistentSessionReviveProcess": {
       "markdownDescription": "When the terminal process must be shut down (for example on window or application close), this determines when the previous terminal session contents/history should be restored and processes be recreated when the workspace is next opened.\n\nCaveats:\n\n- Restoring of the process current working directory depends on whether it is supported by the shell.\n- Time to persist the session during shutdown is limited, so it may be aborted when using high-latency remote connections.",
       "type": "string",
@@ -23859,6 +24186,7 @@
                   "close-dirty",
                   "debug-breakpoint",
                   "debug-breakpoint-disabled",
+                  "debug-breakpoint-pending",
                   "debug-hint",
                   "primitive-square",
                   "edit",
@@ -24352,6 +24680,10 @@
                   "sparkle-filled",
                   "diff-single",
                   "diff-multiple",
+                  "surround-with",
+                  "git-stash",
+                  "git-stash-apply",
+                  "git-stash-pop",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -24422,6 +24754,7 @@
                   "$(close-dirty)",
                   "$(debug-breakpoint)",
                   "$(debug-breakpoint-disabled)",
+                  "$(debug-breakpoint-pending)",
                   "$(debug-hint)",
                   "$(primitive-square)",
                   "$(edit)",
@@ -24915,6 +25248,10 @@
                   "$(sparkle-filled)",
                   "$(diff-single)",
                   "$(diff-multiple)",
+                  "$(surround-with)",
+                  "$(git-stash)",
+                  "$(git-stash-apply)",
+                  "$(git-stash-pop)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -25050,6 +25387,7 @@
                   "close-dirty",
                   "debug-breakpoint",
                   "debug-breakpoint-disabled",
+                  "debug-breakpoint-pending",
                   "debug-hint",
                   "primitive-square",
                   "edit",
@@ -25543,6 +25881,10 @@
                   "sparkle-filled",
                   "diff-single",
                   "diff-multiple",
+                  "surround-with",
+                  "git-stash",
+                  "git-stash-apply",
+                  "git-stash-pop",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -25613,6 +25955,7 @@
                   "$(close-dirty)",
                   "$(debug-breakpoint)",
                   "$(debug-breakpoint-disabled)",
+                  "$(debug-breakpoint-pending)",
                   "$(debug-hint)",
                   "$(primitive-square)",
                   "$(edit)",
@@ -26106,6 +26449,10 @@
                   "$(sparkle-filled)",
                   "$(diff-single)",
                   "$(diff-multiple)",
+                  "$(surround-with)",
+                  "$(git-stash)",
+                  "$(git-stash-apply)",
+                  "$(git-stash-pop)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -26301,6 +26648,7 @@
                   "close-dirty",
                   "debug-breakpoint",
                   "debug-breakpoint-disabled",
+                  "debug-breakpoint-pending",
                   "debug-hint",
                   "primitive-square",
                   "edit",
@@ -26794,6 +27142,10 @@
                   "sparkle-filled",
                   "diff-single",
                   "diff-multiple",
+                  "surround-with",
+                  "git-stash",
+                  "git-stash-apply",
+                  "git-stash-pop",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -26864,6 +27216,7 @@
                   "$(close-dirty)",
                   "$(debug-breakpoint)",
                   "$(debug-breakpoint-disabled)",
+                  "$(debug-breakpoint-pending)",
                   "$(debug-hint)",
                   "$(primitive-square)",
                   "$(edit)",
@@ -27357,6 +27710,10 @@
                   "$(sparkle-filled)",
                   "$(diff-single)",
                   "$(diff-multiple)",
+                  "$(surround-with)",
+                  "$(git-stash)",
+                  "$(git-stash-apply)",
+                  "$(git-stash-pop)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -27492,6 +27849,7 @@
                   "close-dirty",
                   "debug-breakpoint",
                   "debug-breakpoint-disabled",
+                  "debug-breakpoint-pending",
                   "debug-hint",
                   "primitive-square",
                   "edit",
@@ -27985,6 +28343,10 @@
                   "sparkle-filled",
                   "diff-single",
                   "diff-multiple",
+                  "surround-with",
+                  "git-stash",
+                  "git-stash-apply",
+                  "git-stash-pop",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -28055,6 +28417,7 @@
                   "$(close-dirty)",
                   "$(debug-breakpoint)",
                   "$(debug-breakpoint-disabled)",
+                  "$(debug-breakpoint-pending)",
                   "$(debug-hint)",
                   "$(primitive-square)",
                   "$(edit)",
@@ -28548,6 +28911,10 @@
                   "$(sparkle-filled)",
                   "$(diff-single)",
                   "$(diff-multiple)",
+                  "$(surround-with)",
+                  "$(git-stash)",
+                  "$(git-stash-apply)",
+                  "$(git-stash-pop)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -28733,6 +29100,7 @@
                   "close-dirty",
                   "debug-breakpoint",
                   "debug-breakpoint-disabled",
+                  "debug-breakpoint-pending",
                   "debug-hint",
                   "primitive-square",
                   "edit",
@@ -29226,6 +29594,10 @@
                   "sparkle-filled",
                   "diff-single",
                   "diff-multiple",
+                  "surround-with",
+                  "git-stash",
+                  "git-stash-apply",
+                  "git-stash-pop",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -29296,6 +29668,7 @@
                   "$(close-dirty)",
                   "$(debug-breakpoint)",
                   "$(debug-breakpoint-disabled)",
+                  "$(debug-breakpoint-pending)",
                   "$(debug-hint)",
                   "$(primitive-square)",
                   "$(edit)",
@@ -29789,6 +30162,10 @@
                   "$(sparkle-filled)",
                   "$(diff-single)",
                   "$(diff-multiple)",
+                  "$(surround-with)",
+                  "$(git-stash)",
+                  "$(git-stash-apply)",
+                  "$(git-stash-pop)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -29925,6 +30302,7 @@
                   "close-dirty",
                   "debug-breakpoint",
                   "debug-breakpoint-disabled",
+                  "debug-breakpoint-pending",
                   "debug-hint",
                   "primitive-square",
                   "edit",
@@ -30418,6 +30796,10 @@
                   "sparkle-filled",
                   "diff-single",
                   "diff-multiple",
+                  "surround-with",
+                  "git-stash",
+                  "git-stash-apply",
+                  "git-stash-pop",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -30488,6 +30870,7 @@
                   "$(close-dirty)",
                   "$(debug-breakpoint)",
                   "$(debug-breakpoint-disabled)",
+                  "$(debug-breakpoint-pending)",
                   "$(debug-hint)",
                   "$(primitive-square)",
                   "$(edit)",
@@ -30981,6 +31364,10 @@
                   "$(sparkle-filled)",
                   "$(diff-single)",
                   "$(diff-multiple)",
+                  "$(surround-with)",
+                  "$(git-stash)",
+                  "$(git-stash-apply)",
+                  "$(git-stash-pop)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -31116,6 +31503,7 @@
                   "close-dirty",
                   "debug-breakpoint",
                   "debug-breakpoint-disabled",
+                  "debug-breakpoint-pending",
                   "debug-hint",
                   "primitive-square",
                   "edit",
@@ -31609,6 +31997,10 @@
                   "sparkle-filled",
                   "diff-single",
                   "diff-multiple",
+                  "surround-with",
+                  "git-stash",
+                  "git-stash-apply",
+                  "git-stash-pop",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -31679,6 +32071,7 @@
                   "$(close-dirty)",
                   "$(debug-breakpoint)",
                   "$(debug-breakpoint-disabled)",
+                  "$(debug-breakpoint-pending)",
                   "$(debug-hint)",
                   "$(primitive-square)",
                   "$(edit)",
@@ -32172,6 +32565,10 @@
                   "$(sparkle-filled)",
                   "$(diff-single)",
                   "$(diff-multiple)",
+                  "$(surround-with)",
+                  "$(git-stash)",
+                  "$(git-stash-apply)",
+                  "$(git-stash-pop)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -32361,7 +32758,7 @@
       "restricted": false
     },
     "terminal.integrated.stickyScroll.enabled": {
-      "markdownDescription": "Experimental: Shows the current command at the top of the terminal.",
+      "markdownDescription": "Shows the current command at the top of the terminal.",
       "type": "boolean",
       "default": false,
       "defaultDefaultValue": false,
@@ -32516,6 +32913,7 @@
         "debug-breakpoint-log",
         "debug-breakpoint-log-disabled",
         "debug-breakpoint-log-unverified",
+        "debug-breakpoint-pending",
         "debug-breakpoint-unsupported",
         "debug-breakpoint-unverified",
         "debug-console",
@@ -32626,6 +33024,9 @@
         "git-pull-request-milestone",
         "git-pull-request-new-changes",
         "git-pull-request-reviewer",
+        "git-stash",
+        "git-stash-apply",
+        "git-stash-pop",
         "github",
         "github-action",
         "github-alt",
@@ -32852,6 +33253,7 @@
         "star-half",
         "stop",
         "stop-circle",
+        "surround-with",
         "symbol-array",
         "symbol-boolean",
         "symbol-class",
@@ -33079,6 +33481,7 @@
         "$(debug-breakpoint-log)",
         "$(debug-breakpoint-log-disabled)",
         "$(debug-breakpoint-log-unverified)",
+        "$(debug-breakpoint-pending)",
         "$(debug-breakpoint-unsupported)",
         "$(debug-breakpoint-unverified)",
         "$(debug-console)",
@@ -33189,6 +33592,9 @@
         "$(git-pull-request-milestone)",
         "$(git-pull-request-new-changes)",
         "$(git-pull-request-reviewer)",
+        "$(git-stash)",
+        "$(git-stash-apply)",
+        "$(git-stash-pop)",
         "$(github)",
         "$(github-action)",
         "$(github-alt)",
@@ -33415,6 +33821,7 @@
         "$(star-half)",
         "$(stop)",
         "$(stop-circle)",
+        "$(surround-with)",
         "$(symbol-array)",
         "$(symbol-boolean)",
         "$(symbol-class)",
@@ -33791,17 +34198,54 @@
       "scope": 3,
       "restricted": false
     },
+    "testing.coverageBarThresholds": {
+      "markdownDescription": "Configures the colors used for percentages in test coverage bars.",
+      "default": {
+        "green": 90,
+        "red": 0,
+        "yellow": 60
+      },
+      "properties": {
+        "green": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "default": 90
+        },
+        "red": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "default": 0
+        },
+        "yellow": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "default": 60
+        }
+      },
+      "defaultDefaultValue": {
+        "green": 90,
+        "red": 0,
+        "yellow": 60
+      },
+      "scope": 3,
+      "restricted": false
+    },
     "testing.defaultGutterClickAction": {
       "description": "Controls the action to take when left-clicking on a test decoration in the gutter.",
       "enum": [
         "contextMenu",
         "debug",
-        "run"
+        "run",
+        "runWithCoverage"
       ],
       "enumDescriptions": [
         "Open the context menu for more options.",
         "Debug the test.",
-        "Run the test."
+        "Run the test.",
+        "Run the test with coverage."
       ],
       "default": "run",
       "defaultDefaultValue": "run",
@@ -35153,7 +35597,15 @@
     "window.commandCenter": {
       "type": "boolean",
       "default": true,
-      "markdownDescription": "Show command launcher together with the window title. This setting only has an effect when `#window.titleBarStyle#` is set to `custom`.",
+      "markdownDescription": "Show command launcher together with the window title. This setting only has an effect when `#window.customTitleBarVisibility#` is not set to `never`.",
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "window.confirmSaveUntitledWorkspace": {
+      "type": "boolean",
+      "default": true,
+      "description": "Controls whether a confirmation dialog shows asking to save or discard an opened untitled workspace in the window when switching to another workspace. Disabling the confirmation dialog will always discard the untitled workspace.",
       "defaultDefaultValue": true,
       "scope": 3,
       "restricted": false
@@ -35189,8 +35641,9 @@
     "window.zoomLevel": {
       "type": "number",
       "default": 0,
-      "minimum": -5,
-      "description": "Adjust the zoom level of the window. The original size is 0 and each increment above (e.g. 1) or below (e.g. -1) represents zooming 20% larger or smaller. You can also enter decimals to adjust the zoom level with a finer granularity.",
+      "minimum": -8,
+      "maximum": 8,
+      "markdownDescription": "Adjust the default zoom level for all windows. Each increment above `0` (e.g. `1`) or below (e.g. `-1`) represents zooming `20%` larger or smaller. You can also enter decimals to adjust the zoom level with a finer granularity. See `#window.zoomPerWindow#` for configuring if the 'Zoom In' and 'Zoom Out' commands apply the zoom level to all windows or only the active window.",
       "ignoreSync": true,
       "tags": [
         "accessibility"
@@ -35199,16 +35652,26 @@
       "scope": 3,
       "restricted": false
     },
+    "window.zoomPerWindow": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "Controls if the 'Zoom In' and 'Zoom Out' commands apply the zoom level to all windows or only the active window. See `#window.zoomLevel#` for configuring a default zoom level for all windows.",
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
     "workbench.accounts.experimental.showEntitlements": {
       "scope": 2,
       "type": "boolean",
-      "default": true,
+      "default": false,
       "tags": [
         "experimental"
       ],
       "description": "When enabled, available entitlements for the account will be show in the accounts menu.",
       "defaultDefaultValue": false,
-      "defaultValueSource": "Experiments",
       "restricted": false
     },
     "workbench.activityBar.iconClickBehavior": {
@@ -35235,11 +35698,11 @@
         "top"
       ],
       "default": "side",
-      "markdownDescription": "Controls the location of the activity bar. It can either show to the `side` or `top` (requires `#window.titleBarStyle#` set to `custom`) of the primary side bar or `hidden`.",
+      "markdownDescription": "Controls the location of the Activity Bar. It can either show to the `side` or `top` of the Primary Side Bar or `hidden`.",
       "enumDescriptions": [
-        "Hide the activity bar.",
-        "Show the activity bar to the side of the primary side bar.",
-        "Show the activity bar on top of the primary side bar."
+        "Hide the Activity Bar.",
+        "Show the Activity Bar to the side of the Primary Side Bar.",
+        "Show the Activity Bar on top of the Primary Side Bar."
       ],
       "defaultDefaultValue": "side",
       "scope": 3,
@@ -35537,10 +36000,20 @@
           "default": false,
           "description": "Jupyter Notebook"
         },
+        "mainThreadWebview-browserPreview": {
+          "type": "boolean",
+          "default": true,
+          "description": "Live Preview"
+        },
         "mainThreadWebview-markdown.preview": {
           "type": "boolean",
           "default": false,
           "description": "Markdown Preview"
+        },
+        "mainThreadWebview-simpleBrowser.view": {
+          "type": "boolean",
+          "default": true,
+          "description": "Simple Browser"
         },
         "terminalEditor": {
           "type": "boolean",
@@ -35585,7 +36058,9 @@
         "jsProfileVisualizer.heapprofile.table": false,
         "jsProfileVisualizer.heapsnapshot.table": false,
         "jupyter-notebook": false,
+        "mainThreadWebview-browserPreview": true,
         "mainThreadWebview-markdown.preview": false,
+        "mainThreadWebview-simpleBrowser.view": true,
         "terminalEditor": true,
         "vscode.audioPreview": false,
         "vscode.videoPreview": false,
@@ -35602,7 +36077,9 @@
         "jsProfileVisualizer.heapprofile.table": false,
         "jsProfileVisualizer.heapsnapshot.table": false,
         "jupyter-notebook": false,
+        "mainThreadWebview-browserPreview": true,
         "mainThreadWebview-markdown.preview": false,
+        "mainThreadWebview-simpleBrowser.view": true,
         "terminalEditor": true,
         "vscode.audioPreview": false,
         "vscode.videoPreview": false,
@@ -35706,7 +36183,7 @@
     "workbench.editor.dragToOpenWindow": {
       "type": "boolean",
       "default": true,
-      "markdownDescription": "Controls if editors can be dragged out of the window to open them in a new window. Press and hold `Alt`-key while dragging to toggle this dynamically.",
+      "markdownDescription": "Controls if editors can be dragged out of the window to open them in a new window. Press and hold the `Alt` key while dragging to toggle this dynamically.",
       "defaultDefaultValue": true,
       "scope": 3,
       "restricted": false
@@ -35718,10 +36195,10 @@
         "hidden",
         "titleBar"
       ],
-      "enumDescriptions": [
+      "markdownEnumDescriptions": [
         "Show editor actions in the window title bar when `#workbench.editor.showTabs#` is set to `none`. Otherwise, editor actions are shown in the editor tab bar.",
         "Editor actions are not shown.",
-        "Show editor actions in the window title bar. If `#window.titleBarStyle#` is set to `native`, editor actions are hidden."
+        "Show editor actions in the window title bar. If `#window.customTitleBarVisibility#` is set to `never`, editor actions are hidden."
       ],
       "markdownDescription": "Controls where the editor actions are shown.",
       "default": "default",
@@ -35751,7 +36228,7 @@
     },
     "workbench.editor.enablePreviewFromCodeNavigation": {
       "type": "boolean",
-      "markdownDescription": "Controls whether editors remain in preview when a code navigation is started from them. Preview editors do not stay open, and are reused until explicitly set to be kept open (via double-click or editing). This value is ignored when `#workbench.editor.enablePreview#` is disabled.",
+      "markdownDescription": "Controls whether editors remain in preview when a code navigation is started from them. Preview editors do not stay open, and are reused until explicitly set to be kept open (via double-click or editing). This value is ignored when `#workbench.editor.enablePreview#` is not set to `multiple`.",
       "default": false,
       "defaultDefaultValue": false,
       "scope": 3,
@@ -35759,7 +36236,7 @@
     },
     "workbench.editor.enablePreviewFromQuickOpen": {
       "type": "boolean",
-      "markdownDescription": "Controls whether editors opened from Quick Open show as preview editors. Preview editors do not stay open, and are reused until explicitly set to be kept open (via double-click or editing). When enabled, hold Ctrl before selection to open an editor as a non-preview. This value is ignored when `#workbench.editor.enablePreview#` is disabled.",
+      "markdownDescription": "Controls whether editors opened from Quick Open show as preview editors. Preview editors do not stay open, and are reused until explicitly set to be kept open (via double-click or editing). When enabled, hold Ctrl before selection to open an editor as a non-preview. This value is ignored when `#workbench.editor.enablePreview#` is not set to `multiple`.",
       "default": false,
       "defaultDefaultValue": false,
       "scope": 3,
@@ -35775,7 +36252,7 @@
     },
     "workbench.editor.highlightModifiedTabs": {
       "type": "boolean",
-      "markdownDescription": "Controls whether a top border is drawn on tabs for editors that have unsaved changes. This value is ignored when `#workbench.editor.showTabs#` is not set to `multiple`.",
+      "markdownDescription": "Controls whether a top border is drawn on tabs for editors that have unsaved changes. This value is ignored when `#workbench.editor.showTabs#` is not set to multiple.",
       "default": false,
       "defaultDefaultValue": false,
       "scope": 3,
@@ -36188,7 +36665,7 @@
     },
     "workbench.editor.wrapTabs": {
       "type": "boolean",
-      "markdownDescription": "Controls whether tabs should be wrapped over multiple lines when exceeding available space or whether a scrollbar should appear instead. This value is ignored when `#workbench.editor.showTabs#` is not set to `multiple`.",
+      "markdownDescription": "Controls whether tabs should be wrapped over multiple lines when exceeding available space or whether a scrollbar should appear instead. This value is ignored when `#workbench.editor.showTabs#` is not set to '`multiple`'.",
       "default": false,
       "defaultDefaultValue": false,
       "scope": 3,
@@ -36347,7 +36824,7 @@
     "workbench.layoutControl.enabled": {
       "type": "boolean",
       "default": true,
-      "markdownDescription": "Controls whether the layout control is shown in the custom title bar. This setting only has an effect when `#window.titleBarStyle#` is set to `custom`.",
+      "markdownDescription": "Controls whether the layout control is shown in the custom title bar. This setting only has an effect when `#window.customTitleBarVisibility#` is not set to `never`.",
       "defaultDefaultValue": true,
       "scope": 3,
       "restricted": false
@@ -37041,9 +37518,9 @@
     },
     "workbench.tree.enableStickyScroll": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "description": "Controls whether sticky scrolling is enabled in trees.",
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 3,
       "restricted": false
     },
@@ -37162,7 +37639,7 @@
         "none",
         "single"
       ],
-      "description": "Controls whether turning on Zen Mode should show multiple editor tabs, a single editor tab or hide the editor title area completely.",
+      "description": "Controls whether turning on Zen Mode should show multiple editor tabs, a single editor tab, or hide the editor title area completely.",
       "enumDescriptions": [
         "Each editor is displayed as a tab in the editor title area.",
         "The editor title area is not displayed.",

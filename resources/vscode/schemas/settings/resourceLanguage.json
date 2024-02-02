@@ -627,10 +627,7 @@
           "type": "object",
           "properties": {
             "source.fixAll": {
-              "type": [
-                "string",
-                "boolean"
-              ],
+              "type": "string",
               "enum": [
                 "always",
                 "explicit",
@@ -645,15 +642,12 @@
                 "Never triggers Code Actions on save",
                 "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\"."
               ],
-              "default": true,
+              "default": "explicit",
               "description": "Controls whether auto fix action should be run on file save."
             }
           },
           "additionalProperties": {
-            "type": [
-              "string",
-              "boolean"
-            ]
+            "type": "string"
           }
         }
       ],
@@ -663,10 +657,7 @@
         "array"
       ],
       "additionalProperties": {
-        "type": [
-          "string",
-          "boolean"
-        ],
+        "type": "string",
         "enum": [
           "always",
           "explicit",
@@ -681,10 +672,7 @@
       "restricted": false,
       "properties": {
         "source.fixAll": {
-          "type": [
-            "string",
-            "boolean"
-          ],
+          "type": "string",
           "enum": [
             "always",
             "explicit",
@@ -699,14 +687,11 @@
             "Never triggers Code Actions on save",
             "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\"."
           ],
-          "default": true,
+          "default": "explicit",
           "description": "Controls whether auto fix action should be run on file save."
         },
         "source.organizeImports": {
-          "type": [
-            "string",
-            "boolean"
-          ],
+          "type": "string",
           "enum": [
             "always",
             "explicit",
@@ -721,7 +706,7 @@
             "Never triggers Code Actions on save",
             "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\"."
           ],
-          "default": true,
+          "default": "explicit",
           "description": "Controls whether 'Organize Imports' actions should be run on file save."
         }
       }
@@ -976,9 +961,8 @@
         "HTML Language Features",
         "JSON Language Features",
         "Markdown Language Features",
+        "Markdown Math",
         "PHP Language Features",
-        "Reference Search View",
-        "Search Result",
         "TypeScript and JavaScript Language Features",
         "Configuration Editing",
         "Node Debug Auto-attach",
@@ -995,11 +979,12 @@
         "Jake support for VS Code",
         "JavaScript Debugger",
         "JavaScript Debugger Companion Extension",
-        "Markdown Math",
         "Media Preview",
         "Merge Conflict",
         "Microsoft Account",
         "NPM support for VS Code",
+        "Reference Search View",
+        "Search Result",
         "Simple Browser",
         "Local Tunnel Port Forwarding",
         "Table Visualizer for JavaScript Profiles"
@@ -1089,9 +1074,8 @@
         "HTML Language Features",
         "JSON Language Features",
         "Markdown Language Features",
+        "Markdown Math",
         "PHP Language Features",
-        "Reference Search View",
-        "Search Result",
         "TypeScript and JavaScript Language Features",
         "Configuration Editing",
         "Node Debug Auto-attach",
@@ -1108,11 +1092,12 @@
         "Jake support for VS Code",
         "JavaScript Debugger",
         "JavaScript Debugger Companion Extension",
-        "Markdown Math",
         "Media Preview",
         "Merge Conflict",
         "Microsoft Account",
         "NPM support for VS Code",
+        "Reference Search View",
+        "Search Result",
         "Simple Browser",
         "Local Tunnel Port Forwarding",
         "Table Visualizer for JavaScript Profiles"
@@ -1182,7 +1167,7 @@
     "editor.dropIntoEditor.enabled": {
       "type": "boolean",
       "default": true,
-      "markdownDescription": "Controls whether you can drag and drop a file into a text editor by holding down `Shift`-key (instead of opening the file in an editor).",
+      "markdownDescription": "Controls whether you can drag and drop a file into a text editor by holding down the `Shift` key (instead of opening the file in an editor).",
       "defaultDefaultValue": true,
       "scope": 5,
       "restricted": false
@@ -1939,6 +1924,14 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.inlineSuggest.fontFamily": {
+      "type": "string",
+      "default": "default",
+      "description": "Controls the font family of the inline suggestions.",
+      "defaultDefaultValue": "default",
+      "scope": 5,
+      "restricted": false
+    },
     "editor.inlineSuggest.showToolbar": {
       "type": "string",
       "default": "onHover",
@@ -2038,28 +2031,23 @@
       "restricted": false
     },
     "editor.lightbulb.enabled": {
-      "type": "boolean",
-      "default": true,
-      "description": "Enables the Code Action lightbulb in the editor.",
-      "defaultDefaultValue": true,
-      "scope": 5,
-      "restricted": false
-    },
-    "editor.lightbulb.experimental.showAiIcon": {
       "type": "string",
+      "tags": [
+        "experimental"
+      ],
       "enum": [
         "off",
         "on",
         "onCode"
       ],
-      "default": "off",
+      "default": "onCode",
       "enumDescriptions": [
-        "Don not show the AI icon.",
-        "Show an AI icon when the code action menu contains an AI action, on code and empty lines.",
-        "Show an AI icon when the code action menu contains an AI action, but only on code."
+        "Disable the code action menu.",
+        "Show the code action menu when the cursor is on lines with code or on empty lines.",
+        "Show the code action menu when the cursor is on lines with code."
       ],
-      "description": "Show an AI icon along with the lightbulb when the code action menu contains an AI action.",
-      "defaultDefaultValue": "off",
+      "description": "Enables the Code Action lightbulb in the editor.",
+      "defaultDefaultValue": "onCode",
       "scope": 5,
       "restricted": false
     },
@@ -2859,6 +2847,9 @@
       "type": "boolean",
       "default": false,
       "description": "Shows the nested current scopes during the scroll at the top of the editor.",
+      "tags": [
+        "experimental"
+      ],
       "defaultDefaultValue": false,
       "scope": 5,
       "restricted": false
@@ -3595,6 +3586,51 @@
       "type": "boolean",
       "default": false,
       "markdownDescription": "When enabled, the editor will attempt to guess the character set encoding when opening files. This setting can also be configured per language. Note, this setting is not respected by text search. Only `#files.encoding#` is respected.",
+      "scope": 5,
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "files.autoSave": {
+      "type": "string",
+      "enum": [
+        "afterDelay",
+        "off",
+        "onFocusChange",
+        "onWindowChange"
+      ],
+      "markdownEnumDescriptions": [
+        "An editor with changes is automatically saved after the configured `#files.autoSaveDelay#`.",
+        "An editor with changes is never automatically saved.",
+        "An editor with changes is automatically saved when the editor loses focus.",
+        "An editor with changes is automatically saved when the window loses focus."
+      ],
+      "default": "off",
+      "markdownDescription": "Controls [auto save](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save) of editors that have unsaved changes.",
+      "scope": 5,
+      "defaultDefaultValue": "off",
+      "restricted": false
+    },
+    "files.autoSaveDelay": {
+      "type": "number",
+      "default": 1000,
+      "minimum": 0,
+      "markdownDescription": "Controls the delay in milliseconds after which an editor with unsaved changes is saved automatically. Only applies when `#files.autoSave#` is set to `afterDelay`.",
+      "scope": 5,
+      "defaultDefaultValue": 1000,
+      "restricted": false
+    },
+    "files.autoSaveWhenNoErrors": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "When enabled, will limit [auto save](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save) of editors to files that have no errors reported in them at the time the auto save is triggered. Only applies when `#files.autoSave#` is enabled.",
+      "scope": 5,
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "files.autoSaveWorkspaceFilesOnly": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "When enabled, will limit [auto save](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save) of editors to files that are inside the opened workspace. Only applies when `#files.autoSave#` is enabled.",
       "scope": 5,
       "defaultDefaultValue": false,
       "restricted": false

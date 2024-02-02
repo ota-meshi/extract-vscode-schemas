@@ -214,6 +214,10 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Represents centered layout mode: $(centerLayoutIcon)"
     },
+    "chat-editor-label-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon of the chat editor label.: $(chat-editor-label-icon)"
+    },
     "check": {
       "$ref": "#/definitions/icons"
     },
@@ -449,6 +453,10 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for unverified log breakpoints. $(debug-breakpoint-log-unverified)"
     },
+    "debug-breakpoint-pending": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for breakpoints waiting on another breakpoint. $(debug-breakpoint-pending)"
+    },
     "debug-breakpoint-unsupported": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for unsupported breakpoints. $(debug-breakpoint-unsupported)"
@@ -670,6 +678,10 @@
     "diff-single": {
       "$ref": "#/definitions/icons"
     },
+    "disassembly-editor-label-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon of the disassembly editor label.: $(disassembly-editor-label-icon)"
+    },
     "discard": {
       "$ref": "#/definitions/icons"
     },
@@ -729,6 +741,10 @@
     "extensions-configure-recommended": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for the 'Configure Recommended Extensions' action in the extensions view.: $(extensions-configure-recommended)"
+    },
+    "extensions-editor-label-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon of the extensions editor label.: $(extensions-editor-label-icon)"
     },
     "extensions-error-message": {
       "$ref": "#/definitions/icons",
@@ -1049,6 +1065,15 @@
     "git-pull-request-reviewer": {
       "$ref": "#/definitions/icons"
     },
+    "git-stash": {
+      "$ref": "#/definitions/icons"
+    },
+    "git-stash-apply": {
+      "$ref": "#/definitions/icons"
+    },
+    "git-stash-pop": {
+      "$ref": "#/definitions/icons"
+    },
     "github": {
       "$ref": "#/definitions/icons"
     },
@@ -1123,14 +1148,6 @@
     "info": {
       "$ref": "#/definitions/icons"
     },
-    "inline-chat-opaque": {
-      "$ref": "#/definitions/icons",
-      "markdownDescription": "Icon which spawns the inline chat from the gutter. It is half opaque by default and becomes completely opaque on hover.: $(inline-chat-opaque)"
-    },
-    "inline-chat-transparent": {
-      "$ref": "#/definitions/icons",
-      "markdownDescription": "Icon which spawns the inline chat from the gutter. It is transparent by default and becomes opaque on hover.: $(inline-chat-transparent)"
-    },
     "inline-suggestion-hints-next": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for show next parameter hint.: $(inline-suggestion-hints-next)"
@@ -1185,6 +1202,10 @@
     "keybindings-edit": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for the edit action in the keybinding UI.: $(keybindings-edit)"
+    },
+    "keybindings-editor-label-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon of the keybindings editor label.: $(keybindings-editor-label-icon)"
     },
     "keybindings-record-keys": {
       "$ref": "#/definitions/icons",
@@ -1433,6 +1454,10 @@
     },
     "move": {
       "$ref": "#/definitions/icons"
+    },
+    "multi-diff-editor-label-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon of the multi diff editor label.: $(multi-diff-editor-label-icon)"
     },
     "multiple-windows": {
       "$ref": "#/definitions/icons"
@@ -1979,6 +2004,10 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "View icon of the run view.: $(run-view-icon)"
     },
+    "runtime-extensions-editor-label-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon of the runtime extensions editor label.: $(runtime-extensions-editor-label-icon)"
+    },
     "save": {
       "$ref": "#/definitions/icons"
     },
@@ -2021,6 +2050,10 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon to make search details visible.: $(search-details)"
     },
+    "search-editor-label-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon of the search editor label.: $(search-editor-label-icon)"
+    },
     "search-expand-results": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for expand results in the search view.: $(search-expand-results)"
@@ -2062,6 +2095,10 @@
     },
     "search-save": {
       "$ref": "#/definitions/icons"
+    },
+    "search-see-more": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon to view more context in the search view.: $(search-see-more)"
     },
     "search-show-context": {
       "$ref": "#/definitions/icons",
@@ -2108,6 +2145,10 @@
     "settings-edit": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for the edit action in the Settings UI.: $(settings-edit)"
+    },
+    "settings-editor-label-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon of the settings editor label.: $(settings-editor-label-icon)"
     },
     "settings-folder-dropdown": {
       "$ref": "#/definitions/icons",
@@ -2207,6 +2248,9 @@
     "suggest-more-info": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for more information in the suggest widget.: $(suggest-more-info)"
+    },
+    "surround-with": {
+      "$ref": "#/definitions/icons"
     },
     "symbol-array": {
       "$ref": "#/definitions/icons"
@@ -2459,6 +2503,14 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon representing test coverage: $(testing-coverage)"
     },
+    "testing-coverage-all-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon of the \"run all tests with coverage\" action.: $(testing-coverage-all-icon)"
+    },
+    "testing-coverage-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon of the \"run test with coverage\" action.: $(testing-coverage-icon)"
+    },
     "testing-debug-all-icon": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon of the \"debug all tests\" action.: $(testing-debug-all-icon)"
@@ -2482,6 +2534,10 @@
     "testing-hidden": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon shown beside hidden tests, when they've been shown.: $(testing-hidden)"
+    },
+    "testing-missing-branch": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon representing a uncovered block without a range: $(testing-missing-branch)"
     },
     "testing-passed-icon": {
       "$ref": "#/definitions/icons",
@@ -2530,6 +2586,10 @@
     "testing-update-profiles": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon shown to update test profiles.: $(testing-update-profiles)"
+    },
+    "testing-was-covered": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon representing that an element was covered: $(testing-was-covered)"
     },
     "text-size": {
       "$ref": "#/definitions/icons"
@@ -2752,6 +2812,10 @@
     "workspace-trust-editor-folder-picker": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for the pick folder icon in the workspace trust editor.: $(workspace-trust-editor-folder-picker)"
+    },
+    "workspace-trust-editor-label-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon of the workspace trust editor label.: $(workspace-trust-editor-label-icon)"
     },
     "workspace-trust-editor-remove-folder": {
       "$ref": "#/definitions/icons",
