@@ -746,22 +746,22 @@
     "accessibility.alert.error": {
       "markdownDescription": "Alerts when the active line has an error. Also see `#audioCues.lineHasError#`.",
       "type": "boolean",
-      "default": true,
+      "default": false,
       "tags": [
         "accessibility"
       ],
-      "defaultDefaultValue": true,
+      "defaultDefaultValue": false,
       "scope": 3,
       "restricted": false
     },
     "accessibility.alert.foldedArea": {
       "markdownDescription": "Alerts when the active line has a folded area that can be unfolded. Also see `#audioCues.lineHasFoldedArea#`.",
       "type": "boolean",
-      "default": true,
+      "default": false,
       "tags": [
         "accessibility"
       ],
-      "defaultDefaultValue": true,
+      "defaultDefaultValue": false,
       "scope": 3,
       "restricted": false
     },
@@ -789,11 +789,11 @@
     "accessibility.alert.lineHasBreakpoint": {
       "markdownDescription": "Alerts when on a line with a breakpoint. Also see `#audioCues.lineHasBreakpoint#`.",
       "type": "boolean",
-      "default": true,
+      "default": false,
       "tags": [
         "accessibility"
       ],
-      "defaultDefaultValue": true,
+      "defaultDefaultValue": false,
       "scope": 3,
       "restricted": false
     },
@@ -919,11 +919,11 @@
     "accessibility.alert.warning": {
       "markdownDescription": "Alerts when the active line has a warning. Also see `#audioCues.lineHasWarning#`.",
       "type": "boolean",
-      "default": true,
+      "default": false,
       "tags": [
         "accessibility"
       ],
-      "defaultDefaultValue": true,
+      "defaultDefaultValue": false,
       "scope": 3,
       "restricted": false
     },
@@ -12083,7 +12083,7 @@
     },
     "inlineChat.mode": {
       "description": "Configure if changes crafted with inline chat are applied directly to the document or are previewed first.",
-      "default": "live",
+      "default": "livePreview",
       "type": "string",
       "enum": [
         "live",
@@ -12099,7 +12099,6 @@
         "experimental"
       ],
       "defaultDefaultValue": "livePreview",
-      "defaultValueSource": "Experiments",
       "scope": 3,
       "restricted": false
     },
