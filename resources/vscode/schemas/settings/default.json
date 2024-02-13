@@ -7451,12 +7451,13 @@
     },
     "editor.stickyScroll.enabled": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "description": "Shows the nested current scopes during the scroll at the top of the editor.",
       "tags": [
         "experimental"
       ],
       "defaultDefaultValue": false,
+      "defaultValueSource": "Experiments",
       "scope": 5,
       "restricted": false
     },
@@ -12083,7 +12084,7 @@
     },
     "inlineChat.mode": {
       "description": "Configure if changes crafted with inline chat are applied directly to the document or are previewed first.",
-      "default": "preview",
+      "default": "livePreview",
       "type": "string",
       "enum": [
         "live",
@@ -12099,7 +12100,6 @@
         "experimental"
       ],
       "defaultDefaultValue": "livePreview",
-      "defaultValueSource": "Experiments",
       "scope": 3,
       "restricted": false
     },
@@ -16550,12 +16550,13 @@
             },
             "editor.stickyScroll.enabled": {
               "type": "boolean",
-              "default": false,
+              "default": true,
               "description": "Shows the nested current scopes during the scroll at the top of the editor.",
               "tags": [
                 "experimental"
               ],
               "defaultDefaultValue": false,
+              "defaultValueSource": "Experiments",
               "scope": 5,
               "restricted": false
             },

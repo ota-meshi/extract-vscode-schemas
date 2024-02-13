@@ -2845,12 +2845,13 @@
     },
     "editor.stickyScroll.enabled": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "description": "Shows the nested current scopes during the scroll at the top of the editor.",
       "tags": [
         "experimental"
       ],
       "defaultDefaultValue": false,
+      "defaultValueSource": "Experiments",
       "scope": 5,
       "restricted": false
     },
