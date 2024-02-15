@@ -11801,7 +11801,7 @@
     },
     "inlineChat.mode": {
       "description": "Configure if changes crafted with inline chat are applied directly to the document or are previewed first.",
-      "default": "livePreview",
+      "default": "preview",
       "type": "string",
       "enum": [
         "live",
@@ -11817,6 +11817,7 @@
         "experimental"
       ],
       "defaultDefaultValue": "livePreview",
+      "defaultValueSource": "Experiments",
       "scope": 3,
       "restricted": false
     },

@@ -11841,7 +11841,7 @@
     },
     "inlineChat.mode": {
       "description": "Configure if changes crafted with inline chat are applied directly to the document or are previewed first.",
-      "default": "livePreview",
+      "default": "preview",
       "type": "string",
       "enum": [
         "live",
@@ -11857,6 +11857,7 @@
         "experimental"
       ],
       "defaultDefaultValue": "livePreview",
+      "defaultValueSource": "Experiments",
       "scope": 3,
       "restricted": false
     },
@@ -35668,12 +35669,13 @@
     "workbench.accounts.experimental.showEntitlements": {
       "scope": 2,
       "type": "boolean",
-      "default": false,
+      "default": true,
       "tags": [
         "experimental"
       ],
       "description": "When enabled, available entitlements for the account will be show in the accounts menu.",
       "defaultDefaultValue": false,
+      "defaultValueSource": "Experiments",
       "restricted": false
     },
     "workbench.activityBar.iconClickBehavior": {
