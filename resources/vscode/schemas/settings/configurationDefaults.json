@@ -6291,7 +6291,7 @@
         "on",
         "onCode"
       ],
-      "default": "onCode",
+      "default": "on",
       "enumDescriptions": [
         "Disable the code action menu.",
         "Show the code action menu when the cursor is on lines with code or on empty lines.",
@@ -6299,6 +6299,7 @@
       ],
       "description": "Enables the Code Action lightbulb in the editor.",
       "defaultDefaultValue": "onCode",
+      "defaultValueSource": "Experiments",
       "scope": 5,
       "restricted": false
     },
@@ -7418,13 +7419,12 @@
     },
     "editor.stickyScroll.enabled": {
       "type": "boolean",
-      "default": true,
+      "default": false,
       "description": "Shows the nested current scopes during the scroll at the top of the editor.",
       "tags": [
         "experimental"
       ],
       "defaultDefaultValue": false,
-      "defaultValueSource": "Experiments",
       "scope": 5,
       "restricted": false
     },
@@ -11803,7 +11803,7 @@
     },
     "inlineChat.mode": {
       "description": "Configure if changes crafted with inline chat are applied directly to the document or are previewed first.",
-      "default": "preview",
+      "default": "live",
       "type": "string",
       "enum": [
         "live",
@@ -15485,7 +15485,7 @@
                 "on",
                 "onCode"
               ],
-              "default": "onCode",
+              "default": "on",
               "enumDescriptions": [
                 "Disable the code action menu.",
                 "Show the code action menu when the cursor is on lines with code or on empty lines.",
@@ -15493,6 +15493,7 @@
               ],
               "description": "Enables the Code Action lightbulb in the editor.",
               "defaultDefaultValue": "onCode",
+              "defaultValueSource": "Experiments",
               "scope": 5,
               "restricted": false
             },
@@ -16241,13 +16242,12 @@
             },
             "editor.stickyScroll.enabled": {
               "type": "boolean",
-              "default": true,
+              "default": false,
               "description": "Shows the nested current scopes during the scroll at the top of the editor.",
               "tags": [
                 "experimental"
               ],
               "defaultDefaultValue": false,
-              "defaultValueSource": "Experiments",
               "scope": 5,
               "restricted": false
             },
