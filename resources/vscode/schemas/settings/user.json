@@ -7452,12 +7452,13 @@
     },
     "editor.stickyScroll.enabled": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "description": "Shows the nested current scopes during the scroll at the top of the editor.",
       "tags": [
         "experimental"
       ],
       "defaultDefaultValue": false,
+      "defaultValueSource": "Experiments",
       "scope": 5,
       "restricted": false
     },
@@ -16552,12 +16553,13 @@
             },
             "editor.stickyScroll.enabled": {
               "type": "boolean",
-              "default": false,
+              "default": true,
               "description": "Shows the nested current scopes during the scroll at the top of the editor.",
               "tags": [
                 "experimental"
               ],
               "defaultDefaultValue": false,
+              "defaultValueSource": "Experiments",
               "scope": 5,
               "restricted": false
             },
@@ -36448,13 +36450,12 @@
     "workbench.accounts.experimental.showEntitlements": {
       "scope": 2,
       "type": "boolean",
-      "default": true,
+      "default": false,
       "tags": [
         "experimental"
       ],
       "description": "When enabled, available entitlements for the account will be show in the accounts menu.",
       "defaultDefaultValue": false,
-      "defaultValueSource": "Experiments",
       "restricted": false
     },
     "workbench.activityBar.iconClickBehavior": {
