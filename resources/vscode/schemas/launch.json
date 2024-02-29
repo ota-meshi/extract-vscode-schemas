@@ -9545,6 +9545,20 @@
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
+              "testConfiguration": {
+                "default": "${workspaceFolder}/.vscode-test.js",
+                "markdownDescription": "Path to a test configuration file for the [test CLI](https://code.visualstudio.com/api/working-with-extensions/testing-extension#quick-setup-the-test-cli).",
+                "type": "string",
+                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+              },
+              "testConfigurationLabel": {
+                "default": "",
+                "markdownDescription": "A single configuration to run from the file. If not specified, you may be asked to pick.",
+                "type": "string",
+                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+              },
               "timeout": {
                 "default": 10000,
                 "description": "Retry for this number of milliseconds to connect to Node.js. Default is 10000 ms.",
@@ -9628,8 +9642,7 @@
             "required": [
               "name",
               "type",
-              "request",
-              "args"
+              "request"
             ],
             "additionalProperties": false,
             "type": "object"
@@ -11063,6 +11076,20 @@
                 "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
                 "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
               },
+              "testConfiguration": {
+                "default": "${workspaceFolder}/.vscode-test.js",
+                "markdownDescription": "Path to a test configuration file for the [test CLI](https://code.visualstudio.com/api/working-with-extensions/testing-extension#quick-setup-the-test-cli).",
+                "type": "string",
+                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+              },
+              "testConfigurationLabel": {
+                "default": "",
+                "markdownDescription": "A single configuration to run from the file. If not specified, you may be asked to pick.",
+                "type": "string",
+                "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+                "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+              },
               "timeout": {
                 "default": 10000,
                 "description": "Retry for this number of milliseconds to connect to Node.js. Default is 10000 ms.",
@@ -11147,8 +11174,7 @@
             "required": [
               "name",
               "type",
-              "request",
-              "args"
+              "request"
             ],
             "additionalProperties": false,
             "type": "object"
@@ -21913,6 +21939,20 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "testConfiguration": {
+          "default": "${workspaceFolder}/.vscode-test.js",
+          "markdownDescription": "Path to a test configuration file for the [test CLI](https://code.visualstudio.com/api/working-with-extensions/testing-extension#quick-setup-the-test-cli).",
+          "type": "string",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
+        "testConfigurationLabel": {
+          "default": "",
+          "markdownDescription": "A single configuration to run from the file. If not specified, you may be asked to pick.",
+          "type": "string",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "timeout": {
           "default": 10000,
           "description": "Retry for this number of milliseconds to connect to Node.js. Default is 10000 ms.",
@@ -21992,8 +22032,7 @@
       "required": [
         "name",
         "type",
-        "request",
-        "args"
+        "request"
       ],
       "additionalProperties": false,
       "type": "object"
@@ -23405,6 +23444,20 @@
         },
         "suppressMultipleSessionWarning": {
           "$ref": "#/definitions/common/properties/suppressMultipleSessionWarning",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
+        "testConfiguration": {
+          "default": "${workspaceFolder}/.vscode-test.js",
+          "markdownDescription": "Path to a test configuration file for the [test CLI](https://code.visualstudio.com/api/working-with-extensions/testing-extension#quick-setup-the-test-cli).",
+          "type": "string",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
+        "testConfigurationLabel": {
+          "default": "",
+          "markdownDescription": "A single configuration to run from the file. If not specified, you may be asked to pick.",
+          "type": "string",
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
@@ -37338,6 +37391,20 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
+        "testConfiguration": {
+          "default": "${workspaceFolder}/.vscode-test.js",
+          "markdownDescription": "Path to a test configuration file for the [test CLI](https://code.visualstudio.com/api/working-with-extensions/testing-extension#quick-setup-the-test-cli).",
+          "type": "string",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
+        "testConfigurationLabel": {
+          "default": "",
+          "markdownDescription": "A single configuration to run from the file. If not specified, you may be asked to pick.",
+          "type": "string",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
         "timeout": {
           "default": 10000,
           "description": "Retry for this number of milliseconds to connect to Node.js. Default is 10000 ms.",
@@ -37418,8 +37485,7 @@
       "required": [
         "name",
         "type",
-        "request",
-        "args"
+        "request"
       ],
       "additionalProperties": false,
       "type": "object"
@@ -38831,6 +38897,20 @@
         },
         "suppressMultipleSessionWarning": {
           "$ref": "#/definitions/common/properties/suppressMultipleSessionWarning",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
+        "testConfiguration": {
+          "default": "${workspaceFolder}/.vscode-test.js",
+          "markdownDescription": "Path to a test configuration file for the [test CLI](https://code.visualstudio.com/api/working-with-extensions/testing-extension#quick-setup-the-test-cli).",
+          "type": "string",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
+        "testConfigurationLabel": {
+          "default": "",
+          "markdownDescription": "A single configuration to run from the file. If not specified, you may be asked to pick.",
+          "type": "string",
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },

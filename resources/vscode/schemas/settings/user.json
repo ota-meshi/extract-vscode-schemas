@@ -700,73 +700,85 @@
       "restricted": false
     },
     "accessibility.alert.breakpoint": {
-      "markdownDescription": "Alerts when the active line has a breakpoint. Also see `#audioCues.onDebugBreak#`.",
+      "markdownDescription": "Indicates when the debugger breaks. Also see `#audioCues.onDebugBreak#`.",
       "type": "boolean",
       "default": true,
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use the `signals` settings instead.",
       "defaultDefaultValue": true,
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use the `signals` settings instead."
     },
     "accessibility.alert.chatRequestSent": {
-      "markdownDescription": "Alerts when a chat request is sent. Also see `#audioCues.chatRequestSent#`.",
+      "markdownDescription": "Indicates when a chat request is sent. Also see `#audioCues.chatRequestSent#`.",
       "type": "boolean",
       "default": true,
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use the `signals` settings instead.",
       "defaultDefaultValue": true,
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use the `signals` settings instead."
     },
     "accessibility.alert.chatResponsePending": {
-      "markdownDescription": "Alerts when a chat response is pending. Also see `#audioCues.chatResponsePending#`.",
+      "markdownDescription": "Indicates when a chat response is pending. Also see `#audioCues.chatResponsePending#`.",
       "type": "boolean",
       "default": true,
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use the `signals` settings instead.",
       "defaultDefaultValue": true,
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use the `signals` settings instead."
     },
     "accessibility.alert.clear": {
-      "markdownDescription": "Alerts when a feature is cleared (for example, the terminal, Debug Console, or Output channel). Also see `#audioCues.clear#`.",
+      "markdownDescription": "Indicates when a feature is cleared (for example, the terminal, Debug Console, or Output channel). Also see `#audioCues.clear#`.",
       "type": "boolean",
       "default": true,
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use the `signals` settings instead.",
       "defaultDefaultValue": true,
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use the `signals` settings instead."
     },
     "accessibility.alert.error": {
-      "markdownDescription": "Alerts when the active line has an error. Also see `#audioCues.lineHasError#`.",
+      "markdownDescription": "Indicates when the active line has an error. Also see `#audioCues.lineHasError#`.",
       "type": "boolean",
-      "default": false,
+      "default": true,
       "tags": [
         "accessibility"
       ],
-      "defaultDefaultValue": false,
+      "markdownDeprecationMessage": "This setting is deprecated. Use the `signals` settings instead.",
+      "defaultDefaultValue": true,
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use the `signals` settings instead."
     },
     "accessibility.alert.foldedArea": {
-      "markdownDescription": "Alerts when the active line has a folded area that can be unfolded. Also see `#audioCues.lineHasFoldedArea#`.",
+      "markdownDescription": "Indicates when the active line has a folded area that can be unfolded. Also see `#audioCues.lineHasFoldedArea#`.",
       "type": "boolean",
-      "default": false,
+      "default": true,
       "tags": [
         "accessibility"
       ],
-      "defaultDefaultValue": false,
+      "markdownDeprecationMessage": "This setting is deprecated. Use the `signals` settings instead.",
+      "defaultDefaultValue": true,
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use the `signals` settings instead."
     },
     "accessibility.alert.format": {
-      "markdownDescription": "Alerts when a file or notebook cell is formatted. Also see `#audioCues.format#`.",
+      "markdownDescription": "Indicates when a file or notebook cell is formatted. Also see `#audioCues.format#`.",
       "type": "string",
       "enum": [
         "always",
@@ -775,74 +787,86 @@
       ],
       "default": "always",
       "enumDescriptions": [
-        "Alerts whenever is a file is formatted, including auto save, on cell execution, and more.",
+        "Indicates whenever is a file is formatted, including auto save, on cell execution, and more.",
         "Never alerts.",
-        "Alerts when a file is formatted via user gesture."
+        "Indicates when a file is formatted via user gesture."
       ],
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use the `signals` settings instead.",
       "defaultDefaultValue": "always",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use the `signals` settings instead."
     },
     "accessibility.alert.lineHasBreakpoint": {
-      "markdownDescription": "Alerts when on a line with a breakpoint. Also see `#audioCues.lineHasBreakpoint#`.",
+      "markdownDescription": "Indicates when on a line with a breakpoint. Also see `#audioCues.lineHasBreakpoint#`.",
       "type": "boolean",
-      "default": false,
+      "default": true,
       "tags": [
         "accessibility"
       ],
-      "defaultDefaultValue": false,
+      "markdownDeprecationMessage": "This setting is deprecated. Use the `signals` settings instead.",
+      "defaultDefaultValue": true,
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use the `signals` settings instead."
     },
     "accessibility.alert.noInlayHints": {
-      "markdownDescription": "Alerts when there are no inlay hints. Also see `#audioCues.noInlayHints#`.",
+      "markdownDescription": "Indicates when there are no inlay hints. Also see `#audioCues.noInlayHints#`.",
       "type": "boolean",
       "default": true,
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use the `signals` settings instead.",
       "defaultDefaultValue": true,
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use the `signals` settings instead."
     },
     "accessibility.alert.notebookCellCompleted": {
-      "markdownDescription": "Alerts when a notebook cell completes successfully. Also see `#audioCues.notebookCellCompleted#`.",
+      "markdownDescription": "Indicates when a notebook cell completes successfully. Also see `#audioCues.notebookCellCompleted#`.",
       "type": "boolean",
       "default": true,
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use the `signals` settings instead.",
       "defaultDefaultValue": true,
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use the `signals` settings instead."
     },
     "accessibility.alert.notebookCellFailed": {
-      "markdownDescription": "Alerts when a notebook cell fails. Also see `#audioCues.notebookCellFailed#`.",
+      "markdownDescription": "Indicates when a notebook cell fails. Also see `#audioCues.notebookCellFailed#`.",
       "type": "boolean",
       "default": true,
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use the `signals` settings instead.",
       "defaultDefaultValue": true,
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use the `signals` settings instead."
     },
     "accessibility.alert.onDebugBreak": {
-      "markdownDescription": "Alerts when the debugger breaks. Also see `#audioCues.onDebugBreak#`.",
+      "markdownDescription": "Indicates when the debugger breaks. Also see `#audioCues.onDebugBreak#`.",
       "type": "boolean",
       "default": true,
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use the `signals` settings instead.",
       "defaultDefaultValue": true,
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use the `signals` settings instead."
     },
     "accessibility.alert.save": {
-      "markdownDescription": "Alerts when a file is saved. Also see `#audioCues.save#`.",
+      "markdownDescription": "Indicates when a file is saved. Also see `#audioCues.save#`.",
       "enum": [
         "always",
         "never",
@@ -850,82 +874,96 @@
       ],
       "default": "always",
       "enumDescriptions": [
-        "Alerts whenever is a file is saved, including auto save.",
+        "Indicates whenever is a file is saved, including auto save.",
         "Never alerts.",
-        "Alerts when a file is saved via user gesture."
+        "Indicates when a file is saved via user gesture."
       ],
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use the `signals` settings instead.",
       "defaultDefaultValue": "always",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use the `signals` settings instead."
     },
     "accessibility.alert.taskCompleted": {
-      "markdownDescription": "Alerts when a task completes successfully (zero exit code). Also see `#audioCues.taskCompleted#`.",
+      "markdownDescription": "Indicates when a task completes successfully (zero exit code). Also see `#audioCues.taskCompleted#`.",
       "type": "boolean",
       "default": true,
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use the `signals` settings instead.",
       "defaultDefaultValue": true,
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use the `signals` settings instead."
     },
     "accessibility.alert.taskFailed": {
-      "markdownDescription": "Alerts when a task fails (non-zero exit code). Also see `#audioCues.taskFailed#`.",
+      "markdownDescription": "Indicates when a task fails (non-zero exit code). Also see `#audioCues.taskFailed#`.",
       "type": "boolean",
       "default": true,
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use the `signals` settings instead.",
       "defaultDefaultValue": true,
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use the `signals` settings instead."
     },
     "accessibility.alert.terminalBell": {
-      "markdownDescription": "Alerts when the terminal bell is activated.",
+      "markdownDescription": "Indicates when the terminal bell is activated.",
       "type": "boolean",
       "default": true,
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use the `signals` settings instead.",
       "defaultDefaultValue": true,
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use the `signals` settings instead."
     },
     "accessibility.alert.terminalCommandFailed": {
-      "markdownDescription": "Alerts when a terminal command fails (non-zero exit code). Also see `#audioCues.terminalCommandFailed#`.",
+      "markdownDescription": "Indicates when a terminal command fails (non-zero exit code). Also see `#audioCues.terminalCommandFailed#`.",
       "type": "boolean",
       "default": true,
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use the `signals` settings instead.",
       "defaultDefaultValue": true,
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use the `signals` settings instead."
     },
     "accessibility.alert.terminalQuickFix": {
-      "markdownDescription": "Alerts when there is an available terminal quick fix. Also see `#audioCues.terminalQuickFix#`.",
+      "markdownDescription": "Indicates when there is an available terminal quick fix. Also see `#audioCues.terminalQuickFix#`.",
       "type": "boolean",
       "default": true,
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use the `signals` settings instead.",
       "defaultDefaultValue": true,
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use the `signals` settings instead."
     },
     "accessibility.alert.warning": {
-      "markdownDescription": "Alerts when the active line has a warning. Also see `#audioCues.lineHasWarning#`.",
+      "markdownDescription": "Indicates when the active line has a warning. Also see `#audioCues.lineHasWarning#`.",
       "type": "boolean",
-      "default": false,
+      "default": true,
       "tags": [
         "accessibility"
       ],
-      "defaultDefaultValue": false,
+      "markdownDeprecationMessage": "This setting is deprecated. Use the `signals` settings instead.",
+      "defaultDefaultValue": true,
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use the `signals` settings instead."
     },
     "accessibility.dimUnfocused.enabled": {
       "description": "Whether to dim unfocused editors and terminals, which makes it more clear where typed input will go to. This works with the majority of editors with the notable exceptions of those that utilize iframes like notebooks and extension webview editors.",
@@ -959,6 +997,1174 @@
         "accessibility"
       ],
       "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.chatRequestSent": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "description": "Plays a signal when a chat request is made.",
+      "properties": {
+        "announcement": {
+          "description": "Indicates when a chat request is made.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable announcement, will only play when in screen reader optimized mode.",
+            "Disable announcement."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound when a chat request is made.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.chatResponsePending": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "description": "Plays a signal on loop while the response is pending.",
+      "properties": {
+        "announcement": {
+          "description": "Alerts on loop while the response is pending.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable announcement, will only play when in screen reader optimized mode.",
+            "Disable announcement."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound on loop while the response is pending.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.chatResponseReceived": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "sound": "auto"
+      },
+      "description": "Indicates when the response has been received.",
+      "properties": {
+        "sound": {
+          "description": "Plays a sound on loop while the response has been received.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "sound": "auto"
+      },
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.clear": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "description": "Plays a signal when a feature is cleared (for example, the terminal, Debug Console, or Output channel).",
+      "properties": {
+        "announcement": {
+          "description": "Indicates when a feature is cleared.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable announcement, will only play when in screen reader optimized mode.",
+            "Disable announcement."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound when a feature is cleared.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.debouncePositionChanges": {
+      "description": "Whether or not position changes should be debounced",
+      "type": "boolean",
+      "default": false,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.diffLineDeleted": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "sound": "auto"
+      },
+      "description": "Indicates when the focus moves to an deleted line in Accessible Diff Viewer mode or to the next/previous change.",
+      "properties": {
+        "sound": {
+          "description": "Plays a sound when the focus moves to an deleted line in Accessible Diff Viewer mode or to the next/previous change.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "sound": "auto"
+      },
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.diffLineInserted": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "sound": "auto"
+      },
+      "description": "Indicates when the focus moves to an inserted line in Accessible Diff Viewer mode or to the next/previous change.",
+      "properties": {
+        "sound": {
+          "description": "Plays a sound when the focus moves to an inserted line in Accessible Diff Viewer mode or to the next/previous change.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "sound": "auto"
+      },
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.diffLineModified": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "sound": "auto"
+      },
+      "description": "Indicates when the focus moves to an modified line in Accessible Diff Viewer mode or to the next/previous change.",
+      "properties": {
+        "sound": {
+          "description": "Plays a sound when the focus moves to a modified line in Accessible Diff Viewer mode or to the next/previous change.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "sound": "auto"
+      },
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.format": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "markdownDescription": "Plays a signal when a file or notebook is formatted.",
+      "properties": {
+        "announcement": {
+          "description": "Indicates when a file or notebook is formatted.",
+          "type": "string",
+          "enum": [
+            "always",
+            "never",
+            "userGesture"
+          ],
+          "default": "never",
+          "enumDescriptions": [
+            "Announces whenever a file is formatted, including if it is set to format on save, type, or, paste, or run of a cell.",
+            "Never announces.",
+            "Announceswhen a user explicitly formats a file."
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound when a file or notebook is formatted.",
+          "type": "string",
+          "enum": [
+            "always",
+            "never",
+            "userGesture"
+          ],
+          "default": "never",
+          "enumDescriptions": [
+            "Plays the audio cue whenever a file is formatted, including if it is set to format on save, type, or, paste, or run of a cell.",
+            "Never plays the audio cue.",
+            "Plays the audio cue when a user explicitly formats a file."
+          ]
+        }
+      },
+      "default": {
+        "announcement": "never",
+        "sound": "never"
+      },
+      "defaultDefaultValue": {
+        "announcement": "never",
+        "sound": "never"
+      },
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.lineHasBreakpoint": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "description": "Plays a signal when the active line has a breakpoint.",
+      "properties": {
+        "announcement": {
+          "description": "Indicates when the active line has a breakpoint.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable announcement, will only play when in screen reader optimized mode.",
+            "Disable announcement."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound when the active line has a breakpoint.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.lineHasError": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "description": "Indicates when the active line has an error.",
+      "properties": {
+        "announcement": {
+          "description": "Indicates when the active line has an error.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off"
+          ],
+          "default": "off",
+          "enumDescriptions": [
+            "Enable announcement, will only play when in screen reader optimized mode.",
+            "Disable announcement."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound when the active line has an error.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.lineHasFoldedArea": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "description": "Indicates when the active line has a folded area that can be unfolded.",
+      "properties": {
+        "announcement": {
+          "description": "Indicates when the active line has a folded area that can be unfolded.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable announcement, will only play when in screen reader optimized mode.",
+            "Disable announcement."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound when the active line has a folded area that can be unfolded.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "off",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.lineHasInlineSuggestion": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "sound": "auto"
+      },
+      "description": "Indicates when the active line has an inline suggestion.",
+      "properties": {
+        "sound": {
+          "description": "Plays a sound when the active line has an inline suggestion.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "off",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "sound": "auto"
+      },
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.lineHasWarning": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "description": "Plays a signal when the active line has a warning.",
+      "properties": {
+        "announcement": {
+          "description": "Indicates when the active line has a warning.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off"
+          ],
+          "default": "off",
+          "enumDescriptions": [
+            "Enable announcement, will only play when in screen reader optimized mode.",
+            "Disable announcement."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound when the active line has a warning.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.noInlayHints": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "description": "Plays a signal when trying to read a line with inlay hints that has no inlay hints.",
+      "properties": {
+        "announcement": {
+          "description": "Indicates when trying to read a line with inlay hints that has no inlay hints.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable announcement, will only play when in screen reader optimized mode.",
+            "Disable announcement."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound when trying to read a line with inlay hints that has no inlay hints.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.notebookCellCompleted": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "description": "Plays a signal when a notebook cell execution is successfully completed.",
+      "properties": {
+        "announcement": {
+          "description": "Indicates when a notebook cell execution is successfully completed.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable announcement, will only play when in screen reader optimized mode.",
+            "Disable announcement."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound when a notebook cell execution is successfully completed.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.notebookCellFailed": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "description": "Plays a signal when a notebook cell execution fails.",
+      "properties": {
+        "announcement": {
+          "description": "Indicates when a notebook cell execution fails.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable announcement, will only play when in screen reader optimized mode.",
+            "Disable announcement."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound when a notebook cell execution fails.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.onDebugBreak": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "description": "Plays a signal when the debugger stopped on a breakpoint.",
+      "properties": {
+        "announcement": {
+          "description": "Indicates when the debugger stopped on a breakpoint.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable announcement, will only play when in screen reader optimized mode.",
+            "Disable announcement."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound when the debugger stopped on a breakpoint.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.save": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "markdownDescription": "Plays a signal when a file is saved.",
+      "properties": {
+        "announcement": {
+          "description": "Indicates when a file is saved.",
+          "type": "string",
+          "enum": [
+            "always",
+            "never",
+            "userGesture"
+          ],
+          "default": "never",
+          "enumDescriptions": [
+            "Announces whenever a file is saved, including auto save.",
+            "Never plays the audio cue.",
+            "Announces when a user explicitly saves a file."
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound when a file is saved.",
+          "type": "string",
+          "enum": [
+            "always",
+            "never",
+            "userGesture"
+          ],
+          "default": "never",
+          "enumDescriptions": [
+            "Plays the audio cue whenever a file is saved, including auto save.",
+            "Never plays the audio cue.",
+            "Plays the audio cue when a user explicitly saves a file."
+          ]
+        }
+      },
+      "default": {
+        "announcement": "never",
+        "sound": "never"
+      },
+      "defaultDefaultValue": {
+        "announcement": "never",
+        "sound": "never"
+      },
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.sounds.volume": {
+      "description": "The volume of the sounds in percent (0-100).",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "default": 70,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": 70,
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.taskCompleted": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "description": "Plays a signal when a task is completed.",
+      "properties": {
+        "announcement": {
+          "description": "Indicates when a task is completed.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable announcement, will only play when in screen reader optimized mode.",
+            "Disable announcement."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound when a task is completed.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.taskFailed": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "description": "Plays a signal when a task fails (non-zero exit code).",
+      "properties": {
+        "announcement": {
+          "description": "Indicates when a task fails (non-zero exit code).",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable announcement, will only play when in screen reader optimized mode.",
+            "Disable announcement."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound when a task fails (non-zero exit code).",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.terminalBell": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "description": "Plays a signal when the terminal bell is ringing.",
+      "properties": {
+        "announcement": {
+          "description": "Indicates when the terminal bell is ringing.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable announcement, will only play when in screen reader optimized mode.",
+            "Disable announcement."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound when the terminal bell is ringing.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.terminalCommandFailed": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "description": "Plays a signal when a terminal command fails (non-zero exit code).",
+      "properties": {
+        "announcement": {
+          "description": "Indicates when a terminal command fails (non-zero exit code).",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable announcement, will only play when in screen reader optimized mode.",
+            "Disable announcement."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound when a terminal command fails (non-zero exit code).",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "scope": 3,
+      "restricted": false
+    },
+    "accessibility.signals.terminalQuickFix": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "description": "Plays a signal when terminal Quick Fixes are available.",
+      "properties": {
+        "announcement": {
+          "description": "Indicates when terminal Quick Fixes are available.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable announcement, will only play when in screen reader optimized mode.",
+            "Disable announcement."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound when terminal Quick Fixes are available.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
       "scope": 3,
       "restricted": false
     },
@@ -1115,16 +2321,18 @@
       ],
       "default": "off",
       "enumDescriptions": [
-        "Enable audio cue when a screen reader is attached.",
-        "Disable audio cue.",
-        "Enable audio cue."
+        "Enable sound when a screen reader is attached.",
+        "Disable sound.",
+        "Enable sound."
       ],
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
       "defaultDefaultValue": "off",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
     },
     "audioCues.chatResponsePending": {
       "description": "Plays a sound on loop while the response is pending.",
@@ -1136,16 +2344,18 @@
       ],
       "default": "auto",
       "enumDescriptions": [
-        "Enable audio cue when a screen reader is attached.",
-        "Disable audio cue.",
-        "Enable audio cue."
+        "Enable sound when a screen reader is attached.",
+        "Disable sound.",
+        "Enable sound."
       ],
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
       "defaultDefaultValue": "auto",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
     },
     "audioCues.chatResponseReceived": {
       "description": "Plays a sound on loop while the response has been received.",
@@ -1157,16 +2367,18 @@
       ],
       "default": "off",
       "enumDescriptions": [
-        "Enable audio cue when a screen reader is attached.",
-        "Disable audio cue.",
-        "Enable audio cue."
+        "Enable sound when a screen reader is attached.",
+        "Disable sound.",
+        "Enable sound."
       ],
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
       "defaultDefaultValue": "off",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
     },
     "audioCues.clear": {
       "description": "Plays a sound when a feature is cleared (for example, the terminal, Debug Console, or Output channel). When this is disabled, an ARIA alert will announce 'Cleared'.",
@@ -1178,16 +2390,18 @@
       ],
       "default": "off",
       "enumDescriptions": [
-        "Enable audio cue when a screen reader is attached.",
-        "Disable audio cue.",
-        "Enable audio cue."
+        "Enable sound when a screen reader is attached.",
+        "Disable sound.",
+        "Enable sound."
       ],
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
       "defaultDefaultValue": "off",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
     },
     "audioCues.debouncePositionChanges": {
       "description": "Whether or not position changes should be debounced",
@@ -1196,9 +2410,11 @@
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated, instead use the `signals.debouncePositionChanges` setting.",
       "defaultDefaultValue": false,
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated, instead use the `signals.debouncePositionChanges` setting."
     },
     "audioCues.diffLineDeleted": {
       "description": "Plays a sound when the focus moves to a deleted line in Accessible Diff Viewer mode or to the next/previous change.",
@@ -1210,16 +2426,18 @@
       ],
       "default": "auto",
       "enumDescriptions": [
-        "Enable audio cue when a screen reader is attached.",
-        "Disable audio cue.",
-        "Enable audio cue."
+        "Enable sound when a screen reader is attached.",
+        "Disable sound.",
+        "Enable sound."
       ],
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
       "defaultDefaultValue": "auto",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
     },
     "audioCues.diffLineInserted": {
       "description": "Plays a sound when the focus moves to an inserted line in Accessible Diff Viewer mode or to the next/previous change.",
@@ -1231,16 +2449,18 @@
       ],
       "default": "auto",
       "enumDescriptions": [
-        "Enable audio cue when a screen reader is attached.",
-        "Disable audio cue.",
-        "Enable audio cue."
+        "Enable sound when a screen reader is attached.",
+        "Disable sound.",
+        "Enable sound."
       ],
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
       "defaultDefaultValue": "auto",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
     },
     "audioCues.diffLineModified": {
       "description": "Plays a sound when the focus moves to a modified line in Accessible Diff Viewer mode or to the next/previous change.",
@@ -1252,16 +2472,18 @@
       ],
       "default": "auto",
       "enumDescriptions": [
-        "Enable audio cue when a screen reader is attached.",
-        "Disable audio cue.",
-        "Enable audio cue."
+        "Enable sound when a screen reader is attached.",
+        "Disable sound.",
+        "Enable sound."
       ],
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
       "defaultDefaultValue": "auto",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
     },
     "audioCues.enabled": {
       "markdownDeprecationMessage": "Deprecated. Use the specific setting for each audio cue instead (`audioCues.*`).",
@@ -1290,9 +2512,11 @@
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
       "defaultDefaultValue": "never",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
     },
     "audioCues.lineHasBreakpoint": {
       "description": "Plays a sound when the active line has a breakpoint.",
@@ -1304,16 +2528,18 @@
       ],
       "default": "auto",
       "enumDescriptions": [
-        "Enable audio cue when a screen reader is attached.",
-        "Disable audio cue.",
-        "Enable audio cue."
+        "Enable sound when a screen reader is attached.",
+        "Disable sound.",
+        "Enable sound."
       ],
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
       "defaultDefaultValue": "auto",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
     },
     "audioCues.lineHasError": {
       "description": "Plays a sound when the active line has an error.",
@@ -1325,16 +2551,18 @@
       ],
       "default": "auto",
       "enumDescriptions": [
-        "Enable audio cue when a screen reader is attached.",
-        "Disable audio cue.",
-        "Enable audio cue."
+        "Enable sound when a screen reader is attached.",
+        "Disable sound.",
+        "Enable sound."
       ],
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
       "defaultDefaultValue": "auto",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
     },
     "audioCues.lineHasFoldedArea": {
       "description": "Plays a sound when the active line has a folded area that can be unfolded.",
@@ -1346,16 +2574,18 @@
       ],
       "default": "auto",
       "enumDescriptions": [
-        "Enable audio cue when a screen reader is attached.",
-        "Disable audio cue.",
-        "Enable audio cue."
+        "Enable sound when a screen reader is attached.",
+        "Disable sound.",
+        "Enable sound."
       ],
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
       "defaultDefaultValue": "auto",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
     },
     "audioCues.lineHasInlineSuggestion": {
       "description": "Plays a sound when the active line has an inline suggestion.",
@@ -1367,16 +2597,18 @@
       ],
       "default": "auto",
       "enumDescriptions": [
-        "Enable audio cue when a screen reader is attached.",
-        "Disable audio cue.",
-        "Enable audio cue."
+        "Enable sound when a screen reader is attached.",
+        "Disable sound.",
+        "Enable sound."
       ],
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
       "defaultDefaultValue": "auto",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
     },
     "audioCues.lineHasWarning": {
       "description": "Plays a sound when the active line has a warning.",
@@ -1388,16 +2620,18 @@
       ],
       "default": "off",
       "enumDescriptions": [
-        "Enable audio cue when a screen reader is attached.",
-        "Disable audio cue.",
-        "Enable audio cue."
+        "Enable sound when a screen reader is attached.",
+        "Disable sound.",
+        "Enable sound."
       ],
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
       "defaultDefaultValue": "off",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
     },
     "audioCues.noInlayHints": {
       "description": "Plays a sound when trying to read a line with inlay hints that has no inlay hints.",
@@ -1409,16 +2643,18 @@
       ],
       "default": "auto",
       "enumDescriptions": [
-        "Enable audio cue when a screen reader is attached.",
-        "Disable audio cue.",
-        "Enable audio cue."
+        "Enable sound when a screen reader is attached.",
+        "Disable sound.",
+        "Enable sound."
       ],
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
       "defaultDefaultValue": "auto",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
     },
     "audioCues.notebookCellCompleted": {
       "description": "Plays a sound when a notebook cell execution is successfully completed.",
@@ -1430,16 +2666,18 @@
       ],
       "default": "auto",
       "enumDescriptions": [
-        "Enable audio cue when a screen reader is attached.",
-        "Disable audio cue.",
-        "Enable audio cue."
+        "Enable sound when a screen reader is attached.",
+        "Disable sound.",
+        "Enable sound."
       ],
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
       "defaultDefaultValue": "auto",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
     },
     "audioCues.notebookCellFailed": {
       "description": "Plays a sound when a notebook cell execution fails.",
@@ -1451,16 +2689,18 @@
       ],
       "default": "auto",
       "enumDescriptions": [
-        "Enable audio cue when a screen reader is attached.",
-        "Disable audio cue.",
-        "Enable audio cue."
+        "Enable sound when a screen reader is attached.",
+        "Disable sound.",
+        "Enable sound."
       ],
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
       "defaultDefaultValue": "auto",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
     },
     "audioCues.onDebugBreak": {
       "description": "Plays a sound when the debugger stopped on a breakpoint.",
@@ -1472,16 +2712,18 @@
       ],
       "default": "auto",
       "enumDescriptions": [
-        "Enable audio cue when a screen reader is attached.",
-        "Disable audio cue.",
-        "Enable audio cue."
+        "Enable sound when a screen reader is attached.",
+        "Disable sound.",
+        "Enable sound."
       ],
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
       "defaultDefaultValue": "auto",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
     },
     "audioCues.save": {
       "markdownDescription": "Plays a sound when a file is saved. Also see `#accessibility.alert.save#`",
@@ -1500,9 +2742,11 @@
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
       "defaultDefaultValue": "never",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
     },
     "audioCues.taskCompleted": {
       "description": "Plays a sound when a task is completed.",
@@ -1514,16 +2758,18 @@
       ],
       "default": "auto",
       "enumDescriptions": [
-        "Enable audio cue when a screen reader is attached.",
-        "Disable audio cue.",
-        "Enable audio cue."
+        "Enable sound when a screen reader is attached.",
+        "Disable sound.",
+        "Enable sound."
       ],
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
       "defaultDefaultValue": "auto",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
     },
     "audioCues.taskFailed": {
       "description": "Plays a sound when a task fails (non-zero exit code).",
@@ -1535,16 +2781,41 @@
       ],
       "default": "auto",
       "enumDescriptions": [
-        "Enable audio cue when a screen reader is attached.",
-        "Disable audio cue.",
-        "Enable audio cue."
+        "Enable sound when a screen reader is attached.",
+        "Disable sound.",
+        "Enable sound."
       ],
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
       "defaultDefaultValue": "auto",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
+    },
+    "audioCues.terminalBell": {
+      "description": "Plays a sound when the terminal bell is ringing.",
+      "type": "string",
+      "enum": [
+        "auto",
+        "off",
+        "on"
+      ],
+      "default": "on",
+      "enumDescriptions": [
+        "Enable sound when a screen reader is attached.",
+        "Disable sound.",
+        "Enable sound."
+      ],
+      "tags": [
+        "accessibility"
+      ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
+      "defaultDefaultValue": "on",
+      "scope": 3,
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
     },
     "audioCues.terminalCommandFailed": {
       "description": "Plays a sound when a terminal command fails (non-zero exit code).",
@@ -1556,16 +2827,18 @@
       ],
       "default": "auto",
       "enumDescriptions": [
-        "Enable audio cue when a screen reader is attached.",
-        "Disable audio cue.",
-        "Enable audio cue."
+        "Enable sound when a screen reader is attached.",
+        "Disable sound.",
+        "Enable sound."
       ],
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
       "defaultDefaultValue": "auto",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
     },
     "audioCues.terminalQuickFix": {
       "description": "Plays a sound when terminal Quick Fixes are available.",
@@ -1577,29 +2850,28 @@
       ],
       "default": "auto",
       "enumDescriptions": [
-        "Enable audio cue when a screen reader is attached.",
-        "Disable audio cue.",
-        "Enable audio cue."
+        "Enable sound when a screen reader is attached.",
+        "Disable sound.",
+        "Enable sound."
       ],
       "tags": [
         "accessibility"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `signals` settings instead.",
       "defaultDefaultValue": "auto",
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `signals` settings instead."
     },
     "audioCues.volume": {
-      "description": "The volume of the audio cues in percent (0-100).",
-      "type": "number",
-      "minimum": 0,
-      "maximum": 100,
-      "default": 70,
+      "markdownDeprecationMessage": "Deprecated. Use `accessibility.signals.sounds.volume` instead.",
       "tags": [
         "accessibility"
       ],
-      "defaultDefaultValue": 70,
+      "default": null,
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "Deprecated. Use `accessibility.signals.sounds.volume` instead."
     },
     "breadcrumbs.enabled": {
       "description": "Enable/disable navigation breadcrumbs.",
@@ -2270,7 +3542,7 @@
         "warning"
       ],
       "default": "error",
-      "description": "Hex colors must consist of three or six hex numbers.",
+      "description": "Hex colors must consist of 3, 4, 6 or 8 hex numbers.",
       "source": {
         "id": "vscode.css-language-features",
         "displayName": "CSS Language Features"
@@ -5482,13 +6754,12 @@
     },
     "editor.experimental.asyncTokenization": {
       "type": "boolean",
-      "default": true,
+      "default": false,
       "description": "Controls whether the tokenization should happen asynchronously on a web worker.",
       "tags": [
         "experimental"
       ],
       "defaultDefaultValue": false,
-      "defaultValueSource": "Experiments",
       "scope": 5,
       "restricted": false
     },
@@ -5520,6 +6791,48 @@
         "type": "string"
       },
       "defaultDefaultValue": {},
+      "restricted": false
+    },
+    "editor.experimentalInlineEdit.backgroundColoring": {
+      "type": "boolean",
+      "default": false,
+      "description": "Controls whether to color the background of inline edits.",
+      "defaultDefaultValue": false,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.experimentalInlineEdit.enabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Controls whether to show inline edits in the editor.",
+      "defaultDefaultValue": false,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.experimentalInlineEdit.fontFamily": {
+      "type": "string",
+      "default": "default",
+      "description": "Controls the font family of the inline edit.",
+      "defaultDefaultValue": "default",
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.experimentalInlineEdit.showToolbar": {
+      "type": "string",
+      "default": "onHover",
+      "enum": [
+        "always",
+        "never",
+        "onHover"
+      ],
+      "enumDescriptions": [
+        "Show the inline edit toolbar whenever an inline suggestion is shown.",
+        "Never show the inline edit toolbar.",
+        "Show the inline edit toolbar when hovering over an inline suggestion."
+      ],
+      "description": "Controls when to show the inline edit toolbar.",
+      "defaultDefaultValue": "onHover",
+      "scope": 5,
       "restricted": false
     },
     "editor.experimentalWhitespaceRendering": {
@@ -6324,7 +7637,7 @@
         "on",
         "onCode"
       ],
-      "default": "on",
+      "default": "onCode",
       "enumDescriptions": [
         "Disable the code action menu.",
         "Show the code action menu when the cursor is on lines with code or on empty lines.",
@@ -6332,7 +7645,6 @@
       ],
       "description": "Enables the Code Action lightbulb in the editor.",
       "defaultDefaultValue": "onCode",
-      "defaultValueSource": "Experiments",
       "scope": 5,
       "restricted": false
     },
@@ -7457,8 +8769,7 @@
       "tags": [
         "experimental"
       ],
-      "defaultDefaultValue": false,
-      "defaultValueSource": "Experiments",
+      "defaultDefaultValue": true,
       "scope": 5,
       "restricted": false
     },
@@ -7466,7 +8777,7 @@
       "type": "number",
       "default": 5,
       "minimum": 1,
-      "maximum": 10,
+      "maximum": 20,
       "description": "Defines the maximum number of sticky lines to show.",
       "defaultDefaultValue": 5,
       "scope": 5,
@@ -10920,20 +12231,15 @@
       "restricted": false
     },
     "git.inputValidation": {
-      "type": "string",
-      "enum": [
-        "always",
-        "off",
-        "warn"
-      ],
-      "default": "off",
-      "description": "Controls when to show commit message input validation.",
+      "type": "boolean",
+      "default": false,
+      "description": "Controls whether to show commit message input validation diagnostics.",
       "scope": 3,
       "source": {
         "id": "vscode.git",
         "displayName": "Git"
       },
-      "defaultDefaultValue": "off",
+      "defaultDefaultValue": false,
       "restricted": false
     },
     "git.inputValidationLength": {
@@ -11183,6 +12489,18 @@
       "description": "Remember the last git command that ran after a commit.",
       "scope": 4,
       "default": false,
+      "source": {
+        "id": "vscode.git",
+        "displayName": "Git"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "git.replaceTagsWhenPull": {
+      "type": "boolean",
+      "scope": 4,
+      "default": false,
+      "description": "Automatically replace the local tags with the remote tags in case of a conflict when running the pull command.",
       "source": {
         "id": "vscode.git",
         "displayName": "Git"
@@ -12067,6 +13385,24 @@
       "scope": 3,
       "restricted": false
     },
+    "inlineChat.accessibleDiffView": {
+      "description": "Whether the inline chat also renders an accessible diff viewer for its changes.",
+      "default": "auto",
+      "type": "string",
+      "enum": [
+        "auto",
+        "off",
+        "on"
+      ],
+      "markdownEnumDescriptions": [
+        "The accessible diff viewer is based screen reader mode being enabled.",
+        "The accessible diff viewer is never enabled.",
+        "The accessible diff viewer is always enabled."
+      ],
+      "defaultDefaultValue": "auto",
+      "scope": 3,
+      "restricted": false
+    },
     "inlineChat.finishOnType": {
       "description": "Whether to finish an inline chat session when typing outside of changed regions.",
       "default": false,
@@ -12089,19 +13425,16 @@
       "type": "string",
       "enum": [
         "live",
-        "livePreview",
         "preview"
       ],
       "markdownEnumDescriptions": [
         "Changes are applied directly to the document, can be highlighted via inline diffs, and accepted/discarded by hunks. Ending a session will keep the changes.",
-        "Changes are applied directly to the document and are highlighted visually via inline or side-by-side diffs. Ending a session will keep the changes.",
         "Changes are previewed only and need to be accepted via the apply button. Ending a session will discard the changes."
       ],
       "tags": [
         "experimental"
       ],
-      "defaultDefaultValue": "livePreview",
-      "defaultValueSource": "Experiments",
+      "defaultDefaultValue": "live",
       "scope": 3,
       "restricted": false
     },
@@ -13394,7 +14727,7 @@
         "warning"
       ],
       "default": "error",
-      "description": "Hex colors must consist of three or six hex numbers.",
+      "description": "Hex colors must consist of 3, 4, 6 or 8 hex numbers.",
       "source": {
         "id": "vscode.css-language-features",
         "displayName": "CSS Language Features"
@@ -15093,6 +16426,48 @@
               "scope": 5,
               "restricted": false
             },
+            "editor.experimentalInlineEdit.backgroundColoring": {
+              "type": "boolean",
+              "default": false,
+              "description": "Controls whether to color the background of inline edits.",
+              "defaultDefaultValue": false,
+              "scope": 5,
+              "restricted": false
+            },
+            "editor.experimentalInlineEdit.enabled": {
+              "type": "boolean",
+              "default": false,
+              "description": "Controls whether to show inline edits in the editor.",
+              "defaultDefaultValue": false,
+              "scope": 5,
+              "restricted": false
+            },
+            "editor.experimentalInlineEdit.fontFamily": {
+              "type": "string",
+              "default": "default",
+              "description": "Controls the font family of the inline edit.",
+              "defaultDefaultValue": "default",
+              "scope": 5,
+              "restricted": false
+            },
+            "editor.experimentalInlineEdit.showToolbar": {
+              "type": "string",
+              "default": "onHover",
+              "enum": [
+                "always",
+                "never",
+                "onHover"
+              ],
+              "enumDescriptions": [
+                "Show the inline edit toolbar whenever an inline suggestion is shown.",
+                "Never show the inline edit toolbar.",
+                "Show the inline edit toolbar when hovering over an inline suggestion."
+              ],
+              "description": "Controls when to show the inline edit toolbar.",
+              "defaultDefaultValue": "onHover",
+              "scope": 5,
+              "restricted": false
+            },
             "editor.experimentalWhitespaceRendering": {
               "enumDescriptions": [
                 "Use a new rendering method with font characters.",
@@ -15796,7 +17171,7 @@
                 "on",
                 "onCode"
               ],
-              "default": "on",
+              "default": "onCode",
               "enumDescriptions": [
                 "Disable the code action menu.",
                 "Show the code action menu when the cursor is on lines with code or on empty lines.",
@@ -15804,7 +17179,6 @@
               ],
               "description": "Enables the Code Action lightbulb in the editor.",
               "defaultDefaultValue": "onCode",
-              "defaultValueSource": "Experiments",
               "scope": 5,
               "restricted": false
             },
@@ -16558,8 +17932,7 @@
               "tags": [
                 "experimental"
               ],
-              "defaultDefaultValue": false,
-              "defaultValueSource": "Experiments",
+              "defaultDefaultValue": true,
               "scope": 5,
               "restricted": false
             },
@@ -16567,7 +17940,7 @@
               "type": "number",
               "default": 5,
               "minimum": 1,
-              "maximum": 10,
+              "maximum": 20,
               "description": "Defines the maximum number of sticky lines to show.",
               "defaultDefaultValue": 5,
               "scope": 5,
@@ -18164,9 +19537,6 @@
     "problems.visibility": {
       "type": "boolean",
       "default": true,
-      "tags": [
-        "experimental"
-      ],
       "description": "Controls whether the problems are visible throughout the editor and workbench.",
       "defaultDefaultValue": true,
       "scope": 3,
@@ -19172,7 +20542,7 @@
         "warning"
       ],
       "default": "error",
-      "description": "Hex colors must consist of three or six hex numbers.",
+      "description": "Hex colors must consist of 3, 4, 6 or 8 hex numbers.",
       "source": {
         "id": "vscode.css-language-features",
         "displayName": "CSS Language Features"
@@ -20349,6 +21719,7 @@
                 "console",
                 "copilot",
                 "copy",
+                "coverage",
                 "credit-card",
                 "dash",
                 "dashboard",
@@ -20489,6 +21860,7 @@
                 "github-action",
                 "github-alt",
                 "github-inverted",
+                "github-project",
                 "globe",
                 "go-to-file",
                 "grabber",
@@ -20669,6 +22041,8 @@
                 "run",
                 "run-above",
                 "run-all",
+                "run-all-coverage",
+                "run-all-coverage",
                 "run-below",
                 "run-errors",
                 "save",
@@ -20917,6 +22291,7 @@
                 "$(console)",
                 "$(copilot)",
                 "$(copy)",
+                "$(coverage)",
                 "$(credit-card)",
                 "$(dash)",
                 "$(dashboard)",
@@ -21057,6 +22432,7 @@
                 "$(github-action)",
                 "$(github-alt)",
                 "$(github-inverted)",
+                "$(github-project)",
                 "$(globe)",
                 "$(go-to-file)",
                 "$(grabber)",
@@ -21237,6 +22613,8 @@
                 "$(run)",
                 "$(run-above)",
                 "$(run-all)",
+                "$(run-all-coverage)",
+                "$(run-all-coverage)",
                 "$(run-below)",
                 "$(run-errors)",
                 "$(save)",
@@ -21570,6 +22948,7 @@
                 "console",
                 "copilot",
                 "copy",
+                "coverage",
                 "credit-card",
                 "dash",
                 "dashboard",
@@ -21710,6 +23089,7 @@
                 "github-action",
                 "github-alt",
                 "github-inverted",
+                "github-project",
                 "globe",
                 "go-to-file",
                 "grabber",
@@ -21890,6 +23270,8 @@
                 "run",
                 "run-above",
                 "run-all",
+                "run-all-coverage",
+                "run-all-coverage",
                 "run-below",
                 "run-errors",
                 "save",
@@ -22138,6 +23520,7 @@
                 "$(console)",
                 "$(copilot)",
                 "$(copy)",
+                "$(coverage)",
                 "$(credit-card)",
                 "$(dash)",
                 "$(dashboard)",
@@ -22278,6 +23661,7 @@
                 "$(github-action)",
                 "$(github-alt)",
                 "$(github-inverted)",
+                "$(github-project)",
                 "$(globe)",
                 "$(go-to-file)",
                 "$(grabber)",
@@ -22458,6 +23842,8 @@
                 "$(run)",
                 "$(run-above)",
                 "$(run-all)",
+                "$(run-all-coverage)",
+                "$(run-all-coverage)",
                 "$(run-below)",
                 "$(run-errors)",
                 "$(save)",
@@ -22791,6 +24177,7 @@
                 "console",
                 "copilot",
                 "copy",
+                "coverage",
                 "credit-card",
                 "dash",
                 "dashboard",
@@ -22931,6 +24318,7 @@
                 "github-action",
                 "github-alt",
                 "github-inverted",
+                "github-project",
                 "globe",
                 "go-to-file",
                 "grabber",
@@ -23111,6 +24499,8 @@
                 "run",
                 "run-above",
                 "run-all",
+                "run-all-coverage",
+                "run-all-coverage",
                 "run-below",
                 "run-errors",
                 "save",
@@ -23359,6 +24749,7 @@
                 "$(console)",
                 "$(copilot)",
                 "$(copy)",
+                "$(coverage)",
                 "$(credit-card)",
                 "$(dash)",
                 "$(dashboard)",
@@ -23499,6 +24890,7 @@
                 "$(github-action)",
                 "$(github-alt)",
                 "$(github-inverted)",
+                "$(github-project)",
                 "$(globe)",
                 "$(go-to-file)",
                 "$(grabber)",
@@ -23679,6 +25071,8 @@
                 "$(run)",
                 "$(run-above)",
                 "$(run-all)",
+                "$(run-all-coverage)",
+                "$(run-all-coverage)",
                 "$(run-below)",
                 "$(run-errors)",
                 "$(save)",
@@ -24110,12 +25504,13 @@
       "restricted": false
     },
     "terminal.integrated.enableBell": {
-      "description": "Controls whether the terminal bell is enabled. This shows up as a visual bell next to the terminal's name.",
+      "markdownDeprecationMessage": "This is now deprecated. Instead use the `terminal.integrated.enableVisualBell` and `accessibility.signals.terminalBell` settings.",
       "type": "boolean",
       "default": false,
       "defaultDefaultValue": false,
       "scope": 3,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This is now deprecated. Instead use the `terminal.integrated.enableVisualBell` and `accessibility.signals.terminalBell` settings."
     },
     "terminal.integrated.enableFileLinks": {
       "description": "Whether to enable file links in terminals. Links can be slow when working on a network drive in particular because each file link is verified against the file system. Changing this will take effect only in new terminals.",
@@ -24166,6 +25561,14 @@
       "type": "boolean",
       "default": true,
       "defaultDefaultValue": true,
+      "scope": 3,
+      "restricted": false
+    },
+    "terminal.integrated.enableVisualBell": {
+      "description": "Controls whether the visual terminal bell is enabled. This shows up next to the terminal's name.",
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
       "scope": 3,
       "restricted": false
     },
@@ -25192,6 +26595,10 @@
                   "git-stash",
                   "git-stash-apply",
                   "git-stash-pop",
+                  "run-all-coverage",
+                  "run-all-coverage",
+                  "coverage",
+                  "github-project",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -25760,6 +27167,10 @@
                   "$(git-stash)",
                   "$(git-stash-apply)",
                   "$(git-stash-pop)",
+                  "$(run-all-coverage)",
+                  "$(run-all-coverage)",
+                  "$(coverage)",
+                  "$(github-project)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -26393,6 +27804,10 @@
                   "git-stash",
                   "git-stash-apply",
                   "git-stash-pop",
+                  "run-all-coverage",
+                  "run-all-coverage",
+                  "coverage",
+                  "github-project",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -26961,6 +28376,10 @@
                   "$(git-stash)",
                   "$(git-stash-apply)",
                   "$(git-stash-pop)",
+                  "$(run-all-coverage)",
+                  "$(run-all-coverage)",
+                  "$(coverage)",
+                  "$(github-project)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -27654,6 +29073,10 @@
                   "git-stash",
                   "git-stash-apply",
                   "git-stash-pop",
+                  "run-all-coverage",
+                  "run-all-coverage",
+                  "coverage",
+                  "github-project",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -28222,6 +29645,10 @@
                   "$(git-stash)",
                   "$(git-stash-apply)",
                   "$(git-stash-pop)",
+                  "$(run-all-coverage)",
+                  "$(run-all-coverage)",
+                  "$(coverage)",
+                  "$(github-project)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -28855,6 +30282,10 @@
                   "git-stash",
                   "git-stash-apply",
                   "git-stash-pop",
+                  "run-all-coverage",
+                  "run-all-coverage",
+                  "coverage",
+                  "github-project",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -29423,6 +30854,10 @@
                   "$(git-stash)",
                   "$(git-stash-apply)",
                   "$(git-stash-pop)",
+                  "$(run-all-coverage)",
+                  "$(run-all-coverage)",
+                  "$(coverage)",
+                  "$(github-project)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -30106,6 +31541,10 @@
                   "git-stash",
                   "git-stash-apply",
                   "git-stash-pop",
+                  "run-all-coverage",
+                  "run-all-coverage",
+                  "coverage",
+                  "github-project",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -30674,6 +32113,10 @@
                   "$(git-stash)",
                   "$(git-stash-apply)",
                   "$(git-stash-pop)",
+                  "$(run-all-coverage)",
+                  "$(run-all-coverage)",
+                  "$(coverage)",
+                  "$(github-project)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -31308,6 +32751,10 @@
                   "git-stash",
                   "git-stash-apply",
                   "git-stash-pop",
+                  "run-all-coverage",
+                  "run-all-coverage",
+                  "coverage",
+                  "github-project",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -31876,6 +33323,10 @@
                   "$(git-stash)",
                   "$(git-stash-apply)",
                   "$(git-stash-pop)",
+                  "$(run-all-coverage)",
+                  "$(run-all-coverage)",
+                  "$(coverage)",
+                  "$(github-project)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -32509,6 +33960,10 @@
                   "git-stash",
                   "git-stash-apply",
                   "git-stash-pop",
+                  "run-all-coverage",
+                  "run-all-coverage",
+                  "coverage",
+                  "github-project",
                   "dialog-error",
                   "dialog-warning",
                   "dialog-info",
@@ -33077,6 +34532,10 @@
                   "$(git-stash)",
                   "$(git-stash-apply)",
                   "$(git-stash-pop)",
+                  "$(run-all-coverage)",
+                  "$(run-all-coverage)",
+                  "$(coverage)",
+                  "$(github-project)",
                   "$(dialog-error)",
                   "$(dialog-warning)",
                   "$(dialog-info)",
@@ -33407,6 +34866,7 @@
         "console",
         "copilot",
         "copy",
+        "coverage",
         "credit-card",
         "dash",
         "dashboard",
@@ -33547,6 +35007,7 @@
         "github-action",
         "github-alt",
         "github-inverted",
+        "github-project",
         "globe",
         "go-to-file",
         "grabber",
@@ -33727,6 +35188,8 @@
         "run",
         "run-above",
         "run-all",
+        "run-all-coverage",
+        "run-all-coverage",
         "run-below",
         "run-errors",
         "save",
@@ -33975,6 +35438,7 @@
         "$(console)",
         "$(copilot)",
         "$(copy)",
+        "$(coverage)",
         "$(credit-card)",
         "$(dash)",
         "$(dashboard)",
@@ -34115,6 +35579,7 @@
         "$(github-action)",
         "$(github-alt)",
         "$(github-inverted)",
+        "$(github-project)",
         "$(globe)",
         "$(go-to-file)",
         "$(grabber)",
@@ -34295,6 +35760,8 @@
         "$(run)",
         "$(run-above)",
         "$(run-all)",
+        "$(run-all-coverage)",
+        "$(run-all-coverage)",
         "$(run-below)",
         "$(run-errors)",
         "$(save)",
@@ -34912,65 +36379,6 @@
         "displayName": "TypeScript and JavaScript Language Features"
       },
       "defaultDefaultValue": false,
-      "restricted": false
-    },
-    "typescript.experimental.aiCodeActions": {
-      "type": "object",
-      "default": {},
-      "description": "Enable/disable AI-assisted code actions. Requires an extension providing AI chat functionality.",
-      "scope": 4,
-      "properties": {
-        "addNameToNamelessParameter": {
-          "type": "boolean",
-          "default": false,
-          "description": "Enable/disable AI assistance for Add Name to Nameless Parameter quickfix. Requires an extension providing AI chat functionality."
-        },
-        "classDoesntImplementInheritedAbstractMember": {
-          "type": "boolean",
-          "default": false,
-          "description": "Enable/disable AI assistance for Class Doesn't Implement Inherited Abstract Member quickfix. Requires an extension providing AI chat functionality."
-        },
-        "classIncorrectlyImplementsInterface": {
-          "type": "boolean",
-          "default": false,
-          "description": "Enable/disable AI assistance for Class Incorrectly Implements Interface quickfix. Requires an extension providing AI chat functionality."
-        },
-        "extractConstant": {
-          "type": "boolean",
-          "default": false,
-          "description": "Enable/disable AI assistance for Extract Constant refactor. Requires an extension providing AI chat functionality."
-        },
-        "extractFunction": {
-          "type": "boolean",
-          "default": false,
-          "description": "Enable/disable AI assistance for Extract Function refactor. Requires an extension providing AI chat functionality."
-        },
-        "extractInterface": {
-          "type": "boolean",
-          "default": false,
-          "description": "Enable/disable AI assistance for Extract Interface refactor. Requires an extension providing AI chat functionality."
-        },
-        "extractType": {
-          "type": "boolean",
-          "default": false,
-          "description": "Enable/disable AI assistance for Extract Type refactor. Requires an extension providing AI chat functionality."
-        },
-        "inferAndAddTypes": {
-          "type": "boolean",
-          "default": false,
-          "description": "Enable/disable AI assistance for Infer and Add Types refactor. Requires an extension providing AI chat functionality."
-        },
-        "missingFunctionDeclaration": {
-          "type": "boolean",
-          "default": false,
-          "description": "Enable/disable AI assistance for Missing Function Declaration quickfix. Requires an extension providing AI chat functionality."
-        }
-      },
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": {},
       "restricted": false
     },
     "typescript.experimental.tsserver.web.typeAcquisition.enabled": {
@@ -36397,7 +37805,7 @@
     "window.title": {
       "type": "string",
       "default": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}${separator}${appName}",
-      "markdownDescription": "Controls the window title based on the current context such as the opened workspace or active editor. Variables are substituted based on the context:\n- `${activeEditorShort}`: the file name (e.g. myFile.txt).\n- `${activeEditorMedium}`: the path of the file relative to the workspace folder (e.g. myFolder/myFileFolder/myFile.txt).\n- `${activeEditorLong}`: the full path of the file (e.g. /Users/Development/myFolder/myFileFolder/myFile.txt).\n- `${activeFolderShort}`: the name of the folder the file is contained in (e.g. myFileFolder).\n- `${activeFolderMedium}`: the path of the folder the file is contained in, relative to the workspace folder (e.g. myFolder/myFileFolder).\n- `${activeFolderLong}`: the full path of the folder the file is contained in (e.g. /Users/Development/myFolder/myFileFolder).\n- `${folderName}`: name of the workspace folder the file is contained in (e.g. myFolder).\n- `${folderPath}`: file path of the workspace folder the file is contained in (e.g. /Users/Development/myFolder).\n- `${rootName}`: name of the workspace with optional remote name and workspace indicator if applicable (e.g. myFolder, myRemoteFolder [SSH] or myWorkspace (Workspace)).\n- `${rootNameShort}`: shortened name of the workspace without suffixes (e.g. myFolder, myRemoteFolder or myWorkspace).\n- `${rootPath}`: file path of the opened workspace or folder (e.g. /Users/Development/myWorkspace).\n- `${profileName}`: name of the profile in which the workspace is opened (e.g. Data Science (Profile)). Ignored if default profile is used.\n- `${appName}`: e.g. VS Code.\n- `${remoteName}`: e.g. SSH\n- `${dirty}`: an indicator for when the active editor has unsaved changes.\n- `${focusedView}`: the name of the view that is currently focused.\n- `${separator}`: a conditional separator (\" - \") that only shows when surrounded by variables with values or static text.",
+      "markdownDescription": "Controls the window title based on the current context such as the opened workspace or active editor. Variables are substituted based on the context:\n- `${activeEditorShort}`: the file name (e.g. myFile.txt).\n- `${activeEditorMedium}`: the path of the file relative to the workspace folder (e.g. myFolder/myFileFolder/myFile.txt).\n- `${activeEditorLong}`: the full path of the file (e.g. /Users/Development/myFolder/myFileFolder/myFile.txt).\n- `${activeFolderShort}`: the name of the folder the file is contained in (e.g. myFileFolder).\n- `${activeFolderMedium}`: the path of the folder the file is contained in, relative to the workspace folder (e.g. myFolder/myFileFolder).\n- `${activeFolderLong}`: the full path of the folder the file is contained in (e.g. /Users/Development/myFolder/myFileFolder).\n- `${folderName}`: name of the workspace folder the file is contained in (e.g. myFolder).\n- `${folderPath}`: file path of the workspace folder the file is contained in (e.g. /Users/Development/myFolder).\n- `${rootName}`: name of the workspace with optional remote name and workspace indicator if applicable (e.g. myFolder, myRemoteFolder [SSH] or myWorkspace (Workspace)).\n- `${rootNameShort}`: shortened name of the workspace without suffixes (e.g. myFolder, myRemoteFolder or myWorkspace).\n- `${rootPath}`: file path of the opened workspace or folder (e.g. /Users/Development/myWorkspace).\n- `${profileName}`: name of the profile in which the workspace is opened (e.g. Data Science (Profile)). Ignored if default profile is used.\n- `${appName}`: e.g. VS Code.\n- `${remoteName}`: e.g. SSH\n- `${dirty}`: an indicator for when the active editor has unsaved changes.\n- `${focusedView}`: the name of the view that is currently focused.\n- `${activeRepositoryName}`: the name of the active repository (e.g. vscode).\n- `${activeRepositoryBranchName}`: the name of the active branch in the active repository (e.g. main).\n- `${separator}`: a conditional separator (\" - \") that only shows when surrounded by variables with values or static text.",
       "defaultDefaultValue": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}${separator}${appName}",
       "scope": 3,
       "restricted": false
@@ -38290,6 +39698,7 @@
         "newUntitledFile",
         "none",
         "readme",
+        "terminal",
         "welcomePage",
         "welcomePageInEmptyWorkbench"
       ],
@@ -38297,6 +39706,7 @@
         "Open a new untitled text file (only applies when opening an empty window).",
         "Start without an editor.",
         "Open the README when opening a folder that contains one, fallback to 'welcomePage' otherwise. Note: This is only observed as a global configuration, it will be ignored if set in a workspace or folder configuration.",
+        "Open a new terminal in the editor area.",
         "Open the Welcome page, with content to aid in getting started with VS Code and extensions.",
         "Open the Welcome page when opening an empty workbench."
       ],

@@ -431,6 +431,16 @@
         }
       ]
     },
+    "chat.requestBackground": {
+      "type": "string",
+      "description": "The background color of a chat request.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "chat.requestBorder": {
       "type": "string",
       "description": "The border color of a chat request.",
@@ -6532,6 +6542,16 @@
     "tab.border": {
       "type": "string",
       "description": "Border to separate tabs from each other. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "tab.dragAndDropBorder": {
+      "type": "string",
+      "description": "Border between tabs to indicate that a tab can be inserted between two tabs. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
       "format": "color-hex",
       "defaultSnippets": [
         {

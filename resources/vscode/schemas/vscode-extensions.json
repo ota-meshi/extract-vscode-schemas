@@ -466,6 +466,7 @@
                           "charts.yellow",
                           "chat.avatarBackground",
                           "chat.avatarForeground",
+                          "chat.requestBackground",
                           "chat.requestBorder",
                           "chat.slashCommandBackground",
                           "chat.slashCommandForeground",
@@ -1068,6 +1069,7 @@
                           "tab.activeForeground",
                           "tab.activeModifiedBorder",
                           "tab.border",
+                          "tab.dragAndDropBorder",
                           "tab.hoverBackground",
                           "tab.hoverBorder",
                           "tab.hoverForeground",
@@ -1225,6 +1227,7 @@
                           "The yellow color used in chart visualizations.",
                           "The background color of a chat avatar.",
                           "The foreground color of a chat avatar.",
+                          "The background color of a chat request.",
                           "The border color of a chat request.",
                           "The background color of a chat slash command.",
                           "The foreground color of a chat slash command.",
@@ -1827,6 +1830,7 @@
                           "Active tab foreground color in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border on the top of modified active tabs in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border to separate tabs from each other. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+                          "Border between tabs to indicate that a tab can be inserted between two tabs. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Tab background color when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border to highlight tabs when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Tab foreground color when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
@@ -1997,6 +2001,7 @@
                           "charts.yellow",
                           "chat.avatarBackground",
                           "chat.avatarForeground",
+                          "chat.requestBackground",
                           "chat.requestBorder",
                           "chat.slashCommandBackground",
                           "chat.slashCommandForeground",
@@ -2599,6 +2604,7 @@
                           "tab.activeForeground",
                           "tab.activeModifiedBorder",
                           "tab.border",
+                          "tab.dragAndDropBorder",
                           "tab.hoverBackground",
                           "tab.hoverBorder",
                           "tab.hoverForeground",
@@ -2756,6 +2762,7 @@
                           "The yellow color used in chart visualizations.",
                           "The background color of a chat avatar.",
                           "The foreground color of a chat avatar.",
+                          "The background color of a chat request.",
                           "The border color of a chat request.",
                           "The background color of a chat slash command.",
                           "The foreground color of a chat slash command.",
@@ -3358,6 +3365,7 @@
                           "Active tab foreground color in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border on the top of modified active tabs in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border to separate tabs from each other. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+                          "Border between tabs to indicate that a tab can be inserted between two tabs. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Tab background color when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border to highlight tabs when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Tab foreground color when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
@@ -3528,6 +3536,7 @@
                           "charts.yellow",
                           "chat.avatarBackground",
                           "chat.avatarForeground",
+                          "chat.requestBackground",
                           "chat.requestBorder",
                           "chat.slashCommandBackground",
                           "chat.slashCommandForeground",
@@ -4130,6 +4139,7 @@
                           "tab.activeForeground",
                           "tab.activeModifiedBorder",
                           "tab.border",
+                          "tab.dragAndDropBorder",
                           "tab.hoverBackground",
                           "tab.hoverBorder",
                           "tab.hoverForeground",
@@ -4287,6 +4297,7 @@
                           "The yellow color used in chart visualizations.",
                           "The background color of a chat avatar.",
                           "The foreground color of a chat avatar.",
+                          "The background color of a chat request.",
                           "The border color of a chat request.",
                           "The background color of a chat slash command.",
                           "The foreground color of a chat slash command.",
@@ -4889,6 +4900,7 @@
                           "Active tab foreground color in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border on the top of modified active tabs in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border to separate tabs from each other. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+                          "Border between tabs to indicate that a tab can be inserted between two tabs. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Tab background color when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border to highlight tabs when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Tab foreground color when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
@@ -5059,6 +5071,7 @@
                           "charts.yellow",
                           "chat.avatarBackground",
                           "chat.avatarForeground",
+                          "chat.requestBackground",
                           "chat.requestBorder",
                           "chat.slashCommandBackground",
                           "chat.slashCommandForeground",
@@ -5661,6 +5674,7 @@
                           "tab.activeForeground",
                           "tab.activeModifiedBorder",
                           "tab.border",
+                          "tab.dragAndDropBorder",
                           "tab.hoverBackground",
                           "tab.hoverBorder",
                           "tab.hoverForeground",
@@ -5818,6 +5832,7 @@
                           "The yellow color used in chart visualizations.",
                           "The background color of a chat avatar.",
                           "The foreground color of a chat avatar.",
+                          "The background color of a chat request.",
                           "The border color of a chat request.",
                           "The background color of a chat slash command.",
                           "The foreground color of a chat slash command.",
@@ -6420,6 +6435,7 @@
                           "Active tab foreground color in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border on the top of modified active tabs in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border to separate tabs from each other. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+                          "Border between tabs to indicate that a tab can be inserted between two tabs. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Tab background color when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border to highlight tabs when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Tab foreground color when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
@@ -7855,6 +7871,9 @@
                       "git-stash",
                       "git-stash-apply",
                       "git-stash-pop",
+                      "run-all-coverage",
+                      "coverage",
+                      "github-project",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -8554,6 +8573,9 @@
                       "",
                       "",
                       "Icon for the debug console open action.",
+                      "",
+                      "",
+                      "",
                       "",
                       "",
                       "",
@@ -10180,6 +10202,34 @@
                 }
               }
             },
+            "editor/inlineEdit/actions": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"inlineEdit\"]` - The actions shown when hovering on an inline edit",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "command"
+                ],
+                "properties": {
+                  "alt": {
+                    "description": "Identifier of an alternative command to execute. The command must be declared in the 'commands'-section",
+                    "type": "string"
+                  },
+                  "command": {
+                    "description": "Identifier of the command to execute. The command must be declared in the 'commands'-section",
+                    "type": "string"
+                  },
+                  "group": {
+                    "description": "Group into which this item belongs",
+                    "type": "string"
+                  },
+                  "when": {
+                    "description": "Condition which must be true to show this item",
+                    "type": "string"
+                  }
+                }
+              }
+            },
             "editor/lineNumber/context": {
               "markdownDescription": "The contributed editor line number context menu",
               "type": "array",
@@ -10780,6 +10830,58 @@
                 ]
               }
             },
+            "issue/reporter": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribIssueReporter\"]` - The contributed issue reporter menu",
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "command"
+                    ],
+                    "properties": {
+                      "alt": {
+                        "description": "Identifier of an alternative command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "command": {
+                        "description": "Identifier of the command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "submenu"
+                    ],
+                    "properties": {
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "submenu": {
+                        "description": "Identifier of the submenu to display in this item.",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
             "menuBar/edit/copy": {
               "markdownDescription": "'Copy as' submenu in the top level Edit menu",
               "type": "array",
@@ -11172,6 +11274,58 @@
                 ]
               }
             },
+            "notebook/variables/context": {
+              "markdownDescription": "The notebook variables view context menu",
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "command"
+                    ],
+                    "properties": {
+                      "alt": {
+                        "description": "Identifier of an alternative command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "command": {
+                        "description": "Identifier of the command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "submenu"
+                    ],
+                    "properties": {
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "submenu": {
+                        "description": "Identifier of the submenu to display in this item.",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
             "ports/item/context": {
               "markdownDescription": "The Ports view item context menu",
               "type": "array",
@@ -11484,6 +11638,58 @@
                 ]
               }
             },
+            "scm/incomingChanges/context": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlHistoryItemGroupMenu\"]` - The Source Control incoming changes context menu",
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "command"
+                    ],
+                    "properties": {
+                      "alt": {
+                        "description": "Identifier of an alternative command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "command": {
+                        "description": "Identifier of the command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "submenu"
+                    ],
+                    "properties": {
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "submenu": {
+                        "description": "Identifier of the submenu to display in this item.",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
             "scm/incomingChanges/historyItem/context": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlHistoryItemMenu\"]` - The Source Control incoming changes history item context menu",
               "type": "array",
@@ -11642,6 +11848,58 @@
             },
             "scm/outgoingChanges/allChanges/context": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlHistoryItemMenu\"]` - The Source Control all outgoing changes context menu",
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "command"
+                    ],
+                    "properties": {
+                      "alt": {
+                        "description": "Identifier of an alternative command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "command": {
+                        "description": "Identifier of the command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "submenu"
+                    ],
+                    "properties": {
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "submenu": {
+                        "description": "Identifier of the submenu to display in this item.",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "scm/outgoingChanges/context": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlHistoryItemGroupMenu\"]` - The Source Control outgoing changes context menu",
               "type": "array",
               "items": {
                 "oneOf": [
@@ -11902,6 +12160,58 @@
             },
             "scm/sourceControl": {
               "markdownDescription": "The Source Control menu",
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "command"
+                    ],
+                    "properties": {
+                      "alt": {
+                        "description": "Identifier of an alternative command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "command": {
+                        "description": "Identifier of the command to execute. The command must be declared in the 'commands'-section",
+                        "type": "string"
+                      },
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "submenu"
+                    ],
+                    "properties": {
+                      "group": {
+                        "description": "Group into which this item belongs",
+                        "type": "string"
+                      },
+                      "submenu": {
+                        "description": "Identifier of the submenu to display in this item.",
+                        "type": "string"
+                      },
+                      "when": {
+                        "description": "Condition which must be true to show this item",
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "scm/sourceControl/title": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlTitleMenu\"]` - The Source Control title menu",
               "type": "array",
               "items": {
                 "oneOf": [
@@ -14876,16 +15186,16 @@
       "items": {
         "type": "string",
         "enum": [
+          "activeComment",
           "aiRelatedInformation",
           "authGetSessions",
           "authSession",
           "canonicalUriProvider",
-          "chat",
-          "chatAgents2",
-          "chatAgents2Additions",
+          "chatParticipant",
+          "chatParticipantAdditions",
           "chatProvider",
-          "chatRequestAccess",
           "chatTab",
+          "chatVariableResolver",
           "codeActionAI",
           "codeActionRanges",
           "codiconDecoration",
@@ -14896,6 +15206,7 @@
           "contribCommentThreadAdditionalMenu",
           "contribEditorContentMenu",
           "contribEditSessions",
+          "contribIssueReporter",
           "contribLabelFormatterWorkspaceTooltip",
           "contribMenuBarHome",
           "contribMergeEditorMenus",
@@ -14906,6 +15217,7 @@
           "contribSourceControlHistoryItemGroupMenu",
           "contribSourceControlHistoryItemMenu",
           "contribSourceControlInputBoxMenu",
+          "contribSourceControlTitleMenu",
           "contribStatusBarItems",
           "contribViewsRemote",
           "contribViewsWelcome",
@@ -14913,7 +15225,7 @@
           "customEditorMove",
           "debugFocus",
           "debugVisualization",
-          "defaultChatAgent",
+          "defaultChatParticipant",
           "diffCommand",
           "diffContentOptions",
           "documentFiltersExclusive",
@@ -14926,17 +15238,21 @@
           "externalUriOpener",
           "fileComments",
           "fileSearchProvider",
+          "findFiles2",
           "findTextInFiles",
           "fsChunks",
           "handleIssueUri",
           "idToken",
           "inlineCompletionsAdditions",
+          "inlineEdit",
           "interactive",
           "interactiveWindow",
           "ipc",
+          "languageModels",
           "languageStatusText",
           "mappedEditsProvider",
           "multiDocumentHighlightProvider",
+          "newSymbolNamesProvider",
           "notebookCellExecutionState",
           "notebookControllerAffinityHidden",
           "notebookDeprecated",
@@ -14983,16 +15299,16 @@
           "workspaceTrust"
         ],
         "markdownEnumDescriptions": [
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.activeComment.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiRelatedInformation.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authGetSessions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authSession.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.canonicalUriProvider.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chat.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatAgents2.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatAgents2Additions.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatParticipant.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatParticipantAdditions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatProvider.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatRequestAccess.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatTab.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatVariableResolver.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.codeActionAI.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.codeActionRanges.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.codiconDecoration.d.ts",
@@ -15003,6 +15319,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribCommentThreadAdditionalMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribEditorContentMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribEditSessions.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribIssueReporter.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribLabelFormatterWorkspaceTooltip.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribMenuBarHome.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribMergeEditorMenus.d.ts",
@@ -15013,6 +15330,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribSourceControlHistoryItemGroupMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribSourceControlHistoryItemMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribSourceControlInputBoxMenu.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribSourceControlTitleMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribStatusBarItems.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribViewsRemote.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribViewsWelcome.d.ts",
@@ -15020,7 +15338,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.customEditorMove.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.debugFocus.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.debugVisualization.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.defaultChatAgent.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.defaultChatParticipant.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.diffCommand.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.diffContentOptions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.documentFiltersExclusive.d.ts",
@@ -15033,17 +15351,21 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.externalUriOpener.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.fileComments.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.fileSearchProvider.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.findFiles2.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.findTextInFiles.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.fsChunks.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.handleIssueUri.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.idToken.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.inlineCompletionsAdditions.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.inlineEdit.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.interactive.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.interactiveWindow.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.ipc.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageModels.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageStatusText.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.mappedEditsProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.multiDocumentHighlightProvider.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.newSymbolNamesProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookCellExecutionState.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookControllerAffinityHidden.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookDeprecated.d.ts",
