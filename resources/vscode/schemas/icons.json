@@ -136,6 +136,9 @@
     "bell-slash-dot": {
       "$ref": "#/definitions/icons"
     },
+    "blank": {
+      "$ref": "#/definitions/icons"
+    },
     "bold": {
       "$ref": "#/definitions/icons"
     },
@@ -315,6 +318,9 @@
       "$ref": "#/definitions/icons"
     },
     "code": {
+      "$ref": "#/definitions/icons"
+    },
+    "code-oss": {
       "$ref": "#/definitions/icons"
     },
     "coffee": {
@@ -678,6 +684,9 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for 'Remove' in accessible diff viewer.: $(diff-review-remove)"
     },
+    "diff-sidebyside": {
+      "$ref": "#/definitions/icons"
+    },
     "diff-single": {
       "$ref": "#/definitions/icons"
     },
@@ -933,7 +942,19 @@
     "fold-down": {
       "$ref": "#/definitions/icons"
     },
+    "fold-horizontal": {
+      "$ref": "#/definitions/icons"
+    },
+    "fold-horizontal-filled": {
+      "$ref": "#/definitions/icons"
+    },
     "fold-up": {
+      "$ref": "#/definitions/icons"
+    },
+    "fold-vertical": {
+      "$ref": "#/definitions/icons"
+    },
+    "fold-vertical-filled": {
       "$ref": "#/definitions/icons"
     },
     "folder": {
@@ -1378,6 +1399,18 @@
       "$ref": "#/definitions/icons"
     },
     "map-filled": {
+      "$ref": "#/definitions/icons"
+    },
+    "map-horizontal": {
+      "$ref": "#/definitions/icons"
+    },
+    "map-horizontal-filled": {
+      "$ref": "#/definitions/icons"
+    },
+    "map-vertical": {
+      "$ref": "#/definitions/icons"
+    },
+    "map-vertical-filled": {
       "$ref": "#/definitions/icons"
     },
     "mark-github": {
@@ -1948,6 +1981,9 @@
     "repo-delete": {
       "$ref": "#/definitions/icons"
     },
+    "repo-fetch": {
+      "$ref": "#/definitions/icons"
+    },
     "repo-force-push": {
       "$ref": "#/definitions/icons"
     },
@@ -2004,6 +2040,9 @@
       "$ref": "#/definitions/icons"
     },
     "run-below": {
+      "$ref": "#/definitions/icons"
+    },
+    "run-coverage": {
       "$ref": "#/definitions/icons"
     },
     "run-errors": {
@@ -2117,6 +2156,14 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon to expand the replace section in the search view.: $(search-show-replace)"
     },
+    "search-sparkle-empty": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon to hide AI results in search.: $(search-sparkle-empty)"
+    },
+    "search-sparkle-filled": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon to show AI results in search.: $(search-sparkle-filled)"
+    },
     "search-stop": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for stop in the search view. $(search-stop)"
@@ -2181,6 +2228,9 @@
     "settings-view-bar-icon": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Settings icon in the view bar.: $(settings-view-bar-icon)"
+    },
+    "share": {
+      "$ref": "#/definitions/icons"
     },
     "shield": {
       "$ref": "#/definitions/icons"
@@ -2446,19 +2496,19 @@
     },
     "terminal-decoration-error": {
       "$ref": "#/definitions/icons",
-      "markdownDescription": "Icon for a terminal decoration of a command that errored.: $(terminal-decoration-error)"
+      "markdownDescription": "Icon for a terminal decoration of a command that errored. $(terminal-decoration-error)"
     },
     "terminal-decoration-incomplete": {
       "$ref": "#/definitions/icons",
-      "markdownDescription": "Icon for a terminal decoration of a command that was incomplete.: $(terminal-decoration-incomplete)"
+      "markdownDescription": "Icon for a terminal decoration of a command that was incomplete. $(terminal-decoration-incomplete)"
     },
     "terminal-decoration-mark": {
       "$ref": "#/definitions/icons",
-      "markdownDescription": "Icon for a terminal decoration mark.: $(terminal-decoration-mark)"
+      "markdownDescription": "Icon for a terminal decoration mark. $(terminal-decoration-mark)"
     },
     "terminal-decoration-success": {
       "$ref": "#/definitions/icons",
-      "markdownDescription": "Icon for a terminal decoration of a command that was successful.: $(terminal-decoration-success)"
+      "markdownDescription": "Icon for a terminal decoration of a command that was successful. $(terminal-decoration-success)"
     },
     "terminal-kill": {
       "$ref": "#/definitions/icons",
@@ -2757,6 +2807,12 @@
     "vr": {
       "$ref": "#/definitions/icons"
     },
+    "vscode": {
+      "$ref": "#/definitions/icons"
+    },
+    "vscode-insiders": {
+      "$ref": "#/definitions/icons"
+    },
     "wand": {
       "$ref": "#/definitions/icons"
     },
@@ -2773,6 +2829,10 @@
     "watch-expressions-add": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for the add action in the watch view.: $(watch-expressions-add)"
+    },
+    "watch-expressions-add-data-breakpoint": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for the add data breakpoint action in the breakpoints view.: $(watch-expressions-add-data-breakpoint)"
     },
     "watch-expressions-add-function-breakpoint": {
       "$ref": "#/definitions/icons",
@@ -2831,6 +2891,9 @@
       "markdownDescription": "Icon for the remove folder icon in the workspace trust editor.: $(workspace-trust-editor-remove-folder)"
     },
     "workspace-trusted": {
+      "$ref": "#/definitions/icons"
+    },
+    "workspace-unknown": {
       "$ref": "#/definitions/icons"
     },
     "workspace-unspecified": {

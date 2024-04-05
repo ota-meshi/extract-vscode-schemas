@@ -111,9 +111,29 @@
         }
       ]
     },
+    "activityBarTop.activeBackground": {
+      "type": "string",
+      "description": "Background color for the active item in the Activity bar when it is on top / bottom. The activity allows to switch between views of the side bar.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "activityBarTop.activeBorder": {
       "type": "string",
-      "description": "Focus border color for the active item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
+      "description": "Focus border color for the active item in the Activity bar when it is on top / bottom. The activity allows to switch between views of the side bar.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "activityBarTop.background": {
+      "type": "string",
+      "description": "Background color of the activity bar when set to top / bottom.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -123,7 +143,7 @@
     },
     "activityBarTop.dropBorder": {
       "type": "string",
-      "description": "Drag and drop feedback color for the items in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
+      "description": "Drag and drop feedback color for the items in the Activity bar when it is on top / bottom. The activity allows to switch between views of the side bar.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -133,7 +153,7 @@
     },
     "activityBarTop.foreground": {
       "type": "string",
-      "description": "Active foreground color of the item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
+      "description": "Active foreground color of the item in the Activity bar when it is on top / bottom. The activity allows to switch between views of the side bar.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -143,7 +163,7 @@
     },
     "activityBarTop.inactiveForeground": {
       "type": "string",
-      "description": "Inactive foreground color of the item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.",
+      "description": "Inactive foreground color of the item in the Activity bar when it is on top / bottom. The activity allows to switch between views of the side bar.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -2636,6 +2656,46 @@
         }
       ]
     },
+    "editorMultiCursor.primary.background": {
+      "type": "string",
+      "description": "The background color of the primary editor cursor when multiple cursors are present. Allows customizing the color of a character overlapped by a block cursor.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "editorMultiCursor.primary.foreground": {
+      "type": "string",
+      "description": "Color of the primary editor cursor when multiple cursors are present.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "editorMultiCursor.secondary.background": {
+      "type": "string",
+      "description": "The background color of secondary editor cursors when multiple cursors are present. Allows customizing the color of a character overlapped by a block cursor.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "editorMultiCursor.secondary.foreground": {
+      "type": "string",
+      "description": "Color of secondary editor cursors when multiple cursors are present.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "editorOverviewRuler.addedForeground": {
       "type": "string",
       "description": "Overview ruler marker color for added content.",
@@ -3812,7 +3872,7 @@
     },
     "list.deemphasizedForeground": {
       "type": "string",
-      "description": "List/Tree foreground color for items that are deemphasized. ",
+      "description": "List/Tree foreground color for items that are deemphasized.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -5739,6 +5799,16 @@
         }
       ]
     },
+    "sideBarActivityBarTop.border": {
+      "type": "string",
+      "description": "Border color between the activity bar at the top/bottom and the views.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "sideBarSectionHeader.background": {
       "type": "string",
       "description": "Side bar section header background color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar.",
@@ -7185,9 +7255,29 @@
         }
       ]
     },
+    "testing.iconErrored.retired": {
+      "type": "string",
+      "description": "Retired color for the 'Errored' icon in the test explorer.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "testing.iconFailed": {
       "type": "string",
       "description": "Color for the 'failed' icon in the test explorer.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "testing.iconFailed.retired": {
+      "type": "string",
+      "description": "Retired color for the 'failed' icon in the test explorer.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -7205,9 +7295,29 @@
         }
       ]
     },
+    "testing.iconPassed.retired": {
+      "type": "string",
+      "description": "Retired color for the 'passed' icon in the test explorer.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "testing.iconQueued": {
       "type": "string",
       "description": "Color for the 'Queued' icon in the test explorer.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "testing.iconQueued.retired": {
+      "type": "string",
+      "description": "Retired color for the 'Queued' icon in the test explorer.",
       "format": "color-hex",
       "defaultSnippets": [
         {
@@ -7225,9 +7335,29 @@
         }
       ]
     },
+    "testing.iconSkipped.retired": {
+      "type": "string",
+      "description": "Retired color for the 'Skipped' icon in the test explorer.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "testing.iconUnset": {
       "type": "string",
       "description": "Color for the 'Unset' icon in the test explorer.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "testing.iconUnset.retired": {
+      "type": "string",
+      "description": "Retired color for the 'Unset' icon in the test explorer.",
       "format": "color-hex",
       "defaultSnippets": [
         {

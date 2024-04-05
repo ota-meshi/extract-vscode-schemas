@@ -344,6 +344,14 @@
       "scope": 5,
       "restricted": false
     },
+    "diffEditor.renderGutterMenu": {
+      "type": "boolean",
+      "default": true,
+      "description": "When enabled, the diff editor shows a special gutter for revert and stage actions.",
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
     "diffEditor.renderIndicators": {
       "type": "boolean",
       "default": true,
@@ -885,7 +893,7 @@
         "`cursorSurroundingLines` is enforced always.",
         "`cursorSurroundingLines` is enforced only when triggered via the keyboard or API."
       ],
-      "markdownDescription": "Controls when `#cursorSurroundingLines#` should be enforced.",
+      "markdownDescription": "Controls when `#editor.cursorSurroundingLines#` should be enforced.",
       "type": "string",
       "enum": [
         "all",
@@ -2081,14 +2089,14 @@
         "on",
         "onCode"
       ],
-      "default": "onCode",
+      "default": "on",
       "enumDescriptions": [
         "Disable the code action menu.",
         "Show the code action menu when the cursor is on lines with code or on empty lines.",
         "Show the code action menu when the cursor is on lines with code."
       ],
       "description": "Enables the Code Action lightbulb in the editor.",
-      "defaultDefaultValue": "onCode",
+      "defaultDefaultValue": "on",
       "scope": 5,
       "restricted": false
     },
@@ -2201,6 +2209,30 @@
       ],
       "description": "Scale of content drawn in the minimap: 1, 2 or 3.",
       "defaultDefaultValue": 1,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.minimap.sectionHeaderFontSize": {
+      "type": "number",
+      "default": 9,
+      "description": "Controls the font size of section headers in the minimap.",
+      "defaultDefaultValue": 9,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.minimap.showMarkSectionHeaders": {
+      "type": "boolean",
+      "default": true,
+      "description": "Controls whether MARK: comments are shown as section headers in the minimap.",
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.minimap.showRegionSectionHeaders": {
+      "type": "boolean",
+      "default": true,
+      "description": "Controls whether named regions are shown as section headers in the minimap.",
+      "defaultDefaultValue": true,
       "scope": 5,
       "restricted": false
     },
@@ -3483,7 +3515,7 @@
       "restricted": false
     },
     "editor.useTabStops": {
-      "description": "Inserting and deleting whitespace follows tab stops.",
+      "description": "Spaces and tabs are inserted and deleted in alignment with tab stops.",
       "type": "boolean",
       "default": true,
       "defaultDefaultValue": true,
@@ -3522,6 +3554,24 @@
       ],
       "default": "normal",
       "defaultDefaultValue": "normal",
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.wordSegmenterLocales": {
+      "anyOf": [
+        {
+          "description": "Locales to be used for word segmentation when doing word related navigations or operations. Specify the BCP 47 language tag of the word you wish to recognize (e.g., ja, zh-CN, zh-Hant-TW, etc.).",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "description": "Locales to be used for word segmentation when doing word related navigations or operations. Specify the BCP 47 language tag of the word you wish to recognize (e.g., ja, zh-CN, zh-Hant-TW, etc.).",
+          "type": "string"
+        }
+      ],
+      "default": null,
       "scope": 5,
       "restricted": false
     },
@@ -3887,6 +3937,14 @@
       "description": "When enabled, will trim trailing whitespace when saving a file.",
       "scope": 5,
       "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "files.trimTrailingWhitespaceInRegexAndStrings": {
+      "type": "boolean",
+      "default": true,
+      "description": "When enabled, trailing whitespace will be removed from multiline strings and regexes will be removed on save or when executing 'editor.action.trimTrailingWhitespace'. This can cause whitespace to not be trimmed from lines when there isn't up-to-date token information.",
+      "scope": 5,
+      "defaultDefaultValue": true,
       "restricted": false
     },
     "javascript.autoClosingTags": {
