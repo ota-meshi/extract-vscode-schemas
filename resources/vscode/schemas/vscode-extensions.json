@@ -816,6 +816,7 @@
                           "editorOverviewRuler.incomingContentForeground",
                           "editorOverviewRuler.infoForeground",
                           "editorOverviewRuler.inlineChatInserted",
+                          "editorOverviewRuler.inlineChatInserted",
                           "editorOverviewRuler.inlineChatRemoved",
                           "editorOverviewRuler.modifiedForeground",
                           "editorOverviewRuler.rangeHighlightForeground",
@@ -1035,6 +1036,9 @@
                           "panelSectionHeader.background",
                           "panelSectionHeader.border",
                           "panelSectionHeader.foreground",
+                          "panelStickyScroll.background",
+                          "panelStickyScroll.border",
+                          "panelStickyScroll.shadow",
                           "panelTitle.activeBorder",
                           "panelTitle.activeForeground",
                           "panelTitle.inactiveForeground",
@@ -1112,6 +1116,10 @@
                           "sideBarSectionHeader.background",
                           "sideBarSectionHeader.border",
                           "sideBarSectionHeader.foreground",
+                          "sideBarStickyScroll.background",
+                          "sideBarStickyScroll.border",
+                          "sideBarStickyScroll.shadow",
+                          "sideBarTitle.background",
                           "sideBarTitle.foreground",
                           "sideBySideEditor.horizontalBorder",
                           "sideBySideEditor.verticalBorder",
@@ -1590,6 +1598,7 @@
                           "Incoming overview ruler foreground for inline merge-conflicts.",
                           "Overview ruler marker color for infos.",
                           "Overview ruler marker color for inline chat inserted content.",
+                          "Overview ruler marker color for inline chat inserted content.",
                           "Overview ruler marker color for inline chat removed content.",
                           "Overview ruler marker color for modified content.",
                           "Overview ruler marker color for range highlights. The color must not be opaque so as not to hide underlying decorations.",
@@ -1809,6 +1818,9 @@
                           "Panel section header background color. Panels are shown below the editor area and contain views like output and integrated terminal. Panel sections are views nested within the panels.",
                           "Panel section header border color used when multiple views are stacked vertically in the panel. Panels are shown below the editor area and contain views like output and integrated terminal. Panel sections are views nested within the panels.",
                           "Panel section header foreground color. Panels are shown below the editor area and contain views like output and integrated terminal. Panel sections are views nested within the panels.",
+                          "Background color of sticky scroll in the panel.",
+                          "Border color of sticky scroll in the panel.",
+                          "Shadow color of sticky scroll in the panel.",
                           "Border color for the active panel title. Panels are shown below the editor area and contain views like output and integrated terminal.",
                           "Title color for the active panel. Panels are shown below the editor area and contain views like output and integrated terminal.",
                           "Title color for the inactive panel. Panels are shown below the editor area and contain views like output and integrated terminal.",
@@ -1886,6 +1898,10 @@
                           "Side bar section header background color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar.",
                           "Side bar section header border color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar.",
                           "Side bar section header foreground color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar.",
+                          "Background color of sticky scroll in the side bar.",
+                          "Border color of sticky scroll in the side bar.",
+                          "Shadow color of sticky scroll in the side bar.",
+                          "Side bar title background color. The side bar is the container for views like explorer and search.",
                           "Side bar title foreground color. The side bar is the container for views like explorer and search.",
                           "Color to separate two editors from each other when shown side by side in an editor group from top to bottom.",
                           "Color to separate two editors from each other when shown side by side in an editor group from left to right.",
@@ -2377,6 +2393,7 @@
                           "editorOverviewRuler.incomingContentForeground",
                           "editorOverviewRuler.infoForeground",
                           "editorOverviewRuler.inlineChatInserted",
+                          "editorOverviewRuler.inlineChatInserted",
                           "editorOverviewRuler.inlineChatRemoved",
                           "editorOverviewRuler.modifiedForeground",
                           "editorOverviewRuler.rangeHighlightForeground",
@@ -2596,6 +2613,9 @@
                           "panelSectionHeader.background",
                           "panelSectionHeader.border",
                           "panelSectionHeader.foreground",
+                          "panelStickyScroll.background",
+                          "panelStickyScroll.border",
+                          "panelStickyScroll.shadow",
                           "panelTitle.activeBorder",
                           "panelTitle.activeForeground",
                           "panelTitle.inactiveForeground",
@@ -2673,6 +2693,10 @@
                           "sideBarSectionHeader.background",
                           "sideBarSectionHeader.border",
                           "sideBarSectionHeader.foreground",
+                          "sideBarStickyScroll.background",
+                          "sideBarStickyScroll.border",
+                          "sideBarStickyScroll.shadow",
+                          "sideBarTitle.background",
                           "sideBarTitle.foreground",
                           "sideBySideEditor.horizontalBorder",
                           "sideBySideEditor.verticalBorder",
@@ -3151,6 +3175,7 @@
                           "Incoming overview ruler foreground for inline merge-conflicts.",
                           "Overview ruler marker color for infos.",
                           "Overview ruler marker color for inline chat inserted content.",
+                          "Overview ruler marker color for inline chat inserted content.",
                           "Overview ruler marker color for inline chat removed content.",
                           "Overview ruler marker color for modified content.",
                           "Overview ruler marker color for range highlights. The color must not be opaque so as not to hide underlying decorations.",
@@ -3370,6 +3395,9 @@
                           "Panel section header background color. Panels are shown below the editor area and contain views like output and integrated terminal. Panel sections are views nested within the panels.",
                           "Panel section header border color used when multiple views are stacked vertically in the panel. Panels are shown below the editor area and contain views like output and integrated terminal. Panel sections are views nested within the panels.",
                           "Panel section header foreground color. Panels are shown below the editor area and contain views like output and integrated terminal. Panel sections are views nested within the panels.",
+                          "Background color of sticky scroll in the panel.",
+                          "Border color of sticky scroll in the panel.",
+                          "Shadow color of sticky scroll in the panel.",
                           "Border color for the active panel title. Panels are shown below the editor area and contain views like output and integrated terminal.",
                           "Title color for the active panel. Panels are shown below the editor area and contain views like output and integrated terminal.",
                           "Title color for the inactive panel. Panels are shown below the editor area and contain views like output and integrated terminal.",
@@ -3447,6 +3475,10 @@
                           "Side bar section header background color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar.",
                           "Side bar section header border color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar.",
                           "Side bar section header foreground color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar.",
+                          "Background color of sticky scroll in the side bar.",
+                          "Border color of sticky scroll in the side bar.",
+                          "Shadow color of sticky scroll in the side bar.",
+                          "Side bar title background color. The side bar is the container for views like explorer and search.",
                           "Side bar title foreground color. The side bar is the container for views like explorer and search.",
                           "Color to separate two editors from each other when shown side by side in an editor group from top to bottom.",
                           "Color to separate two editors from each other when shown side by side in an editor group from left to right.",
@@ -3938,6 +3970,7 @@
                           "editorOverviewRuler.incomingContentForeground",
                           "editorOverviewRuler.infoForeground",
                           "editorOverviewRuler.inlineChatInserted",
+                          "editorOverviewRuler.inlineChatInserted",
                           "editorOverviewRuler.inlineChatRemoved",
                           "editorOverviewRuler.modifiedForeground",
                           "editorOverviewRuler.rangeHighlightForeground",
@@ -4157,6 +4190,9 @@
                           "panelSectionHeader.background",
                           "panelSectionHeader.border",
                           "panelSectionHeader.foreground",
+                          "panelStickyScroll.background",
+                          "panelStickyScroll.border",
+                          "panelStickyScroll.shadow",
                           "panelTitle.activeBorder",
                           "panelTitle.activeForeground",
                           "panelTitle.inactiveForeground",
@@ -4234,6 +4270,10 @@
                           "sideBarSectionHeader.background",
                           "sideBarSectionHeader.border",
                           "sideBarSectionHeader.foreground",
+                          "sideBarStickyScroll.background",
+                          "sideBarStickyScroll.border",
+                          "sideBarStickyScroll.shadow",
+                          "sideBarTitle.background",
                           "sideBarTitle.foreground",
                           "sideBySideEditor.horizontalBorder",
                           "sideBySideEditor.verticalBorder",
@@ -4712,6 +4752,7 @@
                           "Incoming overview ruler foreground for inline merge-conflicts.",
                           "Overview ruler marker color for infos.",
                           "Overview ruler marker color for inline chat inserted content.",
+                          "Overview ruler marker color for inline chat inserted content.",
                           "Overview ruler marker color for inline chat removed content.",
                           "Overview ruler marker color for modified content.",
                           "Overview ruler marker color for range highlights. The color must not be opaque so as not to hide underlying decorations.",
@@ -4931,6 +4972,9 @@
                           "Panel section header background color. Panels are shown below the editor area and contain views like output and integrated terminal. Panel sections are views nested within the panels.",
                           "Panel section header border color used when multiple views are stacked vertically in the panel. Panels are shown below the editor area and contain views like output and integrated terminal. Panel sections are views nested within the panels.",
                           "Panel section header foreground color. Panels are shown below the editor area and contain views like output and integrated terminal. Panel sections are views nested within the panels.",
+                          "Background color of sticky scroll in the panel.",
+                          "Border color of sticky scroll in the panel.",
+                          "Shadow color of sticky scroll in the panel.",
                           "Border color for the active panel title. Panels are shown below the editor area and contain views like output and integrated terminal.",
                           "Title color for the active panel. Panels are shown below the editor area and contain views like output and integrated terminal.",
                           "Title color for the inactive panel. Panels are shown below the editor area and contain views like output and integrated terminal.",
@@ -5008,6 +5052,10 @@
                           "Side bar section header background color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar.",
                           "Side bar section header border color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar.",
                           "Side bar section header foreground color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar.",
+                          "Background color of sticky scroll in the side bar.",
+                          "Border color of sticky scroll in the side bar.",
+                          "Shadow color of sticky scroll in the side bar.",
+                          "Side bar title background color. The side bar is the container for views like explorer and search.",
                           "Side bar title foreground color. The side bar is the container for views like explorer and search.",
                           "Color to separate two editors from each other when shown side by side in an editor group from top to bottom.",
                           "Color to separate two editors from each other when shown side by side in an editor group from left to right.",
@@ -5499,6 +5547,7 @@
                           "editorOverviewRuler.incomingContentForeground",
                           "editorOverviewRuler.infoForeground",
                           "editorOverviewRuler.inlineChatInserted",
+                          "editorOverviewRuler.inlineChatInserted",
                           "editorOverviewRuler.inlineChatRemoved",
                           "editorOverviewRuler.modifiedForeground",
                           "editorOverviewRuler.rangeHighlightForeground",
@@ -5718,6 +5767,9 @@
                           "panelSectionHeader.background",
                           "panelSectionHeader.border",
                           "panelSectionHeader.foreground",
+                          "panelStickyScroll.background",
+                          "panelStickyScroll.border",
+                          "panelStickyScroll.shadow",
                           "panelTitle.activeBorder",
                           "panelTitle.activeForeground",
                           "panelTitle.inactiveForeground",
@@ -5795,6 +5847,10 @@
                           "sideBarSectionHeader.background",
                           "sideBarSectionHeader.border",
                           "sideBarSectionHeader.foreground",
+                          "sideBarStickyScroll.background",
+                          "sideBarStickyScroll.border",
+                          "sideBarStickyScroll.shadow",
+                          "sideBarTitle.background",
                           "sideBarTitle.foreground",
                           "sideBySideEditor.horizontalBorder",
                           "sideBySideEditor.verticalBorder",
@@ -6273,6 +6329,7 @@
                           "Incoming overview ruler foreground for inline merge-conflicts.",
                           "Overview ruler marker color for infos.",
                           "Overview ruler marker color for inline chat inserted content.",
+                          "Overview ruler marker color for inline chat inserted content.",
                           "Overview ruler marker color for inline chat removed content.",
                           "Overview ruler marker color for modified content.",
                           "Overview ruler marker color for range highlights. The color must not be opaque so as not to hide underlying decorations.",
@@ -6492,6 +6549,9 @@
                           "Panel section header background color. Panels are shown below the editor area and contain views like output and integrated terminal. Panel sections are views nested within the panels.",
                           "Panel section header border color used when multiple views are stacked vertically in the panel. Panels are shown below the editor area and contain views like output and integrated terminal. Panel sections are views nested within the panels.",
                           "Panel section header foreground color. Panels are shown below the editor area and contain views like output and integrated terminal. Panel sections are views nested within the panels.",
+                          "Background color of sticky scroll in the panel.",
+                          "Border color of sticky scroll in the panel.",
+                          "Shadow color of sticky scroll in the panel.",
                           "Border color for the active panel title. Panels are shown below the editor area and contain views like output and integrated terminal.",
                           "Title color for the active panel. Panels are shown below the editor area and contain views like output and integrated terminal.",
                           "Title color for the inactive panel. Panels are shown below the editor area and contain views like output and integrated terminal.",
@@ -6569,6 +6629,10 @@
                           "Side bar section header background color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar.",
                           "Side bar section header border color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar.",
                           "Side bar section header foreground color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar.",
+                          "Background color of sticky scroll in the side bar.",
+                          "Border color of sticky scroll in the side bar.",
+                          "Shadow color of sticky scroll in the side bar.",
+                          "Side bar title background color. The side bar is the container for views like explorer and search.",
                           "Side bar title foreground color. The side bar is the container for views like explorer and search.",
                           "Color to separate two editors from each other when shown side by side in an editor group from top to bottom.",
                           "Color to separate two editors from each other when shown side by side in an editor group from left to right.",
@@ -8107,6 +8171,9 @@
                       "fold-vertical",
                       "map-vertical-filled",
                       "fold-vertical-filled",
+                      "go-to-search",
+                      "percentage",
+                      "sort-percentage",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -8137,6 +8204,8 @@
                       "diff-review-insert",
                       "diff-review-remove",
                       "diff-review-close",
+                      "hover-increase-verbosity",
+                      "hover-decrease-verbosity",
                       "parameter-hints-next",
                       "parameter-hints-previous",
                       "suggest-more-info",
@@ -8389,15 +8458,15 @@
                       "refactor-preview-view-icon",
                       "explorer-view-icon",
                       "open-editors-view-icon",
-                      "start-inline-chat",
                       "markers-view-icon",
                       "outline-view-icon",
                       "output-view-icon",
                       "source-control-view-icon",
-                      "search-editor-label-icon",
                       "timeline-view-icon",
                       "timeline-open",
                       "timeline-filter",
+                      "start-inline-chat",
+                      "search-editor-label-icon",
                       "workspace-trust-banner",
                       "workspace-trust-editor-check",
                       "workspace-trust-editor-cross",
@@ -8995,6 +9064,9 @@
                       "",
                       "",
                       "",
+                      "",
+                      "",
+                      "",
                       "Icon for breakpoints waiting on another breakpoint.",
                       "Icon for the close action in widgets.",
                       "Icon for goto previous editor location.",
@@ -9002,6 +9074,8 @@
                       "Icon for 'Insert' in accessible diff viewer.",
                       "Icon for 'Remove' in accessible diff viewer.",
                       "Icon for 'Close' in accessible diff viewer.",
+                      "Icon for increaseing hover verbosity.",
+                      "Icon for decreasing hover verbosity.",
                       "Icon for show next parameter hint.",
                       "Icon for show previous parameter hint.",
                       "Icon for more information in the suggest widget.",
@@ -9254,15 +9328,15 @@
                       "View icon of the refactor preview view.",
                       "View icon of the explorer view.",
                       "View icon of the open editors view.",
-                      "Icon which spawns the inline chat from the editor toolbar.",
                       "View icon of the markers view.",
                       "View icon of the outline view.",
                       "View icon of the output view.",
                       "View icon of the Source Control view.",
-                      "Icon of the search editor label.",
                       "View icon of the timeline view.",
                       "Icon for the open timeline action.",
                       "Icon for the filter timeline action.",
+                      "Icon which spawns the inline chat from the editor toolbar.",
+                      "Icon of the search editor label.",
                       "Icon for workspace trust ion the banner.",
                       "Icon for the checkmark in the workspace trust editor.",
                       "Icon for the cross in the workspace trust editor.",
@@ -9362,45 +9436,6 @@
               "path",
               "id"
             ]
-          }
-        },
-        "interactiveSession": {
-          "description": "Contributes an Interactive Session provider",
-          "type": "array",
-          "items": {
-            "additionalProperties": false,
-            "type": "object",
-            "defaultSnippets": [
-              {
-                "body": {
-                  "id": "",
-                  "program": "",
-                  "runtime": ""
-                }
-              }
-            ],
-            "required": [
-              "id",
-              "label"
-            ],
-            "properties": {
-              "icon": {
-                "description": "An icon for this Interactive Session provider.",
-                "type": "string"
-              },
-              "id": {
-                "description": "Unique identifier for this Interactive Session provider.",
-                "type": "string"
-              },
-              "label": {
-                "description": "Display name for this Interactive Session provider.",
-                "type": "string"
-              },
-              "when": {
-                "description": "A condition which must be true to enable this Interactive Session provider.",
-                "type": "string"
-              }
-            }
           }
         },
         "jsonValidation": {
@@ -14918,6 +14953,10 @@
                   }
                 ],
                 "properties": {
+                  "accessibilityHelpContent": {
+                    "type": "string",
+                    "markdownDescription": "When the accessibility help dialog is invoked in this view, this content will be presented to the user as a markdown string. Keybindings will be resolved when provided in the format of <keybinding:commandId>. If there is no keybinding, that will be indicated with a link to configure one."
+                  },
                   "contextualTitle": {
                     "description": "Human-readable context for when the view is moved out of its original location. By default, the view's container name will be used.",
                     "type": "string"
@@ -14991,6 +15030,10 @@
                   }
                 ],
                 "properties": {
+                  "accessibilityHelpContent": {
+                    "type": "string",
+                    "markdownDescription": "When the accessibility help dialog is invoked in this view, this content will be presented to the user as a markdown string. Keybindings will be resolved when provided in the format of <keybinding:commandId>. If there is no keybinding, that will be indicated with a link to configure one."
+                  },
                   "contextualTitle": {
                     "description": "Human-readable context for when the view is moved out of its original location. By default, the view's container name will be used.",
                     "type": "string"
@@ -15104,6 +15147,10 @@
                   }
                 ],
                 "properties": {
+                  "accessibilityHelpContent": {
+                    "type": "string",
+                    "markdownDescription": "When the accessibility help dialog is invoked in this view, this content will be presented to the user as a markdown string. Keybindings will be resolved when provided in the format of <keybinding:commandId>. If there is no keybinding, that will be indicated with a link to configure one."
+                  },
                   "contextualTitle": {
                     "description": "Human-readable context for when the view is moved out of its original location. By default, the view's container name will be used.",
                     "type": "string"
@@ -15177,6 +15224,10 @@
                   }
                 ],
                 "properties": {
+                  "accessibilityHelpContent": {
+                    "type": "string",
+                    "markdownDescription": "When the accessibility help dialog is invoked in this view, this content will be presented to the user as a markdown string. Keybindings will be resolved when provided in the format of <keybinding:commandId>. If there is no keybinding, that will be indicated with a link to configure one."
+                  },
                   "contextualTitle": {
                     "description": "Human-readable context for when the view is moved out of its original location. By default, the view's container name will be used.",
                     "type": "string"
@@ -15301,6 +15352,10 @@
                 "initialSize": {
                   "type": "number",
                   "description": "The initial size of the view. The size will behave like the css 'flex' property, and will set the initial size when the view is first shown. In the side bar, this is the height of the view. This value is only respected when the same extension owns both the view and the view container."
+                },
+                "accessibilityHelpContent": {
+                  "type": "string",
+                  "markdownDescription": "When the accessibility help dialog is invoked in this view, this content will be presented to the user as a markdown string. Keybindings will be resolved when provided in the format of <keybinding:commandId>. If there is no keybinding, that will be indicated with a link to configure one."
                 }
               }
             },
@@ -15700,6 +15755,7 @@
           "commentReactor",
           "commentsDraftState",
           "commentThreadApplicability",
+          "contribAccessibilityHelpContent",
           "contribCommentEditorActionsMenu",
           "contribCommentPeekContext",
           "contribCommentsViewThreadMenus",
@@ -15731,7 +15787,7 @@
           "diffContentOptions",
           "documentFiltersExclusive",
           "documentPaste",
-          "dropMetadata",
+          "editorHoverVerbosityLevel",
           "editorInsets",
           "editSessionIdentityProvider",
           "extensionRuntime",
@@ -15742,7 +15798,6 @@
           "findFiles2",
           "findTextInFiles",
           "fsChunks",
-          "handleIssueUri",
           "idToken",
           "inlineCompletionsAdditions",
           "inlineEdit",
@@ -15790,6 +15845,7 @@
           "terminalSelection",
           "terminalShellIntegration",
           "testObserver",
+          "testPreserveFocus",
           "textSearchProvider",
           "timeline",
           "tokenInformation",
@@ -15798,7 +15854,6 @@
           "treeViewReveal",
           "tunnelFactory",
           "tunnels",
-          "windowActivity",
           "workspaceTrust"
         ],
         "markdownEnumDescriptions": [
@@ -15821,6 +15876,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.commentReactor.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.commentsDraftState.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.commentThreadApplicability.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribAccessibilityHelpContent.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribCommentEditorActionsMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribCommentPeekContext.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribCommentsViewThreadMenus.d.ts",
@@ -15852,7 +15908,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.diffContentOptions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.documentFiltersExclusive.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.documentPaste.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.dropMetadata.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.editorHoverVerbosityLevel.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.editorInsets.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.editSessionIdentityProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.extensionRuntime.d.ts",
@@ -15863,7 +15919,6 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.findFiles2.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.findTextInFiles.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.fsChunks.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.handleIssueUri.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.idToken.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.inlineCompletionsAdditions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.inlineEdit.d.ts",
@@ -15911,6 +15966,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalSelection.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalShellIntegration.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.testObserver.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.testPreserveFocus.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.textSearchProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.timeline.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.tokenInformation.d.ts",
@@ -15919,7 +15975,6 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.treeViewReveal.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.tunnelFactory.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.tunnels.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.windowActivity.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.workspaceTrust.d.ts"
         ]
       }

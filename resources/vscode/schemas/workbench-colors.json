@@ -1473,9 +1473,7 @@
         {
           "body": "${1:#ff0000}"
         }
-      ],
-      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
-      "patternErrorMessage": "This color must be transparent or it will obscure content"
+      ]
     },
     "editor.selectionBackground": {
       "type": "string",
@@ -1589,9 +1587,7 @@
         {
           "body": "${1:#ff0000}"
         }
-      ],
-      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
-      "patternErrorMessage": "This color must be transparent or it will obscure content"
+      ]
     },
     "editor.wordHighlightBackground": {
       "type": "string",
@@ -5068,6 +5064,36 @@
         }
       ]
     },
+    "panelStickyScroll.background": {
+      "type": "string",
+      "description": "Background color of sticky scroll in the panel.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "panelStickyScroll.border": {
+      "type": "string",
+      "description": "Border color of sticky scroll in the panel.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "panelStickyScroll.shadow": {
+      "type": "string",
+      "description": "Shadow color of sticky scroll in the panel.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "panelTitle.activeBorder": {
       "type": "string",
       "description": "Border color for the active panel title. Panels are shown below the editor area and contain views like output and integrated terminal.",
@@ -5832,6 +5858,46 @@
     "sideBarSectionHeader.foreground": {
       "type": "string",
       "description": "Side bar section header foreground color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "sideBarStickyScroll.background": {
+      "type": "string",
+      "description": "Background color of sticky scroll in the side bar.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "sideBarStickyScroll.border": {
+      "type": "string",
+      "description": "Border color of sticky scroll in the side bar.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "sideBarStickyScroll.shadow": {
+      "type": "string",
+      "description": "Shadow color of sticky scroll in the side bar.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "sideBarTitle.background": {
+      "type": "string",
+      "description": "Side bar title background color. The side bar is the container for views like explorer and search.",
       "format": "color-hex",
       "defaultSnippets": [
         {
