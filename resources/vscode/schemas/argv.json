@@ -18,6 +18,10 @@
       "type": "boolean",
       "description": "Disables hardware acceleration. ONLY change this option if you encounter graphic issues."
     },
+    "disable-lcd-text": {
+      "type": "boolean",
+      "description": "Disables LCD font antialiasing."
+    },
     "enable-crash-reporter": {
       "type": "boolean",
       "markdownDescription": "Allows to disable crash reporting, should restart the app if the value is changed."

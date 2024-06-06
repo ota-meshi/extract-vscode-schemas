@@ -1301,6 +1301,16 @@
         }
       ]
     },
+    "editor.findMatchForeground": {
+      "type": "string",
+      "description": "Text color of the current search match.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "editor.findMatchHighlightBackground": {
       "type": "string",
       "description": "Color of the other search matches. The color must not be opaque so as not to hide underlying decorations.",
@@ -1322,6 +1332,18 @@
           "body": "${1:#ff0000}"
         }
       ]
+    },
+    "editor.findMatchHighlightForeground": {
+      "type": "string",
+      "description": "Foreground color of the other search matches.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "editor.findRangeHighlightBackground": {
       "type": "string",
@@ -5354,6 +5376,16 @@
         }
       ]
     },
+    "profiles.sashBorder": {
+      "type": "string",
+      "description": "The color of the Profiles editor splitview sash border.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
     "progressBar.background": {
       "type": "string",
       "description": "Background color of the progress bar that can show for long running operations.",
@@ -6758,6 +6790,36 @@
     "tab.lastPinnedBorder": {
       "type": "string",
       "description": "Border to separate pinned tabs from other tabs. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "tab.selectedBackground": {
+      "type": "string",
+      "description": "Background of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "tab.selectedBorderTop": {
+      "type": "string",
+      "description": "Border to the top of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ]
+    },
+    "tab.selectedForeground": {
+      "type": "string",
+      "description": "Foreground of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
       "format": "color-hex",
       "defaultSnippets": [
         {

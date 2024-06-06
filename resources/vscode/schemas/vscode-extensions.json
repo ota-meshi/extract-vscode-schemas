@@ -405,13 +405,6 @@
                     "name"
                   ],
                   "properties": {
-                    "defaultImplicitVariables": {
-                      "markdownDescription": "**Only** allowed for extensions that have the `chatParticipantAdditions` proposal. The names of the variables that are invoked by default",
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
                     "description": {
                       "description": "A description of this command.",
                       "type": "string"
@@ -425,7 +418,7 @@
                       "type": "string"
                     },
                     "sampleRequest": {
-                      "description": "When the user clicks this command in `/help`, this text will be submitted to this participant.",
+                      "description": "When the user clicks this command in `/help`, this text will be submitted to the participant.",
                       "type": "string"
                     },
                     "when": {
@@ -435,46 +428,29 @@
                   }
                 }
               },
-              "defaultImplicitVariables": {
-                "markdownDescription": "**Only** allowed for extensions that have the `chatParticipantAdditions` proposal. The names of the variables that are invoked by default",
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
               "description": {
                 "description": "A description of this chat participant, shown in the UI.",
+                "type": "string"
+              },
+              "fullName": {
+                "markdownDescription": "The full name of this chat participant, which is shown as the label for responses coming from this participant. If not provided, `name` is used.",
                 "type": "string"
               },
               "id": {
                 "description": "A unique id for this chat participant.",
                 "type": "string"
               },
-              "isDefault": {
-                "markdownDescription": "**Only** allowed for extensions that have the `defaultChatParticipant` proposal.",
-                "type": "boolean"
-              },
               "isSticky": {
                 "description": "Whether invoking the command puts the chat into a persistent mode, where the command is automatically added to the chat input for the next message.",
                 "type": "boolean"
               },
-              "locations": {
-                "markdownDescription": "Locations in which this chat participant is available.",
-                "type": "array",
-                "default": [
-                  "panel"
-                ],
-                "items": {
-                  "type": "string",
-                  "enum": [
-                    "notebook",
-                    "panel",
-                    "terminal"
-                  ]
-                }
-              },
               "name": {
-                "description": "User-facing display name for this chat participant. The user will use '@' with this name to invoke the participant.",
+                "description": "User-facing name for this chat participant. The user will use '@' with this name to invoke the participant. Name must not contain whitespace.",
+                "type": "string",
+                "pattern": "^[\\w0-9_-]+$"
+              },
+              "sampleRequest": {
+                "description": "When the user clicks this participant in `/help`, this text will be submitted to the participant.",
                 "type": "string"
               }
             }
@@ -666,8 +642,10 @@
                           "editor.background",
                           "editor.findMatchBackground",
                           "editor.findMatchBorder",
+                          "editor.findMatchForeground",
                           "editor.findMatchHighlightBackground",
                           "editor.findMatchHighlightBorder",
+                          "editor.findMatchHighlightForeground",
                           "editor.findRangeHighlightBackground",
                           "editor.findRangeHighlightBorder",
                           "editor.focusedStackFrameHighlightBackground",
@@ -1065,6 +1043,7 @@
                           "problemsWarningIcon.foreground",
                           "profileBadge.background",
                           "profileBadge.foreground",
+                          "profiles.sashBorder",
                           "progressBar.background",
                           "quickInput.background",
                           "quickInput.foreground",
@@ -1206,6 +1185,9 @@
                           "tab.inactiveForeground",
                           "tab.inactiveModifiedBorder",
                           "tab.lastPinnedBorder",
+                          "tab.selectedBackground",
+                          "tab.selectedBorderTop",
+                          "tab.selectedForeground",
                           "tab.unfocusedActiveBackground",
                           "tab.unfocusedActiveBorder",
                           "tab.unfocusedActiveBorderTop",
@@ -1448,8 +1430,10 @@
                           "Editor background color.",
                           "Color of the current search match.",
                           "Border color of the current search match.",
+                          "Text color of the current search match.",
                           "Color of the other search matches. The color must not be opaque so as not to hide underlying decorations.",
                           "Border color of the other search matches.",
+                          "Foreground color of the other search matches.",
                           "Color of the range limiting the search. The color must not be opaque so as not to hide underlying decorations.",
                           "Border color of the range limiting the search. The color must not be opaque so as not to hide underlying decorations.",
                           "Background color for the highlight of line at focused stack frame position.",
@@ -1847,6 +1831,7 @@
                           "The color used for the problems warning icon.",
                           "Profile badge background color. The profile badge shows on top of the settings gear icon in the activity bar.",
                           "Profile badge foreground color. The profile badge shows on top of the settings gear icon in the activity bar.",
+                          "The color of the Profiles editor splitview sash border.",
                           "Background color of the progress bar that can show for long running operations.",
                           "Quick picker background color. The quick picker widget is the container for pickers like the command palette.",
                           "Quick picker foreground color. The quick picker widget is the container for pickers like the command palette.",
@@ -1988,6 +1973,9 @@
                           "Inactive tab foreground color in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border on the top of modified inactive tabs in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border to separate pinned tabs from other tabs. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+                          "Background of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+                          "Border to the top of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+                          "Foreground of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Active tab background color in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border on the bottom of an active tab in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border to the top of an active tab in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
@@ -2243,8 +2231,10 @@
                           "editor.background",
                           "editor.findMatchBackground",
                           "editor.findMatchBorder",
+                          "editor.findMatchForeground",
                           "editor.findMatchHighlightBackground",
                           "editor.findMatchHighlightBorder",
+                          "editor.findMatchHighlightForeground",
                           "editor.findRangeHighlightBackground",
                           "editor.findRangeHighlightBorder",
                           "editor.focusedStackFrameHighlightBackground",
@@ -2642,6 +2632,7 @@
                           "problemsWarningIcon.foreground",
                           "profileBadge.background",
                           "profileBadge.foreground",
+                          "profiles.sashBorder",
                           "progressBar.background",
                           "quickInput.background",
                           "quickInput.foreground",
@@ -2783,6 +2774,9 @@
                           "tab.inactiveForeground",
                           "tab.inactiveModifiedBorder",
                           "tab.lastPinnedBorder",
+                          "tab.selectedBackground",
+                          "tab.selectedBorderTop",
+                          "tab.selectedForeground",
                           "tab.unfocusedActiveBackground",
                           "tab.unfocusedActiveBorder",
                           "tab.unfocusedActiveBorderTop",
@@ -3025,8 +3019,10 @@
                           "Editor background color.",
                           "Color of the current search match.",
                           "Border color of the current search match.",
+                          "Text color of the current search match.",
                           "Color of the other search matches. The color must not be opaque so as not to hide underlying decorations.",
                           "Border color of the other search matches.",
+                          "Foreground color of the other search matches.",
                           "Color of the range limiting the search. The color must not be opaque so as not to hide underlying decorations.",
                           "Border color of the range limiting the search. The color must not be opaque so as not to hide underlying decorations.",
                           "Background color for the highlight of line at focused stack frame position.",
@@ -3424,6 +3420,7 @@
                           "The color used for the problems warning icon.",
                           "Profile badge background color. The profile badge shows on top of the settings gear icon in the activity bar.",
                           "Profile badge foreground color. The profile badge shows on top of the settings gear icon in the activity bar.",
+                          "The color of the Profiles editor splitview sash border.",
                           "Background color of the progress bar that can show for long running operations.",
                           "Quick picker background color. The quick picker widget is the container for pickers like the command palette.",
                           "Quick picker foreground color. The quick picker widget is the container for pickers like the command palette.",
@@ -3565,6 +3562,9 @@
                           "Inactive tab foreground color in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border on the top of modified inactive tabs in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border to separate pinned tabs from other tabs. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+                          "Background of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+                          "Border to the top of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+                          "Foreground of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Active tab background color in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border on the bottom of an active tab in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border to the top of an active tab in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
@@ -3820,8 +3820,10 @@
                           "editor.background",
                           "editor.findMatchBackground",
                           "editor.findMatchBorder",
+                          "editor.findMatchForeground",
                           "editor.findMatchHighlightBackground",
                           "editor.findMatchHighlightBorder",
+                          "editor.findMatchHighlightForeground",
                           "editor.findRangeHighlightBackground",
                           "editor.findRangeHighlightBorder",
                           "editor.focusedStackFrameHighlightBackground",
@@ -4219,6 +4221,7 @@
                           "problemsWarningIcon.foreground",
                           "profileBadge.background",
                           "profileBadge.foreground",
+                          "profiles.sashBorder",
                           "progressBar.background",
                           "quickInput.background",
                           "quickInput.foreground",
@@ -4360,6 +4363,9 @@
                           "tab.inactiveForeground",
                           "tab.inactiveModifiedBorder",
                           "tab.lastPinnedBorder",
+                          "tab.selectedBackground",
+                          "tab.selectedBorderTop",
+                          "tab.selectedForeground",
                           "tab.unfocusedActiveBackground",
                           "tab.unfocusedActiveBorder",
                           "tab.unfocusedActiveBorderTop",
@@ -4602,8 +4608,10 @@
                           "Editor background color.",
                           "Color of the current search match.",
                           "Border color of the current search match.",
+                          "Text color of the current search match.",
                           "Color of the other search matches. The color must not be opaque so as not to hide underlying decorations.",
                           "Border color of the other search matches.",
+                          "Foreground color of the other search matches.",
                           "Color of the range limiting the search. The color must not be opaque so as not to hide underlying decorations.",
                           "Border color of the range limiting the search. The color must not be opaque so as not to hide underlying decorations.",
                           "Background color for the highlight of line at focused stack frame position.",
@@ -5001,6 +5009,7 @@
                           "The color used for the problems warning icon.",
                           "Profile badge background color. The profile badge shows on top of the settings gear icon in the activity bar.",
                           "Profile badge foreground color. The profile badge shows on top of the settings gear icon in the activity bar.",
+                          "The color of the Profiles editor splitview sash border.",
                           "Background color of the progress bar that can show for long running operations.",
                           "Quick picker background color. The quick picker widget is the container for pickers like the command palette.",
                           "Quick picker foreground color. The quick picker widget is the container for pickers like the command palette.",
@@ -5142,6 +5151,9 @@
                           "Inactive tab foreground color in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border on the top of modified inactive tabs in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border to separate pinned tabs from other tabs. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+                          "Background of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+                          "Border to the top of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+                          "Foreground of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Active tab background color in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border on the bottom of an active tab in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border to the top of an active tab in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
@@ -5397,8 +5409,10 @@
                           "editor.background",
                           "editor.findMatchBackground",
                           "editor.findMatchBorder",
+                          "editor.findMatchForeground",
                           "editor.findMatchHighlightBackground",
                           "editor.findMatchHighlightBorder",
+                          "editor.findMatchHighlightForeground",
                           "editor.findRangeHighlightBackground",
                           "editor.findRangeHighlightBorder",
                           "editor.focusedStackFrameHighlightBackground",
@@ -5796,6 +5810,7 @@
                           "problemsWarningIcon.foreground",
                           "profileBadge.background",
                           "profileBadge.foreground",
+                          "profiles.sashBorder",
                           "progressBar.background",
                           "quickInput.background",
                           "quickInput.foreground",
@@ -5937,6 +5952,9 @@
                           "tab.inactiveForeground",
                           "tab.inactiveModifiedBorder",
                           "tab.lastPinnedBorder",
+                          "tab.selectedBackground",
+                          "tab.selectedBorderTop",
+                          "tab.selectedForeground",
                           "tab.unfocusedActiveBackground",
                           "tab.unfocusedActiveBorder",
                           "tab.unfocusedActiveBorderTop",
@@ -6179,8 +6197,10 @@
                           "Editor background color.",
                           "Color of the current search match.",
                           "Border color of the current search match.",
+                          "Text color of the current search match.",
                           "Color of the other search matches. The color must not be opaque so as not to hide underlying decorations.",
                           "Border color of the other search matches.",
+                          "Foreground color of the other search matches.",
                           "Color of the range limiting the search. The color must not be opaque so as not to hide underlying decorations.",
                           "Border color of the range limiting the search. The color must not be opaque so as not to hide underlying decorations.",
                           "Background color for the highlight of line at focused stack frame position.",
@@ -6578,6 +6598,7 @@
                           "The color used for the problems warning icon.",
                           "Profile badge background color. The profile badge shows on top of the settings gear icon in the activity bar.",
                           "Profile badge foreground color. The profile badge shows on top of the settings gear icon in the activity bar.",
+                          "The color of the Profiles editor splitview sash border.",
                           "Background color of the progress bar that can show for long running operations.",
                           "Quick picker background color. The quick picker widget is the container for pickers like the command palette.",
                           "Quick picker foreground color. The quick picker widget is the container for pickers like the command palette.",
@@ -6719,6 +6740,9 @@
                           "Inactive tab foreground color in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border on the top of modified inactive tabs in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border to separate pinned tabs from other tabs. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+                          "Background of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+                          "Border to the top of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+                          "Foreground of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Active tab background color in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border on the bottom of an active tab in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
                           "Border to the top of an active tab in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
@@ -8174,6 +8198,7 @@
                       "go-to-search",
                       "percentage",
                       "sort-percentage",
+                      "attach",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -8211,17 +8236,17 @@
                       "suggest-more-info",
                       "diff-insert",
                       "diff-remove",
-                      "find-selection",
-                      "find-collapsed",
-                      "find-expanded",
-                      "find-replace",
-                      "find-replace-all",
-                      "find-previous-match",
-                      "find-next-match",
                       "folding-expanded",
                       "folding-collapsed",
                       "folding-manual-collapsed",
                       "folding-manual-expanded",
+                      "find-collapsed",
+                      "find-expanded",
+                      "find-selection",
+                      "find-replace",
+                      "find-replace-all",
+                      "find-previous-match",
+                      "find-next-match",
                       "marker-navigation-next",
                       "marker-navigation-previous",
                       "inline-suggestion-hints-next",
@@ -9067,6 +9092,7 @@
                       "",
                       "",
                       "",
+                      "",
                       "Icon for breakpoints waiting on another breakpoint.",
                       "Icon for the close action in widgets.",
                       "Icon for goto previous editor location.",
@@ -9081,17 +9107,17 @@
                       "Icon for more information in the suggest widget.",
                       "Line decoration for inserts in the diff editor.",
                       "Line decoration for removals in the diff editor.",
-                      "Icon for 'Find in Selection' in the editor find widget.",
-                      "Icon to indicate that the editor find widget is collapsed.",
-                      "Icon to indicate that the editor find widget is expanded.",
-                      "Icon for 'Replace' in the editor find widget.",
-                      "Icon for 'Replace All' in the editor find widget.",
-                      "Icon for 'Find Previous' in the editor find widget.",
-                      "Icon for 'Find Next' in the editor find widget.",
                       "Icon for expanded ranges in the editor glyph margin.",
                       "Icon for collapsed ranges in the editor glyph margin.",
                       "Icon for manually collapsed ranges in the editor glyph margin.",
                       "Icon for manually expanded ranges in the editor glyph margin.",
+                      "Icon to indicate that the editor find widget is collapsed.",
+                      "Icon to indicate that the editor find widget is expanded.",
+                      "Icon for 'Find in Selection' in the editor find widget.",
+                      "Icon for 'Replace' in the editor find widget.",
+                      "Icon for 'Replace All' in the editor find widget.",
+                      "Icon for 'Find Previous' in the editor find widget.",
+                      "Icon for 'Find Next' in the editor find widget.",
                       "Icon for goto next marker.",
                       "Icon for goto previous marker.",
                       "Icon for show next parameter hint.",
@@ -9556,6 +9582,32 @@
                 "win": {
                   "description": "Windows specific key or key sequence.",
                   "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "languageModels": {
+          "description": "Contribute language models of a specific vendor.",
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "vendor": {
+                    "type": "string",
+                    "description": "A globally unique vendor of language models."
+                  }
+                }
+              }
+            },
+            {
+              "type": "object",
+              "properties": {
+                "vendor": {
+                  "type": "string",
+                  "description": "A globally unique vendor of language models."
                 }
               }
             }
@@ -14955,7 +15007,7 @@
                 "properties": {
                   "accessibilityHelpContent": {
                     "type": "string",
-                    "markdownDescription": "When the accessibility help dialog is invoked in this view, this content will be presented to the user as a markdown string. Keybindings will be resolved when provided in the format of <keybinding:commandId>. If there is no keybinding, that will be indicated with a link to configure one."
+                    "markdownDescription": "When the accessibility help dialog is invoked in this view, this content will be presented to the user as a markdown string. Keybindings will be resolved when provided in the format of <keybinding:commandId>. If there is no keybinding, that will be indicated and this command will be included in a quickpick for easy configuration."
                   },
                   "contextualTitle": {
                     "description": "Human-readable context for when the view is moved out of its original location. By default, the view's container name will be used.",
@@ -15032,7 +15084,7 @@
                 "properties": {
                   "accessibilityHelpContent": {
                     "type": "string",
-                    "markdownDescription": "When the accessibility help dialog is invoked in this view, this content will be presented to the user as a markdown string. Keybindings will be resolved when provided in the format of <keybinding:commandId>. If there is no keybinding, that will be indicated with a link to configure one."
+                    "markdownDescription": "When the accessibility help dialog is invoked in this view, this content will be presented to the user as a markdown string. Keybindings will be resolved when provided in the format of <keybinding:commandId>. If there is no keybinding, that will be indicated and this command will be included in a quickpick for easy configuration."
                   },
                   "contextualTitle": {
                     "description": "Human-readable context for when the view is moved out of its original location. By default, the view's container name will be used.",
@@ -15149,7 +15201,7 @@
                 "properties": {
                   "accessibilityHelpContent": {
                     "type": "string",
-                    "markdownDescription": "When the accessibility help dialog is invoked in this view, this content will be presented to the user as a markdown string. Keybindings will be resolved when provided in the format of <keybinding:commandId>. If there is no keybinding, that will be indicated with a link to configure one."
+                    "markdownDescription": "When the accessibility help dialog is invoked in this view, this content will be presented to the user as a markdown string. Keybindings will be resolved when provided in the format of <keybinding:commandId>. If there is no keybinding, that will be indicated and this command will be included in a quickpick for easy configuration."
                   },
                   "contextualTitle": {
                     "description": "Human-readable context for when the view is moved out of its original location. By default, the view's container name will be used.",
@@ -15226,7 +15278,7 @@
                 "properties": {
                   "accessibilityHelpContent": {
                     "type": "string",
-                    "markdownDescription": "When the accessibility help dialog is invoked in this view, this content will be presented to the user as a markdown string. Keybindings will be resolved when provided in the format of <keybinding:commandId>. If there is no keybinding, that will be indicated with a link to configure one."
+                    "markdownDescription": "When the accessibility help dialog is invoked in this view, this content will be presented to the user as a markdown string. Keybindings will be resolved when provided in the format of <keybinding:commandId>. If there is no keybinding, that will be indicated and this command will be included in a quickpick for easy configuration."
                   },
                   "contextualTitle": {
                     "description": "Human-readable context for when the view is moved out of its original location. By default, the view's container name will be used.",
@@ -15355,7 +15407,7 @@
                 },
                 "accessibilityHelpContent": {
                   "type": "string",
-                  "markdownDescription": "When the accessibility help dialog is invoked in this view, this content will be presented to the user as a markdown string. Keybindings will be resolved when provided in the format of <keybinding:commandId>. If there is no keybinding, that will be indicated with a link to configure one."
+                  "markdownDescription": "When the accessibility help dialog is invoked in this view, this content will be presented to the user as a markdown string. Keybindings will be resolved when provided in the format of <keybinding:commandId>. If there is no keybinding, that will be indicated and this command will be included in a quickpick for easy configuration."
                 }
               }
             },
@@ -15739,12 +15791,13 @@
           "activeComment",
           "aiRelatedInformation",
           "aiTextSearchProvider",
+          "attributableCoverage",
           "authGetSessions",
           "authLearnMore",
           "authSession",
           "canonicalUriProvider",
-          "chatParticipant",
           "chatParticipantAdditions",
+          "chatParticipantPrivate",
           "chatProvider",
           "chatTab",
           "chatVariableResolver",
@@ -15780,7 +15833,6 @@
           "contribViewsWelcome",
           "createFileSystemWatcher",
           "customEditorMove",
-          "debugFocus",
           "debugVisualization",
           "defaultChatParticipant",
           "diffCommand",
@@ -15790,6 +15842,7 @@
           "editorHoverVerbosityLevel",
           "editorInsets",
           "editSessionIdentityProvider",
+          "embeddings",
           "extensionRuntime",
           "extensionsAny",
           "externalUriOpener",
@@ -15804,7 +15857,7 @@
           "interactive",
           "interactiveWindow",
           "ipc",
-          "languageModels",
+          "languageModelSystem",
           "languageStatusText",
           "mappedEditsProvider",
           "multiDocumentHighlightProvider",
@@ -15845,7 +15898,6 @@
           "terminalSelection",
           "terminalShellIntegration",
           "testObserver",
-          "testPreserveFocus",
           "textSearchProvider",
           "timeline",
           "tokenInformation",
@@ -15860,12 +15912,13 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.activeComment.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiRelatedInformation.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiTextSearchProvider.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.attributableCoverage.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authGetSessions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authLearnMore.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authSession.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.canonicalUriProvider.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatParticipant.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatParticipantAdditions.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatParticipantPrivate.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatTab.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatVariableResolver.d.ts",
@@ -15901,7 +15954,6 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribViewsWelcome.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.createFileSystemWatcher.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.customEditorMove.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.debugFocus.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.debugVisualization.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.defaultChatParticipant.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.diffCommand.d.ts",
@@ -15911,6 +15963,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.editorHoverVerbosityLevel.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.editorInsets.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.editSessionIdentityProvider.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.embeddings.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.extensionRuntime.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.extensionsAny.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.externalUriOpener.d.ts",
@@ -15925,7 +15978,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.interactive.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.interactiveWindow.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.ipc.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageModels.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageModelSystem.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageStatusText.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.mappedEditsProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.multiDocumentHighlightProvider.d.ts",
@@ -15966,7 +16019,6 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalSelection.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalShellIntegration.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.testObserver.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.testPreserveFocus.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.textSearchProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.timeline.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.tokenInformation.d.ts",

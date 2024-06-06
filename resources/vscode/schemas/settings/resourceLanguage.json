@@ -2220,6 +2220,14 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.minimap.sectionHeaderLetterSpacing": {
+      "type": "number",
+      "default": 1,
+      "description": "Controls the amount of space (in pixels) between characters of section header. This helps the readability of the header in small font sizes.",
+      "defaultDefaultValue": 1,
+      "scope": 5,
+      "restricted": false
+    },
     "editor.minimap.showMarkSectionHeaders": {
       "type": "boolean",
       "default": true,
