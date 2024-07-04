@@ -712,138 +712,100 @@
       "scope": 3,
       "restricted": false
     },
-    "accessibility.signalOptions": {
-      "description": "Configures the behavior of signals (audio cues and announcements) in the workbench. Includes volume, debounce position changes, and delays for different types of signals.",
+    "accessibility.signalOptions.debouncePositionChanges": {
+      "description": "Whether or not position changes should be debounced",
+      "type": "boolean",
+      "default": false,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "accessibility.signalOptions.experimental.delays.errorAtPosition": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "debouncePositionChanges": {
-          "description": "Whether or not position changes should be debounced",
-          "type": "boolean",
-          "default": false
-        },
-        "experimental.delays": {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "errorAtPosition": {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "announcement": {
-                  "description": "The delay in milliseconds before an announcement is made when there's an error at the position.",
-                  "type": "number",
-                  "minimum": 0,
-                  "default": 3000
-                },
-                "sound": {
-                  "description": "The delay in milliseconds before a sound is played when there's an error at the position.",
-                  "type": "number",
-                  "minimum": 0,
-                  "default": 1000
-                }
-              }
-            },
-            "general": {
-              "type": "object",
-              "description": "Delays for all signals besides error and warning at position",
-              "additionalProperties": false,
-              "properties": {
-                "announcement": {
-                  "description": "The delay in milliseconds before an announcement is made.",
-                  "type": "number",
-                  "minimum": 0,
-                  "default": 3000
-                },
-                "sound": {
-                  "description": "The delay in milliseconds before a sound is played.",
-                  "type": "number",
-                  "minimum": 0,
-                  "default": 400
-                }
-              }
-            },
-            "warningAtPosition": {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "announcement": {
-                  "description": "The delay in milliseconds before an announcement is made when there's a warning at the position.",
-                  "type": "number",
-                  "minimum": 0,
-                  "default": 3000
-                },
-                "sound": {
-                  "description": "The delay in milliseconds before a sound is played when there's a warning at the position.",
-                  "type": "number",
-                  "minimum": 0,
-                  "default": 1000
-                }
-              }
-            }
-          },
-          "default": {
-            "errorAtPosition": {
-              "announcement": 3000,
-              "sound": 1000
-            },
-            "general": {
-              "announcement": 3000,
-              "sound": 400
-            },
-            "warningAtPosition": {
-              "announcement": 3000,
-              "sound": 1000
-            }
-          }
-        },
-        "volume": {
-          "description": "The volume of the sounds in percent (0-100).",
+        "announcement": {
+          "description": "The delay in milliseconds before an announcement is made when there's an error at the position.",
           "type": "number",
           "minimum": 0,
-          "maximum": 100,
-          "default": 70
-        }
-      },
-      "default": {
-        "debouncePositionChanges": false,
-        "experimental.delays": {
-          "general": {
-            "announcement": 3000,
-            "sound": 400
-          },
-          "warningAtPosition": {
-            "announcement": 3000,
-            "sound": 1000
-          },
-          "errorAtPosition": {
-            "announcement": 3000,
-            "sound": 1000
-          }
+          "default": 3000
         },
-        "volume": 70
+        "sound": {
+          "description": "The delay in milliseconds before a sound is played when there's an error at the position.",
+          "type": "number",
+          "minimum": 0,
+          "default": 1000
+        }
       },
       "tags": [
         "accessibility"
       ],
-      "defaultDefaultValue": {
-        "debouncePositionChanges": false,
-        "experimental.delays": {
-          "general": {
-            "announcement": 3000,
-            "sound": 400
-          },
-          "warningAtPosition": {
-            "announcement": 3000,
-            "sound": 1000
-          },
-          "errorAtPosition": {
-            "announcement": 3000,
-            "sound": 1000
-          }
+      "default": {},
+      "scope": 4,
+      "restricted": false
+    },
+    "accessibility.signalOptions.experimental.delays.general": {
+      "type": "object",
+      "description": "Delays for all signals besides error and warning at position",
+      "additionalProperties": false,
+      "properties": {
+        "announcement": {
+          "description": "The delay in milliseconds before an announcement is made.",
+          "type": "number",
+          "minimum": 0,
+          "default": 3000
         },
-        "volume": 70
+        "sound": {
+          "description": "The delay in milliseconds before a sound is played.",
+          "type": "number",
+          "minimum": 0,
+          "default": 400
+        }
       },
+      "tags": [
+        "accessibility"
+      ],
+      "default": {},
+      "scope": 4,
+      "restricted": false
+    },
+    "accessibility.signalOptions.experimental.delays.warningAtPosition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "announcement": {
+          "description": "The delay in milliseconds before an announcement is made when there's a warning at the position.",
+          "type": "number",
+          "minimum": 0,
+          "default": 3000
+        },
+        "sound": {
+          "description": "The delay in milliseconds before a sound is played when there's a warning at the position.",
+          "type": "number",
+          "minimum": 0,
+          "default": 1000
+        }
+      },
+      "tags": [
+        "accessibility"
+      ],
+      "default": {},
+      "scope": 4,
+      "restricted": false
+    },
+    "accessibility.signalOptions.volume": {
+      "description": "The volume of the sounds in percent (0-100).",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "default": 70,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": 70,
       "scope": 4,
       "restricted": false
     },
@@ -2225,6 +2187,14 @@
       "scope": 4,
       "restricted": false
     },
+    "accessibility.underlineLinks": {
+      "type": "boolean",
+      "description": "Controls whether links should be underlined in the workbench.",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "accessibility.verbosity.comments": {
       "description": "Provide information about actions that can be taken in the comment widget or in a file which contains comments.",
       "type": "boolean",
@@ -2337,6 +2307,17 @@
     },
     "accessibility.verbosity.panelChat": {
       "description": "Provide information about how to access the chat help menu when the chat input is focused.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
+    "accessibility.verbosity.replInputHint": {
+      "description": "Provide information about relevant actions For the Repl input.",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -2694,6 +2675,30 @@
       "type": "boolean",
       "description": "Controls whether a checkbox is shown to allow the user to determine which implicit context is included with a chat participant's prompt.",
       "deprecated": true,
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
+    "chat.experimental.variables.editor": {
+      "type": "boolean",
+      "description": "Enables variables for editor chat.",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
+    "chat.experimental.variables.notebook": {
+      "type": "boolean",
+      "description": "Enables variables for notebook chat.",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
+    "chat.experimental.variables.terminal": {
+      "type": "boolean",
+      "description": "Enables variables for terminal chat.",
       "default": false,
       "defaultDefaultValue": false,
       "scope": 3,
@@ -5296,6 +5301,14 @@
       "scope": 3,
       "restricted": false
     },
+    "debug.showVariableTypes": {
+      "type": "boolean",
+      "description": "Show variable type in variable pane during debug session",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
     "debug.terminal.clearBeforeReusing": {
       "type": "boolean",
       "description": "Before starting a new debug session in an integrated or external terminal, clear the terminal.",
@@ -5713,27 +5726,6 @@
         },
         {
           "type": "object",
-          "properties": {
-            "source.fixAll": {
-              "type": "string",
-              "enum": [
-                "always",
-                "explicit",
-                false,
-                "never",
-                true
-              ],
-              "enumDescriptions": [
-                "Triggers Code Actions on explicit saves and auto saves triggered by window or focus changes.",
-                "Triggers Code Actions only when explicitly saved",
-                "Never triggers Code Actions on save. This value will be deprecated in favor of \"never\".",
-                "Never triggers Code Actions on save",
-                "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\"."
-              ],
-              "default": "explicit",
-              "description": "Controls whether auto fix action should be run on file save."
-            }
-          },
           "additionalProperties": {
             "type": "string"
           }
@@ -5759,25 +5751,6 @@
       "defaultDefaultValue": {},
       "restricted": false,
       "properties": {
-        "source.fixAll": {
-          "type": "string",
-          "enum": [
-            "always",
-            "explicit",
-            false,
-            "never",
-            true
-          ],
-          "enumDescriptions": [
-            "Triggers Code Actions on explicit saves and auto saves triggered by window or focus changes.",
-            "Triggers Code Actions only when explicitly saved",
-            "Never triggers Code Actions on save. This value will be deprecated in favor of \"never\".",
-            "Never triggers Code Actions on save",
-            "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\"."
-          ],
-          "default": "explicit",
-          "description": "Controls whether auto fix action should be run on file save."
-        },
         "source.organizeImports": {
           "type": "string",
           "enum": [
@@ -7610,7 +7583,7 @@
         "other": "on",
         "strings": "off"
       },
-      "markdownDescription": "Controls whether suggestions should automatically show up while typing. This can be controlled for typing in comments, strings, and other code. Quick suggestion can be configured to show as ghost text or with the suggest widget. Also be aware of the '#editor.suggestOnTriggerCharacters#'-setting which controls if suggestions are triggered by special characters.",
+      "markdownDescription": "Controls whether suggestions should automatically show up while typing. This can be controlled for typing in comments, strings, and other code. Quick suggestion can be configured to show as ghost text or with the suggest widget. Also be aware of the `#editor.suggestOnTriggerCharacters#`-setting which controls if suggestions are triggered by special characters.",
       "defaultDefaultValue": {
         "comments": "off",
         "other": "on",
@@ -10697,6 +10670,59 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
+    "files.candidateGuessEncodings": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "cp866",
+          "cp950",
+          "eucjp",
+          "euckr",
+          "gb2312",
+          "iso88592",
+          "iso88595",
+          "iso88597",
+          "iso88598",
+          "koi8r",
+          "shiftjis",
+          "utf16be",
+          "utf16le",
+          "utf8",
+          "windows1250",
+          "windows1251",
+          "windows1252",
+          "windows1253",
+          "windows1255"
+        ],
+        "enumDescriptions": [
+          "Cyrillic (CP 866)",
+          "Traditional Chinese (Big5)",
+          "Japanese (EUC-JP)",
+          "Korean (EUC-KR)",
+          "Simplified Chinese (GB 2312)",
+          "Central European (ISO 8859-2)",
+          "Cyrillic (ISO 8859-5)",
+          "Greek (ISO 8859-7)",
+          "Hebrew (ISO 8859-8)",
+          "Cyrillic (KOI8-R)",
+          "Japanese (Shift JIS)",
+          "UTF-16 BE",
+          "UTF-16 LE",
+          "UTF-8",
+          "Central European (Windows 1250)",
+          "Cyrillic (Windows 1251)",
+          "Western (Windows 1252)",
+          "Greek (Windows 1253)",
+          "Hebrew (Windows 1255)"
+        ]
+      },
+      "default": [],
+      "markdownDescription": "List of character set encodings that the editor should attempt to guess in the order they are listed. In case it cannot be determined, `#files.encoding#` is respected",
+      "scope": 5,
+      "defaultDefaultValue": [],
+      "restricted": false
+    },
     "files.defaultLanguage": {
       "type": "string",
       "markdownDescription": "The default language identifier that is assigned to new files. If configured to `${activeEditorLanguage}`, will use the language identifier of the currently active text editor if any.",
@@ -12753,6 +12779,17 @@
       "scope": 3,
       "restricted": false
     },
+    "inlineChat.experimental.textButtons": {
+      "description": "Whether to use textual buttons.",
+      "default": false,
+      "type": "boolean",
+      "tags": [
+        "experimental"
+      ],
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
     "inlineChat.finishOnType": {
       "description": "Whether to finish an inline chat session when typing outside of changed regions.",
       "default": false,
@@ -12811,9 +12848,12 @@
     },
     "interactiveWindow.executeWithShiftEnter": {
       "type": "boolean",
-      "default": true,
-      "markdownDescription": "Execute the interactive window (REPL) input box with shift+enter, so that enter can be used to create a newline.",
-      "defaultDefaultValue": true,
+      "default": false,
+      "markdownDescription": "Execute the Interactive Window (REPL) input box with shift+enter, so that enter can be used to create a newline.",
+      "tags": [
+        "replExecute"
+      ],
+      "defaultDefaultValue": false,
       "scope": 3,
       "restricted": false
     },
@@ -12822,6 +12862,17 @@
       "default": false,
       "markdownDescription": "Prompt to save the interactive window when it is closed. Only new interactive windows will be affected by this setting change.",
       "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
+    "interactiveWindow.showExecutionHint": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "Display a hint in the Interactive Window (REPL) input box to indicate how to execute code.",
+      "tags": [
+        "replExecute"
+      ],
+      "defaultDefaultValue": true,
       "scope": 3,
       "restricted": false
     },
@@ -12850,10 +12901,10 @@
       "restricted": false
     },
     "javascript.experimental.updateImportsOnPaste": {
-      "scope": 4,
+      "scope": 3,
       "type": "boolean",
       "default": false,
-      "description": "Automatically update imports when pasting code. Requires TypeScript 5.5+.",
+      "description": "Automatically update imports when pasting code. Requires TypeScript 5.6+.",
       "tags": [
         "experimental"
       ],
@@ -17120,7 +17171,7 @@
                 "other": "on",
                 "strings": "off"
               },
-              "markdownDescription": "Controls whether suggestions should automatically show up while typing. This can be controlled for typing in comments, strings, and other code. Quick suggestion can be configured to show as ghost text or with the suggest widget. Also be aware of the '#editor.suggestOnTriggerCharacters#'-setting which controls if suggestions are triggered by special characters.",
+              "markdownDescription": "Controls whether suggestions should automatically show up while typing. This can be controlled for typing in comments, strings, and other code. Quick suggestion can be configured to show as ghost text or with the suggest widget. Also be aware of the `#editor.suggestOnTriggerCharacters#`-setting which controls if suggestions are triggered by special characters.",
               "defaultDefaultValue": {
                 "comments": "off",
                 "other": "on",
@@ -18182,14 +18233,6 @@
     },
     "notebook.experimental.cellChat": {
       "markdownDescription": "Enable experimental floating chat widget in notebooks.",
-      "type": "boolean",
-      "default": false,
-      "defaultDefaultValue": false,
-      "scope": 3,
-      "restricted": false
-    },
-    "notebook.experimental.find.scope.enabled": {
-      "markdownDescription": "Enables the user to search within a selection of cells in the notebook. When enabled, the user will see a \"Find in Cell Selection\" icon in the notebook find widget.",
       "type": "boolean",
       "default": false,
       "defaultDefaultValue": false,
@@ -19627,6 +19670,14 @@
       "scope": 4,
       "restricted": false
     },
+    "scm.experimental.showHistoryGraph": {
+      "type": "boolean",
+      "description": "Controls whether to show the history graph instead of incoming/outgoing changes in the Source Control view.",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "scm.inputFontFamily": {
       "type": "string",
       "markdownDescription": "Controls the font for the input message. Use `default` for the workbench user interface font family, `editor` for the `#editor.fontFamily#`'s value, or a custom font family.",
@@ -20583,6 +20634,14 @@
       "description": "Whether to include results from a global symbol search in the file results for Quick Open.",
       "default": false,
       "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
+    "search.ripgrep.maxThreads": {
+      "type": "number",
+      "description": "Number of threads to use for searching. When set to 0, the engine automatically determines this value.",
+      "default": 0,
+      "defaultDefaultValue": 0,
       "scope": 3,
       "restricted": false
     },
@@ -25433,8 +25492,8 @@
       "restricted": true,
       "markdownDescription": "Controls if the first terminal without input will show a hint about available actions when it is focused.",
       "type": "boolean",
-      "default": false,
-      "defaultDefaultValue": false,
+      "default": true,
+      "defaultDefaultValue": true,
       "scope": 3
     },
     "terminal.integrated.letterSpacing": {
@@ -34698,16 +34757,6 @@
       "defaultDefaultValue": 100,
       "scope": 3
     },
-    "terminal.integrated.shellIntegration.suggestEnabled": {
-      "restricted": true,
-      "markdownDescription": "Enables experimental terminal Intellisense suggestions for supported shells (PowerShell) when `#terminal.integrated.shellIntegration.enabled#` is set to `true`.\n\nIf shell integration is installed manually, `VSCODE_SUGGEST` needs to be set to `1` before calling the shell integration script.",
-      "type": "boolean",
-      "default": false,
-      "markdownDeprecationMessage": "This setting is deprecated, please use ``#terminal.integrated.suggest.enabled#`` instead.",
-      "defaultDefaultValue": false,
-      "scope": 3,
-      "deprecationMessage": "This setting is deprecated, please use ``#terminal.integrated.suggest.enabled#`` instead."
-    },
     "terminal.integrated.showExitAlert": {
       "description": "Controls whether to show the alert \"The terminal process terminated with exit code\" when exit code is non-zero.",
       "type": "boolean",
@@ -36480,10 +36529,10 @@
       "restricted": false
     },
     "typescript.experimental.updateImportsOnPaste": {
-      "scope": 4,
+      "scope": 3,
       "type": "boolean",
       "default": false,
-      "description": "Automatically update imports when pasting code. Requires TypeScript 5.5+.",
+      "description": "Automatically update imports when pasting code. Requires TypeScript 5.6+.",
       "tags": [
         "experimental"
       ],
@@ -37310,6 +37359,18 @@
       "default": "",
       "restricted": true
     },
+    "typescript.tsserver.enableRegionDiagnostics": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enables region-based diagnostics in TypeScript. Requires using TypeScript 5.6+ in the workspace.",
+      "scope": 3,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
     "typescript.tsserver.enableTracing": {
       "type": "boolean",
       "default": false,
@@ -38039,6 +38100,11 @@
           "default": true,
           "description": "Simple Browser"
         },
+        "repl": {
+          "type": "boolean",
+          "default": false,
+          "description": "repl Editor"
+        },
         "terminalEditor": {
           "type": "boolean",
           "default": true,
@@ -38085,6 +38151,7 @@
         "mainThreadWebview-browserPreview": true,
         "mainThreadWebview-markdown.preview": false,
         "mainThreadWebview-simpleBrowser.view": true,
+        "repl": false,
         "terminalEditor": true,
         "vscode.audioPreview": false,
         "vscode.videoPreview": false,
@@ -38104,6 +38171,7 @@
         "mainThreadWebview-browserPreview": true,
         "mainThreadWebview-markdown.preview": false,
         "mainThreadWebview-simpleBrowser.view": true,
+        "repl": false,
         "terminalEditor": true,
         "vscode.audioPreview": false,
         "vscode.videoPreview": false,
@@ -38157,10 +38225,13 @@
     },
     "workbench.editor.customLabels.patterns": {
       "type": "object",
-      "markdownDescription": "Controls the rendering of the editor label. Each __Item__ is a pattern that matches a file path. Both relative and absolute file paths are supported. The relative path must include the WORKSPACE_FOLDER (e.g `WORKSPACE_FOLDER/src/**.tsx` or `*/src/**.tsx`). Absolute patterns must start with a `/`. In case multiple patterns match, the longest matching path will be picked. Each __Value__ is the template for the rendered editor when the __Item__ matches. Variables are substituted based on the context:\n- `${dirname}`: name of the folder in which the file is located (e.g. `WORKSPACE_FOLDER/folder/file.txt -> folder`).\n- `${dirname(N)}`: name of the nth parent folder in which the file is located (e.g. `N=2: WORKSPACE_FOLDER/static/folder/file.txt -> WORKSPACE_FOLDER`). Folders can be picked from the start of the path by using negative numbers (e.g. `N=-1: WORKSPACE_FOLDER/folder/file.txt -> WORKSPACE_FOLDER`). If the __Item__ is an absolute pattern path, the first folder (`N=-1`) refers to the first folder in the absoulte path, otherwise it corresponds to the workspace folder.\n- `${filename}`: name of the file without the file extension (e.g. `WORKSPACE_FOLDER/folder/file.txt -> file`).\n- `${extname}`: the file extension (e.g. `WORKSPACE_FOLDER/folder/file.txt -> txt`).\n\nExample: `\"**/static/**/*.html\": \"${filename} - ${dirname} (${extname})\"` will render a file `WORKSPACE_FOLDER/static/folder/file.html` as `file - folder (html)`.",
+      "markdownDescription": "Controls the rendering of the editor label. Each __Item__ is a pattern that matches a file path. Both relative and absolute file paths are supported. The relative path must include the WORKSPACE_FOLDER (e.g `WORKSPACE_FOLDER/src/**.tsx` or `*/src/**.tsx`). Absolute patterns must start with a `/`. In case multiple patterns match, the longest matching path will be picked. Each __Value__ is the template for the rendered editor when the __Item__ matches. Variables are substituted based on the context:\n- `${dirname}`: name of the folder in which the file is located (e.g. `WORKSPACE_FOLDER/folder/file.txt -> folder`).\n- `${dirname(N)}`: name of the nth parent folder in which the file is located (e.g. `N=2: WORKSPACE_FOLDER/static/folder/file.txt -> WORKSPACE_FOLDER`). Folders can be picked from the start of the path by using negative numbers (e.g. `N=-1: WORKSPACE_FOLDER/folder/file.txt -> WORKSPACE_FOLDER`). If the __Item__ is an absolute pattern path, the first folder (`N=-1`) refers to the first folder in the absolute path, otherwise it corresponds to the workspace folder.\n- `${filename}`: name of the file without the file extension (e.g. `WORKSPACE_FOLDER/folder/file.txt -> file`).\n- `${extname}`: the file extension (e.g. `WORKSPACE_FOLDER/folder/file.txt -> txt`).\n- `${extname(N)}`: the nth extension of the file separated by '.' (e.g. `N=2: WORKSPACE_FOLDER/folder/file.ext1.ext2.ext3 -> ext1`). Extension can be picked from the start of the extension by using negative numbers (e.g. `N=-1: WORKSPACE_FOLDER/folder/file.ext1.ext2.ext3 -> ext2`).\n\nExample: `\"**/static/**/*.html\": \"${filename} - ${dirname} (${extname})\"` will render a file `WORKSPACE_FOLDER/static/folder/file.html` as `file - folder (html)`.",
       "additionalProperties": {
-        "type": "string",
-        "markdownDescription": "The template which should be rendered when the pattern mtches. May include the variables ${dirname}, ${filename} and ${extname}.",
+        "type": [
+          "string",
+          "null"
+        ],
+        "markdownDescription": "The template which should be rendered when the pattern matches. May include the variables ${dirname}, ${filename} and ${extname}.",
         "minLength": 1,
         "pattern": ".*[a-zA-Z0-9].*"
       },
@@ -38196,6 +38267,7 @@
         "jsProfileVisualizer.heapprofile.table",
         "jsProfileVisualizer.heapsnapshot.table",
         "jupyter-notebook",
+        "repl",
         "vscode.audioPreview",
         "vscode.markdown.preview.editor",
         "vscode.videoPreview",
@@ -38730,6 +38802,7 @@
             "jsProfileVisualizer.heapprofile.table",
             "jsProfileVisualizer.heapsnapshot.table",
             "jupyter-notebook",
+            "repl",
             "vscode.audioPreview",
             "vscode.markdown.preview.editor",
             "vscode.videoPreview",

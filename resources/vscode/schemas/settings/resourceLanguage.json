@@ -633,27 +633,6 @@
         },
         {
           "type": "object",
-          "properties": {
-            "source.fixAll": {
-              "type": "string",
-              "enum": [
-                "always",
-                "explicit",
-                false,
-                "never",
-                true
-              ],
-              "enumDescriptions": [
-                "Triggers Code Actions on explicit saves and auto saves triggered by window or focus changes.",
-                "Triggers Code Actions only when explicitly saved",
-                "Never triggers Code Actions on save. This value will be deprecated in favor of \"never\".",
-                "Never triggers Code Actions on save",
-                "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\"."
-              ],
-              "default": "explicit",
-              "description": "Controls whether auto fix action should be run on file save."
-            }
-          },
           "additionalProperties": {
             "type": "string"
           }
@@ -679,25 +658,6 @@
       "defaultDefaultValue": {},
       "restricted": false,
       "properties": {
-        "source.fixAll": {
-          "type": "string",
-          "enum": [
-            "always",
-            "explicit",
-            false,
-            "never",
-            true
-          ],
-          "enumDescriptions": [
-            "Triggers Code Actions on explicit saves and auto saves triggered by window or focus changes.",
-            "Triggers Code Actions only when explicitly saved",
-            "Never triggers Code Actions on save. This value will be deprecated in favor of \"never\".",
-            "Never triggers Code Actions on save",
-            "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\"."
-          ],
-          "default": "explicit",
-          "description": "Controls whether auto fix action should be run on file save."
-        },
         "source.organizeImports": {
           "type": "string",
           "enum": [
@@ -2530,7 +2490,7 @@
         "other": "on",
         "strings": "off"
       },
-      "markdownDescription": "Controls whether suggestions should automatically show up while typing. This can be controlled for typing in comments, strings, and other code. Quick suggestion can be configured to show as ghost text or with the suggest widget. Also be aware of the '#editor.suggestOnTriggerCharacters#'-setting which controls if suggestions are triggered by special characters.",
+      "markdownDescription": "Controls whether suggestions should automatically show up while typing. This can be controlled for typing in comments, strings, and other code. Quick suggestion can be configured to show as ghost text or with the suggest widget. Also be aware of the `#editor.suggestOnTriggerCharacters#`-setting which controls if suggestions are triggered by special characters.",
       "defaultDefaultValue": {
         "comments": "off",
         "other": "on",
@@ -3732,6 +3692,59 @@
       "markdownDescription": "When enabled, will limit [auto save](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save) of editors to files that are inside the opened workspace. Only applies when `#files.autoSave#` is enabled.",
       "scope": 5,
       "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "files.candidateGuessEncodings": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "cp866",
+          "cp950",
+          "eucjp",
+          "euckr",
+          "gb2312",
+          "iso88592",
+          "iso88595",
+          "iso88597",
+          "iso88598",
+          "koi8r",
+          "shiftjis",
+          "utf16be",
+          "utf16le",
+          "utf8",
+          "windows1250",
+          "windows1251",
+          "windows1252",
+          "windows1253",
+          "windows1255"
+        ],
+        "enumDescriptions": [
+          "Cyrillic (CP 866)",
+          "Traditional Chinese (Big5)",
+          "Japanese (EUC-JP)",
+          "Korean (EUC-KR)",
+          "Simplified Chinese (GB 2312)",
+          "Central European (ISO 8859-2)",
+          "Cyrillic (ISO 8859-5)",
+          "Greek (ISO 8859-7)",
+          "Hebrew (ISO 8859-8)",
+          "Cyrillic (KOI8-R)",
+          "Japanese (Shift JIS)",
+          "UTF-16 BE",
+          "UTF-16 LE",
+          "UTF-8",
+          "Central European (Windows 1250)",
+          "Cyrillic (Windows 1251)",
+          "Western (Windows 1252)",
+          "Greek (Windows 1253)",
+          "Hebrew (Windows 1255)"
+        ]
+      },
+      "default": [],
+      "markdownDescription": "List of character set encodings that the editor should attempt to guess in the order they are listed. In case it cannot be determined, `#files.encoding#` is respected",
+      "scope": 5,
+      "defaultDefaultValue": [],
       "restricted": false
     },
     "files.encoding": {
