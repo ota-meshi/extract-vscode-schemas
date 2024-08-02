@@ -57,10 +57,10 @@
       "type": "array",
       "items": [
         {
-          "$ref": "#/definitions/openBracket"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/definitions/closeBracket"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -99,13 +99,13 @@
       "items": {
         "oneOf": [
           {
-            "$ref": "#/definitions/bracketPair"
+            "$ref": "#/$defs/_2"
           },
           {
             "type": "object",
             "properties": {
               "close": {
-                "$ref": "#/definitions/closeBracket"
+                "$ref": "#/$defs/_1"
               },
               "notIn": {
                 "type": "array",
@@ -118,7 +118,7 @@
                 }
               },
               "open": {
-                "$ref": "#/definitions/openBracket"
+                "$ref": "#/$defs/_0"
               }
             }
           }
@@ -143,7 +143,7 @@
       "markdownDescription": "Defines the bracket symbols that increase or decrease the indentation. When bracket pair colorization is enabled and `colorizedBracketPairs` is not defined, this also defines the bracket pairs that are colorized by their nesting level.",
       "type": "array",
       "items": {
-        "$ref": "#/definitions/bracketPair"
+        "$ref": "#/$defs/_2"
       }
     },
     "colorizedBracketPairs": {
@@ -164,7 +164,7 @@
       "markdownDescription": "Defines the bracket pairs that are colorized by their nesting level if bracket pair colorization is enabled. Any brackets included here that are not included in `brackets` will be automatically included in `brackets`.",
       "type": "array",
       "items": {
-        "$ref": "#/definitions/bracketPair"
+        "$ref": "#/$defs/_2"
       }
     },
     "comments": {
@@ -455,16 +455,16 @@
       "items": {
         "oneOf": [
           {
-            "$ref": "#/definitions/bracketPair"
+            "$ref": "#/$defs/_2"
           },
           {
             "type": "object",
             "properties": {
               "close": {
-                "$ref": "#/definitions/closeBracket"
+                "$ref": "#/$defs/_1"
               },
               "open": {
-                "$ref": "#/definitions/openBracket"
+                "$ref": "#/$defs/_0"
               }
             }
           }
@@ -492,6 +492,17 @@
           "default": ""
         }
       }
+    }
+  },
+  "$defs": {
+    "_0": {
+      "$ref": "#/definitions/openBracket"
+    },
+    "_1": {
+      "$ref": "#/definitions/closeBracket"
+    },
+    "_2": {
+      "$ref": "#/definitions/bracketPair"
     }
   }
 }

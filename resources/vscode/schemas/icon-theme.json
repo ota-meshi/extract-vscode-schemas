@@ -10,37 +10,37 @@
           "$ref": "#/definitions/file"
         },
         "fileExtensions": {
-          "$ref": "#/definitions/fileExtensions"
+          "$ref": "#/$defs/_9"
         },
         "fileNames": {
-          "$ref": "#/definitions/fileNames"
+          "$ref": "#/$defs/_10"
         },
         "folder": {
-          "$ref": "#/definitions/folder"
+          "$ref": "#/$defs/_2"
         },
         "folderExpanded": {
-          "$ref": "#/definitions/folderExpanded"
+          "$ref": "#/$defs/_1"
         },
         "folderNames": {
-          "$ref": "#/definitions/folderNames"
+          "$ref": "#/$defs/_3"
         },
         "folderNamesExpanded": {
-          "$ref": "#/definitions/folderNamesExpanded"
+          "$ref": "#/$defs/_4"
         },
         "languageIds": {
-          "$ref": "#/definitions/languageIds"
+          "$ref": "#/$defs/_11"
         },
         "rootFolder": {
-          "$ref": "#/definitions/rootFolder"
+          "$ref": "#/$defs/_5"
         },
         "rootFolderExpanded": {
-          "$ref": "#/definitions/rootFolderExpanded"
+          "$ref": "#/$defs/_6"
         },
         "rootFolderNames": {
-          "$ref": "#/definitions/rootFolderNames"
+          "$ref": "#/$defs/_7"
         },
         "rootFolderNamesExpanded": {
-          "$ref": "#/definitions/rootFolderNamesExpanded"
+          "$ref": "#/$defs/_8"
         }
       }
     },
@@ -52,16 +52,14 @@
       "type": "object",
       "description": "Associates file extensions to icons. The object key is the file extension name. The extension name is the last segment of a file name after the last dot (not including the dot). Extensions are compared case insensitive.",
       "additionalProperties": {
-        "type": "string",
-        "description": "The ID of the icon definition for the association."
+        "$ref": "#/$defs/_0"
       }
     },
     "fileNames": {
       "type": "object",
       "description": "Associates file names to icons. The object key is the full file name, but not including any path segments. File name can include dots and a possible file extension. No patterns or wildcards are allowed. File name matching is case insensitive.",
       "additionalProperties": {
-        "type": "string",
-        "description": "The ID of the icon definition for the association."
+        "$ref": "#/$defs/_0"
       }
     },
     "folder": {
@@ -76,24 +74,21 @@
       "type": "object",
       "description": "Associates folder names to icons. The object key is the folder name, not including any path segments. No patterns or wildcards are allowed. Folder name matching is case insensitive.",
       "additionalProperties": {
-        "type": "string",
-        "description": "The ID of the icon definition for the association."
+        "$ref": "#/$defs/_0"
       }
     },
     "folderNamesExpanded": {
       "type": "object",
       "description": "Associates folder names to icons for expanded folders. The object key is the folder name, not including any path segments. No patterns or wildcards are allowed. Folder name matching is case insensitive.",
       "additionalProperties": {
-        "type": "string",
-        "description": "The ID of the icon definition for the association."
+        "$ref": "#/$defs/_0"
       }
     },
     "languageIds": {
       "type": "object",
       "description": "Associates languages to icons. The object key is the language id as defined in the language contribution point.",
       "additionalProperties": {
-        "type": "string",
-        "description": "The ID of the icon definition for the association."
+        "$ref": "#/$defs/_0"
       }
     },
     "rootFolder": {
@@ -108,16 +103,14 @@
       "type": "object",
       "description": "Associates root folder names to icons. The object key is the root folder name. No patterns or wildcards are allowed. Root folder name matching is case insensitive.",
       "additionalProperties": {
-        "type": "string",
-        "description": "The ID of the icon definition for the association."
+        "$ref": "#/$defs/_0"
       }
     },
     "rootFolderNamesExpanded": {
       "type": "object",
       "description": "Associates root folder names to icons for expanded root folders. The object key is the root folder name. No patterns or wildcards are allowed. Root folder name matching is case insensitive.",
       "additionalProperties": {
-        "type": "string",
-        "description": "The ID of the icon definition for the association."
+        "$ref": "#/$defs/_0"
       }
     }
   },
@@ -126,22 +119,22 @@
       "$ref": "#/definitions/file"
     },
     "fileExtensions": {
-      "$ref": "#/definitions/fileExtensions"
+      "$ref": "#/$defs/_9"
     },
     "fileNames": {
-      "$ref": "#/definitions/fileNames"
+      "$ref": "#/$defs/_10"
     },
     "folder": {
-      "$ref": "#/definitions/folder"
+      "$ref": "#/$defs/_2"
     },
     "folderExpanded": {
-      "$ref": "#/definitions/folderExpanded"
+      "$ref": "#/$defs/_1"
     },
     "folderNames": {
-      "$ref": "#/definitions/folderNames"
+      "$ref": "#/$defs/_3"
     },
     "folderNamesExpanded": {
-      "$ref": "#/definitions/folderNamesExpanded"
+      "$ref": "#/$defs/_4"
     },
     "fonts": {
       "type": "array",
@@ -247,27 +240,66 @@
       }
     },
     "languageIds": {
-      "$ref": "#/definitions/languageIds"
+      "$ref": "#/$defs/_11"
     },
     "light": {
       "$ref": "#/definitions/associations",
       "description": "Optional associations for file icons in light color themes."
     },
     "rootFolder": {
-      "$ref": "#/definitions/rootFolder"
+      "$ref": "#/$defs/_5"
     },
     "rootFolderExpanded": {
-      "$ref": "#/definitions/rootFolderExpanded"
+      "$ref": "#/$defs/_6"
     },
     "rootFolderNames": {
-      "$ref": "#/definitions/rootFolderNames"
+      "$ref": "#/$defs/_7"
     },
     "rootFolderNamesExpanded": {
-      "$ref": "#/definitions/rootFolderNamesExpanded"
+      "$ref": "#/$defs/_8"
     },
     "showLanguageModeIcons": {
       "type": "boolean",
       "description": "Configures whether the default language icons should be used if the theme does not define an icon for a language."
+    }
+  },
+  "$defs": {
+    "_0": {
+      "type": "string",
+      "description": "The ID of the icon definition for the association."
+    },
+    "_1": {
+      "$ref": "#/definitions/folderExpanded"
+    },
+    "_2": {
+      "$ref": "#/definitions/folder"
+    },
+    "_3": {
+      "$ref": "#/definitions/folderNames"
+    },
+    "_4": {
+      "$ref": "#/definitions/folderNamesExpanded"
+    },
+    "_5": {
+      "$ref": "#/definitions/rootFolder"
+    },
+    "_6": {
+      "$ref": "#/definitions/rootFolderExpanded"
+    },
+    "_7": {
+      "$ref": "#/definitions/rootFolderNames"
+    },
+    "_8": {
+      "$ref": "#/definitions/rootFolderNamesExpanded"
+    },
+    "_9": {
+      "$ref": "#/definitions/fileExtensions"
+    },
+    "_10": {
+      "$ref": "#/definitions/fileNames"
+    },
+    "_11": {
+      "$ref": "#/definitions/languageIds"
     }
   }
 }

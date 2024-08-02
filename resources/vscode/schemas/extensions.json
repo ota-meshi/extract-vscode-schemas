@@ -10,19 +10,22 @@
       "type": "array",
       "description": "List of extensions which should be recommended for users of this workspace. The identifier of an extension is always '${publisher}.${name}'. For example: 'vscode.csharp'.",
       "items": {
-        "type": "string",
-        "pattern": "^([a-z0-9A-Z][a-z0-9-A-Z]*)\\.([a-z0-9A-Z][a-z0-9-A-Z]*)$",
-        "errorMessage": "Expected format '${publisher}.${name}'. Example: 'vscode.csharp'."
+        "$ref": "#/$defs/_0"
       }
     },
     "unwantedRecommendations": {
       "type": "array",
       "description": "List of extensions recommended by VS Code that should not be recommended for users of this workspace. The identifier of an extension is always '${publisher}.${name}'. For example: 'vscode.csharp'.",
       "items": {
-        "type": "string",
-        "pattern": "^([a-z0-9A-Z][a-z0-9-A-Z]*)\\.([a-z0-9A-Z][a-z0-9-A-Z]*)$",
-        "errorMessage": "Expected format '${publisher}.${name}'. Example: 'vscode.csharp'."
+        "$ref": "#/$defs/_0"
       }
+    }
+  },
+  "$defs": {
+    "_0": {
+      "type": "string",
+      "pattern": "^([a-z0-9A-Z][a-z0-9-A-Z]*)\\.([a-z0-9A-Z][a-z0-9-A-Z]*)$",
+      "errorMessage": "Expected format '${publisher}.${name}'. Example: 'vscode.csharp'."
     }
   }
 }

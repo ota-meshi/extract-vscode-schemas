@@ -36,8 +36,7 @@
           {
             "properties": {
               "name": {
-                "type": "string",
-                "description": "An optional name for the folder. "
+                "$ref": "#/$defs/_0"
               },
               "path": {
                 "type": "string",
@@ -51,8 +50,7 @@
           {
             "properties": {
               "name": {
-                "type": "string",
-                "description": "An optional name for the folder. "
+                "$ref": "#/$defs/_0"
               },
               "uri": {
                 "type": "string",
@@ -101,5 +99,11 @@
       "description": "A transient workspace will disappear when restarting or reloading."
     }
   },
-  "errorMessage": "Unknown workspace configuration property"
+  "errorMessage": "Unknown workspace configuration property",
+  "$defs": {
+    "_0": {
+      "type": "string",
+      "description": "An optional name for the folder. "
+    }
+  }
 }
