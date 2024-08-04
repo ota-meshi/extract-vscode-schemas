@@ -5979,7 +5979,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_19"
+            "$ref": "#/$defs/_20"
           }
         },
         {
@@ -6118,7 +6118,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_19"
+            "$ref": "#/$defs/_20"
           }
         },
         {
@@ -6215,13 +6215,13 @@
               "args": {
                 "anyOf": [
                   {
-                    "$ref": "#/$defs/_20"
+                    "$ref": "#/$defs/_19"
                   },
                   {
                     "type": "object",
                     "properties": {
                       "task": {
-                        "$ref": "#/$defs/_20"
+                        "$ref": "#/$defs/_19"
                       },
                       "type": {
                         "type": "string",
@@ -12364,6 +12364,10 @@
       }
     },
     "_19": {
+      "type": "string",
+      "description": "The task's label or a term to filter by"
+    },
+    "_20": {
       "required": [],
       "properties": {
         "args": {
@@ -12389,10 +12393,6 @@
           ]
         }
       }
-    },
-    "_20": {
-      "type": "string",
-      "description": "The task's label or a term to filter by"
     },
     "_21": {
       "$ref": "#/definitions/commandType"
