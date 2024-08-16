@@ -2961,7 +2961,7 @@
       "type": "object"
     },
     "chrome:attach:platform": {
-      "$ref": "#/$defs/_109"
+      "$ref": "#/$defs/_110"
     },
     "chrome:launch": {
       "properties": {
@@ -3122,7 +3122,7 @@
       "type": "object"
     },
     "chrome:launch:platform": {
-      "$ref": "#/$defs/_110"
+      "$ref": "#/$defs/_111"
     },
     "common": {
       "properties": {
@@ -3151,7 +3151,7 @@
         "postDebugTask": {
           "anyOf": [
             {
-              "oneOf": []
+              "$ref": "#/$defs/_106"
             },
             {
               "type": [
@@ -3173,7 +3173,7 @@
         "preLaunchTask": {
           "anyOf": [
             {
-              "oneOf": []
+              "$ref": "#/$defs/_106"
             },
             {
               "type": [
@@ -3343,7 +3343,7 @@
       "type": "object"
     },
     "extensionHost:launch:platform": {
-      "$ref": "#/$defs/_108"
+      "$ref": "#/$defs/_109"
     },
     "msedge:attach": {
       "properties": {
@@ -3483,7 +3483,7 @@
       "type": "object"
     },
     "msedge:attach:platform": {
-      "$ref": "#/$defs/_111"
+      "$ref": "#/$defs/_112"
     },
     "msedge:launch": {
       "properties": {
@@ -3650,7 +3650,7 @@
       "type": "object"
     },
     "msedge:launch:platform": {
-      "$ref": "#/$defs/_112"
+      "$ref": "#/$defs/_113"
     },
     "node-terminal:launch": {
       "properties": {
@@ -4023,7 +4023,7 @@
       "type": "object"
     },
     "node:attach:platform": {
-      "$ref": "#/$defs/_106"
+      "$ref": "#/$defs/_107"
     },
     "node:launch": {
       "properties": {
@@ -4178,7 +4178,7 @@
       "type": "object"
     },
     "node:launch:platform": {
-      "$ref": "#/$defs/_107"
+      "$ref": "#/$defs/_108"
     },
     "pwa-chrome:attach": {
       "properties": {
@@ -4315,7 +4315,7 @@
       "type": "object"
     },
     "pwa-chrome:attach:platform": {
-      "$ref": "#/$defs/_109"
+      "$ref": "#/$defs/_110"
     },
     "pwa-chrome:launch": {
       "properties": {
@@ -4476,7 +4476,7 @@
       "type": "object"
     },
     "pwa-chrome:launch:platform": {
-      "$ref": "#/$defs/_110"
+      "$ref": "#/$defs/_111"
     },
     "pwa-extensionHost:launch": {
       "properties": {
@@ -4619,7 +4619,7 @@
       "type": "object"
     },
     "pwa-extensionHost:launch:platform": {
-      "$ref": "#/$defs/_108"
+      "$ref": "#/$defs/_109"
     },
     "pwa-msedge:attach": {
       "properties": {
@@ -4759,7 +4759,7 @@
       "type": "object"
     },
     "pwa-msedge:attach:platform": {
-      "$ref": "#/$defs/_111"
+      "$ref": "#/$defs/_112"
     },
     "pwa-msedge:launch": {
       "properties": {
@@ -4926,7 +4926,7 @@
       "type": "object"
     },
     "pwa-msedge:launch:platform": {
-      "$ref": "#/$defs/_112"
+      "$ref": "#/$defs/_113"
     },
     "pwa-node:attach": {
       "properties": {
@@ -5069,7 +5069,7 @@
       "type": "object"
     },
     "pwa-node:attach:platform": {
-      "$ref": "#/$defs/_106"
+      "$ref": "#/$defs/_107"
     },
     "pwa-node:launch": {
       "properties": {
@@ -5224,7 +5224,7 @@
       "type": "object"
     },
     "pwa-node:launch:platform": {
-      "$ref": "#/$defs/_107"
+      "$ref": "#/$defs/_108"
     }
   },
   "$defs": {
@@ -5253,7 +5253,7 @@
       "default": [],
       "description": "A list of debug sessions which, when this debug session is terminated, will also be stopped.",
       "items": {
-        "$ref": "#/$defs/_113"
+        "$ref": "#/$defs/_114"
       },
       "type": "array",
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -5378,7 +5378,7 @@
           "type": "integer"
         },
         {
-          "$ref": "#/$defs/_114"
+          "$ref": "#/$defs/_115"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -5431,7 +5431,7 @@
           "type": "boolean"
         },
         {
-          "$ref": "#/$defs/_115"
+          "$ref": "#/$defs/_116"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -5455,10 +5455,10 @@
           "type": "boolean"
         },
         {
-          "$ref": "#/$defs/_116"
+          "$ref": "#/$defs/_117"
         },
         {
-          "$ref": "#/$defs/_117"
+          "$ref": "#/$defs/_118"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -5519,13 +5519,13 @@
       "markdownDescription": "Timeouts for several debugger operations.",
       "properties": {
         "hoverEvaluation": {
-          "$ref": "#/$defs/_118"
-        },
-        "sourceMapCumulativePause": {
           "$ref": "#/$defs/_119"
         },
-        "sourceMapMinPause": {
+        "sourceMapCumulativePause": {
           "$ref": "#/$defs/_120"
+        },
+        "sourceMapMinPause": {
+          "$ref": "#/$defs/_121"
         }
       },
       "type": "object",
@@ -5537,10 +5537,10 @@
       "description": "Configures what diagnostic output is produced.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_121"
+          "$ref": "#/$defs/_122"
         },
         {
-          "$ref": "#/$defs/_122"
+          "$ref": "#/$defs/_123"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -5630,7 +5630,7 @@
           "type": "integer"
         },
         {
-          "$ref": "#/$defs/_114"
+          "$ref": "#/$defs/_115"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -5739,13 +5739,13 @@
               "default": "openExternally"
             },
             "pattern": {
-              "$ref": "#/$defs/_123"
-            },
-            "uriFormat": {
               "$ref": "#/$defs/_124"
             },
-            "killOnServerStop": {
+            "uriFormat": {
               "$ref": "#/$defs/_125"
+            },
+            "killOnServerStop": {
+              "$ref": "#/$defs/_126"
             }
           }
         },
@@ -5774,10 +5774,10 @@
               "default": "debugWithEdge"
             },
             "pattern": {
-              "$ref": "#/$defs/_123"
+              "$ref": "#/$defs/_124"
             },
             "uriFormat": {
-              "$ref": "#/$defs/_124"
+              "$ref": "#/$defs/_125"
             },
             "webRoot": {
               "type": "string",
@@ -5785,7 +5785,7 @@
               "default": "${workspaceFolder}"
             },
             "killOnServerStop": {
-              "$ref": "#/$defs/_125"
+              "$ref": "#/$defs/_126"
             }
           }
         },
@@ -5803,10 +5803,10 @@
           ],
           "properties": {
             "action": {
-              "$ref": "#/$defs/_126"
+              "$ref": "#/$defs/_127"
             },
             "pattern": {
-              "$ref": "#/$defs/_123"
+              "$ref": "#/$defs/_124"
             },
             "name": {
               "type": "string",
@@ -5814,7 +5814,7 @@
               "default": "Launch Browser"
             },
             "killOnServerStop": {
-              "$ref": "#/$defs/_125"
+              "$ref": "#/$defs/_126"
             }
           }
         },
@@ -5835,10 +5835,10 @@
           ],
           "properties": {
             "action": {
-              "$ref": "#/$defs/_126"
+              "$ref": "#/$defs/_127"
             },
             "pattern": {
-              "$ref": "#/$defs/_123"
+              "$ref": "#/$defs/_124"
             },
             "config": {
               "type": "object",
@@ -5846,7 +5846,7 @@
               "default": {}
             },
             "killOnServerStop": {
-              "$ref": "#/$defs/_125"
+              "$ref": "#/$defs/_126"
             }
           }
         }
@@ -5947,18 +5947,18 @@
               "type": "null"
             },
             {
-              "$ref": "#/$defs/_127"
+              "$ref": "#/$defs/_128"
             }
           ]
         },
         "cascadeTerminateToConfigurations": {
-          "$ref": "#/$defs/_128"
-        },
-        "customDescriptionGenerator": {
           "$ref": "#/$defs/_129"
         },
-        "customPropertiesGenerator": {
+        "customDescriptionGenerator": {
           "$ref": "#/$defs/_130"
+        },
+        "customPropertiesGenerator": {
+          "$ref": "#/$defs/_131"
         },
         "disableNetworkCache": {
           "default": true,
@@ -5966,10 +5966,10 @@
           "type": "boolean"
         },
         "enableContentValidation": {
-          "$ref": "#/$defs/_131"
+          "$ref": "#/$defs/_132"
         },
         "enableDWARF": {
-          "$ref": "#/$defs/_132"
+          "$ref": "#/$defs/_133"
         },
         "inspectUri": {
           "default": null,
@@ -5980,10 +5980,10 @@
           ]
         },
         "outFiles": {
-          "$ref": "#/$defs/_133"
+          "$ref": "#/$defs/_134"
         },
         "outputCapture": {
-          "$ref": "#/$defs/_134"
+          "$ref": "#/$defs/_135"
         },
         "pathMapping": {
           "default": {},
@@ -5991,7 +5991,7 @@
           "type": "object"
         },
         "pauseForSourceMap": {
-          "$ref": "#/$defs/_135"
+          "$ref": "#/$defs/_136"
         },
         "perScriptSourcemaps": {
           "default": "auto",
@@ -6011,7 +6011,7 @@
               "type": "integer"
             },
             {
-              "$ref": "#/$defs/_114"
+              "$ref": "#/$defs/_115"
             }
           ]
         },
@@ -6034,30 +6034,30 @@
         "server": {
           "oneOf": [
             {
-              "$ref": "#/$defs/_136"
+              "$ref": "#/$defs/_137"
             },
             {
-              "$ref": "#/$defs/_137"
+              "$ref": "#/$defs/_138"
             }
           ]
         },
         "showAsyncStacks": {
-          "$ref": "#/$defs/_138"
-        },
-        "skipFiles": {
           "$ref": "#/$defs/_139"
         },
-        "smartStep": {
+        "skipFiles": {
           "$ref": "#/$defs/_140"
         },
-        "sourceMapPathOverrides": {
+        "smartStep": {
           "$ref": "#/$defs/_141"
         },
-        "sourceMapRenames": {
+        "sourceMapPathOverrides": {
           "$ref": "#/$defs/_142"
         },
-        "sourceMaps": {
+        "sourceMapRenames": {
           "$ref": "#/$defs/_143"
+        },
+        "sourceMaps": {
+          "$ref": "#/$defs/_144"
         },
         "targetSelection": {
           "default": "automatic",
@@ -6069,13 +6069,13 @@
           "type": "string"
         },
         "timeout": {
-          "$ref": "#/$defs/_144"
-        },
-        "timeouts": {
           "$ref": "#/$defs/_145"
         },
-        "trace": {
+        "timeouts": {
           "$ref": "#/$defs/_146"
+        },
+        "trace": {
+          "$ref": "#/$defs/_147"
         },
         "url": {
           "default": "http://localhost:8080",
@@ -6170,7 +6170,7 @@
           "type": "null"
         },
         {
-          "$ref": "#/$defs/_127"
+          "$ref": "#/$defs/_128"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -6220,7 +6220,7 @@
           "type": "integer"
         },
         {
-          "$ref": "#/$defs/_114"
+          "$ref": "#/$defs/_115"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -6249,10 +6249,10 @@
     "_76": {
       "oneOf": [
         {
-          "$ref": "#/$defs/_136"
+          "$ref": "#/$defs/_137"
         },
         {
-          "$ref": "#/$defs/_137"
+          "$ref": "#/$defs/_138"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -6321,7 +6321,7 @@
           "type": "null"
         },
         {
-          "$ref": "#/$defs/_127"
+          "$ref": "#/$defs/_128"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -6531,6 +6531,128 @@
       "description": "The default value for the input."
     },
     "_106": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "task"
+          ],
+          "properties": {
+            "task": {
+              "type": "string",
+              "description": "The Grunt task to customize."
+            },
+            "args": {
+              "type": "array",
+              "description": "Command line arguments to pass to the grunt task"
+            },
+            "file": {
+              "type": "string",
+              "description": "The Grunt file that provides the task. Can be omitted."
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "grunt"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "task"
+          ],
+          "properties": {
+            "task": {
+              "type": "string",
+              "description": "The Gulp task to customize."
+            },
+            "file": {
+              "type": "string",
+              "description": "The Gulp file that provides the task. Can be omitted."
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "gulp"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "task"
+          ],
+          "properties": {
+            "task": {
+              "type": "string",
+              "description": "The Jake task to customize."
+            },
+            "file": {
+              "type": "string",
+              "description": "The Jake file that provides the task. Can be omitted."
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "jake"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "script"
+          ],
+          "properties": {
+            "script": {
+              "type": "string",
+              "description": "The npm script to customize."
+            },
+            "path": {
+              "type": "string",
+              "description": "The path to the folder of the package.json file that provides the script. Can be omitted."
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "npm"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "tsconfig"
+          ],
+          "properties": {
+            "tsconfig": {
+              "type": "string",
+              "description": "The tsconfig file that defines the TS build."
+            },
+            "option": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "typescript"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "_107": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -6656,7 +6778,7 @@
         }
       }
     },
-    "_107": {
+    "_108": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -6794,7 +6916,7 @@
         }
       }
     },
-    "_108": {
+    "_109": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -6920,7 +7042,7 @@
         }
       }
     },
-    "_109": {
+    "_110": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -7040,7 +7162,7 @@
         }
       }
     },
-    "_110": {
+    "_111": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -7184,7 +7306,7 @@
         }
       }
     },
-    "_111": {
+    "_112": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -7307,7 +7429,7 @@
         }
       }
     },
-    "_112": {
+    "_113": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -7457,15 +7579,15 @@
         }
       }
     },
-    "_113": {
+    "_114": {
       "type": "string",
       "uniqueItems": true
     },
-    "_114": {
+    "_115": {
       "pattern": "^\\${.*}$",
       "type": "string"
     },
-    "_115": {
+    "_116": {
       "properties": {
         "delay": {
           "default": 1000,
@@ -7480,10 +7602,10 @@
       },
       "type": "object"
     },
-    "_116": {
+    "_117": {
       "properties": {
         "onAttach": {
-          "$ref": "#/$defs/_147"
+          "$ref": "#/$defs/_148"
         }
       },
       "required": [
@@ -7491,10 +7613,10 @@
       ],
       "type": "object"
     },
-    "_117": {
+    "_118": {
       "properties": {
         "onceBreakpointResolved": {
-          "$ref": "#/$defs/_147"
+          "$ref": "#/$defs/_148"
         }
       },
       "required": [
@@ -7502,26 +7624,26 @@
       ],
       "type": "object"
     },
-    "_118": {
+    "_119": {
       "default": 500,
       "description": "Time until value evaluation for hovered symbols is aborted. If set to 0, hover evaluation does never time out.",
       "type": "number"
     },
-    "_119": {
+    "_120": {
       "default": 1000,
       "description": "Extra time in milliseconds allowed per session to be spent waiting for source-maps to be processed, after the minimum time (sourceMapMinPause) has been exhausted",
       "type": "number"
     },
-    "_120": {
+    "_121": {
       "default": 1000,
       "description": "Minimum time in milliseconds spent waiting for each source-map to be processed when a script is being parsed",
       "type": "number"
     },
-    "_121": {
+    "_122": {
       "description": "Trace may be set to 'true' to write diagnostic logs to the disk.",
       "type": "boolean"
     },
-    "_122": {
+    "_123": {
       "additionalProperties": false,
       "properties": {
         "logFile": {
@@ -7538,22 +7660,22 @@
       },
       "type": "object"
     },
-    "_123": {
+    "_124": {
       "type": "string",
       "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
       "default": "listening on port ([0-9]+)"
     },
-    "_124": {
+    "_125": {
       "type": "string",
       "markdownDescription": "A format string used when constructing the URI from a port number. The first '%s' is substituted with the port number.",
       "default": "http://localhost:%s"
     },
-    "_125": {
+    "_126": {
       "type": "boolean",
       "markdownDescription": "Stop the child session when the parent session stopped.",
       "default": false
     },
-    "_126": {
+    "_127": {
       "type": "string",
       "enum": [
         "startDebugging"
@@ -7564,41 +7686,41 @@
       "markdownDescription": "What to do with the URI when the server is ready.",
       "default": "startDebugging"
     },
-    "_127": {
+    "_128": {
       "enum": [
         "ui",
         "workspace"
       ],
       "type": "string"
     },
-    "_128": {
+    "_129": {
       "default": [],
       "description": "A list of debug sessions which, when this debug session is terminated, will also be stopped.",
       "items": {
-        "$ref": "#/$defs/_113"
+        "$ref": "#/$defs/_114"
       },
       "type": "array"
     },
-    "_129": {
+    "_130": {
       "description": "Customize the textual description the debugger shows for objects (local variables, etc...). Samples:\n      1. this.toString() // will call toString to print all objects\n      2. this.customDescription ? this.customDescription() : defaultValue // Use customDescription method if available, if not return defaultValue\n      3. function (def) { return this.customDescription ? this.customDescription() : def } // Use customDescription method if available, if not return defaultValue\n      ",
       "type": "string"
     },
-    "_130": {
+    "_131": {
       "deprecated": true,
       "description": "Customize the properties shown for an object in the debugger (local variables, etc...). Samples:\n    1. { ...this, extraProperty: '12345' } // Add an extraProperty 12345 to all objects\n    2. this.customProperties ? this.customProperties() : this // Use customProperties method if available, if not use the properties in this (the default properties)\n    3. function () { return this.customProperties ? this.customProperties() : this } // Use customDescription method if available, if not return the default properties\n\n    Deprecated: This is a temporary implementation of this feature until we have time to implement it in the way described here: https://github.com/microsoft/vscode/issues/102181",
       "type": "string"
     },
-    "_131": {
+    "_132": {
       "default": true,
       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
       "type": "boolean"
     },
-    "_132": {
+    "_133": {
       "default": true,
       "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
       "type": "boolean"
     },
-    "_133": {
+    "_134": {
       "default": [
         "${workspaceFolder}/**/*.(m|c|)js",
         "!**/node_modules/**"
@@ -7611,7 +7733,7 @@
         "array"
       ]
     },
-    "_134": {
+    "_135": {
       "default": "console",
       "enum": [
         "console",
@@ -7619,12 +7741,12 @@
       ],
       "markdownDescription": "From where to capture output messages: the default debug API if set to `console`, or stdout/stderr streams if set to `std`."
     },
-    "_135": {
+    "_136": {
       "default": false,
       "markdownDescription": "Whether to wait for source maps to load for each incoming script. This has a performance overhead, and might be safely disabled when running off of disk, so long as `rootPath` is not disabled.",
       "type": "boolean"
     },
-    "_136": {
+    "_137": {
       "additionalProperties": false,
       "default": {
         "program": "node my-server.js"
@@ -7650,15 +7772,15 @@
               "type": "integer"
             },
             {
-              "$ref": "#/$defs/_114"
+              "$ref": "#/$defs/_115"
             }
           ]
         },
         "autoAttachChildProcesses": {
-          "$ref": "#/$defs/_148"
+          "$ref": "#/$defs/_149"
         },
         "cascadeTerminateToConfigurations": {
-          "$ref": "#/$defs/_128"
+          "$ref": "#/$defs/_129"
         },
         "console": {
           "default": "internalConsole",
@@ -7676,10 +7798,10 @@
           "type": "string"
         },
         "customDescriptionGenerator": {
-          "$ref": "#/$defs/_129"
+          "$ref": "#/$defs/_130"
         },
         "customPropertiesGenerator": {
-          "$ref": "#/$defs/_130"
+          "$ref": "#/$defs/_131"
         },
         "cwd": {
           "default": "${workspaceFolder}",
@@ -7687,16 +7809,16 @@
           "type": "string"
         },
         "enableContentValidation": {
-          "$ref": "#/$defs/_131"
-        },
-        "enableDWARF": {
           "$ref": "#/$defs/_132"
         },
+        "enableDWARF": {
+          "$ref": "#/$defs/_133"
+        },
         "env": {
-          "$ref": "#/$defs/_149"
+          "$ref": "#/$defs/_150"
         },
         "envFile": {
-          "$ref": "#/$defs/_150"
+          "$ref": "#/$defs/_151"
         },
         "killBehavior": {
           "default": "forceful",
@@ -7709,19 +7831,19 @@
           "type": "string"
         },
         "localRoot": {
-          "$ref": "#/$defs/_151"
-        },
-        "nodeVersionHint": {
           "$ref": "#/$defs/_152"
         },
-        "outFiles": {
-          "$ref": "#/$defs/_133"
+        "nodeVersionHint": {
+          "$ref": "#/$defs/_153"
         },
-        "outputCapture": {
+        "outFiles": {
           "$ref": "#/$defs/_134"
         },
-        "pauseForSourceMap": {
+        "outputCapture": {
           "$ref": "#/$defs/_135"
+        },
+        "pauseForSourceMap": {
+          "$ref": "#/$defs/_136"
         },
         "profileStartup": {
           "default": true,
@@ -7734,10 +7856,10 @@
           "type": "string"
         },
         "remoteRoot": {
-          "$ref": "#/$defs/_153"
+          "$ref": "#/$defs/_154"
         },
         "resolveSourceMapLocations": {
-          "$ref": "#/$defs/_154"
+          "$ref": "#/$defs/_155"
         },
         "restart": {
           "default": true,
@@ -7747,7 +7869,7 @@
               "type": "boolean"
             },
             {
-              "$ref": "#/$defs/_115"
+              "$ref": "#/$defs/_116"
             }
           ]
         },
@@ -7768,7 +7890,7 @@
           ]
         },
         "runtimeSourcemapPausePatterns": {
-          "$ref": "#/$defs/_155"
+          "$ref": "#/$defs/_156"
         },
         "runtimeVersion": {
           "default": "default",
@@ -7776,22 +7898,22 @@
           "type": "string"
         },
         "showAsyncStacks": {
-          "$ref": "#/$defs/_138"
-        },
-        "skipFiles": {
           "$ref": "#/$defs/_139"
         },
-        "smartStep": {
+        "skipFiles": {
           "$ref": "#/$defs/_140"
         },
-        "sourceMapPathOverrides": {
+        "smartStep": {
           "$ref": "#/$defs/_141"
         },
-        "sourceMapRenames": {
+        "sourceMapPathOverrides": {
           "$ref": "#/$defs/_142"
         },
-        "sourceMaps": {
+        "sourceMapRenames": {
           "$ref": "#/$defs/_143"
+        },
+        "sourceMaps": {
+          "$ref": "#/$defs/_144"
         },
         "stopOnEntry": {
           "default": true,
@@ -7802,18 +7924,18 @@
           ]
         },
         "timeout": {
-          "$ref": "#/$defs/_144"
-        },
-        "timeouts": {
           "$ref": "#/$defs/_145"
         },
-        "trace": {
+        "timeouts": {
           "$ref": "#/$defs/_146"
+        },
+        "trace": {
+          "$ref": "#/$defs/_147"
         }
       },
       "type": "object"
     },
-    "_137": {
+    "_138": {
       "additionalProperties": false,
       "default": {
         "program": "npm start"
@@ -7821,10 +7943,10 @@
       "description": "JavaScript Debug Terminal",
       "properties": {
         "autoAttachChildProcesses": {
-          "$ref": "#/$defs/_148"
+          "$ref": "#/$defs/_149"
         },
         "cascadeTerminateToConfigurations": {
-          "$ref": "#/$defs/_128"
+          "$ref": "#/$defs/_129"
         },
         "command": {
           "default": "npm start",
@@ -7835,10 +7957,10 @@
           ]
         },
         "customDescriptionGenerator": {
-          "$ref": "#/$defs/_129"
+          "$ref": "#/$defs/_130"
         },
         "customPropertiesGenerator": {
-          "$ref": "#/$defs/_130"
+          "$ref": "#/$defs/_131"
         },
         "cwd": {
           "default": "${workspaceFolder}",
@@ -7847,72 +7969,72 @@
           "type": "string"
         },
         "enableContentValidation": {
-          "$ref": "#/$defs/_131"
-        },
-        "enableDWARF": {
           "$ref": "#/$defs/_132"
         },
-        "env": {
-          "$ref": "#/$defs/_149"
-        },
-        "envFile": {
-          "$ref": "#/$defs/_150"
-        },
-        "localRoot": {
-          "$ref": "#/$defs/_151"
-        },
-        "nodeVersionHint": {
-          "$ref": "#/$defs/_152"
-        },
-        "outFiles": {
+        "enableDWARF": {
           "$ref": "#/$defs/_133"
         },
-        "outputCapture": {
-          "$ref": "#/$defs/_134"
+        "env": {
+          "$ref": "#/$defs/_150"
         },
-        "pauseForSourceMap": {
-          "$ref": "#/$defs/_135"
+        "envFile": {
+          "$ref": "#/$defs/_151"
         },
-        "remoteRoot": {
+        "localRoot": {
+          "$ref": "#/$defs/_152"
+        },
+        "nodeVersionHint": {
           "$ref": "#/$defs/_153"
         },
-        "resolveSourceMapLocations": {
+        "outFiles": {
+          "$ref": "#/$defs/_134"
+        },
+        "outputCapture": {
+          "$ref": "#/$defs/_135"
+        },
+        "pauseForSourceMap": {
+          "$ref": "#/$defs/_136"
+        },
+        "remoteRoot": {
           "$ref": "#/$defs/_154"
         },
-        "runtimeSourcemapPausePatterns": {
+        "resolveSourceMapLocations": {
           "$ref": "#/$defs/_155"
         },
-        "showAsyncStacks": {
-          "$ref": "#/$defs/_138"
+        "runtimeSourcemapPausePatterns": {
+          "$ref": "#/$defs/_156"
         },
-        "skipFiles": {
+        "showAsyncStacks": {
           "$ref": "#/$defs/_139"
         },
-        "smartStep": {
+        "skipFiles": {
           "$ref": "#/$defs/_140"
         },
-        "sourceMapPathOverrides": {
+        "smartStep": {
           "$ref": "#/$defs/_141"
         },
-        "sourceMapRenames": {
+        "sourceMapPathOverrides": {
           "$ref": "#/$defs/_142"
         },
-        "sourceMaps": {
+        "sourceMapRenames": {
           "$ref": "#/$defs/_143"
         },
-        "timeout": {
+        "sourceMaps": {
           "$ref": "#/$defs/_144"
         },
-        "timeouts": {
+        "timeout": {
           "$ref": "#/$defs/_145"
         },
-        "trace": {
+        "timeouts": {
           "$ref": "#/$defs/_146"
+        },
+        "trace": {
+          "$ref": "#/$defs/_147"
         }
       },
       "type": "object"
     },
-    "_138": {
+    "_139": {
       "default": true,
       "description": "Show the async calls that led to the current call stack.",
       "oneOf": [
@@ -7920,26 +8042,26 @@
           "type": "boolean"
         },
         {
-          "$ref": "#/$defs/_116"
+          "$ref": "#/$defs/_117"
         },
         {
-          "$ref": "#/$defs/_117"
+          "$ref": "#/$defs/_118"
         }
       ]
     },
-    "_139": {
+    "_140": {
       "default": [
         "<node_internals>/**"
       ],
       "description": "An array of file or folder names, or path globs, to skip when debugging. Star patterns and negations are allowed, for example, `[\"**/node_modules/**\", \"!**/node_modules/my-module/**\"]`",
       "type": "array"
     },
-    "_140": {
+    "_141": {
       "default": true,
       "description": "Automatically step through generated code that cannot be mapped back to the original source.",
       "type": "boolean"
     },
-    "_141": {
+    "_142": {
       "default": {
         "meteor://💻app/*": "${workspaceFolder}/*",
         "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
@@ -7948,61 +8070,61 @@
       "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
       "type": "object"
     },
-    "_142": {
+    "_143": {
       "default": true,
       "description": "Whether to use the \"names\" mapping in sourcemaps. This requires requesting source content, which can be slow with certain debuggers.",
       "type": "boolean"
     },
-    "_143": {
+    "_144": {
       "default": true,
       "description": "Use JavaScript source maps (if they exist).",
       "type": "boolean"
     },
-    "_144": {
+    "_145": {
       "default": 10000,
       "description": "Retry for this number of milliseconds to connect to Node.js. Default is 10000 ms.",
       "type": "number"
     },
-    "_145": {
+    "_146": {
       "additionalProperties": false,
       "default": {},
       "description": "Timeouts for several debugger operations.",
       "markdownDescription": "Timeouts for several debugger operations.",
       "properties": {
         "hoverEvaluation": {
-          "$ref": "#/$defs/_118"
-        },
-        "sourceMapCumulativePause": {
           "$ref": "#/$defs/_119"
         },
-        "sourceMapMinPause": {
+        "sourceMapCumulativePause": {
           "$ref": "#/$defs/_120"
+        },
+        "sourceMapMinPause": {
+          "$ref": "#/$defs/_121"
         }
       },
       "type": "object"
     },
-    "_146": {
+    "_147": {
       "default": true,
       "description": "Configures what diagnostic output is produced.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_121"
+          "$ref": "#/$defs/_122"
         },
         {
-          "$ref": "#/$defs/_122"
+          "$ref": "#/$defs/_123"
         }
       ]
     },
-    "_147": {
+    "_148": {
       "default": 32,
       "type": "number"
     },
-    "_148": {
+    "_149": {
       "default": true,
       "description": "Attach debugger to new child processes automatically.",
       "type": "boolean"
     },
-    "_149": {
+    "_150": {
       "additionalProperties": {
         "type": [
           "string",
@@ -8013,12 +8135,12 @@
       "markdownDescription": "Environment variables passed to the program. The value `null` removes the variable from the environment.",
       "type": "object"
     },
-    "_150": {
+    "_151": {
       "default": "${workspaceFolder}/.env",
       "description": "Absolute path to a file containing environment variable definitions.",
       "type": "string"
     },
-    "_151": {
+    "_152": {
       "default": null,
       "description": "Path to the local directory containing the program.",
       "type": [
@@ -8026,13 +8148,13 @@
         "null"
       ]
     },
-    "_152": {
+    "_153": {
       "default": 12,
       "description": "Allows you to explicitly specify the Node version that's running, which can be used to disable or enable certain behaviors in cases where the automatic version detection does not work.",
       "minimum": 8,
       "type": "number"
     },
-    "_153": {
+    "_154": {
       "default": null,
       "description": "Absolute path to the remote directory containing the program.",
       "type": [
@@ -8040,7 +8162,7 @@
         "null"
       ]
     },
-    "_154": {
+    "_155": {
       "default": [
         "${workspaceFolder}/**",
         "!**/node_modules/**"
@@ -8054,7 +8176,7 @@
         "null"
       ]
     },
-    "_155": {
+    "_156": {
       "default": [],
       "items": {
         "type": "string"
