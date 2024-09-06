@@ -138,7 +138,7 @@
           },
           {
             "label": "onLanguageModelTool",
-            "body": "onLanguageModelTool:${1:toolName}",
+            "body": "onLanguageModelTool:${1:toolId}",
             "description": "An activation event emitted when the specified language model tool is invoked."
           },
           {
@@ -419,6 +419,41 @@
                       "description": "A description of this command.",
                       "type": "string"
                     },
+                    "disambiguation": {
+                      "description": "Metadata to help with automatically routing user questions to this chat command. You must add `contribChatParticipantDetection` to `enabledApiProposals` to use this API.",
+                      "type": "array",
+                      "items": {
+                        "additionalProperties": false,
+                        "type": "object",
+                        "defaultSnippets": [
+                          {
+                            "body": {
+                              "categoryName": "",
+                              "description": "",
+                              "examples": []
+                            }
+                          }
+                        ],
+                        "required": [
+                          "categoryName",
+                          "description",
+                          "examples"
+                        ],
+                        "properties": {
+                          "categoryName": {
+                            "$ref": "#/$defs/_40"
+                          },
+                          "description": {
+                            "description": "A detailed description of the kinds of questions that are suitable for this chat command.",
+                            "type": "string"
+                          },
+                          "examples": {
+                            "description": "A list of representative example questions that are suitable for this chat command.",
+                            "type": "array"
+                          }
+                        }
+                      }
+                    },
                     "isSticky": {
                       "$ref": "#/$defs/_39"
                     },
@@ -441,6 +476,41 @@
                 "description": "A description of this chat participant, shown in the UI.",
                 "type": "string"
               },
+              "disambiguation": {
+                "description": "Metadata to help with automatically routing user questions to this chat participant. You must add `contribChatParticipantDetection` to `enabledApiProposals` to use this API.",
+                "type": "array",
+                "items": {
+                  "additionalProperties": false,
+                  "type": "object",
+                  "defaultSnippets": [
+                    {
+                      "body": {
+                        "categoryName": "",
+                        "description": "",
+                        "examples": []
+                      }
+                    }
+                  ],
+                  "required": [
+                    "categoryName",
+                    "description",
+                    "examples"
+                  ],
+                  "properties": {
+                    "categoryName": {
+                      "$ref": "#/$defs/_40"
+                    },
+                    "description": {
+                      "description": "A detailed description of the kinds of questions that are suitable for this chat participant.",
+                      "type": "string"
+                    },
+                    "examples": {
+                      "description": "A list of representative example questions that are suitable for this chat participant.",
+                      "type": "array"
+                    }
+                  }
+                }
+              },
               "fullName": {
                 "markdownDescription": "The full name of this chat participant, which is shown as the label for responses coming from this participant. If not provided, `name` is used.",
                 "type": "string"
@@ -455,11 +525,15 @@
               "name": {
                 "description": "User-facing name for this chat participant. The user will use '@' with this name to invoke the participant. Name must not contain whitespace.",
                 "type": "string",
-                "pattern": "^[\\w0-9_-]+$"
+                "pattern": "^[\\w-]+$"
               },
               "sampleRequest": {
                 "description": "When the user clicks this participant in `/help`, this text will be submitted to the participant.",
                 "type": "string"
+              },
+              "supportsToolReferences": {
+                "description": "Whether this participant supports ChatRequest#toolReferences.",
+                "type": "boolean"
               },
               "when": {
                 "description": "A condition which must be true to enable this participant.",
@@ -1695,7 +1769,6 @@
                       "multi-diff-editor-label-icon",
                       "notebook-kernel-select",
                       "notebook-execute",
-                      "notebook-config",
                       "notebook-execute-above",
                       "notebook-execute-below",
                       "notebook-stop",
@@ -1715,6 +1788,7 @@
                       "notebook-expanded",
                       "notebook-open-as-text",
                       "notebook-revert",
+                      "notebook-diff-cell-toggle-whitespace",
                       "notebook-render-output",
                       "notebook-mimetype",
                       "notebook-copy",
@@ -2572,7 +2646,6 @@
                       "Icon of the multi diff editor label.",
                       "Configure icon to select a kernel in notebook editors.",
                       "Icon to execute in notebook editors.",
-                      "Icon to configure in notebook editors.",
                       "Icon to execute above cells in notebook editors.",
                       "Icon to execute below cells in notebook editors.",
                       "Icon to stop an execution in notebook editors.",
@@ -2592,6 +2665,7 @@
                       "Icon to annotate an expanded section in notebook editors.",
                       "Icon to open the notebook in a text editor.",
                       "Icon to revert in notebook editors.",
+                      "Icon for the toggle whitespace action in the diff editor.",
                       "Icon to render output in diff editor.",
                       "Icon for a mime type in notebook editors.",
                       "Icon to copy content to clipboard",
@@ -2934,17 +3008,13 @@
               }
             ],
             "required": [
-              "name",
-              "description"
+              "id",
+              "modelDescription"
             ],
             "properties": {
               "canBeInvokedManually": {
                 "description": "Whether this tool can be invoked manually by the user through the chat UX.",
                 "type": "boolean"
-              },
-              "description": {
-                "description": "A description of this tool that may be passed to a language model.",
-                "type": "string"
               },
               "displayName": {
                 "description": "A human-readable name for this tool that may be used to describe it in the UI.",
@@ -2961,14 +3031,32 @@
                   }
                 ]
               },
-              "name": {
-                "description": "A name for this tool which must be unique across all tools.",
+              "id": {
+                "description": "A unique id for this tool.",
+                "type": "string",
+                "pattern": "^[\\w-]+$"
+              },
+              "modelDescription": {
+                "description": "A description of this tool that may be passed to a language model.",
                 "type": "string"
+              },
+              "name": {
+                "description": "If `canBeInvokedManually` is enabled for this tool, the user may use '#' with this name to invoke the tool in a query. Otherwise, the name is not required. Name must not contain whitespace.",
+                "type": "string",
+                "pattern": "^[\\w-]+$"
               },
               "parametersSchema": {
                 "description": "A JSON schema for the parameters this tool accepts.",
                 "type": "object",
                 "$ref": "http://json-schema.org/draft-07/schema#"
+              },
+              "userDescription": {
+                "description": "A description of this tool that may be shown to the user.",
+                "type": "string"
+              },
+              "when": {
+                "markdownDescription": "Condition which must be true for this tool to be enabled. Note that a tool may still be invoked by another extension even when its `when` condition is false.",
+                "type": "string"
               }
             }
           }
@@ -3218,6 +3306,13 @@
                 "$ref": "#/$defs/_25"
               }
             },
+            "debug/createConfiguration": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribDebugCreateConfiguration\"]` - The debug create configuration menu",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/_25"
+              }
+            },
             "debug/toolBar": {
               "markdownDescription": "The debug toolbar menu",
               "type": "array",
@@ -3462,6 +3557,13 @@
                 "$ref": "#/$defs/_25"
               }
             },
+            "scm/history/title": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlHistoryTitleMenu\"]` - The Source Control History title menu",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/_25"
+              }
+            },
             "scm/historyItem/context": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlHistoryItemChangesMenu\"]` - The Source Control history item context menu",
               "type": "array",
@@ -3674,6 +3776,13 @@
             },
             "view/title": {
               "markdownDescription": "The contributed view title menu",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/_25"
+              }
+            },
+            "viewContainer/title": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribViewContainerTitle\"]` - The contributed view container title menu",
               "type": "array",
               "items": {
                 "$ref": "#/$defs/_25"
@@ -5143,7 +5252,6 @@
           "aiTextSearchProvider",
           "aiTextSearchProviderNew",
           "attributableCoverage",
-          "authGetSessions",
           "authLearnMore",
           "authSession",
           "canonicalUriProvider",
@@ -5161,10 +5269,12 @@
           "commentsDraftState",
           "commentThreadApplicability",
           "contribAccessibilityHelpContent",
+          "contribChatParticipantDetection",
           "contribCommentEditorActionsMenu",
           "contribCommentPeekContext",
           "contribCommentsViewThreadMenus",
           "contribCommentThreadAdditionalMenu",
+          "contribDebugCreateConfiguration",
           "contribDiffEditorGutterToolBarMenus",
           "contribEditorContentMenu",
           "contribEditSessions",
@@ -5179,9 +5289,11 @@
           "contribSourceControlHistoryItemChangesMenu",
           "contribSourceControlHistoryItemGroupMenu",
           "contribSourceControlHistoryItemMenu",
+          "contribSourceControlHistoryTitleMenu",
           "contribSourceControlInputBoxMenu",
           "contribSourceControlTitleMenu",
           "contribStatusBarItems",
+          "contribViewContainerTitle",
           "contribViewsRemote",
           "contribViewsWelcome",
           "createFileSystemWatcher",
@@ -5228,6 +5340,7 @@
           "notebookLiveShare",
           "notebookMessaging",
           "notebookMime",
+          "notebookReplDocument",
           "notebookVariableProvider",
           "portsAttributes",
           "profileContentHandlers",
@@ -5254,8 +5367,6 @@
           "terminalExecuteCommandEvent",
           "terminalQuickFixProvider",
           "terminalSelection",
-          "terminalShellIntegration",
-          "testMessageStackTrace",
           "testObserver",
           "testRelatedCode",
           "textSearchCompleteNew",
@@ -5276,7 +5387,6 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiTextSearchProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiTextSearchProviderNew.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.attributableCoverage.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authGetSessions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authLearnMore.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authSession.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.canonicalUriProvider.d.ts",
@@ -5294,10 +5404,12 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.commentsDraftState.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.commentThreadApplicability.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribAccessibilityHelpContent.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribChatParticipantDetection.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribCommentEditorActionsMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribCommentPeekContext.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribCommentsViewThreadMenus.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribCommentThreadAdditionalMenu.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribDebugCreateConfiguration.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribDiffEditorGutterToolBarMenus.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribEditorContentMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribEditSessions.d.ts",
@@ -5312,9 +5424,11 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribSourceControlHistoryItemChangesMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribSourceControlHistoryItemGroupMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribSourceControlHistoryItemMenu.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribSourceControlHistoryTitleMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribSourceControlInputBoxMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribSourceControlTitleMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribStatusBarItems.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribViewContainerTitle.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribViewsRemote.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribViewsWelcome.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.createFileSystemWatcher.d.ts",
@@ -5361,6 +5475,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookLiveShare.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookMessaging.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookMime.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookReplDocument.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookVariableProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.portsAttributes.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.profileContentHandlers.d.ts",
@@ -5387,8 +5502,6 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalExecuteCommandEvent.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalQuickFixProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalSelection.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalShellIntegration.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.testMessageStackTrace.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.testObserver.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.testRelatedCode.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.textSearchCompleteNew.d.ts",
@@ -5425,7 +5538,7 @@
       "type": "array",
       "uniqueItems": true,
       "items": {
-        "$ref": "#/$defs/_40"
+        "$ref": "#/$defs/_41"
       }
     },
     "extensionKind": {
@@ -5483,7 +5596,7 @@
       "type": "array",
       "uniqueItems": true,
       "items": {
-        "$ref": "#/$defs/_40"
+        "$ref": "#/$defs/_41"
       }
     },
     "galleryBanner": {
@@ -5927,10 +6040,10 @@
           "type": "string"
         },
         "when": {
-          "$ref": "#/$defs/_41"
+          "$ref": "#/$defs/_42"
         },
         "group": {
-          "$ref": "#/$defs/_42"
+          "$ref": "#/$defs/_43"
         }
       }
     },
@@ -5950,10 +6063,10 @@
               "type": "string"
             },
             "when": {
-              "$ref": "#/$defs/_41"
+              "$ref": "#/$defs/_42"
             },
             "group": {
-              "$ref": "#/$defs/_42"
+              "$ref": "#/$defs/_43"
             }
           }
         }
@@ -6246,6 +6359,10 @@
         "tree.inactiveIndentGuidesStroke",
         "tree.tableColumnsBorder",
         "tree.tableOddRowsBackground",
+        "editorActionList.background",
+        "editorActionList.foreground",
+        "editorActionList.focusForeground",
+        "editorActionList.focusBackground",
         "menu.border",
         "menu.foreground",
         "menu.background",
@@ -6667,13 +6784,13 @@
         "settings.focusedRowBackground",
         "settings.rowHoverBackground",
         "settings.focusedRowBorder",
-        "scm.historyGraph.historyItemGroupLocal",
-        "scm.historyGraph.historyItemGroupRemote",
-        "scm.historyGraph.historyItemGroupBase",
-        "scm.historyGraph.historyItemGroupHoverLabelForeground",
-        "scm.historyGraph.green",
-        "scm.historyGraph.red",
-        "scm.historyGraph.yellow",
+        "scmGraph.historyItemGroupLocal",
+        "scmGraph.historyItemGroupRemote",
+        "scmGraph.historyItemGroupBase",
+        "scmGraph.historyItemHoverLabelForeground",
+        "scmGraph.foreground1",
+        "scmGraph.foreground2",
+        "scmGraph.foreground3",
         "terminal.background",
         "terminal.foreground",
         "terminalCursor.foreground",
@@ -6696,6 +6813,7 @@
         "terminal.dropBackground",
         "terminal.tab.activeBorder",
         "terminal.initialHintForeground",
+        "terminalCommandGuide.foreground",
         "terminalStickyScroll.background",
         "terminalStickyScrollHover.background",
         "terminalStickyScroll.border",
@@ -6793,6 +6911,8 @@
         "scm.historyItemDeletionsForeground",
         "scm.historyItemStatisticsBorder",
         "scm.historyItemSelectedStatisticsBorder",
+        "scmGraph.historyItemHoverAdditionsForeground",
+        "scmGraph.historyItemHoverDeletionsForeground",
         "extensionButton.background",
         "extensionButton.foreground",
         "extensionButton.hoverBackground",
@@ -7054,6 +7174,10 @@
         "Tree stroke color for the indentation guides that are not active.",
         "Table border color between columns.",
         "Background color for odd table rows.",
+        "Action List background color.",
+        "Action List foreground color.",
+        "Action List foreground color for the focused item.",
+        "Action List background color for the focused item.",
         "Border color of menus.",
         "Foreground color of menu items.",
         "Background color of menu items.",
@@ -7478,10 +7602,10 @@
         "Local history item group color.",
         "Remote history item group color.",
         "Base history item group color.",
-        "History item group hover label foreground color.",
-        "The green color used in history graph.",
-        "The red color used in history graph.",
-        "The yellow color used in history graph.",
+        "History item hover label foreground color.",
+        "Source control graph foreground color (1).",
+        "Source control graph foreground color (2).",
+        "Source control graph foreground color (3).",
         "The background color of the terminal, this allows coloring the terminal differently to the panel.",
         "The foreground color of the terminal.",
         "The foreground color of the terminal cursor.",
@@ -7504,6 +7628,7 @@
         "Background color when dragging on top of terminals. The color should have transparency so that the terminal contents can still shine through.",
         "Border on the side of the terminal tab in the panel. This defaults to tab.activeBorder.",
         "Foreground color of the terminal initial hint.",
+        "The foreground color of the terminal command guide that appears to the left of a command and its output on hover.",
         "The background color of the sticky scroll overlay in the terminal.",
         "The background color of the sticky scroll overlay in the terminal when hovered.",
         "The border of the sticky scroll overlay in the terminal.",
@@ -7601,6 +7726,8 @@
         "History item deletions foreground color.",
         "History item statistics border color.",
         "History item selected statistics border color.",
+        "History item hover additions foreground color.",
+        "History item hover deletions foreground color.",
         "Button background color for extension actions.",
         "Button foreground color for extension actions.",
         "Button background hover color for extension actions.",
@@ -7813,14 +7940,18 @@
       "type": "boolean"
     },
     "_40": {
+      "markdownDescription": "A detailed name for this category, e.g. `workspace_questions` or `web_questions`.",
+      "type": "string"
+    },
+    "_41": {
       "type": "string",
       "pattern": "^([a-z0-9A-Z][a-z0-9-A-Z]*)\\.([a-z0-9A-Z][a-z0-9-A-Z]*)$"
     },
-    "_41": {
+    "_42": {
       "description": "Condition which must be true to show this item",
       "type": "string"
     },
-    "_42": {
+    "_43": {
       "description": "Group into which this item belongs",
       "type": "string"
     }

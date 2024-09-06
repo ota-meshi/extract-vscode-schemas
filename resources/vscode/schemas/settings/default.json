@@ -2221,6 +2221,14 @@
       "scope": 3,
       "restricted": false
     },
+    "chat.experimental.detectParticipant.enabled": {
+      "type": "boolean",
+      "description": "Enables chat participant autodetection for panel chat.",
+      "default": null,
+      "defaultDefaultValue": null,
+      "scope": 3,
+      "restricted": false
+    },
     "chat.experimental.implicitContext": {
       "type": "boolean",
       "description": "Controls whether a checkbox is shown to allow the user to determine which implicit context is included with a chat participant's prompt.",
@@ -2851,7 +2859,10 @@
             "file": {
               "type": "string",
               "description": "A local html file to open in the browser",
-              "default": "${workspaceFolder}/index.html"
+              "default": "${workspaceFolder}/index.html",
+              "tags": [
+                "setup"
+              ]
             },
             "includeDefaultArgs": {
               "type": "boolean",
@@ -2917,7 +2928,12 @@
               }
             },
             "runtimeArgs": {
-              "$ref": "#/$defs/_322"
+              "type": "array",
+              "description": "Optional arguments passed to the runtime executable.",
+              "items": {
+                "type": "string"
+              },
+              "default": []
             },
             "runtimeExecutable": {
               "type": [
@@ -2946,12 +2962,15 @@
                       "items": {
                         "type": "string"
                       },
-                      "default": []
+                      "default": [],
+                      "tags": [
+                        "setup"
+                      ]
                     },
                     "attachSimplePort": {
                       "oneOf": [
                         {
-                          "$ref": "#/$defs/_323"
+                          "$ref": "#/$defs/_322"
                         },
                         {
                           "type": "integer"
@@ -2990,7 +3009,10 @@
                     "cwd": {
                       "type": "string",
                       "description": "Absolute path to the working directory of the program being debugged. If you've set localRoot then cwd will match that value otherwise it falls back to your workspaceFolder",
-                      "default": "${workspaceFolder}"
+                      "default": "${workspaceFolder}",
+                      "tags": [
+                        "setup"
+                      ]
                     },
                     "enableContentValidation": {
                       "$ref": "#/$defs/_306"
@@ -3003,6 +3025,16 @@
                     },
                     "envFile": {
                       "$ref": "#/$defs/_316"
+                    },
+                    "experimentalNetworking": {
+                      "type": "string",
+                      "default": "auto",
+                      "description": "Enable experimental inspection in Node.js. When set to `auto` this is enabled for versions of Node.js that support it. It can be set to `on` or `off` to enable or disable it explicitly.",
+                      "enum": [
+                        "auto",
+                        "off",
+                        "on"
+                      ]
                     },
                     "killBehavior": {
                       "type": "string",
@@ -3037,7 +3069,10 @@
                     "program": {
                       "type": "string",
                       "description": "Absolute path to the program. Generated value is guessed by looking at package.json and opened files. Edit this attribute.",
-                      "default": ""
+                      "default": "",
+                      "tags": [
+                        "setup"
+                      ]
                     },
                     "remoteRoot": {
                       "$ref": "#/$defs/_313"
@@ -3049,7 +3084,15 @@
                       "$ref": "#/$defs/_321"
                     },
                     "runtimeArgs": {
-                      "$ref": "#/$defs/_322"
+                      "type": "array",
+                      "description": "Optional arguments passed to the runtime executable.",
+                      "items": {
+                        "type": "string"
+                      },
+                      "default": [],
+                      "tags": [
+                        "setup"
+                      ]
                     },
                     "runtimeExecutable": {
                       "type": [
@@ -3227,7 +3270,10 @@
             "url": {
               "type": "string",
               "description": "Will search for a tab with this exact url and attach to it, if found",
-              "default": "http://localhost:8080"
+              "default": "http://localhost:8080",
+              "tags": [
+                "setup"
+              ]
             },
             "urlFilter": {
               "type": "string",
@@ -3252,7 +3298,10 @@
             "webRoot": {
               "type": "string",
               "description": "This specifies the workspace absolute path to the webserver root. Used to resolve paths like `/app.js` to files on disk. Shorthand for a pathMapping for \"/\"",
-              "default": "${workspaceFolder}"
+              "default": "${workspaceFolder}",
+              "tags": [
+                "setup"
+              ]
             }
           }
         }
@@ -3290,6 +3339,18 @@
       "defaultDefaultValue": {
         "pwa-node": "node"
       },
+      "restricted": false
+    },
+    "debug.javascript.enableNetworkView": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enables the experimental network view for targets that support it.",
+      "scope": 3,
+      "source": {
+        "id": "ms-vscode.js-debug",
+        "displayName": "JavaScript Debugger"
+      },
+      "defaultDefaultValue": false,
       "restricted": false
     },
     "debug.javascript.pickAndAttachOptions": {
@@ -3359,11 +3420,14 @@
           "default": 9229,
           "oneOf": [
             {
-              "$ref": "#/$defs/_323"
+              "$ref": "#/$defs/_322"
             },
             {
               "type": "integer"
             }
+          ],
+          "tags": [
+            "setup"
           ]
         },
         "processId": {
@@ -4268,12 +4332,12 @@
     },
     "editor.experimental.asyncTokenization": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "description": "Controls whether the tokenization should happen asynchronously on a web worker.",
       "tags": [
         "experimental"
       ],
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 5,
       "restricted": false
     },
@@ -4305,6 +4369,17 @@
         "type": "string"
       },
       "defaultDefaultValue": {},
+      "restricted": false
+    },
+    "editor.experimental.treeSitterTelemetry": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "Controls whether tree sitter parsing should be turned on and telemetry collected. Setting `editor.experimental.preferTreeSitter` for specific languages will take precedence.",
+      "tags": [
+        "experimental"
+      ],
+      "defaultDefaultValue": false,
+      "scope": 5,
       "restricted": false
     },
     "editor.experimentalInlineEdit.enabled": {
@@ -5880,6 +5955,14 @@
       ],
       "description": "Controls the lexicographic sorting of file and folder names in the Explorer.",
       "defaultDefaultValue": "default",
+      "scope": 3,
+      "restricted": false
+    },
+    "explorer.sortOrderReverse": {
+      "type": "boolean",
+      "description": "Controls whether the file and folder sort order, should be reversed.",
+      "default": false,
+      "defaultDefaultValue": false,
       "scope": 3,
       "restricted": false
     },
@@ -8421,8 +8504,8 @@
       "scope": 3,
       "restricted": false
     },
-    "inlineChat.experimental.textButtons": {
-      "description": "Whether to use textual buttons.",
+    "inlineChat.experimental.enableZoneToolbar": {
+      "description": "Whether to show a toolbar to accept or reject changes in the inline chat changes view.",
       "default": false,
       "type": "boolean",
       "tags": [
@@ -8464,6 +8547,14 @@
         "experimental"
       ],
       "defaultDefaultValue": "live",
+      "scope": 3,
+      "restricted": false
+    },
+    "inlineChat.startWithOverlayWidget": {
+      "description": "Whether inline chat opens directly as zone widget, between the lines, or as overlay widget which turns into a zone.",
+      "default": false,
+      "type": "boolean",
+      "defaultDefaultValue": false,
       "scope": 3,
       "restricted": false
     },
@@ -8532,9 +8623,9 @@
     },
     "issueReporter.experimental.auxWindow": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "description": "Enable the new experimental issue reporter in electron.",
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 3,
       "restricted": false
     },
@@ -8555,10 +8646,10 @@
       "restricted": false
     },
     "javascript.autoClosingTags": {
-      "$ref": "#/$defs/_363"
+      "$ref": "#/$defs/_364"
     },
     "javascript.experimental.updateImportsOnPaste": {
-      "$ref": "#/$defs/_367"
+      "$ref": "#/$defs/_368"
     },
     "javascript.format.enable": {
       "type": "boolean",
@@ -8573,52 +8664,52 @@
       "restricted": false
     },
     "javascript.format.insertSpaceAfterCommaDelimiter": {
-      "$ref": "#/$defs/_335"
+      "$ref": "#/$defs/_334"
     },
     "javascript.format.insertSpaceAfterConstructor": {
-      "$ref": "#/$defs/_336"
+      "$ref": "#/$defs/_335"
     },
     "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": {
-      "$ref": "#/$defs/_340"
-    },
-    "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": {
       "$ref": "#/$defs/_339"
     },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": {
-      "$ref": "#/$defs/_345"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": {
-      "$ref": "#/$defs/_347"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": {
-      "$ref": "#/$defs/_344"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": {
-      "$ref": "#/$defs/_343"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": {
-      "$ref": "#/$defs/_342"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": {
-      "$ref": "#/$defs/_346"
-    },
-    "javascript.format.insertSpaceAfterSemicolonInForStatements": {
-      "$ref": "#/$defs/_337"
-    },
-    "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": {
+    "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": {
       "$ref": "#/$defs/_338"
     },
-    "javascript.format.insertSpaceBeforeFunctionParenthesis": {
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": {
+      "$ref": "#/$defs/_344"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": {
+      "$ref": "#/$defs/_346"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": {
+      "$ref": "#/$defs/_343"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": {
+      "$ref": "#/$defs/_342"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": {
       "$ref": "#/$defs/_341"
     },
-    "javascript.format.placeOpenBraceOnNewLineForControlBlocks": {
-      "$ref": "#/$defs/_349"
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": {
+      "$ref": "#/$defs/_345"
     },
-    "javascript.format.placeOpenBraceOnNewLineForFunctions": {
+    "javascript.format.insertSpaceAfterSemicolonInForStatements": {
+      "$ref": "#/$defs/_336"
+    },
+    "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": {
+      "$ref": "#/$defs/_337"
+    },
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": {
+      "$ref": "#/$defs/_340"
+    },
+    "javascript.format.placeOpenBraceOnNewLineForControlBlocks": {
       "$ref": "#/$defs/_348"
     },
+    "javascript.format.placeOpenBraceOnNewLineForFunctions": {
+      "$ref": "#/$defs/_347"
+    },
     "javascript.format.semicolons": {
-      "$ref": "#/$defs/_350"
+      "$ref": "#/$defs/_349"
     },
     "javascript.implicitProjectConfig.checkJs": {
       "deprecationMessage": "This setting has been deprecated in favor of `js/ts.implicitProjectConfig.checkJs`.",
@@ -8649,37 +8740,40 @@
       "restricted": false
     },
     "javascript.inlayHints.enumMemberValues.enabled": {
-      "$ref": "#/$defs/_333"
-    },
-    "javascript.inlayHints.functionLikeReturnTypes.enabled": {
       "$ref": "#/$defs/_332"
     },
-    "javascript.inlayHints.parameterNames.enabled": {
-      "$ref": "#/$defs/_326"
-    },
-    "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": {
-      "$ref": "#/$defs/_327"
-    },
-    "javascript.inlayHints.parameterTypes.enabled": {
-      "$ref": "#/$defs/_328"
-    },
-    "javascript.inlayHints.propertyDeclarationTypes.enabled": {
+    "javascript.inlayHints.functionLikeReturnTypes.enabled": {
       "$ref": "#/$defs/_331"
     },
-    "javascript.inlayHints.variableTypes.enabled": {
-      "$ref": "#/$defs/_329"
+    "javascript.inlayHints.parameterNames.enabled": {
+      "$ref": "#/$defs/_325"
     },
-    "javascript.inlayHints.variableTypes.suppressWhenTypeMatchesName": {
+    "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": {
+      "$ref": "#/$defs/_326"
+    },
+    "javascript.inlayHints.parameterTypes.enabled": {
+      "$ref": "#/$defs/_327"
+    },
+    "javascript.inlayHints.propertyDeclarationTypes.enabled": {
       "$ref": "#/$defs/_330"
     },
+    "javascript.inlayHints.variableTypes.enabled": {
+      "$ref": "#/$defs/_328"
+    },
+    "javascript.inlayHints.variableTypes.suppressWhenTypeMatchesName": {
+      "$ref": "#/$defs/_329"
+    },
     "javascript.preferences.autoImportFileExcludePatterns": {
+      "$ref": "#/$defs/_357"
+    },
+    "javascript.preferences.autoImportSpecifierExcludeRegexes": {
       "$ref": "#/$defs/_358"
     },
     "javascript.preferences.importModuleSpecifier": {
-      "$ref": "#/$defs/_356"
+      "$ref": "#/$defs/_355"
     },
     "javascript.preferences.importModuleSpecifierEnding": {
-      "$ref": "#/$defs/_357"
+      "$ref": "#/$defs/_356"
     },
     "javascript.preferences.jsxAttributeCompletionStyle": {
       "type": "string",
@@ -8703,8 +8797,11 @@
       "defaultDefaultValue": "auto",
       "restricted": false
     },
+    "javascript.preferences.organizeImports": {
+      "$ref": "#/$defs/_362"
+    },
     "javascript.preferences.quoteStyle": {
-      "$ref": "#/$defs/_355"
+      "$ref": "#/$defs/_354"
     },
     "javascript.preferences.renameMatchingJsxTags": {
       "$ref": "#/$defs/_361"
@@ -8716,7 +8813,7 @@
       "$ref": "#/$defs/_360"
     },
     "javascript.preferGoToSourceDefinition": {
-      "$ref": "#/$defs/_366"
+      "$ref": "#/$defs/_367"
     },
     "javascript.referencesCodeLens.enabled": {
       "type": "boolean",
@@ -8743,28 +8840,28 @@
       "restricted": false
     },
     "javascript.suggest.autoImports": {
-      "$ref": "#/$defs/_352"
+      "$ref": "#/$defs/_351"
     },
     "javascript.suggest.classMemberSnippets.enabled": {
-      "$ref": "#/$defs/_365"
+      "$ref": "#/$defs/_366"
     },
     "javascript.suggest.completeFunctionCalls": {
-      "$ref": "#/$defs/_324"
+      "$ref": "#/$defs/_323"
     },
     "javascript.suggest.completeJSDocs": {
-      "$ref": "#/$defs/_353"
+      "$ref": "#/$defs/_352"
     },
     "javascript.suggest.enabled": {
-      "$ref": "#/$defs/_364"
+      "$ref": "#/$defs/_365"
     },
     "javascript.suggest.includeAutomaticOptionalChainCompletions": {
-      "$ref": "#/$defs/_325"
+      "$ref": "#/$defs/_324"
     },
     "javascript.suggest.includeCompletionsForImportStatements": {
-      "$ref": "#/$defs/_334"
+      "$ref": "#/$defs/_333"
     },
     "javascript.suggest.jsdoc.generateReturns": {
-      "$ref": "#/$defs/_354"
+      "$ref": "#/$defs/_353"
     },
     "javascript.suggest.names": {
       "type": "boolean",
@@ -8779,7 +8876,7 @@
       "restricted": false
     },
     "javascript.suggest.paths": {
-      "$ref": "#/$defs/_351"
+      "$ref": "#/$defs/_350"
     },
     "javascript.suggestionActions.enabled": {
       "type": "boolean",
@@ -8794,7 +8891,7 @@
       "restricted": false
     },
     "javascript.updateImportsOnFileMove.enabled": {
-      "$ref": "#/$defs/_362"
+      "$ref": "#/$defs/_363"
     },
     "javascript.validate.enable": {
       "type": "boolean",
@@ -10062,6 +10159,17 @@
       "default": "",
       "restricted": false
     },
+    "microsoft.useMsal": {
+      "type": "boolean",
+      "description": "Use the Microsoft Authentication Library (MSAL) to sign in with a Microsoft account.",
+      "scope": 3,
+      "source": {
+        "id": "vscode.microsoft-authentication",
+        "displayName": "Microsoft Account"
+      },
+      "default": false,
+      "restricted": false
+    },
     "multiDiffEditor.experimental.enabled": {
       "type": "boolean",
       "default": true,
@@ -11115,14 +11223,6 @@
         "notebookLayout"
       ],
       "defaultDefaultValue": {},
-      "scope": 3,
-      "restricted": false
-    },
-    "notebook.experimental.cellChat": {
-      "markdownDescription": "Enable experimental floating chat widget in notebooks.",
-      "type": "boolean",
-      "default": false,
-      "defaultDefaultValue": false,
       "scope": 3,
       "restricted": false
     },
@@ -12371,6 +12471,14 @@
       "scope": 4,
       "restricted": false
     },
+    "scm.compactFolders": {
+      "type": "boolean",
+      "description": "Controls whether the Source Control view should render folders in a compact form. In such a form, single child folders will be compressed in a combined tree element.",
+      "default": true,
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
     "scm.countBadge": {
       "type": "string",
       "enum": [
@@ -12623,63 +12731,11 @@
       "scope": 4,
       "restricted": false
     },
-    "scm.showChangesSummary": {
-      "type": "boolean",
-      "description": "Controls whether the All Changes entry is shown for incoming/outgoing changes in the Source Control view.",
-      "default": true,
-      "defaultDefaultValue": true,
-      "scope": 4,
-      "restricted": false
-    },
-    "scm.showHistoryGraph": {
-      "type": "boolean",
-      "description": "Controls whether to render incoming/outgoing changes using a graph in the Source Control view.",
-      "default": true,
-      "defaultDefaultValue": true,
-      "scope": 4,
-      "restricted": false
-    },
-    "scm.showIncomingChanges": {
-      "type": "string",
-      "enum": [
-        "always",
-        "auto",
-        "never"
-      ],
-      "enumDescriptions": [
-        "Always show incoming changes in the Source Control view.",
-        "Only show incoming changes in the Source Control view when any exist.",
-        "Never show incoming changes in the Source Control view."
-      ],
-      "description": "Controls whether incoming changes are shown in the Source Control view.",
-      "default": "auto",
-      "defaultDefaultValue": "auto",
-      "scope": 4,
-      "restricted": false
-    },
     "scm.showInputActionButton": {
       "type": "boolean",
       "markdownDescription": "Controls whether an action button can be shown in the Source Control input.",
       "default": true,
       "defaultDefaultValue": true,
-      "scope": 4,
-      "restricted": false
-    },
-    "scm.showOutgoingChanges": {
-      "type": "string",
-      "enum": [
-        "always",
-        "auto",
-        "never"
-      ],
-      "enumDescriptions": [
-        "Always show outgoing changes in the Source Control view.",
-        "Only show outgoing changes in the Source Control view when any exist.",
-        "Never show outgoing changes in the Source Control view."
-      ],
-      "description": "Controls whether outgoing changes are shown in the Source Control view.",
-      "default": "auto",
-      "defaultDefaultValue": "auto",
       "scope": 4,
       "restricted": false
     },
@@ -13172,6 +13228,14 @@
       ],
       "markdownDescription": "Configure effect of double-clicking a result in a search editor.",
       "defaultDefaultValue": "goToLocation",
+      "scope": 3,
+      "restricted": false
+    },
+    "search.searchEditor.focusResultsOnSearch": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "When a search is triggered, focus the Search Editor results instead of the Search Editor input.",
+      "defaultDefaultValue": false,
       "scope": 3,
       "restricted": false
     },
@@ -14248,6 +14312,14 @@
       "scope": 3,
       "restricted": false
     },
+    "terminal.integrated.experimental.windowsUseConptyDll": {
+      "markdownDescription": "Whether to use the experimental conpty.dll shipped with VS Code, instead of the one bundled with Windows.",
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 3,
+      "restricted": false
+    },
     "terminal.integrated.fastScrollSensitivity": {
       "markdownDescription": "Scrolling speed multiplier when pressing `Alt`.",
       "type": "number",
@@ -14863,6 +14935,14 @@
       "defaultDefaultValue": 100,
       "scope": 3
     },
+    "terminal.integrated.shellIntegration.showCommandGuide": {
+      "restricted": true,
+      "markdownDescription": "Whether to show the command guide when hovering over a command in the terminal.",
+      "type": "boolean",
+      "default": true,
+      "defaultDefaultValue": true,
+      "scope": 3
+    },
     "terminal.integrated.showExitAlert": {
       "description": "Controls whether to show the alert \"The terminal process terminated with exit code\" when exit code is non-zero.",
       "type": "boolean",
@@ -14949,7 +15029,7 @@
     },
     "terminal.integrated.suggest.enabled": {
       "restricted": true,
-      "markdownDescription": "Enables experimental terminal Intellisense suggestions for supported shells (PowerShell) when `#terminal.integrated.shellIntegration.enabled#` is set to `true`.\n\nIf shell integration is installed manually, `VSCODE_SUGGEST` needs to be set to `1` before calling the shell integration script.",
+      "markdownDescription": "Enables experimental terminal Intellisense suggestions for supported shells (PowerShell v7+) when `#terminal.integrated.shellIntegration.enabled#` is set to `true`.\n\nIf shell integration is installed manually, `VSCODE_SUGGEST` needs to be set to `1` before calling the shell integration script.",
       "type": "boolean",
       "default": false,
       "defaultDefaultValue": false,
@@ -14970,16 +15050,18 @@
         "always",
         "exactMatch",
         "exactMatchIgnoreExtension",
+        "ignore",
         "never"
       ],
       "markdownEnumDescriptions": [
         "Always run on `Enter`.",
         "Run on `Enter` when the suggestion is typed in its entirety.",
         "Run on `Enter` when the suggestion is typed in its entirety or when a file is typed without its extension included.",
+        "Ignore suggestions and send the enter directly to the shell without completing. This is used as the default value so the suggest widget is as unobtrusive as possible.",
         "Never run on `Enter`."
       ],
-      "default": "exactMatchIgnoreExtension",
-      "defaultDefaultValue": "exactMatchIgnoreExtension",
+      "default": "ignore",
+      "defaultDefaultValue": "ignore",
       "scope": 3
     },
     "terminal.integrated.suggest.suggestOnTriggerCharacters": {
@@ -16635,7 +16717,7 @@
       "restricted": false
     },
     "typescript.autoClosingTags": {
-      "$ref": "#/$defs/_363"
+      "$ref": "#/$defs/_364"
     },
     "typescript.check.npmIsInstalled": {
       "type": "boolean",
@@ -16677,7 +16759,7 @@
       "restricted": false
     },
     "typescript.experimental.updateImportsOnPaste": {
-      "$ref": "#/$defs/_367"
+      "$ref": "#/$defs/_368"
     },
     "typescript.format.enable": {
       "type": "boolean",
@@ -16704,37 +16786,37 @@
       "restricted": false
     },
     "typescript.format.insertSpaceAfterCommaDelimiter": {
-      "$ref": "#/$defs/_335"
+      "$ref": "#/$defs/_334"
     },
     "typescript.format.insertSpaceAfterConstructor": {
-      "$ref": "#/$defs/_336"
+      "$ref": "#/$defs/_335"
     },
     "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": {
-      "$ref": "#/$defs/_340"
-    },
-    "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": {
       "$ref": "#/$defs/_339"
     },
+    "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": {
+      "$ref": "#/$defs/_338"
+    },
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": {
-      "$ref": "#/$defs/_345"
-    },
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": {
-      "$ref": "#/$defs/_347"
-    },
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": {
       "$ref": "#/$defs/_344"
     },
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": {
-      "$ref": "#/$defs/_343"
-    },
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": {
-      "$ref": "#/$defs/_342"
-    },
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": {
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": {
       "$ref": "#/$defs/_346"
     },
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": {
+      "$ref": "#/$defs/_343"
+    },
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": {
+      "$ref": "#/$defs/_342"
+    },
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": {
+      "$ref": "#/$defs/_341"
+    },
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": {
+      "$ref": "#/$defs/_345"
+    },
     "typescript.format.insertSpaceAfterSemicolonInForStatements": {
-      "$ref": "#/$defs/_337"
+      "$ref": "#/$defs/_336"
     },
     "typescript.format.insertSpaceAfterTypeAssertion": {
       "type": "boolean",
@@ -16749,19 +16831,19 @@
       "restricted": false
     },
     "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": {
-      "$ref": "#/$defs/_338"
+      "$ref": "#/$defs/_337"
     },
     "typescript.format.insertSpaceBeforeFunctionParenthesis": {
-      "$ref": "#/$defs/_341"
+      "$ref": "#/$defs/_340"
     },
     "typescript.format.placeOpenBraceOnNewLineForControlBlocks": {
-      "$ref": "#/$defs/_349"
-    },
-    "typescript.format.placeOpenBraceOnNewLineForFunctions": {
       "$ref": "#/$defs/_348"
     },
+    "typescript.format.placeOpenBraceOnNewLineForFunctions": {
+      "$ref": "#/$defs/_347"
+    },
     "typescript.format.semicolons": {
-      "$ref": "#/$defs/_350"
+      "$ref": "#/$defs/_349"
     },
     "typescript.implementationsCodeLens.enabled": {
       "type": "boolean",
@@ -16788,28 +16870,28 @@
       "restricted": false
     },
     "typescript.inlayHints.enumMemberValues.enabled": {
-      "$ref": "#/$defs/_333"
-    },
-    "typescript.inlayHints.functionLikeReturnTypes.enabled": {
       "$ref": "#/$defs/_332"
     },
-    "typescript.inlayHints.parameterNames.enabled": {
-      "$ref": "#/$defs/_326"
-    },
-    "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": {
-      "$ref": "#/$defs/_327"
-    },
-    "typescript.inlayHints.parameterTypes.enabled": {
-      "$ref": "#/$defs/_328"
-    },
-    "typescript.inlayHints.propertyDeclarationTypes.enabled": {
+    "typescript.inlayHints.functionLikeReturnTypes.enabled": {
       "$ref": "#/$defs/_331"
     },
+    "typescript.inlayHints.parameterNames.enabled": {
+      "$ref": "#/$defs/_325"
+    },
+    "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": {
+      "$ref": "#/$defs/_326"
+    },
+    "typescript.inlayHints.parameterTypes.enabled": {
+      "$ref": "#/$defs/_327"
+    },
+    "typescript.inlayHints.propertyDeclarationTypes.enabled": {
+      "$ref": "#/$defs/_330"
+    },
     "typescript.inlayHints.variableTypes.enabled": {
-      "$ref": "#/$defs/_329"
+      "$ref": "#/$defs/_328"
     },
     "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": {
-      "$ref": "#/$defs/_330"
+      "$ref": "#/$defs/_329"
     },
     "typescript.locale": {
       "type": "string",
@@ -16861,13 +16943,16 @@
       "restricted": true
     },
     "typescript.preferences.autoImportFileExcludePatterns": {
+      "$ref": "#/$defs/_357"
+    },
+    "typescript.preferences.autoImportSpecifierExcludeRegexes": {
       "$ref": "#/$defs/_358"
     },
     "typescript.preferences.importModuleSpecifier": {
-      "$ref": "#/$defs/_356"
+      "$ref": "#/$defs/_355"
     },
     "typescript.preferences.importModuleSpecifierEnding": {
-      "$ref": "#/$defs/_357"
+      "$ref": "#/$defs/_356"
     },
     "typescript.preferences.includePackageJsonAutoImports": {
       "type": "string",
@@ -16913,6 +16998,9 @@
       "defaultDefaultValue": "auto",
       "restricted": false
     },
+    "typescript.preferences.organizeImports": {
+      "$ref": "#/$defs/_362"
+    },
     "typescript.preferences.preferTypeOnlyAutoImports": {
       "type": "boolean",
       "default": false,
@@ -16926,7 +17014,7 @@
       "restricted": false
     },
     "typescript.preferences.quoteStyle": {
-      "$ref": "#/$defs/_355"
+      "$ref": "#/$defs/_354"
     },
     "typescript.preferences.renameMatchingJsxTags": {
       "$ref": "#/$defs/_361"
@@ -16938,7 +17026,7 @@
       "$ref": "#/$defs/_360"
     },
     "typescript.preferGoToSourceDefinition": {
-      "$ref": "#/$defs/_366"
+      "$ref": "#/$defs/_367"
     },
     "typescript.referencesCodeLens.enabled": {
       "type": "boolean",
@@ -16977,28 +17065,28 @@
       "restricted": false
     },
     "typescript.suggest.autoImports": {
-      "$ref": "#/$defs/_352"
+      "$ref": "#/$defs/_351"
     },
     "typescript.suggest.classMemberSnippets.enabled": {
-      "$ref": "#/$defs/_365"
+      "$ref": "#/$defs/_366"
     },
     "typescript.suggest.completeFunctionCalls": {
-      "$ref": "#/$defs/_324"
+      "$ref": "#/$defs/_323"
     },
     "typescript.suggest.completeJSDocs": {
-      "$ref": "#/$defs/_353"
+      "$ref": "#/$defs/_352"
     },
     "typescript.suggest.enabled": {
-      "$ref": "#/$defs/_364"
+      "$ref": "#/$defs/_365"
     },
     "typescript.suggest.includeAutomaticOptionalChainCompletions": {
-      "$ref": "#/$defs/_325"
+      "$ref": "#/$defs/_324"
     },
     "typescript.suggest.includeCompletionsForImportStatements": {
-      "$ref": "#/$defs/_334"
+      "$ref": "#/$defs/_333"
     },
     "typescript.suggest.jsdoc.generateReturns": {
-      "$ref": "#/$defs/_354"
+      "$ref": "#/$defs/_353"
     },
     "typescript.suggest.objectLiteralMethodSnippets.enabled": {
       "type": "boolean",
@@ -17013,7 +17101,7 @@
       "restricted": false
     },
     "typescript.suggest.paths": {
-      "$ref": "#/$defs/_351"
+      "$ref": "#/$defs/_350"
     },
     "typescript.suggestionActions.enabled": {
       "type": "boolean",
@@ -17301,20 +17389,8 @@
     },
     "typescript.tsserver.web.projectWideIntellisense.suppressSemanticErrors": {
       "type": "boolean",
-      "default": true,
-      "description": "Suppresses semantic errors on web even when project wide IntelliSense is enabled. This is always on when project wide IntelliSense is not enabled or available. See `#typescript.tsserver.web.projectWideIntellisense.enabled#`",
-      "scope": 3,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "typescript.tsserver.web.typeAcquisition.enabled": {
-      "type": "boolean",
       "default": false,
-      "description": "Enable/disable package acquisition on the web. This enables IntelliSense for imported packages. Requires `#typescript.tsserver.web.projectWideIntellisense.enabled#`. Currently not supported for Safari.",
+      "description": "Suppresses semantic errors on web even when project wide IntelliSense is enabled. This is always on when project wide IntelliSense is not enabled or available. See `#typescript.tsserver.web.projectWideIntellisense.enabled#`",
       "scope": 3,
       "source": {
         "id": "vscode.typescript-language-features",
@@ -17323,8 +17399,20 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
+    "typescript.tsserver.web.typeAcquisition.enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable package acquisition on the web. This enables IntelliSense for imported packages. Requires `#typescript.tsserver.web.projectWideIntellisense.enabled#`. Currently not supported for Safari.",
+      "scope": 3,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
     "typescript.updateImportsOnFileMove.enabled": {
-      "$ref": "#/$defs/_362"
+      "$ref": "#/$defs/_363"
     },
     "typescript.validate.enable": {
       "type": "boolean",
@@ -17547,6 +17635,15 @@
       "description": "Controls whether the main menus can be opened via Alt-key shortcuts. Disabling mnemonics allows to bind these Alt-key shortcuts to editor commands instead.",
       "included": true,
       "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "window.experimentalControlOverlay": {
+      "type": "boolean",
+      "included": true,
+      "markdownDescription": "Show the native window controls when `#window.titleBarStyle#` is set to `custom` (Linux only).",
+      "default": true,
+      "defaultDefaultValue": true,
+      "scope": 3,
       "restricted": false
     },
     "window.menuBarVisibility": {
@@ -18333,7 +18430,7 @@
     },
     "workbench.editor.enablePreview": {
       "type": "boolean",
-      "description": "Controls whether opened editors show as preview editors. Preview editors do not stay open, are reused until explicitly set to be kept open (via double-click or editing), and show file names in italics.",
+      "description": "Controls whether preview mode is used when editors open. There is a maximum of one preview mode editor per editor group. This editor displays its filename in italics on its tab or title label and in the Open Editors view. Its contents will be replaced by the next editor opened in preview mode. Making a change in a preview mode editor will persist it, as will a double-click on its label, or the 'Keep Open' option in its label context menu. Opening a file from Explorer with a double-click persists its editor immediately.",
       "default": true,
       "defaultDefaultValue": true,
       "scope": 3,
@@ -18861,14 +18958,6 @@
       "markdownDescription": "Controls whether to surface cloud changes which partially match the current session.",
       "defaultDefaultValue": false,
       "scope": 3,
-      "restricted": false
-    },
-    "workbench.experimental.enableNewProfilesUI": {
-      "type": "boolean",
-      "description": "Enables the new profiles UI.",
-      "default": false,
-      "scope": 1,
-      "defaultDefaultValue": false,
       "restricted": false
     },
     "workbench.experimental.share.enabled": {
@@ -20969,14 +21058,14 @@
         "onCode",
         "on"
       ],
-      "default": "on",
+      "default": "onCode",
       "enumDescriptions": [
         "Disable the code action menu.",
         "Show the code action menu when the cursor is on lines with code.",
         "Show the code action menu when the cursor is on lines with code or on empty lines."
       ],
       "description": "Enables the Code Action lightbulb in the editor.",
-      "defaultDefaultValue": "on",
+      "defaultDefaultValue": "onCode",
       "scope": 5,
       "restricted": false
     },
@@ -21344,7 +21433,7 @@
               "type": "boolean"
             },
             {
-              "$ref": "#/$defs/_368"
+              "$ref": "#/$defs/_369"
             }
           ],
           "default": "off",
@@ -21356,7 +21445,7 @@
               "type": "boolean"
             },
             {
-              "$ref": "#/$defs/_368"
+              "$ref": "#/$defs/_369"
             }
           ],
           "default": "off",
@@ -21368,7 +21457,7 @@
               "type": "boolean"
             },
             {
-              "$ref": "#/$defs/_368"
+              "$ref": "#/$defs/_369"
             }
           ],
           "default": "on",
@@ -21483,7 +21572,7 @@
       "items": {
         "anyOf": [
           {
-            "$ref": "#/$defs/_369"
+            "$ref": "#/$defs/_370"
           },
           {
             "type": [
@@ -21491,7 +21580,7 @@
             ],
             "properties": {
               "column": {
-                "$ref": "#/$defs/_369"
+                "$ref": "#/$defs/_370"
               },
               "color": {
                 "type": "string",
@@ -24593,7 +24682,10 @@
       ],
       "items": {
         "type": "string"
-      }
+      },
+      "tags": [
+        "setup"
+      ]
     },
     "_295": {
       "type": "boolean",
@@ -24614,7 +24706,7 @@
           ],
           "properties": {
             "onAttach": {
-              "$ref": "#/$defs/_370"
+              "$ref": "#/$defs/_371"
             }
           }
         },
@@ -24625,7 +24717,7 @@
           ],
           "properties": {
             "onceBreakpointResolved": {
-              "$ref": "#/$defs/_370"
+              "$ref": "#/$defs/_371"
             }
           }
         }
@@ -24757,7 +24849,10 @@
       "type": "string",
       "description": "Absolute path to the working directory of the program being debugged. If you've set localRoot then cwd will match that value otherwise it falls back to your workspaceFolder",
       "default": "${workspaceFolder}",
-      "docDefault": "localRoot || ${workspaceFolder}"
+      "docDefault": "localRoot || ${workspaceFolder}",
+      "tags": [
+        "setup"
+      ]
     },
     "_312": {
       "type": [
@@ -24789,7 +24884,10 @@
         ]
       },
       "markdownDescription": "Environment variables passed to the program. The value `null` removes the variable from the environment.",
-      "default": {}
+      "default": {},
+      "tags": [
+        "setup"
+      ]
     },
     "_316": {
       "type": "string",
@@ -24816,7 +24914,10 @@
         "null"
       ],
       "description": "Command to run in the launched terminal. If not provided, the terminal will open without launching a program.",
-      "default": "npm start"
+      "default": "npm start",
+      "tags": [
+        "setup"
+      ]
     },
     "_320": {
       "type": "string",
@@ -24851,18 +24952,10 @@
       ]
     },
     "_322": {
-      "type": "array",
-      "description": "Optional arguments passed to the runtime executable.",
-      "items": {
-        "type": "string"
-      },
-      "default": []
-    },
-    "_323": {
       "type": "string",
       "pattern": "^\\${.*}$"
     },
-    "_324": {
+    "_323": {
       "type": "boolean",
       "default": false,
       "description": "Complete functions with their parameter signature.",
@@ -24874,7 +24967,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_325": {
+    "_324": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable showing completions on potentially undefined values that insert an optional chain call. Requires strict null checks to be enabled.",
@@ -24886,7 +24979,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_326": {
+    "_325": {
       "type": "string",
       "enum": [
         "none",
@@ -24908,7 +25001,7 @@
       "defaultDefaultValue": "none",
       "restricted": false
     },
-    "_327": {
+    "_326": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "Suppress parameter name hints on arguments whose text is identical to the parameter name.",
@@ -24920,7 +25013,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_328": {
+    "_327": {
       "type": "boolean",
       "default": false,
       "markdownDescription": "Enable/disable inlay hints for implicit parameter types:\n```typescript\n\nel.addEventListener('click', e /* :MouseEvent */ => ...)\n \n```",
@@ -24932,7 +25025,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_329": {
+    "_328": {
       "type": "boolean",
       "default": false,
       "markdownDescription": "Enable/disable inlay hints for implicit variable types:\n```typescript\n\nconst foo /* :number */ = Date.now();\n \n```",
@@ -24944,7 +25037,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_330": {
+    "_329": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "Suppress type hints on variables whose name is identical to the type name.",
@@ -24956,7 +25049,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_331": {
+    "_330": {
       "type": "boolean",
       "default": false,
       "markdownDescription": "Enable/disable inlay hints for implicit types on property declarations:\n```typescript\n\nclass Foo {\n\tprop /* :number */ = Date.now();\n}\n \n```",
@@ -24968,7 +25061,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_332": {
+    "_331": {
       "type": "boolean",
       "default": false,
       "markdownDescription": "Enable/disable inlay hints for implicit return types on function signatures:\n```typescript\n\nfunction foo() /* :number */ {\n\treturn Date.now();\n} \n \n```",
@@ -24980,7 +25073,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_333": {
+    "_332": {
       "type": "boolean",
       "default": false,
       "markdownDescription": "Enable/disable inlay hints for member values in enum declarations:\n```typescript\n\nenum MyValue {\n\tA /* = 0 */;\n\tB /* = 1 */;\n}\n \n```",
@@ -24992,7 +25085,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_334": {
+    "_333": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable auto-import-style completions on partially-typed import statements.",
@@ -25004,7 +25097,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_335": {
+    "_334": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after a comma delimiter.",
@@ -25016,7 +25109,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_336": {
+    "_335": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling after the constructor keyword.",
@@ -25028,7 +25121,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_337": {
+    "_336": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after a semicolon in a for statement.",
@@ -25040,7 +25133,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_338": {
+    "_337": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after a binary operator.",
@@ -25052,7 +25145,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_339": {
+    "_338": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after keywords in a control flow statement.",
@@ -25064,7 +25157,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_340": {
+    "_339": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after function keyword for anonymous functions.",
@@ -25076,7 +25169,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_341": {
+    "_340": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling before function argument parentheses.",
@@ -25088,7 +25181,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_342": {
+    "_341": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling after opening and before closing non-empty parenthesis.",
@@ -25100,7 +25193,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_343": {
+    "_342": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling after opening and before closing non-empty brackets.",
@@ -25112,7 +25205,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_344": {
+    "_343": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after opening and before closing non-empty braces.",
@@ -25124,7 +25217,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_345": {
+    "_344": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after opening and before closing empty braces.",
@@ -25136,7 +25229,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_346": {
+    "_345": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling after opening and before closing template string braces.",
@@ -25148,7 +25241,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_347": {
+    "_346": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling after opening and before closing JSX expression braces.",
@@ -25160,7 +25253,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_348": {
+    "_347": {
       "type": "boolean",
       "default": false,
       "description": "Defines whether an open brace is put onto a new line for functions or not.",
@@ -25172,7 +25265,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_349": {
+    "_348": {
       "type": "boolean",
       "default": false,
       "description": "Defines whether an open brace is put onto a new line for control blocks or not.",
@@ -25184,7 +25277,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_350": {
+    "_349": {
       "type": "string",
       "default": "ignore",
       "description": "Defines handling of optional semicolons.",
@@ -25206,7 +25299,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_351": {
+    "_350": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable suggestions for paths in import statements and require calls.",
@@ -25218,7 +25311,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_352": {
+    "_351": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable auto import suggestions.",
@@ -25230,7 +25323,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_353": {
+    "_352": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable suggestion to complete JSDoc comments.",
@@ -25242,7 +25335,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_354": {
+    "_353": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "Enable/disable generating `@returns` annotations for JSDoc templates.",
@@ -25254,7 +25347,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_355": {
+    "_354": {
       "type": "string",
       "enum": [
         "auto",
@@ -25276,7 +25369,7 @@
       "defaultDefaultValue": "auto",
       "restricted": false
     },
-    "_356": {
+    "_355": {
       "type": "string",
       "enum": [
         "shortest",
@@ -25300,7 +25393,7 @@
       "defaultDefaultValue": "shortest",
       "restricted": false
     },
-    "_357": {
+    "_356": {
       "type": "string",
       "enum": [
         "auto",
@@ -25330,12 +25423,26 @@
       "defaultDefaultValue": "auto",
       "restricted": false
     },
-    "_358": {
+    "_357": {
       "type": "array",
       "items": {
         "type": "string"
       },
       "markdownDescription": "Specify glob patterns of files to exclude from auto imports. Relative paths are resolved relative to the workspace root. Patterns are evaluated using tsconfig.json [`exclude`](https://www.typescriptlang.org/tsconfig#exclude) semantics.",
+      "scope": 4,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "default": [],
+      "restricted": false
+    },
+    "_358": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "markdownDescription": "Specify regular expressions to exclude auto imports with matching import specifiers. Examples:\n\n- `^node:`\n- `lib/internal` (slashes don't need to be escaped...)\n- `/lib\\/internal/i` (...unless including surrounding slashes for `i` or `u` flags)\n- `^lodash$` (only allow subpath imports from lodash)",
       "scope": 4,
       "source": {
         "id": "vscode.typescript-language-features",
@@ -25382,6 +25489,83 @@
       "restricted": false
     },
     "_362": {
+      "type": "object",
+      "markdownDescription": "Advanced preferences that control how imports are ordered.",
+      "properties": {
+        "caseSensitivity": {
+          "type": "string",
+          "enum": [
+            "auto",
+            "caseInsensitive",
+            "caseSensitive"
+          ],
+          "markdownEnumDescriptions": [
+            "Detect case-sensitivity for import sorting.",
+            "%typescript.preferences.organizeImports.caseSensitivity.insensitive",
+            "Sort imports case-sensitively."
+          ],
+          "default": "auto"
+        },
+        "typeOrder": {
+          "type": "string",
+          "enum": [
+            "auto",
+            "last",
+            "inline",
+            "first"
+          ],
+          "default": "auto",
+          "markdownEnumDescriptions": [
+            "Detect where type-only named imports should be sorted.",
+            "Type only named imports are sorted to the end of the import list.",
+            "Named imports are sorted by name only.",
+            "Type only named imports are sorted to the end of the import list."
+          ]
+        },
+        "unicodeCollation": {
+          "type": "string",
+          "enum": [
+            "ordinal",
+            "unicode"
+          ],
+          "markdownEnumDescriptions": [
+            "Sort imports using the numeric value of each code point.",
+            "Sort imports using the Unicode code collation."
+          ],
+          "default": "ordinal"
+        },
+        "locale": {
+          "type": "string",
+          "markdownDescription": "Overrides the locale used for collation. Specify `auto` to use the UI locale. Only applies to `organizeImportsCollation: 'unicode'`."
+        },
+        "numericCollation": {
+          "type": "boolean",
+          "markdownDescription": "Sort numeric strings by integer value."
+        },
+        "accentCollation": {
+          "type": "boolean",
+          "markdownDescription": "Compare characters with diacritical marks as unequal to base character."
+        },
+        "caseFirst": {
+          "type": "string",
+          "markdownDescription": "Indicates whether upper-case comes before lower-case. Only applies to `organizeImportsCollation: 'unicode'`.",
+          "enum": [
+            "default",
+            "upper",
+            "lower"
+          ],
+          "default": "default"
+        }
+      },
+      "scope": 3,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "default": {},
+      "restricted": false
+    },
+    "_363": {
       "type": "string",
       "enum": [
         "prompt",
@@ -25403,7 +25587,7 @@
       "defaultDefaultValue": "prompt",
       "restricted": false
     },
-    "_363": {
+    "_364": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable automatic closing of JSX tags.",
@@ -25415,7 +25599,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_364": {
+    "_365": {
       "type": "boolean",
       "default": true,
       "description": "Enabled/disable autocomplete suggestions.",
@@ -25427,7 +25611,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_365": {
+    "_366": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable snippet completions for class members.",
@@ -25439,7 +25623,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_366": {
+    "_367": {
       "type": "boolean",
       "default": false,
       "description": "Makes Go to Definition avoid type declaration files when possible by triggering Go to Source Definition instead. This allows Go to Source Definition to be triggered with the mouse gesture.",
@@ -25451,7 +25635,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_367": {
+    "_368": {
       "scope": 3,
       "type": "boolean",
       "default": false,
@@ -25466,7 +25650,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_368": {
+    "_369": {
       "type": "string",
       "enum": [
         "on",
@@ -25479,11 +25663,11 @@
         "Quick suggestions are disabled"
       ]
     },
-    "_369": {
+    "_370": {
       "type": "number",
       "description": "Number of monospace characters at which this editor ruler will render."
     },
-    "_370": {
+    "_371": {
       "type": "number",
       "default": 32
     }

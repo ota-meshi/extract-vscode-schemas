@@ -1567,10 +1567,6 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon to annotate a collapsed section in notebook editors.: $(notebook-collapsed)"
     },
-    "notebook-config": {
-      "$ref": "#/definitions/icons",
-      "markdownDescription": "Icon to configure in notebook editors.: $(notebook-config)"
-    },
     "notebook-copy": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon to copy content to clipboard: $(notebook-copy)"
@@ -1578,6 +1574,10 @@
     "notebook-delete-cell": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon to delete a cell in notebook editors.: $(notebook-delete-cell)"
+    },
+    "notebook-diff-cell-toggle-whitespace": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for the toggle whitespace action in the diff editor.: $(notebook-diff-cell-toggle-whitespace)"
     },
     "notebook-diff-editor-next-change": {
       "$ref": "#/definitions/icons",
