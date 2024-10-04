@@ -80,7 +80,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_79"
+          "$ref": "#/$defs/_77"
         }
       ]
     },
@@ -91,7 +91,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_79"
+          "$ref": "#/$defs/_77"
         }
       ]
     },
@@ -130,7 +130,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -152,7 +152,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_80"
+          "$ref": "#/$defs/_78"
         }
       ]
     },
@@ -174,7 +174,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_80"
+          "$ref": "#/$defs/_78"
         }
       ]
     },
@@ -185,7 +185,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_80"
+          "$ref": "#/$defs/_78"
         }
       ]
     },
@@ -203,6 +203,50 @@
               "body": "${1:rgba(231, 231, 231, 0.6)}"
             }
           ]
+        }
+      ]
+    },
+    "activityErrorBadge.background": {
+      "description": "Background color of the error activity badge",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_21"
+        }
+      ]
+    },
+    "activityErrorBadge.foreground": {
+      "description": "Foreground color of the error activity badge",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_12"
+        }
+      ]
+    },
+    "activityWarningBadge.background": {
+      "description": "Background color of the warning activity badge",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_22"
+        }
+      ]
+    },
+    "activityWarningBadge.foreground": {
+      "description": "Foreground color of the warning activity badge",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_12"
         }
       ]
     },
@@ -235,7 +279,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_54"
         }
       ]
     },
@@ -246,7 +290,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -357,7 +401,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -368,7 +412,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_49"
+          "$ref": "#/$defs/_52"
         }
       ]
     },
@@ -412,7 +456,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_48"
+          "$ref": "#/$defs/_51"
         }
       ]
     },
@@ -445,7 +489,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_59"
+          "$ref": "#/$defs/_41"
         }
       ]
     },
@@ -467,7 +511,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_58"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#d18616}"
+            }
+          ]
         }
       ]
     },
@@ -478,7 +528,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_60"
+          "$ref": "#/$defs/_42"
         }
       ]
     },
@@ -550,7 +600,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_62"
+          "$ref": "#/$defs/_61"
         }
       ]
     },
@@ -925,7 +975,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_86"
+          "$ref": "#/$defs/_85"
         }
       ]
     },
@@ -953,7 +1003,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_59"
+          "$ref": "#/$defs/_41"
         }
       ]
     },
@@ -964,7 +1014,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_86"
+          "$ref": "#/$defs/_85"
         }
       ]
     },
@@ -986,7 +1036,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_90"
+          "$ref": "#/$defs/_91"
         }
       ]
     },
@@ -1008,7 +1058,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_59"
+          "$ref": "#/$defs/_41"
         }
       ]
     },
@@ -1019,7 +1069,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_59"
+          "$ref": "#/$defs/_41"
         }
       ]
     },
@@ -1046,10 +1096,10 @@
       ]
     },
     "debugIcon.stepOutForeground": {
-      "$ref": "#/$defs/_91"
+      "$ref": "#/$defs/_92"
     },
     "debugIcon.stepOverForeground": {
-      "$ref": "#/$defs/_91"
+      "$ref": "#/$defs/_92"
     },
     "debugIcon.stopForeground": {
       "description": "Debug toolbar icon for stop.",
@@ -1058,7 +1108,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_90"
+          "$ref": "#/$defs/_91"
         }
       ]
     },
@@ -1080,7 +1130,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_90"
+          "$ref": "#/$defs/_91"
         }
       ]
     },
@@ -1159,7 +1209,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_73"
+          "$ref": "#/$defs/_84"
         }
       ]
     },
@@ -1795,7 +1845,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_74"
+          "$ref": "#/$defs/_72"
         }
       ]
     },
@@ -1834,7 +1884,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_67"
+          "$ref": "#/$defs/_70"
         }
       ]
     },
@@ -1845,7 +1895,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_66"
+          "$ref": "#/$defs/_64"
         }
       ]
     },
@@ -2033,7 +2083,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_68"
+          "$ref": "#/$defs/_71"
         }
       ]
     },
@@ -2085,7 +2135,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_68"
+          "$ref": "#/$defs/_71"
         }
       ]
     },
@@ -2118,7 +2168,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_54"
         }
       ]
     },
@@ -2129,7 +2179,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -2220,7 +2270,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -2231,7 +2281,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -2242,7 +2292,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -2304,7 +2354,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -2315,7 +2365,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -2326,7 +2376,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -2337,7 +2387,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -2348,7 +2398,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -2359,7 +2409,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -2370,7 +2420,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -2381,7 +2431,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -2392,7 +2442,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -2403,7 +2453,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -2414,7 +2464,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -2425,7 +2475,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -2453,7 +2503,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_81"
+          "$ref": "#/$defs/_83"
         }
       ]
     },
@@ -2464,7 +2514,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_81"
+          "$ref": "#/$defs/_83"
         }
       ]
     },
@@ -2475,7 +2525,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_69"
+          "$ref": "#/$defs/_66"
         }
       ]
     },
@@ -2519,7 +2569,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_64"
+          "$ref": "#/$defs/_62"
         }
       ]
     },
@@ -2585,7 +2635,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_66"
+          "$ref": "#/$defs/_64"
         }
       ]
     },
@@ -2596,7 +2646,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_76"
+          "$ref": "#/$defs/_74"
         }
       ]
     },
@@ -2607,7 +2657,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_77"
+          "$ref": "#/$defs/_75"
         }
       ]
     },
@@ -2717,7 +2767,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_89"
+          "$ref": "#/$defs/_90"
         }
       ]
     },
@@ -2750,7 +2800,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_52"
+          "$ref": "#/$defs/_55"
         }
       ]
     },
@@ -2866,7 +2916,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_53"
+          "$ref": "#/$defs/_56"
         }
       ]
     },
@@ -2923,7 +2973,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -2934,7 +2984,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -2945,7 +2995,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -2956,7 +3006,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -2967,7 +3017,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -3013,7 +3063,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -3024,7 +3074,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -3035,7 +3085,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -3046,7 +3096,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -3057,7 +3107,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -3272,7 +3322,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_71"
+          "$ref": "#/$defs/_68"
         }
       ]
     },
@@ -3294,7 +3344,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_72"
+          "$ref": "#/$defs/_69"
         }
       ]
     },
@@ -3344,7 +3394,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_64"
+          "$ref": "#/$defs/_62"
         }
       ]
     },
@@ -3366,7 +3416,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_64"
+          "$ref": "#/$defs/_62"
         }
       ]
     },
@@ -3405,7 +3455,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_65"
+          "$ref": "#/$defs/_63"
         }
       ]
     },
@@ -3433,7 +3483,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_52"
+          "$ref": "#/$defs/_55"
         }
       ]
     },
@@ -3444,7 +3494,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_52"
+          "$ref": "#/$defs/_55"
         }
       ]
     },
@@ -3506,7 +3556,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_57"
+          "$ref": "#/$defs/_40"
         }
       ]
     },
@@ -3564,7 +3614,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_82"
+          "$ref": "#/$defs/_79"
         }
       ]
     },
@@ -3785,7 +3835,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_53"
+          "$ref": "#/$defs/_56"
         }
       ]
     },
@@ -3807,7 +3857,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_53"
+          "$ref": "#/$defs/_56"
         }
       ]
     },
@@ -3818,7 +3868,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_54"
         }
       ]
     },
@@ -3829,7 +3879,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -3840,7 +3890,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -3945,7 +3995,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_73"
+          "$ref": "#/$defs/_84"
         }
       ]
     },
@@ -4039,7 +4089,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -4061,7 +4111,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -4072,7 +4122,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_49"
+          "$ref": "#/$defs/_52"
         }
       ]
     },
@@ -4094,7 +4144,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -4105,7 +4155,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_49"
+          "$ref": "#/$defs/_52"
         }
       ]
     },
@@ -4116,7 +4166,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_48"
+          "$ref": "#/$defs/_51"
         }
       ]
     },
@@ -4225,7 +4275,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_92"
+          "$ref": "#/$defs/_81"
         }
       ]
     },
@@ -4253,7 +4303,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_93"
+          "$ref": "#/$defs/_82"
         }
       ]
     },
@@ -4264,7 +4314,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_55"
+          "$ref": "#/$defs/_58"
         }
       ]
     },
@@ -4275,7 +4325,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_95"
+          "$ref": "#/$defs/_94"
         }
       ]
     },
@@ -4286,7 +4336,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_85"
+          "$ref": "#/$defs/_86"
         }
       ]
     },
@@ -4297,7 +4347,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_93"
+          "$ref": "#/$defs/_82"
         }
       ]
     },
@@ -4308,7 +4358,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_95"
+          "$ref": "#/$defs/_94"
         }
       ]
     },
@@ -4336,7 +4386,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_85"
+          "$ref": "#/$defs/_86"
         }
       ]
     },
@@ -4419,7 +4469,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_83"
+          "$ref": "#/$defs/_80"
         }
       ]
     },
@@ -4463,7 +4513,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_44"
+          "$ref": "#/$defs/_47"
         }
       ]
     },
@@ -4507,7 +4557,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_44"
+          "$ref": "#/$defs/_47"
         }
       ]
     },
@@ -4518,7 +4568,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_42"
+          "$ref": "#/$defs/_45"
         }
       ]
     },
@@ -4529,7 +4579,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_40"
+          "$ref": "#/$defs/_43"
         }
       ]
     },
@@ -4540,7 +4590,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -4551,7 +4601,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_41"
+          "$ref": "#/$defs/_44"
         }
       ]
     },
@@ -4579,7 +4629,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_47"
+          "$ref": "#/$defs/_50"
         }
       ]
     },
@@ -4618,7 +4668,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_45"
+          "$ref": "#/$defs/_48"
         }
       ]
     },
@@ -4657,7 +4707,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_46"
+          "$ref": "#/$defs/_49"
         }
       ]
     },
@@ -4679,7 +4729,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_45"
+          "$ref": "#/$defs/_48"
         }
       ]
     },
@@ -4690,7 +4740,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_52"
+          "$ref": "#/$defs/_55"
         }
       ]
     },
@@ -4763,7 +4813,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_56"
+          "$ref": "#/$defs/_59"
         }
       ]
     },
@@ -4774,7 +4824,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_56"
+          "$ref": "#/$defs/_59"
         }
       ]
     },
@@ -4785,7 +4835,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_54"
         }
       ]
     },
@@ -4796,7 +4846,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -4807,7 +4857,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -4818,7 +4868,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_55"
+          "$ref": "#/$defs/_58"
         }
       ]
     },
@@ -4935,7 +4985,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_53"
+          "$ref": "#/$defs/_56"
         }
       ]
     },
@@ -4957,7 +5007,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_53"
+          "$ref": "#/$defs/_56"
         }
       ]
     },
@@ -5012,7 +5062,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_52"
+          "$ref": "#/$defs/_55"
         }
       ]
     },
@@ -5045,7 +5095,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_46"
+          "$ref": "#/$defs/_49"
         }
       ]
     },
@@ -5078,7 +5128,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_47"
+          "$ref": "#/$defs/_50"
         }
       ]
     },
@@ -5089,7 +5139,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -5166,7 +5216,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -5363,7 +5413,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_84"
+          "$ref": "#/$defs/_87"
         }
       ]
     },
@@ -5572,7 +5622,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_57"
+          "$ref": "#/$defs/_40"
         }
       ]
     },
@@ -5673,7 +5723,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_89"
+          "$ref": "#/$defs/_90"
         }
       ]
     },
@@ -5790,7 +5840,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_52"
+          "$ref": "#/$defs/_55"
         }
       ]
     },
@@ -5912,7 +5962,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_52"
+          "$ref": "#/$defs/_55"
         }
       ]
     },
@@ -5956,7 +6006,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_52"
+          "$ref": "#/$defs/_55"
         }
       ]
     },
@@ -5967,7 +6017,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_52"
+          "$ref": "#/$defs/_55"
         }
       ]
     },
@@ -5995,7 +6045,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_59"
+          "$ref": "#/$defs/_41"
         }
       ]
     },
@@ -6061,7 +6111,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_59"
+          "$ref": "#/$defs/_41"
         }
       ]
     },
@@ -6270,7 +6320,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_77"
+          "$ref": "#/$defs/_75"
         }
       ]
     },
@@ -6408,7 +6458,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_70"
+          "$ref": "#/$defs/_67"
         }
       ]
     },
@@ -6463,7 +6513,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -6491,7 +6541,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_70"
+          "$ref": "#/$defs/_67"
         }
       ]
     },
@@ -6519,7 +6569,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -6530,7 +6580,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_69"
+          "$ref": "#/$defs/_66"
         }
       ]
     },
@@ -6558,7 +6608,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -6658,7 +6708,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -6691,7 +6741,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_61"
+          "$ref": "#/$defs/_60"
         }
       ]
     },
@@ -6731,7 +6781,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_54"
         }
       ]
     },
@@ -6742,7 +6792,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -6753,7 +6803,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -6764,7 +6814,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_62"
+          "$ref": "#/$defs/_61"
         }
       ]
     },
@@ -6775,7 +6825,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_42"
+          "$ref": "#/$defs/_45"
         }
       ]
     },
@@ -6786,7 +6836,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_40"
+          "$ref": "#/$defs/_43"
         }
       ]
     },
@@ -6797,7 +6847,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -6819,7 +6869,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_50"
+          "$ref": "#/$defs/_53"
         }
       ]
     },
@@ -6841,7 +6891,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_41"
+          "$ref": "#/$defs/_44"
         }
       ]
     },
@@ -6856,50 +6906,6 @@
         }
       ]
     },
-    "scm.historyItemAdditionsForeground": {
-      "description": "History item additions foreground color.",
-      "oneOf": [
-        {
-          "$ref": "#/$defs/_1"
-        },
-        {
-          "$ref": "#/$defs/_92"
-        }
-      ]
-    },
-    "scm.historyItemDeletionsForeground": {
-      "description": "History item deletions foreground color.",
-      "oneOf": [
-        {
-          "$ref": "#/$defs/_1"
-        },
-        {
-          "$ref": "#/$defs/_93"
-        }
-      ]
-    },
-    "scm.historyItemSelectedStatisticsBorder": {
-      "description": "History item selected statistics border color.",
-      "oneOf": [
-        {
-          "$ref": "#/$defs/_1"
-        },
-        {
-          "$ref": "#/$defs/_50"
-        }
-      ]
-    },
-    "scm.historyItemStatisticsBorder": {
-      "description": "History item statistics border color.",
-      "oneOf": [
-        {
-          "$ref": "#/$defs/_1"
-        },
-        {
-          "$ref": "#/$defs/_33"
-        }
-      ]
-    },
     "scmGraph.foreground1": {
       "description": "Source control graph foreground color (1).",
       "oneOf": [
@@ -6907,7 +6913,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_59"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#ffb000}"
+            }
+          ]
         }
       ]
     },
@@ -6918,7 +6930,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_21"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#dc267f}"
+            }
+          ]
         }
       ]
     },
@@ -6929,40 +6947,64 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_22"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#994f00}"
+            }
+          ]
         }
       ]
     },
-    "scmGraph.historyItemGroupBase": {
-      "description": "Base history item group color.",
+    "scmGraph.foreground4": {
+      "description": "Source control graph foreground color (4).",
       "oneOf": [
         {
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_58"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#40b0a6}"
+            }
+          ]
         }
       ]
     },
-    "scmGraph.historyItemGroupLocal": {
-      "description": "Local history item group color.",
+    "scmGraph.foreground5": {
+      "description": "Source control graph foreground color (5).",
       "oneOf": [
         {
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_23"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#b66dff}"
+            }
+          ]
         }
       ]
     },
-    "scmGraph.historyItemGroupRemote": {
-      "description": "Remote history item group color.",
+    "scmGraph.historyItemBaseRefColor": {
+      "description": "History item base reference color.",
       "oneOf": [
         {
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_60"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#ea5c00}"
+            }
+          ]
         }
       ]
     },
@@ -6973,7 +7015,29 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_92"
+          "$ref": "#/$defs/_81"
+        }
+      ]
+    },
+    "scmGraph.historyItemHoverDefaultLabelBackground": {
+      "description": "History item hover default label background color.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_10"
+        }
+      ]
+    },
+    "scmGraph.historyItemHoverDefaultLabelForeground": {
+      "description": "History item hover default label foreground color.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_0"
+        },
+        {
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -6984,7 +7048,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_93"
+          "$ref": "#/$defs/_82"
         }
       ]
     },
@@ -6995,7 +7059,29 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
+        }
+      ]
+    },
+    "scmGraph.historyItemRefColor": {
+      "description": "History item reference color.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_23"
+        }
+      ]
+    },
+    "scmGraph.historyItemRemoteRefColor": {
+      "description": "History item remote reference color.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_42"
         }
       ]
     },
@@ -7233,7 +7319,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -7244,7 +7330,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_70"
+          "$ref": "#/$defs/_67"
         }
       ]
     },
@@ -7388,7 +7474,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_77"
+          "$ref": "#/$defs/_75"
         }
       ]
     },
@@ -7509,7 +7595,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_76"
+          "$ref": "#/$defs/_74"
         }
       ]
     },
@@ -7520,7 +7606,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_76"
+          "$ref": "#/$defs/_74"
         }
       ]
     },
@@ -7586,7 +7672,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -7669,7 +7755,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_50"
+          "$ref": "#/$defs/_53"
         }
       ]
     },
@@ -7697,7 +7783,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -7708,7 +7794,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_78"
+          "$ref": "#/$defs/_76"
         }
       ]
     },
@@ -7741,7 +7827,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_78"
+          "$ref": "#/$defs/_76"
         }
       ]
     },
@@ -7780,7 +7866,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -7791,7 +7877,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_78"
+          "$ref": "#/$defs/_76"
         }
       ]
     },
@@ -7880,7 +7966,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -7891,7 +7977,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_78"
+          "$ref": "#/$defs/_76"
         }
       ]
     },
@@ -7930,7 +8016,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -7941,7 +8027,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_78"
+          "$ref": "#/$defs/_76"
         }
       ]
     },
@@ -7985,7 +8071,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_63"
+          "$ref": "#/$defs/_65"
         }
       ]
     },
@@ -8018,7 +8104,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_60"
+          "$ref": "#/$defs/_42"
         }
       ]
     },
@@ -8029,7 +8115,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_63"
+          "$ref": "#/$defs/_65"
         }
       ]
     },
@@ -8051,7 +8137,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_63"
+          "$ref": "#/$defs/_65"
         }
       ]
     },
@@ -8095,7 +8181,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_60"
+          "$ref": "#/$defs/_42"
         }
       ]
     },
@@ -8139,7 +8225,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_60"
+          "$ref": "#/$defs/_42"
         }
       ]
     },
@@ -8359,7 +8445,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -8398,7 +8484,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -8464,7 +8550,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_75"
+          "$ref": "#/$defs/_73"
         }
       ]
     },
@@ -8486,7 +8572,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_61"
+          "$ref": "#/$defs/_60"
         }
       ]
     },
@@ -8564,7 +8650,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_74"
+          "$ref": "#/$defs/_72"
         }
       ]
     },
@@ -8575,7 +8661,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_75"
+          "$ref": "#/$defs/_73"
         }
       ]
     },
@@ -8788,7 +8874,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_94"
+          "$ref": "#/$defs/_93"
         }
       ]
     },
@@ -8884,7 +8970,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_94"
+          "$ref": "#/$defs/_93"
         }
       ]
     },
@@ -9050,7 +9136,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_66"
+          "$ref": "#/$defs/_64"
         }
       ]
     },
@@ -9139,7 +9225,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_52"
+          "$ref": "#/$defs/_55"
         }
       ]
     },
@@ -9172,7 +9258,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_65"
+          "$ref": "#/$defs/_63"
         }
       ]
     },
@@ -9272,7 +9358,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_84"
+          "$ref": "#/$defs/_87"
         }
       ]
     },
@@ -9300,7 +9386,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_82"
+          "$ref": "#/$defs/_79"
         }
       ]
     },
@@ -9322,7 +9408,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_87"
+          "$ref": "#/$defs/_88"
         }
       ]
     },
@@ -9344,7 +9430,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_87"
+          "$ref": "#/$defs/_88"
         }
       ]
     },
@@ -9355,7 +9441,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_85"
+          "$ref": "#/$defs/_86"
         }
       ]
     },
@@ -9411,7 +9497,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_86"
+          "$ref": "#/$defs/_85"
         }
       ]
     },
@@ -9422,7 +9508,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_88"
+          "$ref": "#/$defs/_89"
         }
       ]
     },
@@ -9433,7 +9519,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_86"
+          "$ref": "#/$defs/_85"
         }
       ]
     },
@@ -9444,7 +9530,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_88"
+          "$ref": "#/$defs/_89"
         }
       ]
     },
@@ -9466,7 +9552,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_83"
+          "$ref": "#/$defs/_80"
         }
       ]
     },
@@ -9510,7 +9596,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_72"
+          "$ref": "#/$defs/_69"
         }
       ]
     },
@@ -9532,7 +9618,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_71"
+          "$ref": "#/$defs/_68"
         }
       ]
     },
@@ -9543,7 +9629,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_85"
+          "$ref": "#/$defs/_86"
         }
       ]
     },
@@ -9605,7 +9691,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_67"
+          "$ref": "#/$defs/_70"
         }
       ]
     },
@@ -9861,7 +9947,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_56"
+          "$ref": "#/$defs/_59"
         }
       ]
     },
@@ -9889,7 +9975,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -9944,7 +10030,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_62"
+          "$ref": "#/$defs/_61"
         }
       ]
     },
@@ -10374,7 +10460,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#2488db}"
+          "body": "${1:rgba(255, 18, 18, 0.7)}"
         }
       ]
     },
@@ -10383,7 +10469,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:rgba(90, 93, 94, 0.5)}"
+          "body": "${1:#89d185}"
         }
       ]
     },
@@ -10392,7 +10478,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:rgba(36, 137, 219, 0.51)}"
+          "body": "${1:#b180d7}"
         }
       ]
     },
@@ -10401,7 +10487,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#ffffff}"
+          "body": "${1:#2488db}"
         }
       ]
     },
@@ -10410,7 +10496,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#989898}"
+          "body": "${1:rgba(90, 93, 94, 0.5)}"
         }
       ]
     },
@@ -10419,7 +10505,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#007acc}"
+          "body": "${1:rgba(36, 137, 219, 0.51)}"
         }
       ]
     },
@@ -10428,7 +10514,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#b89500}"
+          "body": "${1:#ffffff}"
         }
       ]
     },
@@ -10437,7 +10523,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#be1100}"
+          "body": "${1:#989898}"
         }
       ]
     },
@@ -10446,7 +10532,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:rgba(255, 255, 255, 0.4)}"
+          "body": "${1:#007acc}"
         }
       ]
     },
@@ -10455,7 +10541,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#026ec1}"
+          "body": "${1:#b89500}"
         }
       ]
     },
@@ -10464,7 +10550,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:rgba(255, 255, 255, 0.2)}"
+          "body": "${1:#be1100}"
         }
       ]
     },
@@ -10473,7 +10559,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#04395e}"
+          "body": "${1:rgba(255, 255, 255, 0.4)}"
         }
       ]
     },
@@ -10482,7 +10568,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#37373d}"
+          "body": "${1:#026ec1}"
         }
       ]
     },
@@ -10491,7 +10577,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#2aaaff}"
+          "body": "${1:rgba(255, 255, 255, 0.2)}"
         }
       ]
     },
@@ -10500,7 +10586,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:rgba(0, 0, 0, 0)}"
+          "body": "${1:#04395e}"
         }
       ]
     },
@@ -10509,7 +10595,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#8c8c8c}"
+          "body": "${1:#37373d}"
         }
       ]
     },
@@ -10518,7 +10604,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:rgba(204, 204, 204, 0.04)}"
+          "body": "${1:#2aaaff}"
         }
       ]
     },
@@ -10527,7 +10613,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:rgba(255, 18, 18, 0.7)}"
+          "body": "${1:rgba(0, 0, 0, 0)}"
         }
       ]
     },
@@ -10536,7 +10622,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#d18616}"
+          "body": "${1:#8c8c8c}"
         }
       ]
     },
@@ -10545,7 +10631,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#89d185}"
+          "body": "${1:rgba(204, 204, 204, 0.04)}"
         }
       ]
     },
@@ -10554,7 +10640,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#b180d7}"
+          "body": "${1:#222222}"
         }
       ]
     },
@@ -10563,7 +10649,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#222222}"
+          "body": "${1:rgba(255, 255, 255, 0.1)}"
         }
       ]
     },
@@ -10572,7 +10658,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:rgba(255, 255, 255, 0.1)}"
+          "body": "${1:#aeafad}"
         }
       ]
     },
@@ -10581,7 +10667,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#ee9d28}"
+          "body": "${1:#010409}"
         }
       ]
     },
@@ -10590,7 +10676,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#aeafad}"
+          "body": "${1:rgba(255, 255, 255, 0.34)}"
         }
       ]
     },
@@ -10599,7 +10685,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#010409}"
+          "body": "${1:#ee9d28}"
         }
       ]
     },
@@ -10608,7 +10694,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:rgba(255, 255, 255, 0.34)}"
+          "body": "${1:#252526}"
         }
       ]
     },
@@ -10617,11 +10703,38 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:rgba(255, 0, 0, 0.3)}"
+          "body": "${1:rgba(187, 128, 9, 0.4)}"
         }
       ]
     },
     "_68": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:rgba(241, 76, 76, 0.1)}"
+        }
+      ]
+    },
+    "_69": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:rgba(55, 148, 255, 0.1)}"
+        }
+      ]
+    },
+    "_70": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:rgba(255, 0, 0, 0.3)}"
+        }
+      ]
+    },
+    "_71": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -10632,52 +10745,7 @@
       "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
       "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
-    "_69": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#252526}"
-        }
-      ]
-    },
-    "_70": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:rgba(187, 128, 9, 0.4)}"
-        }
-      ]
-    },
-    "_71": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:rgba(241, 76, 76, 0.1)}"
-        }
-      ]
-    },
     "_72": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:rgba(55, 148, 255, 0.1)}"
-        }
-      ]
-    },
-    "_73": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:rgba(204, 204, 204, 0.6)}"
-        }
-      ]
-    },
-    "_74": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -10686,7 +10754,7 @@
         }
       ]
     },
-    "_75": {
+    "_73": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -10695,7 +10763,7 @@
         }
       ]
     },
-    "_76": {
+    "_74": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -10704,7 +10772,7 @@
         }
       ]
     },
-    "_77": {
+    "_75": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -10713,7 +10781,7 @@
         }
       ]
     },
-    "_78": {
+    "_76": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -10722,7 +10790,7 @@
         }
       ]
     },
-    "_79": {
+    "_77": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -10731,7 +10799,7 @@
         }
       ]
     },
-    "_80": {
+    "_78": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -10740,16 +10808,7 @@
         }
       ]
     },
-    "_81": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:rgba(0, 120, 212, 0.1)}"
-        }
-      ]
-    },
-    "_82": {
+    "_79": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -10758,7 +10817,7 @@
         }
       ]
     },
-    "_83": {
+    "_80": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -10767,12 +10826,39 @@
         }
       ]
     },
+    "_81": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#81b88b}"
+        }
+      ]
+    },
+    "_82": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#c74e39}"
+        }
+      ]
+    },
+    "_83": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:rgba(0, 120, 212, 0.1)}"
+        }
+      ]
+    },
     "_84": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:rgba(156, 204, 44, 0.2)}"
+          "body": "${1:rgba(204, 204, 204, 0.6)}"
         }
       ]
     },
@@ -10781,7 +10867,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#73c991}"
+          "body": "${1:#848484}"
         }
       ]
     },
@@ -10790,7 +10876,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#848484}"
+          "body": "${1:#73c991}"
         }
       ]
     },
@@ -10799,7 +10885,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:rgba(241, 76, 76, 0.7)}"
+          "body": "${1:rgba(156, 204, 44, 0.2)}"
         }
       ]
     },
@@ -10808,7 +10894,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:rgba(132, 132, 132, 0.7)}"
+          "body": "${1:rgba(241, 76, 76, 0.7)}"
         }
       ]
     },
@@ -10817,7 +10903,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#2ea043}"
+          "body": "${1:rgba(132, 132, 132, 0.7)}"
         }
       ]
     },
@@ -10826,11 +10912,20 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#f48771}"
+          "body": "${1:#2ea043}"
         }
       ]
     },
     "_91": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#f48771}"
+        }
+      ]
+    },
+    "_92": {
       "description": "Debug toolbar icon for step over.",
       "oneOf": [
         {
@@ -10841,25 +10936,7 @@
         }
       ]
     },
-    "_92": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#81b88b}"
-        }
-      ]
-    },
     "_93": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#c74e39}"
-        }
-      ]
-    },
-    "_94": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -10868,7 +10945,7 @@
         }
       ]
     },
-    "_95": {
+    "_94": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [

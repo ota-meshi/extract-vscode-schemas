@@ -47,6 +47,17 @@
         "cancelSelection",
         "changeEditorIndentation1",
         "chat.action.focus",
+        "chat.inlineResourceAnchor.addFileToChat",
+        "chat.inlineSymbolAnchor.goToDefinition",
+        "chat.inlineSymbolAnchor.goToReferences",
+        "chatEditing.acceptAllFiles",
+        "chatEditing.acceptFile",
+        "chatEditing.discardAllFiles",
+        "chatEditing.discardFile",
+        "chatEditing.openDiffs",
+        "chatEditing.openFile",
+        "chatEditing.startSession",
+        "chatEditing.stopSession",
         "cleanSearchEditorState",
         "closeBreakpointWidget",
         "closeDirtyDiff",
@@ -223,6 +234,7 @@
         "editor.action.commentLine",
         "editor.action.copyLinesDownAction",
         "editor.action.copyLinesUpAction",
+        "editor.action.debugEditorGpuRenderer",
         "editor.action.decreaseHoverVerbosityLevel",
         "editor.action.defineKeybinding",
         "editor.action.deleteLines",
@@ -273,15 +285,11 @@
         "editor.action.inlineEdit.jumpTo",
         "editor.action.inlineEdit.reject",
         "editor.action.inlineEdit.trigger",
-        "editor.action.inlineEdits.accept",
-        "editor.action.inlineEdits.hide",
-        "editor.action.inlineEdits.showNext",
-        "editor.action.inlineEdits.showPrevious",
-        "editor.action.inlineEdits.trigger",
         "editor.action.inlineSuggest.acceptNextLine",
         "editor.action.inlineSuggest.acceptNextWord",
         "editor.action.inlineSuggest.commit",
         "editor.action.inlineSuggest.hide",
+        "editor.action.inlineSuggest.jump",
         "editor.action.inlineSuggest.showNext",
         "editor.action.inlineSuggest.showPrevious",
         "editor.action.inlineSuggest.toggleAlwaysShowToolbar",
@@ -310,6 +318,7 @@
         "editor.action.moveLinesUpAction",
         "editor.action.moveSelectionToNextFindMatch",
         "editor.action.moveSelectionToPreviousFindMatch",
+        "editor.action.nextCommentedRangeAction",
         "editor.action.nextCommentingRange",
         "editor.action.nextCommentThreadAction",
         "editor.action.nextMatchFindAction",
@@ -328,6 +337,7 @@
         "editor.action.peekLocations",
         "editor.action.peekTypeDefinition",
         "editor.action.previewDeclaration",
+        "editor.action.previousCommentedRangeAction",
         "editor.action.previousCommentingRange",
         "editor.action.previousCommentThreadAction",
         "editor.action.previousMatchFindAction",
@@ -486,6 +496,7 @@
         "editor.showTypeHierarchy",
         "editor.toggleFold",
         "editor.toggleFoldRecursively",
+        "editor.toggleImportFold",
         "editor.unfold",
         "editor.unfoldAll",
         "editor.unfoldAllExcept",
@@ -591,7 +602,9 @@
         "git.branchFrom",
         "git.checkout",
         "git.checkoutDetached",
+        "git.checkoutRefDetached",
         "git.cherryPick",
+        "git.cherryPickRef",
         "git.clean",
         "git.cleanAll",
         "git.cleanAllTracked",
@@ -1000,6 +1013,7 @@
         "notebook.cellOutput.copy",
         "notebook.cellOutput.openInTextEditor",
         "notebook.centerActiveCell",
+        "notebook.chat.selectAndInsertKernelVariable",
         "notebook.clearAllCellsOutputs",
         "notebook.clearNotebookEdtitorTypeCache",
         "notebook.clearNotebookKernelsMRUCache",
@@ -1010,6 +1024,9 @@
         "notebook.diff.cell.revertMetadata",
         "notebook.diff.cell.revertOutputs",
         "notebook.diff.cell.switchOutputRenderingStyleToText",
+        "notebook.diff.cell.toggleCollapseUnchangedRegions",
+        "notebook.diff.openFile",
+        "notebook.diff.revertMetadata",
         "notebook.diff.showMetadata",
         "notebook.diff.showOutputs",
         "notebook.diff.switchToText",
@@ -1029,6 +1046,7 @@
         "notebook.format",
         "notebook.formatCell",
         "notebook.hideFind",
+        "notebook.inlineChat.acceptChangesAndRun",
         "notebook.inspectLayout",
         "notebook.interruptExecution",
         "notebook.outline.toggleCodeCells",
@@ -1052,6 +1070,7 @@
         "notebook.toggleLineNumbersFromEditorTitle",
         "notebook.unfold",
         "noteMultiCursor.deleteLeft",
+        "noteMultiCursor.deleteRight",
         "noteMultiCursor.exit",
         "notification.acceptPrimaryAction",
         "notification.clear",
@@ -1425,6 +1444,7 @@
         "vscode.revealTest",
         "vscode.runTestsById",
         "vscode.setEditorLayout",
+        "vscode.testing.getControllersWithTests",
         "walkthroughs.selectStep",
         "watch.collapse",
         "welcome.goBack",
@@ -1449,6 +1469,8 @@
         "workbench.action.blur",
         "workbench.action.browseColorThemesInMarketplace",
         "workbench.action.chat.addDynamicVariable",
+        "workbench.action.chat.addParticipant",
+        "workbench.action.chat.applyAll",
         "workbench.action.chat.applyCompareEdits",
         "workbench.action.chat.applyInEditor",
         "workbench.action.chat.assignSelectedAgent",
@@ -1471,7 +1493,6 @@
         "workbench.action.chat.insertCodeBlock",
         "workbench.action.chat.insertIntoNewFile",
         "workbench.action.chat.insertIntoNotebook",
-        "workbench.action.chat.installProviderForSynthesis",
         "workbench.action.chat.installProviderForVoiceChat",
         "workbench.action.chat.logInputHistory",
         "workbench.action.chat.markHelpful",
@@ -1489,6 +1510,7 @@
         "workbench.action.chat.readChatResponseAloud",
         "workbench.action.chat.remove",
         "workbench.action.chat.reportIssueForBug",
+        "workbench.action.chat.retry",
         "workbench.action.chat.runInTerminal",
         "workbench.action.chat.selectAndInsertFile",
         "workbench.action.chat.sendToNewChat",
@@ -1635,6 +1657,7 @@
         "workbench.action.focusBanner",
         "workbench.action.focusBelowGroup",
         "workbench.action.focusBelowGroupWithoutWrap",
+        "workbench.action.focusCommentOnCurrentLine",
         "workbench.action.focusEighthEditorGroup",
         "workbench.action.focusFifthEditorGroup",
         "workbench.action.focusFirstEditorGroup",
@@ -1661,6 +1684,7 @@
         "workbench.action.focusThirdEditorGroup",
         "workbench.action.focusTitleBar",
         "workbench.action.generateColorTheme",
+        "workbench.action.getStartedWithAccessibilityFeatures",
         "workbench.action.gotoLine",
         "workbench.action.gotoSymbol",
         "workbench.action.hideComment",
@@ -2235,11 +2259,14 @@
         "workbench.extensions.action.installExtensionFromLocation",
         "workbench.extensions.action.installExtensions",
         "workbench.extensions.action.installPrereleaseAndDonotSync",
+        "workbench.extensions.action.installUnsigned",
         "workbench.extensions.action.installVSIX",
         "workbench.extensions.action.installWorkspaceRecommendedExtensions",
         "workbench.extensions.action.listBuiltInExtensions",
         "workbench.extensions.action.listWorkspaceUnsupportedExtensions",
+        "workbench.extensions.action.manageAccountPreferences",
         "workbench.extensions.action.manageAuthorizedExtensionURIs",
+        "workbench.extensions.action.openExtensionHostProfile",
         "workbench.extensions.action.openExtensionsFolder",
         "workbench.extensions.action.recentlyPublishedExtensions",
         "workbench.extensions.action.refreshExtension",
@@ -2270,6 +2297,7 @@
         "workbench.extensions.action.updateAllExtensions",
         "workbench.extensions.command.installFromVSIX",
         "workbench.extensions.installExtension",
+        "workbench.extensions.installMissingDependencies",
         "workbench.extensions.search",
         "workbench.extensions.uninstallExtension",
         "workbench.files.action.acceptLocalChanges",
@@ -2342,11 +2370,14 @@
         "workbench.scm.action.focusNextResourceGroup",
         "workbench.scm.action.focusPreviousInput",
         "workbench.scm.action.focusPreviousResourceGroup",
-        "workbench.scm.action.refreshGraph",
+        "workbench.scm.action.graph.pickHistoryItemRefs",
+        "workbench.scm.action.graph.pickRepository",
+        "workbench.scm.action.graph.refresh",
+        "workbench.scm.action.graph.revealCurrentHistoryItem",
+        "workbench.scm.action.graph.viewChanges",
         "workbench.scm.action.repositories.setSortKey.discoveryTime",
         "workbench.scm.action.repositories.setSortKey.name",
         "workbench.scm.action.repositories.setSortKey.path",
-        "workbench.scm.action.scm.viewChanges",
         "workbench.scm.action.setListViewMode",
         "workbench.scm.action.setListViewModeNavigation",
         "workbench.scm.action.setSortKey.name",
@@ -2486,6 +2517,17 @@
         null,
         null,
         "List all accessibility announcements, alerts, braille messages, and configure their settings",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -2690,6 +2732,7 @@
         null,
         null,
         null,
+        null,
         "Detect the indentation from content.",
         null,
         null,
@@ -2748,10 +2791,6 @@
         null,
         null,
         null,
-        null,
-        null,
-        null,
-        null,
         "Insert hex/rgb/hsl colors with the focused standalone color picker.",
         null,
         null,
@@ -2759,6 +2798,7 @@
         null,
         null,
         "Insert Snippet",
+        null,
         null,
         null,
         null,
@@ -2790,6 +2830,7 @@
         null,
         null,
         "Peek locations from a position in a file",
+        null,
         null,
         null,
         null,
@@ -2950,6 +2991,7 @@
         null,
         null,
         null,
+        null,
         "Unfold the content in the editor",
         null,
         null,
@@ -3044,6 +3086,8 @@
         null,
         null,
         "A command that returns information about context keys",
+        null,
+        null,
         null,
         null,
         null,
@@ -3483,6 +3527,10 @@
         null,
         null,
         null,
+        null,
+        null,
+        null,
+        null,
         "Run All",
         null,
         null,
@@ -3514,7 +3562,9 @@
         null,
         null,
         null,
+        null,
         "Unfold Cell",
+        null,
         null,
         null,
         null,
@@ -4009,6 +4059,9 @@
         null,
         null,
         null,
+        null,
+        null,
+        null,
         "Opens the file used to configure how your program is debugged",
         null,
         null,
@@ -4090,6 +4143,8 @@
         "Opens the active file in a new window with no folders open.",
         null,
         "Open a workspace search",
+        null,
+        null,
         null,
         null,
         null,
@@ -4733,7 +4788,11 @@
         null,
         null,
         null,
+        null,
+        null,
+        null,
         "Install the given extension",
+        null,
         "Search for a specific extension",
         "Uninstall the given extension",
         null,
@@ -4780,6 +4839,9 @@
         null,
         null,
         "Focus on Test Results View",
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -5158,7 +5220,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_14"
+            "$ref": "#/$defs/_11"
           }
         },
         {
@@ -5597,7 +5659,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_14"
+            "$ref": "#/$defs/_11"
           }
         },
         {
@@ -5623,10 +5685,10 @@
                 ],
                 "properties": {
                   "document": {
-                    "$ref": "#/$defs/_16"
+                    "$ref": "#/$defs/_15"
                   },
                   "ranges": {
-                    "$ref": "#/$defs/_15"
+                    "$ref": "#/$defs/_14"
                   }
                 }
               }
@@ -5681,7 +5743,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_12"
+            "$ref": "#/$defs/_13"
           }
         },
         {
@@ -5696,7 +5758,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_12"
+            "$ref": "#/$defs/_13"
           }
         },
         {
@@ -5711,7 +5773,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_12"
+            "$ref": "#/$defs/_13"
           }
         },
         {
@@ -5726,7 +5788,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_13"
+            "$ref": "#/$defs/_12"
           }
         },
         {
@@ -5741,7 +5803,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_13"
+            "$ref": "#/$defs/_12"
           }
         },
         {
@@ -5873,7 +5935,7 @@
                     "items": {
                       "anyOf": [
                         {
-                          "$ref": "#/$defs/_10"
+                          "$ref": "#/$defs/_17"
                         },
                         {
                           "type": "object",
@@ -5884,7 +5946,7 @@
                             "command": {
                               "anyOf": [
                                 {
-                                  "$ref": "#/$defs/_10"
+                                  "$ref": "#/$defs/_17"
                                 },
                                 {
                                   "type": "string"
@@ -5917,7 +5979,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_17"
+            "$ref": "#/$defs/_16"
           }
         },
         {
@@ -5932,7 +5994,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_17"
+            "$ref": "#/$defs/_16"
           }
         },
         {
@@ -5947,7 +6009,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_17"
+            "$ref": "#/$defs/_16"
           }
         },
         {
@@ -6238,7 +6300,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_11"
+            "$ref": "#/$defs/_10"
           }
         },
         {
@@ -6530,7 +6592,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_11"
+            "$ref": "#/$defs/_10"
           }
         },
         {
@@ -6545,7 +6607,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_11"
+            "$ref": "#/$defs/_10"
           }
         },
         {
@@ -7212,6 +7274,17 @@
             "-cancelSelection",
             "-changeEditorIndentation1",
             "-chat.action.focus",
+            "-chat.inlineResourceAnchor.addFileToChat",
+            "-chat.inlineSymbolAnchor.goToDefinition",
+            "-chat.inlineSymbolAnchor.goToReferences",
+            "-chatEditing.acceptAllFiles",
+            "-chatEditing.acceptFile",
+            "-chatEditing.discardAllFiles",
+            "-chatEditing.discardFile",
+            "-chatEditing.openDiffs",
+            "-chatEditing.openFile",
+            "-chatEditing.startSession",
+            "-chatEditing.stopSession",
             "-cleanSearchEditorState",
             "-closeBreakpointWidget",
             "-closeDirtyDiff",
@@ -7388,6 +7461,7 @@
             "-editor.action.commentLine",
             "-editor.action.copyLinesDownAction",
             "-editor.action.copyLinesUpAction",
+            "-editor.action.debugEditorGpuRenderer",
             "-editor.action.decreaseHoverVerbosityLevel",
             "-editor.action.defineKeybinding",
             "-editor.action.deleteLines",
@@ -7438,15 +7512,11 @@
             "-editor.action.inlineEdit.jumpTo",
             "-editor.action.inlineEdit.reject",
             "-editor.action.inlineEdit.trigger",
-            "-editor.action.inlineEdits.accept",
-            "-editor.action.inlineEdits.hide",
-            "-editor.action.inlineEdits.showNext",
-            "-editor.action.inlineEdits.showPrevious",
-            "-editor.action.inlineEdits.trigger",
             "-editor.action.inlineSuggest.acceptNextLine",
             "-editor.action.inlineSuggest.acceptNextWord",
             "-editor.action.inlineSuggest.commit",
             "-editor.action.inlineSuggest.hide",
+            "-editor.action.inlineSuggest.jump",
             "-editor.action.inlineSuggest.showNext",
             "-editor.action.inlineSuggest.showPrevious",
             "-editor.action.inlineSuggest.toggleAlwaysShowToolbar",
@@ -7475,6 +7545,7 @@
             "-editor.action.moveLinesUpAction",
             "-editor.action.moveSelectionToNextFindMatch",
             "-editor.action.moveSelectionToPreviousFindMatch",
+            "-editor.action.nextCommentedRangeAction",
             "-editor.action.nextCommentingRange",
             "-editor.action.nextCommentThreadAction",
             "-editor.action.nextMatchFindAction",
@@ -7493,6 +7564,7 @@
             "-editor.action.peekLocations",
             "-editor.action.peekTypeDefinition",
             "-editor.action.previewDeclaration",
+            "-editor.action.previousCommentedRangeAction",
             "-editor.action.previousCommentingRange",
             "-editor.action.previousCommentThreadAction",
             "-editor.action.previousMatchFindAction",
@@ -7651,6 +7723,7 @@
             "-editor.showTypeHierarchy",
             "-editor.toggleFold",
             "-editor.toggleFoldRecursively",
+            "-editor.toggleImportFold",
             "-editor.unfold",
             "-editor.unfoldAll",
             "-editor.unfoldAllExcept",
@@ -7756,7 +7829,9 @@
             "-git.branchFrom",
             "-git.checkout",
             "-git.checkoutDetached",
+            "-git.checkoutRefDetached",
             "-git.cherryPick",
+            "-git.cherryPickRef",
             "-git.clean",
             "-git.cleanAll",
             "-git.cleanAllTracked",
@@ -8165,6 +8240,7 @@
             "-notebook.cellOutput.copy",
             "-notebook.cellOutput.openInTextEditor",
             "-notebook.centerActiveCell",
+            "-notebook.chat.selectAndInsertKernelVariable",
             "-notebook.clearAllCellsOutputs",
             "-notebook.clearNotebookEdtitorTypeCache",
             "-notebook.clearNotebookKernelsMRUCache",
@@ -8175,6 +8251,9 @@
             "-notebook.diff.cell.revertMetadata",
             "-notebook.diff.cell.revertOutputs",
             "-notebook.diff.cell.switchOutputRenderingStyleToText",
+            "-notebook.diff.cell.toggleCollapseUnchangedRegions",
+            "-notebook.diff.openFile",
+            "-notebook.diff.revertMetadata",
             "-notebook.diff.showMetadata",
             "-notebook.diff.showOutputs",
             "-notebook.diff.switchToText",
@@ -8194,6 +8273,7 @@
             "-notebook.format",
             "-notebook.formatCell",
             "-notebook.hideFind",
+            "-notebook.inlineChat.acceptChangesAndRun",
             "-notebook.inspectLayout",
             "-notebook.interruptExecution",
             "-notebook.outline.toggleCodeCells",
@@ -8217,6 +8297,7 @@
             "-notebook.toggleLineNumbersFromEditorTitle",
             "-notebook.unfold",
             "-noteMultiCursor.deleteLeft",
+            "-noteMultiCursor.deleteRight",
             "-noteMultiCursor.exit",
             "-notification.acceptPrimaryAction",
             "-notification.clear",
@@ -8590,6 +8671,7 @@
             "-vscode.revealTest",
             "-vscode.runTestsById",
             "-vscode.setEditorLayout",
+            "-vscode.testing.getControllersWithTests",
             "-walkthroughs.selectStep",
             "-watch.collapse",
             "-welcome.goBack",
@@ -8614,6 +8696,8 @@
             "-workbench.action.blur",
             "-workbench.action.browseColorThemesInMarketplace",
             "-workbench.action.chat.addDynamicVariable",
+            "-workbench.action.chat.addParticipant",
+            "-workbench.action.chat.applyAll",
             "-workbench.action.chat.applyCompareEdits",
             "-workbench.action.chat.applyInEditor",
             "-workbench.action.chat.assignSelectedAgent",
@@ -8636,7 +8720,6 @@
             "-workbench.action.chat.insertCodeBlock",
             "-workbench.action.chat.insertIntoNewFile",
             "-workbench.action.chat.insertIntoNotebook",
-            "-workbench.action.chat.installProviderForSynthesis",
             "-workbench.action.chat.installProviderForVoiceChat",
             "-workbench.action.chat.logInputHistory",
             "-workbench.action.chat.markHelpful",
@@ -8654,6 +8737,7 @@
             "-workbench.action.chat.readChatResponseAloud",
             "-workbench.action.chat.remove",
             "-workbench.action.chat.reportIssueForBug",
+            "-workbench.action.chat.retry",
             "-workbench.action.chat.runInTerminal",
             "-workbench.action.chat.selectAndInsertFile",
             "-workbench.action.chat.sendToNewChat",
@@ -8800,6 +8884,7 @@
             "-workbench.action.focusBanner",
             "-workbench.action.focusBelowGroup",
             "-workbench.action.focusBelowGroupWithoutWrap",
+            "-workbench.action.focusCommentOnCurrentLine",
             "-workbench.action.focusEighthEditorGroup",
             "-workbench.action.focusFifthEditorGroup",
             "-workbench.action.focusFirstEditorGroup",
@@ -8826,6 +8911,7 @@
             "-workbench.action.focusThirdEditorGroup",
             "-workbench.action.focusTitleBar",
             "-workbench.action.generateColorTheme",
+            "-workbench.action.getStartedWithAccessibilityFeatures",
             "-workbench.action.gotoLine",
             "-workbench.action.gotoSymbol",
             "-workbench.action.hideComment",
@@ -9400,11 +9486,14 @@
             "-workbench.extensions.action.installExtensionFromLocation",
             "-workbench.extensions.action.installExtensions",
             "-workbench.extensions.action.installPrereleaseAndDonotSync",
+            "-workbench.extensions.action.installUnsigned",
             "-workbench.extensions.action.installVSIX",
             "-workbench.extensions.action.installWorkspaceRecommendedExtensions",
             "-workbench.extensions.action.listBuiltInExtensions",
             "-workbench.extensions.action.listWorkspaceUnsupportedExtensions",
+            "-workbench.extensions.action.manageAccountPreferences",
             "-workbench.extensions.action.manageAuthorizedExtensionURIs",
+            "-workbench.extensions.action.openExtensionHostProfile",
             "-workbench.extensions.action.openExtensionsFolder",
             "-workbench.extensions.action.recentlyPublishedExtensions",
             "-workbench.extensions.action.refreshExtension",
@@ -9435,6 +9524,7 @@
             "-workbench.extensions.action.updateAllExtensions",
             "-workbench.extensions.command.installFromVSIX",
             "-workbench.extensions.installExtension",
+            "-workbench.extensions.installMissingDependencies",
             "-workbench.extensions.search",
             "-workbench.extensions.uninstallExtension",
             "-workbench.files.action.acceptLocalChanges",
@@ -9507,11 +9597,14 @@
             "-workbench.scm.action.focusNextResourceGroup",
             "-workbench.scm.action.focusPreviousInput",
             "-workbench.scm.action.focusPreviousResourceGroup",
-            "-workbench.scm.action.refreshGraph",
+            "-workbench.scm.action.graph.pickHistoryItemRefs",
+            "-workbench.scm.action.graph.pickRepository",
+            "-workbench.scm.action.graph.refresh",
+            "-workbench.scm.action.graph.revealCurrentHistoryItem",
+            "-workbench.scm.action.graph.viewChanges",
             "-workbench.scm.action.repositories.setSortKey.discoveryTime",
             "-workbench.scm.action.repositories.setSortKey.name",
             "-workbench.scm.action.repositories.setSortKey.path",
-            "-workbench.scm.action.scm.viewChanges",
             "-workbench.scm.action.setListViewMode",
             "-workbench.scm.action.setListViewModeNavigation",
             "-workbench.scm.action.setSortKey.name",
@@ -9651,6 +9744,17 @@
             null,
             null,
             "List all accessibility announcements, alerts, braille messages, and configure their settings",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
             null,
             null,
             null,
@@ -9855,6 +9959,7 @@
             null,
             null,
             null,
+            null,
             "Detect the indentation from content.",
             null,
             null,
@@ -9913,10 +10018,6 @@
             null,
             null,
             null,
-            null,
-            null,
-            null,
-            null,
             "Insert hex/rgb/hsl colors with the focused standalone color picker.",
             null,
             null,
@@ -9924,6 +10025,7 @@
             null,
             null,
             "Insert Snippet",
+            null,
             null,
             null,
             null,
@@ -9955,6 +10057,7 @@
             null,
             null,
             "Peek locations from a position in a file",
+            null,
             null,
             null,
             null,
@@ -10115,6 +10218,7 @@
             null,
             null,
             null,
+            null,
             "Unfold the content in the editor",
             null,
             null,
@@ -10209,6 +10313,8 @@
             null,
             null,
             "A command that returns information about context keys",
+            null,
+            null,
             null,
             null,
             null,
@@ -10648,6 +10754,10 @@
             null,
             null,
             null,
+            null,
+            null,
+            null,
+            null,
             "Run All",
             null,
             null,
@@ -10679,7 +10789,9 @@
             null,
             null,
             null,
+            null,
             "Unfold Cell",
+            null,
             null,
             null,
             null,
@@ -11174,6 +11286,9 @@
             null,
             null,
             null,
+            null,
+            null,
+            null,
             "Opens the file used to configure how your program is debugged",
             null,
             null,
@@ -11255,6 +11370,8 @@
             "Opens the active file in a new window with no folders open.",
             null,
             "Open a workspace search",
+            null,
+            null,
             null,
             null,
             null,
@@ -11898,7 +12015,11 @@
             null,
             null,
             null,
+            null,
+            null,
+            null,
             "Install the given extension",
+            null,
             "Search for a specific extension",
             "Uninstall the given extension",
             null,
@@ -11945,6 +12066,9 @@
             null,
             null,
             "Focus on Test Results View",
+            null,
+            null,
+            null,
             null,
             null,
             null,
@@ -12293,9 +12417,6 @@
       }
     },
     "_10": {
-      "$ref": "vscode://schemas/keybindings#/definitions/commandNames"
-    },
-    "_11": {
       "required": [],
       "properties": {
         "args": {
@@ -12303,54 +12424,7 @@
         }
       }
     },
-    "_12": {
-      "required": [],
-      "properties": {
-        "args": {
-          "type": "object",
-          "required": [
-            "ranges"
-          ],
-          "properties": {
-            "ranges": {
-              "$ref": "#/$defs/_15"
-            },
-            "document": {
-              "$ref": "#/$defs/_16"
-            },
-            "autoReveal": {
-              "type": "boolean",
-              "description": "Whether the cell should be revealed into view automatically"
-            }
-          }
-        }
-      }
-    },
-    "_13": {
-      "required": [],
-      "properties": {
-        "args": {
-          "type": "object",
-          "required": [
-            "index",
-            "direction"
-          ],
-          "properties": {
-            "index": {
-              "type": "number"
-            },
-            "direction": {
-              "$ref": "#/$defs/_8"
-            },
-            "levels": {
-              "type": "number",
-              "default": 1
-            }
-          }
-        }
-      }
-    },
-    "_14": {
+    "_11": {
       "required": [
         "args"
       ],
@@ -12382,7 +12456,54 @@
         }
       }
     },
-    "_15": {
+    "_12": {
+      "required": [],
+      "properties": {
+        "args": {
+          "type": "object",
+          "required": [
+            "index",
+            "direction"
+          ],
+          "properties": {
+            "index": {
+              "type": "number"
+            },
+            "direction": {
+              "$ref": "#/$defs/_8"
+            },
+            "levels": {
+              "type": "number",
+              "default": 1
+            }
+          }
+        }
+      }
+    },
+    "_13": {
+      "required": [],
+      "properties": {
+        "args": {
+          "type": "object",
+          "required": [
+            "ranges"
+          ],
+          "properties": {
+            "ranges": {
+              "$ref": "#/$defs/_14"
+            },
+            "document": {
+              "$ref": "#/$defs/_15"
+            },
+            "autoReveal": {
+              "type": "boolean",
+              "description": "Whether the cell should be revealed into view automatically"
+            }
+          }
+        }
+      }
+    },
+    "_14": {
       "type": "array",
       "items": [
         {
@@ -12402,11 +12523,11 @@
         }
       ]
     },
-    "_16": {
+    "_15": {
       "type": "object",
       "description": "The document uri"
     },
-    "_17": {
+    "_16": {
       "required": [],
       "properties": {
         "args": {
@@ -12450,6 +12571,9 @@
           }
         }
       }
+    },
+    "_17": {
+      "$ref": "vscode://schemas/keybindings#/definitions/commandNames"
     },
     "_18": {
       "required": [],

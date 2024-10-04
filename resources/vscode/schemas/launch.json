@@ -186,7 +186,7 @@
               ],
               "internalConsoleOptions": "openOnSessionStart",
               "name": "Mocha Tests",
-              "program": "^\"\\${workspaceFolder}/node_modules/mocha/bin/_mocha\"",
+              "program": "^\"mocha\"",
               "request": "launch",
               "skipFiles": [
                 "<node_internals>/**"
@@ -235,7 +235,7 @@
               "name": "Electron Main",
               "program": "^\"\\${workspaceFolder}/main.js\"",
               "request": "launch",
-              "runtimeExecutable": "^\"\\${workspaceFolder}/node_modules/.bin/electron\"",
+              "runtimeExecutable": "^\"electron\"",
               "skipFiles": [
                 "<node_internals>/**"
               ],
@@ -5582,7 +5582,7 @@
     },
     "_25": {
       "default": [
-        "<node_internals>/**"
+        "${/**"
       ],
       "description": "An array of file or folder names, or path globs, to skip when debugging. Star patterns and negations are allowed, for example, `[\"**/node_modules/**\", \"!**/node_modules/my-module/**\"]`",
       "type": "array",
@@ -8259,7 +8259,7 @@
     },
     "_142": {
       "default": [
-        "<node_internals>/**"
+        "${/**"
       ],
       "description": "An array of file or folder names, or path globs, to skip when debugging. Star patterns and negations are allowed, for example, `[\"**/node_modules/**\", \"!**/node_modules/my-module/**\"]`",
       "type": "array"

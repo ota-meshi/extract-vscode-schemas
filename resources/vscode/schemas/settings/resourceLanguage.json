@@ -1215,6 +1215,20 @@
       "defaultDefaultValue": {},
       "restricted": false
     },
+    "editor.experimental.preferTreeSitter": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "typescript"
+        ]
+      },
+      "default": [],
+      "markdownDescription": "Controls whether tree sitter parsing should be turned on for specific languages. This will take precedence over `editor.experimental.treeSitterTelemetry` for the specified languages.",
+      "defaultDefaultValue": [],
+      "scope": 5,
+      "restricted": false
+    },
     "editor.experimental.treeSitterTelemetry": {
       "type": "boolean",
       "default": false,
@@ -1222,6 +1236,14 @@
       "tags": [
         "experimental"
       ],
+      "defaultDefaultValue": false,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.experimentalEditContextEnabled": {
+      "description": "Sets whether the new experimental edit context should be used instead of the text area.",
+      "type": "boolean",
+      "default": false,
       "defaultDefaultValue": false,
       "scope": 5,
       "restricted": false
@@ -1922,6 +1944,14 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.inlayHints.maximumLength": {
+      "type": "number",
+      "default": 43,
+      "markdownDescription": "Maximum overall length of inlay hints, for a single line, before they get truncated by the editor. Set to `0` to never truncate",
+      "defaultDefaultValue": 43,
+      "scope": 5,
+      "restricted": false
+    },
     "editor.inlayHints.padding": {
       "type": "boolean",
       "default": false,
@@ -1976,6 +2006,14 @@
       "type": "boolean",
       "default": false,
       "description": "Controls how inline suggestions interact with the suggest widget. If enabled, the suggest widget is not shown automatically when inline suggestions are available.",
+      "defaultDefaultValue": false,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.inlineSuggest.syntaxHighlightingEnabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Controls whether to show syntax highlighting for inline suggestions in the editor.",
       "defaultDefaultValue": false,
       "scope": 5,
       "restricted": false

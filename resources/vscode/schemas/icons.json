@@ -1916,6 +1916,10 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon representing a private remote port.: $(private-ports-view-icon)"
     },
+    "profiles-editor-edit-folder": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for the edit folder icon in the profiles editor.: $(profiles-editor-edit-folder)"
+    },
     "project": {
       "$ref": "#/$defs/_0"
     },
@@ -2000,6 +2004,10 @@
     },
     "repl": {
       "$ref": "#/$defs/_0"
+    },
+    "repl-editor-label-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon of the REPL editor label.: $(repl-editor-label-icon)"
     },
     "replace": {
       "$ref": "#/$defs/_0"
