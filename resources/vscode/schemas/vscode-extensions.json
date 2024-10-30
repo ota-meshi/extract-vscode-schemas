@@ -531,16 +531,44 @@
                 "description": "When the user clicks this participant in `/help`, this text will be submitted to the participant.",
                 "type": "string"
               },
-              "supportsToolReferences": {
-                "description": "Whether this participant supports ChatRequest#toolReferences.",
-                "type": "boolean"
-              },
               "when": {
                 "description": "A condition which must be true to enable this participant.",
                 "type": "string"
               }
             }
           }
+        },
+        "chatViewsWelcome": {
+          "description": "Contributes a welcome message to a chat view",
+          "type": "array",
+          "items": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "content": {
+                "type": "string",
+                "description": "The content of the welcome message. The first command link will be rendered as a button."
+              },
+              "icon": {
+                "type": "string",
+                "description": "The icon for the welcome message."
+              },
+              "title": {
+                "type": "string",
+                "description": "The title of the welcome message."
+              },
+              "when": {
+                "type": "string",
+                "description": "Condition when the welcome message is shown."
+              }
+            }
+          },
+          "required": [
+            "icon",
+            "title",
+            "contents",
+            "when"
+          ]
         },
         "codeActions": {
           "type": "array",
@@ -1645,6 +1673,9 @@
                       "percentage",
                       "sort-percentage",
                       "attach",
+                      "go-to-editing-session",
+                      "edit-session",
+                      "code-review",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -1708,7 +1739,6 @@
                       "default-view-icon",
                       "view-pane-container-expanded",
                       "view-pane-container-collapsed",
-                      "multi-diff-editor-label-icon",
                       "extensions-view-icon",
                       "extensions-manage",
                       "extensions-clear-search-results",
@@ -1741,6 +1771,7 @@
                       "terminal-command-history-output",
                       "terminal-command-history-fuzzy-search",
                       "disassembly-editor-label-icon",
+                      "multi-diff-editor-label-icon",
                       "review-comment-collapse",
                       "comments-view-icon",
                       "auxiliarybar-right-layout-icon",
@@ -1929,6 +1960,7 @@
                       "callhierarchy-outgoing",
                       "outline-view-icon",
                       "profiles-editor-edit-folder",
+                      "profiles-editor-remove-folder",
                       "edit-sessions-view-icon",
                       "timeline-refresh",
                       "timeline-pin",
@@ -2547,6 +2579,9 @@
                       "",
                       "",
                       "",
+                      "",
+                      "",
+                      "",
                       "Icon for breakpoints waiting on another breakpoint.",
                       "Icon for the close action in widgets.",
                       "Icon for goto previous editor location.",
@@ -2587,7 +2622,6 @@
                       "Default view icon.",
                       "Icon for an expanded view pane container.",
                       "Icon for a collapsed view pane container.",
-                      "Icon of the multi diff editor label.",
                       "View icon of the extensions view.",
                       "Icon for the 'Manage' action in the extensions view.",
                       "Icon for the 'Clear Search Result' action in the extensions view.",
@@ -2620,6 +2654,7 @@
                       "Icon for viewing output of a terminal command.",
                       "Icon for toggling fuzzy search of command history.",
                       "Icon of the disassembly editor label.",
+                      "Icon of the multi diff editor label.",
                       "Icon to collapse a review comment.",
                       "View icon of the comments view.",
                       "Icon to toggle the auxiliary bar off in its right position.",
@@ -2808,6 +2843,7 @@
                       "Icon for outgoing calls in the call hierarchy view.",
                       "View icon of the outline view.",
                       "Icon for the edit folder icon in the profiles editor.",
+                      "Icon for the remove folder icon in the profiles editor.",
                       "View icon of the cloud changes view.",
                       "Icon for the refresh timeline action.",
                       "Icon for the pin timeline action.",
@@ -2998,7 +3034,7 @@
           ]
         },
         "languageModelTools": {
-          "description": "Contributes a tool that can be invoked by a language model.",
+          "description": "Contributes a tool that can be invoked by a language model in a chat session, or from a standalone command. Registered tools can be used by all extensions.",
           "type": "array",
           "items": {
             "additionalProperties": false,
@@ -3006,18 +3042,28 @@
             "defaultSnippets": [
               {
                 "body": {
-                  "name": "",
-                  "description": ""
+                  "name": "${1}",
+                  "modelDescription": "${2}",
+                  "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                      "${3:name}": {
+                        "type": "string",
+                        "description": "${4:description}"
+                      }
+                    }
+                  }
                 }
               }
             ],
             "required": [
-              "id",
+              "name",
+              "displayName",
               "modelDescription"
             ],
             "properties": {
-              "canBeInvokedManually": {
-                "description": "Whether this tool can be invoked manually by the user through the chat UX.",
+              "canBeReferencedInPrompt": {
+                "markdownDescription": "If true, this tool shows up as an attachment that the user can add manually to their request. Chat participants will receive the tool in `ChatRequest#toolReferences`.",
                 "type": "boolean"
               },
               "displayName": {
@@ -3025,7 +3071,7 @@
                 "type": "string"
               },
               "icon": {
-                "description": "An icon that represents this tool. Either a file path, an object with file paths for dark and light themes, or a theme icon reference, like `\\$(zap)`",
+                "markdownDescription": "An icon that represents this tool. Either a file path, an object with file paths for dark and light themes, or a theme icon reference, like `$(zap)`",
                 "anyOf": [
                   {
                     "$ref": "#/$defs/_8"
@@ -3035,35 +3081,30 @@
                   }
                 ]
               },
-              "id": {
-                "description": "A unique id for this tool.",
-                "type": "string",
-                "pattern": "^[\\w-]+$"
+              "inputSchema": {
+                "description": "A JSON schema for the input this tool accepts. The input must be an object at the top level. A particular language model may not support all JSON schema features. See the documentation for the language model family you are using for more information.",
+                "$ref": "vscode://schemas/toolsParameters"
               },
               "modelDescription": {
-                "description": "A description of this tool that may be passed to a language model.",
+                "description": "A description of this tool that may be used by a language model to select it.",
                 "type": "string"
               },
               "name": {
-                "description": "If `canBeInvokedManually` is enabled for this tool, the user may use '#' with this name to invoke the tool in a query. Otherwise, the name is not required. Name must not contain whitespace.",
+                "description": "A unique name for this tool. This name must be a globally unique identifier, and is also used as a name when presenting this tool to a language model.",
                 "type": "string",
                 "pattern": "^[\\w-]+$"
               },
-              "parametersSchema": {
-                "description": "A JSON schema for the parameters this tool accepts.",
-                "type": "object",
-                "$ref": "http://json-schema.org/draft-07/schema#"
-              },
-              "requiresConfirmation": {
-                "description": "Whether this tool requires user confirmation before being executed.",
-                "type": "boolean"
-              },
-              "supportedContentTypes": {
-                "markdownDescription": "The list of content types that this tool can return. It's required that tools support `text/plain`, and that is assumed even if not specified here. Another example could be the contentType exported by the `@vscode/prompt-tsx` library.",
+              "tags": {
+                "description": "A set of tags that roughly describe the tool's capabilities. A tool user may use these to filter the set of tools to just ones that are relevant for the task at hand, or they may want to pick a tag that can be used to identify just the tools contributed by this extension.",
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
+              },
+              "toolReferenceName": {
+                "markdownDescription": "If `canBeReferencedInPrompt` is enabled for this tool, the user may use '#' with this name to invoke the tool in a query. Otherwise, the name is not required. Name must not contain whitespace.",
+                "type": "string",
+                "pattern": "^[\\w-]+$"
               },
               "userDescription": {
                 "description": "A description of this tool that may be shown to the user.",
@@ -3378,13 +3419,6 @@
             },
             "editor/inlineCompletions/actions": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"inlineCompletionsAdditions\"]` - The actions shown when hovering on an inline completion",
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/_9"
-              }
-            },
-            "editor/inlineEdit/actions": {
-              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"inlineEdit\"]` - The actions shown when hovering on an inline edit",
               "type": "array",
               "items": {
                 "$ref": "#/$defs/_9"
@@ -5210,6 +5244,7 @@
           "chatParticipantAdditions",
           "chatParticipantPrivate",
           "chatProvider",
+          "chatReferenceBinaryData",
           "chatTab",
           "chatVariableResolver",
           "codeActionAI",
@@ -5221,7 +5256,6 @@
           "commentsDraftState",
           "commentThreadApplicability",
           "contribAccessibilityHelpContent",
-          "contribChatParticipantDetection",
           "contribCommentEditorActionsMenu",
           "contribCommentPeekContext",
           "contribCommentsViewThreadMenus",
@@ -5277,7 +5311,6 @@
           "ipc",
           "languageModelSystem",
           "languageStatusText",
-          "lmTools",
           "mappedEditsProvider",
           "multiDocumentHighlightProvider",
           "newSymbolNamesProvider",
@@ -5343,6 +5376,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatParticipantAdditions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatParticipantPrivate.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatProvider.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatReferenceBinaryData.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatTab.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatVariableResolver.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.codeActionAI.d.ts",
@@ -5354,7 +5388,6 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.commentsDraftState.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.commentThreadApplicability.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribAccessibilityHelpContent.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribChatParticipantDetection.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribCommentEditorActionsMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribCommentPeekContext.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribCommentsViewThreadMenus.d.ts",
@@ -5410,7 +5443,6 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.ipc.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageModelSystem.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageStatusText.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.lmTools.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.mappedEditsProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.multiDocumentHighlightProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.newSymbolNamesProvider.d.ts",
@@ -5705,6 +5737,7 @@
         "editor.inactiveSelectionBackground",
         "editor.selectionHighlightBackground",
         "editor.selectionHighlightBorder",
+        "editor.compositionBorder",
         "editor.findMatchBackground",
         "editor.findMatchForeground",
         "editor.findMatchHighlightBackground",
@@ -6023,6 +6056,12 @@
         "editorSuggestWidget.highlightForeground",
         "editorSuggestWidget.focusHighlightForeground",
         "editorSuggestWidgetStatus.foreground",
+        "inlineEdit.indicator.foreground",
+        "inlineEdit.indicator.background",
+        "inlineEdit.indicator.border",
+        "inlineEdit.originalBackground",
+        "inlineEdit.modifiedBackground",
+        "inlineEdit.border",
         "editorMarkerNavigationError.background",
         "editorMarkerNavigationError.headerBackground",
         "editorMarkerNavigationWarning.background",
@@ -6224,6 +6263,7 @@
         "chat.slashCommandForeground",
         "chat.avatarBackground",
         "chat.avatarForeground",
+        "chat.editedFileForeground",
         "terminal.background",
         "terminal.foreground",
         "terminalCursor.foreground",
@@ -6340,6 +6380,15 @@
         "multiDiffEditor.headerBackground",
         "multiDiffEditor.background",
         "multiDiffEditor.border",
+        "editorGutter.modifiedBackground",
+        "editorGutter.addedBackground",
+        "editorGutter.deletedBackground",
+        "minimapGutter.modifiedBackground",
+        "minimapGutter.addedBackground",
+        "minimapGutter.deletedBackground",
+        "editorOverviewRuler.modifiedForeground",
+        "editorOverviewRuler.addedForeground",
+        "editorOverviewRuler.deletedForeground",
         "interactive.activeCodeBorder",
         "interactive.inactiveCodeBorder",
         "testing.iconFailed",
@@ -6373,15 +6422,6 @@
         "testing.iconUnset.retired",
         "testing.iconSkipped.retired",
         "searchEditor.textInputBorder",
-        "editorGutter.modifiedBackground",
-        "editorGutter.addedBackground",
-        "editorGutter.deletedBackground",
-        "minimapGutter.modifiedBackground",
-        "minimapGutter.addedBackground",
-        "minimapGutter.deletedBackground",
-        "editorOverviewRuler.modifiedForeground",
-        "editorOverviewRuler.addedForeground",
-        "editorOverviewRuler.deletedForeground",
         "debugExceptionWidget.border",
         "debugExceptionWidget.background",
         "editor.inlineValuesForeground",
@@ -6524,6 +6564,7 @@
         "Color of the selection in an inactive editor. The color must not be opaque so as not to hide underlying decorations.",
         "Color for regions with the same content as the selection. The color must not be opaque so as not to hide underlying decorations.",
         "Border color for regions with the same content as the selection.",
+        "The border color for an IME composition.",
         "Color of the current search match.",
         "Text color of the current search match.",
         "Color of the other search matches. The color must not be opaque so as not to hide underlying decorations.",
@@ -6842,6 +6883,12 @@
         "Color of the match highlights in the suggest widget.",
         "Color of the match highlights in the suggest widget when an item is focused.",
         "Foreground color of the suggest widget status.",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
         "Editor marker navigation widget error color.",
         "Editor marker navigation widget error heading background.",
         "Editor marker navigation widget warning color.",
@@ -7043,6 +7090,7 @@
         "The foreground color of a chat slash command.",
         "The background color of a chat avatar.",
         "The foreground color of a chat avatar.",
+        "The foreground color of a chat edited file in the edited file list.",
         "The background color of the terminal, this allows coloring the terminal differently to the panel.",
         "The foreground color of the terminal.",
         "The foreground color of the terminal cursor.",
@@ -7159,6 +7207,15 @@
         "The background color of the diff editor's header",
         "The background color of the multi file diff editor",
         "The border color of the multi file diff editor",
+        "Editor gutter background color for lines that are modified.",
+        "Editor gutter background color for lines that are added.",
+        "Editor gutter background color for lines that are deleted.",
+        "Minimap gutter background color for lines that are modified.",
+        "Minimap gutter background color for lines that are added.",
+        "Minimap gutter background color for lines that are deleted.",
+        "Overview ruler marker color for modified content.",
+        "Overview ruler marker color for added content.",
+        "Overview ruler marker color for deleted content.",
         "The border color for the current interactive code cell when the editor has focus.",
         "The border color for the current interactive code cell when the editor does not have focus.",
         "Color for the 'failed' icon in the test explorer.",
@@ -7192,15 +7249,6 @@
         "Retired color for the 'Unset' icon in the test explorer.",
         "Retired color for the 'Skipped' icon in the test explorer.",
         "Search editor text input box border.",
-        "Editor gutter background color for lines that are modified.",
-        "Editor gutter background color for lines that are added.",
-        "Editor gutter background color for lines that are deleted.",
-        "Minimap gutter background color for lines that are modified.",
-        "Minimap gutter background color for lines that are added.",
-        "Minimap gutter background color for lines that are deleted.",
-        "Overview ruler marker color for modified content.",
-        "Overview ruler marker color for added content.",
-        "Overview ruler marker color for deleted content.",
         "Exception widget border color.",
         "Exception widget background color.",
         "Color for the debug inline value text.",

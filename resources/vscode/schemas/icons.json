@@ -326,6 +326,9 @@
     "code-oss": {
       "$ref": "#/$defs/_0"
     },
+    "code-review": {
+      "$ref": "#/$defs/_0"
+    },
     "coffee": {
       "$ref": "#/$defs/_0"
     },
@@ -704,6 +707,9 @@
       "$ref": "#/$defs/_0"
     },
     "edit": {
+      "$ref": "#/$defs/_0"
+    },
+    "edit-session": {
       "$ref": "#/$defs/_0"
     },
     "edit-sessions-view-icon": {
@@ -1117,6 +1123,9 @@
       "$ref": "#/$defs/_0"
     },
     "globe": {
+      "$ref": "#/$defs/_0"
+    },
+    "go-to-editing-session": {
       "$ref": "#/$defs/_0"
     },
     "go-to-file": {
@@ -1919,6 +1928,10 @@
     "profiles-editor-edit-folder": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for the edit folder icon in the profiles editor.: $(profiles-editor-edit-folder)"
+    },
+    "profiles-editor-remove-folder": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for the remove folder icon in the profiles editor.: $(profiles-editor-remove-folder)"
     },
     "project": {
       "$ref": "#/$defs/_0"

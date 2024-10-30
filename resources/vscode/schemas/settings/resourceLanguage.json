@@ -262,9 +262,6 @@
         "Uses the advanced diffing algorithm.",
         "Uses the legacy diffing algorithm."
       ],
-      "tags": [
-        "experimental"
-      ],
       "defaultDefaultValue": "advanced",
       "scope": 5,
       "restricted": false
@@ -648,7 +645,7 @@
           "$ref": "#/$defs/_4"
         }
       ],
-      "markdownDescription": "Run Code Actions for the editor on save. Code Actions must be specified and the editor must not be shutting down. Example: `\"source.organizeImports\": \"explicit\" `",
+      "markdownDescription": "Run Code Actions for the editor on save. Code Actions must be specified and the editor must not be shutting down. When `#files.autoSave#` is set to `afterDelay`, Code Actions will only be run when the file is saved explicitly. Example: `\"source.organizeImports\": \"explicit\" `",
       "type": [
         "object",
         "array"
@@ -1225,6 +1222,9 @@
       },
       "default": [],
       "markdownDescription": "Controls whether tree sitter parsing should be turned on for specific languages. This will take precedence over `editor.experimental.treeSitterTelemetry` for the specified languages.",
+      "tags": [
+        "experimental"
+      ],
       "defaultDefaultValue": [],
       "scope": 5,
       "restricted": false
@@ -1234,7 +1234,8 @@
       "default": false,
       "markdownDescription": "Controls whether tree sitter parsing should be turned on and telemetry collected. Setting `editor.experimental.preferTreeSitter` for specific languages will take precedence.",
       "tags": [
-        "experimental"
+        "experimental",
+        "onExP"
       ],
       "defaultDefaultValue": false,
       "scope": 5,
@@ -1242,43 +1243,10 @@
     },
     "editor.experimentalEditContextEnabled": {
       "description": "Sets whether the new experimental edit context should be used instead of the text area.",
+      "included": true,
       "type": "boolean",
       "default": false,
       "defaultDefaultValue": false,
-      "scope": 5,
-      "restricted": false
-    },
-    "editor.experimentalInlineEdit.enabled": {
-      "type": "boolean",
-      "default": false,
-      "description": "Controls whether to show inline edits in the editor.",
-      "defaultDefaultValue": false,
-      "scope": 5,
-      "restricted": false
-    },
-    "editor.experimentalInlineEdit.fontFamily": {
-      "type": "string",
-      "default": "default",
-      "description": "Controls the font family of the inline edit.",
-      "defaultDefaultValue": "default",
-      "scope": 5,
-      "restricted": false
-    },
-    "editor.experimentalInlineEdit.showToolbar": {
-      "type": "string",
-      "default": "onHover",
-      "enum": [
-        "always",
-        "never",
-        "onHover"
-      ],
-      "enumDescriptions": [
-        "Show the inline edit toolbar whenever an inline suggestion is shown.",
-        "Never show the inline edit toolbar.",
-        "Show the inline edit toolbar when hovering over an inline suggestion."
-      ],
-      "description": "Controls when to show the inline edit toolbar.",
-      "defaultDefaultValue": "onHover",
       "scope": 5,
       "restricted": false
     },
@@ -1514,7 +1482,7 @@
     },
     "editor.formatOnSave": {
       "type": "boolean",
-      "description": "Format a file on save. A formatter must be available, the file must not be saved after delay, and the editor must not be shutting down.",
+      "markdownDescription": "Format a file on save. A formatter must be available and the editor must not be shutting down. When `#files.autoSave#` is set to `afterDelay`, the file will only be formatted when saved explicitly.",
       "scope": 5,
       "default": false,
       "restricted": false
@@ -1968,6 +1936,14 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.inlineSuggest.edits.experimental.enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "Controls whether to enable experimental edits in inline suggestions.",
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
     "editor.inlineSuggest.enabled": {
       "type": "boolean",
       "default": true,
@@ -2072,9 +2048,6 @@
     },
     "editor.lightbulb.enabled": {
       "type": "string",
-      "tags": [
-        "experimental"
-      ],
       "enum": [
         "off",
         "on",
@@ -2358,6 +2331,19 @@
       ],
       "default": "singleFile",
       "defaultDefaultValue": "singleFile",
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.occurrencesHighlightDelay": {
+      "description": "Controls the delay in milliseconds after which occurrences are highlighted.",
+      "tags": [
+        "preview"
+      ],
+      "type": "integer",
+      "default": 250,
+      "minimum": 0,
+      "maximum": 2000,
+      "defaultDefaultValue": 250,
       "scope": 5,
       "restricted": false
     },
@@ -2887,9 +2873,6 @@
       "type": "boolean",
       "default": true,
       "description": "Shows the nested current scopes during the scroll at the top of the editor.",
-      "tags": [
-        "experimental"
-      ],
       "defaultDefaultValue": true,
       "scope": 5,
       "restricted": false
@@ -4028,7 +4011,7 @@
           "$ref": "#/$defs/_4"
         }
       ],
-      "markdownDescription": "Run a series of Code Actions for a notebook on save. Code Actions must be specified, the file must not be saved after delay, and the editor must not be shutting down. Example: `\"notebook.source.organizeImports\": \"explicit\"`",
+      "markdownDescription": "Run a series of Code Actions for a notebook on save. Code Actions must be specified and the editor must not be shutting down. When `#files.autoSave#` is set to `afterDelay`, Code Actions will only be run when the file is saved explicitly. Example: `\"notebook.source.organizeImports\": \"explicit\"`",
       "type": "object",
       "additionalProperties": {
         "type": [

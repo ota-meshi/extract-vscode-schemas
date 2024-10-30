@@ -11,7 +11,7 @@ You able to get it in the form of `https://raw.githubusercontent.com/ota-meshi/e
 
 <!--EXTRACT-INFO-START-->
 
-Version of VSCode used for extraction: 1.94.2
+Version of VSCode used for extraction: 1.95.0
 
 Extracted Resources:
 
@@ -41,6 +41,7 @@ Extracted Resources:
 | `vscode://schemas/tasks` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/tasks.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/tasks.json) |
 | `vscode://schemas/textmate-colors` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/textmate-colors.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/textmate-colors.json) |
 | `vscode://schemas/token-styling` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/token-styling.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/token-styling.json) |
+| `vscode://schemas/toolsParameters` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/toolsParameters.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/toolsParameters.json) |
 | `vscode://schemas/vscode-extensions` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/vscode-extensions.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/vscode-extensions.json) |
 | `vscode://schemas/vscode-product` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/vscode-product.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/vscode-product.json) |
 | `vscode://schemas/workbench-colors` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/workbench-colors.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/workbench-colors.json) |

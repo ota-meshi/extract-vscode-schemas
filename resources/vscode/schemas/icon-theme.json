@@ -150,7 +150,7 @@
           },
           "size": {
             "type": "string",
-            "description": "The default size of the font. See https://developer.mozilla.org/en-US/docs/Web/CSS/font-size for valid values.",
+            "description": "The default size of the font. We strongly recommend using a percentage value, for example: 125%.",
             "pattern": "^([\\w .%_-]+)$"
           },
           "src": {
