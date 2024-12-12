@@ -664,27 +664,7 @@
       "scope": 5,
       "defaultDefaultValue": {},
       "restricted": false,
-      "properties": {
-        "source.organizeImports": {
-          "type": "string",
-          "enum": [
-            "always",
-            "explicit",
-            false,
-            "never",
-            true
-          ],
-          "enumDescriptions": [
-            "Triggers Code Actions on explicit saves and auto saves triggered by window or focus changes.",
-            "Triggers Code Actions only when explicitly saved",
-            "Never triggers Code Actions on save. This value will be deprecated in favor of \"never\".",
-            "Never triggers Code Actions on save",
-            "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\"."
-          ],
-          "default": "explicit",
-          "description": "Controls whether 'Organize Imports' actions should be run on file save."
-        }
-      }
+      "properties": {}
     },
     "editor.codeActionWidget.includeNearbyQuickFixes": {
       "type": "boolean",
@@ -830,7 +810,7 @@
       "restricted": false
     },
     "editor.cursorStyle": {
-      "description": "Controls the cursor style.",
+      "description": "Controls the cursor style in insert input mode.",
       "type": "string",
       "enum": [
         "block",
@@ -882,10 +862,20 @@
       "restricted": false
     },
     "editor.defaultColorDecorators": {
-      "markdownDescription": "Controls whether inline color decorations should be shown using the default document color provider",
-      "type": "boolean",
-      "default": false,
-      "defaultDefaultValue": false,
+      "enumDescriptions": [
+        "Always show default color decorators.",
+        "Show default color decorators only when no extension provides colors decorators.",
+        "Never show default color decorators."
+      ],
+      "description": "Controls whether inline color decorations should be shown using the default document color provider.",
+      "type": "string",
+      "enum": [
+        "always",
+        "auto",
+        "never"
+      ],
+      "default": "auto",
+      "defaultDefaultValue": "auto",
       "scope": 5,
       "restricted": false
     },
@@ -927,6 +917,7 @@
         "vscode.references-view",
         "vscode.search-result",
         "vscode.simple-browser",
+        "vscode.terminal-suggest",
         "vscode.tunnel-forwarding",
         "vscode.typescript-language-features"
       ],
@@ -961,6 +952,7 @@
         "Reference Search View",
         "Search Result",
         "Simple Browser",
+        "Terminal Suggest for VS Code",
         "Local Tunnel Port Forwarding",
         "Table Visualizer for JavaScript Profiles"
       ],
@@ -995,6 +987,7 @@
         "Reference Search results as separate, stable view in the sidebar",
         "Provides syntax highlighting and language features for tabbed search results.",
         "A very basic built-in webview for displaying web content.",
+        "Extension to add terminal completions for zsh, bash, and fish terminals.",
         "Allows forwarding local ports to be accessible over the internet.",
         "Provides rich language support for JavaScript and TypeScript."
       ],
@@ -1040,6 +1033,7 @@
         "vscode.references-view",
         "vscode.search-result",
         "vscode.simple-browser",
+        "vscode.terminal-suggest",
         "vscode.tunnel-forwarding",
         "vscode.typescript-language-features"
       ],
@@ -1074,6 +1068,7 @@
         "Reference Search View",
         "Search Result",
         "Simple Browser",
+        "Terminal Suggest for VS Code",
         "Local Tunnel Port Forwarding",
         "Table Visualizer for JavaScript Profiles"
       ],
@@ -1108,6 +1103,7 @@
         "Reference Search results as separate, stable view in the sidebar",
         "Provides syntax highlighting and language features for tabbed search results.",
         "A very basic built-in webview for displaying web content.",
+        "Extension to add terminal completions for zsh, bash, and fish terminals.",
         "Allows forwarding local ports to be accessible over the internet.",
         "Provides rich language support for JavaScript and TypeScript."
       ],
@@ -1145,6 +1141,25 @@
       "markdownDescription": "Controls whether you can drag and drop a file into a text editor by holding down the `Shift` key (instead of opening the file in an editor).",
       "defaultDefaultValue": true,
       "scope": 5,
+      "restricted": false
+    },
+    "editor.dropIntoEditor.preferences": {
+      "type": "array",
+      "scope": 5,
+      "description": "Configures the preferred type of edit to use when dropping content.\n\nThis is an ordered list of edit kinds. The first available edit of a preferred kind will be used.",
+      "default": [],
+      "items": {
+        "description": "The kind identifier of the drop edit.",
+        "anyOf": [
+          {
+            "enum": []
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "defaultDefaultValue": [],
       "restricted": false
     },
     "editor.dropIntoEditor.showDropSelector": {
@@ -1199,17 +1214,6 @@
       ],
       "defaultDefaultValue": false,
       "scope": 5,
-      "restricted": false
-    },
-    "editor.experimental.dropIntoEditor.defaultProvider": {
-      "type": "object",
-      "scope": 5,
-      "description": "Configures the default drop provider to use for content of a given mime type.",
-      "default": {},
-      "additionalProperties": {
-        "type": "string"
-      },
-      "defaultDefaultValue": {},
       "restricted": false
     },
     "editor.experimental.preferTreeSitter": {
@@ -1307,6 +1311,22 @@
       "default": true,
       "description": "Controls whether the cursor should jump to find matches while typing.",
       "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.find.history": {
+      "type": "string",
+      "enum": [
+        "never",
+        "workspace"
+      ],
+      "default": "workspace",
+      "enumDescriptions": [
+        "Do not store search history from the find widget.",
+        "Store search history across the active workspace"
+      ],
+      "description": "Controls how the find widget history should be stored",
+      "defaultDefaultValue": "workspace",
       "scope": 5,
       "restricted": false
     },
@@ -1944,6 +1964,39 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.inlineSuggest.edits.experimental.onlyShowWhenCloseToCursor": {
+      "type": "boolean",
+      "default": true,
+      "description": "Controls whether to only show inline suggestions when the cursor is close to the suggestion.",
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.inlineSuggest.edits.experimental.useInterleavedLinesDiff": {
+      "type": "string",
+      "default": "never",
+      "description": "Controls whether to enable experimental interleaved lines diff in inline suggestions.",
+      "enum": [
+        "afterJump",
+        "always",
+        "never"
+      ],
+      "defaultDefaultValue": "never",
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.inlineSuggest.edits.experimental.useMixedLinesDiff": {
+      "type": "string",
+      "default": "never",
+      "description": "Controls whether to enable experimental edits in inline suggestions.",
+      "enum": [
+        "never",
+        "whenPossible"
+      ],
+      "defaultDefaultValue": "never",
+      "scope": 5,
+      "restricted": false
+    },
     "editor.inlineSuggest.enabled": {
       "type": "boolean",
       "default": true,
@@ -2347,6 +2400,30 @@
       "scope": 5,
       "restricted": false
     },
+    "editor.overtypeCursorStyle": {
+      "description": "Controls the cursor style in overtype input mode.",
+      "type": "string",
+      "enum": [
+        "block",
+        "block-outline",
+        "line",
+        "line-thin",
+        "underline",
+        "underline-thin"
+      ],
+      "default": "block",
+      "defaultDefaultValue": "block",
+      "scope": 5,
+      "restricted": false
+    },
+    "editor.overtypeOnPaste": {
+      "description": "Controls whether pasting should overtype.",
+      "type": "boolean",
+      "default": true,
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
     "editor.overviewRulerBorder": {
       "description": "Controls whether a border should be drawn around the overview ruler.",
       "type": "boolean",
@@ -2397,6 +2474,25 @@
       "markdownDescription": "Controls whether you can paste content in different ways.",
       "defaultDefaultValue": true,
       "scope": 5,
+      "restricted": false
+    },
+    "editor.pasteAs.preferences": {
+      "type": "array",
+      "scope": 5,
+      "description": "Configures the preferred type of edit to use when pasting content.\n\nThis is an ordered list of edit kinds. The first available edit of a preferred kind will be used.",
+      "default": [],
+      "items": {
+        "description": "The kind identifier of the paste edit.",
+        "anyOf": [
+          {
+            "enum": []
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "defaultDefaultValue": [],
       "restricted": false
     },
     "editor.pasteAs.showPasteSelector": {
@@ -3967,7 +4063,7 @@
         "none"
       ],
       "markdownEnumDescriptions": [
-        "Insert `={}` or `=\"\"` after attribute names based on the prop type. See `javascript.preferences.quoteStyle` to control the type of quotes used for string attributes.",
+        "Insert `={}` or `=\"\"` after attribute names based on the prop type. See `#javascript.preferences.quoteStyle#` to control the type of quotes used for string attributes.",
         "Insert `={}` after attribute names.",
         "Only insert attribute names."
       ],
@@ -4029,28 +4125,7 @@
       "defaultDefaultValue": {},
       "scope": 5,
       "restricted": false,
-      "properties": {
-        "source.organizeImports": {
-          "type": [
-            "string",
-            "boolean"
-          ],
-          "enum": [
-            "explicit",
-            false,
-            "never",
-            true
-          ],
-          "enumDescriptions": [
-            "Triggers Code Actions only when explicitly saved.",
-            "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"never\".",
-            "Never triggers Code Actions on save.",
-            "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\"."
-          ],
-          "default": "explicit",
-          "description": "Controls whether 'Organize Imports' actions should be run on file save."
-        }
-      }
+      "properties": {}
     },
     "outline.collapseItems": {
       "description": "Controls whether Outline items are collapsed or expanded.",
@@ -4293,7 +4368,7 @@
         "none"
       ],
       "markdownEnumDescriptions": [
-        "Insert `={}` or `=\"\"` after attribute names based on the prop type. See `typescript.preferences.quoteStyle` to control the type of quotes used for string attributes.",
+        "Insert `={}` or `=\"\"` after attribute names based on the prop type. See `#typescript.preferences.quoteStyle#` to control the type of quotes used for string attributes.",
         "Insert `={}` after attribute names.",
         "Only insert attribute names."
       ],

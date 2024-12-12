@@ -142,6 +142,11 @@
             "description": "An activation event emitted when the specified language model tool is invoked."
           },
           {
+            "label": "onTerminalCompletionsRequested",
+            "body": "onTerminalCompletionsRequested",
+            "description": "An activation event emitted when terminal completions are requested."
+          },
+          {
             "label": "*",
             "description": "An activation event emitted on VS Code startup. To ensure a great end user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.",
             "body": "*"
@@ -570,47 +575,6 @@
             "when"
           ]
         },
-        "codeActions": {
-          "type": "array",
-          "markdownDescription": "Configure which editor to use for a resource.",
-          "items": {
-            "type": "object",
-            "required": [
-              "languages",
-              "actions"
-            ],
-            "properties": {
-              "actions": {
-                "type": "object",
-                "required": [
-                  "kind",
-                  "title"
-                ],
-                "properties": {
-                  "description": {
-                    "type": "string",
-                    "description": "Description of what the code action does."
-                  },
-                  "kind": {
-                    "type": "string",
-                    "markdownDescription": "`CodeActionKind` of the contributed code action."
-                  },
-                  "title": {
-                    "type": "string",
-                    "description": "Label for the code action used in the UI."
-                  }
-                }
-              },
-              "languages": {
-                "type": "array",
-                "description": "Language modes that the code actions are enabled for.",
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
         "colors": {
           "description": "Contributes extension defined themable colors",
           "type": "array",
@@ -962,39 +926,6 @@
               "id",
               "when"
             ]
-          }
-        },
-        "documentation": {
-          "type": "object",
-          "description": "Contributed documentation.",
-          "properties": {
-            "refactoring": {
-              "type": "array",
-              "description": "Contributed documentation for refactorings.",
-              "items": {
-                "type": "object",
-                "description": "Contributed documentation for refactoring.",
-                "required": [
-                  "title",
-                  "when",
-                  "command"
-                ],
-                "properties": {
-                  "command": {
-                    "type": "string",
-                    "description": "Command executed."
-                  },
-                  "title": {
-                    "type": "string",
-                    "description": "Label for the documentation used in the UI."
-                  },
-                  "when": {
-                    "type": "string",
-                    "description": "When clause."
-                  }
-                }
-              }
-            }
           }
         },
         "grammars": {
@@ -1676,6 +1607,10 @@
                       "go-to-editing-session",
                       "edit-session",
                       "code-review",
+                      "copilot-warning",
+                      "python",
+                      "copilot-large",
+                      "copilot-warning-large",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -1735,10 +1670,11 @@
                       "parameter-hints-previous",
                       "extensions-warning-message",
                       "defaultProfile-icon",
-                      "chat-editor-label-icon",
                       "default-view-icon",
                       "view-pane-container-expanded",
                       "view-pane-container-collapsed",
+                      "breadcrumb-separator",
+                      "chat-editor-label-icon",
                       "extensions-view-icon",
                       "extensions-manage",
                       "extensions-clear-search-results",
@@ -1762,14 +1698,6 @@
                       "extensions-info-message",
                       "extension-workspace-trust",
                       "extension-activation-time",
-                      "terminal-view-icon",
-                      "terminal-rename",
-                      "terminal-kill",
-                      "terminal-new",
-                      "terminal-configure-profile",
-                      "terminal-command-history-remove",
-                      "terminal-command-history-output",
-                      "terminal-command-history-fuzzy-search",
                       "disassembly-editor-label-icon",
                       "multi-diff-editor-label-icon",
                       "review-comment-collapse",
@@ -1819,7 +1747,6 @@
                       "diff-editor-previous-change",
                       "diff-editor-next-change",
                       "diff-editor-toggle-whitespace",
-                      "breadcrumb-separator",
                       "settings-view-bar-icon",
                       "accounts-view-bar-icon",
                       "keybindings-editor-label-icon",
@@ -1919,6 +1846,15 @@
                       "testing-queued-icon",
                       "testing-skipped-icon",
                       "testing-unset-icon",
+                      "terminal-view-icon",
+                      "terminal-rename",
+                      "terminal-kill",
+                      "terminal-new",
+                      "terminal-configure-profile",
+                      "terminal-command-history-remove",
+                      "terminal-command-history-output",
+                      "terminal-command-history-fuzzy-search",
+                      "terminal-command-history-open-file",
                       "explorer-view-icon",
                       "open-editors-view-icon",
                       "refactor-preview-view-icon",
@@ -2582,6 +2518,10 @@
                       "",
                       "",
                       "",
+                      "",
+                      "",
+                      "",
+                      "",
                       "Icon for breakpoints waiting on another breakpoint.",
                       "Icon for the close action in widgets.",
                       "Icon for goto previous editor location.",
@@ -2618,10 +2558,11 @@
                       "Icon for show previous parameter hint.",
                       "Icon shown with a warning message in the extensions editor.",
                       "Icon for Default Profile.",
-                      "Icon of the chat editor label.",
                       "Default view icon.",
                       "Icon for an expanded view pane container.",
                       "Icon for a collapsed view pane container.",
+                      "Icon for the separator in the breadcrumbs.",
+                      "Icon of the chat editor label.",
                       "View icon of the extensions view.",
                       "Icon for the 'Manage' action in the extensions view.",
                       "Icon for the 'Clear Search Result' action in the extensions view.",
@@ -2645,14 +2586,6 @@
                       "Icon shown with an info message in the extensions editor.",
                       "Icon shown with a workspace trust message in the extension editor.",
                       "Icon shown with a activation time message in the extension editor.",
-                      "View icon of the terminal view.",
-                      "Icon for rename in the terminal quick menu.",
-                      "Icon for killing a terminal instance.",
-                      "Icon for creating a new terminal instance.",
-                      "Icon for creating a new terminal profile.",
-                      "Icon for removing a terminal command from command history.",
-                      "Icon for viewing output of a terminal command.",
-                      "Icon for toggling fuzzy search of command history.",
                       "Icon of the disassembly editor label.",
                       "Icon of the multi diff editor label.",
                       "Icon to collapse a review comment.",
@@ -2702,7 +2635,6 @@
                       "Icon for the previous change action in the diff editor.",
                       "Icon for the next change action in the diff editor.",
                       "Icon for the toggle whitespace action in the diff editor.",
-                      "Icon for the separator in the breadcrumbs.",
                       "Settings icon in the view bar.",
                       "Accounts icon in the view bar.",
                       "Icon of the keybindings editor label.",
@@ -2802,6 +2734,15 @@
                       "Icon shown for tests that are queued.",
                       "Icon shown for tests that are skipped.",
                       "Icon shown for tests that are in an unset state.",
+                      "View icon of the terminal view.",
+                      "Icon for rename in the terminal quick menu.",
+                      "Icon for killing a terminal instance.",
+                      "Icon for creating a new terminal instance.",
+                      "Icon for creating a new terminal profile.",
+                      "Icon for removing a terminal command from command history.",
+                      "Icon for viewing output of a terminal command.",
+                      "Icon for toggling fuzzy search of command history.",
+                      "Icon for opening a shell history file.",
                       "View icon of the explorer view.",
                       "View icon of the open editors view.",
                       "View icon of the refactor preview view.",
@@ -2878,7 +2819,9 @@
                       },
                       "fontCharacter": {
                         "description": "The character for the icon in the icon font.",
-                        "type": "string"
+                        "type": "string",
+                        "pattern": "^([^\\\\]|\\\\[a-fA-F0-9]+)$",
+                        "patternErrorMessage": "The fontCharacter must be a single letter or a backslash followed by unicode code points in hexadecimal."
                       }
                     },
                     "required": [
@@ -3509,7 +3452,7 @@
               }
             },
             "issue/reporter": {
-              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribIssueReporter\"]` - The contributed issue reporter menu",
+              "markdownDescription": "The contributed issue reporter menu",
               "type": "array",
               "items": {
                 "$ref": "#/$defs/_10"
@@ -3615,6 +3558,13 @@
             },
             "scm/historyItem/context": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlHistoryItemMenu\"]` - The Source Control history item context menu",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/_10"
+              }
+            },
+            "scm/historyItemRef/context": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlHistoryItemMenu\"]` - The Source Control history item reference context menu",
               "type": "array",
               "items": {
                 "$ref": "#/$defs/_10"
@@ -4035,7 +3985,7 @@
                 "properties": {
                   "activeOnStart": {
                     "type": "boolean",
-                    "description": "If set to true the background monitor is in active mode when the task starts. This is equals of issuing a line that matches the beginsPattern"
+                    "description": "If set to true the background monitor starts in active mode. This is the same as outputting a line that matches beginsPattern when the task starts."
                   },
                   "beginsPattern": {
                     "oneOf": [
@@ -4210,7 +4160,7 @@
                 "properties": {
                   "activeOnStart": {
                     "type": "boolean",
-                    "description": "If set to true the watcher is in active mode when the task starts. This is equals of issuing a line that matches the beginPattern"
+                    "description": "If set to true the watcher starts in active mode. This is the same as outputting a line that matches beginsPattern when the task starts."
                   },
                   "beginsPattern": {
                     "oneOf": [
@@ -5236,11 +5186,10 @@
           "activeComment",
           "aiRelatedInformation",
           "aiTextSearchProvider",
-          "aiTextSearchProviderNew",
-          "attributableCoverage",
           "authLearnMore",
           "authSession",
           "canonicalUriProvider",
+          "chatEditing",
           "chatParticipantAdditions",
           "chatParticipantPrivate",
           "chatProvider",
@@ -5264,7 +5213,6 @@
           "contribDiffEditorGutterToolBarMenus",
           "contribEditorContentMenu",
           "contribEditSessions",
-          "contribIssueReporter",
           "contribLabelFormatterWorkspaceTooltip",
           "contribMenuBarHome",
           "contribMergeEditorMenus",
@@ -5297,11 +5245,10 @@
           "externalUriOpener",
           "fileComments",
           "fileSearchProvider",
-          "fileSearchProviderNew",
+          "fileSearchProvider2",
           "findFiles2",
-          "findFiles2New",
           "findTextInFiles",
-          "findTextInFilesNew",
+          "findTextInFiles2",
           "fsChunks",
           "idToken",
           "inlineCompletionsAdditions",
@@ -5311,9 +5258,9 @@
           "ipc",
           "languageModelSystem",
           "languageStatusText",
-          "lmTools",
           "mappedEditsProvider",
           "multiDocumentHighlightProvider",
+          "nativeWindowHandle",
           "newSymbolNamesProvider",
           "notebookCellExecution",
           "notebookCellExecutionState",
@@ -5346,6 +5293,7 @@
           "tabInputTextMerge",
           "taskPresentationGroup",
           "telemetry",
+          "terminalCompletionProvider",
           "terminalDataWriteEvent",
           "terminalDimensions",
           "terminalExecuteCommandEvent",
@@ -5353,9 +5301,10 @@
           "terminalSelection",
           "testObserver",
           "testRelatedCode",
-          "textSearchCompleteNew",
+          "textEditorDiffInformation",
+          "textSearchComplete2",
           "textSearchProvider",
-          "textSearchProviderNew",
+          "textSearchProvider2",
           "timeline",
           "tokenInformation",
           "treeViewActiveItem",
@@ -5363,17 +5312,17 @@
           "treeViewReveal",
           "tunnelFactory",
           "tunnels",
+          "valueSelectionInQuickPick",
           "workspaceTrust"
         ],
         "markdownEnumDescriptions": [
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.activeComment.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiRelatedInformation.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiTextSearchProvider.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiTextSearchProviderNew.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.attributableCoverage.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authLearnMore.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authSession.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.canonicalUriProvider.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatEditing.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatParticipantAdditions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatParticipantPrivate.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatProvider.d.ts",
@@ -5397,7 +5346,6 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribDiffEditorGutterToolBarMenus.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribEditorContentMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribEditSessions.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribIssueReporter.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribLabelFormatterWorkspaceTooltip.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribMenuBarHome.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribMergeEditorMenus.d.ts",
@@ -5430,11 +5378,10 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.externalUriOpener.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.fileComments.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.fileSearchProvider.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.fileSearchProviderNew.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.fileSearchProvider2.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.findFiles2.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.findFiles2New.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.findTextInFiles.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.findTextInFilesNew.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.findTextInFiles2.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.fsChunks.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.idToken.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.inlineCompletionsAdditions.d.ts",
@@ -5444,9 +5391,9 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.ipc.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageModelSystem.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageStatusText.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.lmTools.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.mappedEditsProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.multiDocumentHighlightProvider.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.nativeWindowHandle.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.newSymbolNamesProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookCellExecution.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookCellExecutionState.d.ts",
@@ -5479,6 +5426,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.tabInputTextMerge.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.taskPresentationGroup.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.telemetry.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalCompletionProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalDataWriteEvent.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalDimensions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalExecuteCommandEvent.d.ts",
@@ -5486,9 +5434,10 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalSelection.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.testObserver.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.testRelatedCode.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.textSearchCompleteNew.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.textEditorDiffInformation.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.textSearchComplete2.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.textSearchProvider.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.textSearchProviderNew.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.textSearchProvider2.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.timeline.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.tokenInformation.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.treeViewActiveItem.d.ts",
@@ -5496,6 +5445,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.treeViewReveal.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.tunnelFactory.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.tunnels.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.valueSelectionInQuickPick.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.workspaceTrust.d.ts"
         ]
       }
@@ -5707,11 +5657,18 @@
         "sash.hoverBorder",
         "badge.background",
         "badge.foreground",
+        "activityWarningBadge.foreground",
+        "activityWarningBadge.background",
+        "activityErrorBadge.foreground",
+        "activityErrorBadge.background",
         "scrollbar.shadow",
         "scrollbarSlider.background",
         "scrollbarSlider.hoverBackground",
         "scrollbarSlider.activeBackground",
         "progressBar.background",
+        "chart.line",
+        "chart.axis",
+        "chart.guide",
         "editor.background",
         "editor.foreground",
         "editorStickyScroll.background",
@@ -5997,6 +5954,7 @@
         "diffEditor.moveActive.border",
         "diffEditor.unchangedRegionShadow",
         "editorOverviewRuler.bracketMatchForeground",
+        "actionBar.toggledBackground",
         "symbolIcon.arrayForeground",
         "symbolIcon.booleanForeground",
         "symbolIcon.classForeground",
@@ -6030,7 +5988,6 @@
         "symbolIcon.typeParameterForeground",
         "symbolIcon.unitForeground",
         "symbolIcon.variableForeground",
-        "actionBar.toggledBackground",
         "peekViewTitle.background",
         "peekViewTitleLabel.foreground",
         "peekViewTitleDescription.foreground",
@@ -6063,6 +6020,10 @@
         "inlineEdit.indicator.border",
         "inlineEdit.originalBackground",
         "inlineEdit.modifiedBackground",
+        "inlineEdit.originalChangedLineBackground",
+        "inlineEdit.originalChangedTextBackground",
+        "inlineEdit.modifiedChangedLineBackground",
+        "inlineEdit.modifiedChangedTextBackground",
         "inlineEdit.border",
         "editorMarkerNavigationError.background",
         "editorMarkerNavigationError.headerBackground",
@@ -6127,6 +6088,7 @@
         "sideBySideEditor.verticalBorder",
         "panel.background",
         "panel.border",
+        "panelTitle.border",
         "panelTitle.activeForeground",
         "panelTitle.inactiveForeground",
         "panelTitle.activeBorder",
@@ -6202,6 +6164,7 @@
         "sideBar.border",
         "sideBarTitle.background",
         "sideBarTitle.foreground",
+        "sideBarTitle.border",
         "sideBar.dropBackground",
         "sideBarSectionHeader.background",
         "sideBarSectionHeader.foreground",
@@ -6239,6 +6202,7 @@
         "notificationsInfoIcon.foreground",
         "window.activeBorder",
         "window.inactiveBorder",
+        "editorWatermark.foreground",
         "inlineChat.foreground",
         "inlineChat.background",
         "inlineChat.border",
@@ -6259,6 +6223,15 @@
         "extensionButton.prominentBackground",
         "extensionButton.prominentForeground",
         "extensionButton.prominentHoverBackground",
+        "editorGutter.modifiedBackground",
+        "editorGutter.addedBackground",
+        "editorGutter.deletedBackground",
+        "minimapGutter.modifiedBackground",
+        "minimapGutter.addedBackground",
+        "minimapGutter.deletedBackground",
+        "editorOverviewRuler.modifiedForeground",
+        "editorOverviewRuler.addedForeground",
+        "editorOverviewRuler.deletedForeground",
         "chat.requestBorder",
         "chat.requestBackground",
         "chat.slashCommandBackground",
@@ -6288,9 +6261,6 @@
         "terminal.dropBackground",
         "terminal.tab.activeBorder",
         "terminal.initialHintForeground",
-        "terminalStickyScroll.background",
-        "terminalStickyScrollHover.background",
-        "terminalStickyScroll.border",
         "scmGraph.historyItemRefColor",
         "scmGraph.historyItemRemoteRefColor",
         "scmGraph.historyItemBaseRefColor",
@@ -6316,12 +6286,7 @@
         "editorOverviewRuler.commentUnresolvedForeground",
         "editorGutter.commentGlyphForeground",
         "editorGutter.commentUnresolvedGlyphForeground",
-        "activityWarningBadge.foreground",
-        "activityWarningBadge.background",
-        "activityErrorBadge.foreground",
-        "activityErrorBadge.background",
         "ports.iconRunningProcessForeground",
-        "editorWatermark.foreground",
         "settings.headerForeground",
         "settings.settingsHeaderHoverForeground",
         "settings.modifiedItemIndicator",
@@ -6382,15 +6347,6 @@
         "multiDiffEditor.headerBackground",
         "multiDiffEditor.background",
         "multiDiffEditor.border",
-        "editorGutter.modifiedBackground",
-        "editorGutter.addedBackground",
-        "editorGutter.deletedBackground",
-        "minimapGutter.modifiedBackground",
-        "minimapGutter.addedBackground",
-        "minimapGutter.deletedBackground",
-        "editorOverviewRuler.modifiedForeground",
-        "editorOverviewRuler.addedForeground",
-        "editorOverviewRuler.deletedForeground",
         "interactive.activeCodeBorder",
         "interactive.inactiveCodeBorder",
         "testing.iconFailed",
@@ -6413,7 +6369,9 @@
         "testing.uncoveredGutterBackground",
         "testing.coverCountBadgeBackground",
         "testing.coverCountBadgeForeground",
-        "testing.message.error.decorationForeground",
+        "testing.message.error.badgeBackground",
+        "testing.message.error.badgeBorder",
+        "testing.message.error.badgeForeground",
         "testing.message.error.lineBackground",
         "testing.message.info.decorationForeground",
         "testing.message.info.lineBackground",
@@ -6492,6 +6450,9 @@
         "terminal.ansiBrightCyan",
         "terminal.ansiBrightWhite",
         "simpleFindWidget.sashBorder",
+        "terminalStickyScroll.background",
+        "terminalStickyScrollHover.background",
+        "terminalStickyScroll.border",
         "terminalCommandGuide.foreground",
         "welcomePage.background",
         "welcomePage.tileBackground",
@@ -6511,7 +6472,8 @@
         "gitDecoration.stageModifiedResourceForeground",
         "gitDecoration.stageDeletedResourceForeground",
         "gitDecoration.conflictingResourceForeground",
-        "gitDecoration.submoduleResourceForeground"
+        "gitDecoration.submoduleResourceForeground",
+        "git.blame.editorDecorationForeground"
       ],
       "enumDescriptions": [
         "Overall foreground color. This color is only used if not overridden by a component.",
@@ -6534,11 +6496,18 @@
         "Border color of active sashes.",
         "Badge background color. Badges are small information labels, e.g. for search results count.",
         "Badge foreground color. Badges are small information labels, e.g. for search results count.",
+        "Foreground color of the warning activity badge",
+        "Background color of the warning activity badge",
+        "Foreground color of the error activity badge",
+        "Background color of the error activity badge",
         "Scrollbar shadow to indicate that the view is scrolled.",
         "Scrollbar slider background color.",
         "Scrollbar slider background color when hovering.",
         "Scrollbar slider background color when clicked on.",
         "Background color of the progress bar that can show for long running operations.",
+        "Line color for the chart.",
+        "Axis color for the chart.",
+        "Guide line for the chart.",
         "Editor background color.",
         "Editor default foreground color.",
         "Background color of sticky scroll in the editor",
@@ -6824,6 +6793,7 @@
         "The active border color for text that got moved in the diff editor.",
         "The color of the shadow around unchanged region widgets.",
         "Overview ruler marker color for matching brackets.",
+        "Background color for toggled action items in action bar.",
         "The foreground color for array symbols. These symbols appear in the outline, breadcrumb, and suggest widget.",
         "The foreground color for boolean symbols. These symbols appear in the outline, breadcrumb, and suggest widget.",
         "The foreground color for class symbols. These symbols appear in the outline, breadcrumb, and suggest widget.",
@@ -6857,7 +6827,6 @@
         "The foreground color for type parameter symbols. These symbols appear in the outline, breadcrumb, and suggest widget.",
         "The foreground color for unit symbols. These symbols appear in the outline, breadcrumb, and suggest widget.",
         "The foreground color for variable symbols. These symbols appear in the outline, breadcrumb, and suggest widget.",
-        "Background color for toggled action items in action bar.",
         "Background color of the peek view title area.",
         "Color of the peek view title.",
         "Color of the peek view title info.",
@@ -6885,6 +6854,10 @@
         "Color of the match highlights in the suggest widget.",
         "Color of the match highlights in the suggest widget when an item is focused.",
         "Foreground color of the suggest widget status.",
+        "",
+        "",
+        "",
+        "",
         "",
         "",
         "",
@@ -6954,6 +6927,7 @@
         "Color to separate two editors from each other when shown side by side in an editor group from left to right.",
         "Panel background color. Panels are shown below the editor area and contain views like output and integrated terminal.",
         "Panel border color to separate the panel from the editor. Panels are shown below the editor area and contain views like output and integrated terminal.",
+        "Panel title border color on the bottom, separating the title from the views. Panels are shown below the editor area and contain views like output and integrated terminal.",
         "Title color for the active panel. Panels are shown below the editor area and contain views like output and integrated terminal.",
         "Title color for the inactive panel. Panels are shown below the editor area and contain views like output and integrated terminal.",
         "Border color for the active panel title. Panels are shown below the editor area and contain views like output and integrated terminal.",
@@ -7029,6 +7003,7 @@
         "Side bar border color on the side separating to the editor. The side bar is the container for views like explorer and search.",
         "Side bar title background color. The side bar is the container for views like explorer and search.",
         "Side bar title foreground color. The side bar is the container for views like explorer and search.",
+        "Side bar title border color on the bottom, separating the title from the views. The side bar is the container for views like explorer and search.",
         "Drag and drop feedback color for the side bar sections. The color should have transparency so that the side bar sections can still shine through. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar.",
         "Side bar section header background color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar.",
         "Side bar section header foreground color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar.",
@@ -7066,6 +7041,7 @@
         "The color used for the icon of info notifications. Notifications slide in from the bottom right of the window.",
         "The color used for the border of the window when it is active. Only supported in the macOS and Linux desktop client when using the custom title bar.",
         "The color used for the border of the window when it is inactive. Only supported in the macOS and Linux desktop client when using the custom title bar.",
+        "Foreground color for the labels in the editor watermark.",
         "Foreground color of the interactive editor widget",
         "Background color of the interactive editor widget",
         "Border color of the interactive editor widget",
@@ -7086,6 +7062,15 @@
         "Button background color for extension actions that stand out (e.g. install button).",
         "Button foreground color for extension actions that stand out (e.g. install button).",
         "Button background hover color for extension actions that stand out (e.g. install button).",
+        "Editor gutter background color for lines that are modified.",
+        "Editor gutter background color for lines that are added.",
+        "Editor gutter background color for lines that are deleted.",
+        "Minimap gutter background color for lines that are modified.",
+        "Minimap gutter background color for lines that are added.",
+        "Minimap gutter background color for lines that are deleted.",
+        "Overview ruler marker color for modified content.",
+        "Overview ruler marker color for added content.",
+        "Overview ruler marker color for deleted content.",
         "The border color of a chat request.",
         "The background color of a chat request.",
         "The background color of a chat slash command.",
@@ -7115,9 +7100,6 @@
         "Background color when dragging on top of terminals. The color should have transparency so that the terminal contents can still shine through.",
         "Border on the side of the terminal tab in the panel. This defaults to tab.activeBorder.",
         "Foreground color of the terminal initial hint.",
-        "The background color of the sticky scroll overlay in the terminal.",
-        "The background color of the sticky scroll overlay in the terminal when hovered.",
-        "The border of the sticky scroll overlay in the terminal.",
         "History item reference color.",
         "History item remote reference color.",
         "History item base reference color.",
@@ -7143,12 +7125,7 @@
         "Editor overview ruler decoration color for unresolved comments. This color should be opaque.",
         "Editor gutter decoration color for commenting glyphs.",
         "Editor gutter decoration color for commenting glyphs for unresolved comment threads.",
-        "Foreground color of the warning activity badge",
-        "Background color of the warning activity badge",
-        "Foreground color of the error activity badge",
-        "Background color of the error activity badge",
         "The color of the icon for a port that has an associated running process.",
-        "Foreground color for the labels in the editor watermark.",
         "The foreground color for a section header or active title.",
         "The foreground color for a section header or hovered title.",
         "The color of the modified setting indicator.",
@@ -7209,15 +7186,6 @@
         "The background color of the diff editor's header",
         "The background color of the multi file diff editor",
         "The border color of the multi file diff editor",
-        "Editor gutter background color for lines that are modified.",
-        "Editor gutter background color for lines that are added.",
-        "Editor gutter background color for lines that are deleted.",
-        "Minimap gutter background color for lines that are modified.",
-        "Minimap gutter background color for lines that are added.",
-        "Minimap gutter background color for lines that are deleted.",
-        "Overview ruler marker color for modified content.",
-        "Overview ruler marker color for added content.",
-        "Overview ruler marker color for deleted content.",
         "The border color for the current interactive code cell when the editor has focus.",
         "The border color for the current interactive code cell when the editor does not have focus.",
         "Color for the 'failed' icon in the test explorer.",
@@ -7240,6 +7208,8 @@
         "Gutter color of regions where code not covered.",
         "Background for the badge indicating execution count",
         "Foreground for the badge indicating execution count",
+        "Background color of test error messages shown inline in the editor.",
+        "Border color of test error messages shown inline in the editor.",
         "Text color of test error messages shown inline in the editor.",
         "Margin color beside error messages shown inline in the editor.",
         "Text color of test info messages shown inline in the editor.",
@@ -7319,6 +7289,9 @@
         "'BrightCyan' ANSI color in the terminal.",
         "'BrightWhite' ANSI color in the terminal.",
         "Border color of the sash border.",
+        "The background color of the sticky scroll overlay in the terminal.",
+        "The background color of the sticky scroll overlay in the terminal when hovered.",
+        "The border of the sticky scroll overlay in the terminal.",
         "The foreground color of the terminal command guide that appears to the left of a command and its output on hover.",
         "Background color for the Welcome page.",
         "Background color for the tiles on the Welcome page.",
@@ -7338,7 +7311,8 @@
         "Color for modified resources which have been staged.",
         "Color for deleted resources which have been staged.",
         "Color for resources with conflicts.",
-        "Color for submodule resources."
+        "Color for submodule resources.",
+        "Color for the blame editor decoration."
       ]
     },
     "_1": {

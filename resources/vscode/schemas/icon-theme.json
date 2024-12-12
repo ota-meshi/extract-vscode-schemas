@@ -151,7 +151,7 @@
           "size": {
             "type": "string",
             "description": "The default size of the font. We strongly recommend using a percentage value, for example: 125%.",
-            "pattern": "^([\\w .%_-]+)$"
+            "pattern": "^([\\w_.%+-]+)$"
           },
           "src": {
             "type": "array",
@@ -220,17 +220,20 @@
           },
           "fontCharacter": {
             "type": "string",
-            "description": "When using a glyph font: The character in the font to use."
+            "description": "When using a glyph font: The character in the font to use.",
+            "pattern": "^([^\\\\]|\\\\[a-fA-F0-9]+)$",
+            "patternErrorMessage": "The fontCharacter must be a single letter or a backslash and followed by unicode code points in hexadecimal."
           },
           "fontColor": {
             "type": "string",
             "format": "color-hex",
-            "description": "When using a glyph font: The color to use."
+            "description": "When using a glyph font: The color to use.",
+            "pattern": "^#[0-9a-fA-F]{0,6}$"
           },
           "fontSize": {
             "type": "string",
             "description": "When using a font: The font size in percentage to the text font. If not set, defaults to the size in the font definition.",
-            "pattern": "^([\\w .%_-]+)$"
+            "pattern": "^([\\w_.%+-]+)$"
           },
           "fontId": {
             "type": "string",

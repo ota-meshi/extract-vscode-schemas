@@ -590,6 +590,9 @@
                 "compass-dot",
                 "console",
                 "copilot",
+                "copilot-large",
+                "copilot-warning",
+                "copilot-warning-large",
                 "copy",
                 "coverage",
                 "credit-card",
@@ -888,6 +891,7 @@
                 "primitive-square",
                 "project",
                 "pulse",
+                "python",
                 "question",
                 "quick-input-back",
                 "quote",
@@ -1193,6 +1197,9 @@
                 "$(compass-dot)",
                 "$(console)",
                 "$(copilot)",
+                "$(copilot-large)",
+                "$(copilot-warning)",
+                "$(copilot-warning-large)",
                 "$(copy)",
                 "$(coverage)",
                 "$(credit-card)",
@@ -1491,6 +1498,7 @@
                 "$(primitive-square)",
                 "$(project)",
                 "$(pulse)",
+                "$(python)",
                 "$(question)",
                 "$(quick-input-back)",
                 "$(quote)",
@@ -2946,7 +2954,7 @@
       "properties": {
         "activeOnStart": {
           "type": "boolean",
-          "description": "If set to true the background monitor is in active mode when the task starts. This is equals of issuing a line that matches the beginsPattern"
+          "description": "If set to true the background monitor starts in active mode. This is the same as outputting a line that matches beginsPattern when the task starts."
         },
         "beginsPattern": {
           "oneOf": [
@@ -2980,7 +2988,7 @@
       "properties": {
         "activeOnStart": {
           "type": "boolean",
-          "description": "If set to true the watcher is in active mode when the task starts. This is equals of issuing a line that matches the beginPattern"
+          "description": "If set to true the watcher starts in active mode. This is the same as outputting a line that matches beginsPattern when the task starts."
         },
         "beginsPattern": {
           "oneOf": [
@@ -4124,6 +4132,10 @@
             "go-to-editing-session",
             "edit-session",
             "code-review",
+            "copilot-warning",
+            "python",
+            "copilot-large",
+            "copilot-warning-large",
             "dialog-error",
             "dialog-warning",
             "dialog-info",
@@ -4727,6 +4739,10 @@
             "$(go-to-editing-session)",
             "$(edit-session)",
             "$(code-review)",
+            "$(copilot-warning)",
+            "$(python)",
+            "$(copilot-large)",
+            "$(copilot-warning-large)",
             "$(dialog-error)",
             "$(dialog-warning)",
             "$(dialog-info)",

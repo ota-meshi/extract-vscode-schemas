@@ -382,6 +382,15 @@
     "copilot": {
       "$ref": "#/$defs/_0"
     },
+    "copilot-large": {
+      "$ref": "#/$defs/_0"
+    },
+    "copilot-warning": {
+      "$ref": "#/$defs/_0"
+    },
+    "copilot-warning-large": {
+      "$ref": "#/$defs/_0"
+    },
     "copy": {
       "$ref": "#/$defs/_0"
     },
@@ -1939,6 +1948,9 @@
     "pulse": {
       "$ref": "#/$defs/_0"
     },
+    "python": {
+      "$ref": "#/$defs/_0"
+    },
     "question": {
       "$ref": "#/$defs/_0"
     },
@@ -2543,6 +2555,10 @@
     "terminal-command-history-fuzzy-search": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for toggling fuzzy search of command history.: $(terminal-command-history-fuzzy-search)"
+    },
+    "terminal-command-history-open-file": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for opening a shell history file.: $(terminal-command-history-open-file)"
     },
     "terminal-command-history-output": {
       "$ref": "#/definitions/icons",

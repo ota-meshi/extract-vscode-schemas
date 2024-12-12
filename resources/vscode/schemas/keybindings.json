@@ -57,6 +57,8 @@
         "chat.openFileSnapshot",
         "chatEditing.acceptAllFiles",
         "chatEditing.acceptFile",
+        "chatEditing.addFileToWorkingSet",
+        "chatEditing.clearWorkingSet",
         "chatEditing.discardAllFiles",
         "chatEditing.discardFile",
         "chatEditing.openFileInDiff",
@@ -64,9 +66,11 @@
         "chatEditing.saveAllFiles",
         "chatEditing.viewChanges",
         "chatEditor.action.accept",
+        "chatEditor.action.diffHunk",
         "chatEditor.action.navigateNext",
         "chatEditor.action.navigatePrevious",
         "chatEditor.action.reject",
+        "chatEditor.action.undoHunk",
         "cleanSearchEditorState",
         "closeBreakpointWidget",
         "closeDirtyDiff",
@@ -299,6 +303,8 @@
         "editor.action.inlineSuggest.showPrevious",
         "editor.action.inlineSuggest.toggleAlwaysShowToolbar",
         "editor.action.inlineSuggest.trigger",
+        "editor.action.inlineSuggest.triggerInlineEdit",
+        "editor.action.inlineSuggest.triggerInlineEditExplicit",
         "editor.action.inPlaceReplace.down",
         "editor.action.inPlaceReplace.up",
         "editor.action.insertColorWithStandaloneColorPicker",
@@ -394,6 +400,7 @@
         "editor.action.surroundWithSnippet",
         "editor.action.toggleColumnSelection",
         "editor.action.toggleMinimap",
+        "editor.action.toggleOvertypeInsertMode",
         "editor.action.toggleRenderControlCharacter",
         "editor.action.toggleRenderWhitespace",
         "editor.action.toggleScreenReaderAccessibilityMode",
@@ -603,10 +610,13 @@
         "git.api.getRemoteSources",
         "git.api.getRepositories",
         "git.api.getRepositoryState",
+        "git.blameStatusBarItem.copyContent",
+        "git.blameStatusBarItem.viewCommit",
         "git.branch",
         "git.branchFrom",
         "git.checkout",
         "git.checkoutDetached",
+        "git.checkoutRef",
         "git.checkoutRefDetached",
         "git.cherryPick",
         "git.cherryPickAbort",
@@ -772,10 +782,12 @@
         "inlineChat.configure",
         "inlineChat.discardHunkChange",
         "inlineChat.focus",
+        "inlineChat.hideHint",
         "inlineChat.holdForSpeech",
         "inlineChat.moveToNextHunk",
         "inlineChat.moveToPreviousHunk",
         "inlineChat.regenerate",
+        "inlineChat.showHint",
         "inlineChat.start",
         "inlineChat.startWithCurrentLine",
         "inlineChat.toggleDiff",
@@ -952,6 +964,8 @@
         "notebook.cell.chat.arrowOutUp",
         "notebook.cell.chat.close",
         "notebook.cell.chat.discard",
+        "notebook.cell.chat.explainError",
+        "notebook.cell.chat.fixError",
         "notebook.cell.chat.focus",
         "notebook.cell.chat.focusNextCell",
         "notebook.cell.chat.focusPreviousCell",
@@ -1066,6 +1080,7 @@
         "notebook.section.foldSection",
         "notebook.section.runCells",
         "notebook.section.runSingleCell",
+        "notebook.selectAllFindMatches",
         "notebook.selectIndentation",
         "notebook.setProfile",
         "notebook.toggle.diff.cell.ignoreTrimWhitespace",
@@ -1208,6 +1223,8 @@
         "repl.action.filter",
         "repl.action.find",
         "repl.execute",
+        "repl.focusLastItemExecuted",
+        "repl.input.focus",
         "replacePreviousChar",
         "rerunSearchEditorSearch",
         "resetGettingStartedProgress",
@@ -1365,7 +1382,9 @@
         "testing.sortByLocation",
         "testing.sortByStatus",
         "testing.startContinuousRun",
+        "testing.startContinuousRunFromExtension",
         "testing.stopContinuousRun",
+        "testing.stopContinuousRunFromExtension",
         "testing.toggleContinuousRunForTest",
         "testing.toggleInlineCoverage",
         "testing.toggleInlineTestOutput",
@@ -1385,8 +1404,10 @@
         "toggle.window.commandCenter",
         "toggle.window.customTitleBarVisibility",
         "toggle.window.customTitleBarVisibility.windowed",
+        "toggle.window.titleBarStyle",
         "toggle.workbench.editor.editorActionsLocation",
         "toggle.workbench.layoutControl.enabled",
+        "toggle.workbench.navigationControl.enabled",
         "toggleExplainMode",
         "toggleFindCaseSensitive",
         "toggleFindInSelection",
@@ -1479,7 +1500,6 @@
         "workbench.action.chat.addParticipant",
         "workbench.action.chat.addSelectedFilesToWorkingSet",
         "workbench.action.chat.addToChatAction",
-        "workbench.action.chat.applyAll",
         "workbench.action.chat.applyCompareEdits",
         "workbench.action.chat.applyInEditor",
         "workbench.action.chat.assignSelectedAgent",
@@ -1497,6 +1517,7 @@
         "workbench.action.chat.editing.attachFiles",
         "workbench.action.chat.export",
         "workbench.action.chat.focusInput",
+        "workbench.action.chat.hideSetup",
         "workbench.action.chat.history",
         "workbench.action.chat.holdToVoiceChatInChatView",
         "workbench.action.chat.import",
@@ -1505,10 +1526,10 @@
         "workbench.action.chat.insertIntoNewFile",
         "workbench.action.chat.insertIntoNotebook",
         "workbench.action.chat.installProviderForVoiceChat",
-        "workbench.action.chat.installWithoutPrompt",
-        "workbench.action.chat.installWithPrompt",
         "workbench.action.chat.learnMore",
         "workbench.action.chat.logInputHistory",
+        "workbench.action.chat.managePlan",
+        "workbench.action.chat.manageSettings",
         "workbench.action.chat.markHelpful",
         "workbench.action.chat.markUnhelpful",
         "workbench.action.chat.newChat",
@@ -1520,6 +1541,7 @@
         "workbench.action.chat.openInEditor",
         "workbench.action.chat.openInNewWindow",
         "workbench.action.chat.openInSidebar",
+        "workbench.action.chat.openQuotaExceededDialog",
         "workbench.action.chat.previousCodeBlock",
         "workbench.action.chat.previousFileTree",
         "workbench.action.chat.quickVoiceChat",
@@ -1527,12 +1549,13 @@
         "workbench.action.chat.redoEdit",
         "workbench.action.chat.remove",
         "workbench.action.chat.reportIssueForBug",
-        "workbench.action.chat.restoreFile",
         "workbench.action.chat.retry",
         "workbench.action.chat.runInTerminal",
         "workbench.action.chat.selectAndInsertFile",
+        "workbench.action.chat.selectAndInsertSym",
         "workbench.action.chat.sendToChatEditing",
         "workbench.action.chat.sendToNewChat",
+        "workbench.action.chat.showExtensionsUsingCopilot",
         "workbench.action.chat.startEditing",
         "workbench.action.chat.startVoiceChat",
         "workbench.action.chat.stopListening",
@@ -1541,8 +1564,10 @@
         "workbench.action.chat.submit",
         "workbench.action.chat.submitSecondaryAgent",
         "workbench.action.chat.submitWithoutDispatching",
+        "workbench.action.chat.triggerSetup",
         "workbench.action.chat.undoEdit",
         "workbench.action.chat.undoEdits",
+        "workbench.action.chat.upgradePlan",
         "workbench.action.chat.voiceChatInChatView",
         "workbench.action.chatEditor.newChat",
         "workbench.action.clearCommandHistory",
@@ -1641,6 +1666,10 @@
         "workbench.action.editorLayoutTwoColumnsBottom",
         "workbench.action.editorLayoutTwoRows",
         "workbench.action.editorLayoutTwoRowsRight",
+        "workbench.action.edits.addFilesFromReferences",
+        "workbench.action.edits.attachFile",
+        "workbench.action.edits.attachSelection",
+        "workbench.action.edits.submit",
         "workbench.action.evenEditorWidths",
         "workbench.action.exitZenMode",
         "workbench.action.expandAllComments",
@@ -1713,6 +1742,7 @@
         "workbench.action.hideComment",
         "workbench.action.hideEditorActions",
         "workbench.action.hideEditorTabs",
+        "workbench.action.holdLockedScrolling",
         "workbench.action.increaseViewHeight",
         "workbench.action.increaseViewSize",
         "workbench.action.increaseViewWidth",
@@ -1795,6 +1825,7 @@
         "workbench.action.newGroupLeft",
         "workbench.action.newGroupRight",
         "workbench.action.newWindow",
+        "workbench.action.nextAuxiliaryBarView",
         "workbench.action.nextEditor",
         "workbench.action.nextEditorInGroup",
         "workbench.action.nextPanelView",
@@ -1875,6 +1906,7 @@
         "workbench.action.output.show.terminal",
         "workbench.action.output.show.userDataSync",
         "workbench.action.output.show.vscode.git.Git",
+        "workbench.action.output.show.vscode.github-authentication.GitHub Authentication",
         "workbench.action.output.show.vscode.github.GitHub",
         "workbench.action.output.toggleOutput",
         "workbench.action.pauseSocketWriting",
@@ -1885,6 +1917,7 @@
         "workbench.action.positionPanelRight",
         "workbench.action.positionPanelTop",
         "workbench.action.previewColorTheme",
+        "workbench.action.previousAuxiliaryBarView",
         "workbench.action.previousEditor",
         "workbench.action.previousEditorInGroup",
         "workbench.action.previousPanelView",
@@ -2007,14 +2040,9 @@
         "workbench.action.terminal.changeColorActiveTab",
         "workbench.action.terminal.changeIcon",
         "workbench.action.terminal.changeIconActiveTab",
-        "workbench.action.terminal.chat.cancel",
         "workbench.action.terminal.chat.close",
-        "workbench.action.terminal.chat.discard",
         "workbench.action.terminal.chat.insertCommand",
         "workbench.action.terminal.chat.insertFirstCommand",
-        "workbench.action.terminal.chat.makeRequest",
-        "workbench.action.terminal.chat.nextFromHistory",
-        "workbench.action.terminal.chat.previousFromHistory",
         "workbench.action.terminal.chat.runCommand",
         "workbench.action.terminal.chat.runFirstCommand",
         "workbench.action.terminal.chat.start",
@@ -2082,6 +2110,7 @@
         "workbench.action.terminal.rename",
         "workbench.action.terminal.renameActiveTab",
         "workbench.action.terminal.renameWithArg",
+        "workbench.action.terminal.requestCompletions",
         "workbench.action.terminal.resizePaneDown",
         "workbench.action.terminal.resizePaneLeft",
         "workbench.action.terminal.resizePaneRight",
@@ -2144,6 +2173,7 @@
         "workbench.action.toggleKeepEditors",
         "workbench.action.toggleKeybindingsLog",
         "workbench.action.toggleLightDarkThemes",
+        "workbench.action.toggleLockedScrolling",
         "workbench.action.toggleMaximizedPanel",
         "workbench.action.toggleMaximizeEditorGroup",
         "workbench.action.toggleMenuBar",
@@ -2200,8 +2230,6 @@
         "workbench.banner.focusBanner",
         "workbench.banner.focusNextAction",
         "workbench.banner.focusPreviousAction",
-        "workbench.chat.movedView.welcomeView.focus",
-        "workbench.chat.movedView.welcomeView.resetViewLocation",
         "workbench.debug.action.copyAll",
         "workbench.debug.action.focusBreakpointsView",
         "workbench.debug.action.focusCallStackView",
@@ -2266,10 +2294,13 @@
         "workbench.extensions.action.configureWorkspaceRecommendedExtensions",
         "workbench.extensions.action.copyExtension",
         "workbench.extensions.action.copyExtensionId",
+        "workbench.extensions.action.copyLink",
         "workbench.extensions.action.debugExtensionHost",
         "workbench.extensions.action.disableAll",
         "workbench.extensions.action.disableAllWorkspace",
         "workbench.extensions.action.disableAutoUpdate",
+        "workbench.extensions.action.download",
+        "workbench.extensions.action.downloadPreRelease",
         "workbench.extensions.action.enableAll",
         "workbench.extensions.action.enableAllWorkspace",
         "workbench.extensions.action.enableAutoUpdate",
@@ -2355,8 +2386,6 @@
         "workbench.panel.chat.view.edits.resetViewLocation",
         "workbench.panel.chatEditing",
         "workbench.panel.chatEditing.resetViewContainerLocation",
-        "workbench.panel.chatSidebar",
-        "workbench.panel.chatSidebar.resetViewContainerLocation",
         "workbench.panel.markers.resetViewContainerLocation",
         "workbench.panel.markers.view.focus",
         "workbench.panel.markers.view.removeView",
@@ -2583,6 +2612,8 @@
         "Open File Snapshot",
         "Accept",
         "Accept",
+        "Add File",
+        "Clear Working Set",
         "Discard",
         "Discard",
         "Open Changes in Diff Editor",
@@ -2590,9 +2621,11 @@
         "Save All",
         "View All Edits",
         "Accept Chat Edit",
+        "Open Diff",
         "Go to Next Chat Edit",
         "Go to Previous Chat Edit",
-        "Reject Chat Edit",
+        "Discard Chat Edit",
+        "Undo this Change",
         null,
         null,
         null,
@@ -2827,6 +2860,8 @@
         null,
         null,
         null,
+        null,
+        null,
         "Insert hex/rgb/hsl colors with the focused standalone color picker.",
         null,
         null,
@@ -2856,7 +2891,7 @@
         null,
         null,
         null,
-        null,
+        "Organize imports in the current file. Also called 'Optimize Imports' by some tools",
         null,
         "Page down the editor hover.",
         "Page up the editor hover.",
@@ -2920,6 +2955,7 @@
         "Surround with Snippet...",
         "Toggle Column Selection Mode",
         "Toggle Minimap",
+        "Toggle between overtype and insert mode",
         "Toggle Control Characters",
         "Toggle Render Whitespace",
         "Toggles an optimized mode for usage with screen readers, braille devices, and other assistive technologies.",
@@ -3129,10 +3165,13 @@
         "Get Remote Sources",
         "Get Repositories",
         "Get Repository State",
+        null,
+        null,
         "Create Branch...",
         "Create Branch From...",
         "Checkout to...",
         "Checkout to (Detached)...",
+        "Checkout",
         "Checkout (Detached)",
         "Cherry Pick...",
         "Abort Cherry Pick",
@@ -3298,10 +3337,12 @@
         "Configure Inline Chat",
         "Discard",
         "Focus Input",
+        "Hide Inline Chat Hint",
         "Hold for Speech",
         "Move to Next Change",
         "Move to Previous Change",
         "Rerun Request",
+        "Show Inline Chat Hint",
         "Editor Inline Chat",
         "Start in Editor with Current Line",
         "Toggle Changes",
@@ -3466,7 +3507,7 @@
         "Indent Using Spaces",
         "Indent Using Tabs",
         "Toggle Notebook Sticky Scroll",
-        "Add Find Match to Selection",
+        "Add Selection To Next Find Match",
         "Stop Execution",
         "Stop Cell Execution",
         "Change Cell Language",
@@ -3478,6 +3519,8 @@
         "Cursor Up",
         "Close Chat",
         "Discard",
+        "Explain Cell Error",
+        "Fix Cell Error",
         "Focus Chat",
         "Focus Next Cell",
         "Focus Previous Cell",
@@ -3592,6 +3635,7 @@
         "Fold Section",
         "Run Cells In Section",
         "Run Cell",
+        "Select All Occurrences of Find Match",
         "Select Indentation",
         "Set Profile",
         "Show Leading/Trailing Whitespace Differences",
@@ -3734,6 +3778,8 @@
         "Debug Console: Focus Filter",
         "Debug Console: Focus Find",
         "Execute the Contents of the Input Box",
+        "Focus Most Recent REPL Execution",
+        "Focus Input Editor",
         null,
         "Search Again",
         "Reset the progress of all Walkthrough steps on the Welcome Page to make them appear as if they are being viewed for the first time, providing a fresh start to the getting started experience.",
@@ -3891,7 +3937,9 @@
         "Sort by Location",
         "Sort by Status",
         "Start Continuous Run",
+        null,
         "Stop Continuous Run",
+        null,
         "Turn on Continuous Run",
         "Toggle Inline Coverage",
         "Toggle Inline Test Output",
@@ -3904,15 +3952,17 @@
         "Hides the Timeline view if it is visible and the view container it is located in is visible",
         "Reset Location",
         "Toggles the visibility of the Timeline view if the view container it is located in is visible",
-        "Toggle visibility of the Chat Controls in title bar",
+        "Toggle visibility of the Copilot Controls in title bar",
         null,
         null,
         "Custom Title Bar",
         "Toggle visibility of the Command Center in title bar",
         "Hide Custom Title Bar",
         "Hide Custom Title Bar In Full Screen",
+        "Restore Native Title Bar",
         "Editor Actions",
         "Toggle visibility of the Layout Controls in title bar",
+        "Toggle visibility of the Navigation Controls in title bar",
         null,
         null,
         null,
@@ -4005,7 +4055,6 @@
         "Chat with Extension",
         "Add Selected Files to Working Set",
         "Add File to Chat",
-        "Apply All Edits",
         "Apply Edits",
         "Apply in Editor",
         "",
@@ -4023,6 +4072,7 @@
         "Add Files to Working Set",
         "Export Chat...",
         "Focus Chat Input",
+        "Hide Copilot",
         "Show Chats...",
         "Hold to Voice Chat in Chat View",
         "Import Chat...",
@@ -4031,10 +4081,10 @@
         "Insert into New File",
         "Insert into Notebook",
         "Start Voice Chat",
-        "Install GitHub Copilot",
-        "Install GitHub Copilot",
         "Learn More",
         "Log Chat Input History",
+        "Manage Copilot Plan",
+        "Manage Copilot Settings",
         "Helpful",
         "Unhelpful",
         "New Chat",
@@ -4046,6 +4096,7 @@
         "Open Chat in Editor",
         "Open Chat in New Window",
         "Open Chat in Side Bar",
+        "Upgrade to Copilot Pro",
         "Previous Code Block",
         "Previous File Tree",
         "Quick Voice Chat",
@@ -4053,12 +4104,13 @@
         "Redo Last Edit",
         "Remove Request",
         "Report Issue",
-        "Restore File Snapshot",
         "Retry",
         "Insert into Terminal",
         "",
+        "",
         "Send to Copilot Edits",
         "Send to New Chat",
+        "Show Extensions using Copilot",
         "Edit with Copilot",
         "Start Voice Chat",
         "Stop Listening",
@@ -4067,8 +4119,10 @@
         "Send and Dispatch",
         "Submit to Secondary Agent",
         "Send",
+        "Use AI Features with Copilot for Free...",
         "Undo Last Edit",
         "Undo Edits",
+        "Upgrade to Copilot Pro",
         "Voice Chat in Chat View",
         "New Chat",
         "Clear Command History",
@@ -4167,6 +4221,10 @@
         "Two Columns Bottom Editor Layout",
         "Two Rows Editor Layout",
         "Two Rows Right Editor Layout",
+        "Add Files From References",
+        "Add File to Copilot Edits",
+        "Add Selection to Copilot Edits",
+        "Send",
         "Reset Editor Group Sizes",
         null,
         "Expand All Comments",
@@ -4239,6 +4297,7 @@
         null,
         "Hide Editor Actions in the tab and title bar",
         "Hide Tab Bar",
+        "Hold Locked Scrolling Across Editors",
         "Increase Editor Height",
         "Increase Current View Size",
         "Increase Editor Width",
@@ -4321,6 +4380,7 @@
         "New Editor Group to the Left",
         "New Editor Group to the Right",
         "New Window",
+        "Next Secondary Side Bar View",
         "Open Next Editor",
         "Open Next Editor in Group",
         "Next Panel View",
@@ -4401,6 +4461,7 @@
         "Terminal",
         "Settings Sync",
         "Git",
+        "GitHub Authentication",
         "GitHub",
         "Toggle Output",
         "Connection: Pause socket writing",
@@ -4411,6 +4472,7 @@
         "Move Panel Right",
         "Move Panel To Top",
         null,
+        "Previous Secondary Side Bar View",
         "Open Previous Editor",
         "Open Previous Editor in Group",
         "Previous Panel View",
@@ -4533,17 +4595,12 @@
         "Change Color...",
         "Change Icon...",
         "Change Icon...",
-        "Cancel Chat",
-        "Close Chat",
-        "Discards the terminal current chat response, hide the chat widget, and clear the chat input.",
+        "Close",
         "Insert Chat Command",
         "Insert First Chat Command",
-        "Make Chat Request",
-        "Next From History",
-        "Previous From History",
         "Run Chat Command",
         "Run First Chat Command",
-        "Start in Terminal",
+        "Terminal Inline Chat",
         "View in Chat",
         "Clear",
         "Clear Previous Session History",
@@ -4608,6 +4665,7 @@
         "Rename...",
         "Rename...",
         "Rename the Currently Active Terminal",
+        "Request Completions",
         "Resize Terminal Down",
         "Resize Terminal Left",
         "Resize Terminal Right",
@@ -4670,6 +4728,7 @@
         null,
         "Toggle Keyboard Shortcuts Troubleshooting",
         "Toggle between Light/Dark Themes",
+        "Synchronize Scrolling Editors",
         "Toggle Maximized Panel",
         "Toggle Maximize Editor Group",
         "Toggle Menu Bar",
@@ -4726,8 +4785,6 @@
         null,
         null,
         null,
-        "Focus on Chat (Old Location) View",
-        "Reset Location",
         "Copy All",
         "Focus on Breakpoints View",
         "Focus on Call Stack View",
@@ -4792,10 +4849,13 @@
         "Configure Recommended Extensions (Workspace)",
         "Copy",
         "Copy Extension ID",
+        "Copy Link",
         "Start Debugging Extension Host In New Window",
         "Disable All Installed Extensions",
         "Disable All Installed Extensions for this Workspace",
         "Disable Auto Update for All Extensions",
+        "Download VSIX",
+        "Download Pre-Release VSIX",
         "Enable All Extensions",
         "Enable All Extensions for this Workspace",
         "Enable Auto Update for All Extensions",
@@ -4873,15 +4933,13 @@
         "Clear Output",
         "Switch Output",
         "Toggle Auto Scrolling",
-        "Toggle GitHub Copilot",
+        "Toggle Chat",
         "Reset Location",
-        "Focus on GitHub Copilot View",
+        "Focus on Chat View",
         "Reset Location",
         "Focus on Copilot Edits View",
         "Reset Location",
         "Toggle Copilot Edits",
-        "Reset Location",
-        null,
         "Reset Location",
         "Reset Location",
         "Focus on Problems View",
@@ -5068,7 +5126,7 @@
             "$ref": "#/$defs/_4"
           },
           "then": {
-            "$ref": "#/$defs/_5"
+            "$ref": "#/$defs/_22"
           }
         },
         {
@@ -5076,48 +5134,7 @@
             "$ref": "#/$defs/_4"
           },
           "then": {
-            "properties": {
-              "args": {
-                "required": [
-                  "kind"
-                ],
-                "properties": {
-                  "kind": {
-                    "anyOf": [
-                      {
-                        "enum": [
-                          "refactor.extract.constant",
-                          "refactor.extract.function",
-                          "refactor.extract.interface",
-                          "refactor.extract.type",
-                          "refactor.move.newFile",
-                          "refactor.rewrite.arrow.braces",
-                          "refactor.rewrite.export",
-                          "refactor.rewrite.import",
-                          "refactor.rewrite.parameters.toDestructured",
-                          "refactor.rewrite.property.generateAccessors"
-                        ],
-                        "enumDescriptions": [
-                          "Extract expression to constant.",
-                          "Extract expression to method or function.",
-                          "Extract type to an interface.",
-                          "Extract type to a type alias.",
-                          "Move the expression to a new file.",
-                          "Add or remove braces in an arrow function.",
-                          "Convert between default export and named export.",
-                          "Convert between named imports and namespace imports.",
-                          "Convert parameters to destructured object",
-                          "Generate 'get' and 'set' accessors"
-                        ]
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  }
-                }
-              }
-            }
+            "$ref": "#/$defs/_5"
           }
         },
         {
@@ -5135,28 +5152,17 @@
           "then": {
             "properties": {
               "args": {
-                "required": [
-                  "kind"
-                ],
-                "properties": {
-                  "kind": {
-                    "anyOf": [
-                      {
-                        "enum": [
-                          "source.organizeImports"
-                        ],
-                        "enumDescriptions": [
-                          "Organize Imports"
-                        ]
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  }
-                }
+                "$ref": "#/$defs/_23"
               }
             }
+          }
+        },
+        {
+          "if": {
+            "$ref": "#/$defs/_7"
+          },
+          "then": {
+            "$ref": "#/$defs/_22"
           }
         },
         {
@@ -5169,51 +5175,70 @@
         },
         {
           "if": {
-            "$ref": "#/$defs/_7"
+            "$ref": "#/$defs/_8"
           },
           "then": {
             "properties": {
               "args": {
-                "required": [
-                  "kind"
-                ],
-                "properties": {
-                  "kind": {
-                    "anyOf": [
-                      {
-                        "enum": [
-                          "refactor.extract.constant",
-                          "refactor.extract.function",
-                          "refactor.extract.interface",
-                          "refactor.extract.type",
-                          "refactor.move.newFile",
-                          "refactor.rewrite.arrow.braces",
-                          "refactor.rewrite.export",
-                          "refactor.rewrite.import",
-                          "refactor.rewrite.parameters.toDestructured",
-                          "refactor.rewrite.property.generateAccessors",
-                          "source.organizeImports"
-                        ],
-                        "enumDescriptions": [
-                          "Extract expression to constant.",
-                          "Extract expression to method or function.",
-                          "Extract type to an interface.",
-                          "Extract type to a type alias.",
-                          "Move the expression to a new file.",
-                          "Add or remove braces in an arrow function.",
-                          "Convert between default export and named export.",
-                          "Convert between named imports and namespace imports.",
-                          "Convert parameters to destructured object",
-                          "Generate 'get' and 'set' accessors",
-                          "Organize Imports"
-                        ]
-                      },
-                      {
-                        "type": "string"
+                "oneOf": [
+                  {
+                    "$ref": "#/$defs/_23"
+                  },
+                  {
+                    "required": [
+                      "preferences"
+                    ],
+                    "properties": {
+                      "preferences": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/$defs/_24"
+                        }
                       }
-                    ]
+                    }
                   }
-                }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "$ref": "#/$defs/_8"
+          },
+          "then": {
+            "required": [],
+            "properties": {
+              "args": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "kind"
+                    ],
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "description": "The kind of the paste edit to try pasting with.\nIf there are multiple edits for this kind, the editor will show a picker. If there are no edits of this kind, the editor will show an error message."
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "preferences"
+                    ],
+                    "properties": {
+                      "preferences": {
+                        "type": "array",
+                        "description": "List of preferred paste edit kind to try applying.\nThe first edit matching the preferences will be applied.",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                ]
               }
             }
           }
@@ -5267,7 +5292,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -5282,7 +5307,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_11"
+            "$ref": "#/$defs/_12"
           }
         },
         {
@@ -5403,32 +5428,6 @@
                   },
                   "snippet": {
                     "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "required": [
-              "command"
-            ],
-            "properties": {
-              "command": {
-                "const": "editor.action.pasteAs"
-              }
-            }
-          },
-          "then": {
-            "required": [],
-            "properties": {
-              "args": {
-                "type": "object",
-                "properties": {
-                  "kind": {
-                    "type": "string",
-                    "description": "The kind of the paste edit to try applying. If not provided or there are multiple edits for this kind, the editor will show a picker."
                   }
                 }
               }
@@ -5563,7 +5562,7 @@
                     "type": "number"
                   },
                   "selectionLines": {
-                    "$ref": "#/$defs/_9"
+                    "$ref": "#/$defs/_10"
                   }
                 }
               }
@@ -5588,14 +5587,14 @@
                 "type": "object",
                 "properties": {
                   "direction": {
-                    "$ref": "#/$defs/_8"
+                    "$ref": "#/$defs/_9"
                   },
                   "levels": {
                     "type": "number",
                     "default": 1
                   },
                   "selectionLines": {
-                    "$ref": "#/$defs/_9"
+                    "$ref": "#/$defs/_10"
                   }
                 }
               }
@@ -5661,7 +5660,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -5676,7 +5675,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -5691,7 +5690,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -5706,7 +5705,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -5721,7 +5720,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_11"
+            "$ref": "#/$defs/_12"
           }
         },
         {
@@ -5747,10 +5746,10 @@
                 ],
                 "properties": {
                   "document": {
-                    "$ref": "#/$defs/_15"
+                    "$ref": "#/$defs/_16"
                   },
                   "ranges": {
-                    "$ref": "#/$defs/_14"
+                    "$ref": "#/$defs/_15"
                   }
                 }
               }
@@ -5805,7 +5804,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_13"
+            "$ref": "#/$defs/_14"
           }
         },
         {
@@ -5820,7 +5819,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_13"
+            "$ref": "#/$defs/_14"
           }
         },
         {
@@ -5835,7 +5834,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_13"
+            "$ref": "#/$defs/_14"
           }
         },
         {
@@ -5850,7 +5849,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_12"
+            "$ref": "#/$defs/_13"
           }
         },
         {
@@ -5865,7 +5864,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_12"
+            "$ref": "#/$defs/_13"
           }
         },
         {
@@ -5880,7 +5879,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -5895,7 +5894,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -5910,7 +5909,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -5925,7 +5924,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -5997,7 +5996,7 @@
                     "items": {
                       "anyOf": [
                         {
-                          "$ref": "#/$defs/_17"
+                          "$ref": "#/$defs/_18"
                         },
                         {
                           "type": "object",
@@ -6008,7 +6007,7 @@
                             "command": {
                               "anyOf": [
                                 {
-                                  "$ref": "#/$defs/_17"
+                                  "$ref": "#/$defs/_18"
                                 },
                                 {
                                   "type": "string"
@@ -6041,7 +6040,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_16"
+            "$ref": "#/$defs/_17"
           }
         },
         {
@@ -6056,7 +6055,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_16"
+            "$ref": "#/$defs/_17"
           }
         },
         {
@@ -6071,7 +6070,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_16"
+            "$ref": "#/$defs/_17"
           }
         },
         {
@@ -6086,7 +6085,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6101,7 +6100,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6146,7 +6145,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_20"
+            "$ref": "#/$defs/_21"
           }
         },
         {
@@ -6290,7 +6289,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_20"
+            "$ref": "#/$defs/_21"
           }
         },
         {
@@ -6367,7 +6366,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_10"
+            "$ref": "#/$defs/_11"
           }
         },
         {
@@ -6387,13 +6386,13 @@
               "args": {
                 "anyOf": [
                   {
-                    "$ref": "#/$defs/_19"
+                    "$ref": "#/$defs/_20"
                   },
                   {
                     "type": "object",
                     "properties": {
                       "task": {
-                        "$ref": "#/$defs/_19"
+                        "$ref": "#/$defs/_20"
                       },
                       "type": {
                         "type": "string",
@@ -6549,27 +6548,12 @@
             ],
             "properties": {
               "command": {
-                "const": "workbench.chat.movedView.welcomeView.focus"
-              }
-            }
-          },
-          "then": {
-            "$ref": "#/$defs/_18"
-          }
-        },
-        {
-          "if": {
-            "required": [
-              "command"
-            ],
-            "properties": {
-              "command": {
                 "const": "workbench.debug.action.focusBreakpointsView"
               }
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6584,7 +6568,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6599,7 +6583,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6614,7 +6598,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6629,7 +6613,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6644,7 +6628,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6659,7 +6643,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6674,7 +6658,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_10"
+            "$ref": "#/$defs/_11"
           }
         },
         {
@@ -6689,7 +6673,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_10"
+            "$ref": "#/$defs/_11"
           }
         },
         {
@@ -6704,7 +6688,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6719,7 +6703,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6734,7 +6718,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6749,7 +6733,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6764,7 +6748,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6779,7 +6763,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6794,7 +6778,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6809,7 +6793,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6824,7 +6808,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6839,7 +6823,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6854,7 +6838,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6869,7 +6853,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6884,7 +6868,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6899,7 +6883,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6914,7 +6898,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6929,7 +6913,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6944,7 +6928,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6959,7 +6943,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6974,7 +6958,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6989,7 +6973,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -7004,7 +6988,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -7019,7 +7003,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -7034,7 +7018,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -7049,7 +7033,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -7064,7 +7048,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -7079,7 +7063,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -7094,7 +7078,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -7109,7 +7093,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -7124,7 +7108,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -7139,7 +7123,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -7154,7 +7138,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -7169,7 +7153,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -7184,7 +7168,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -7199,7 +7183,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -7214,7 +7198,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -7229,7 +7213,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -7244,7 +7228,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -7259,7 +7243,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -7274,7 +7258,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -7289,7 +7273,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -7304,7 +7288,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -7319,7 +7303,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_18"
+            "$ref": "#/$defs/_19"
           }
         }
       ]
@@ -7381,6 +7365,8 @@
             "-chat.openFileSnapshot",
             "-chatEditing.acceptAllFiles",
             "-chatEditing.acceptFile",
+            "-chatEditing.addFileToWorkingSet",
+            "-chatEditing.clearWorkingSet",
             "-chatEditing.discardAllFiles",
             "-chatEditing.discardFile",
             "-chatEditing.openFileInDiff",
@@ -7388,9 +7374,11 @@
             "-chatEditing.saveAllFiles",
             "-chatEditing.viewChanges",
             "-chatEditor.action.accept",
+            "-chatEditor.action.diffHunk",
             "-chatEditor.action.navigateNext",
             "-chatEditor.action.navigatePrevious",
             "-chatEditor.action.reject",
+            "-chatEditor.action.undoHunk",
             "-cleanSearchEditorState",
             "-closeBreakpointWidget",
             "-closeDirtyDiff",
@@ -7623,6 +7611,8 @@
             "-editor.action.inlineSuggest.showPrevious",
             "-editor.action.inlineSuggest.toggleAlwaysShowToolbar",
             "-editor.action.inlineSuggest.trigger",
+            "-editor.action.inlineSuggest.triggerInlineEdit",
+            "-editor.action.inlineSuggest.triggerInlineEditExplicit",
             "-editor.action.inPlaceReplace.down",
             "-editor.action.inPlaceReplace.up",
             "-editor.action.insertColorWithStandaloneColorPicker",
@@ -7718,6 +7708,7 @@
             "-editor.action.surroundWithSnippet",
             "-editor.action.toggleColumnSelection",
             "-editor.action.toggleMinimap",
+            "-editor.action.toggleOvertypeInsertMode",
             "-editor.action.toggleRenderControlCharacter",
             "-editor.action.toggleRenderWhitespace",
             "-editor.action.toggleScreenReaderAccessibilityMode",
@@ -7927,10 +7918,13 @@
             "-git.api.getRemoteSources",
             "-git.api.getRepositories",
             "-git.api.getRepositoryState",
+            "-git.blameStatusBarItem.copyContent",
+            "-git.blameStatusBarItem.viewCommit",
             "-git.branch",
             "-git.branchFrom",
             "-git.checkout",
             "-git.checkoutDetached",
+            "-git.checkoutRef",
             "-git.checkoutRefDetached",
             "-git.cherryPick",
             "-git.cherryPickAbort",
@@ -8096,10 +8090,12 @@
             "-inlineChat.configure",
             "-inlineChat.discardHunkChange",
             "-inlineChat.focus",
+            "-inlineChat.hideHint",
             "-inlineChat.holdForSpeech",
             "-inlineChat.moveToNextHunk",
             "-inlineChat.moveToPreviousHunk",
             "-inlineChat.regenerate",
+            "-inlineChat.showHint",
             "-inlineChat.start",
             "-inlineChat.startWithCurrentLine",
             "-inlineChat.toggleDiff",
@@ -8276,6 +8272,8 @@
             "-notebook.cell.chat.arrowOutUp",
             "-notebook.cell.chat.close",
             "-notebook.cell.chat.discard",
+            "-notebook.cell.chat.explainError",
+            "-notebook.cell.chat.fixError",
             "-notebook.cell.chat.focus",
             "-notebook.cell.chat.focusNextCell",
             "-notebook.cell.chat.focusPreviousCell",
@@ -8390,6 +8388,7 @@
             "-notebook.section.foldSection",
             "-notebook.section.runCells",
             "-notebook.section.runSingleCell",
+            "-notebook.selectAllFindMatches",
             "-notebook.selectIndentation",
             "-notebook.setProfile",
             "-notebook.toggle.diff.cell.ignoreTrimWhitespace",
@@ -8532,6 +8531,8 @@
             "-repl.action.filter",
             "-repl.action.find",
             "-repl.execute",
+            "-repl.focusLastItemExecuted",
+            "-repl.input.focus",
             "-replacePreviousChar",
             "-rerunSearchEditorSearch",
             "-resetGettingStartedProgress",
@@ -8689,7 +8690,9 @@
             "-testing.sortByLocation",
             "-testing.sortByStatus",
             "-testing.startContinuousRun",
+            "-testing.startContinuousRunFromExtension",
             "-testing.stopContinuousRun",
+            "-testing.stopContinuousRunFromExtension",
             "-testing.toggleContinuousRunForTest",
             "-testing.toggleInlineCoverage",
             "-testing.toggleInlineTestOutput",
@@ -8709,8 +8712,10 @@
             "-toggle.window.commandCenter",
             "-toggle.window.customTitleBarVisibility",
             "-toggle.window.customTitleBarVisibility.windowed",
+            "-toggle.window.titleBarStyle",
             "-toggle.workbench.editor.editorActionsLocation",
             "-toggle.workbench.layoutControl.enabled",
+            "-toggle.workbench.navigationControl.enabled",
             "-toggleExplainMode",
             "-toggleFindCaseSensitive",
             "-toggleFindInSelection",
@@ -8803,7 +8808,6 @@
             "-workbench.action.chat.addParticipant",
             "-workbench.action.chat.addSelectedFilesToWorkingSet",
             "-workbench.action.chat.addToChatAction",
-            "-workbench.action.chat.applyAll",
             "-workbench.action.chat.applyCompareEdits",
             "-workbench.action.chat.applyInEditor",
             "-workbench.action.chat.assignSelectedAgent",
@@ -8821,6 +8825,7 @@
             "-workbench.action.chat.editing.attachFiles",
             "-workbench.action.chat.export",
             "-workbench.action.chat.focusInput",
+            "-workbench.action.chat.hideSetup",
             "-workbench.action.chat.history",
             "-workbench.action.chat.holdToVoiceChatInChatView",
             "-workbench.action.chat.import",
@@ -8829,10 +8834,10 @@
             "-workbench.action.chat.insertIntoNewFile",
             "-workbench.action.chat.insertIntoNotebook",
             "-workbench.action.chat.installProviderForVoiceChat",
-            "-workbench.action.chat.installWithoutPrompt",
-            "-workbench.action.chat.installWithPrompt",
             "-workbench.action.chat.learnMore",
             "-workbench.action.chat.logInputHistory",
+            "-workbench.action.chat.managePlan",
+            "-workbench.action.chat.manageSettings",
             "-workbench.action.chat.markHelpful",
             "-workbench.action.chat.markUnhelpful",
             "-workbench.action.chat.newChat",
@@ -8844,6 +8849,7 @@
             "-workbench.action.chat.openInEditor",
             "-workbench.action.chat.openInNewWindow",
             "-workbench.action.chat.openInSidebar",
+            "-workbench.action.chat.openQuotaExceededDialog",
             "-workbench.action.chat.previousCodeBlock",
             "-workbench.action.chat.previousFileTree",
             "-workbench.action.chat.quickVoiceChat",
@@ -8851,12 +8857,13 @@
             "-workbench.action.chat.redoEdit",
             "-workbench.action.chat.remove",
             "-workbench.action.chat.reportIssueForBug",
-            "-workbench.action.chat.restoreFile",
             "-workbench.action.chat.retry",
             "-workbench.action.chat.runInTerminal",
             "-workbench.action.chat.selectAndInsertFile",
+            "-workbench.action.chat.selectAndInsertSym",
             "-workbench.action.chat.sendToChatEditing",
             "-workbench.action.chat.sendToNewChat",
+            "-workbench.action.chat.showExtensionsUsingCopilot",
             "-workbench.action.chat.startEditing",
             "-workbench.action.chat.startVoiceChat",
             "-workbench.action.chat.stopListening",
@@ -8865,8 +8872,10 @@
             "-workbench.action.chat.submit",
             "-workbench.action.chat.submitSecondaryAgent",
             "-workbench.action.chat.submitWithoutDispatching",
+            "-workbench.action.chat.triggerSetup",
             "-workbench.action.chat.undoEdit",
             "-workbench.action.chat.undoEdits",
+            "-workbench.action.chat.upgradePlan",
             "-workbench.action.chat.voiceChatInChatView",
             "-workbench.action.chatEditor.newChat",
             "-workbench.action.clearCommandHistory",
@@ -8965,6 +8974,10 @@
             "-workbench.action.editorLayoutTwoColumnsBottom",
             "-workbench.action.editorLayoutTwoRows",
             "-workbench.action.editorLayoutTwoRowsRight",
+            "-workbench.action.edits.addFilesFromReferences",
+            "-workbench.action.edits.attachFile",
+            "-workbench.action.edits.attachSelection",
+            "-workbench.action.edits.submit",
             "-workbench.action.evenEditorWidths",
             "-workbench.action.exitZenMode",
             "-workbench.action.expandAllComments",
@@ -9037,6 +9050,7 @@
             "-workbench.action.hideComment",
             "-workbench.action.hideEditorActions",
             "-workbench.action.hideEditorTabs",
+            "-workbench.action.holdLockedScrolling",
             "-workbench.action.increaseViewHeight",
             "-workbench.action.increaseViewSize",
             "-workbench.action.increaseViewWidth",
@@ -9119,6 +9133,7 @@
             "-workbench.action.newGroupLeft",
             "-workbench.action.newGroupRight",
             "-workbench.action.newWindow",
+            "-workbench.action.nextAuxiliaryBarView",
             "-workbench.action.nextEditor",
             "-workbench.action.nextEditorInGroup",
             "-workbench.action.nextPanelView",
@@ -9199,6 +9214,7 @@
             "-workbench.action.output.show.terminal",
             "-workbench.action.output.show.userDataSync",
             "-workbench.action.output.show.vscode.git.Git",
+            "-workbench.action.output.show.vscode.github-authentication.GitHub Authentication",
             "-workbench.action.output.show.vscode.github.GitHub",
             "-workbench.action.output.toggleOutput",
             "-workbench.action.pauseSocketWriting",
@@ -9209,6 +9225,7 @@
             "-workbench.action.positionPanelRight",
             "-workbench.action.positionPanelTop",
             "-workbench.action.previewColorTheme",
+            "-workbench.action.previousAuxiliaryBarView",
             "-workbench.action.previousEditor",
             "-workbench.action.previousEditorInGroup",
             "-workbench.action.previousPanelView",
@@ -9331,14 +9348,9 @@
             "-workbench.action.terminal.changeColorActiveTab",
             "-workbench.action.terminal.changeIcon",
             "-workbench.action.terminal.changeIconActiveTab",
-            "-workbench.action.terminal.chat.cancel",
             "-workbench.action.terminal.chat.close",
-            "-workbench.action.terminal.chat.discard",
             "-workbench.action.terminal.chat.insertCommand",
             "-workbench.action.terminal.chat.insertFirstCommand",
-            "-workbench.action.terminal.chat.makeRequest",
-            "-workbench.action.terminal.chat.nextFromHistory",
-            "-workbench.action.terminal.chat.previousFromHistory",
             "-workbench.action.terminal.chat.runCommand",
             "-workbench.action.terminal.chat.runFirstCommand",
             "-workbench.action.terminal.chat.start",
@@ -9406,6 +9418,7 @@
             "-workbench.action.terminal.rename",
             "-workbench.action.terminal.renameActiveTab",
             "-workbench.action.terminal.renameWithArg",
+            "-workbench.action.terminal.requestCompletions",
             "-workbench.action.terminal.resizePaneDown",
             "-workbench.action.terminal.resizePaneLeft",
             "-workbench.action.terminal.resizePaneRight",
@@ -9468,6 +9481,7 @@
             "-workbench.action.toggleKeepEditors",
             "-workbench.action.toggleKeybindingsLog",
             "-workbench.action.toggleLightDarkThemes",
+            "-workbench.action.toggleLockedScrolling",
             "-workbench.action.toggleMaximizedPanel",
             "-workbench.action.toggleMaximizeEditorGroup",
             "-workbench.action.toggleMenuBar",
@@ -9524,8 +9538,6 @@
             "-workbench.banner.focusBanner",
             "-workbench.banner.focusNextAction",
             "-workbench.banner.focusPreviousAction",
-            "-workbench.chat.movedView.welcomeView.focus",
-            "-workbench.chat.movedView.welcomeView.resetViewLocation",
             "-workbench.debug.action.copyAll",
             "-workbench.debug.action.focusBreakpointsView",
             "-workbench.debug.action.focusCallStackView",
@@ -9590,10 +9602,13 @@
             "-workbench.extensions.action.configureWorkspaceRecommendedExtensions",
             "-workbench.extensions.action.copyExtension",
             "-workbench.extensions.action.copyExtensionId",
+            "-workbench.extensions.action.copyLink",
             "-workbench.extensions.action.debugExtensionHost",
             "-workbench.extensions.action.disableAll",
             "-workbench.extensions.action.disableAllWorkspace",
             "-workbench.extensions.action.disableAutoUpdate",
+            "-workbench.extensions.action.download",
+            "-workbench.extensions.action.downloadPreRelease",
             "-workbench.extensions.action.enableAll",
             "-workbench.extensions.action.enableAllWorkspace",
             "-workbench.extensions.action.enableAutoUpdate",
@@ -9679,8 +9694,6 @@
             "-workbench.panel.chat.view.edits.resetViewLocation",
             "-workbench.panel.chatEditing",
             "-workbench.panel.chatEditing.resetViewContainerLocation",
-            "-workbench.panel.chatSidebar",
-            "-workbench.panel.chatSidebar.resetViewContainerLocation",
             "-workbench.panel.markers.resetViewContainerLocation",
             "-workbench.panel.markers.view.focus",
             "-workbench.panel.markers.view.removeView",
@@ -9907,6 +9920,8 @@
             "Open File Snapshot",
             "Accept",
             "Accept",
+            "Add File",
+            "Clear Working Set",
             "Discard",
             "Discard",
             "Open Changes in Diff Editor",
@@ -9914,9 +9929,11 @@
             "Save All",
             "View All Edits",
             "Accept Chat Edit",
+            "Open Diff",
             "Go to Next Chat Edit",
             "Go to Previous Chat Edit",
-            "Reject Chat Edit",
+            "Discard Chat Edit",
+            "Undo this Change",
             null,
             null,
             null,
@@ -10151,6 +10168,8 @@
             null,
             null,
             null,
+            null,
+            null,
             "Insert hex/rgb/hsl colors with the focused standalone color picker.",
             null,
             null,
@@ -10180,7 +10199,7 @@
             null,
             null,
             null,
-            null,
+            "Organize imports in the current file. Also called 'Optimize Imports' by some tools",
             null,
             "Page down the editor hover.",
             "Page up the editor hover.",
@@ -10244,6 +10263,7 @@
             "Surround with Snippet...",
             "Toggle Column Selection Mode",
             "Toggle Minimap",
+            "Toggle between overtype and insert mode",
             "Toggle Control Characters",
             "Toggle Render Whitespace",
             "Toggles an optimized mode for usage with screen readers, braille devices, and other assistive technologies.",
@@ -10453,10 +10473,13 @@
             "Get Remote Sources",
             "Get Repositories",
             "Get Repository State",
+            null,
+            null,
             "Create Branch...",
             "Create Branch From...",
             "Checkout to...",
             "Checkout to (Detached)...",
+            "Checkout",
             "Checkout (Detached)",
             "Cherry Pick...",
             "Abort Cherry Pick",
@@ -10622,10 +10645,12 @@
             "Configure Inline Chat",
             "Discard",
             "Focus Input",
+            "Hide Inline Chat Hint",
             "Hold for Speech",
             "Move to Next Change",
             "Move to Previous Change",
             "Rerun Request",
+            "Show Inline Chat Hint",
             "Editor Inline Chat",
             "Start in Editor with Current Line",
             "Toggle Changes",
@@ -10790,7 +10815,7 @@
             "Indent Using Spaces",
             "Indent Using Tabs",
             "Toggle Notebook Sticky Scroll",
-            "Add Find Match to Selection",
+            "Add Selection To Next Find Match",
             "Stop Execution",
             "Stop Cell Execution",
             "Change Cell Language",
@@ -10802,6 +10827,8 @@
             "Cursor Up",
             "Close Chat",
             "Discard",
+            "Explain Cell Error",
+            "Fix Cell Error",
             "Focus Chat",
             "Focus Next Cell",
             "Focus Previous Cell",
@@ -10916,6 +10943,7 @@
             "Fold Section",
             "Run Cells In Section",
             "Run Cell",
+            "Select All Occurrences of Find Match",
             "Select Indentation",
             "Set Profile",
             "Show Leading/Trailing Whitespace Differences",
@@ -11058,6 +11086,8 @@
             "Debug Console: Focus Filter",
             "Debug Console: Focus Find",
             "Execute the Contents of the Input Box",
+            "Focus Most Recent REPL Execution",
+            "Focus Input Editor",
             null,
             "Search Again",
             "Reset the progress of all Walkthrough steps on the Welcome Page to make them appear as if they are being viewed for the first time, providing a fresh start to the getting started experience.",
@@ -11215,7 +11245,9 @@
             "Sort by Location",
             "Sort by Status",
             "Start Continuous Run",
+            null,
             "Stop Continuous Run",
+            null,
             "Turn on Continuous Run",
             "Toggle Inline Coverage",
             "Toggle Inline Test Output",
@@ -11228,15 +11260,17 @@
             "Hides the Timeline view if it is visible and the view container it is located in is visible",
             "Reset Location",
             "Toggles the visibility of the Timeline view if the view container it is located in is visible",
-            "Toggle visibility of the Chat Controls in title bar",
+            "Toggle visibility of the Copilot Controls in title bar",
             null,
             null,
             "Custom Title Bar",
             "Toggle visibility of the Command Center in title bar",
             "Hide Custom Title Bar",
             "Hide Custom Title Bar In Full Screen",
+            "Restore Native Title Bar",
             "Editor Actions",
             "Toggle visibility of the Layout Controls in title bar",
+            "Toggle visibility of the Navigation Controls in title bar",
             null,
             null,
             null,
@@ -11329,7 +11363,6 @@
             "Chat with Extension",
             "Add Selected Files to Working Set",
             "Add File to Chat",
-            "Apply All Edits",
             "Apply Edits",
             "Apply in Editor",
             "",
@@ -11347,6 +11380,7 @@
             "Add Files to Working Set",
             "Export Chat...",
             "Focus Chat Input",
+            "Hide Copilot",
             "Show Chats...",
             "Hold to Voice Chat in Chat View",
             "Import Chat...",
@@ -11355,10 +11389,10 @@
             "Insert into New File",
             "Insert into Notebook",
             "Start Voice Chat",
-            "Install GitHub Copilot",
-            "Install GitHub Copilot",
             "Learn More",
             "Log Chat Input History",
+            "Manage Copilot Plan",
+            "Manage Copilot Settings",
             "Helpful",
             "Unhelpful",
             "New Chat",
@@ -11370,6 +11404,7 @@
             "Open Chat in Editor",
             "Open Chat in New Window",
             "Open Chat in Side Bar",
+            "Upgrade to Copilot Pro",
             "Previous Code Block",
             "Previous File Tree",
             "Quick Voice Chat",
@@ -11377,12 +11412,13 @@
             "Redo Last Edit",
             "Remove Request",
             "Report Issue",
-            "Restore File Snapshot",
             "Retry",
             "Insert into Terminal",
             "",
+            "",
             "Send to Copilot Edits",
             "Send to New Chat",
+            "Show Extensions using Copilot",
             "Edit with Copilot",
             "Start Voice Chat",
             "Stop Listening",
@@ -11391,8 +11427,10 @@
             "Send and Dispatch",
             "Submit to Secondary Agent",
             "Send",
+            "Use AI Features with Copilot for Free...",
             "Undo Last Edit",
             "Undo Edits",
+            "Upgrade to Copilot Pro",
             "Voice Chat in Chat View",
             "New Chat",
             "Clear Command History",
@@ -11491,6 +11529,10 @@
             "Two Columns Bottom Editor Layout",
             "Two Rows Editor Layout",
             "Two Rows Right Editor Layout",
+            "Add Files From References",
+            "Add File to Copilot Edits",
+            "Add Selection to Copilot Edits",
+            "Send",
             "Reset Editor Group Sizes",
             null,
             "Expand All Comments",
@@ -11563,6 +11605,7 @@
             null,
             "Hide Editor Actions in the tab and title bar",
             "Hide Tab Bar",
+            "Hold Locked Scrolling Across Editors",
             "Increase Editor Height",
             "Increase Current View Size",
             "Increase Editor Width",
@@ -11645,6 +11688,7 @@
             "New Editor Group to the Left",
             "New Editor Group to the Right",
             "New Window",
+            "Next Secondary Side Bar View",
             "Open Next Editor",
             "Open Next Editor in Group",
             "Next Panel View",
@@ -11725,6 +11769,7 @@
             "Terminal",
             "Settings Sync",
             "Git",
+            "GitHub Authentication",
             "GitHub",
             "Toggle Output",
             "Connection: Pause socket writing",
@@ -11735,6 +11780,7 @@
             "Move Panel Right",
             "Move Panel To Top",
             null,
+            "Previous Secondary Side Bar View",
             "Open Previous Editor",
             "Open Previous Editor in Group",
             "Previous Panel View",
@@ -11857,17 +11903,12 @@
             "Change Color...",
             "Change Icon...",
             "Change Icon...",
-            "Cancel Chat",
-            "Close Chat",
-            "Discards the terminal current chat response, hide the chat widget, and clear the chat input.",
+            "Close",
             "Insert Chat Command",
             "Insert First Chat Command",
-            "Make Chat Request",
-            "Next From History",
-            "Previous From History",
             "Run Chat Command",
             "Run First Chat Command",
-            "Start in Terminal",
+            "Terminal Inline Chat",
             "View in Chat",
             "Clear",
             "Clear Previous Session History",
@@ -11932,6 +11973,7 @@
             "Rename...",
             "Rename...",
             "Rename the Currently Active Terminal",
+            "Request Completions",
             "Resize Terminal Down",
             "Resize Terminal Left",
             "Resize Terminal Right",
@@ -11994,6 +12036,7 @@
             null,
             "Toggle Keyboard Shortcuts Troubleshooting",
             "Toggle between Light/Dark Themes",
+            "Synchronize Scrolling Editors",
             "Toggle Maximized Panel",
             "Toggle Maximize Editor Group",
             "Toggle Menu Bar",
@@ -12050,8 +12093,6 @@
             null,
             null,
             null,
-            "Focus on Chat (Old Location) View",
-            "Reset Location",
             "Copy All",
             "Focus on Breakpoints View",
             "Focus on Call Stack View",
@@ -12116,10 +12157,13 @@
             "Configure Recommended Extensions (Workspace)",
             "Copy",
             "Copy Extension ID",
+            "Copy Link",
             "Start Debugging Extension Host In New Window",
             "Disable All Installed Extensions",
             "Disable All Installed Extensions for this Workspace",
             "Disable Auto Update for All Extensions",
+            "Download VSIX",
+            "Download Pre-Release VSIX",
             "Enable All Extensions",
             "Enable All Extensions for this Workspace",
             "Enable Auto Update for All Extensions",
@@ -12197,15 +12241,13 @@
             "Clear Output",
             "Switch Output",
             "Toggle Auto Scrolling",
-            "Toggle GitHub Copilot",
+            "Toggle Chat",
             "Reset Location",
-            "Focus on GitHub Copilot View",
+            "Focus on Chat View",
             "Reset Location",
             "Focus on Copilot Edits View",
             "Reset Location",
             "Toggle Copilot Edits",
-            "Reset Location",
-            null,
             "Reset Location",
             "Reset Location",
             "Focus on Problems View",
@@ -12427,7 +12469,7 @@
       "command": {
         "anyOf": [
           {
-            "$ref": "#/$defs/_21"
+            "$ref": "#/$defs/_25"
           },
           {
             "if": {
@@ -12440,7 +12482,7 @@
               "errorMessage": "Incorrect type. Expected \"string\". The field 'command' does not support running multiple commands. Use command 'runCommands' to pass it multiple commands to run."
             },
             "else": {
-              "$ref": "#/$defs/_21"
+              "$ref": "#/$defs/_25"
             }
           }
         ]
@@ -12562,6 +12604,16 @@
       }
     },
     "_8": {
+      "required": [
+        "command"
+      ],
+      "properties": {
+        "command": {
+          "const": "editor.action.pasteAs"
+        }
+      }
+    },
+    "_9": {
       "type": "string",
       "enum": [
         "up",
@@ -12569,13 +12621,13 @@
       ],
       "default": "down"
     },
-    "_9": {
+    "_10": {
       "type": "array",
       "items": {
         "type": "number"
       }
     },
-    "_10": {
+    "_11": {
       "required": [],
       "properties": {
         "args": {
@@ -12583,7 +12635,7 @@
         }
       }
     },
-    "_11": {
+    "_12": {
       "required": [
         "args"
       ],
@@ -12615,7 +12667,7 @@
         }
       }
     },
-    "_12": {
+    "_13": {
       "required": [],
       "properties": {
         "args": {
@@ -12629,7 +12681,7 @@
               "type": "number"
             },
             "direction": {
-              "$ref": "#/$defs/_8"
+              "$ref": "#/$defs/_9"
             },
             "levels": {
               "type": "number",
@@ -12639,7 +12691,7 @@
         }
       }
     },
-    "_13": {
+    "_14": {
       "required": [],
       "properties": {
         "args": {
@@ -12649,10 +12701,10 @@
           ],
           "properties": {
             "ranges": {
-              "$ref": "#/$defs/_14"
+              "$ref": "#/$defs/_15"
             },
             "document": {
-              "$ref": "#/$defs/_15"
+              "$ref": "#/$defs/_16"
             },
             "autoReveal": {
               "type": "boolean",
@@ -12662,7 +12714,7 @@
         }
       }
     },
-    "_14": {
+    "_15": {
       "type": "array",
       "items": [
         {
@@ -12682,11 +12734,11 @@
         }
       ]
     },
-    "_15": {
+    "_16": {
       "type": "object",
       "description": "The document uri"
     },
-    "_16": {
+    "_17": {
       "required": [],
       "properties": {
         "args": {
@@ -12731,10 +12783,10 @@
         }
       }
     },
-    "_17": {
+    "_18": {
       "$ref": "vscode://schemas/keybindings#/definitions/commandNames"
     },
-    "_18": {
+    "_19": {
       "required": [],
       "properties": {
         "args": {
@@ -12747,11 +12799,11 @@
         }
       }
     },
-    "_19": {
+    "_20": {
       "type": "string",
       "description": "The task's label or a term to filter by"
     },
-    "_20": {
+    "_21": {
       "required": [],
       "properties": {
         "args": {
@@ -12778,7 +12830,50 @@
         }
       }
     },
-    "_21": {
+    "_22": {
+      "properties": {
+        "args": {
+          "required": [
+            "kind"
+          ],
+          "properties": {
+            "kind": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "refactor.surround"
+                  ]
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "_23": {
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "$ref": "#/$defs/_24"
+        }
+      }
+    },
+    "_24": {
+      "anyOf": [
+        {
+          "enum": []
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "_25": {
       "$ref": "#/definitions/commandType"
     }
   }
