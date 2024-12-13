@@ -87,11 +87,8 @@ function normalizeEnum(schema) {
     )
     .sort(([a], [b]) => compare(a, b));
   if (enumValues.length === 0) {
-    delete schema.enum;
-    delete schema.enumDescriptions;
-    delete schema.markdownEnumDescriptions;
-    if (!schema.type) {
-      schema.type = "string";
+    if (schema.enum.length === 0) {
+      schema.enum = [null];
     }
     return;
   }
