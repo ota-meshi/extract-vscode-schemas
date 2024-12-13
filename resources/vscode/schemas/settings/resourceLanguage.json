@@ -1152,7 +1152,9 @@
         "description": "The kind identifier of the drop edit.",
         "anyOf": [
           {
-            "enum": []
+            "enum": [
+              null
+            ]
           },
           {
             "type": "string"
@@ -2485,7 +2487,9 @@
         "description": "The kind identifier of the paste edit.",
         "anyOf": [
           {
-            "enum": []
+            "enum": [
+              null
+            ]
           },
           {
             "type": "string"

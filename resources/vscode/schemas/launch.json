@@ -27,7 +27,9 @@
             "items": {
               "oneOf": [
                 {
-                  "enum": [],
+                  "enum": [
+                    null
+                  ],
                   "description": "Please use unique configuration names."
                 },
                 {
@@ -37,11 +39,15 @@
                   ],
                   "properties": {
                     "folder": {
-                      "enum": [],
+                      "enum": [
+                        null
+                      ],
                       "description": "Name of folder in which the compound is located."
                     },
                     "name": {
-                      "enum": [],
+                      "enum": [
+                        null
+                      ],
                       "description": "Name of compound. Appears in the launch configuration drop down menu."
                     }
                   }

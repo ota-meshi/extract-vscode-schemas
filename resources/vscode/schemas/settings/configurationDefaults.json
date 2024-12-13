@@ -4385,7 +4385,9 @@
         "description": "The kind identifier of the drop edit.",
         "anyOf": [
           {
-            "enum": []
+            "enum": [
+              null
+            ]
           },
           {
             "type": "string"
@@ -4847,7 +4849,9 @@
         "description": "The kind identifier of the paste edit.",
         "anyOf": [
           {
-            "enum": []
+            "enum": [
+              null
+            ]
           },
           {
             "type": "string"
@@ -13784,7 +13788,6 @@
         "bash (2)",
         "dash",
         "dash (2)",
-        "JavaScript Debug Terminal",
         "pwsh",
         "pwsh (2)",
         "rbash",
@@ -13800,7 +13803,6 @@
         "$(terminal) bash (2)\n- path: /usr/bin/bash",
         "$(terminal) dash\n- path: /bin/dash",
         "$(terminal) dash (2)\n- path: /usr/bin/dash",
-        "$($(debug)) JavaScript Debug Terminal\n- extensionIdentifier: ms-vscode.js-debug",
         "$(terminal-powershell) pwsh\n- path: /usr/bin/pwsh",
         "$(terminal) pwsh (2)\n- path: /opt/microsoft/powershell/7/pwsh",
         "$(terminal) rbash\n- path: /bin/rbash",
