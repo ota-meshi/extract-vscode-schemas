@@ -2380,6 +2380,18 @@
       "scope": 3,
       "restricted": false
     },
+    "chat.experimental.offerSetup": {
+      "type": "boolean",
+      "default": true,
+      "scope": 1,
+      "markdownDescription": "Controls whether setup is offered for Chat if not done already.",
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
     "comments.collapseOnResolve": {
       "type": "boolean",
       "default": true,
