@@ -11,7 +11,7 @@ You able to get it in the form of `https://raw.githubusercontent.com/ota-meshi/e
 
 <!--EXTRACT-INFO-START-->
 
-Version of VSCode used for extraction: 1.96.1
+Version of VSCode used for extraction: 1.96.2
 
 Extracted Resources:
 
