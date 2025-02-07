@@ -146,7 +146,7 @@
             "type": "string",
             "description": "The ID of the font.",
             "pattern": "^([\\w_-]+)$",
-            "patternErrorMessage": "The ID must only contain letter, numbers, underscore and minus."
+            "patternErrorMessage": "The font ID must only contain letters, numbers, underscores and dashes."
           },
           "size": {
             "type": "string",
@@ -220,9 +220,7 @@
           },
           "fontCharacter": {
             "type": "string",
-            "description": "When using a glyph font: The character in the font to use.",
-            "pattern": "^([^\\\\]|\\\\[a-fA-F0-9]+)$",
-            "patternErrorMessage": "The fontCharacter must be a single letter or a backslash and followed by unicode code points in hexadecimal."
+            "description": "When using a glyph font: The character in the font to use."
           },
           "fontColor": {
             "type": "string",
@@ -237,7 +235,9 @@
           },
           "fontId": {
             "type": "string",
-            "description": "When using a font: The id of the font. If not set, defaults to the first font definition."
+            "description": "When using a font: The id of the font. If not set, defaults to the first font definition.",
+            "pattern": "^([\\w_-]+)$",
+            "patternErrorMessage": "The font ID must only contain letters, numbers, underscores and dashes."
           }
         }
       }

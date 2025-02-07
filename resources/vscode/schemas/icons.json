@@ -9,7 +9,9 @@
         },
         "fontId": {
           "type": "string",
-          "description": "The id of the font to use. If not set, the font that is defined first is used."
+          "description": "The id of the font to use. If not set, the font that is defined first is used.",
+          "pattern": "^([\\w_-]+)$",
+          "patternErrorMessage": "The font ID must only contain letters, numbers, underscores and dashes."
         }
       },
       "additionalProperties": false,
@@ -1297,6 +1299,9 @@
     "keyboard": {
       "$ref": "#/$defs/_0"
     },
+    "keyboard-tab": {
+      "$ref": "#/$defs/_0"
+    },
     "law": {
       "$ref": "#/$defs/_0"
     },
@@ -1956,6 +1961,14 @@
     },
     "quick-input-back": {
       "$ref": "#/$defs/_0"
+    },
+    "quickInputAlignmentCenter": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Represents quick input alignment set to the center: $(quickInputAlignmentCenter)"
+    },
+    "quickInputAlignmentTop": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Represents quick input alignment set to the top: $(quickInputAlignmentTop)"
     },
     "quote": {
       "$ref": "#/$defs/_0"
