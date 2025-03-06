@@ -1218,20 +1218,27 @@
       "scope": 6,
       "restricted": false
     },
-    "editor.experimental.preferTreeSitter": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "enum": [
-          "typescript"
-        ]
-      },
-      "default": [],
-      "markdownDescription": "Controls whether tree sitter parsing should be turned on for specific languages. This will take precedence over `editor.experimental.treeSitterTelemetry` for the specified languages.",
+    "editor.experimental.preferTreeSitter.ini": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "Controls whether tree sitter parsing should be turned on for ini. This will take precedence over `editor.experimental.treeSitterTelemetry` for ini.",
       "tags": [
-        "experimental"
+        "experimental",
+        "onExP"
       ],
-      "defaultDefaultValue": [],
+      "defaultDefaultValue": false,
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.experimental.preferTreeSitter.typescript": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "Controls whether tree sitter parsing should be turned on for typescript. This will take precedence over `editor.experimental.treeSitterTelemetry` for typescript.",
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "defaultDefaultValue": false,
       "scope": 6,
       "restricted": false
     },
@@ -2013,13 +2020,24 @@
         "never"
       ],
       "enumDescriptions": [
-        "Larger suggestions will show side by side if there is enough space, otherwise they will be shown bellow.",
-        "Larger suggestions are never shown side by side and will always be shown bellow."
+        "Larger suggestions will show side by side if there is enough space, otherwise they will be shown below.",
+        "Larger suggestions are never shown side by side and will always be shown below."
       ],
       "tags": [
         "nextEditSuggestions"
       ],
       "defaultDefaultValue": "auto",
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.inlineSuggest.edits.showCollapsed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Controls whether the suggestion will show as collapsed until jumping to it.",
+      "tags": [
+        "nextEditSuggestions"
+      ],
+      "defaultDefaultValue": false,
       "scope": 6,
       "restricted": false
     },
@@ -2224,6 +2242,14 @@
       "scope": 6,
       "restricted": false
     },
+    "editor.minimap.markSectionHeaderRegex": {
+      "type": "string",
+      "default": "\\bMARK:\\s*(?<separator>-?)\\s*(?<label>.*)$",
+      "description": "Defines the regular expression used to find section headers in comments. The regex must contain a named match group `label` (written as `(?<label>.+)`) that encapsulates the section header, otherwise it will not work. Optionally you can include another match group named `separator`. Use \\n in the pattern to match multi-line headers.",
+      "defaultDefaultValue": "\\bMARK:\\s*(?<separator>-?)\\s*(?<label>.*)$",
+      "scope": 6,
+      "restricted": false
+    },
     "editor.minimap.maxColumn": {
       "type": "number",
       "default": 120,
@@ -2419,10 +2445,10 @@
         "preview"
       ],
       "type": "integer",
-      "default": 250,
+      "default": 0,
       "minimum": 0,
       "maximum": 2000,
-      "defaultDefaultValue": 250,
+      "defaultDefaultValue": 0,
       "scope": 6,
       "restricted": false
     },
@@ -3457,6 +3483,7 @@
       "type": "number",
       "default": 4,
       "minimum": 1,
+      "maximum": 16,
       "markdownDescription": "The number of spaces a tab is equal to. This setting is overridden based on the file contents when `#editor.detectIndentation#` is on.",
       "defaultDefaultValue": 4,
       "scope": 6,

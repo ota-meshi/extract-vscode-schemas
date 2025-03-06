@@ -384,7 +384,13 @@
     "copilot": {
       "$ref": "#/$defs/_0"
     },
+    "copilot-blocked": {
+      "$ref": "#/$defs/_0"
+    },
     "copilot-large": {
+      "$ref": "#/$defs/_0"
+    },
+    "copilot-not-connected": {
       "$ref": "#/$defs/_0"
     },
     "copilot-warning": {
@@ -953,6 +959,9 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for 'Find in Selection' in the editor find widget.: $(find-selection)"
     },
+    "flag": {
+      "$ref": "#/$defs/_0"
+    },
     "flame": {
       "$ref": "#/$defs/_0"
     },
@@ -1372,6 +1381,9 @@
       "$ref": "#/$defs/_0"
     },
     "lightbulb-autofix": {
+      "$ref": "#/$defs/_0"
+    },
+    "lightbulb-empty": {
       "$ref": "#/$defs/_0"
     },
     "lightbulb-sparkle": {
@@ -2092,6 +2104,10 @@
     "request-changes": {
       "$ref": "#/$defs/_0"
     },
+    "rerun-task": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "View icon of the rerun task.: $(rerun-task)"
+    },
     "review-comment-collapse": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon to collapse a review comment.: $(review-comment-collapse)"
@@ -2453,6 +2469,9 @@
       "$ref": "#/$defs/_0"
     },
     "symbol-method": {
+      "$ref": "#/$defs/_0"
+    },
+    "symbol-method-arrow": {
       "$ref": "#/$defs/_0"
     },
     "symbol-misc": {

@@ -622,7 +622,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_86"
+          "$ref": "#/$defs/_85"
         }
       ]
     },
@@ -1259,7 +1259,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_83"
+          "$ref": "#/$defs/_84"
         }
       ]
     },
@@ -2550,7 +2550,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_89"
+          "$ref": "#/$defs/_86"
         }
       ]
     },
@@ -2561,7 +2561,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_89"
+          "$ref": "#/$defs/_86"
         }
       ]
     },
@@ -2814,7 +2814,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_84"
+          "$ref": "#/$defs/_87"
         }
       ]
     },
@@ -3430,7 +3430,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_85"
+          "$ref": "#/$defs/_83"
         }
       ]
     },
@@ -3672,7 +3672,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_85"
+          "$ref": "#/$defs/_83"
         }
       ]
     },
@@ -4053,7 +4053,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_83"
+          "$ref": "#/$defs/_84"
         }
       ]
     },
@@ -4312,6 +4312,101 @@
         }
       ]
     },
+    "gauge.background": {
+      "description": "Gauge background color.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_50"
+        }
+      ]
+    },
+    "gauge.border": {
+      "description": "Gauge border color.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_6"
+        }
+      ]
+    },
+    "gauge.errorBackground": {
+      "description": "Gauge error background color.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_52"
+        }
+      ]
+    },
+    "gauge.errorForeground": {
+      "description": "Gauge error foreground color.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:rgba(190, 17, 0, 0.3)}"
+            }
+          ]
+        }
+      ]
+    },
+    "gauge.foreground": {
+      "description": "Gauge foreground color.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:rgba(0, 122, 204, 0.3)}"
+            }
+          ]
+        }
+      ]
+    },
+    "gauge.warningBackground": {
+      "description": "Gauge warning background color.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_51"
+        }
+      ]
+    },
+    "gauge.warningForeground": {
+      "description": "Gauge warning foreground color.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:rgba(184, 149, 0, 0.3)}"
+            }
+          ]
+        }
+      ]
+    },
     "git.blame.editorDecorationForeground": {
       "description": "Color for the blame editor decoration.",
       "oneOf": [
@@ -4330,7 +4425,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_87"
+          "$ref": "#/$defs/_88"
         }
       ]
     },
@@ -4358,7 +4453,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_88"
+          "$ref": "#/$defs/_89"
         }
       ]
     },
@@ -4380,7 +4475,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_86"
+          "$ref": "#/$defs/_85"
         }
       ]
     },
@@ -4402,7 +4497,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_88"
+          "$ref": "#/$defs/_89"
         }
       ]
     },
@@ -4413,7 +4508,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_86"
+          "$ref": "#/$defs/_85"
         }
       ]
     },
@@ -4793,6 +4888,23 @@
         },
         {
           "$ref": "#/$defs/_35"
+        }
+      ]
+    },
+    "inlineEdit.tabWillAcceptBorder": {
+      "description": "Border color for the inline edits widget over the original text when tab will accept it.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#565656}"
+            }
+          ]
         }
       ]
     },
@@ -5911,6 +6023,23 @@
         }
       ]
     },
+    "minimap.chatEditHighlight": {
+      "description": "Color of pending edit regions in the minimap",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:rgba(31, 31, 31, 0.6)}"
+            }
+          ]
+        }
+      ]
+    },
     "minimap.errorHighlight": {
       "description": "Minimap marker color for errors.",
       "oneOf": [
@@ -6019,7 +6148,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_84"
+          "$ref": "#/$defs/_87"
         }
       ]
     },
@@ -6730,6 +6859,28 @@
         }
       ]
     },
+    "panelTitleBadge.background": {
+      "description": "Panel title badge background color. Panels are shown below the editor area and contain views like output and integrated terminal.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_5"
+        }
+      ]
+    },
+    "panelTitleBadge.foreground": {
+      "description": "Panel title badge foreground color. Panels are shown below the editor area and contain views like output and integrated terminal.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_27"
+        }
+      ]
+    },
     "peekView.border": {
       "description": "Color of the peek view borders and arrow.",
       "oneOf": [
@@ -7316,7 +7467,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_87"
+          "$ref": "#/$defs/_88"
         }
       ]
     },
@@ -7349,7 +7500,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_88"
+          "$ref": "#/$defs/_89"
         }
       ]
     },
@@ -9635,6 +9786,28 @@
         }
       ]
     },
+    "terminalSymbolIcon.aliasForeground": {
+      "description": "The foreground color for an alias icon. These icons will appear in the terminal suggest widget.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_45"
+        }
+      ]
+    },
+    "terminalSymbolIcon.flagForeground": {
+      "description": "The foreground color for an flag icon. These icons will appear in the terminal suggest widget.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_68"
+        }
+      ]
+    },
     "testing.coverCountBadgeBackground": {
       "description": "Background for the badge indicating execution count",
       "oneOf": [
@@ -9692,7 +9865,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_85"
+          "$ref": "#/$defs/_83"
         }
       ]
     },
@@ -11181,7 +11354,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:rgba(204, 204, 204, 0.6)}"
+          "body": "${1:rgba(156, 204, 44, 0.12)}"
         }
       ]
     },
@@ -11190,7 +11363,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#2ea043}"
+          "body": "${1:rgba(204, 204, 204, 0.6)}"
         }
       ]
     },
@@ -11199,7 +11372,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:rgba(156, 204, 44, 0.12)}"
+          "body": "${1:#e2c08d}"
         }
       ]
     },
@@ -11208,7 +11381,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#e2c08d}"
+          "body": "${1:rgba(0, 120, 212, 0.1)}"
         }
       ]
     },
@@ -11217,7 +11390,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#81b88b}"
+          "body": "${1:#2ea043}"
         }
       ]
     },
@@ -11226,7 +11399,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#c74e39}"
+          "body": "${1:#81b88b}"
         }
       ]
     },
@@ -11235,7 +11408,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:rgba(0, 120, 212, 0.1)}"
+          "body": "${1:#c74e39}"
         }
       ]
     },
