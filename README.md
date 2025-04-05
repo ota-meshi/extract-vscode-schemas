@@ -11,7 +11,7 @@ You able to get it in the form of `https://raw.githubusercontent.com/ota-meshi/e
 
 <!--EXTRACT-INFO-START-->
 
-Version of VSCode used for extraction: 1.98.2
+Version of VSCode used for extraction: 1.99.0
 
 Extracted Resources:
 
@@ -27,6 +27,7 @@ Extracted Resources:
 | `vscode://schemas/keybindings` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/keybindings.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/keybindings.json) |
 | `vscode://schemas/language-configuration` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/language-configuration.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/language-configuration.json) |
 | `vscode://schemas/launch` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/launch.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/launch.json) |
+| `vscode://schemas/mcp` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/mcp.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/mcp.json) |
 | `vscode://schemas/notebook/cellmetadata` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/notebook/cellmetadata.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/notebook/cellmetadata.json) |
 | `vscode://schemas/product-icon-theme` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/product-icon-theme.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/product-icon-theme.json) |
 | `vscode://schemas/settings/configurationDefaults` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/settings/configurationDefaults.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/settings/configurationDefaults.json) |

@@ -837,6 +837,114 @@
       "scope": 5,
       "restricted": false
     },
+    "accessibility.signals.editsKept": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "description": "Plays a signal - sound (audio cue) and/or announcement (alert) - when edits are kept.",
+      "properties": {
+        "announcement": {
+          "description": "Announces when edits are kept.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable announcement, will only play when in screen reader optimized mode.",
+            "Disable announcement."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound when edits are kept.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "scope": 5,
+      "restricted": false
+    },
+    "accessibility.signals.editsUndone": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "description": "Plays a signal - sound (audio cue) and/or announcement (alert) - when edits have been undone.",
+      "properties": {
+        "announcement": {
+          "description": "Announces when edits have been undone.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable announcement, will only play when in screen reader optimized mode.",
+            "Disable announcement."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound when edits have been undone.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "defaultDefaultValue": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "scope": 5,
+      "restricted": false
+    },
     "accessibility.signals.format": {
       "type": "object",
       "tags": [
@@ -2339,13 +2447,27 @@
       "defaultDefaultValue": "position",
       "restricted": false
     },
+    "chat.agent.enabled": {
+      "type": "boolean",
+      "description": "Enable agent mode for Copilot Chat. When this is enabled, a dropdown appears in the view to toggle agent mode.",
+      "default": false,
+      "tags": [
+        "onExp"
+      ],
+      "policy": {
+        "name": "ChatAgentMode",
+        "minimumVersion": "1.99",
+        "previewFeature": false,
+        "defaultValue": false
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.agent.maxRequests": {
       "type": "number",
       "markdownDescription": "The maximum number of requests to allow Copilot Edits to use per-turn in agent mode. When the limit is reached, Copilot will ask the user to confirm that it should keep working. \n\n> **Note**: For users on the Copilot Free plan, note that each agent mode request currently uses one chat request.",
       "default": 15,
-      "tags": [
-        "experimental"
-      ],
       "defaultDefaultValue": 15,
       "scope": 4,
       "restricted": false
@@ -2436,6 +2558,17 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.edits2.enabled": {
+      "type": "boolean",
+      "description": "Enable the new Edits mode that is based on tool-calling. When this is enabled, models that don't support tool-calling are unavailable for Edits mode.",
+      "default": true,
+      "tags": [
+        "onExp"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.experimental.detectParticipant.enabled": {
       "type": "boolean",
       "deprecationMessage": "This setting is deprecated. Please use `chat.detectParticipant.enabled` instead.",
@@ -2445,15 +2578,26 @@
       "scope": 4,
       "restricted": false
     },
-    "chat.experimental.statusIndicator.enabled": {
+    "chat.extensionTools.enabled": {
       "type": "boolean",
-      "description": "Controls whether a Copilot related status indicator appears in the lower right corner.",
-      "default": false,
-      "tags": [
-        "experimental",
-        "onExp"
-      ],
-      "defaultDefaultValue": false,
+      "description": "Enable using tools contributed by third-party extensions in Copilot Chat agent mode.",
+      "default": true,
+      "policy": {
+        "name": "ChatAgentExtensionTools",
+        "minimumVersion": "1.99",
+        "description": "Enable using tools contributed by third-party extensions in Copilot Chat agent mode.",
+        "previewFeature": true,
+        "defaultValue": false
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.focusWindowOnConfirmation": {
+      "type": "boolean",
+      "description": "Controls whether the Copilot window should be focused when a confirmation is needed.",
+      "default": true,
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -2488,6 +2632,62 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.mcp.discovery.enabled": {
+      "oneOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "object",
+          "default": {
+            "claude-desktop": true,
+            "cursor-global": true,
+            "cursor-workspace": true,
+            "windsurf": true
+          },
+          "properties": {
+            "claude-desktop": {
+              "type": "boolean",
+              "description": "Enables discovery of Claude Desktop servers"
+            },
+            "cursor-global": {
+              "type": "boolean",
+              "description": "Enables discovery of Cursor (Global) servers"
+            },
+            "cursor-workspace": {
+              "type": "boolean",
+              "description": "Enables discovery of Cursor (Workspace) servers"
+            },
+            "windsurf": {
+              "type": "boolean",
+              "description": "Enables discovery of Windsurf servers"
+            }
+          }
+        }
+      ],
+      "default": true,
+      "markdownDescription": "Configures discovery of Model Context Protocol servers on the machine. It may be set to `true` or `false` to disable or enable all sources, and an mapping sources you wish to enable.",
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.mcp.enabled": {
+      "type": "boolean",
+      "description": "Enables integration with Model Context Protocol servers to provide additional tools and functionality.",
+      "default": true,
+      "tags": [
+        "preview"
+      ],
+      "policy": {
+        "name": "ChatMCP",
+        "minimumVersion": "1.99",
+        "previewFeature": true,
+        "defaultValue": false
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.promptFiles": {
       "type": "boolean",
       "title": "Prompt Files",
@@ -2502,6 +2702,13 @@
         "prompt snippets",
         "instructions"
       ],
+      "policy": {
+        "name": "ChatPromptFiles",
+        "minimumVersion": "1.99",
+        "description": "Enables reusable prompt files in Chat, Edits, and Inline Chat sessions.",
+        "previewFeature": true,
+        "defaultValue": false
+      },
       "defaultDefaultValue": true,
       "scope": 4
     },
@@ -2512,9 +2719,6 @@
       "default": {
         ".github/prompts": true
       },
-      "required": [
-        ".github/prompts"
-      ],
       "additionalProperties": {
         "type": "boolean"
       },
@@ -2522,7 +2726,6 @@
         "type": "boolean"
       },
       "restricted": true,
-      "disallowConfigurationDefault": true,
       "tags": [
         "experimental",
         "prompts",
@@ -2549,6 +2752,57 @@
       "description": "Controls whether related files should be rendered in the chat input.",
       "default": false,
       "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.setupFromDialog": {
+      "type": "boolean",
+      "description": "Controls whether Copilot setup starts from a dialog or from the welcome view.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExp"
+      ],
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.tools.autoApprove": {
+      "default": false,
+      "description": "Controls whether tool use should be automatically approved ('YOLO mode').",
+      "type": "boolean",
+      "tags": [
+        "experimental"
+      ],
+      "policy": {
+        "name": "ChatToolsAutoApprove",
+        "minimumVersion": "1.99",
+        "previewFeature": true,
+        "defaultValue": false
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.unifiedChatView": {
+      "type": "boolean",
+      "description": "Enables the unified view with Ask, Edit, and Agent modes in one view.",
+      "default": true,
+      "tags": [
+        "preview"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.useFileStorage": {
+      "type": "boolean",
+      "description": "Enables storing chat sessions on disk instead of in the storage service. Enabling this does a one-time per-workspace migration of existing sessions to the new format.",
+      "default": true,
+      "tags": [
+        "experimental"
+      ],
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -4678,10 +4932,34 @@
       "scope": 6,
       "restricted": false
     },
+    "editor.experimental.preferTreeSitter.css": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "Controls whether tree sitter parsing should be turned on for css. This will take precedence over `editor.experimental.treeSitterTelemetry` for css.",
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "defaultDefaultValue": false,
+      "scope": 6,
+      "restricted": false
+    },
     "editor.experimental.preferTreeSitter.ini": {
       "type": "boolean",
       "default": false,
       "markdownDescription": "Controls whether tree sitter parsing should be turned on for ini. This will take precedence over `editor.experimental.treeSitterTelemetry` for ini.",
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "defaultDefaultValue": false,
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.experimental.preferTreeSitter.regex": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "Controls whether tree sitter parsing should be turned on for regex. This will take precedence over `editor.experimental.treeSitterTelemetry` for regex.",
       "tags": [
         "experimental",
         "onExP"
@@ -4914,7 +5192,7 @@
     "editor.inlineCompletionsAccessibilityVerbose": {
       "$ref": "#/$defs/_233"
     },
-    "editor.inlineSuggest.edits.codeShifting": {
+    "editor.inlineSuggest.edits.allowCodeShifting": {
       "$ref": "#/$defs/_87"
     },
     "editor.inlineSuggest.edits.renderSideBySide": {
@@ -6117,6 +6395,24 @@
       "scope": 4,
       "restricted": false
     },
+    "explorer.copyPathSeparator": {
+      "type": "string",
+      "enum": [
+        "/",
+        "\\",
+        "auto"
+      ],
+      "enumDescriptions": [
+        "Use slash as path separation character.",
+        "Use backslash as path separation character.",
+        "Uses operating system specific path separation character."
+      ],
+      "description": "The path separation character used when copying file paths.",
+      "default": "auto",
+      "defaultDefaultValue": "auto",
+      "scope": 4,
+      "restricted": false
+    },
     "explorer.copyRelativePathSeparator": {
       "type": "string",
       "enum": [
@@ -6354,7 +6650,8 @@
       "scope": 1,
       "policy": {
         "name": "AllowedExtensions",
-        "minimumVersion": "1.96"
+        "minimumVersion": "1.96",
+        "description": "Specify a list of extensions that are allowed to use. This helps maintain a secure and consistent development environment by restricting the use of unauthorized extensions. More information: https://code.visualstudio.com/docs/setup/enterprise#_configure-allowed-extensions"
       },
       "additionalProperties": false,
       "patternProperties": {
@@ -8314,6 +8611,18 @@
         "displayName": "Git"
       },
       "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "git.showReferenceDetails": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "Controls whether to show the details of the last commit for Git refs in the checkout, branch, and tag pickers.",
+      "scope": 4,
+      "source": {
+        "id": "vscode.git",
+        "displayName": "Git"
+      },
+      "defaultDefaultValue": true,
       "restricted": false
     },
     "git.similarityThreshold": {
@@ -10569,6 +10878,41 @@
       "defaultDefaultValue": "hint",
       "restricted": false
     },
+    "mcp": {
+      "type": "object",
+      "default": {
+        "inputs": [],
+        "servers": {
+          "mcp-server-time": {
+            "command": "python",
+            "args": [
+              "-m",
+              "mcp_server_time",
+              "--local-timezone=America/Los_Angeles"
+            ],
+            "env": {}
+          }
+        }
+      },
+      "description": "Model Context Protocol server configurations",
+      "$ref": "vscode://schemas/mcp",
+      "defaultDefaultValue": {
+        "inputs": [],
+        "servers": {
+          "mcp-server-time": {
+            "command": "python",
+            "args": [
+              "-m",
+              "mcp_server_time",
+              "--local-timezone=America/Los_Angeles"
+            ],
+            "env": {}
+          }
+        }
+      },
+      "scope": 4,
+      "restricted": false
+    },
     "mediaPreview.video.autoPlay": {
       "type": "boolean",
       "default": false,
@@ -10672,30 +11016,6 @@
       "description": "Controls if deletions in base or one of the inputs should be indicated by a vertical bar.",
       "defaultDefaultValue": true,
       "scope": 4,
-      "restricted": false
-    },
-    "microsoft-authentication.clientIdVersion": {
-      "type": "string",
-      "default": "v1",
-      "enum": [
-        "v1",
-        "v2"
-      ],
-      "enumDescriptions": [
-        "Use the v1 Microsoft Account client ID to sign in with a Microsoft account.",
-        "Use the v2 Microsoft Account client ID to sign in with a Microsoft account."
-      ],
-      "markdownDescription": "The version of the Microsoft Account client ID to use for signing in with a Microsoft account. Only change this if you have been asked to. The default is `v1`.",
-      "tags": [
-        "onExP",
-        "experimental"
-      ],
-      "scope": 4,
-      "source": {
-        "id": "vscode.microsoft-authentication",
-        "displayName": "Microsoft Account"
-      },
-      "defaultDefaultValue": "v1",
       "restricted": false
     },
     "microsoft-authentication.implementation": {
@@ -11423,7 +11743,7 @@
             "editor.inlineCompletionsAccessibilityVerbose": {
               "$ref": "#/$defs/_233"
             },
-            "editor.inlineSuggest.edits.codeShifting": {
+            "editor.inlineSuggest.edits.allowCodeShifting": {
               "$ref": "#/$defs/_87"
             },
             "editor.inlineSuggest.edits.renderSideBySide": {
@@ -12931,6 +13251,27 @@
       ],
       "default": "process",
       "defaultDefaultValue": "process",
+      "scope": 4,
+      "restricted": false
+    },
+    "remote.defaultExtensionsIfInstalledLocally": {
+      "type": "array",
+      "markdownDescription": "List of extensions to install upon connection to a remote when already installed locally.",
+      "default": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "GitHub.vscode-pull-request-github"
+      ],
+      "items": {
+        "type": "string",
+        "pattern": "([a-z0-9A-Z][a-z0-9-A-Z]*)\\.([a-z0-9A-Z][a-z0-9-A-Z]*)$",
+        "patternErrorMessage": "Extension identifier must be in format \"publisher.name\"."
+      },
+      "defaultDefaultValue": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "GitHub.vscode-pull-request-github"
+      ],
       "scope": 4,
       "restricted": false
     },
@@ -14455,6 +14796,18 @@
       "defaultDefaultValue": true,
       "deprecationMessage": "If this setting is false, no telemetry will be sent regardless of the new setting's value. Deprecated in favor of the `#telemetry.telemetryLevel#` setting."
     },
+    "telemetry.feedback.enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable feedback mechanisms such as the issue reporter, surveys, and feedback options in features like Copilot Chat.",
+      "policy": {
+        "name": "EnableFeedback",
+        "minimumVersion": "1.99"
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
     "telemetry.telemetryLevel": {
       "type": "string",
       "enum": [
@@ -14469,7 +14822,7 @@
         "Sends general error telemetry and crash reports.",
         "Disables all product telemetry."
       ],
-      "markdownDescription": "\nControls Visual Studio Code telemetry, first-party extension telemetry, and participating third-party extension telemetry. Some third party extensions might not respect this setting. Consult the specific extension's documentation to be sure. Telemetry helps us better understand how Visual Studio Code is performing, where improvements need to be made, and how features are being used. Read more about the [data we collect](https://aka.ms/vscode-telemetry) and our [privacy statement](https://go.microsoft.com/fwlink/?LinkId=521839). A full restart of the application is necessary for crash reporting changes to take effect.\n\n&nbsp;\n\nThe following table outlines the data sent with each setting:\n\n|       | Crash Reports | Error Telemetry | Usage Data |\n|:------|:---------------------:|:---------------:|:--------------:|\n| all   |            ✓          |        ✓        |        ✓       |\n| error |            ✓          |        ✓        |        -       |\n| crash |            ✓          |        -        |        -       |\n| off   |            -          |        -        |        -       |\n\n\n&nbsp;\n\n****Note:*** If this setting is 'off', no telemetry will be sent regardless of other telemetry settings. If this setting is set to anything except 'off' and telemetry is disabled with deprecated settings, no telemetry will be sent.*\n",
+      "markdownDescription": "\nControls Visual Studio Code telemetry, first-party extension telemetry, and participating third-party extension telemetry. Some third party extensions might not respect this setting. Consult the specific extension's documentation to be sure. Telemetry helps us better understand how Visual Studio Code is performing, where improvements need to be made, and how features are being used. Read more about the [data we collect](https://aka.ms/vscode-telemetry) and our [privacy statement](https://go.microsoft.com/fwlink/?LinkId=521839). A full restart of the application is necessary for crash reporting changes to take effect.\n\n&nbsp;\n\nThe following table outlines the data sent with each setting:\n\n|       | Crash Reports | Error Telemetry | Usage Data |\n|:------|:-------------:|:---------------:|:----------:|\n| all   |       ✓       |        ✓        |     ✓      |\n| error |       ✓       |        ✓        |     -      |\n| crash |       ✓       |        -        |     -      |\n| off   |       -       |        -        |     -      |\n\n\n&nbsp;\n\n****Note:*** If this setting is 'off', no telemetry will be sent regardless of other telemetry settings. If this setting is set to anything except 'off' and telemetry is disabled with deprecated settings, no telemetry will be sent.*\n",
       "default": "all",
       "restricted": true,
       "scope": 1,
@@ -14477,6 +14830,11 @@
         "usesOnlineServices",
         "telemetry"
       ],
+      "policy": {
+        "name": "TelemetryLevel",
+        "minimumVersion": "1.99",
+        "description": "Controls the level of telemetry."
+      },
       "defaultDefaultValue": "all"
     },
     "terminal.explorerKind": {
@@ -14695,7 +15053,7 @@
       "restricted": false
     },
     "terminal.integrated.commandsToSkipShell": {
-      "markdownDescription": "A set of command IDs whose keybindings will not be sent to the shell but instead always be handled by VS Code. This allows keybindings that would normally be consumed by the shell to act instead the same as when the terminal is not focused, for example `Ctrl+P` to launch Quick Open.\n\n&nbsp;\n\nMany commands are skipped by default. To override a default and pass that command's keybinding to the shell instead, add the command prefixed with the `-` character. For example add `-workbench.action.quickOpen` to allow `Ctrl+P` to reach the shell.\n\n&nbsp;\n\nThe following list of default skipped commands is truncated when viewed in Settings Editor. To see the full list, [open the default settings JSON](command:workbench.action.openRawDefaultSettings 'Open Default Settings (JSON)') and search for the first command from the list below.\n\n&nbsp;\n\nDefault Skipped Commands:\n\n- editor.action.accessibilityHelp\n- editor.action.toggleTabFocusMode\n- notification.acceptPrimaryAction\n- notifications.hideList\n- notifications.hideToasts\n- runCommands\n- workbench.action.closeQuickOpen\n- workbench.action.debug.continue\n- workbench.action.debug.disconnect\n- workbench.action.debug.pause\n- workbench.action.debug.restart\n- workbench.action.debug.run\n- workbench.action.debug.start\n- workbench.action.debug.stepInto\n- workbench.action.debug.stepOut\n- workbench.action.debug.stepOver\n- workbench.action.debug.stop\n- workbench.action.firstEditorInGroup\n- workbench.action.focusActiveEditorGroup\n- workbench.action.focusEighthEditorGroup\n- workbench.action.focusFifthEditorGroup\n- workbench.action.focusFirstEditorGroup\n- workbench.action.focusFourthEditorGroup\n- workbench.action.focusLastEditorGroup\n- workbench.action.focusNextPart\n- workbench.action.focusPreviousPart\n- workbench.action.focusSecondEditorGroup\n- workbench.action.focusSeventhEditorGroup\n- workbench.action.focusSixthEditorGroup\n- workbench.action.focusThirdEditorGroup\n- workbench.action.lastEditorInGroup\n- workbench.action.navigateDown\n- workbench.action.navigateLeft\n- workbench.action.navigateRight\n- workbench.action.navigateUp\n- workbench.action.nextEditor\n- workbench.action.nextEditorInGroup\n- workbench.action.nextPanelView\n- workbench.action.nextSideBarView\n- workbench.action.openNextRecentlyUsedEditor\n- workbench.action.openNextRecentlyUsedEditorInGroup\n- workbench.action.openPreviousRecentlyUsedEditor\n- workbench.action.openPreviousRecentlyUsedEditorInGroup\n- workbench.action.previousEditor\n- workbench.action.previousEditorInGroup\n- workbench.action.previousPanelView\n- workbench.action.previousSideBarView\n- workbench.action.quickOpen\n- workbench.action.quickOpenLeastRecentlyUsedEditor\n- workbench.action.quickOpenLeastRecentlyUsedEditorInGroup\n- workbench.action.quickOpenPreviousEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup\n- workbench.action.quickOpenView\n- workbench.action.showCommands\n- workbench.action.tasks.build\n- workbench.action.tasks.reRunTask\n- workbench.action.tasks.rerunForActiveTerminal\n- workbench.action.tasks.restartTask\n- workbench.action.tasks.runTask\n- workbench.action.tasks.showLog\n- workbench.action.tasks.showTasks\n- workbench.action.tasks.terminate\n- workbench.action.tasks.test\n- workbench.action.terminal.acceptSelectedSuggestion\n- workbench.action.terminal.acceptSelectedSuggestionEnter\n- workbench.action.terminal.chat.cancel\n- workbench.action.terminal.chat.close\n- workbench.action.terminal.chat.discard\n- workbench.action.terminal.chat.feedbackHelpful\n- workbench.action.terminal.chat.feedbackReportIssue\n- workbench.action.terminal.chat.feedbackUnhelpful\n- workbench.action.terminal.chat.insertCommand\n- workbench.action.terminal.chat.makeRequest\n- workbench.action.terminal.chat.runCommand\n- workbench.action.terminal.chat.start\n- workbench.action.terminal.chat.viewInChat\n- workbench.action.terminal.clear\n- workbench.action.terminal.clearSelection\n- workbench.action.terminal.clearSuggestCache\n- workbench.action.terminal.copyAndClearSelection\n- workbench.action.terminal.copyLastCommand\n- workbench.action.terminal.copyLastCommandAndLastCommandOutput\n- workbench.action.terminal.copyLastCommandOutput\n- workbench.action.terminal.copySelection\n- workbench.action.terminal.copySelectionAsHtml\n- workbench.action.terminal.deleteToLineStart\n- workbench.action.terminal.deleteWordLeft\n- workbench.action.terminal.deleteWordRight\n- workbench.action.terminal.findNext\n- workbench.action.terminal.findPrevious\n- workbench.action.terminal.focus\n- workbench.action.terminal.focusAccessibleBuffer\n- workbench.action.terminal.focusAtIndex1\n- workbench.action.terminal.focusAtIndex2\n- workbench.action.terminal.focusAtIndex3\n- workbench.action.terminal.focusAtIndex4\n- workbench.action.terminal.focusAtIndex5\n- workbench.action.terminal.focusAtIndex6\n- workbench.action.terminal.focusAtIndex7\n- workbench.action.terminal.focusAtIndex8\n- workbench.action.terminal.focusAtIndex9\n- workbench.action.terminal.focusFind\n- workbench.action.terminal.focusHover\n- workbench.action.terminal.focusNext\n- workbench.action.terminal.focusNextPane\n- workbench.action.terminal.focusPrevious\n- workbench.action.terminal.focusPreviousPane\n- workbench.action.terminal.goToRecentDirectory\n- workbench.action.terminal.hideFind\n- workbench.action.terminal.hideSuggestWidget\n- workbench.action.terminal.kill\n- workbench.action.terminal.killEditor\n- workbench.action.terminal.moveToEditor\n- workbench.action.terminal.moveToLineEnd\n- workbench.action.terminal.moveToLineStart\n- workbench.action.terminal.moveToTerminalPanel\n- workbench.action.terminal.new\n- workbench.action.terminal.newInActiveWorkspace\n- workbench.action.terminal.paste\n- workbench.action.terminal.pasteSelection\n- workbench.action.terminal.requestCompletions\n- workbench.action.terminal.resizePaneDown\n- workbench.action.terminal.resizePaneLeft\n- workbench.action.terminal.resizePaneRight\n- workbench.action.terminal.resizePaneUp\n- workbench.action.terminal.runActiveFile\n- workbench.action.terminal.runRecentCommand\n- workbench.action.terminal.runSelectedText\n- workbench.action.terminal.scrollDown\n- workbench.action.terminal.scrollDownPage\n- workbench.action.terminal.scrollToBottom\n- workbench.action.terminal.scrollToNextCommand\n- workbench.action.terminal.scrollToPreviousCommand\n- workbench.action.terminal.scrollToTop\n- workbench.action.terminal.scrollUp\n- workbench.action.terminal.scrollUpPage\n- workbench.action.terminal.searchWorkspace\n- workbench.action.terminal.selectAll\n- workbench.action.terminal.selectNextPageSuggestion\n- workbench.action.terminal.selectNextSuggestion\n- workbench.action.terminal.selectPrevPageSuggestion\n- workbench.action.terminal.selectPrevSuggestion\n- workbench.action.terminal.selectToNextCommand\n- workbench.action.terminal.selectToNextLine\n- workbench.action.terminal.selectToPreviousCommand\n- workbench.action.terminal.selectToPreviousLine\n- workbench.action.terminal.sendSequence\n- workbench.action.terminal.sizeToContentWidth\n- workbench.action.terminal.split\n- workbench.action.terminal.splitInActiveWorkspace\n- workbench.action.terminal.suggestToggleDetails\n- workbench.action.terminal.suggestToggleDetailsFocus\n- workbench.action.terminal.toggleFindCaseSensitive\n- workbench.action.terminal.toggleFindRegex\n- workbench.action.terminal.toggleFindWholeWord\n- workbench.action.terminal.toggleTerminal\n- workbench.action.toggleFullScreen\n- workbench.action.toggleMaximizedPanel\n- workbench.action.togglePanel",
+      "markdownDescription": "A set of command IDs whose keybindings will not be sent to the shell but instead always be handled by VS Code. This allows keybindings that would normally be consumed by the shell to act instead the same as when the terminal is not focused, for example `Ctrl+P` to launch Quick Open.\n\n&nbsp;\n\nMany commands are skipped by default. To override a default and pass that command's keybinding to the shell instead, add the command prefixed with the `-` character. For example add `-workbench.action.quickOpen` to allow `Ctrl+P` to reach the shell.\n\n&nbsp;\n\nThe following list of default skipped commands is truncated when viewed in Settings Editor. To see the full list, [open the default settings JSON](command:workbench.action.openRawDefaultSettings 'Open Default Settings (JSON)') and search for the first command from the list below.\n\n&nbsp;\n\nDefault Skipped Commands:\n\n- editor.action.accessibilityHelp\n- editor.action.toggleTabFocusMode\n- notification.acceptPrimaryAction\n- notifications.hideList\n- notifications.hideToasts\n- runCommands\n- workbench.action.closeQuickOpen\n- workbench.action.debug.continue\n- workbench.action.debug.disconnect\n- workbench.action.debug.pause\n- workbench.action.debug.restart\n- workbench.action.debug.run\n- workbench.action.debug.start\n- workbench.action.debug.stepInto\n- workbench.action.debug.stepOut\n- workbench.action.debug.stepOver\n- workbench.action.debug.stop\n- workbench.action.firstEditorInGroup\n- workbench.action.focusActiveEditorGroup\n- workbench.action.focusEighthEditorGroup\n- workbench.action.focusFifthEditorGroup\n- workbench.action.focusFirstEditorGroup\n- workbench.action.focusFourthEditorGroup\n- workbench.action.focusLastEditorGroup\n- workbench.action.focusNextPart\n- workbench.action.focusPreviousPart\n- workbench.action.focusSecondEditorGroup\n- workbench.action.focusSeventhEditorGroup\n- workbench.action.focusSixthEditorGroup\n- workbench.action.focusThirdEditorGroup\n- workbench.action.lastEditorInGroup\n- workbench.action.navigateDown\n- workbench.action.navigateLeft\n- workbench.action.navigateRight\n- workbench.action.navigateUp\n- workbench.action.nextEditor\n- workbench.action.nextEditorInGroup\n- workbench.action.nextPanelView\n- workbench.action.nextSideBarView\n- workbench.action.openNextRecentlyUsedEditor\n- workbench.action.openNextRecentlyUsedEditorInGroup\n- workbench.action.openPreviousRecentlyUsedEditor\n- workbench.action.openPreviousRecentlyUsedEditorInGroup\n- workbench.action.previousEditor\n- workbench.action.previousEditorInGroup\n- workbench.action.previousPanelView\n- workbench.action.previousSideBarView\n- workbench.action.quickOpen\n- workbench.action.quickOpenLeastRecentlyUsedEditor\n- workbench.action.quickOpenLeastRecentlyUsedEditorInGroup\n- workbench.action.quickOpenPreviousEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup\n- workbench.action.quickOpenView\n- workbench.action.showCommands\n- workbench.action.tasks.build\n- workbench.action.tasks.reRunTask\n- workbench.action.tasks.rerunForActiveTerminal\n- workbench.action.tasks.restartTask\n- workbench.action.tasks.runTask\n- workbench.action.tasks.showLog\n- workbench.action.tasks.showTasks\n- workbench.action.tasks.terminate\n- workbench.action.tasks.test\n- workbench.action.terminal.acceptSelectedSuggestion\n- workbench.action.terminal.acceptSelectedSuggestionEnter\n- workbench.action.terminal.chat.cancel\n- workbench.action.terminal.chat.close\n- workbench.action.terminal.chat.discard\n- workbench.action.terminal.chat.feedbackHelpful\n- workbench.action.terminal.chat.feedbackReportIssue\n- workbench.action.terminal.chat.feedbackUnhelpful\n- workbench.action.terminal.chat.insertCommand\n- workbench.action.terminal.chat.makeRequest\n- workbench.action.terminal.chat.runCommand\n- workbench.action.terminal.chat.start\n- workbench.action.terminal.chat.viewInChat\n- workbench.action.terminal.clear\n- workbench.action.terminal.clearSelection\n- workbench.action.terminal.copyAndClearSelection\n- workbench.action.terminal.copyLastCommand\n- workbench.action.terminal.copyLastCommandAndLastCommandOutput\n- workbench.action.terminal.copyLastCommandOutput\n- workbench.action.terminal.copySelection\n- workbench.action.terminal.copySelectionAsHtml\n- workbench.action.terminal.deleteToLineStart\n- workbench.action.terminal.deleteWordLeft\n- workbench.action.terminal.deleteWordRight\n- workbench.action.terminal.findNext\n- workbench.action.terminal.findPrevious\n- workbench.action.terminal.focus\n- workbench.action.terminal.focusAccessibleBuffer\n- workbench.action.terminal.focusAtIndex1\n- workbench.action.terminal.focusAtIndex2\n- workbench.action.terminal.focusAtIndex3\n- workbench.action.terminal.focusAtIndex4\n- workbench.action.terminal.focusAtIndex5\n- workbench.action.terminal.focusAtIndex6\n- workbench.action.terminal.focusAtIndex7\n- workbench.action.terminal.focusAtIndex8\n- workbench.action.terminal.focusAtIndex9\n- workbench.action.terminal.focusFind\n- workbench.action.terminal.focusHover\n- workbench.action.terminal.focusNext\n- workbench.action.terminal.focusNextPane\n- workbench.action.terminal.focusPrevious\n- workbench.action.terminal.focusPreviousPane\n- workbench.action.terminal.goToRecentDirectory\n- workbench.action.terminal.hideFind\n- workbench.action.terminal.hideSuggestWidget\n- workbench.action.terminal.kill\n- workbench.action.terminal.killEditor\n- workbench.action.terminal.moveToEditor\n- workbench.action.terminal.moveToLineEnd\n- workbench.action.terminal.moveToLineStart\n- workbench.action.terminal.moveToTerminalPanel\n- workbench.action.terminal.new\n- workbench.action.terminal.newInActiveWorkspace\n- workbench.action.terminal.paste\n- workbench.action.terminal.pasteSelection\n- workbench.action.terminal.requestCompletions\n- workbench.action.terminal.resizePaneDown\n- workbench.action.terminal.resizePaneLeft\n- workbench.action.terminal.resizePaneRight\n- workbench.action.terminal.resizePaneUp\n- workbench.action.terminal.runActiveFile\n- workbench.action.terminal.runRecentCommand\n- workbench.action.terminal.runSelectedText\n- workbench.action.terminal.scrollDown\n- workbench.action.terminal.scrollDownPage\n- workbench.action.terminal.scrollToBottom\n- workbench.action.terminal.scrollToNextCommand\n- workbench.action.terminal.scrollToPreviousCommand\n- workbench.action.terminal.scrollToTop\n- workbench.action.terminal.scrollUp\n- workbench.action.terminal.scrollUpPage\n- workbench.action.terminal.searchWorkspace\n- workbench.action.terminal.selectAll\n- workbench.action.terminal.selectNextPageSuggestion\n- workbench.action.terminal.selectNextSuggestion\n- workbench.action.terminal.selectPrevPageSuggestion\n- workbench.action.terminal.selectPrevSuggestion\n- workbench.action.terminal.selectToNextCommand\n- workbench.action.terminal.selectToNextLine\n- workbench.action.terminal.selectToPreviousCommand\n- workbench.action.terminal.selectToPreviousLine\n- workbench.action.terminal.sendSequence\n- workbench.action.terminal.sizeToContentWidth\n- workbench.action.terminal.split\n- workbench.action.terminal.splitInActiveWorkspace\n- workbench.action.terminal.suggestToggleDetails\n- workbench.action.terminal.suggestToggleDetailsFocus\n- workbench.action.terminal.toggleFindCaseSensitive\n- workbench.action.terminal.toggleFindRegex\n- workbench.action.terminal.toggleFindWholeWord\n- workbench.action.terminal.toggleTerminal\n- workbench.action.toggleFullScreen\n- workbench.action.toggleMaximizedPanel\n- workbench.action.togglePanel",
       "type": "array",
       "items": {
         "type": "string"
@@ -15081,7 +15439,168 @@
       "type": "string",
       "default": "",
       "scope": 4,
-      "restricted": false
+      "restricted": false,
+      "defaultSnippets": [
+        {
+          "body": "DejaVu Math TeX Gyre"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans Mono"
+        },
+        {
+          "body": "DejaVu Sans Mono"
+        },
+        {
+          "body": "DejaVu Sans Mono"
+        },
+        {
+          "body": "DejaVu Sans Mono"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Liberation Mono"
+        },
+        {
+          "body": "Liberation Mono"
+        },
+        {
+          "body": "Liberation Mono"
+        },
+        {
+          "body": "Liberation Mono"
+        },
+        {
+          "body": "Liberation Sans"
+        },
+        {
+          "body": "Liberation Sans"
+        },
+        {
+          "body": "Liberation Sans"
+        },
+        {
+          "body": "Liberation Sans"
+        },
+        {
+          "body": "Liberation Serif"
+        },
+        {
+          "body": "Liberation Serif"
+        },
+        {
+          "body": "Liberation Serif"
+        },
+        {
+          "body": "Liberation Serif"
+        },
+        {
+          "body": "Noto Color Emoji"
+        }
+      ]
     },
     "terminal.integrated.fontLigatures.enabled": {
       "markdownDescription": "Controls whether font ligatures are enabled in the terminal. Ligatures will only work if the configured `#terminal.integrated.fontFamily#` supports them.",
@@ -16064,6 +16583,17 @@
     "terminal.integrated.suggest.suggestOnTriggerCharacters": {
       "restricted": true,
       "markdownDescription": "Controls whether suggestions should automatically show up when typing trigger characters.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "preview"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 4
+    },
+    "terminal.integrated.suggest.upArrowNavigatesHistory": {
+      "restricted": true,
+      "markdownDescription": "Determines whether the up arrow key navigates the command history when focus is on the first suggestion and navigation has not yet occurred. When set to false, the up arrow will move focus to the last suggestion instead.",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -17341,7 +17871,7 @@
     "terminal.integrated.tabs.description": {
       "type": "string",
       "default": "${task}${separator}${local}${separator}${cwdFolder}",
-      "markdownDescription": "Controls the terminal description, which appears to the right of the title. Variables are substituted based on the context:\n- `${cwd}`: the terminal's current working directory\n- `${cwdFolder}`: the terminal's current working directory, displayed for multi-root workspaces or in a single root workspace when the value differs from the initial working directory. On Windows, this will only be displayed when shell integration is enabled.\n- `${workspaceFolder}`: the workspace in which the terminal was launched\n- `${workspaceFolderName}`: the `name` of the workspace in which the terminal was launched\n- `${local}`: indicates a local terminal in a remote workspace\n- `${process}`: the name of the terminal process\n- `${progress}`: the progress state as reported by the `OSC 9;4` sequence\n- `${separator}`: a conditional separator (` - `) that only shows when surrounded by variables with values or static text.\n- `${sequence}`: the name provided to the terminal by the process\n- `${task}`: indicates this terminal is associated with a task\n- `${shellType}`: the detected shell type\n- `${shellCommand}`: the command being executed according to shell integration. This also requires high confidence in the detected command line which may not work in some prompt frameworks.\n- `${shellPromptInput}`: the shell's full prompt input according to shell integration",
+      "markdownDescription": "Controls the terminal description, which appears to the right of the title. Variables are substituted based on the context:\n- `${cwd}`: the terminal's current working directory.\n- `${cwdFolder}`: the terminal's current working directory, displayed for multi-root workspaces or in a single root workspace when the value differs from the initial working directory. On Windows, this will only be displayed when shell integration is enabled.\n- `${workspaceFolder}`: the workspace in which the terminal was launched.\n- `${workspaceFolderName}`: the `name` of the workspace in which the terminal was launched.\n- `${local}`: indicates a local terminal in a remote workspace.\n- `${process}`: the name of the terminal process.\n- `${progress}`: the progress state as reported by the `OSC 9;4` sequence.\n- `${separator}`: a conditional separator (` - `) that only shows when it's surrounded by variables with values or static text.\n- `${sequence}`: the name provided to the terminal by the process.\n- `${task}`: indicates this terminal is associated with a task.\n- `${shellType}`: the detected shell type.\n- `${shellCommand}`: the command being executed according to shell integration. This also requires high confidence in the detected command line, which may not work in some prompt frameworks.\n- `${shellPromptInput}`: the shell's full prompt input according to shell integration.",
       "defaultDefaultValue": "${task}${separator}${local}${separator}${cwdFolder}",
       "scope": 4,
       "restricted": false
@@ -17463,7 +17993,7 @@
     "terminal.integrated.tabs.title": {
       "type": "string",
       "default": "${process}",
-      "markdownDescription": "Controls the terminal title. Variables are substituted based on the context:\n- `${cwd}`: the terminal's current working directory\n- `${cwdFolder}`: the terminal's current working directory, displayed for multi-root workspaces or in a single root workspace when the value differs from the initial working directory. On Windows, this will only be displayed when shell integration is enabled.\n- `${workspaceFolder}`: the workspace in which the terminal was launched\n- `${workspaceFolderName}`: the `name` of the workspace in which the terminal was launched\n- `${local}`: indicates a local terminal in a remote workspace\n- `${process}`: the name of the terminal process\n- `${progress}`: the progress state as reported by the `OSC 9;4` sequence\n- `${separator}`: a conditional separator (` - `) that only shows when surrounded by variables with values or static text.\n- `${sequence}`: the name provided to the terminal by the process\n- `${task}`: indicates this terminal is associated with a task\n- `${shellType}`: the detected shell type\n- `${shellCommand}`: the command being executed according to shell integration. This also requires high confidence in the detected command line which may not work in some prompt frameworks.\n- `${shellPromptInput}`: the shell's full prompt input according to shell integration",
+      "markdownDescription": "Controls the terminal title. Variables are substituted based on the context:\n- `${cwd}`: the terminal's current working directory.\n- `${cwdFolder}`: the terminal's current working directory, displayed for multi-root workspaces or in a single root workspace when the value differs from the initial working directory. On Windows, this will only be displayed when shell integration is enabled.\n- `${workspaceFolder}`: the workspace in which the terminal was launched.\n- `${workspaceFolderName}`: the `name` of the workspace in which the terminal was launched.\n- `${local}`: indicates a local terminal in a remote workspace.\n- `${process}`: the name of the terminal process.\n- `${progress}`: the progress state as reported by the `OSC 9;4` sequence.\n- `${separator}`: a conditional separator (` - `) that only shows when it's surrounded by variables with values or static text.\n- `${sequence}`: the name provided to the terminal by the process.\n- `${task}`: indicates this terminal is associated with a task.\n- `${shellType}`: the detected shell type.\n- `${shellCommand}`: the command being executed according to shell integration. This also requires high confidence in the detected command line, which may not work in some prompt frameworks.\n- `${shellPromptInput}`: the shell's full prompt input according to shell integration.",
       "defaultDefaultValue": "${process}",
       "scope": 4,
       "restricted": false
@@ -18151,18 +18681,6 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "typescript.surveys.enabled": {
-      "type": "boolean",
-      "default": true,
-      "description": "Enabled/disable occasional surveys that help us improve VS Code's JavaScript and TypeScript support.",
-      "scope": 4,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
     "typescript.tsc.autoDetect": {
       "type": "string",
       "default": "on",
@@ -18617,6 +19135,20 @@
       "description": "Controls whether a confirmation dialog shows asking to save or discard an opened untitled workspace in the window when switching to another workspace. Disabling the confirmation dialog will always discard the untitled workspace.",
       "defaultDefaultValue": true,
       "scope": 4,
+      "restricted": false
+    },
+    "window.controlsStyle": {
+      "type": "string",
+      "enum": [
+        "custom",
+        "hidden",
+        "native"
+      ],
+      "default": "native",
+      "included": true,
+      "scope": 1,
+      "description": "Adjust the appearance of the window controls to be native by the OS, custom drawn or hidden. Changes require a full restart to apply.",
+      "defaultDefaultValue": "native",
       "restricted": false
     },
     "window.customMenuBarAltFocus": {
@@ -19244,7 +19776,7 @@
         },
         "workbench.editor.chatSession": {
           "type": "boolean",
-          "default": false,
+          "default": true,
           "description": "Chat"
         },
         "workbench.editorinputs.searchEditorInput": {
@@ -19277,7 +19809,7 @@
         "terminalEditor": true,
         "vscode.audioPreview": false,
         "vscode.videoPreview": false,
-        "workbench.editor.chatSession": false,
+        "workbench.editor.chatSession": true,
         "workbench.editorinputs.searchEditorInput": false,
         "workbench.editors.gettingStartedInput": false,
         "workbench.input.interactive": false
@@ -19297,7 +19829,7 @@
         "terminalEditor": true,
         "vscode.audioPreview": false,
         "vscode.videoPreview": false,
-        "workbench.editor.chatSession": false,
+        "workbench.editor.chatSession": true,
         "workbench.editorinputs.searchEditorInput": false,
         "workbench.editors.gettingStartedInput": false,
         "workbench.input.interactive": false
@@ -20772,17 +21304,6 @@
       "scope": 4,
       "restricted": false
     },
-    "workbench.settings.useWeightedKeySearch": {
-      "type": "boolean",
-      "default": false,
-      "description": "Controls whether to use an experimental ranking algorithm for search results in the Settings editor. The newer algorithm is still in development and aims to show fewer and more relevant results.",
-      "scope": 4,
-      "tags": [
-        "experimental"
-      ],
-      "defaultDefaultValue": false,
-      "restricted": false
-    },
     "workbench.sideBar.location": {
       "type": "string",
       "enum": [
@@ -21759,7 +22280,168 @@
       "default": "'Droid Sans Mono', 'monospace', monospace",
       "defaultDefaultValue": "'Droid Sans Mono', 'monospace', monospace",
       "scope": 6,
-      "restricted": false
+      "restricted": false,
+      "defaultSnippets": [
+        {
+          "body": "DejaVu Math TeX Gyre"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans Mono"
+        },
+        {
+          "body": "DejaVu Sans Mono"
+        },
+        {
+          "body": "DejaVu Sans Mono"
+        },
+        {
+          "body": "DejaVu Sans Mono"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Liberation Mono"
+        },
+        {
+          "body": "Liberation Mono"
+        },
+        {
+          "body": "Liberation Mono"
+        },
+        {
+          "body": "Liberation Mono"
+        },
+        {
+          "body": "Liberation Sans"
+        },
+        {
+          "body": "Liberation Sans"
+        },
+        {
+          "body": "Liberation Sans"
+        },
+        {
+          "body": "Liberation Sans"
+        },
+        {
+          "body": "Liberation Serif"
+        },
+        {
+          "body": "Liberation Serif"
+        },
+        {
+          "body": "Liberation Serif"
+        },
+        {
+          "body": "Liberation Serif"
+        },
+        {
+          "body": "Noto Color Emoji"
+        }
+      ]
     },
     "_58": {
       "anyOf": [
@@ -22132,9 +22814,9 @@
     },
     "_84": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "description": "Controls whether to show syntax highlighting for inline suggestions in the editor.",
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 6,
       "restricted": false
     },
@@ -22155,13 +22837,18 @@
       "restricted": false
     },
     "_87": {
-      "type": "boolean",
-      "default": true,
+      "type": "string",
+      "default": "always",
       "description": "Controls whether showing a suggestion will shift the code to make space for the suggestion inline.",
+      "enum": [
+        "always",
+        "horizontal",
+        "never"
+      ],
       "tags": [
         "nextEditSuggestions"
       ],
-      "defaultDefaultValue": true,
+      "defaultDefaultValue": "always",
       "scope": 6,
       "restricted": false
     },

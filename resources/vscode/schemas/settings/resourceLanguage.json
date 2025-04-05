@@ -1218,10 +1218,34 @@
       "scope": 6,
       "restricted": false
     },
+    "editor.experimental.preferTreeSitter.css": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "Controls whether tree sitter parsing should be turned on for css. This will take precedence over `editor.experimental.treeSitterTelemetry` for css.",
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "defaultDefaultValue": false,
+      "scope": 6,
+      "restricted": false
+    },
     "editor.experimental.preferTreeSitter.ini": {
       "type": "boolean",
       "default": false,
       "markdownDescription": "Controls whether tree sitter parsing should be turned on for ini. This will take precedence over `editor.experimental.treeSitterTelemetry` for ini.",
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "defaultDefaultValue": false,
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.experimental.preferTreeSitter.regex": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "Controls whether tree sitter parsing should be turned on for regex. This will take precedence over `editor.experimental.treeSitterTelemetry` for regex.",
       "tags": [
         "experimental",
         "onExP"
@@ -1456,7 +1480,168 @@
       "default": "'Droid Sans Mono', 'monospace', monospace",
       "defaultDefaultValue": "'Droid Sans Mono', 'monospace', monospace",
       "scope": 6,
-      "restricted": false
+      "restricted": false,
+      "defaultSnippets": [
+        {
+          "body": "DejaVu Math TeX Gyre"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans"
+        },
+        {
+          "body": "DejaVu Sans Mono"
+        },
+        {
+          "body": "DejaVu Sans Mono"
+        },
+        {
+          "body": "DejaVu Sans Mono"
+        },
+        {
+          "body": "DejaVu Sans Mono"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "DejaVu Serif"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Lato"
+        },
+        {
+          "body": "Liberation Mono"
+        },
+        {
+          "body": "Liberation Mono"
+        },
+        {
+          "body": "Liberation Mono"
+        },
+        {
+          "body": "Liberation Mono"
+        },
+        {
+          "body": "Liberation Sans"
+        },
+        {
+          "body": "Liberation Sans"
+        },
+        {
+          "body": "Liberation Sans"
+        },
+        {
+          "body": "Liberation Sans"
+        },
+        {
+          "body": "Liberation Serif"
+        },
+        {
+          "body": "Liberation Serif"
+        },
+        {
+          "body": "Liberation Serif"
+        },
+        {
+          "body": "Liberation Serif"
+        },
+        {
+          "body": "Noto Color Emoji"
+        }
+      ]
     },
     "editor.fontLigatures": {
       "anyOf": [
@@ -2000,14 +2185,19 @@
       "scope": 6,
       "restricted": false
     },
-    "editor.inlineSuggest.edits.codeShifting": {
-      "type": "boolean",
-      "default": true,
+    "editor.inlineSuggest.edits.allowCodeShifting": {
+      "type": "string",
+      "default": "always",
       "description": "Controls whether showing a suggestion will shift the code to make space for the suggestion inline.",
+      "enum": [
+        "always",
+        "horizontal",
+        "never"
+      ],
       "tags": [
         "nextEditSuggestions"
       ],
-      "defaultDefaultValue": true,
+      "defaultDefaultValue": "always",
       "scope": 6,
       "restricted": false
     },
@@ -2085,9 +2275,9 @@
     },
     "editor.inlineSuggest.syntaxHighlightingEnabled": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "description": "Controls whether to show syntax highlighting for inline suggestions in the editor.",
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 6,
       "restricted": false
     },

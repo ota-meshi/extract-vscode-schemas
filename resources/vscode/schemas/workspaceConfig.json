@@ -73,6 +73,24 @@
       "description": "Workspace launch configurations",
       "$ref": "vscode://schemas/launch"
     },
+    "mcp": {
+      "type": "object",
+      "default": {
+        "inputs": [],
+        "servers": {
+          "mcp-server-time": {
+            "command": "python",
+            "args": [
+              "-m",
+              "mcp_server_time",
+              "--local-timezone=America/Los_Angeles"
+            ]
+          }
+        }
+      },
+      "description": "Model Context Protocol server configurations",
+      "$ref": "vscode://schemas/mcp"
+    },
     "remoteAuthority": {
       "type": "string",
       "doNotSuggest": true,

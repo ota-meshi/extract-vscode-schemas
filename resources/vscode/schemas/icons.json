@@ -816,6 +816,10 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon shown for extensions having pre-release versions in extensions view and editor.: $(extensions-pre-release)"
     },
+    "extensions-private": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon shown for private extensions in the extensions view and editor.: $(extensions-private)"
+    },
     "extensions-rating": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon shown along with the rating in the extensions view and editor.: $(extensions-rating)"
@@ -2640,6 +2644,51 @@
     "terminal-rename": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for rename in the terminal quick menu.: $(terminal-rename)"
+    },
+    "terminal-symbol-alias": {
+      "$ref": "#/definitions/icons",
+      "deprecationMessage": "terminalSymbolIcon.aliasForeground",
+      "markdownDescription": "Icon for aliases in the terminal suggest widget.: $(terminal-symbol-alias)"
+    },
+    "terminal-symbol-argument": {
+      "$ref": "#/definitions/icons",
+      "deprecationMessage": "terminalSymbolIcon.argumentForeground",
+      "markdownDescription": "Icon for arguments in the terminal suggest widget.: $(terminal-symbol-argument)"
+    },
+    "terminal-symbol-file": {
+      "$ref": "#/definitions/icons",
+      "deprecationMessage": "terminalSymbolIcon.fileForeground",
+      "markdownDescription": "Icon for files in the terminal suggest widget.: $(terminal-symbol-file)"
+    },
+    "terminal-symbol-flag": {
+      "$ref": "#/definitions/icons",
+      "deprecationMessage": "terminalSymbolIcon.flagForeground",
+      "markdownDescription": "Icon for flags in the terminal suggest widget.: $(terminal-symbol-flag)"
+    },
+    "terminal-symbol-folder": {
+      "$ref": "#/definitions/icons",
+      "deprecationMessage": "terminalSymbolIcon.folderForeground",
+      "markdownDescription": "Icon for folders in the terminal suggest widget.: $(terminal-symbol-folder)"
+    },
+    "terminal-symbol-inline-suggestion": {
+      "$ref": "#/definitions/icons",
+      "deprecationMessage": "terminalSymbolIcon.inlineSuggestionForeground",
+      "markdownDescription": "Icon for inline suggestions in the terminal suggest widget.: $(terminal-symbol-inline-suggestion)"
+    },
+    "terminal-symbol-method": {
+      "$ref": "#/definitions/icons",
+      "deprecationMessage": "terminalSymbolIcon.methodForeground",
+      "markdownDescription": "Icon for methods in the terminal suggest widget.: $(terminal-symbol-method)"
+    },
+    "terminal-symbol-option": {
+      "$ref": "#/definitions/icons",
+      "deprecationMessage": "terminalSymbolIcon.optionForeground",
+      "markdownDescription": "Icon for options in the terminal suggest widget.: $(terminal-symbol-option)"
+    },
+    "terminal-symbol-option-value": {
+      "$ref": "#/definitions/icons",
+      "deprecationMessage": "terminalSymbolIcon.optionValueForeground",
+      "markdownDescription": "Icon for enum members in the terminal suggest widget.: $(terminal-symbol-option-value)"
     },
     "terminal-tmux": {
       "$ref": "#/$defs/_0"

@@ -1,0 +1,281 @@
+{
+  "id": "vscode://schemas/mcp",
+  "type": "object",
+  "title": "Model Context Protocol Servers",
+  "allowTrailingCommas": true,
+  "allowComments": true,
+  "additionalProperties": false,
+  "properties": {
+    "inputs": {
+      "type": "array",
+      "description": "User inputs. Used for defining user input prompts, such as free string input or a choice from several options.",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "type",
+              "command"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "args": {
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "description": "Optional arguments passed to the command."
+                  },
+                  {
+                    "type": "object",
+                    "description": "Optional arguments passed to the command."
+                  },
+                  {
+                    "type": "string",
+                    "description": "Optional arguments passed to the command."
+                  }
+                ]
+              },
+              "command": {
+                "type": "string",
+                "description": "The command to execute for this input variable."
+              },
+              "id": {
+                "$ref": "#/$defs/_0"
+              },
+              "type": {
+                "type": "string",
+                "description": "The type of user input prompt to use.",
+                "enum": [
+                  "command"
+                ],
+                "enumDescriptions": [
+                  "The 'command' type executes a command."
+                ]
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "type",
+              "description",
+              "options"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "default": {
+                "$ref": "#/$defs/_2"
+              },
+              "description": {
+                "$ref": "#/$defs/_1"
+              },
+              "id": {
+                "$ref": "#/$defs/_0"
+              },
+              "options": {
+                "type": "array",
+                "description": "An array of strings that defines the options for a quick pick.",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "value"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "label": {
+                          "type": "string",
+                          "description": "Label for the option."
+                        },
+                        "value": {
+                          "type": "string",
+                          "description": "Value for the option."
+                        }
+                      }
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "type": {
+                "type": "string",
+                "description": "The type of user input prompt to use.",
+                "enum": [
+                  "pickString"
+                ],
+                "enumDescriptions": [
+                  "The 'pickString' type shows a selection list."
+                ]
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "type",
+              "description"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "default": {
+                "$ref": "#/$defs/_2"
+              },
+              "description": {
+                "$ref": "#/$defs/_1"
+              },
+              "id": {
+                "$ref": "#/$defs/_0"
+              },
+              "password": {
+                "type": "boolean",
+                "description": "Controls if a password input is shown. Password input hides the typed text."
+              },
+              "type": {
+                "type": "string",
+                "description": "The type of user input prompt to use.",
+                "enum": [
+                  "promptString"
+                ],
+                "enumDescriptions": [
+                  "The 'promptString' type opens an input box to ask the user for input."
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+      "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+    },
+    "servers": {
+      "examples": [
+        {
+          "mcp-server-time": {
+            "command": "python",
+            "args": [
+              "-m",
+              "mcp_server_time",
+              "--local-timezone=America/Los_Angeles"
+            ],
+            "env": {}
+          }
+        }
+      ],
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "examples": [
+              {
+                "command": "node",
+                "args": [
+                  "my-mcp-server.js"
+                ],
+                "env": {}
+              }
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "stdio"
+                ],
+                "description": "The type of the server."
+              },
+              "command": {
+                "type": "string",
+                "description": "The command to run the server."
+              },
+              "args": {
+                "type": "array",
+                "description": "Arguments passed to the server.",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "envFile": {
+                "type": "string",
+                "description": "Path to a file containing environment variables for the server.",
+                "examples": [
+                  "${workspaceFolder}/.env"
+                ]
+              },
+              "env": {
+                "description": "Environment variables passed to the server.",
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "url",
+              "type"
+            ],
+            "examples": [
+              {
+                "type": "sse",
+                "url": "http://localhost:3001",
+                "headers": {}
+              }
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "sse"
+                ],
+                "description": "The type of the server."
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "The URL of the server-sent-event (SSE) server."
+              },
+              "env": {
+                "description": "Additional headers sent to the server.",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "_0": {
+      "type": "string",
+      "description": "The input's id is used to associate an input with a variable of the form ${input:id}."
+    },
+    "_1": {
+      "type": "string",
+      "description": "The description is shown when the user is prompted for input."
+    },
+    "_2": {
+      "type": "string",
+      "description": "The default value for the input."
+    }
+  }
+}
