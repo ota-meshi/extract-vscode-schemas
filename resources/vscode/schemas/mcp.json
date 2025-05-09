@@ -165,6 +165,12 @@
             ],
             "env": {}
           }
+        },
+        {
+          "my-mcp-server": {
+            "url": "http://localhost:3001/mcp",
+            "headers": {}
+          }
         }
       ],
       "additionalProperties": {
@@ -174,9 +180,11 @@
             "additionalProperties": false,
             "examples": [
               {
-                "command": "node",
+                "command": "python",
                 "args": [
-                  "my-mcp-server.js"
+                  "-m",
+                  "mcp_server_time",
+                  "--local-timezone=America/Los_Angeles"
                 ],
                 "env": {}
               }
@@ -229,13 +237,11 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
-              "url",
-              "type"
+              "url"
             ],
             "examples": [
               {
-                "type": "sse",
-                "url": "http://localhost:3001",
+                "url": "http://localhost:3001/mcp",
                 "headers": {}
               }
             ],
@@ -243,6 +249,7 @@
               "type": {
                 "type": "string",
                 "enum": [
+                  "http",
                   "sse"
                 ],
                 "description": "The type of the server."
@@ -250,9 +257,10 @@
               "url": {
                 "type": "string",
                 "format": "uri",
-                "description": "The URL of the server-sent-event (SSE) server."
+                "description": "The URL of the Streamable HTTP or SSE endpoint."
               },
-              "env": {
+              "headers": {
+                "type": "object",
                 "description": "Additional headers sent to the server.",
                 "additionalProperties": {
                   "type": "string"

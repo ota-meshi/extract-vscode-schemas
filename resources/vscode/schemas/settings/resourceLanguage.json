@@ -4297,13 +4297,13 @@
       "restricted": false
     },
     "javascript.autoClosingTags": {
-      "$ref": "#/$defs/_13"
+      "$ref": "#/$defs/_5"
     },
     "javascript.preferences.importModuleSpecifier": {
-      "$ref": "#/$defs/_8"
+      "$ref": "#/$defs/_10"
     },
     "javascript.preferences.importModuleSpecifierEnding": {
-      "$ref": "#/$defs/_9"
+      "$ref": "#/$defs/_11"
     },
     "javascript.preferences.jsxAttributeCompletionStyle": {
       "type": "string",
@@ -4328,25 +4328,25 @@
       "restricted": false
     },
     "javascript.preferences.quoteStyle": {
-      "$ref": "#/$defs/_7"
+      "$ref": "#/$defs/_9"
     },
     "javascript.preferences.renameMatchingJsxTags": {
-      "$ref": "#/$defs/_12"
-    },
-    "javascript.preferences.renameShorthandProperties": {
-      "$ref": "#/$defs/_10"
-    },
-    "javascript.preferences.useAliasesForRenames": {
-      "$ref": "#/$defs/_11"
-    },
-    "javascript.suggest.completeJSDocs": {
-      "$ref": "#/$defs/_5"
-    },
-    "javascript.suggest.enabled": {
       "$ref": "#/$defs/_14"
     },
-    "javascript.suggest.jsdoc.generateReturns": {
+    "javascript.preferences.renameShorthandProperties": {
+      "$ref": "#/$defs/_12"
+    },
+    "javascript.preferences.useAliasesForRenames": {
+      "$ref": "#/$defs/_13"
+    },
+    "javascript.suggest.completeJSDocs": {
+      "$ref": "#/$defs/_7"
+    },
+    "javascript.suggest.enabled": {
       "$ref": "#/$defs/_6"
+    },
+    "javascript.suggest.jsdoc.generateReturns": {
+      "$ref": "#/$defs/_8"
     },
     "notebook.codeActionsOnSave": {
       "oneOf": [
@@ -4602,13 +4602,13 @@
       "restricted": false
     },
     "typescript.autoClosingTags": {
-      "$ref": "#/$defs/_13"
+      "$ref": "#/$defs/_5"
     },
     "typescript.preferences.importModuleSpecifier": {
-      "$ref": "#/$defs/_8"
+      "$ref": "#/$defs/_10"
     },
     "typescript.preferences.importModuleSpecifierEnding": {
-      "$ref": "#/$defs/_9"
+      "$ref": "#/$defs/_11"
     },
     "typescript.preferences.jsxAttributeCompletionStyle": {
       "type": "string",
@@ -4633,25 +4633,25 @@
       "restricted": false
     },
     "typescript.preferences.quoteStyle": {
-      "$ref": "#/$defs/_7"
+      "$ref": "#/$defs/_9"
     },
     "typescript.preferences.renameMatchingJsxTags": {
-      "$ref": "#/$defs/_12"
-    },
-    "typescript.preferences.renameShorthandProperties": {
-      "$ref": "#/$defs/_10"
-    },
-    "typescript.preferences.useAliasesForRenames": {
-      "$ref": "#/$defs/_11"
-    },
-    "typescript.suggest.completeJSDocs": {
-      "$ref": "#/$defs/_5"
-    },
-    "typescript.suggest.enabled": {
       "$ref": "#/$defs/_14"
     },
-    "typescript.suggest.jsdoc.generateReturns": {
+    "typescript.preferences.renameShorthandProperties": {
+      "$ref": "#/$defs/_12"
+    },
+    "typescript.preferences.useAliasesForRenames": {
+      "$ref": "#/$defs/_13"
+    },
+    "typescript.suggest.completeJSDocs": {
+      "$ref": "#/$defs/_7"
+    },
+    "typescript.suggest.enabled": {
       "$ref": "#/$defs/_6"
+    },
+    "typescript.suggest.jsdoc.generateReturns": {
+      "$ref": "#/$defs/_8"
     },
     "workbench.editor.languageDetection": {
       "type": "boolean",
@@ -4720,7 +4720,7 @@
     "_5": {
       "type": "boolean",
       "default": true,
-      "description": "Enable/disable suggestion to complete JSDoc comments.",
+      "description": "Enable/disable automatic closing of JSX tags.",
       "scope": 6,
       "source": {
         "id": "vscode.typescript-language-features",
@@ -4732,7 +4732,7 @@
     "_6": {
       "type": "boolean",
       "default": true,
-      "markdownDescription": "Enable/disable generating `@returns` annotations for JSDoc templates.",
+      "description": "Enable/disable autocomplete suggestions.",
       "scope": 6,
       "source": {
         "id": "vscode.typescript-language-features",
@@ -4742,6 +4742,30 @@
       "restricted": false
     },
     "_7": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable suggestion to complete JSDoc comments.",
+      "scope": 6,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "_8": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "Enable/disable generating `@returns` annotations for JSDoc templates.",
+      "scope": 6,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "_9": {
       "type": "string",
       "enum": [
         "auto",
@@ -4763,7 +4787,7 @@
       "defaultDefaultValue": "auto",
       "restricted": false
     },
-    "_8": {
+    "_10": {
       "type": "string",
       "enum": [
         "shortest",
@@ -4787,7 +4811,7 @@
       "defaultDefaultValue": "shortest",
       "restricted": false
     },
-    "_9": {
+    "_11": {
       "type": "string",
       "enum": [
         "auto",
@@ -4817,7 +4841,7 @@
       "defaultDefaultValue": "auto",
       "restricted": false
     },
-    "_10": {
+    "_12": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable introducing aliases for object shorthand properties during renames.",
@@ -4830,7 +4854,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_11": {
+    "_13": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable introducing aliases for object shorthand properties during renames.",
@@ -4842,34 +4866,10 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_12": {
-      "type": "boolean",
-      "default": true,
-      "description": "When on a JSX tag, try to rename the matching tag instead of renaming the symbol. Requires using TypeScript 5.1+ in the workspace.",
-      "scope": 6,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "_13": {
-      "type": "boolean",
-      "default": true,
-      "description": "Enable/disable automatic closing of JSX tags.",
-      "scope": 6,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
     "_14": {
       "type": "boolean",
       "default": true,
-      "description": "Enabled/disable autocomplete suggestions.",
+      "description": "When on a JSX tag, try to rename the matching tag instead of renaming the symbol. Requires using TypeScript 5.1+ in the workspace.",
       "scope": 6,
       "source": {
         "id": "vscode.typescript-language-features",

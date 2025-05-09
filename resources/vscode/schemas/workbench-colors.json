@@ -80,7 +80,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_80"
+          "$ref": "#/$defs/_81"
         }
       ]
     },
@@ -91,7 +91,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_80"
+          "$ref": "#/$defs/_81"
         }
       ]
     },
@@ -152,7 +152,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_81"
+          "$ref": "#/$defs/_82"
         }
       ]
     },
@@ -174,7 +174,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_81"
+          "$ref": "#/$defs/_82"
         }
       ]
     },
@@ -185,7 +185,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_81"
+          "$ref": "#/$defs/_82"
         }
       ]
     },
@@ -622,7 +622,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_85"
+          "$ref": "#/$defs/_86"
         }
       ]
     },
@@ -650,7 +650,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_84"
+          "$ref": "#/$defs/_85"
         }
       ]
     },
@@ -707,6 +707,34 @@
         },
         {
           "$ref": "#/$defs/_8"
+        }
+      ]
+    },
+    "checkbox.disabled.background": {
+      "description": "Background of a disabled checkbox.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#646464}"
+            }
+          ]
+        }
+      ]
+    },
+    "checkbox.disabled.foreground": {
+      "description": "Foreground of a disabled checkbox.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_48"
         }
       ]
     },
@@ -1025,7 +1053,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_90"
+          "$ref": "#/$defs/_91"
         }
       ]
     },
@@ -1064,7 +1092,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_90"
+          "$ref": "#/$defs/_91"
         }
       ]
     },
@@ -1086,7 +1114,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_94"
+          "$ref": "#/$defs/_95"
         }
       ]
     },
@@ -1146,10 +1174,10 @@
       ]
     },
     "debugIcon.stepOutForeground": {
-      "$ref": "#/$defs/_95"
+      "$ref": "#/$defs/_96"
     },
     "debugIcon.stepOverForeground": {
-      "$ref": "#/$defs/_95"
+      "$ref": "#/$defs/_96"
     },
     "debugIcon.stopForeground": {
       "description": "Debug toolbar icon for stop.",
@@ -1158,7 +1186,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_94"
+          "$ref": "#/$defs/_95"
         }
       ]
     },
@@ -1180,7 +1208,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_94"
+          "$ref": "#/$defs/_95"
         }
       ]
     },
@@ -1259,7 +1287,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_83"
+          "$ref": "#/$defs/_84"
         }
       ]
     },
@@ -2564,7 +2592,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_86"
+          "$ref": "#/$defs/_87"
         }
       ]
     },
@@ -2575,7 +2603,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_86"
+          "$ref": "#/$defs/_87"
         }
       ]
     },
@@ -2828,7 +2856,24 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_87"
+          "$ref": "#/$defs/_88"
+        }
+      ]
+    },
+    "editorGutter.addedSecondaryBackground": {
+      "description": "Editor gutter secondary background color for lines that are added.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#175021}"
+            }
+          ]
         }
       ]
     },
@@ -2887,6 +2932,17 @@
         }
       ]
     },
+    "editorGutter.deletedSecondaryBackground": {
+      "description": "Editor gutter secondary background color for lines that are deleted.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_80"
+        }
+      ]
+    },
     "editorGutter.foldingControlForeground": {
       "description": "Color of the folding control in the editor gutter.",
       "oneOf": [
@@ -2928,6 +2984,23 @@
         },
         {
           "$ref": "#/$defs/_5"
+        }
+      ]
+    },
+    "editorGutter.modifiedSecondaryBackground": {
+      "description": "Editor gutter secondary background color for lines that are modified.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#003c6a}"
+            }
+          ]
         }
       ]
     },
@@ -3466,7 +3539,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_82"
+          "$ref": "#/$defs/_83"
         }
       ]
     },
@@ -3708,7 +3781,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_82"
+          "$ref": "#/$defs/_83"
         }
       ]
     },
@@ -4089,7 +4162,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_83"
+          "$ref": "#/$defs/_84"
         }
       ]
     },
@@ -4478,7 +4551,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_88"
+          "$ref": "#/$defs/_89"
         }
       ]
     },
@@ -4506,7 +4579,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_89"
+          "$ref": "#/$defs/_90"
         }
       ]
     },
@@ -4528,7 +4601,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_85"
+          "$ref": "#/$defs/_86"
         }
       ]
     },
@@ -4539,7 +4612,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_91"
+          "$ref": "#/$defs/_92"
         }
       ]
     },
@@ -4550,7 +4623,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_89"
+          "$ref": "#/$defs/_90"
         }
       ]
     },
@@ -4561,7 +4634,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_85"
+          "$ref": "#/$defs/_86"
         }
       ]
     },
@@ -4589,7 +4662,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_91"
+          "$ref": "#/$defs/_92"
         }
       ]
     },
@@ -6213,7 +6286,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_87"
+          "$ref": "#/$defs/_88"
         }
       ]
     },
@@ -7251,6 +7324,40 @@
         }
       ]
     },
+    "prompt.frontMatter.background": {
+      "description": "Background color of a Front Matter header block.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#191919}"
+            }
+          ]
+        }
+      ]
+    },
+    "prompt.frontMatter.inactiveBackground": {
+      "description": "Background color of an inactive Front Matter header block.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#1c1c1c}"
+            }
+          ]
+        }
+      ]
+    },
     "quickInput.background": {
       "description": "Quick picker background color. The quick picker widget is the container for pickers like the command palette.",
       "oneOf": [
@@ -7538,7 +7645,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_88"
+          "$ref": "#/$defs/_89"
         }
       ]
     },
@@ -7571,7 +7678,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_89"
+          "$ref": "#/$defs/_90"
         }
       ]
     },
@@ -8300,13 +8407,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#b91007}"
-            }
-          ]
+          "$ref": "#/$defs/_80"
         }
       ]
     },
@@ -9402,7 +9503,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_96"
+          "$ref": "#/$defs/_97"
         }
       ]
     },
@@ -9498,7 +9599,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_96"
+          "$ref": "#/$defs/_97"
         }
       ]
     },
@@ -10013,7 +10114,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_82"
+          "$ref": "#/$defs/_83"
         }
       ]
     },
@@ -10035,7 +10136,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_92"
+          "$ref": "#/$defs/_93"
         }
       ]
     },
@@ -10057,7 +10158,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_92"
+          "$ref": "#/$defs/_93"
         }
       ]
     },
@@ -10068,7 +10169,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_91"
+          "$ref": "#/$defs/_92"
         }
       ]
     },
@@ -10124,7 +10225,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_90"
+          "$ref": "#/$defs/_91"
         }
       ]
     },
@@ -10135,7 +10236,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_93"
+          "$ref": "#/$defs/_94"
         }
       ]
     },
@@ -10146,7 +10247,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_90"
+          "$ref": "#/$defs/_91"
         }
       ]
     },
@@ -10157,7 +10258,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_93"
+          "$ref": "#/$defs/_94"
         }
       ]
     },
@@ -10278,7 +10379,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_91"
+          "$ref": "#/$defs/_92"
         }
       ]
     },
@@ -10673,7 +10774,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_84"
+          "$ref": "#/$defs/_85"
         }
       ]
     },
@@ -11467,7 +11568,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#d7d7d7}"
+          "body": "${1:#b91007}"
         }
       ]
     },
@@ -11476,7 +11577,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#e7e7e7}"
+          "body": "${1:#d7d7d7}"
         }
       ]
     },
@@ -11485,7 +11586,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#9ccc2c1f}"
+          "body": "${1:#e7e7e7}"
         }
       ]
     },
@@ -11494,7 +11595,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#cccccc99}"
+          "body": "${1:#9ccc2c1f}"
         }
       ]
     },
@@ -11503,7 +11604,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#ffffff1a}"
+          "body": "${1:#cccccc99}"
         }
       ]
     },
@@ -11512,7 +11613,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#e2c08d}"
+          "body": "${1:#ffffff1a}"
         }
       ]
     },
@@ -11521,7 +11622,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#0078d41a}"
+          "body": "${1:#e2c08d}"
         }
       ]
     },
@@ -11530,7 +11631,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#2ea043}"
+          "body": "${1:#0078d41a}"
         }
       ]
     },
@@ -11539,7 +11640,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#81b88b}"
+          "body": "${1:#2ea043}"
         }
       ]
     },
@@ -11548,7 +11649,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#c74e39}"
+          "body": "${1:#81b88b}"
         }
       ]
     },
@@ -11557,7 +11658,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#848484}"
+          "body": "${1:#c74e39}"
         }
       ]
     },
@@ -11566,7 +11667,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#73c991}"
+          "body": "${1:#848484}"
         }
       ]
     },
@@ -11575,7 +11676,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#f14c4cb3}"
+          "body": "${1:#73c991}"
         }
       ]
     },
@@ -11584,7 +11685,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#848484b3}"
+          "body": "${1:#f14c4cb3}"
         }
       ]
     },
@@ -11593,11 +11694,20 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#f48771}"
+          "body": "${1:#848484b3}"
         }
       ]
     },
     "_95": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#f48771}"
+        }
+      ]
+    },
+    "_96": {
       "description": "Debug toolbar icon for step over.",
       "oneOf": [
         {
@@ -11608,7 +11718,7 @@
         }
       ]
     },
-    "_96": {
+    "_97": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [

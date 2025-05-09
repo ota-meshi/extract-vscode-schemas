@@ -112,6 +112,9 @@
     "[ini]": {
       "$ref": "#/$defs/_273"
     },
+    "[instructions]": {
+      "$ref": "#/$defs/_280"
+    },
     "[jade]": {
       "$ref": "#/$defs/_274"
     },
@@ -210,6 +213,9 @@
     "[powershell]": {
       "$ref": "#/$defs/_273"
     },
+    "[prompt]": {
+      "$ref": "#/$defs/_280"
+    },
     "[properties]": {
       "$ref": "#/$defs/_273"
     },
@@ -304,6 +310,9 @@
         "editor.autoIndent": "advanced",
         "editor.defaultColorDecorators": "never",
         "editor.insertSpaces": true,
+        "editor.quickSuggestions": {
+          "strings": "on"
+        },
         "editor.tabSize": 2
       },
       "defaultValueSource": {}
@@ -1223,6 +1232,60 @@
         },
         "sound": {
           "$ref": "#/$defs/_271"
+        }
+      },
+      "defaultDefaultValue": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "scope": 5,
+      "restricted": false
+    },
+    "accessibility.signals.nextEditSuggestion": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "announcement": "auto",
+        "sound": "auto"
+      },
+      "description": "Plays a signal - sound / audio cue and/or announcement (alert) when there is a next edit suggestion.",
+      "properties": {
+        "announcement": {
+          "description": "Announces when there is a next edit suggestion.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable announcement, will only play when in screen reader optimized mode.",
+            "Disable announcement."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound when there is a next edit suggestion.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
         }
       },
       "defaultDefaultValue": {
@@ -2449,8 +2512,8 @@
     },
     "chat.agent.enabled": {
       "type": "boolean",
-      "description": "Enable agent mode for Copilot Chat. When this is enabled, a dropdown appears in the view to toggle agent mode.",
-      "default": false,
+      "description": "Enable agent mode for Copilot Chat. When this is enabled, agent mode can be activated via the dropdown in the view.",
+      "default": true,
       "tags": [
         "onExp"
       ],
@@ -2460,13 +2523,13 @@
         "previewFeature": false,
         "defaultValue": false
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
     "chat.agent.maxRequests": {
       "type": "number",
-      "markdownDescription": "The maximum number of requests to allow Copilot Edits to use per-turn in agent mode. When the limit is reached, Copilot will ask the user to confirm that it should keep working. \n\n> **Note**: For users on the Copilot Free plan, note that each agent mode request currently uses one chat request.",
+      "markdownDescription": "The maximum number of requests to allow Copilot Edits to use per-turn in agent mode. When the limit is reached, Copilot will ask the user to confirm that it should keep working.",
       "default": 15,
       "defaultDefaultValue": 15,
       "scope": 4,
@@ -2580,12 +2643,12 @@
     },
     "chat.extensionTools.enabled": {
       "type": "boolean",
-      "description": "Enable using tools contributed by third-party extensions in Copilot Chat agent mode.",
+      "description": "Enable using tools contributed by third-party extensions.",
       "default": true,
       "policy": {
         "name": "ChatAgentExtensionTools",
         "minimumVersion": "1.99",
-        "description": "Enable using tools contributed by third-party extensions in Copilot Chat agent mode.",
+        "description": "Enable using tools contributed by third-party extensions.",
         "previewFeature": true,
         "defaultValue": false
       },
@@ -2622,15 +2685,45 @@
         ]
       },
       "default": {
-        "editing-session": "first",
         "panel": "always"
       },
       "defaultDefaultValue": {
-        "editing-session": "first",
         "panel": "always"
       },
       "scope": 4,
       "restricted": false
+    },
+    "chat.instructionsFilesLocations": {
+      "type": "object",
+      "title": "Instructions File Locations",
+      "markdownDescription": "Specify location(s) of instructions files (`*.instructions.md`) that can be attached in Chat, Edits, and Inline Chat sessions. [Learn More](https://aka.ms/vscode-ghcp-custom-instructions).\n\nRelative paths are resolved from the root folder(s) of your workspace.",
+      "default": {
+        ".github/instructions": true
+      },
+      "additionalProperties": {
+        "type": "boolean"
+      },
+      "restricted": true,
+      "tags": [
+        "experimental",
+        "prompts",
+        "reusable prompts",
+        "prompt snippets",
+        "instructions"
+      ],
+      "examples": [
+        {
+          ".github/instructions": true
+        },
+        {
+          ".github/instructions": true,
+          "/Users/vscode/repos/instructions": true
+        }
+      ],
+      "defaultDefaultValue": {
+        ".github/instructions": true
+      },
+      "scope": 4
     },
     "chat.mcp.discovery.enabled": {
       "oneOf": [
@@ -2691,7 +2784,7 @@
     "chat.promptFiles": {
       "type": "boolean",
       "title": "Prompt Files",
-      "markdownDescription": "Enable reusable prompt files (`*.prompt.md`) in Chat, Edits, and Inline Chat sessions. [Learn More](https://aka.ms/vscode-ghcp-prompt-snippets).",
+      "markdownDescription": "Enable reusable prompt (`*.prompt.md`) and instruction files in Chat, Edits, and Inline Chat sessions. [Learn More](.instructions.md).",
       "default": true,
       "restricted": true,
       "disallowConfigurationDefault": true,
@@ -2705,7 +2798,7 @@
       "policy": {
         "name": "ChatPromptFiles",
         "minimumVersion": "1.99",
-        "description": "Enables reusable prompt files in Chat, Edits, and Inline Chat sessions.",
+        "description": "Enables reusable prompt and instruction files in Chat, Edits, and Inline Chat sessions.",
         "previewFeature": true,
         "defaultValue": false
       },
@@ -2715,7 +2808,7 @@
     "chat.promptFilesLocations": {
       "type": "object",
       "title": "Prompt File Locations",
-      "markdownDescription": "Specify location(s) of reusable prompt files (`*.prompt.md`) that can be attached in Chat, Edits, and Inline Chat sessions. [Learn More](https://aka.ms/vscode-ghcp-prompt-snippets).\n\nRelative paths are resolved from the root folder(s) of your workspace.",
+      "markdownDescription": "Specify location(s) of reusable prompt files (`*.prompt.md`) that can be run in Chat, Edits, and Inline Chat sessions. [Learn More](https://aka.ms/vscode-ghcp-prompt-snippets).\n\nRelative paths are resolved from the root folder(s) of your workspace.",
       "default": {
         ".github/prompts": true
       },
@@ -2755,21 +2848,42 @@
       "scope": 4,
       "restricted": false
     },
-    "chat.setupFromDialog": {
+    "chat.sendElementsToChat.attachCSS": {
+      "default": true,
+      "markdownDescription": "Controls whether CSS of the selected element will be added to the chat. `#chat.sendElementsToChat.enabled#` must be enabled.",
       "type": "boolean",
-      "description": "Controls whether Copilot setup starts from a dialog or from the welcome view.",
-      "default": false,
       "tags": [
-        "experimental",
-        "onExp"
+        "experimental"
       ],
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.sendElementsToChat.attachImages": {
+      "default": true,
+      "markdownDescription": "Controls whether a screenshot of the selected element will be added to the chat. `#chat.sendElementsToChat.enabled#` must be enabled.",
+      "type": "boolean",
+      "tags": [
+        "experimental"
+      ],
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.sendElementsToChat.enabled": {
+      "default": true,
+      "description": "Controls whether elements can be sent to chat from the Simple Browser.",
+      "type": "boolean",
+      "tags": [
+        "experimental"
+      ],
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
     "chat.tools.autoApprove": {
       "default": false,
-      "description": "Controls whether tool use should be automatically approved ('YOLO mode').",
+      "description": "Controls whether tool use should be automatically approved.",
       "type": "boolean",
       "tags": [
         "experimental"
@@ -2781,17 +2895,6 @@
         "defaultValue": false
       },
       "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
-    },
-    "chat.unifiedChatView": {
-      "type": "boolean",
-      "description": "Enables the unified view with Ask, Edit, and Agent modes in one view.",
-      "default": true,
-      "tags": [
-        "preview"
-      ],
-      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -2888,10 +2991,10 @@
       "restricted": false
     },
     "css.completion.completePropertyWithSemicolon": {
-      "$ref": "#/$defs/_281"
+      "$ref": "#/$defs/_282"
     },
     "css.completion.triggerPropertyValueCompletion": {
-      "$ref": "#/$defs/_280"
+      "$ref": "#/$defs/_281"
     },
     "css.customData": {
       "type": "array",
@@ -2909,7 +3012,7 @@
       "restricted": false
     },
     "css.format.braceStyle": {
-      "$ref": "#/$defs/_306"
+      "$ref": "#/$defs/_307"
     },
     "css.format.enable": {
       "type": "boolean",
@@ -2939,16 +3042,16 @@
       "restricted": false
     },
     "css.format.newlineBetweenRules": {
-      "$ref": "#/$defs/_304"
+      "$ref": "#/$defs/_305"
     },
     "css.format.newlineBetweenSelectors": {
-      "$ref": "#/$defs/_303"
+      "$ref": "#/$defs/_304"
     },
     "css.format.preserveNewLines": {
-      "$ref": "#/$defs/_307"
+      "$ref": "#/$defs/_308"
     },
     "css.format.spaceAroundSelectorSeparator": {
-      "$ref": "#/$defs/_305"
+      "$ref": "#/$defs/_306"
     },
     "css.hover.documentation": {
       "type": "boolean",
@@ -2975,64 +3078,64 @@
       "restricted": false
     },
     "css.lint.argumentsInColorFunction": {
-      "$ref": "#/$defs/_293"
-    },
-    "css.lint.boxModel": {
-      "$ref": "#/$defs/_288"
-    },
-    "css.lint.compatibleVendorPrefixes": {
-      "$ref": "#/$defs/_283"
-    },
-    "css.lint.duplicateProperties": {
-      "$ref": "#/$defs/_285"
-    },
-    "css.lint.emptyRules": {
-      "$ref": "#/$defs/_286"
-    },
-    "css.lint.float": {
-      "$ref": "#/$defs/_300"
-    },
-    "css.lint.fontFaceProperties": {
-      "$ref": "#/$defs/_291"
-    },
-    "css.lint.hexColorLength": {
-      "$ref": "#/$defs/_292"
-    },
-    "css.lint.idSelector": {
-      "$ref": "#/$defs/_301"
-    },
-    "css.lint.ieHack": {
-      "$ref": "#/$defs/_296"
-    },
-    "css.lint.important": {
-      "$ref": "#/$defs/_299"
-    },
-    "css.lint.importStatement": {
-      "$ref": "#/$defs/_287"
-    },
-    "css.lint.propertyIgnoredDueToDisplay": {
-      "$ref": "#/$defs/_298"
-    },
-    "css.lint.universalSelector": {
-      "$ref": "#/$defs/_289"
-    },
-    "css.lint.unknownAtRules": {
-      "$ref": "#/$defs/_302"
-    },
-    "css.lint.unknownProperties": {
       "$ref": "#/$defs/_294"
     },
-    "css.lint.unknownVendorSpecificProperties": {
-      "$ref": "#/$defs/_297"
+    "css.lint.boxModel": {
+      "$ref": "#/$defs/_289"
     },
-    "css.lint.validProperties": {
-      "$ref": "#/$defs/_295"
-    },
-    "css.lint.vendorPrefix": {
+    "css.lint.compatibleVendorPrefixes": {
       "$ref": "#/$defs/_284"
     },
-    "css.lint.zeroUnits": {
+    "css.lint.duplicateProperties": {
+      "$ref": "#/$defs/_286"
+    },
+    "css.lint.emptyRules": {
+      "$ref": "#/$defs/_287"
+    },
+    "css.lint.float": {
+      "$ref": "#/$defs/_301"
+    },
+    "css.lint.fontFaceProperties": {
+      "$ref": "#/$defs/_292"
+    },
+    "css.lint.hexColorLength": {
+      "$ref": "#/$defs/_293"
+    },
+    "css.lint.idSelector": {
+      "$ref": "#/$defs/_302"
+    },
+    "css.lint.ieHack": {
+      "$ref": "#/$defs/_297"
+    },
+    "css.lint.important": {
+      "$ref": "#/$defs/_300"
+    },
+    "css.lint.importStatement": {
+      "$ref": "#/$defs/_288"
+    },
+    "css.lint.propertyIgnoredDueToDisplay": {
+      "$ref": "#/$defs/_299"
+    },
+    "css.lint.universalSelector": {
       "$ref": "#/$defs/_290"
+    },
+    "css.lint.unknownAtRules": {
+      "$ref": "#/$defs/_303"
+    },
+    "css.lint.unknownProperties": {
+      "$ref": "#/$defs/_295"
+    },
+    "css.lint.unknownVendorSpecificProperties": {
+      "$ref": "#/$defs/_298"
+    },
+    "css.lint.validProperties": {
+      "$ref": "#/$defs/_296"
+    },
+    "css.lint.vendorPrefix": {
+      "$ref": "#/$defs/_285"
+    },
+    "css.lint.zeroUnits": {
+      "$ref": "#/$defs/_291"
     },
     "css.trace.server": {
       "type": "string",
@@ -3052,7 +3155,7 @@
       "restricted": false
     },
     "css.validate": {
-      "$ref": "#/$defs/_282"
+      "$ref": "#/$defs/_283"
     },
     "debug.allowBreakpointsEverywhere": {
       "type": "boolean",
@@ -3361,7 +3464,7 @@
       "description": "Options used when debugging open links clicked from inside the JavaScript Debug Terminal. Can be set to \"off\" to disable this behavior, or \"always\" to enable debugging in all terminals.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_335"
+          "$ref": "#/$defs/_336"
         },
         {
           "type": "object",
@@ -3383,7 +3486,7 @@
               ]
             },
             "cascadeTerminateToConfigurations": {
-              "$ref": "#/$defs/_324"
+              "$ref": "#/$defs/_325"
             },
             "cleanUp": {
               "type": "string",
@@ -3395,10 +3498,10 @@
               "default": "wholeBrowser"
             },
             "customDescriptionGenerator": {
-              "$ref": "#/$defs/_322"
+              "$ref": "#/$defs/_323"
             },
             "customPropertiesGenerator": {
-              "$ref": "#/$defs/_323"
+              "$ref": "#/$defs/_324"
             },
             "cwd": {
               "type": "string",
@@ -3411,13 +3514,13 @@
               "default": true
             },
             "enableContentValidation": {
-              "$ref": "#/$defs/_321"
+              "$ref": "#/$defs/_322"
             },
             "enabled": {
-              "$ref": "#/$defs/_335"
+              "$ref": "#/$defs/_336"
             },
             "enableDWARF": {
-              "$ref": "#/$defs/_325"
+              "$ref": "#/$defs/_326"
             },
             "env": {
               "type": "object",
@@ -3451,10 +3554,10 @@
               "default": null
             },
             "outFiles": {
-              "$ref": "#/$defs/_309"
+              "$ref": "#/$defs/_310"
             },
             "outputCapture": {
-              "$ref": "#/$defs/_320"
+              "$ref": "#/$defs/_321"
             },
             "pathMapping": {
               "type": "object",
@@ -3462,7 +3565,7 @@
               "default": {}
             },
             "pauseForSourceMap": {
-              "$ref": "#/$defs/_310"
+              "$ref": "#/$defs/_311"
             },
             "perScriptSourcemaps": {
               "type": "string",
@@ -3538,7 +3641,7 @@
                     "attachSimplePort": {
                       "oneOf": [
                         {
-                          "$ref": "#/$defs/_337"
+                          "$ref": "#/$defs/_338"
                         },
                         {
                           "type": "integer"
@@ -3548,10 +3651,10 @@
                       "default": 9229
                     },
                     "autoAttachChildProcesses": {
-                      "$ref": "#/$defs/_329"
+                      "$ref": "#/$defs/_330"
                     },
                     "cascadeTerminateToConfigurations": {
-                      "$ref": "#/$defs/_324"
+                      "$ref": "#/$defs/_325"
                     },
                     "console": {
                       "type": "string",
@@ -3569,10 +3672,10 @@
                       "default": "internalConsole"
                     },
                     "customDescriptionGenerator": {
-                      "$ref": "#/$defs/_322"
+                      "$ref": "#/$defs/_323"
                     },
                     "customPropertiesGenerator": {
-                      "$ref": "#/$defs/_323"
+                      "$ref": "#/$defs/_324"
                     },
                     "cwd": {
                       "type": "string",
@@ -3583,16 +3686,16 @@
                       ]
                     },
                     "enableContentValidation": {
-                      "$ref": "#/$defs/_321"
+                      "$ref": "#/$defs/_322"
                     },
                     "enableDWARF": {
-                      "$ref": "#/$defs/_325"
+                      "$ref": "#/$defs/_326"
                     },
                     "env": {
-                      "$ref": "#/$defs/_330"
+                      "$ref": "#/$defs/_331"
                     },
                     "envFile": {
-                      "$ref": "#/$defs/_331"
+                      "$ref": "#/$defs/_332"
                     },
                     "experimentalNetworking": {
                       "type": "string",
@@ -3615,19 +3718,19 @@
                       "markdownDescription": "Configures how debug processes are killed when stopping the session. Can be:\n\n- forceful (default): forcefully tears down the process tree. Sends SIGKILL on posix, or `taskkill.exe /F` on Windows.\n- polite: gracefully tears down the process tree. It's possible that misbehaving processes continue to run after shutdown in this way. Sends SIGTERM on posix, or `taskkill.exe` with no `/F` (force) flag on Windows.\n- none: no termination will happen."
                     },
                     "localRoot": {
-                      "$ref": "#/$defs/_327"
+                      "$ref": "#/$defs/_328"
                     },
                     "nodeVersionHint": {
-                      "$ref": "#/$defs/_333"
+                      "$ref": "#/$defs/_334"
                     },
                     "outFiles": {
-                      "$ref": "#/$defs/_309"
+                      "$ref": "#/$defs/_310"
                     },
                     "outputCapture": {
-                      "$ref": "#/$defs/_320"
+                      "$ref": "#/$defs/_321"
                     },
                     "pauseForSourceMap": {
-                      "$ref": "#/$defs/_310"
+                      "$ref": "#/$defs/_311"
                     },
                     "profileStartup": {
                       "type": "boolean",
@@ -3643,13 +3746,13 @@
                       ]
                     },
                     "remoteRoot": {
-                      "$ref": "#/$defs/_328"
+                      "$ref": "#/$defs/_329"
                     },
                     "resolveSourceMapLocations": {
-                      "$ref": "#/$defs/_308"
+                      "$ref": "#/$defs/_309"
                     },
                     "restart": {
-                      "$ref": "#/$defs/_336"
+                      "$ref": "#/$defs/_337"
                     },
                     "runtimeArgs": {
                       "type": "array",
@@ -3671,7 +3774,7 @@
                       "default": "node"
                     },
                     "runtimeSourcemapPausePatterns": {
-                      "$ref": "#/$defs/_332"
+                      "$ref": "#/$defs/_333"
                     },
                     "runtimeVersion": {
                       "type": "string",
@@ -3679,22 +3782,22 @@
                       "default": "default"
                     },
                     "showAsyncStacks": {
-                      "$ref": "#/$defs/_311"
-                    },
-                    "skipFiles": {
                       "$ref": "#/$defs/_312"
                     },
-                    "smartStep": {
+                    "skipFiles": {
                       "$ref": "#/$defs/_313"
                     },
+                    "smartStep": {
+                      "$ref": "#/$defs/_314"
+                    },
                     "sourceMapPathOverrides": {
-                      "$ref": "#/$defs/_316"
+                      "$ref": "#/$defs/_317"
                     },
                     "sourceMapRenames": {
-                      "$ref": "#/$defs/_315"
+                      "$ref": "#/$defs/_316"
                     },
                     "sourceMaps": {
-                      "$ref": "#/$defs/_314"
+                      "$ref": "#/$defs/_315"
                     },
                     "stopOnEntry": {
                       "type": [
@@ -3705,13 +3808,13 @@
                       "default": true
                     },
                     "timeout": {
-                      "$ref": "#/$defs/_317"
-                    },
-                    "timeouts": {
                       "$ref": "#/$defs/_318"
                     },
-                    "trace": {
+                    "timeouts": {
                       "$ref": "#/$defs/_319"
+                    },
+                    "trace": {
+                      "$ref": "#/$defs/_320"
                     }
                   }
                 },
@@ -3724,116 +3827,116 @@
                   },
                   "properties": {
                     "autoAttachChildProcesses": {
-                      "$ref": "#/$defs/_329"
-                    },
-                    "cascadeTerminateToConfigurations": {
-                      "$ref": "#/$defs/_324"
-                    },
-                    "command": {
-                      "$ref": "#/$defs/_334"
-                    },
-                    "customDescriptionGenerator": {
-                      "$ref": "#/$defs/_322"
-                    },
-                    "customPropertiesGenerator": {
-                      "$ref": "#/$defs/_323"
-                    },
-                    "cwd": {
-                      "$ref": "#/$defs/_326"
-                    },
-                    "enableContentValidation": {
-                      "$ref": "#/$defs/_321"
-                    },
-                    "enableDWARF": {
-                      "$ref": "#/$defs/_325"
-                    },
-                    "env": {
                       "$ref": "#/$defs/_330"
                     },
-                    "envFile": {
-                      "$ref": "#/$defs/_331"
+                    "cascadeTerminateToConfigurations": {
+                      "$ref": "#/$defs/_325"
                     },
-                    "localRoot": {
+                    "command": {
+                      "$ref": "#/$defs/_335"
+                    },
+                    "customDescriptionGenerator": {
+                      "$ref": "#/$defs/_323"
+                    },
+                    "customPropertiesGenerator": {
+                      "$ref": "#/$defs/_324"
+                    },
+                    "cwd": {
                       "$ref": "#/$defs/_327"
                     },
-                    "nodeVersionHint": {
-                      "$ref": "#/$defs/_333"
+                    "enableContentValidation": {
+                      "$ref": "#/$defs/_322"
                     },
-                    "outFiles": {
-                      "$ref": "#/$defs/_309"
+                    "enableDWARF": {
+                      "$ref": "#/$defs/_326"
                     },
-                    "outputCapture": {
-                      "$ref": "#/$defs/_320"
+                    "env": {
+                      "$ref": "#/$defs/_331"
                     },
-                    "pauseForSourceMap": {
-                      "$ref": "#/$defs/_310"
-                    },
-                    "remoteRoot": {
-                      "$ref": "#/$defs/_328"
-                    },
-                    "resolveSourceMapLocations": {
-                      "$ref": "#/$defs/_308"
-                    },
-                    "runtimeSourcemapPausePatterns": {
+                    "envFile": {
                       "$ref": "#/$defs/_332"
                     },
-                    "showAsyncStacks": {
+                    "localRoot": {
+                      "$ref": "#/$defs/_328"
+                    },
+                    "nodeVersionHint": {
+                      "$ref": "#/$defs/_334"
+                    },
+                    "outFiles": {
+                      "$ref": "#/$defs/_310"
+                    },
+                    "outputCapture": {
+                      "$ref": "#/$defs/_321"
+                    },
+                    "pauseForSourceMap": {
                       "$ref": "#/$defs/_311"
                     },
-                    "skipFiles": {
+                    "remoteRoot": {
+                      "$ref": "#/$defs/_329"
+                    },
+                    "resolveSourceMapLocations": {
+                      "$ref": "#/$defs/_309"
+                    },
+                    "runtimeSourcemapPausePatterns": {
+                      "$ref": "#/$defs/_333"
+                    },
+                    "showAsyncStacks": {
                       "$ref": "#/$defs/_312"
                     },
-                    "smartStep": {
+                    "skipFiles": {
                       "$ref": "#/$defs/_313"
                     },
-                    "sourceMapPathOverrides": {
-                      "$ref": "#/$defs/_316"
-                    },
-                    "sourceMapRenames": {
-                      "$ref": "#/$defs/_315"
-                    },
-                    "sourceMaps": {
+                    "smartStep": {
                       "$ref": "#/$defs/_314"
                     },
-                    "timeout": {
+                    "sourceMapPathOverrides": {
                       "$ref": "#/$defs/_317"
                     },
-                    "timeouts": {
+                    "sourceMapRenames": {
+                      "$ref": "#/$defs/_316"
+                    },
+                    "sourceMaps": {
+                      "$ref": "#/$defs/_315"
+                    },
+                    "timeout": {
                       "$ref": "#/$defs/_318"
                     },
-                    "trace": {
+                    "timeouts": {
                       "$ref": "#/$defs/_319"
+                    },
+                    "trace": {
+                      "$ref": "#/$defs/_320"
                     }
                   }
                 }
               ]
             },
             "showAsyncStacks": {
-              "$ref": "#/$defs/_311"
-            },
-            "skipFiles": {
               "$ref": "#/$defs/_312"
             },
-            "smartStep": {
+            "skipFiles": {
               "$ref": "#/$defs/_313"
             },
-            "sourceMapPathOverrides": {
-              "$ref": "#/$defs/_316"
-            },
-            "sourceMapRenames": {
-              "$ref": "#/$defs/_315"
-            },
-            "sourceMaps": {
+            "smartStep": {
               "$ref": "#/$defs/_314"
             },
-            "timeout": {
+            "sourceMapPathOverrides": {
               "$ref": "#/$defs/_317"
             },
-            "timeouts": {
+            "sourceMapRenames": {
+              "$ref": "#/$defs/_316"
+            },
+            "sourceMaps": {
+              "$ref": "#/$defs/_315"
+            },
+            "timeout": {
               "$ref": "#/$defs/_318"
             },
-            "trace": {
+            "timeouts": {
               "$ref": "#/$defs/_319"
+            },
+            "trace": {
+              "$ref": "#/$defs/_320"
             },
             "url": {
               "type": "string",
@@ -3911,14 +4014,14 @@
     },
     "debug.javascript.enableNetworkView": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "description": "Enables the experimental network view for targets that support it.",
       "scope": 4,
       "source": {
         "id": "ms-vscode.js-debug",
         "displayName": "JavaScript Debugger"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "restricted": false
     },
     "debug.javascript.pickAndAttachOptions": {
@@ -3937,10 +4040,10 @@
           "default": false
         },
         "autoAttachChildProcesses": {
-          "$ref": "#/$defs/_329"
+          "$ref": "#/$defs/_330"
         },
         "cascadeTerminateToConfigurations": {
-          "$ref": "#/$defs/_324"
+          "$ref": "#/$defs/_325"
         },
         "continueOnAttach": {
           "type": "boolean",
@@ -3948,47 +4051,47 @@
           "default": true
         },
         "customDescriptionGenerator": {
-          "$ref": "#/$defs/_322"
-        },
-        "customPropertiesGenerator": {
           "$ref": "#/$defs/_323"
         },
+        "customPropertiesGenerator": {
+          "$ref": "#/$defs/_324"
+        },
         "cwd": {
-          "$ref": "#/$defs/_326"
-        },
-        "enableContentValidation": {
-          "$ref": "#/$defs/_321"
-        },
-        "enableDWARF": {
-          "$ref": "#/$defs/_325"
-        },
-        "env": {
-          "$ref": "#/$defs/_330"
-        },
-        "envFile": {
-          "$ref": "#/$defs/_331"
-        },
-        "localRoot": {
           "$ref": "#/$defs/_327"
         },
+        "enableContentValidation": {
+          "$ref": "#/$defs/_322"
+        },
+        "enableDWARF": {
+          "$ref": "#/$defs/_326"
+        },
+        "env": {
+          "$ref": "#/$defs/_331"
+        },
+        "envFile": {
+          "$ref": "#/$defs/_332"
+        },
+        "localRoot": {
+          "$ref": "#/$defs/_328"
+        },
         "nodeVersionHint": {
-          "$ref": "#/$defs/_333"
+          "$ref": "#/$defs/_334"
         },
         "outFiles": {
-          "$ref": "#/$defs/_309"
+          "$ref": "#/$defs/_310"
         },
         "outputCapture": {
-          "$ref": "#/$defs/_320"
+          "$ref": "#/$defs/_321"
         },
         "pauseForSourceMap": {
-          "$ref": "#/$defs/_310"
+          "$ref": "#/$defs/_311"
         },
         "port": {
           "description": "Debug port to attach to. Default is 9229.",
           "default": 9229,
           "oneOf": [
             {
-              "$ref": "#/$defs/_337"
+              "$ref": "#/$defs/_338"
             },
             {
               "type": "integer"
@@ -4008,43 +4111,43 @@
           "description": "Explicit Host header to use when connecting to the websocket of inspector. If unspecified, the host header will be set to 'localhost'. This is useful when the inspector is running behind a proxy that only accept particular Host header."
         },
         "remoteRoot": {
-          "$ref": "#/$defs/_328"
+          "$ref": "#/$defs/_329"
         },
         "resolveSourceMapLocations": {
-          "$ref": "#/$defs/_308"
+          "$ref": "#/$defs/_309"
         },
         "restart": {
-          "$ref": "#/$defs/_336"
+          "$ref": "#/$defs/_337"
         },
         "runtimeSourcemapPausePatterns": {
-          "$ref": "#/$defs/_332"
+          "$ref": "#/$defs/_333"
         },
         "showAsyncStacks": {
-          "$ref": "#/$defs/_311"
-        },
-        "skipFiles": {
           "$ref": "#/$defs/_312"
         },
-        "smartStep": {
+        "skipFiles": {
           "$ref": "#/$defs/_313"
         },
-        "sourceMapPathOverrides": {
-          "$ref": "#/$defs/_316"
-        },
-        "sourceMapRenames": {
-          "$ref": "#/$defs/_315"
-        },
-        "sourceMaps": {
+        "smartStep": {
           "$ref": "#/$defs/_314"
         },
-        "timeout": {
+        "sourceMapPathOverrides": {
           "$ref": "#/$defs/_317"
         },
-        "timeouts": {
+        "sourceMapRenames": {
+          "$ref": "#/$defs/_316"
+        },
+        "sourceMaps": {
+          "$ref": "#/$defs/_315"
+        },
+        "timeout": {
           "$ref": "#/$defs/_318"
         },
-        "trace": {
+        "timeouts": {
           "$ref": "#/$defs/_319"
+        },
+        "trace": {
+          "$ref": "#/$defs/_320"
         },
         "websocketAddress": {
           "type": "string",
@@ -4077,85 +4180,85 @@
       "default": {},
       "properties": {
         "autoAttachChildProcesses": {
-          "$ref": "#/$defs/_329"
-        },
-        "cascadeTerminateToConfigurations": {
-          "$ref": "#/$defs/_324"
-        },
-        "command": {
-          "$ref": "#/$defs/_334"
-        },
-        "customDescriptionGenerator": {
-          "$ref": "#/$defs/_322"
-        },
-        "customPropertiesGenerator": {
-          "$ref": "#/$defs/_323"
-        },
-        "cwd": {
-          "$ref": "#/$defs/_326"
-        },
-        "enableContentValidation": {
-          "$ref": "#/$defs/_321"
-        },
-        "enableDWARF": {
-          "$ref": "#/$defs/_325"
-        },
-        "env": {
           "$ref": "#/$defs/_330"
         },
-        "envFile": {
-          "$ref": "#/$defs/_331"
+        "cascadeTerminateToConfigurations": {
+          "$ref": "#/$defs/_325"
         },
-        "localRoot": {
+        "command": {
+          "$ref": "#/$defs/_335"
+        },
+        "customDescriptionGenerator": {
+          "$ref": "#/$defs/_323"
+        },
+        "customPropertiesGenerator": {
+          "$ref": "#/$defs/_324"
+        },
+        "cwd": {
           "$ref": "#/$defs/_327"
         },
-        "nodeVersionHint": {
-          "$ref": "#/$defs/_333"
+        "enableContentValidation": {
+          "$ref": "#/$defs/_322"
         },
-        "outFiles": {
-          "$ref": "#/$defs/_309"
+        "enableDWARF": {
+          "$ref": "#/$defs/_326"
         },
-        "outputCapture": {
-          "$ref": "#/$defs/_320"
+        "env": {
+          "$ref": "#/$defs/_331"
         },
-        "pauseForSourceMap": {
-          "$ref": "#/$defs/_310"
-        },
-        "remoteRoot": {
-          "$ref": "#/$defs/_328"
-        },
-        "resolveSourceMapLocations": {
-          "$ref": "#/$defs/_308"
-        },
-        "runtimeSourcemapPausePatterns": {
+        "envFile": {
           "$ref": "#/$defs/_332"
         },
-        "showAsyncStacks": {
+        "localRoot": {
+          "$ref": "#/$defs/_328"
+        },
+        "nodeVersionHint": {
+          "$ref": "#/$defs/_334"
+        },
+        "outFiles": {
+          "$ref": "#/$defs/_310"
+        },
+        "outputCapture": {
+          "$ref": "#/$defs/_321"
+        },
+        "pauseForSourceMap": {
           "$ref": "#/$defs/_311"
         },
-        "skipFiles": {
+        "remoteRoot": {
+          "$ref": "#/$defs/_329"
+        },
+        "resolveSourceMapLocations": {
+          "$ref": "#/$defs/_309"
+        },
+        "runtimeSourcemapPausePatterns": {
+          "$ref": "#/$defs/_333"
+        },
+        "showAsyncStacks": {
           "$ref": "#/$defs/_312"
         },
-        "smartStep": {
+        "skipFiles": {
           "$ref": "#/$defs/_313"
         },
-        "sourceMapPathOverrides": {
-          "$ref": "#/$defs/_316"
-        },
-        "sourceMapRenames": {
-          "$ref": "#/$defs/_315"
-        },
-        "sourceMaps": {
+        "smartStep": {
           "$ref": "#/$defs/_314"
         },
-        "timeout": {
+        "sourceMapPathOverrides": {
           "$ref": "#/$defs/_317"
         },
-        "timeouts": {
+        "sourceMapRenames": {
+          "$ref": "#/$defs/_316"
+        },
+        "sourceMaps": {
+          "$ref": "#/$defs/_315"
+        },
+        "timeout": {
           "$ref": "#/$defs/_318"
         },
-        "trace": {
+        "timeouts": {
           "$ref": "#/$defs/_319"
+        },
+        "trace": {
+          "$ref": "#/$defs/_320"
         }
       },
       "scope": 4,
@@ -7974,7 +8077,7 @@
       "defaultDefaultValue": 10,
       "restricted": false
     },
-    "git.diagnosticsCommitHook.Enabled": {
+    "git.diagnosticsCommitHook.enabled": {
       "type": "boolean",
       "default": false,
       "markdownDescription": "Controls whether to check for unresolved diagnostics before committing.",
@@ -7986,7 +8089,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "git.diagnosticsCommitHook.Sources": {
+    "git.diagnosticsCommitHook.sources": {
       "type": "object",
       "additionalProperties": {
         "type": "string",
@@ -9418,10 +9521,34 @@
       "scope": 4,
       "restricted": false
     },
+    "inlineChat.enableV2": {
+      "description": "Whether to use the next version of inline chat.",
+      "default": false,
+      "type": "boolean",
+      "tags": [
+        "preview",
+        "onExp"
+      ],
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "inlineChat.finishOnType": {
       "description": "Whether to finish an inline chat session when typing outside of changed regions.",
       "default": false,
       "type": "boolean",
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "inlineChat.hideOnRequest": {
+      "markdownDescription": "Whether to hide the inline chat widget after making a request. When enabled, the widget hides after a request has been made and instead the chat overlay shows. When hidden, the widget can always be shown again with the inline chat keybinding or from the chat overlay widget. *Note* that this setting requires `#inlineChat.enableV2#` to be enabled.",
+      "default": false,
+      "type": "boolean",
+      "tags": [
+        "preview",
+        "onExp"
+      ],
       "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
@@ -9551,7 +9678,7 @@
       "restricted": false
     },
     "javascript.autoClosingTags": {
-      "$ref": "#/$defs/_379"
+      "$ref": "#/$defs/_340"
     },
     "javascript.format.enable": {
       "type": "boolean",
@@ -9566,55 +9693,55 @@
       "restricted": false
     },
     "javascript.format.indentSwitchCase": {
-      "$ref": "#/$defs/_364"
+      "$ref": "#/$defs/_377"
     },
     "javascript.format.insertSpaceAfterCommaDelimiter": {
-      "$ref": "#/$defs/_348"
-    },
-    "javascript.format.insertSpaceAfterConstructor": {
-      "$ref": "#/$defs/_349"
-    },
-    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": {
-      "$ref": "#/$defs/_353"
-    },
-    "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": {
-      "$ref": "#/$defs/_352"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": {
-      "$ref": "#/$defs/_358"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": {
-      "$ref": "#/$defs/_360"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": {
-      "$ref": "#/$defs/_357"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": {
-      "$ref": "#/$defs/_356"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": {
-      "$ref": "#/$defs/_355"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": {
-      "$ref": "#/$defs/_359"
-    },
-    "javascript.format.insertSpaceAfterSemicolonInForStatements": {
-      "$ref": "#/$defs/_350"
-    },
-    "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": {
-      "$ref": "#/$defs/_351"
-    },
-    "javascript.format.insertSpaceBeforeFunctionParenthesis": {
-      "$ref": "#/$defs/_354"
-    },
-    "javascript.format.placeOpenBraceOnNewLineForControlBlocks": {
-      "$ref": "#/$defs/_362"
-    },
-    "javascript.format.placeOpenBraceOnNewLineForFunctions": {
       "$ref": "#/$defs/_361"
     },
-    "javascript.format.semicolons": {
+    "javascript.format.insertSpaceAfterConstructor": {
+      "$ref": "#/$defs/_362"
+    },
+    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": {
+      "$ref": "#/$defs/_366"
+    },
+    "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": {
+      "$ref": "#/$defs/_365"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": {
+      "$ref": "#/$defs/_371"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": {
+      "$ref": "#/$defs/_373"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": {
+      "$ref": "#/$defs/_370"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": {
+      "$ref": "#/$defs/_369"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": {
+      "$ref": "#/$defs/_368"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": {
+      "$ref": "#/$defs/_372"
+    },
+    "javascript.format.insertSpaceAfterSemicolonInForStatements": {
       "$ref": "#/$defs/_363"
+    },
+    "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": {
+      "$ref": "#/$defs/_364"
+    },
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": {
+      "$ref": "#/$defs/_367"
+    },
+    "javascript.format.placeOpenBraceOnNewLineForControlBlocks": {
+      "$ref": "#/$defs/_375"
+    },
+    "javascript.format.placeOpenBraceOnNewLineForFunctions": {
+      "$ref": "#/$defs/_374"
+    },
+    "javascript.format.semicolons": {
+      "$ref": "#/$defs/_376"
     },
     "javascript.implicitProjectConfig.checkJs": {
       "type": "boolean",
@@ -9645,37 +9772,37 @@
       "deprecationMessage": "This setting has been deprecated in favor of `js/ts.implicitProjectConfig.experimentalDecorators`."
     },
     "javascript.inlayHints.functionLikeReturnTypes.enabled": {
-      "$ref": "#/$defs/_346"
+      "$ref": "#/$defs/_384"
     },
     "javascript.inlayHints.parameterNames.enabled": {
-      "$ref": "#/$defs/_340"
+      "$ref": "#/$defs/_378"
     },
     "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": {
-      "$ref": "#/$defs/_341"
+      "$ref": "#/$defs/_379"
     },
     "javascript.inlayHints.parameterTypes.enabled": {
-      "$ref": "#/$defs/_342"
+      "$ref": "#/$defs/_380"
     },
     "javascript.inlayHints.propertyDeclarationTypes.enabled": {
-      "$ref": "#/$defs/_345"
+      "$ref": "#/$defs/_383"
     },
     "javascript.inlayHints.variableTypes.enabled": {
-      "$ref": "#/$defs/_343"
+      "$ref": "#/$defs/_381"
     },
     "javascript.inlayHints.variableTypes.suppressWhenTypeMatchesName": {
-      "$ref": "#/$defs/_344"
+      "$ref": "#/$defs/_382"
     },
     "javascript.preferences.autoImportFileExcludePatterns": {
-      "$ref": "#/$defs/_372"
+      "$ref": "#/$defs/_355"
     },
     "javascript.preferences.autoImportSpecifierExcludeRegexes": {
-      "$ref": "#/$defs/_373"
+      "$ref": "#/$defs/_356"
     },
     "javascript.preferences.importModuleSpecifier": {
-      "$ref": "#/$defs/_370"
+      "$ref": "#/$defs/_353"
     },
     "javascript.preferences.importModuleSpecifierEnding": {
-      "$ref": "#/$defs/_371"
+      "$ref": "#/$defs/_354"
     },
     "javascript.preferences.jsxAttributeCompletionStyle": {
       "type": "string",
@@ -9700,22 +9827,22 @@
       "restricted": false
     },
     "javascript.preferences.organizeImports": {
-      "$ref": "#/$defs/_377"
+      "$ref": "#/$defs/_360"
     },
     "javascript.preferences.quoteStyle": {
-      "$ref": "#/$defs/_369"
+      "$ref": "#/$defs/_352"
     },
     "javascript.preferences.renameMatchingJsxTags": {
-      "$ref": "#/$defs/_376"
+      "$ref": "#/$defs/_359"
     },
     "javascript.preferences.renameShorthandProperties": {
-      "$ref": "#/$defs/_374"
+      "$ref": "#/$defs/_357"
     },
     "javascript.preferences.useAliasesForRenames": {
-      "$ref": "#/$defs/_375"
+      "$ref": "#/$defs/_358"
     },
     "javascript.preferGoToSourceDefinition": {
-      "$ref": "#/$defs/_382"
+      "$ref": "#/$defs/_341"
     },
     "javascript.referencesCodeLens.enabled": {
       "type": "boolean",
@@ -9742,28 +9869,28 @@
       "restricted": false
     },
     "javascript.suggest.autoImports": {
-      "$ref": "#/$defs/_366"
+      "$ref": "#/$defs/_344"
     },
     "javascript.suggest.classMemberSnippets.enabled": {
-      "$ref": "#/$defs/_381"
+      "$ref": "#/$defs/_351"
     },
     "javascript.suggest.completeFunctionCalls": {
-      "$ref": "#/$defs/_338"
+      "$ref": "#/$defs/_345"
     },
     "javascript.suggest.completeJSDocs": {
-      "$ref": "#/$defs/_367"
-    },
-    "javascript.suggest.enabled": {
-      "$ref": "#/$defs/_380"
-    },
-    "javascript.suggest.includeAutomaticOptionalChainCompletions": {
-      "$ref": "#/$defs/_339"
-    },
-    "javascript.suggest.includeCompletionsForImportStatements": {
       "$ref": "#/$defs/_347"
     },
+    "javascript.suggest.enabled": {
+      "$ref": "#/$defs/_343"
+    },
+    "javascript.suggest.includeAutomaticOptionalChainCompletions": {
+      "$ref": "#/$defs/_349"
+    },
+    "javascript.suggest.includeCompletionsForImportStatements": {
+      "$ref": "#/$defs/_350"
+    },
     "javascript.suggest.jsdoc.generateReturns": {
-      "$ref": "#/$defs/_368"
+      "$ref": "#/$defs/_348"
     },
     "javascript.suggest.names": {
       "type": "boolean",
@@ -9778,7 +9905,7 @@
       "restricted": false
     },
     "javascript.suggest.paths": {
-      "$ref": "#/$defs/_365"
+      "$ref": "#/$defs/_346"
     },
     "javascript.suggestionActions.enabled": {
       "type": "boolean",
@@ -9793,10 +9920,10 @@
       "restricted": false
     },
     "javascript.updateImportsOnFileMove.enabled": {
-      "$ref": "#/$defs/_378"
+      "$ref": "#/$defs/_339"
     },
     "javascript.updateImportsOnPaste.enabled": {
-      "$ref": "#/$defs/_383"
+      "$ref": "#/$defs/_342"
     },
     "javascript.validate.enable": {
       "type": "boolean",
@@ -10076,13 +10203,13 @@
       "restricted": false
     },
     "less.completion.completePropertyWithSemicolon": {
-      "$ref": "#/$defs/_281"
+      "$ref": "#/$defs/_282"
     },
     "less.completion.triggerPropertyValueCompletion": {
-      "$ref": "#/$defs/_280"
+      "$ref": "#/$defs/_281"
     },
     "less.format.braceStyle": {
-      "$ref": "#/$defs/_306"
+      "$ref": "#/$defs/_307"
     },
     "less.format.enable": {
       "type": "boolean",
@@ -10112,16 +10239,16 @@
       "restricted": false
     },
     "less.format.newlineBetweenRules": {
-      "$ref": "#/$defs/_304"
+      "$ref": "#/$defs/_305"
     },
     "less.format.newlineBetweenSelectors": {
-      "$ref": "#/$defs/_303"
+      "$ref": "#/$defs/_304"
     },
     "less.format.preserveNewLines": {
-      "$ref": "#/$defs/_307"
+      "$ref": "#/$defs/_308"
     },
     "less.format.spaceAroundSelectorSeparator": {
-      "$ref": "#/$defs/_305"
+      "$ref": "#/$defs/_306"
     },
     "less.hover.documentation": {
       "type": "boolean",
@@ -10148,67 +10275,67 @@
       "restricted": false
     },
     "less.lint.argumentsInColorFunction": {
-      "$ref": "#/$defs/_293"
-    },
-    "less.lint.boxModel": {
-      "$ref": "#/$defs/_288"
-    },
-    "less.lint.compatibleVendorPrefixes": {
-      "$ref": "#/$defs/_283"
-    },
-    "less.lint.duplicateProperties": {
-      "$ref": "#/$defs/_285"
-    },
-    "less.lint.emptyRules": {
-      "$ref": "#/$defs/_286"
-    },
-    "less.lint.float": {
-      "$ref": "#/$defs/_300"
-    },
-    "less.lint.fontFaceProperties": {
-      "$ref": "#/$defs/_291"
-    },
-    "less.lint.hexColorLength": {
-      "$ref": "#/$defs/_292"
-    },
-    "less.lint.idSelector": {
-      "$ref": "#/$defs/_301"
-    },
-    "less.lint.ieHack": {
-      "$ref": "#/$defs/_296"
-    },
-    "less.lint.important": {
-      "$ref": "#/$defs/_299"
-    },
-    "less.lint.importStatement": {
-      "$ref": "#/$defs/_287"
-    },
-    "less.lint.propertyIgnoredDueToDisplay": {
-      "$ref": "#/$defs/_298"
-    },
-    "less.lint.universalSelector": {
-      "$ref": "#/$defs/_289"
-    },
-    "less.lint.unknownAtRules": {
-      "$ref": "#/$defs/_302"
-    },
-    "less.lint.unknownProperties": {
       "$ref": "#/$defs/_294"
     },
-    "less.lint.unknownVendorSpecificProperties": {
-      "$ref": "#/$defs/_297"
+    "less.lint.boxModel": {
+      "$ref": "#/$defs/_289"
     },
-    "less.lint.validProperties": {
-      "$ref": "#/$defs/_295"
-    },
-    "less.lint.vendorPrefix": {
+    "less.lint.compatibleVendorPrefixes": {
       "$ref": "#/$defs/_284"
     },
-    "less.lint.zeroUnits": {
+    "less.lint.duplicateProperties": {
+      "$ref": "#/$defs/_286"
+    },
+    "less.lint.emptyRules": {
+      "$ref": "#/$defs/_287"
+    },
+    "less.lint.float": {
+      "$ref": "#/$defs/_301"
+    },
+    "less.lint.fontFaceProperties": {
+      "$ref": "#/$defs/_292"
+    },
+    "less.lint.hexColorLength": {
+      "$ref": "#/$defs/_293"
+    },
+    "less.lint.idSelector": {
+      "$ref": "#/$defs/_302"
+    },
+    "less.lint.ieHack": {
+      "$ref": "#/$defs/_297"
+    },
+    "less.lint.important": {
+      "$ref": "#/$defs/_300"
+    },
+    "less.lint.importStatement": {
+      "$ref": "#/$defs/_288"
+    },
+    "less.lint.propertyIgnoredDueToDisplay": {
+      "$ref": "#/$defs/_299"
+    },
+    "less.lint.universalSelector": {
       "$ref": "#/$defs/_290"
     },
+    "less.lint.unknownAtRules": {
+      "$ref": "#/$defs/_303"
+    },
+    "less.lint.unknownProperties": {
+      "$ref": "#/$defs/_295"
+    },
+    "less.lint.unknownVendorSpecificProperties": {
+      "$ref": "#/$defs/_298"
+    },
+    "less.lint.validProperties": {
+      "$ref": "#/$defs/_296"
+    },
+    "less.lint.vendorPrefix": {
+      "$ref": "#/$defs/_285"
+    },
+    "less.lint.zeroUnits": {
+      "$ref": "#/$defs/_291"
+    },
     "less.validate": {
-      "$ref": "#/$defs/_282"
+      "$ref": "#/$defs/_283"
     },
     "markdown.copyFiles.destination": {
       "type": "object",
@@ -13940,13 +14067,13 @@
       "restricted": false
     },
     "scss.completion.completePropertyWithSemicolon": {
-      "$ref": "#/$defs/_281"
+      "$ref": "#/$defs/_282"
     },
     "scss.completion.triggerPropertyValueCompletion": {
-      "$ref": "#/$defs/_280"
+      "$ref": "#/$defs/_281"
     },
     "scss.format.braceStyle": {
-      "$ref": "#/$defs/_306"
+      "$ref": "#/$defs/_307"
     },
     "scss.format.enable": {
       "type": "boolean",
@@ -13976,16 +14103,16 @@
       "restricted": false
     },
     "scss.format.newlineBetweenRules": {
-      "$ref": "#/$defs/_304"
+      "$ref": "#/$defs/_305"
     },
     "scss.format.newlineBetweenSelectors": {
-      "$ref": "#/$defs/_303"
+      "$ref": "#/$defs/_304"
     },
     "scss.format.preserveNewLines": {
-      "$ref": "#/$defs/_307"
+      "$ref": "#/$defs/_308"
     },
     "scss.format.spaceAroundSelectorSeparator": {
-      "$ref": "#/$defs/_305"
+      "$ref": "#/$defs/_306"
     },
     "scss.hover.documentation": {
       "type": "boolean",
@@ -14012,67 +14139,67 @@
       "restricted": false
     },
     "scss.lint.argumentsInColorFunction": {
-      "$ref": "#/$defs/_293"
-    },
-    "scss.lint.boxModel": {
-      "$ref": "#/$defs/_288"
-    },
-    "scss.lint.compatibleVendorPrefixes": {
-      "$ref": "#/$defs/_283"
-    },
-    "scss.lint.duplicateProperties": {
-      "$ref": "#/$defs/_285"
-    },
-    "scss.lint.emptyRules": {
-      "$ref": "#/$defs/_286"
-    },
-    "scss.lint.float": {
-      "$ref": "#/$defs/_300"
-    },
-    "scss.lint.fontFaceProperties": {
-      "$ref": "#/$defs/_291"
-    },
-    "scss.lint.hexColorLength": {
-      "$ref": "#/$defs/_292"
-    },
-    "scss.lint.idSelector": {
-      "$ref": "#/$defs/_301"
-    },
-    "scss.lint.ieHack": {
-      "$ref": "#/$defs/_296"
-    },
-    "scss.lint.important": {
-      "$ref": "#/$defs/_299"
-    },
-    "scss.lint.importStatement": {
-      "$ref": "#/$defs/_287"
-    },
-    "scss.lint.propertyIgnoredDueToDisplay": {
-      "$ref": "#/$defs/_298"
-    },
-    "scss.lint.universalSelector": {
-      "$ref": "#/$defs/_289"
-    },
-    "scss.lint.unknownAtRules": {
-      "$ref": "#/$defs/_302"
-    },
-    "scss.lint.unknownProperties": {
       "$ref": "#/$defs/_294"
     },
-    "scss.lint.unknownVendorSpecificProperties": {
-      "$ref": "#/$defs/_297"
+    "scss.lint.boxModel": {
+      "$ref": "#/$defs/_289"
     },
-    "scss.lint.validProperties": {
-      "$ref": "#/$defs/_295"
-    },
-    "scss.lint.vendorPrefix": {
+    "scss.lint.compatibleVendorPrefixes": {
       "$ref": "#/$defs/_284"
     },
-    "scss.lint.zeroUnits": {
+    "scss.lint.duplicateProperties": {
+      "$ref": "#/$defs/_286"
+    },
+    "scss.lint.emptyRules": {
+      "$ref": "#/$defs/_287"
+    },
+    "scss.lint.float": {
+      "$ref": "#/$defs/_301"
+    },
+    "scss.lint.fontFaceProperties": {
+      "$ref": "#/$defs/_292"
+    },
+    "scss.lint.hexColorLength": {
+      "$ref": "#/$defs/_293"
+    },
+    "scss.lint.idSelector": {
+      "$ref": "#/$defs/_302"
+    },
+    "scss.lint.ieHack": {
+      "$ref": "#/$defs/_297"
+    },
+    "scss.lint.important": {
+      "$ref": "#/$defs/_300"
+    },
+    "scss.lint.importStatement": {
+      "$ref": "#/$defs/_288"
+    },
+    "scss.lint.propertyIgnoredDueToDisplay": {
+      "$ref": "#/$defs/_299"
+    },
+    "scss.lint.universalSelector": {
       "$ref": "#/$defs/_290"
     },
+    "scss.lint.unknownAtRules": {
+      "$ref": "#/$defs/_303"
+    },
+    "scss.lint.unknownProperties": {
+      "$ref": "#/$defs/_295"
+    },
+    "scss.lint.unknownVendorSpecificProperties": {
+      "$ref": "#/$defs/_298"
+    },
+    "scss.lint.validProperties": {
+      "$ref": "#/$defs/_296"
+    },
+    "scss.lint.vendorPrefix": {
+      "$ref": "#/$defs/_285"
+    },
+    "scss.lint.zeroUnits": {
+      "$ref": "#/$defs/_291"
+    },
     "scss.validate": {
-      "$ref": "#/$defs/_282"
+      "$ref": "#/$defs/_283"
     },
     "search.actionsPosition": {
       "type": "string",
@@ -15195,7 +15322,6 @@
         "bash",
         "bash (2)",
         "dash",
-        "JavaScript Debug Terminal",
         "pwsh",
         "pwsh (2)",
         "rbash",
@@ -15210,7 +15336,6 @@
         "$(terminal-bash) bash\n- path: /usr/bin/bash",
         "$(terminal) bash (2)\n- path: /usr/bin/bash",
         "$(terminal) dash\n- path: /usr/bin/dash",
-        "$($(debug)) JavaScript Debug Terminal\n- extensionIdentifier: ms-vscode.js-debug",
         "$(terminal-powershell) pwsh\n- path: /usr/bin/pwsh",
         "$(terminal) pwsh (2)\n- path: /opt/microsoft/powershell/7/pwsh",
         "$(terminal) rbash\n- path: /bin/rbash",
@@ -16737,6 +16862,7 @@
         "copilot-blocked",
         "copilot-large",
         "copilot-not-connected",
+        "copilot-unavailable",
         "copilot-warning",
         "copilot-warning-large",
         "copy",
@@ -16876,6 +17002,7 @@
         "git-pull-request-assignee",
         "git-pull-request-closed",
         "git-pull-request-create",
+        "git-pull-request-done",
         "git-pull-request-draft",
         "git-pull-request-go-to-changes",
         "git-pull-request-label",
@@ -16925,6 +17052,8 @@
         "key",
         "keyboard",
         "keyboard-tab",
+        "keyboard-tab-above",
+        "keyboard-tab-below",
         "law",
         "layers",
         "layers-active",
@@ -17068,6 +17197,7 @@
         "repo-fetch",
         "repo-force-push",
         "repo-forked",
+        "repo-pinned",
         "repo-pull",
         "repo-push",
         "repo-sync",
@@ -17350,6 +17480,7 @@
         "$(copilot-blocked)",
         "$(copilot-large)",
         "$(copilot-not-connected)",
+        "$(copilot-unavailable)",
         "$(copilot-warning)",
         "$(copilot-warning-large)",
         "$(copy)",
@@ -17489,6 +17620,7 @@
         "$(git-pull-request-assignee)",
         "$(git-pull-request-closed)",
         "$(git-pull-request-create)",
+        "$(git-pull-request-done)",
         "$(git-pull-request-draft)",
         "$(git-pull-request-go-to-changes)",
         "$(git-pull-request-label)",
@@ -17538,6 +17670,8 @@
         "$(key)",
         "$(keyboard)",
         "$(keyboard-tab)",
+        "$(keyboard-tab-above)",
+        "$(keyboard-tab-below)",
         "$(law)",
         "$(layers)",
         "$(layers-active)",
@@ -17681,6 +17815,7 @@
         "$(repo-fetch)",
         "$(repo-force-push)",
         "$(repo-forked)",
+        "$(repo-pinned)",
         "$(repo-pull)",
         "$(repo-push)",
         "$(repo-sync)",
@@ -18288,7 +18423,7 @@
       "restricted": false
     },
     "typescript.autoClosingTags": {
-      "$ref": "#/$defs/_379"
+      "$ref": "#/$defs/_340"
     },
     "typescript.check.npmIsInstalled": {
       "type": "boolean",
@@ -18329,6 +18464,36 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
+    "typescript.experimental.expandableHover": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable expanding/contracting the hover to reveal more/less information from the TS server. Requires TypeScript 5.9+.",
+      "scope": 4,
+      "tags": [
+        "experimental"
+      ],
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "typescript.experimental.useTsgo": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "Disables TypeScript and JavaScript language features to allow usage of the TypeScript Go experimental extension. Requires TypeScript Go to be installed and configured. Requires reloading extensions after changing this setting.",
+      "scope": 4,
+      "tags": [
+        "experimental"
+      ],
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
     "typescript.format.enable": {
       "type": "boolean",
       "default": true,
@@ -18342,40 +18507,40 @@
       "restricted": false
     },
     "typescript.format.indentSwitchCase": {
-      "$ref": "#/$defs/_364"
+      "$ref": "#/$defs/_377"
     },
     "typescript.format.insertSpaceAfterCommaDelimiter": {
-      "$ref": "#/$defs/_348"
+      "$ref": "#/$defs/_361"
     },
     "typescript.format.insertSpaceAfterConstructor": {
-      "$ref": "#/$defs/_349"
+      "$ref": "#/$defs/_362"
     },
     "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": {
-      "$ref": "#/$defs/_353"
+      "$ref": "#/$defs/_366"
     },
     "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": {
-      "$ref": "#/$defs/_352"
+      "$ref": "#/$defs/_365"
     },
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": {
-      "$ref": "#/$defs/_358"
+      "$ref": "#/$defs/_371"
     },
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": {
-      "$ref": "#/$defs/_360"
+      "$ref": "#/$defs/_373"
     },
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": {
-      "$ref": "#/$defs/_357"
+      "$ref": "#/$defs/_370"
     },
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": {
-      "$ref": "#/$defs/_356"
+      "$ref": "#/$defs/_369"
     },
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": {
-      "$ref": "#/$defs/_355"
+      "$ref": "#/$defs/_368"
     },
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": {
-      "$ref": "#/$defs/_359"
+      "$ref": "#/$defs/_372"
     },
     "typescript.format.insertSpaceAfterSemicolonInForStatements": {
-      "$ref": "#/$defs/_350"
+      "$ref": "#/$defs/_363"
     },
     "typescript.format.insertSpaceAfterTypeAssertion": {
       "type": "boolean",
@@ -18390,19 +18555,19 @@
       "restricted": false
     },
     "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": {
-      "$ref": "#/$defs/_351"
+      "$ref": "#/$defs/_364"
     },
     "typescript.format.insertSpaceBeforeFunctionParenthesis": {
-      "$ref": "#/$defs/_354"
+      "$ref": "#/$defs/_367"
     },
     "typescript.format.placeOpenBraceOnNewLineForControlBlocks": {
-      "$ref": "#/$defs/_362"
+      "$ref": "#/$defs/_375"
     },
     "typescript.format.placeOpenBraceOnNewLineForFunctions": {
-      "$ref": "#/$defs/_361"
+      "$ref": "#/$defs/_374"
     },
     "typescript.format.semicolons": {
-      "$ref": "#/$defs/_363"
+      "$ref": "#/$defs/_376"
     },
     "typescript.implementationsCodeLens.enabled": {
       "type": "boolean",
@@ -18441,25 +18606,25 @@
       "restricted": false
     },
     "typescript.inlayHints.functionLikeReturnTypes.enabled": {
-      "$ref": "#/$defs/_346"
+      "$ref": "#/$defs/_384"
     },
     "typescript.inlayHints.parameterNames.enabled": {
-      "$ref": "#/$defs/_340"
+      "$ref": "#/$defs/_378"
     },
     "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": {
-      "$ref": "#/$defs/_341"
+      "$ref": "#/$defs/_379"
     },
     "typescript.inlayHints.parameterTypes.enabled": {
-      "$ref": "#/$defs/_342"
+      "$ref": "#/$defs/_380"
     },
     "typescript.inlayHints.propertyDeclarationTypes.enabled": {
-      "$ref": "#/$defs/_345"
+      "$ref": "#/$defs/_383"
     },
     "typescript.inlayHints.variableTypes.enabled": {
-      "$ref": "#/$defs/_343"
+      "$ref": "#/$defs/_381"
     },
     "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": {
-      "$ref": "#/$defs/_344"
+      "$ref": "#/$defs/_382"
     },
     "typescript.locale": {
       "type": "string",
@@ -18511,16 +18676,16 @@
       "restricted": true
     },
     "typescript.preferences.autoImportFileExcludePatterns": {
-      "$ref": "#/$defs/_372"
+      "$ref": "#/$defs/_355"
     },
     "typescript.preferences.autoImportSpecifierExcludeRegexes": {
-      "$ref": "#/$defs/_373"
+      "$ref": "#/$defs/_356"
     },
     "typescript.preferences.importModuleSpecifier": {
-      "$ref": "#/$defs/_370"
+      "$ref": "#/$defs/_353"
     },
     "typescript.preferences.importModuleSpecifierEnding": {
-      "$ref": "#/$defs/_371"
+      "$ref": "#/$defs/_354"
     },
     "typescript.preferences.includePackageJsonAutoImports": {
       "type": "string",
@@ -18567,7 +18732,7 @@
       "restricted": false
     },
     "typescript.preferences.organizeImports": {
-      "$ref": "#/$defs/_377"
+      "$ref": "#/$defs/_360"
     },
     "typescript.preferences.preferTypeOnlyAutoImports": {
       "type": "boolean",
@@ -18582,19 +18747,19 @@
       "restricted": false
     },
     "typescript.preferences.quoteStyle": {
-      "$ref": "#/$defs/_369"
+      "$ref": "#/$defs/_352"
     },
     "typescript.preferences.renameMatchingJsxTags": {
-      "$ref": "#/$defs/_376"
+      "$ref": "#/$defs/_359"
     },
     "typescript.preferences.renameShorthandProperties": {
-      "$ref": "#/$defs/_374"
+      "$ref": "#/$defs/_357"
     },
     "typescript.preferences.useAliasesForRenames": {
-      "$ref": "#/$defs/_375"
+      "$ref": "#/$defs/_358"
     },
     "typescript.preferGoToSourceDefinition": {
-      "$ref": "#/$defs/_382"
+      "$ref": "#/$defs/_341"
     },
     "typescript.referencesCodeLens.enabled": {
       "type": "boolean",
@@ -18633,28 +18798,28 @@
       "restricted": false
     },
     "typescript.suggest.autoImports": {
-      "$ref": "#/$defs/_366"
+      "$ref": "#/$defs/_344"
     },
     "typescript.suggest.classMemberSnippets.enabled": {
-      "$ref": "#/$defs/_381"
+      "$ref": "#/$defs/_351"
     },
     "typescript.suggest.completeFunctionCalls": {
-      "$ref": "#/$defs/_338"
+      "$ref": "#/$defs/_345"
     },
     "typescript.suggest.completeJSDocs": {
-      "$ref": "#/$defs/_367"
-    },
-    "typescript.suggest.enabled": {
-      "$ref": "#/$defs/_380"
-    },
-    "typescript.suggest.includeAutomaticOptionalChainCompletions": {
-      "$ref": "#/$defs/_339"
-    },
-    "typescript.suggest.includeCompletionsForImportStatements": {
       "$ref": "#/$defs/_347"
     },
+    "typescript.suggest.enabled": {
+      "$ref": "#/$defs/_343"
+    },
+    "typescript.suggest.includeAutomaticOptionalChainCompletions": {
+      "$ref": "#/$defs/_349"
+    },
+    "typescript.suggest.includeCompletionsForImportStatements": {
+      "$ref": "#/$defs/_350"
+    },
     "typescript.suggest.jsdoc.generateReturns": {
-      "$ref": "#/$defs/_368"
+      "$ref": "#/$defs/_348"
     },
     "typescript.suggest.objectLiteralMethodSnippets.enabled": {
       "type": "boolean",
@@ -18669,7 +18834,7 @@
       "restricted": false
     },
     "typescript.suggest.paths": {
-      "$ref": "#/$defs/_365"
+      "$ref": "#/$defs/_346"
     },
     "typescript.suggestionActions.enabled": {
       "type": "boolean",
@@ -18979,10 +19144,10 @@
       "restricted": false
     },
     "typescript.updateImportsOnFileMove.enabled": {
-      "$ref": "#/$defs/_378"
+      "$ref": "#/$defs/_339"
     },
     "typescript.updateImportsOnPaste.enabled": {
-      "$ref": "#/$defs/_383"
+      "$ref": "#/$defs/_342"
     },
     "typescript.validate.enable": {
       "type": "boolean",
@@ -19756,6 +19921,11 @@
           "default": true,
           "description": "Simple Browser"
         },
+        "notebookOutputEditor": {
+          "type": "boolean",
+          "default": false,
+          "description": "Notebook Output Editor"
+        },
         "repl": {
           "type": "boolean",
           "default": false,
@@ -19807,6 +19977,7 @@
         "mainThreadWebview-browserPreview": true,
         "mainThreadWebview-markdown.preview": false,
         "mainThreadWebview-simpleBrowser.view": true,
+        "notebookOutputEditor": false,
         "repl": false,
         "terminalEditor": true,
         "vscode.audioPreview": false,
@@ -19827,6 +19998,7 @@
         "mainThreadWebview-browserPreview": true,
         "mainThreadWebview-markdown.preview": false,
         "mainThreadWebview-simpleBrowser.view": true,
+        "notebookOutputEditor": false,
         "repl": false,
         "terminalEditor": true,
         "vscode.audioPreview": false,
@@ -19923,6 +20095,7 @@
         "jsProfileVisualizer.heapprofile.table",
         "jsProfileVisualizer.heapsnapshot.table",
         "jupyter-notebook",
+        "notebookOutputEditor",
         "repl",
         "vscode.audioPreview",
         "vscode.markdown.preview.editor",
@@ -20449,6 +20622,7 @@
             "jsProfileVisualizer.heapprofile.table",
             "jsProfileVisualizer.heapsnapshot.table",
             "jupyter-notebook",
+            "notebookOutputEditor",
             "repl",
             "vscode.audioPreview",
             "vscode.markdown.preview.editor",
@@ -21221,10 +21395,31 @@
       "scope": 4,
       "restricted": false
     },
+    "workbench.secondarySideBar.defaultVisibility": {
+      "type": "string",
+      "enum": [
+        "hidden",
+        "visible",
+        "visibleInWorkspace"
+      ],
+      "default": "hidden",
+      "tags": [
+        "onExp"
+      ],
+      "description": "Controls the default visibility of the secondary side bar in workspaces or empty windows opened for the first time.",
+      "enumDescriptions": [
+        "The secondary side bar is hidden by default.",
+        "The secondary side bar is visible by default.",
+        "The secondary side bar is visible by default if a workspace is opened."
+      ],
+      "defaultDefaultValue": "hidden",
+      "scope": 4,
+      "restricted": false
+    },
     "workbench.secondarySideBar.showLabels": {
       "type": "boolean",
       "default": true,
-      "markdownDescription": "Controls whether activity items in the secondary sidebar title are shown as label or icon. This setting only has an effect when `#workbench.activityBar.location#` is not set to `top`.",
+      "markdownDescription": "Controls whether activity items in the secondary side bar title are shown as label or icon. This setting only has an effect when `#workbench.activityBar.location#` is not set to `top`.",
       "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
@@ -21249,7 +21444,7 @@
         "Use the JSON file editor.",
         "Use the settings UI editor."
       ],
-      "description": "Determines which settings editor to use by default.",
+      "description": "Determines which Settings editor to use by default.",
       "default": "ui",
       "scope": 4,
       "defaultDefaultValue": "ui",
@@ -21296,6 +21491,17 @@
       "default": "filter",
       "scope": 4,
       "defaultDefaultValue": "filter",
+      "restricted": false
+    },
+    "workbench.settings.showSuggestions": {
+      "type": "boolean",
+      "default": false,
+      "description": "Controls whether setting suggestions are shown below the search bar in the Settings editor.",
+      "tags": [
+        "experimental"
+      ],
+      "defaultDefaultValue": false,
+      "scope": 4,
       "restricted": false
     },
     "workbench.settings.useSplitJSON": {
@@ -23319,7 +23525,7 @@
               "type": "boolean"
             },
             {
-              "$ref": "#/$defs/_384"
+              "$ref": "#/$defs/_385"
             }
           ],
           "default": "off",
@@ -23331,7 +23537,7 @@
               "type": "boolean"
             },
             {
-              "$ref": "#/$defs/_384"
+              "$ref": "#/$defs/_385"
             }
           ],
           "default": "off",
@@ -23343,7 +23549,7 @@
               "type": "boolean"
             },
             {
-              "$ref": "#/$defs/_384"
+              "$ref": "#/$defs/_385"
             }
           ],
           "default": "on",
@@ -23468,7 +23674,7 @@
       "items": {
         "anyOf": [
           {
-            "$ref": "#/$defs/_385"
+            "$ref": "#/$defs/_386"
           },
           {
             "type": [
@@ -23476,7 +23682,7 @@
             ],
             "properties": {
               "column": {
-                "$ref": "#/$defs/_385"
+                "$ref": "#/$defs/_386"
               },
               "color": {
                 "type": "string",
@@ -25222,6 +25428,11 @@
         "flag",
         "lightbulb-empty",
         "symbol-method-arrow",
+        "copilot-unavailable",
+        "repo-pinned",
+        "keyboard-tab-above",
+        "keyboard-tab-below",
+        "git-pull-request-done",
         "dialog-error",
         "dialog-warning",
         "dialog-info",
@@ -25835,6 +26046,11 @@
         "$(flag)",
         "$(lightbulb-empty)",
         "$(symbol-method-arrow)",
+        "$(copilot-unavailable)",
+        "$(repo-pinned)",
+        "$(keyboard-tab-above)",
+        "$(keyboard-tab-below)",
+        "$(git-pull-request-done)",
         "$(dialog-error)",
         "$(dialog-warning)",
         "$(dialog-info)",
@@ -26181,6 +26397,18 @@
       "defaultValueSource": {}
     },
     "_280": {
+      "type": "object",
+      "description": "Configure editor settings to be overridden for a language.",
+      "errorMessage": "This setting does not support per-language configuration.",
+      "$ref": "vscode://schemas/settings/resourceLanguage",
+      "default": {
+        "editor.unicodeHighlight.ambiguousCharacters": false,
+        "editor.unicodeHighlight.invisibleCharacters": false,
+        "diffEditor.ignoreTrimWhitespace": false
+      },
+      "defaultValueSource": {}
+    },
+    "_281": {
       "type": "boolean",
       "scope": 5,
       "default": true,
@@ -26192,7 +26420,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_281": {
+    "_282": {
       "type": "boolean",
       "scope": 5,
       "default": true,
@@ -26204,7 +26432,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_282": {
+    "_283": {
       "type": "boolean",
       "scope": 5,
       "default": true,
@@ -26216,7 +26444,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_283": {
+    "_284": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26233,7 +26461,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_284": {
+    "_285": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26250,7 +26478,7 @@
       "defaultDefaultValue": "warning",
       "restricted": false
     },
-    "_285": {
+    "_286": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26267,7 +26495,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_286": {
+    "_287": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26284,7 +26512,7 @@
       "defaultDefaultValue": "warning",
       "restricted": false
     },
-    "_287": {
+    "_288": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26301,7 +26529,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_288": {
+    "_289": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26318,7 +26546,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_289": {
+    "_290": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26335,7 +26563,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_290": {
+    "_291": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26352,7 +26580,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_291": {
+    "_292": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26369,7 +26597,7 @@
       "defaultDefaultValue": "warning",
       "restricted": false
     },
-    "_292": {
+    "_293": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26386,7 +26614,7 @@
       "defaultDefaultValue": "error",
       "restricted": false
     },
-    "_293": {
+    "_294": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26403,7 +26631,7 @@
       "defaultDefaultValue": "error",
       "restricted": false
     },
-    "_294": {
+    "_295": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26420,7 +26648,7 @@
       "defaultDefaultValue": "warning",
       "restricted": false
     },
-    "_295": {
+    "_296": {
       "type": "array",
       "uniqueItems": true,
       "items": {
@@ -26436,7 +26664,7 @@
       "defaultDefaultValue": [],
       "restricted": false
     },
-    "_296": {
+    "_297": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26453,7 +26681,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_297": {
+    "_298": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26470,7 +26698,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_298": {
+    "_299": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26487,7 +26715,7 @@
       "defaultDefaultValue": "warning",
       "restricted": false
     },
-    "_299": {
+    "_300": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26504,7 +26732,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_300": {
+    "_301": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26521,7 +26749,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_301": {
+    "_302": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26538,7 +26766,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_302": {
+    "_303": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26555,7 +26783,7 @@
       "defaultDefaultValue": "warning",
       "restricted": false
     },
-    "_303": {
+    "_304": {
       "type": "boolean",
       "scope": 5,
       "default": true,
@@ -26567,7 +26795,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_304": {
+    "_305": {
       "type": "boolean",
       "scope": 5,
       "default": true,
@@ -26579,7 +26807,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_305": {
+    "_306": {
       "type": "boolean",
       "scope": 5,
       "default": false,
@@ -26591,7 +26819,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_306": {
+    "_307": {
       "type": "string",
       "scope": 5,
       "default": "collapse",
@@ -26607,7 +26835,7 @@
       "defaultDefaultValue": "collapse",
       "restricted": false
     },
-    "_307": {
+    "_308": {
       "type": "boolean",
       "scope": 5,
       "default": true,
@@ -26619,7 +26847,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_308": {
+    "_309": {
       "type": [
         "array",
         "null"
@@ -26633,7 +26861,7 @@
         "type": "string"
       }
     },
-    "_309": {
+    "_310": {
       "type": [
         "array"
       ],
@@ -26649,12 +26877,12 @@
         "setup"
       ]
     },
-    "_310": {
+    "_311": {
       "type": "boolean",
       "markdownDescription": "Whether to wait for source maps to load for each incoming script. This has a performance overhead, and might be safely disabled when running off of disk, so long as `rootPath` is not disabled.",
       "default": false
     },
-    "_311": {
+    "_312": {
       "description": "Show the async calls that led to the current call stack.",
       "default": true,
       "oneOf": [
@@ -26668,7 +26896,7 @@
           ],
           "properties": {
             "onAttach": {
-              "$ref": "#/$defs/_386"
+              "$ref": "#/$defs/_387"
             }
           }
         },
@@ -26679,35 +26907,35 @@
           ],
           "properties": {
             "onceBreakpointResolved": {
-              "$ref": "#/$defs/_386"
+              "$ref": "#/$defs/_387"
             }
           }
         }
       ]
     },
-    "_312": {
+    "_313": {
       "type": "array",
       "description": "An array of file or folder names, or path globs, to skip when debugging. Star patterns and negations are allowed, for example, `[\"**/node_modules/**\", \"!**/node_modules/my-module/**\"]`",
       "default": [
         "${/**"
       ]
     },
-    "_313": {
+    "_314": {
       "type": "boolean",
       "description": "Automatically step through generated code that cannot be mapped back to the original source.",
       "default": true
     },
-    "_314": {
+    "_315": {
       "type": "boolean",
       "description": "Use JavaScript source maps (if they exist).",
       "default": true
     },
-    "_315": {
+    "_316": {
       "type": "boolean",
       "default": true,
       "description": "Whether to use the \"names\" mapping in sourcemaps. This requires requesting source content, which can be slow with certain debuggers."
     },
-    "_316": {
+    "_317": {
       "type": "object",
       "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
       "default": {
@@ -26716,12 +26944,12 @@
         "meteor://💻app/*": "${workspaceFolder}/*"
       }
     },
-    "_317": {
+    "_318": {
       "type": "number",
       "description": "Retry for this number of milliseconds to connect to Node.js. Default is 10000 ms.",
       "default": 10000
     },
-    "_318": {
+    "_319": {
       "type": "object",
       "description": "Timeouts for several debugger operations.",
       "default": {},
@@ -26745,7 +26973,7 @@
       "additionalProperties": false,
       "markdownDescription": "Timeouts for several debugger operations."
     },
-    "_319": {
+    "_320": {
       "description": "Configures what diagnostic output is produced.",
       "default": true,
       "oneOf": [
@@ -26772,7 +27000,7 @@
         }
       ]
     },
-    "_320": {
+    "_321": {
       "enum": [
         "console",
         "std"
@@ -26780,21 +27008,21 @@
       "markdownDescription": "From where to capture output messages: the default debug API if set to `console`, or stdout/stderr streams if set to `std`.",
       "default": "console"
     },
-    "_321": {
+    "_322": {
       "default": true,
       "type": "boolean",
       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example."
     },
-    "_322": {
+    "_323": {
       "type": "string",
       "description": "Customize the textual description the debugger shows for objects (local variables, etc...). Samples:\n      1. this.toString() // will call toString to print all objects\n      2. this.customDescription ? this.customDescription() : defaultValue // Use customDescription method if available, if not return defaultValue\n      3. function (def) { return this.customDescription ? this.customDescription() : def } // Use customDescription method if available, if not return defaultValue\n      "
     },
-    "_323": {
+    "_324": {
       "type": "string",
       "deprecated": true,
       "description": "Customize the properties shown for an object in the debugger (local variables, etc...). Samples:\n    1. { ...this, extraProperty: '12345' } // Add an extraProperty 12345 to all objects\n    2. this.customProperties ? this.customProperties() : this // Use customProperties method if available, if not use the properties in this (the default properties)\n    3. function () { return this.customProperties ? this.customProperties() : this } // Use customDescription method if available, if not return the default properties\n\n    Deprecated: This is a temporary implementation of this feature until we have time to implement it in the way described here: https://github.com/microsoft/vscode/issues/102181"
     },
-    "_324": {
+    "_325": {
       "type": "array",
       "items": {
         "$ref": "#/$defs/_260"
@@ -26802,12 +27030,12 @@
       "default": [],
       "description": "A list of debug sessions which, when this debug session is terminated, will also be stopped."
     },
-    "_325": {
+    "_326": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function."
     },
-    "_326": {
+    "_327": {
       "type": "string",
       "description": "Absolute path to the working directory of the program being debugged. If you've set localRoot then cwd will match that value otherwise it falls back to your workspaceFolder",
       "default": "${workspaceFolder}",
@@ -26816,7 +27044,7 @@
         "setup"
       ]
     },
-    "_327": {
+    "_328": {
       "type": [
         "string",
         "null"
@@ -26824,7 +27052,7 @@
       "description": "Path to the local directory containing the program.",
       "default": null
     },
-    "_328": {
+    "_329": {
       "type": [
         "string",
         "null"
@@ -26832,12 +27060,12 @@
       "description": "Absolute path to the remote directory containing the program.",
       "default": null
     },
-    "_329": {
+    "_330": {
       "type": "boolean",
       "description": "Attach debugger to new child processes automatically.",
       "default": true
     },
-    "_330": {
+    "_331": {
       "type": "object",
       "additionalProperties": {
         "type": [
@@ -26851,12 +27079,12 @@
         "setup"
       ]
     },
-    "_331": {
+    "_332": {
       "type": "string",
       "description": "Absolute path to a file containing environment variable definitions.",
       "default": "${workspaceFolder}/.env"
     },
-    "_332": {
+    "_333": {
       "type": "array",
       "items": {
         "type": "string"
@@ -26864,13 +27092,13 @@
       "markdownDescription": "A list of patterns at which to manually insert entrypoint breakpoints. This can be useful to give the debugger an opportunity to set breakpoints when using sourcemaps that don't exist or can't be detected before launch, such as [with the Serverless framework](https://github.com/microsoft/vscode-js-debug/issues/492).",
       "default": []
     },
-    "_333": {
+    "_334": {
       "type": "number",
       "minimum": 8,
       "description": "Allows you to explicitly specify the Node version that's running, which can be used to disable or enable certain behaviors in cases where the automatic version detection does not work.",
       "default": 12
     },
-    "_334": {
+    "_335": {
       "type": [
         "string",
         "null"
@@ -26881,7 +27109,7 @@
         "setup"
       ]
     },
-    "_335": {
+    "_336": {
       "type": "string",
       "enum": [
         "on",
@@ -26889,7 +27117,7 @@
         "always"
       ]
     },
-    "_336": {
+    "_337": {
       "description": "Try to reconnect to the program if we lose connection. If set to `true`, we'll try once a second, forever. You can customize the interval and maximum number of attempts by specifying the `delay` and `maxAttempts` in an object instead.",
       "default": true,
       "oneOf": [
@@ -26913,367 +27141,81 @@
         }
       ]
     },
-    "_337": {
+    "_338": {
       "type": "string",
       "pattern": "^\\${.*}$"
     },
-    "_338": {
-      "type": "boolean",
-      "default": false,
-      "description": "Complete functions with their parameter signature.",
+    "_339": {
+      "type": "string",
+      "enum": [
+        "prompt",
+        "always",
+        "never"
+      ],
+      "markdownEnumDescriptions": [
+        "Prompt on each rename.",
+        "Always update paths automatically.",
+        "Never rename paths and don't prompt."
+      ],
+      "default": "prompt",
+      "description": "Enable/disable automatic updating of import paths when you rename or move a file in VS Code.",
       "scope": 5,
       "source": {
         "id": "vscode.typescript-language-features",
         "displayName": "TypeScript and JavaScript Language Features"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": "prompt",
       "restricted": false
     },
-    "_339": {
+    "_340": {
       "type": "boolean",
       "default": true,
-      "description": "Enable/disable showing completions on potentially undefined values that insert an optional chain call. Requires strict null checks to be enabled.",
-      "scope": 5,
+      "description": "Enable/disable automatic closing of JSX tags.",
+      "scope": 6,
       "source": {
         "id": "vscode.typescript-language-features",
         "displayName": "TypeScript and JavaScript Language Features"
       },
       "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "_340": {
-      "type": "string",
-      "enum": [
-        "none",
-        "literals",
-        "all"
-      ],
-      "enumDescriptions": [
-        "Disable parameter name hints.",
-        "Enable parameter name hints only for literal arguments.",
-        "Enable parameter name hints for literal and non-literal arguments."
-      ],
-      "default": "none",
-      "markdownDescription": "Enable/disable inlay hints for parameter names:\n```typescript\n\nparseInt(/* str: */ '123', /* radix: */ 8)\n \n```",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": "none",
       "restricted": false
     },
     "_341": {
       "type": "boolean",
-      "default": true,
-      "markdownDescription": "Suppress parameter name hints on arguments whose text is identical to the parameter name.",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "_342": {
-      "type": "boolean",
       "default": false,
-      "markdownDescription": "Enable/disable inlay hints for implicit parameter types:\n```typescript\n\nel.addEventListener('click', e /* :MouseEvent */ => ...)\n \n```",
-      "scope": 5,
+      "description": "Makes `Go to Definition` avoid type declaration files when possible by triggering `Go to Source Definition` instead. This allows `Go to Source Definition` to be triggered with the mouse gesture.",
+      "scope": 4,
       "source": {
         "id": "vscode.typescript-language-features",
         "displayName": "TypeScript and JavaScript Language Features"
       },
       "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "_342": {
+      "scope": 4,
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "Automatically update imports when pasting code. Requires TypeScript 5.6+.",
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
       "restricted": false
     },
     "_343": {
       "type": "boolean",
-      "default": false,
-      "markdownDescription": "Enable/disable inlay hints for implicit variable types:\n```typescript\n\nconst foo /* :number */ = Date.now();\n \n```",
-      "scope": 5,
+      "default": true,
+      "description": "Enable/disable autocomplete suggestions.",
+      "scope": 6,
       "source": {
         "id": "vscode.typescript-language-features",
         "displayName": "TypeScript and JavaScript Language Features"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "restricted": false
     },
     "_344": {
-      "type": "boolean",
-      "default": true,
-      "markdownDescription": "Suppress type hints on variables whose name is identical to the type name.",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "_345": {
-      "type": "boolean",
-      "default": false,
-      "markdownDescription": "Enable/disable inlay hints for implicit types on property declarations:\n```typescript\n\nclass Foo {\n\tprop /* :number */ = Date.now();\n}\n \n```",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": false,
-      "restricted": false
-    },
-    "_346": {
-      "type": "boolean",
-      "default": false,
-      "markdownDescription": "Enable/disable inlay hints for implicit return types on function signatures:\n```typescript\n\nfunction foo() /* :number */ {\n\treturn Date.now();\n} \n \n```",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": false,
-      "restricted": false
-    },
-    "_347": {
-      "type": "boolean",
-      "default": true,
-      "description": "Enable/disable auto-import-style completions on partially-typed import statements.",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "_348": {
-      "type": "boolean",
-      "default": true,
-      "description": "Defines space handling after a comma delimiter.",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "_349": {
-      "type": "boolean",
-      "default": false,
-      "description": "Defines space handling after the constructor keyword.",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": false,
-      "restricted": false
-    },
-    "_350": {
-      "type": "boolean",
-      "default": true,
-      "description": "Defines space handling after a semicolon in a for statement.",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "_351": {
-      "type": "boolean",
-      "default": true,
-      "description": "Defines space handling after a binary operator.",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "_352": {
-      "type": "boolean",
-      "default": true,
-      "description": "Defines space handling after keywords in a control flow statement.",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "_353": {
-      "type": "boolean",
-      "default": true,
-      "description": "Defines space handling after function keyword for anonymous functions.",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "_354": {
-      "type": "boolean",
-      "default": false,
-      "description": "Defines space handling before function argument parentheses.",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": false,
-      "restricted": false
-    },
-    "_355": {
-      "type": "boolean",
-      "default": false,
-      "description": "Defines space handling after opening and before closing non-empty parenthesis.",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": false,
-      "restricted": false
-    },
-    "_356": {
-      "type": "boolean",
-      "default": false,
-      "description": "Defines space handling after opening and before closing non-empty brackets.",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": false,
-      "restricted": false
-    },
-    "_357": {
-      "type": "boolean",
-      "default": true,
-      "description": "Defines space handling after opening and before closing non-empty braces.",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "_358": {
-      "type": "boolean",
-      "default": true,
-      "description": "Defines space handling after opening and before closing empty braces.",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "_359": {
-      "type": "boolean",
-      "default": false,
-      "description": "Defines space handling after opening and before closing template string braces.",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": false,
-      "restricted": false
-    },
-    "_360": {
-      "type": "boolean",
-      "default": false,
-      "description": "Defines space handling after opening and before closing JSX expression braces.",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": false,
-      "restricted": false
-    },
-    "_361": {
-      "type": "boolean",
-      "default": false,
-      "description": "Defines whether an open brace is put onto a new line for functions or not.",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": false,
-      "restricted": false
-    },
-    "_362": {
-      "type": "boolean",
-      "default": false,
-      "description": "Defines whether an open brace is put onto a new line for control blocks or not.",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": false,
-      "restricted": false
-    },
-    "_363": {
-      "type": "string",
-      "default": "ignore",
-      "description": "Defines handling of optional semicolons.",
-      "scope": 5,
-      "enum": [
-        "ignore",
-        "insert",
-        "remove"
-      ],
-      "enumDescriptions": [
-        "Don't insert or remove any semicolons.",
-        "Insert semicolons at statement ends.",
-        "Remove unnecessary semicolons."
-      ],
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": "ignore",
-      "restricted": false
-    },
-    "_364": {
-      "type": "boolean",
-      "default": true,
-      "description": "Indent case clauses in switch statements. Requires using TypeScript 5.1+ in the workspace.",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "_365": {
-      "type": "boolean",
-      "default": true,
-      "description": "Enable/disable suggestions for paths in import statements and require calls.",
-      "scope": 5,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "_366": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable auto import suggestions.",
@@ -27285,7 +27227,31 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_367": {
+    "_345": {
+      "type": "boolean",
+      "default": false,
+      "description": "Complete functions with their parameter signature.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "_346": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable suggestions for paths in import statements and require calls.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "_347": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable suggestion to complete JSDoc comments.",
@@ -27297,7 +27263,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_368": {
+    "_348": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "Enable/disable generating `@returns` annotations for JSDoc templates.",
@@ -27309,7 +27275,43 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_369": {
+    "_349": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable showing completions on potentially undefined values that insert an optional chain call. Requires strict null checks to be enabled.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "_350": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable auto-import-style completions on partially-typed import statements.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "_351": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable snippet completions for class members.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "_352": {
       "type": "string",
       "enum": [
         "auto",
@@ -27331,7 +27333,7 @@
       "defaultDefaultValue": "auto",
       "restricted": false
     },
-    "_370": {
+    "_353": {
       "type": "string",
       "enum": [
         "shortest",
@@ -27355,7 +27357,7 @@
       "defaultDefaultValue": "shortest",
       "restricted": false
     },
-    "_371": {
+    "_354": {
       "type": "string",
       "enum": [
         "auto",
@@ -27385,7 +27387,7 @@
       "defaultDefaultValue": "auto",
       "restricted": false
     },
-    "_372": {
+    "_355": {
       "type": "array",
       "items": {
         "type": "string"
@@ -27399,7 +27401,7 @@
       "default": [],
       "restricted": false
     },
-    "_373": {
+    "_356": {
       "type": "array",
       "items": {
         "type": "string"
@@ -27413,7 +27415,7 @@
       "default": [],
       "restricted": false
     },
-    "_374": {
+    "_357": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable introducing aliases for object shorthand properties during renames.",
@@ -27426,7 +27428,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_375": {
+    "_358": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable introducing aliases for object shorthand properties during renames.",
@@ -27438,7 +27440,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_376": {
+    "_359": {
       "type": "boolean",
       "default": true,
       "description": "When on a JSX tag, try to rename the matching tag instead of renaming the symbol. Requires using TypeScript 5.1+ in the workspace.",
@@ -27450,7 +27452,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_377": {
+    "_360": {
       "type": "object",
       "markdownDescription": "Advanced preferences that control how imports are ordered.",
       "properties": {
@@ -27535,33 +27537,247 @@
       "default": {},
       "restricted": false
     },
-    "_378": {
-      "type": "string",
-      "enum": [
-        "prompt",
-        "always",
-        "never"
-      ],
-      "markdownEnumDescriptions": [
-        "Prompt on each rename.",
-        "Always update paths automatically.",
-        "Never rename paths and don't prompt."
-      ],
-      "default": "prompt",
-      "description": "Enable/disable automatic updating of import paths when you rename or move a file in VS Code.",
+    "_361": {
+      "type": "boolean",
+      "default": true,
+      "description": "Defines space handling after a comma delimiter.",
       "scope": 5,
       "source": {
         "id": "vscode.typescript-language-features",
         "displayName": "TypeScript and JavaScript Language Features"
       },
-      "defaultDefaultValue": "prompt",
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "_362": {
+      "type": "boolean",
+      "default": false,
+      "description": "Defines space handling after the constructor keyword.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "_363": {
+      "type": "boolean",
+      "default": true,
+      "description": "Defines space handling after a semicolon in a for statement.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "_364": {
+      "type": "boolean",
+      "default": true,
+      "description": "Defines space handling after a binary operator.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "_365": {
+      "type": "boolean",
+      "default": true,
+      "description": "Defines space handling after keywords in a control flow statement.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "_366": {
+      "type": "boolean",
+      "default": true,
+      "description": "Defines space handling after function keyword for anonymous functions.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "_367": {
+      "type": "boolean",
+      "default": false,
+      "description": "Defines space handling before function argument parentheses.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "_368": {
+      "type": "boolean",
+      "default": false,
+      "description": "Defines space handling after opening and before closing non-empty parenthesis.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "_369": {
+      "type": "boolean",
+      "default": false,
+      "description": "Defines space handling after opening and before closing non-empty brackets.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "_370": {
+      "type": "boolean",
+      "default": true,
+      "description": "Defines space handling after opening and before closing non-empty braces.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "_371": {
+      "type": "boolean",
+      "default": true,
+      "description": "Defines space handling after opening and before closing empty braces.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "_372": {
+      "type": "boolean",
+      "default": false,
+      "description": "Defines space handling after opening and before closing template string braces.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "_373": {
+      "type": "boolean",
+      "default": false,
+      "description": "Defines space handling after opening and before closing JSX expression braces.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "_374": {
+      "type": "boolean",
+      "default": false,
+      "description": "Defines whether an open brace is put onto a new line for functions or not.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "_375": {
+      "type": "boolean",
+      "default": false,
+      "description": "Defines whether an open brace is put onto a new line for control blocks or not.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "_376": {
+      "type": "string",
+      "default": "ignore",
+      "description": "Defines handling of optional semicolons.",
+      "scope": 5,
+      "enum": [
+        "ignore",
+        "insert",
+        "remove"
+      ],
+      "enumDescriptions": [
+        "Don't insert or remove any semicolons.",
+        "Insert semicolons at statement ends.",
+        "Remove unnecessary semicolons."
+      ],
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": "ignore",
+      "restricted": false
+    },
+    "_377": {
+      "type": "boolean",
+      "default": true,
+      "description": "Indent case clauses in switch statements. Requires using TypeScript 5.1+ in the workspace.",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "_378": {
+      "type": "string",
+      "enum": [
+        "none",
+        "literals",
+        "all"
+      ],
+      "enumDescriptions": [
+        "Disable parameter name hints.",
+        "Enable parameter name hints only for literal arguments.",
+        "Enable parameter name hints for literal and non-literal arguments."
+      ],
+      "default": "none",
+      "markdownDescription": "Enable/disable inlay hints for parameter names:\n```typescript\n\nparseInt(/* str: */ '123', /* radix: */ 8)\n \n```",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": "none",
       "restricted": false
     },
     "_379": {
       "type": "boolean",
       "default": true,
-      "description": "Enable/disable automatic closing of JSX tags.",
-      "scope": 6,
+      "markdownDescription": "Suppress parameter name hints on arguments whose text is identical to the parameter name.",
+      "scope": 5,
       "source": {
         "id": "vscode.typescript-language-features",
         "displayName": "TypeScript and JavaScript Language Features"
@@ -27571,20 +27787,32 @@
     },
     "_380": {
       "type": "boolean",
-      "default": true,
-      "description": "Enabled/disable autocomplete suggestions.",
-      "scope": 6,
+      "default": false,
+      "markdownDescription": "Enable/disable inlay hints for implicit parameter types:\n```typescript\n\nel.addEventListener('click', e /* :MouseEvent */ => ...)\n \n```",
+      "scope": 5,
       "source": {
         "id": "vscode.typescript-language-features",
         "displayName": "TypeScript and JavaScript Language Features"
       },
-      "defaultDefaultValue": true,
+      "defaultDefaultValue": false,
       "restricted": false
     },
     "_381": {
       "type": "boolean",
+      "default": false,
+      "markdownDescription": "Enable/disable inlay hints for implicit variable types:\n```typescript\n\nconst foo /* :number */ = Date.now();\n \n```",
+      "scope": 5,
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "TypeScript and JavaScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "_382": {
+      "type": "boolean",
       "default": true,
-      "description": "Enable/disable snippet completions for class members.",
+      "markdownDescription": "Suppress type hints on variables whose name is identical to the type name.",
       "scope": 5,
       "source": {
         "id": "vscode.typescript-language-features",
@@ -27593,11 +27821,11 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_382": {
+    "_383": {
       "type": "boolean",
       "default": false,
-      "description": "Makes `Go to Definition` avoid type declaration files when possible by triggering `Go to Source Definition` instead. This allows `Go to Source Definition` to be triggered with the mouse gesture.",
-      "scope": 4,
+      "markdownDescription": "Enable/disable inlay hints for implicit types on property declarations:\n```typescript\n\nclass Foo {\n\tprop /* :number */ = Date.now();\n}\n \n```",
+      "scope": 5,
       "source": {
         "id": "vscode.typescript-language-features",
         "displayName": "TypeScript and JavaScript Language Features"
@@ -27605,19 +27833,19 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_383": {
-      "scope": 4,
+    "_384": {
       "type": "boolean",
-      "default": true,
-      "markdownDescription": "Automatically update imports when pasting code. Requires TypeScript 5.6+.",
+      "default": false,
+      "markdownDescription": "Enable/disable inlay hints for implicit return types on function signatures:\n```typescript\n\nfunction foo() /* :number */ {\n\treturn Date.now();\n} \n \n```",
+      "scope": 5,
       "source": {
         "id": "vscode.typescript-language-features",
         "displayName": "TypeScript and JavaScript Language Features"
       },
-      "defaultDefaultValue": true,
+      "defaultDefaultValue": false,
       "restricted": false
     },
-    "_384": {
+    "_385": {
       "type": "string",
       "enum": [
         "on",
@@ -27630,11 +27858,11 @@
         "Quick suggestions are disabled"
       ]
     },
-    "_385": {
+    "_386": {
       "type": "number",
       "description": "Number of monospace characters at which this editor ruler will render."
     },
-    "_386": {
+    "_387": {
       "type": "number",
       "default": 32
     }

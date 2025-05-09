@@ -9,6 +9,7 @@
       "type": "string",
       "enum": [
         "~remote.forwardedPorts.focus",
+        "~remote.forwardedPorts.open",
         "~remote.forwardedPorts.removeView",
         "~remote.forwardedPorts.resetViewLocation",
         "~remote.forwardedPorts.toggleVisibility",
@@ -66,6 +67,7 @@
         "chatEditing.openFileInDiff",
         "chatEditing.removeFileFromWorkingSet",
         "chatEditing.viewChanges",
+        "chatEditing.viewPreviousEdits",
         "chatEditor.action.accept",
         "chatEditor.action.acceptHunk",
         "chatEditor.action.navigateNext",
@@ -299,7 +301,6 @@
         "editor.action.indentLines",
         "editor.action.indentUsingSpaces",
         "editor.action.indentUsingTabs",
-        "editor.action.inlineSuggest.acceptNextInlineEditPart",
         "editor.action.inlineSuggest.acceptNextLine",
         "editor.action.inlineSuggest.acceptNextWord",
         "editor.action.inlineSuggest.commit",
@@ -450,6 +451,7 @@
         "editor.debug.action.addLogPoint",
         "editor.debug.action.closeExceptionWidget",
         "editor.debug.action.conditionalBreakpoint",
+        "editor.debug.action.copyAddress",
         "editor.debug.action.editBreakpoint",
         "editor.debug.action.goToNextBreakpoint",
         "editor.debug.action.goToPreviousBreakpoint",
@@ -591,6 +593,7 @@
         "extensions.actions.searchByCategory.Visualization",
         "extensions.filter.featured",
         "extensions.recommendedList.focus",
+        "extensions.recommendedList.open",
         "extensions.recommendedList.resetViewLocation",
         "extensions.sort.installs",
         "extensions.sort.name",
@@ -755,6 +758,7 @@
         "git.undoCommit",
         "git.unstage",
         "git.unstageAll",
+        "git.unstageChange",
         "git.unstageFile",
         "git.unstageSelectedRanges",
         "git.viewChanges",
@@ -785,6 +789,8 @@
         "iconSelectBox.focusUp",
         "iconSelectBox.selectFocused",
         "imagePreview.copyImage",
+        "imagePreview.reopenAsPreview",
+        "imagePreview.reopenAsText",
         "imagePreview.zoomIn",
         "imagePreview.zoomOut",
         "increaseSearchEditorContextLines",
@@ -808,8 +814,11 @@
         "inlineChat.toggleDiff",
         "inlineChat.unstash",
         "inlineChat.viewInChat",
+        "inlineChat2.cancelRequest",
+        "inlineChat2.close",
+        "inlineChat2.keep",
         "inlineChat2.reveal",
-        "inlineChat2.stop",
+        "inlineChat2.undo",
         "insertBestCompletion",
         "insertNextSuggestion",
         "insertPrevSuggestion",
@@ -832,10 +841,13 @@
         "javascript.removeUnusedImports",
         "javascript.sortImports",
         "jsBrowserBreakpoints.focus",
+        "jsBrowserBreakpoints.open",
         "jsBrowserBreakpoints.resetViewLocation",
         "jsDebugNetworkTree.focus",
+        "jsDebugNetworkTree.open",
         "jsDebugNetworkTree.resetViewLocation",
         "jsExcludedCallers.focus",
+        "jsExcludedCallers.open",
         "jsExcludedCallers.resetViewLocation",
         "json.clearCache",
         "json.sort",
@@ -951,11 +963,13 @@
         "merge.showNonConflictingChanges",
         "merge.toggleActiveConflictInput1",
         "merge.toggleActiveConflictInput2",
+        "mergeEditor.acceptAllCombination",
         "mergeEditor.acceptMerge",
         "mergeEditor.compareInput1WithBase",
         "mergeEditor.compareInput2WithBase",
         "mergeEditor.resetCloseWithConflictsChoice",
         "mergeEditor.resetResultToBaseAndAutoMerge",
+        "mergeEditor.toggleBetweenInputs",
         "moveActiveEditor",
         "moveFileToTrash",
         "multiDiffEditor.collapseAll",
@@ -1048,6 +1062,7 @@
         "notebook.cellOuput.showEmptyOutputs",
         "notebook.cellOutput.addToChat",
         "notebook.cellOutput.copy",
+        "notebook.cellOutput.openInOutputPreview",
         "notebook.cellOutput.openInTextEditor",
         "notebook.centerActiveCell",
         "notebook.chat.selectAndInsertKernelVariable",
@@ -1134,6 +1149,7 @@
         "notifications.toggleList",
         "npm.debugScript",
         "npm.focus",
+        "npm.open",
         "npm.openScript",
         "npm.packageManager",
         "npm.refresh",
@@ -1154,6 +1170,7 @@
         "outline.filterOnType",
         "outline.focus",
         "outline.followCursor",
+        "outline.open",
         "outline.removeView",
         "outline.resetViewLocation",
         "outline.sortByKind",
@@ -1197,6 +1214,7 @@
         "refactorPreview.focus",
         "refactorPreview.groupByFile",
         "refactorPreview.groupByType",
+        "refactorPreview.open",
         "refactorPreview.resetViewContainerLocation",
         "refactorPreview.resetViewLocation",
         "refactorPreview.toggleCheckedState",
@@ -1223,6 +1241,7 @@
         "references-view.showSupertypes",
         "references-view.showTypeHierarchy",
         "references-view.tree.focus",
+        "references-view.tree.open",
         "references-view.tree.resetViewLocation",
         "registerWindowTitleVariable",
         "remote.tunnel.changeLocalPort",
@@ -1241,6 +1260,7 @@
         "removeRootFolder",
         "removeSecondaryCursors",
         "renameFile",
+        "reopenActiveEditorWith",
         "repl.action.acceptInput",
         "repl.action.copyAll",
         "repl.action.filter",
@@ -1421,6 +1441,7 @@
         "testing.viewAsList",
         "testing.viewAsTree",
         "timeline.focus",
+        "timeline.open",
         "timeline.removeView",
         "timeline.resetViewLocation",
         "timeline.toggleVisibility",
@@ -1431,7 +1452,6 @@
         "toggle.window.commandCenter",
         "toggle.window.customTitleBarVisibility",
         "toggle.window.customTitleBarVisibility.windowed",
-        "toggle.window.titleBarStyle",
         "toggle.workbench.editor.editorActionsLocation",
         "toggle.workbench.experimental.share.enabled",
         "toggle.workbench.layoutControl.enabled",
@@ -1457,6 +1477,8 @@
         "tunnel-forwarding.restart",
         "tunnel-forwarding.showLog",
         "type",
+        "typescript.experimental.disableTsgo",
+        "typescript.experimental.enableTsgo",
         "typescript.findAllFileReferences",
         "typescript.goToProjectConfig",
         "typescript.goToSourceDefinition",
@@ -1507,8 +1529,10 @@
         "welcome.goBack",
         "welcome.markStepComplete",
         "welcome.markStepIncomplete",
+        "welcome.newWorkspaceChat",
         "welcome.showAllWalkthroughs",
         "welcome.showNewFileEntries",
+        "welcome.showNewWelcome",
         "widgetNavigation.focusNext",
         "widgetNavigation.focusPrevious",
         "workbench.accounts.actions.signin",
@@ -1526,23 +1550,24 @@
         "workbench.action.alignQuickInputCenter",
         "workbench.action.alignQuickInputTop",
         "workbench.action.alternativeAcceptSelectedQuickOpenItem",
+        "workbench.action.askVScode",
         "workbench.action.blur",
         "workbench.action.browseColorThemesInMarketplace",
         "workbench.action.chat.acceptTool",
         "workbench.action.chat.addDynamicVariable",
         "workbench.action.chat.addParticipant",
-        "workbench.action.chat.addSelectedFilesToWorkingSet",
         "workbench.action.chat.addToChatAction",
         "workbench.action.chat.applyCompareEdits",
         "workbench.action.chat.applyInEditor",
         "workbench.action.chat.assignSelectedAgent",
-        "workbench.action.chat.attach.prompt",
+        "workbench.action.chat.attach.instructions",
         "workbench.action.chat.attachContext",
         "workbench.action.chat.attachFile",
         "workbench.action.chat.attachFolder",
         "workbench.action.chat.attachSelection",
         "workbench.action.chat.attachTools",
         "workbench.action.chat.cancel",
+        "workbench.action.chat.changeModel",
         "workbench.action.chat.clearHistory",
         "workbench.action.chat.clearInputHistory",
         "workbench.action.chat.configureCodeCompletions",
@@ -1551,8 +1576,6 @@
         "workbench.action.chat.copyItem",
         "workbench.action.chat.copyLink",
         "workbench.action.chat.discardCompareEdits",
-        "workbench.action.chat.done",
-        "workbench.action.chat.editing.attachContext",
         "workbench.action.chat.export",
         "workbench.action.chat.focusInput",
         "workbench.action.chat.hideSetup",
@@ -1567,6 +1590,7 @@
         "workbench.action.chat.installProviderForVoiceChat",
         "workbench.action.chat.logChatIndex",
         "workbench.action.chat.logInputHistory",
+        "workbench.action.chat.manageOverages",
         "workbench.action.chat.manageSettings",
         "workbench.action.chat.markHelpful",
         "workbench.action.chat.markUnhelpful",
@@ -1575,10 +1599,13 @@
         "workbench.action.chat.nextCodeBlock",
         "workbench.action.chat.nextFileTree",
         "workbench.action.chat.open",
-        "workbench.action.chat.openEditSession",
+        "workbench.action.chat.openAgent",
+        "workbench.action.chat.openAsk",
+        "workbench.action.chat.openEdit",
         "workbench.action.chat.openInEditor",
         "workbench.action.chat.openInNewWindow",
         "workbench.action.chat.openInSidebar",
+        "workbench.action.chat.openModelPicker",
         "workbench.action.chat.openQuotaExceededDialog",
         "workbench.action.chat.openStorageFolder",
         "workbench.action.chat.previousCodeBlock",
@@ -1586,19 +1613,16 @@
         "workbench.action.chat.quickVoiceChat",
         "workbench.action.chat.readChatResponseAloud",
         "workbench.action.chat.redoEdit",
-        "workbench.action.chat.remove",
         "workbench.action.chat.reportIssueForBug",
         "workbench.action.chat.resetTrustedTools",
         "workbench.action.chat.retry",
+        "workbench.action.chat.run-in-new-chat.prompt.current",
+        "workbench.action.chat.run.prompt",
+        "workbench.action.chat.run.prompt.current",
         "workbench.action.chat.runInTerminal",
-        "workbench.action.chat.selectAndInsertFile",
-        "workbench.action.chat.selectAndInsertFolder",
-        "workbench.action.chat.selectAndInsertProblems",
-        "workbench.action.chat.selectAndInsertSym",
-        "workbench.action.chat.sendToChatEditing",
+        "workbench.action.chat.save-to-prompt",
         "workbench.action.chat.sendToNewChat",
         "workbench.action.chat.showExtensionsUsingCopilot",
-        "workbench.action.chat.startEditing",
         "workbench.action.chat.startVoiceChat",
         "workbench.action.chat.stopListening",
         "workbench.action.chat.stopListeningAndSubmit",
@@ -1611,6 +1635,8 @@
         "workbench.action.chat.toggleAgentMode",
         "workbench.action.chat.toggleRequestPaused",
         "workbench.action.chat.triggerSetup",
+        "workbench.action.chat.triggerSetupFromAccounts",
+        "workbench.action.chat.triggerSetupWithoutDialog",
         "workbench.action.chat.undoEdit",
         "workbench.action.chat.undoEdits",
         "workbench.action.chat.upgradePlan",
@@ -1689,6 +1715,8 @@
         "workbench.action.decreaseViewHeight",
         "workbench.action.decreaseViewSize",
         "workbench.action.decreaseViewWidth",
+        "workbench.action.disableCompactAuxiliaryWindow",
+        "workbench.action.disableWindowAlwaysOnTop",
         "workbench.action.download",
         "workbench.action.duplicateActiveEditorGroupDown",
         "workbench.action.duplicateActiveEditorGroupLeft",
@@ -1713,10 +1741,9 @@
         "workbench.action.editorLayoutTwoRows",
         "workbench.action.editorLayoutTwoRowsRight",
         "workbench.action.edits.addFilesFromReferences",
-        "workbench.action.edits.attachFile",
-        "workbench.action.edits.attachFolder",
-        "workbench.action.edits.attachSelection",
         "workbench.action.edits.submit",
+        "workbench.action.enableCompactAuxiliaryWindow",
+        "workbench.action.enableWindowAlwaysOnTop",
         "workbench.action.evenEditorWidths",
         "workbench.action.exitZenMode",
         "workbench.action.expandAllComments",
@@ -1785,7 +1812,6 @@
         "workbench.action.focusTitleBar",
         "workbench.action.generateColorTheme",
         "workbench.action.getStartedWithAccessibilityFeatures",
-        "workbench.action.getStartedWithCopilot",
         "workbench.action.gotoLine",
         "workbench.action.gotoSymbol",
         "workbench.action.hideComment",
@@ -2220,6 +2246,7 @@
         "workbench.action.toggleAuxiliaryBar",
         "workbench.action.toggleCenteredLayout",
         "workbench.action.toggleCommenting",
+        "workbench.action.toggleCompactAuxiliaryWindow",
         "workbench.action.toggleConfirmBeforeClose",
         "workbench.action.toggleDevTools",
         "workbench.action.toggleEditorGroupLayout",
@@ -2246,6 +2273,7 @@
         "workbench.action.toggleSplitEditorInGroup",
         "workbench.action.toggleSplitEditorInGroupLayout",
         "workbench.action.toggleStatusbarVisibility",
+        "workbench.action.toggleWindowAlwaysOnTop",
         "workbench.action.toggleZenMode",
         "workbench.action.triggerReconnect",
         "workbench.action.troubleshootIssue.start",
@@ -2294,9 +2322,9 @@
         "workbench.banner.focusBanner",
         "workbench.banner.focusNextAction",
         "workbench.banner.focusPreviousAction",
-        "workbench.command.prompts.create.local",
-        "workbench.command.prompts.create.user",
-        "workbench.command.prompts.use",
+        "workbench.command.instructions.attach",
+        "workbench.command.new.instructions",
+        "workbench.command.new.prompt",
         "workbench.debug.action.copyAll",
         "workbench.debug.action.focusBreakpointsView",
         "workbench.debug.action.focusCallStackView",
@@ -2304,11 +2332,15 @@
         "workbench.debug.action.focusVariablesView",
         "workbench.debug.action.focusWatchView",
         "workbench.debug.action.toggleRepl",
+        "workbench.debug.breakPointsView.open",
         "workbench.debug.breakPointsView.resetViewLocation",
+        "workbench.debug.callStackView.open",
         "workbench.debug.callStackView.resetViewLocation",
         "workbench.debug.loadedScriptsView.focus",
+        "workbench.debug.loadedScriptsView.open",
         "workbench.debug.loadedScriptsView.resetViewLocation",
         "workbench.debug.panel.action.clearReplAction",
+        "workbench.debug.variablesView.open",
         "workbench.debug.variablesView.resetViewLocation",
         "workbench.debug.viewlet.action.addDataBreakpointOnAddress",
         "workbench.debug.viewlet.action.addFunctionBreakpointAction",
@@ -2324,8 +2356,10 @@
         "workbench.debug.viewlet.action.removeBreakpoint",
         "workbench.debug.viewlet.action.toggleBreakpointsActivatedAction",
         "workbench.debug.viewlet.action.viewMemory",
+        "workbench.debug.watchExpressionsView.open",
         "workbench.debug.watchExpressionsView.resetViewLocation",
         "workbench.debug.welcome.focus",
+        "workbench.debug.welcome.open",
         "workbench.debug.welcome.removeView",
         "workbench.debug.welcome.resetViewLocation",
         "workbench.debug.welcome.toggleVisibility",
@@ -2340,10 +2374,12 @@
         "workbench.editSessions.actions.signIn",
         "workbench.editSessions.actions.store",
         "workbench.editSessions.actions.storeCurrent",
+        "workbench.explorer.emptyView.open",
         "workbench.explorer.emptyView.removeView",
         "workbench.explorer.emptyView.resetViewLocation",
         "workbench.explorer.emptyView.toggleVisibility",
         "workbench.explorer.fileView.focus",
+        "workbench.explorer.openEditorsView.open",
         "workbench.explorer.openEditorsView.removeView",
         "workbench.explorer.openEditorsView.resetViewLocation",
         "workbench.explorer.openEditorsView.toggleVisibility",
@@ -2446,6 +2482,7 @@
         "workbench.mcp.resetTrust",
         "workbench.mcp.restartServer",
         "workbench.mcp.serverOptions",
+        "workbench.mcp.showConfiguration",
         "workbench.mcp.showOutput",
         "workbench.mcp.startServer",
         "workbench.mcp.stopServer",
@@ -2463,10 +2500,6 @@
         "workbench.panel.chat.view.copilot.removeView",
         "workbench.panel.chat.view.copilot.resetViewLocation",
         "workbench.panel.chat.view.copilot.toggleVisibility",
-        "workbench.panel.chat.view.edits.focus",
-        "workbench.panel.chat.view.edits.resetViewLocation",
-        "workbench.panel.chatEditing",
-        "workbench.panel.chatEditing.resetViewContainerLocation",
         "workbench.panel.markers.resetViewContainerLocation",
         "workbench.panel.markers.view.focus",
         "workbench.panel.markers.view.removeView",
@@ -2484,6 +2517,7 @@
         "workbench.panel.repl.view.toggleVisibility",
         "workbench.panel.testResults.resetViewContainerLocation",
         "workbench.panel.testResults.view.focus",
+        "workbench.panel.testResults.view.open",
         "workbench.panel.testResults.view.resetViewLocation",
         "workbench.profiles.actions.cleanupProfiles",
         "workbench.profiles.actions.createFromCurrentProfile",
@@ -2528,9 +2562,11 @@
         "workbench.scm.action.setTreeViewModeNavigation",
         "workbench.scm.focus",
         "workbench.scm.history.focus",
+        "workbench.scm.history.open",
         "workbench.scm.history.resetViewLocation",
         "workbench.scm.removeView",
         "workbench.scm.repositories.focus",
+        "workbench.scm.repositories.open",
         "workbench.scm.repositories.resetViewLocation",
         "workbench.scm.resetViewLocation",
         "workbench.scm.toggleVisibility",
@@ -2581,70 +2617,102 @@
         "workbench.view.sync",
         "workbench.view.sync.resetViewContainerLocation",
         "workbench.view.testCoverage.focus",
+        "workbench.view.testCoverage.open",
         "workbench.view.testCoverage.resetViewLocation",
         "workbench.view.testing.focus",
+        "workbench.view.testing.open",
         "workbench.view.testing.resetViewLocation",
         "workbench.views.editSessions.data.focus",
+        "workbench.views.editSessions.data.open",
         "workbench.views.editSessions.data.resetViewLocation",
         "workbench.views.extensions.builtinFeatureExtensions.focus",
+        "workbench.views.extensions.builtinFeatureExtensions.open",
         "workbench.views.extensions.builtinFeatureExtensions.resetViewLocation",
         "workbench.views.extensions.builtinProgrammingLanguageExtensions.focus",
+        "workbench.views.extensions.builtinProgrammingLanguageExtensions.open",
         "workbench.views.extensions.builtinProgrammingLanguageExtensions.resetViewLocation",
         "workbench.views.extensions.builtinThemeExtensions.focus",
+        "workbench.views.extensions.builtinThemeExtensions.open",
         "workbench.views.extensions.builtinThemeExtensions.resetViewLocation",
         "workbench.views.extensions.deprecatedExtensions.focus",
+        "workbench.views.extensions.deprecatedExtensions.open",
         "workbench.views.extensions.deprecatedExtensions.resetViewLocation",
         "workbench.views.extensions.disabled.focus",
+        "workbench.views.extensions.disabled.open",
         "workbench.views.extensions.disabled.resetViewLocation",
         "workbench.views.extensions.enabled.focus",
+        "workbench.views.extensions.enabled.open",
         "workbench.views.extensions.enabled.resetViewLocation",
         "workbench.views.extensions.installed.focus",
+        "workbench.views.extensions.installed.open",
         "workbench.views.extensions.installed.resetViewLocation",
         "workbench.views.extensions.marketplace.focus",
+        "workbench.views.extensions.marketplace.open",
         "workbench.views.extensions.marketplace.resetViewLocation",
         "workbench.views.extensions.otherRecommendations.focus",
+        "workbench.views.extensions.otherRecommendations.open",
         "workbench.views.extensions.otherRecommendations.resetViewLocation",
         "workbench.views.extensions.popular.focus",
+        "workbench.views.extensions.popular.open",
         "workbench.views.extensions.popular.resetViewLocation",
         "workbench.views.extensions.searchBuiltin.focus",
+        "workbench.views.extensions.searchBuiltin.open",
         "workbench.views.extensions.searchBuiltin.resetViewLocation",
         "workbench.views.extensions.searchDisabled.focus",
+        "workbench.views.extensions.searchDisabled.open",
         "workbench.views.extensions.searchDisabled.resetViewLocation",
         "workbench.views.extensions.searchEnabled.focus",
+        "workbench.views.extensions.searchEnabled.open",
         "workbench.views.extensions.searchEnabled.resetViewLocation",
         "workbench.views.extensions.searchInstalled.focus",
+        "workbench.views.extensions.searchInstalled.open",
         "workbench.views.extensions.searchInstalled.resetViewLocation",
         "workbench.views.extensions.searchOutdated.focus",
+        "workbench.views.extensions.searchOutdated.open",
         "workbench.views.extensions.searchOutdated.resetViewLocation",
         "workbench.views.extensions.searchRecentlyUpdated.focus",
+        "workbench.views.extensions.searchRecentlyUpdated.open",
         "workbench.views.extensions.searchRecentlyUpdated.resetViewLocation",
         "workbench.views.extensions.searchWorkspaceUnsupported.focus",
+        "workbench.views.extensions.searchWorkspaceUnsupported.open",
         "workbench.views.extensions.searchWorkspaceUnsupported.resetViewLocation",
         "workbench.views.extensions.untrustedPartiallySupportedExtensions.focus",
+        "workbench.views.extensions.untrustedPartiallySupportedExtensions.open",
         "workbench.views.extensions.untrustedPartiallySupportedExtensions.resetViewLocation",
         "workbench.views.extensions.untrustedUnsupportedExtensions.focus",
+        "workbench.views.extensions.untrustedUnsupportedExtensions.open",
         "workbench.views.extensions.untrustedUnsupportedExtensions.resetViewLocation",
         "workbench.views.extensions.virtualPartiallySupportedExtensions.focus",
+        "workbench.views.extensions.virtualPartiallySupportedExtensions.open",
         "workbench.views.extensions.virtualPartiallySupportedExtensions.resetViewLocation",
         "workbench.views.extensions.virtualUnsupportedExtensions.focus",
+        "workbench.views.extensions.virtualUnsupportedExtensions.open",
         "workbench.views.extensions.virtualUnsupportedExtensions.resetViewLocation",
         "workbench.views.extensions.workspaceRecommendations.focus",
+        "workbench.views.extensions.workspaceRecommendations.open",
         "workbench.views.extensions.workspaceRecommendations.resetViewLocation",
         "workbench.views.sync.conflicts.focus",
+        "workbench.views.sync.conflicts.open",
         "workbench.views.sync.conflicts.resetViewLocation",
         "workbench.views.sync.externalActivity.focus",
+        "workbench.views.sync.externalActivity.open",
         "workbench.views.sync.externalActivity.resetViewLocation",
         "workbench.views.sync.localActivity.focus",
+        "workbench.views.sync.localActivity.open",
         "workbench.views.sync.localActivity.resetViewLocation",
         "workbench.views.sync.machines.focus",
+        "workbench.views.sync.machines.open",
         "workbench.views.sync.machines.resetViewLocation",
         "workbench.views.sync.remoteActivity.focus",
+        "workbench.views.sync.remoteActivity.open",
         "workbench.views.sync.remoteActivity.resetViewLocation",
         "workbench.views.sync.troubleshoot.focus",
+        "workbench.views.sync.troubleshoot.open",
         "workbench.views.sync.troubleshoot.resetViewLocation"
       ],
       "enumDescriptions": [
         "Focus on Ports View",
+        "Opens view Ports",
         "Hides the Ports view if it is visible and the view container it is located in is visible",
         "Reset Location",
         "Toggles the visibility of the Ports view if the view container it is located in is visible",
@@ -2702,14 +2770,15 @@
         "Open Changes in Diff Editor",
         "Remove File",
         "View All Edits",
+        "View Previous Edits",
         "Keep Chat Edits",
         "Keep this Change",
         "Go to Next Chat Edit",
         "Go to Previous Chat Edit",
         "Undo Chat Edits",
         "Review",
-        "Show Accessible Diff View",
-        "Toggle Diff Editor",
+        "Show Accessible Diff View for Chat Edits",
+        "Toggle Diff Editor for Chat Edits",
         "Undo this Change",
         null,
         null,
@@ -2943,7 +3012,6 @@
         null,
         null,
         null,
-        null,
         "Always Show Toolbar",
         null,
         null,
@@ -3086,6 +3154,7 @@
         null,
         null,
         null,
+        "Copy Address",
         null,
         null,
         null,
@@ -3227,6 +3296,7 @@
         "Visualization",
         "Show Featured Extensions",
         "Focus on Recommended View",
+        "Opens view Recommended",
         "Reset Location",
         "Install Count",
         "Name",
@@ -3391,6 +3461,7 @@
         "Undo Last Commit",
         "Unstage Changes",
         "Unstage All Changes",
+        "Unstage Change",
         "Unstage Changes",
         "Unstage Selected Ranges",
         "Open Changes",
@@ -3423,8 +3494,10 @@
         null,
         null,
         null,
+        null,
+        null,
         "Increase Context Lines",
-        "Read Line with Inline Hints",
+        "Read Line with Inlay Hints",
         "Stop Inlay Hints Reading",
         "Accept Changes",
         "Cursor Down",
@@ -3444,8 +3517,11 @@
         "Toggle Changes",
         "Resume Last Dismissed Inline Chat",
         "View in Chat",
+        "Cancel Request",
+        "Close",
+        "Keep",
         "Toggle Inline Chat",
-        "Undo & Close",
+        "Undo",
         null,
         null,
         null,
@@ -3468,10 +3544,13 @@
         null,
         null,
         "Focus on Event Listener Breakpoints View",
+        "Opens view Event Listener Breakpoints",
         "Reset Location",
         "Focus on Network View",
+        "Opens view Network",
         "Reset Location",
         "Focus on Excluded Callers View",
+        "Opens view Excluded Callers",
         "Reset Location",
         null,
         null,
@@ -3568,8 +3647,8 @@
         "Compare Current Conflict",
         "Next Conflict",
         "Previous Conflict",
-        "Accept All Changes from Left",
-        "Accept All Changes from Right",
+        "Accept All Incoming Changes from Left",
+        "Accept All Current Changes from Right",
         "Column Layout",
         "Copy Merge Editor State as JSON",
         "Load Merge Editor State from Folder",
@@ -3587,11 +3666,13 @@
         "Show Non-Conflicting Changes",
         "Toggle Current Conflict from Left",
         "Toggle Current Conflict from Right",
+        "Accept All Combination",
         "Complete Merge",
         "Compare Input 1 With Base",
         "Compare Input 2 With Base",
         "Reset Choice for 'Close with Conflicts'",
         "Reset Result",
+        "Toggle Between Merge Editor Inputs",
         "Move the active editor by tabs or groups",
         null,
         "Collapse All Diffs",
@@ -3681,9 +3762,10 @@
         "Show Cell Line Numbers",
         "Toggle Outputs",
         "Toggle Scroll Cell Output",
-        "Show empty outputs",
+        "Show Empty Outputs",
         "Add Cell Output to Chat",
         "Copy Cell Output",
+        "Open in Output Preview",
         "Open Cell Output in Text Editor",
         "Center Active Cell",
         "",
@@ -3770,6 +3852,7 @@
         null,
         null,
         "Focus on NPM Scripts View",
+        "Opens view NPM Scripts",
         null,
         null,
         null,
@@ -3790,6 +3873,7 @@
         "Filter on Type",
         "Focus on Outline View",
         "Follow Cursor",
+        "Opens view Outline",
         "Hides the Outline view if it is visible and the view container it is located in is visible",
         "Reset Location",
         "Sort By: Category",
@@ -3833,6 +3917,7 @@
         "Focus on Refactor Preview View",
         "Group Changes By File",
         "Group Changes By Type",
+        "Opens view Refactor Preview",
         "Reset Location",
         "Reset Location",
         "Toggle Change",
@@ -3859,8 +3944,10 @@
         null,
         null,
         "Focus on Reference Search Results View",
+        "Opens view Reference Search Results",
         "Reset Location",
         "Registers a new title variable",
+        null,
         null,
         null,
         null,
@@ -4057,6 +4144,7 @@
         "View as List",
         "View as Tree",
         "Focus on Timeline View",
+        "Opens view Timeline",
         "Hides the Timeline view if it is visible and the view container it is located in is visible",
         "Reset Location",
         "Toggles the visibility of the Timeline view if the view container it is located in is visible",
@@ -4067,7 +4155,6 @@
         "Toggle visibility of the Command Center in title bar",
         "Hide Custom Title Bar",
         "Hide Custom Title Bar In Full Screen",
-        "Restore Native Title Bar",
         "Editor Actions",
         "Toggle visibility of the Share action in title bar",
         "Toggle visibility of the Layout Controls in title bar",
@@ -4093,6 +4180,8 @@
         null,
         null,
         "Type",
+        null,
+        null,
         null,
         null,
         null,
@@ -4143,8 +4232,10 @@
         "Go Back",
         "Mark Step Complete",
         "Mark Step Incomplete",
+        null,
         "Open Walkthrough...",
         "New File...",
+        "Open New Welcome Experience",
         null,
         null,
         "Sign in to GitHub",
@@ -4162,23 +4253,24 @@
         "Align Quick Input Center",
         "Align Quick Input Top",
         null,
+        "Ask @vscode",
         "Remove keyboard focus from focused element",
         "Browse Color Themes in Marketplace",
         "Accept",
         "",
         "Chat with Extension",
-        "Add Selected Files to Working Set",
         "Add File to Chat",
         "Apply Edits",
         "Apply in Editor",
         "",
-        "Use Prompt",
-        "Add Context",
+        "Attach Instructions...",
+        "Add Context...",
         "Add File to Chat",
         "Add Folder to Chat",
         "Add Selection to Chat",
         "Select Tools...",
         "Cancel",
+        "Change Model",
         "Clear All Workspace Chats",
         "Clear Input History",
         "Configure Code Completions...",
@@ -4187,8 +4279,6 @@
         "Copy",
         "Copy Link",
         "Discard Edits",
-        "Done",
-        "Add Context to Copilot Edits",
         "Export Chat...",
         "Focus Chat Input",
         "Hide Copilot",
@@ -4203,38 +4293,39 @@
         "Start Voice Chat",
         "Log Chat Index",
         "Log Chat Input History",
+        "Manage Copilot Overages",
         "Manage Copilot",
         "Helpful",
         "Unhelpful",
         "New Chat",
-        "New Chat",
+        null,
         "Next Code Block",
         "Next File Tree",
         "Open Chat",
-        "Open Copilot Edits",
+        "Open Chat (Agent)",
+        "Open Chat (Ask)",
+        "Open Chat (Edit)",
         "Open Chat in Editor",
         "Open Chat in New Window",
         "Open Chat in Side Bar",
-        "Upgrade to Copilot Pro",
+        "Open Model Picker",
+        "Upgrade Copilot Plan",
         "Open Chat Storage Folder",
         "Previous Code Block",
         "Previous File Tree",
         "Quick Voice Chat",
         "Read Aloud",
         "Redo Last Request",
-        "Remove Request",
         "Report Issue",
         "Reset Tool Confirmations",
         "Retry",
+        "Run Prompt In New Chat",
+        "Run Prompt...",
+        "Run Prompt in Current Chat",
         "Insert into Terminal",
-        "",
-        "",
-        "",
-        "",
-        "Send to Copilot Edits",
+        "Save chat session to a prompt file",
         "Send to New Chat",
         "Show Extensions using Copilot",
-        "Edit with Copilot",
         "Start Voice Chat",
         "Stop Listening",
         "Stop Listening and Submit",
@@ -4246,6 +4337,8 @@
         "Toggle Chat",
         "Set Chat Mode",
         "Toggle Request Paused",
+        "Use AI Features with Copilot for free...",
+        "Sign in to use Copilot...",
         "Use AI Features with Copilot for free...",
         "Undo Last Request",
         "Undo Requests",
@@ -4325,6 +4418,8 @@
         "Decrease Editor Height",
         "Decrease Current View Size",
         "Decrease Editor Width",
+        "Unset Compact Mode",
+        "Unset Always on Top",
         "Download Visual Studio Code",
         "Duplicate Editor Group Down",
         "Duplicate Editor Group Left",
@@ -4349,10 +4444,9 @@
         "Two Rows Editor Layout",
         "Two Rows Right Editor Layout",
         "Add Files From References",
-        "Add File to Copilot Edits",
-        "Add Folder to Copilot Edits",
-        "Add Selection to Copilot Edits",
         "Send",
+        "Set Compact Mode",
+        "Set Always on Top",
         "Reset Editor Group Sizes",
         null,
         "Expand All Comments",
@@ -4421,7 +4515,6 @@
         "Focus Title Bar",
         "Generate Color Theme From Current Settings",
         "Get Started with Accessibility Features",
-        "Get Started with Copilot",
         "Go to Line/Column...",
         "Go to Symbol in Editor...",
         null,
@@ -4520,7 +4613,7 @@
         "Open Output in Editor",
         "Open Output in New Window",
         "Open Application Settings (JSON)",
-        "Open Editor",
+        "New Chat Editor",
         "Open Default Keyboard Shortcuts (JSON)",
         "Documentation",
         null,
@@ -4593,7 +4686,7 @@
         "Git",
         "GitHub Authentication",
         "GitHub",
-        "Toggle Output",
+        "Opens view Output",
         "Connection: Pause socket writing",
         null,
         "Fill File with Snippet",
@@ -4848,7 +4941,7 @@
         "Toggle Find Using Regex",
         "Toggle Find Using Whole Word",
         "Toggle Sticky Scroll",
-        "Toggle Terminal",
+        "Opens view Terminal",
         "Unsplit Terminal",
         "Write Data to Terminal",
         "Toggle Activity Bar Visibility",
@@ -4856,6 +4949,7 @@
         "Open/Show and Close/Hide Secondary Side Bar",
         "Toggle Centered Layout",
         "Toggle Editor Commenting",
+        "Toggle Window Compact Mode",
         null,
         "Toggle Developer Tools",
         "Toggle Vertical/Horizontal Editor Layout",
@@ -4882,6 +4976,7 @@
         "Toggle Split Editor in Group",
         "Toggle Layout of Split Editor in Group",
         "Toggle Status Bar Visibility",
+        "Toggle Window Always on Top",
         "Toggle Zen Mode",
         "Connection: Trigger Reconnect",
         "Troubleshoot Issue...",
@@ -4910,7 +5005,7 @@
         "Show the problems view as a table.",
         "Show the problems view as a tree.",
         "Collapse All",
-        "Toggle Problems",
+        "Opens view Problems",
         "Toggle Problems (Errors, Warnings, Infos)",
         "Show Resolved",
         "Position in File",
@@ -4939,12 +5034,16 @@
         "Focus on Debug Console View",
         "Focus on Variables View",
         "Focus on Watch View",
-        "Toggle Debug Console",
+        "Opens view Debug Console",
+        "Opens view Breakpoints",
         "Reset Location",
+        "Opens view Call Stack",
         "Reset Location",
         "Focus on Loaded Scripts View",
+        "Opens view Loaded Scripts",
         "Reset Location",
         "Clears all program output from your debug REPL",
+        "Opens view Variables",
         "Reset Location",
         "Add Data Breakpoint at Address",
         "Add Function Breakpoint",
@@ -4960,8 +5059,10 @@
         "Remove Breakpoint",
         "Toggle Activate Breakpoints",
         null,
+        "Opens view Watch",
         "Reset Location",
         "Focus on Run View",
+        "Opens view Run",
         "Hides the Run view if it is visible and the view container it is located in is visible",
         "Reset Location",
         "Toggles the visibility of the Run view if the view container it is located in is visible",
@@ -4976,10 +5077,12 @@
         "Turn on Cloud Changes...",
         "Store Working Changes",
         "Store Working Changes in Cloud",
+        "Opens view No Folder Opened",
         "Hides the No Folder Opened view if it is visible and the view container it is located in is visible",
         "Reset Location",
         "Toggles the visibility of the No Folder Opened view if the view container it is located in is visible",
         "Focus on No Folder Opened View",
+        "Opens view Open Editors",
         "Hides the Open Editors view if it is visible and the view container it is located in is visible",
         "Reset Location",
         "Toggles the visibility of the Open Editors view if the view container it is located in is visible",
@@ -5082,6 +5185,7 @@
         "Reset Trust",
         "Restart Server",
         "Server Options",
+        "Show Configuration",
         "Show Output",
         "Start Server",
         "Stop Server",
@@ -5093,16 +5197,12 @@
         "Clear Output",
         "Switch Output",
         "Toggle Auto Scrolling",
-        "Toggle Chat",
+        "Opens view Chat",
         "Reset Location",
         "Focus on Chat View",
         "Hides the Chat view if it is visible and the view container it is located in is visible",
         "Reset Location",
         "Toggles the visibility of the Chat view if the view container it is located in is visible",
-        "Focus on Copilot Edits View",
-        "Reset Location",
-        "Toggle Copilot Edits",
-        "Reset Location",
         "Reset Location",
         "Focus on Problems View",
         "Hides the Problems view if it is visible and the view container it is located in is visible",
@@ -5120,6 +5220,7 @@
         "Toggles the visibility of the Debug Console view if the view container it is located in is visible",
         "Reset Location",
         "Focus on Test Results View",
+        "Opens view Test Results",
         "Reset Location",
         "Cleanup Profiles",
         "Save Current Profile As...",
@@ -5164,9 +5265,11 @@
         "View as Tree",
         "Focus on Changes View",
         "Focus on Graph View",
+        "Opens view Graph",
         "Reset Location",
         "Hides the Changes view if it is visible and the view container it is located in is visible",
         "Focus on Repositories View",
+        "Opens view Repositories",
         "Reset Location",
         "Reset Location",
         "Toggles the visibility of the Changes view if the view container it is located in is visible",
@@ -5206,9 +5309,9 @@
         "Reset Location",
         "Show Remote Explorer",
         "Reset Location",
-        "Show Changes",
+        "Opens view Changes",
         "Reset Location",
-        "Show Search",
+        "Opens view Search",
         "Focus on Search View",
         "Hides the Search view if it is visible and the view container it is located in is visible",
         "Reset Location",
@@ -5217,66 +5320,97 @@
         "Show Settings Sync",
         "Reset Location",
         "Focus on Test Coverage View",
+        "Opens view Test Coverage",
         "Reset Location",
         "Focus on Test Explorer View",
+        "Opens view Test Explorer",
         "Reset Location",
         "Focus on Cloud Changes View",
+        "Opens view Cloud Changes",
         "Reset Location",
         "Focus on Features View",
+        "Opens view Features",
         "Reset Location",
         "Focus on Programming Languages View",
+        "Opens view Programming Languages",
         "Reset Location",
         "Focus on Themes View",
+        "Opens view Themes",
         "Reset Location",
         "Focus on Deprecated View",
+        "Opens view Deprecated",
         "Reset Location",
         "Focus on Disabled View",
+        "Opens view Disabled",
         "Reset Location",
         "Focus on Enabled View",
+        "Opens view Enabled",
         "Reset Location",
         "Focus on Installed View",
+        "Opens view Installed",
         "Reset Location",
         "Focus on Marketplace View",
+        "Opens view Marketplace",
         "Reset Location",
         "Focus on Other Recommendations View",
+        "Opens view Other Recommendations",
         "Reset Location",
         "Focus on Popular View",
+        "Opens view Popular",
         "Reset Location",
         "Focus on Builtin View",
+        "Opens view Builtin",
         "Reset Location",
         "Focus on Disabled View",
+        "Opens view Disabled",
         "Reset Location",
         "Focus on Enabled View",
+        "Opens view Enabled",
         "Reset Location",
         "Focus on Installed View",
+        "Opens view Installed",
         "Reset Location",
         "Focus on Available Updates View",
+        "Opens view Available Updates",
         "Reset Location",
         "Focus on Recently Updated View",
+        "Opens view Recently Updated",
         "Reset Location",
         "Focus on Workspace Unsupported View",
+        "Opens view Workspace Unsupported",
         "Reset Location",
         "Focus on Limited in Restricted Mode View",
+        "Opens view Limited in Restricted Mode",
         "Reset Location",
         "Focus on Disabled in Restricted Mode View",
+        "Opens view Disabled in Restricted Mode",
         "Reset Location",
         "Focus on Limited in Virtual Workspaces View",
+        "Opens view Limited in Virtual Workspaces",
         "Reset Location",
         "Focus on Disabled in Virtual Workspaces View",
+        "Opens view Disabled in Virtual Workspaces",
         "Reset Location",
         "Focus on Workspace Recommendations View",
+        "Opens view Workspace Recommendations",
         "Reset Location",
         "Focus on Conflicts View",
+        "Opens view Conflicts",
         "Reset Location",
         "Focus on Sync Activity (Developer) View",
+        "Opens view Sync Activity (Developer)",
         "Reset Location",
         "Focus on Sync Activity (Local) View",
+        "Opens view Sync Activity (Local)",
         "Reset Location",
         "Focus on Synced Machines View",
+        "Opens view Synced Machines",
         "Reset Location",
         "Focus on Sync Activity (Remote) View",
+        "Opens view Sync Activity (Remote)",
         "Reset Location",
         "Focus on Troubleshoot View",
+        "Opens view Troubleshoot",
         "Reset Location"
       ],
       "description": "Name of the command to execute"
@@ -5288,7 +5422,7 @@
             "$ref": "#/$defs/_4"
           },
           "then": {
-            "$ref": "#/$defs/_22"
+            "$ref": "#/$defs/_23"
           }
         },
         {
@@ -5314,7 +5448,7 @@
           "then": {
             "properties": {
               "args": {
-                "$ref": "#/$defs/_23"
+                "$ref": "#/$defs/_24"
               }
             }
           }
@@ -5324,7 +5458,7 @@
             "$ref": "#/$defs/_7"
           },
           "then": {
-            "$ref": "#/$defs/_22"
+            "$ref": "#/$defs/_23"
           }
         },
         {
@@ -5344,7 +5478,7 @@
               "args": {
                 "oneOf": [
                   {
-                    "$ref": "#/$defs/_23"
+                    "$ref": "#/$defs/_24"
                   },
                   {
                     "required": [
@@ -5354,7 +5488,7 @@
                       "preferences": {
                         "type": "array",
                         "items": {
-                          "$ref": "#/$defs/_24"
+                          "$ref": "#/$defs/_25"
                         }
                       }
                     }
@@ -5450,6 +5584,21 @@
             "properties": {
               "command": {
                 "const": "~remote.forwardedPorts.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "~remote.forwardedPorts.open"
               }
             }
           },
@@ -5822,6 +5971,21 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "extensions.recommendedList.open"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         },
@@ -5833,6 +5997,21 @@
             "properties": {
               "command": {
                 "const": "jsBrowserBreakpoints.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "jsBrowserBreakpoints.open"
               }
             }
           },
@@ -5852,6 +6031,21 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "jsDebugNetworkTree.open"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         },
@@ -5863,6 +6057,21 @@
             "properties": {
               "command": {
                 "const": "jsExcludedCallers.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "jsExcludedCallers.open"
               }
             }
           },
@@ -6041,6 +6250,21 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "npm.open"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         },
@@ -6052,6 +6276,21 @@
             "properties": {
               "command": {
                 "const": "outline.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "outline.open"
               }
             }
           },
@@ -6071,6 +6310,21 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "refactorPreview.open"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         },
@@ -6082,6 +6336,21 @@
             "properties": {
               "command": {
                 "const": "references-view.tree.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "references-view.tree.open"
               }
             }
           },
@@ -6247,7 +6516,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_19"
+            "$ref": "#/$defs/_20"
           }
         },
         {
@@ -6258,6 +6527,21 @@
             "properties": {
               "command": {
                 "const": "timeline.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "timeline.open"
               }
             }
           },
@@ -6307,7 +6591,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_21"
+            "$ref": "#/$defs/_22"
           }
         },
         {
@@ -6451,7 +6735,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_21"
+            "$ref": "#/$defs/_22"
           }
         },
         {
@@ -6473,6 +6757,21 @@
                 "type": "string"
               }
             }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.action.output.toggleOutput"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_19"
           }
         },
         {
@@ -6548,13 +6847,13 @@
               "args": {
                 "anyOf": [
                   {
-                    "$ref": "#/$defs/_20"
+                    "$ref": "#/$defs/_21"
                   },
                   {
                     "type": "object",
                     "properties": {
                       "task": {
-                        "$ref": "#/$defs/_20"
+                        "$ref": "#/$defs/_21"
                       },
                       "type": {
                         "type": "string",
@@ -6708,12 +7007,42 @@
             ],
             "properties": {
               "command": {
-                "const": "workbench.debug.action.focusBreakpointsView"
+                "const": "workbench.action.terminal.toggleTerminal"
               }
             }
           },
           "then": {
             "$ref": "#/$defs/_19"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.actions.view.problems"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_19"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.debug.action.focusBreakpointsView"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
           }
         },
         {
@@ -6728,7 +7057,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_19"
+            "$ref": "#/$defs/_20"
           }
         },
         {
@@ -6743,7 +7072,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_19"
+            "$ref": "#/$defs/_20"
           }
         },
         {
@@ -6754,6 +7083,51 @@
             "properties": {
               "command": {
                 "const": "workbench.debug.action.focusWatchView"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.debug.action.toggleRepl"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_19"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.debug.breakPointsView.open"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_19"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.debug.callStackView.open"
               }
             }
           },
@@ -6773,6 +7147,51 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.debug.loadedScriptsView.open"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_19"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.debug.variablesView.open"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_19"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.debug.watchExpressionsView.open"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         },
@@ -6788,6 +7207,36 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.debug.welcome.open"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_19"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.explorer.emptyView.open"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         },
@@ -6799,6 +7248,21 @@
             "properties": {
               "command": {
                 "const": "workbench.explorer.fileView.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.explorer.openEditorsView.open"
               }
             }
           },
@@ -6848,7 +7312,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_19"
+            "$ref": "#/$defs/_20"
           }
         },
         {
@@ -6863,7 +7327,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_19"
+            "$ref": "#/$defs/_20"
           }
         },
         {
@@ -6873,7 +7337,7 @@
             ],
             "properties": {
               "command": {
-                "const": "workbench.panel.chat.view.edits.focus"
+                "const": "workbench.panel.chat"
               }
             }
           },
@@ -6893,7 +7357,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_19"
+            "$ref": "#/$defs/_20"
           }
         },
         {
@@ -6908,7 +7372,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_19"
+            "$ref": "#/$defs/_20"
           }
         },
         {
@@ -6923,7 +7387,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_19"
+            "$ref": "#/$defs/_20"
           }
         },
         {
@@ -6934,6 +7398,21 @@
             "properties": {
               "command": {
                 "const": "workbench.panel.testResults.view.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.panel.testResults.view.open"
               }
             }
           },
@@ -6953,7 +7432,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_19"
+            "$ref": "#/$defs/_20"
           }
         },
         {
@@ -6964,6 +7443,21 @@
             "properties": {
               "command": {
                 "const": "workbench.scm.history.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.scm.history.open"
               }
             }
           },
@@ -6983,6 +7477,36 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.scm.repositories.open"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_19"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.view.scm"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         },
@@ -6994,6 +7518,21 @@
             "properties": {
               "command": {
                 "const": "workbench.view.search.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.view.search"
               }
             }
           },
@@ -7013,6 +7552,21 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.view.testCoverage.open"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         },
@@ -7024,6 +7578,21 @@
             "properties": {
               "command": {
                 "const": "workbench.view.testing.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.view.testing.open"
               }
             }
           },
@@ -7043,6 +7612,21 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.editSessions.data.open"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         },
@@ -7054,6 +7638,21 @@
             "properties": {
               "command": {
                 "const": "workbench.views.extensions.builtinFeatureExtensions.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.builtinFeatureExtensions.open"
               }
             }
           },
@@ -7073,6 +7672,21 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.builtinProgrammingLanguageExtensions.open"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         },
@@ -7084,6 +7698,21 @@
             "properties": {
               "command": {
                 "const": "workbench.views.extensions.builtinThemeExtensions.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.builtinThemeExtensions.open"
               }
             }
           },
@@ -7103,6 +7732,21 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.deprecatedExtensions.open"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         },
@@ -7114,6 +7758,21 @@
             "properties": {
               "command": {
                 "const": "workbench.views.extensions.disabled.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.disabled.open"
               }
             }
           },
@@ -7133,6 +7792,21 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.enabled.open"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         },
@@ -7144,6 +7818,21 @@
             "properties": {
               "command": {
                 "const": "workbench.views.extensions.installed.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.installed.open"
               }
             }
           },
@@ -7163,6 +7852,21 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.marketplace.open"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         },
@@ -7174,6 +7878,21 @@
             "properties": {
               "command": {
                 "const": "workbench.views.extensions.otherRecommendations.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.otherRecommendations.open"
               }
             }
           },
@@ -7193,6 +7912,21 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.popular.open"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         },
@@ -7204,6 +7938,21 @@
             "properties": {
               "command": {
                 "const": "workbench.views.extensions.searchBuiltin.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.searchBuiltin.open"
               }
             }
           },
@@ -7223,6 +7972,21 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.searchDisabled.open"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         },
@@ -7234,6 +7998,21 @@
             "properties": {
               "command": {
                 "const": "workbench.views.extensions.searchEnabled.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.searchEnabled.open"
               }
             }
           },
@@ -7253,6 +8032,21 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.searchInstalled.open"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         },
@@ -7264,6 +8058,21 @@
             "properties": {
               "command": {
                 "const": "workbench.views.extensions.searchOutdated.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.searchOutdated.open"
               }
             }
           },
@@ -7283,6 +8092,21 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.searchRecentlyUpdated.open"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         },
@@ -7294,6 +8118,21 @@
             "properties": {
               "command": {
                 "const": "workbench.views.extensions.searchWorkspaceUnsupported.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.searchWorkspaceUnsupported.open"
               }
             }
           },
@@ -7313,6 +8152,21 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.untrustedPartiallySupportedExtensions.open"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         },
@@ -7324,6 +8178,21 @@
             "properties": {
               "command": {
                 "const": "workbench.views.extensions.untrustedUnsupportedExtensions.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.untrustedUnsupportedExtensions.open"
               }
             }
           },
@@ -7343,6 +8212,21 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.virtualPartiallySupportedExtensions.open"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         },
@@ -7354,6 +8238,21 @@
             "properties": {
               "command": {
                 "const": "workbench.views.extensions.virtualUnsupportedExtensions.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.virtualUnsupportedExtensions.open"
               }
             }
           },
@@ -7373,6 +8272,21 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.workspaceRecommendations.open"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         },
@@ -7384,6 +8298,21 @@
             "properties": {
               "command": {
                 "const": "workbench.views.sync.conflicts.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.sync.conflicts.open"
               }
             }
           },
@@ -7403,6 +8332,21 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.sync.externalActivity.open"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         },
@@ -7414,6 +8358,21 @@
             "properties": {
               "command": {
                 "const": "workbench.views.sync.localActivity.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.sync.localActivity.open"
               }
             }
           },
@@ -7433,6 +8392,21 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.sync.machines.open"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         },
@@ -7444,6 +8418,21 @@
             "properties": {
               "command": {
                 "const": "workbench.views.sync.remoteActivity.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.sync.remoteActivity.open"
               }
             }
           },
@@ -7463,6 +8452,21 @@
             }
           },
           "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.sync.troubleshoot.open"
+              }
+            }
+          },
+          "then": {
             "$ref": "#/$defs/_19"
           }
         }
@@ -7477,6 +8481,7 @@
           "type": "string",
           "enum": [
             "-~remote.forwardedPorts.focus",
+            "-~remote.forwardedPorts.open",
             "-~remote.forwardedPorts.removeView",
             "-~remote.forwardedPorts.resetViewLocation",
             "-~remote.forwardedPorts.toggleVisibility",
@@ -7534,6 +8539,7 @@
             "-chatEditing.openFileInDiff",
             "-chatEditing.removeFileFromWorkingSet",
             "-chatEditing.viewChanges",
+            "-chatEditing.viewPreviousEdits",
             "-chatEditor.action.accept",
             "-chatEditor.action.acceptHunk",
             "-chatEditor.action.navigateNext",
@@ -7767,7 +8773,6 @@
             "-editor.action.indentLines",
             "-editor.action.indentUsingSpaces",
             "-editor.action.indentUsingTabs",
-            "-editor.action.inlineSuggest.acceptNextInlineEditPart",
             "-editor.action.inlineSuggest.acceptNextLine",
             "-editor.action.inlineSuggest.acceptNextWord",
             "-editor.action.inlineSuggest.commit",
@@ -7918,6 +8923,7 @@
             "-editor.debug.action.addLogPoint",
             "-editor.debug.action.closeExceptionWidget",
             "-editor.debug.action.conditionalBreakpoint",
+            "-editor.debug.action.copyAddress",
             "-editor.debug.action.editBreakpoint",
             "-editor.debug.action.goToNextBreakpoint",
             "-editor.debug.action.goToPreviousBreakpoint",
@@ -8059,6 +9065,7 @@
             "-extensions.actions.searchByCategory.Visualization",
             "-extensions.filter.featured",
             "-extensions.recommendedList.focus",
+            "-extensions.recommendedList.open",
             "-extensions.recommendedList.resetViewLocation",
             "-extensions.sort.installs",
             "-extensions.sort.name",
@@ -8223,6 +9230,7 @@
             "-git.undoCommit",
             "-git.unstage",
             "-git.unstageAll",
+            "-git.unstageChange",
             "-git.unstageFile",
             "-git.unstageSelectedRanges",
             "-git.viewChanges",
@@ -8253,6 +9261,8 @@
             "-iconSelectBox.focusUp",
             "-iconSelectBox.selectFocused",
             "-imagePreview.copyImage",
+            "-imagePreview.reopenAsPreview",
+            "-imagePreview.reopenAsText",
             "-imagePreview.zoomIn",
             "-imagePreview.zoomOut",
             "-increaseSearchEditorContextLines",
@@ -8276,8 +9286,11 @@
             "-inlineChat.toggleDiff",
             "-inlineChat.unstash",
             "-inlineChat.viewInChat",
+            "-inlineChat2.cancelRequest",
+            "-inlineChat2.close",
+            "-inlineChat2.keep",
             "-inlineChat2.reveal",
-            "-inlineChat2.stop",
+            "-inlineChat2.undo",
             "-insertBestCompletion",
             "-insertNextSuggestion",
             "-insertPrevSuggestion",
@@ -8300,10 +9313,13 @@
             "-javascript.removeUnusedImports",
             "-javascript.sortImports",
             "-jsBrowserBreakpoints.focus",
+            "-jsBrowserBreakpoints.open",
             "-jsBrowserBreakpoints.resetViewLocation",
             "-jsDebugNetworkTree.focus",
+            "-jsDebugNetworkTree.open",
             "-jsDebugNetworkTree.resetViewLocation",
             "-jsExcludedCallers.focus",
+            "-jsExcludedCallers.open",
             "-jsExcludedCallers.resetViewLocation",
             "-json.clearCache",
             "-json.sort",
@@ -8419,11 +9435,13 @@
             "-merge.showNonConflictingChanges",
             "-merge.toggleActiveConflictInput1",
             "-merge.toggleActiveConflictInput2",
+            "-mergeEditor.acceptAllCombination",
             "-mergeEditor.acceptMerge",
             "-mergeEditor.compareInput1WithBase",
             "-mergeEditor.compareInput2WithBase",
             "-mergeEditor.resetCloseWithConflictsChoice",
             "-mergeEditor.resetResultToBaseAndAutoMerge",
+            "-mergeEditor.toggleBetweenInputs",
             "-moveActiveEditor",
             "-moveFileToTrash",
             "-multiDiffEditor.collapseAll",
@@ -8516,6 +9534,7 @@
             "-notebook.cellOuput.showEmptyOutputs",
             "-notebook.cellOutput.addToChat",
             "-notebook.cellOutput.copy",
+            "-notebook.cellOutput.openInOutputPreview",
             "-notebook.cellOutput.openInTextEditor",
             "-notebook.centerActiveCell",
             "-notebook.chat.selectAndInsertKernelVariable",
@@ -8602,6 +9621,7 @@
             "-notifications.toggleList",
             "-npm.debugScript",
             "-npm.focus",
+            "-npm.open",
             "-npm.openScript",
             "-npm.packageManager",
             "-npm.refresh",
@@ -8622,6 +9642,7 @@
             "-outline.filterOnType",
             "-outline.focus",
             "-outline.followCursor",
+            "-outline.open",
             "-outline.removeView",
             "-outline.resetViewLocation",
             "-outline.sortByKind",
@@ -8665,6 +9686,7 @@
             "-refactorPreview.focus",
             "-refactorPreview.groupByFile",
             "-refactorPreview.groupByType",
+            "-refactorPreview.open",
             "-refactorPreview.resetViewContainerLocation",
             "-refactorPreview.resetViewLocation",
             "-refactorPreview.toggleCheckedState",
@@ -8691,6 +9713,7 @@
             "-references-view.showSupertypes",
             "-references-view.showTypeHierarchy",
             "-references-view.tree.focus",
+            "-references-view.tree.open",
             "-references-view.tree.resetViewLocation",
             "-registerWindowTitleVariable",
             "-remote.tunnel.changeLocalPort",
@@ -8709,6 +9732,7 @@
             "-removeRootFolder",
             "-removeSecondaryCursors",
             "-renameFile",
+            "-reopenActiveEditorWith",
             "-repl.action.acceptInput",
             "-repl.action.copyAll",
             "-repl.action.filter",
@@ -8889,6 +9913,7 @@
             "-testing.viewAsList",
             "-testing.viewAsTree",
             "-timeline.focus",
+            "-timeline.open",
             "-timeline.removeView",
             "-timeline.resetViewLocation",
             "-timeline.toggleVisibility",
@@ -8899,7 +9924,6 @@
             "-toggle.window.commandCenter",
             "-toggle.window.customTitleBarVisibility",
             "-toggle.window.customTitleBarVisibility.windowed",
-            "-toggle.window.titleBarStyle",
             "-toggle.workbench.editor.editorActionsLocation",
             "-toggle.workbench.experimental.share.enabled",
             "-toggle.workbench.layoutControl.enabled",
@@ -8925,6 +9949,8 @@
             "-tunnel-forwarding.restart",
             "-tunnel-forwarding.showLog",
             "-type",
+            "-typescript.experimental.disableTsgo",
+            "-typescript.experimental.enableTsgo",
             "-typescript.findAllFileReferences",
             "-typescript.goToProjectConfig",
             "-typescript.goToSourceDefinition",
@@ -8975,8 +10001,10 @@
             "-welcome.goBack",
             "-welcome.markStepComplete",
             "-welcome.markStepIncomplete",
+            "-welcome.newWorkspaceChat",
             "-welcome.showAllWalkthroughs",
             "-welcome.showNewFileEntries",
+            "-welcome.showNewWelcome",
             "-widgetNavigation.focusNext",
             "-widgetNavigation.focusPrevious",
             "-workbench.accounts.actions.signin",
@@ -8994,23 +10022,24 @@
             "-workbench.action.alignQuickInputCenter",
             "-workbench.action.alignQuickInputTop",
             "-workbench.action.alternativeAcceptSelectedQuickOpenItem",
+            "-workbench.action.askVScode",
             "-workbench.action.blur",
             "-workbench.action.browseColorThemesInMarketplace",
             "-workbench.action.chat.acceptTool",
             "-workbench.action.chat.addDynamicVariable",
             "-workbench.action.chat.addParticipant",
-            "-workbench.action.chat.addSelectedFilesToWorkingSet",
             "-workbench.action.chat.addToChatAction",
             "-workbench.action.chat.applyCompareEdits",
             "-workbench.action.chat.applyInEditor",
             "-workbench.action.chat.assignSelectedAgent",
-            "-workbench.action.chat.attach.prompt",
+            "-workbench.action.chat.attach.instructions",
             "-workbench.action.chat.attachContext",
             "-workbench.action.chat.attachFile",
             "-workbench.action.chat.attachFolder",
             "-workbench.action.chat.attachSelection",
             "-workbench.action.chat.attachTools",
             "-workbench.action.chat.cancel",
+            "-workbench.action.chat.changeModel",
             "-workbench.action.chat.clearHistory",
             "-workbench.action.chat.clearInputHistory",
             "-workbench.action.chat.configureCodeCompletions",
@@ -9019,8 +10048,6 @@
             "-workbench.action.chat.copyItem",
             "-workbench.action.chat.copyLink",
             "-workbench.action.chat.discardCompareEdits",
-            "-workbench.action.chat.done",
-            "-workbench.action.chat.editing.attachContext",
             "-workbench.action.chat.export",
             "-workbench.action.chat.focusInput",
             "-workbench.action.chat.hideSetup",
@@ -9035,6 +10062,7 @@
             "-workbench.action.chat.installProviderForVoiceChat",
             "-workbench.action.chat.logChatIndex",
             "-workbench.action.chat.logInputHistory",
+            "-workbench.action.chat.manageOverages",
             "-workbench.action.chat.manageSettings",
             "-workbench.action.chat.markHelpful",
             "-workbench.action.chat.markUnhelpful",
@@ -9043,10 +10071,13 @@
             "-workbench.action.chat.nextCodeBlock",
             "-workbench.action.chat.nextFileTree",
             "-workbench.action.chat.open",
-            "-workbench.action.chat.openEditSession",
+            "-workbench.action.chat.openAgent",
+            "-workbench.action.chat.openAsk",
+            "-workbench.action.chat.openEdit",
             "-workbench.action.chat.openInEditor",
             "-workbench.action.chat.openInNewWindow",
             "-workbench.action.chat.openInSidebar",
+            "-workbench.action.chat.openModelPicker",
             "-workbench.action.chat.openQuotaExceededDialog",
             "-workbench.action.chat.openStorageFolder",
             "-workbench.action.chat.previousCodeBlock",
@@ -9054,19 +10085,16 @@
             "-workbench.action.chat.quickVoiceChat",
             "-workbench.action.chat.readChatResponseAloud",
             "-workbench.action.chat.redoEdit",
-            "-workbench.action.chat.remove",
             "-workbench.action.chat.reportIssueForBug",
             "-workbench.action.chat.resetTrustedTools",
             "-workbench.action.chat.retry",
+            "-workbench.action.chat.run-in-new-chat.prompt.current",
+            "-workbench.action.chat.run.prompt",
+            "-workbench.action.chat.run.prompt.current",
             "-workbench.action.chat.runInTerminal",
-            "-workbench.action.chat.selectAndInsertFile",
-            "-workbench.action.chat.selectAndInsertFolder",
-            "-workbench.action.chat.selectAndInsertProblems",
-            "-workbench.action.chat.selectAndInsertSym",
-            "-workbench.action.chat.sendToChatEditing",
+            "-workbench.action.chat.save-to-prompt",
             "-workbench.action.chat.sendToNewChat",
             "-workbench.action.chat.showExtensionsUsingCopilot",
-            "-workbench.action.chat.startEditing",
             "-workbench.action.chat.startVoiceChat",
             "-workbench.action.chat.stopListening",
             "-workbench.action.chat.stopListeningAndSubmit",
@@ -9079,6 +10107,8 @@
             "-workbench.action.chat.toggleAgentMode",
             "-workbench.action.chat.toggleRequestPaused",
             "-workbench.action.chat.triggerSetup",
+            "-workbench.action.chat.triggerSetupFromAccounts",
+            "-workbench.action.chat.triggerSetupWithoutDialog",
             "-workbench.action.chat.undoEdit",
             "-workbench.action.chat.undoEdits",
             "-workbench.action.chat.upgradePlan",
@@ -9157,6 +10187,8 @@
             "-workbench.action.decreaseViewHeight",
             "-workbench.action.decreaseViewSize",
             "-workbench.action.decreaseViewWidth",
+            "-workbench.action.disableCompactAuxiliaryWindow",
+            "-workbench.action.disableWindowAlwaysOnTop",
             "-workbench.action.download",
             "-workbench.action.duplicateActiveEditorGroupDown",
             "-workbench.action.duplicateActiveEditorGroupLeft",
@@ -9181,10 +10213,9 @@
             "-workbench.action.editorLayoutTwoRows",
             "-workbench.action.editorLayoutTwoRowsRight",
             "-workbench.action.edits.addFilesFromReferences",
-            "-workbench.action.edits.attachFile",
-            "-workbench.action.edits.attachFolder",
-            "-workbench.action.edits.attachSelection",
             "-workbench.action.edits.submit",
+            "-workbench.action.enableCompactAuxiliaryWindow",
+            "-workbench.action.enableWindowAlwaysOnTop",
             "-workbench.action.evenEditorWidths",
             "-workbench.action.exitZenMode",
             "-workbench.action.expandAllComments",
@@ -9253,7 +10284,6 @@
             "-workbench.action.focusTitleBar",
             "-workbench.action.generateColorTheme",
             "-workbench.action.getStartedWithAccessibilityFeatures",
-            "-workbench.action.getStartedWithCopilot",
             "-workbench.action.gotoLine",
             "-workbench.action.gotoSymbol",
             "-workbench.action.hideComment",
@@ -9688,6 +10718,7 @@
             "-workbench.action.toggleAuxiliaryBar",
             "-workbench.action.toggleCenteredLayout",
             "-workbench.action.toggleCommenting",
+            "-workbench.action.toggleCompactAuxiliaryWindow",
             "-workbench.action.toggleConfirmBeforeClose",
             "-workbench.action.toggleDevTools",
             "-workbench.action.toggleEditorGroupLayout",
@@ -9714,6 +10745,7 @@
             "-workbench.action.toggleSplitEditorInGroup",
             "-workbench.action.toggleSplitEditorInGroupLayout",
             "-workbench.action.toggleStatusbarVisibility",
+            "-workbench.action.toggleWindowAlwaysOnTop",
             "-workbench.action.toggleZenMode",
             "-workbench.action.triggerReconnect",
             "-workbench.action.troubleshootIssue.start",
@@ -9762,9 +10794,9 @@
             "-workbench.banner.focusBanner",
             "-workbench.banner.focusNextAction",
             "-workbench.banner.focusPreviousAction",
-            "-workbench.command.prompts.create.local",
-            "-workbench.command.prompts.create.user",
-            "-workbench.command.prompts.use",
+            "-workbench.command.instructions.attach",
+            "-workbench.command.new.instructions",
+            "-workbench.command.new.prompt",
             "-workbench.debug.action.copyAll",
             "-workbench.debug.action.focusBreakpointsView",
             "-workbench.debug.action.focusCallStackView",
@@ -9772,11 +10804,15 @@
             "-workbench.debug.action.focusVariablesView",
             "-workbench.debug.action.focusWatchView",
             "-workbench.debug.action.toggleRepl",
+            "-workbench.debug.breakPointsView.open",
             "-workbench.debug.breakPointsView.resetViewLocation",
+            "-workbench.debug.callStackView.open",
             "-workbench.debug.callStackView.resetViewLocation",
             "-workbench.debug.loadedScriptsView.focus",
+            "-workbench.debug.loadedScriptsView.open",
             "-workbench.debug.loadedScriptsView.resetViewLocation",
             "-workbench.debug.panel.action.clearReplAction",
+            "-workbench.debug.variablesView.open",
             "-workbench.debug.variablesView.resetViewLocation",
             "-workbench.debug.viewlet.action.addDataBreakpointOnAddress",
             "-workbench.debug.viewlet.action.addFunctionBreakpointAction",
@@ -9792,8 +10828,10 @@
             "-workbench.debug.viewlet.action.removeBreakpoint",
             "-workbench.debug.viewlet.action.toggleBreakpointsActivatedAction",
             "-workbench.debug.viewlet.action.viewMemory",
+            "-workbench.debug.watchExpressionsView.open",
             "-workbench.debug.watchExpressionsView.resetViewLocation",
             "-workbench.debug.welcome.focus",
+            "-workbench.debug.welcome.open",
             "-workbench.debug.welcome.removeView",
             "-workbench.debug.welcome.resetViewLocation",
             "-workbench.debug.welcome.toggleVisibility",
@@ -9808,10 +10846,12 @@
             "-workbench.editSessions.actions.signIn",
             "-workbench.editSessions.actions.store",
             "-workbench.editSessions.actions.storeCurrent",
+            "-workbench.explorer.emptyView.open",
             "-workbench.explorer.emptyView.removeView",
             "-workbench.explorer.emptyView.resetViewLocation",
             "-workbench.explorer.emptyView.toggleVisibility",
             "-workbench.explorer.fileView.focus",
+            "-workbench.explorer.openEditorsView.open",
             "-workbench.explorer.openEditorsView.removeView",
             "-workbench.explorer.openEditorsView.resetViewLocation",
             "-workbench.explorer.openEditorsView.toggleVisibility",
@@ -9914,6 +10954,7 @@
             "-workbench.mcp.resetTrust",
             "-workbench.mcp.restartServer",
             "-workbench.mcp.serverOptions",
+            "-workbench.mcp.showConfiguration",
             "-workbench.mcp.showOutput",
             "-workbench.mcp.startServer",
             "-workbench.mcp.stopServer",
@@ -9931,10 +10972,6 @@
             "-workbench.panel.chat.view.copilot.removeView",
             "-workbench.panel.chat.view.copilot.resetViewLocation",
             "-workbench.panel.chat.view.copilot.toggleVisibility",
-            "-workbench.panel.chat.view.edits.focus",
-            "-workbench.panel.chat.view.edits.resetViewLocation",
-            "-workbench.panel.chatEditing",
-            "-workbench.panel.chatEditing.resetViewContainerLocation",
             "-workbench.panel.markers.resetViewContainerLocation",
             "-workbench.panel.markers.view.focus",
             "-workbench.panel.markers.view.removeView",
@@ -9952,6 +10989,7 @@
             "-workbench.panel.repl.view.toggleVisibility",
             "-workbench.panel.testResults.resetViewContainerLocation",
             "-workbench.panel.testResults.view.focus",
+            "-workbench.panel.testResults.view.open",
             "-workbench.panel.testResults.view.resetViewLocation",
             "-workbench.profiles.actions.cleanupProfiles",
             "-workbench.profiles.actions.createFromCurrentProfile",
@@ -9996,9 +11034,11 @@
             "-workbench.scm.action.setTreeViewModeNavigation",
             "-workbench.scm.focus",
             "-workbench.scm.history.focus",
+            "-workbench.scm.history.open",
             "-workbench.scm.history.resetViewLocation",
             "-workbench.scm.removeView",
             "-workbench.scm.repositories.focus",
+            "-workbench.scm.repositories.open",
             "-workbench.scm.repositories.resetViewLocation",
             "-workbench.scm.resetViewLocation",
             "-workbench.scm.toggleVisibility",
@@ -10049,70 +11089,102 @@
             "-workbench.view.sync",
             "-workbench.view.sync.resetViewContainerLocation",
             "-workbench.view.testCoverage.focus",
+            "-workbench.view.testCoverage.open",
             "-workbench.view.testCoverage.resetViewLocation",
             "-workbench.view.testing.focus",
+            "-workbench.view.testing.open",
             "-workbench.view.testing.resetViewLocation",
             "-workbench.views.editSessions.data.focus",
+            "-workbench.views.editSessions.data.open",
             "-workbench.views.editSessions.data.resetViewLocation",
             "-workbench.views.extensions.builtinFeatureExtensions.focus",
+            "-workbench.views.extensions.builtinFeatureExtensions.open",
             "-workbench.views.extensions.builtinFeatureExtensions.resetViewLocation",
             "-workbench.views.extensions.builtinProgrammingLanguageExtensions.focus",
+            "-workbench.views.extensions.builtinProgrammingLanguageExtensions.open",
             "-workbench.views.extensions.builtinProgrammingLanguageExtensions.resetViewLocation",
             "-workbench.views.extensions.builtinThemeExtensions.focus",
+            "-workbench.views.extensions.builtinThemeExtensions.open",
             "-workbench.views.extensions.builtinThemeExtensions.resetViewLocation",
             "-workbench.views.extensions.deprecatedExtensions.focus",
+            "-workbench.views.extensions.deprecatedExtensions.open",
             "-workbench.views.extensions.deprecatedExtensions.resetViewLocation",
             "-workbench.views.extensions.disabled.focus",
+            "-workbench.views.extensions.disabled.open",
             "-workbench.views.extensions.disabled.resetViewLocation",
             "-workbench.views.extensions.enabled.focus",
+            "-workbench.views.extensions.enabled.open",
             "-workbench.views.extensions.enabled.resetViewLocation",
             "-workbench.views.extensions.installed.focus",
+            "-workbench.views.extensions.installed.open",
             "-workbench.views.extensions.installed.resetViewLocation",
             "-workbench.views.extensions.marketplace.focus",
+            "-workbench.views.extensions.marketplace.open",
             "-workbench.views.extensions.marketplace.resetViewLocation",
             "-workbench.views.extensions.otherRecommendations.focus",
+            "-workbench.views.extensions.otherRecommendations.open",
             "-workbench.views.extensions.otherRecommendations.resetViewLocation",
             "-workbench.views.extensions.popular.focus",
+            "-workbench.views.extensions.popular.open",
             "-workbench.views.extensions.popular.resetViewLocation",
             "-workbench.views.extensions.searchBuiltin.focus",
+            "-workbench.views.extensions.searchBuiltin.open",
             "-workbench.views.extensions.searchBuiltin.resetViewLocation",
             "-workbench.views.extensions.searchDisabled.focus",
+            "-workbench.views.extensions.searchDisabled.open",
             "-workbench.views.extensions.searchDisabled.resetViewLocation",
             "-workbench.views.extensions.searchEnabled.focus",
+            "-workbench.views.extensions.searchEnabled.open",
             "-workbench.views.extensions.searchEnabled.resetViewLocation",
             "-workbench.views.extensions.searchInstalled.focus",
+            "-workbench.views.extensions.searchInstalled.open",
             "-workbench.views.extensions.searchInstalled.resetViewLocation",
             "-workbench.views.extensions.searchOutdated.focus",
+            "-workbench.views.extensions.searchOutdated.open",
             "-workbench.views.extensions.searchOutdated.resetViewLocation",
             "-workbench.views.extensions.searchRecentlyUpdated.focus",
+            "-workbench.views.extensions.searchRecentlyUpdated.open",
             "-workbench.views.extensions.searchRecentlyUpdated.resetViewLocation",
             "-workbench.views.extensions.searchWorkspaceUnsupported.focus",
+            "-workbench.views.extensions.searchWorkspaceUnsupported.open",
             "-workbench.views.extensions.searchWorkspaceUnsupported.resetViewLocation",
             "-workbench.views.extensions.untrustedPartiallySupportedExtensions.focus",
+            "-workbench.views.extensions.untrustedPartiallySupportedExtensions.open",
             "-workbench.views.extensions.untrustedPartiallySupportedExtensions.resetViewLocation",
             "-workbench.views.extensions.untrustedUnsupportedExtensions.focus",
+            "-workbench.views.extensions.untrustedUnsupportedExtensions.open",
             "-workbench.views.extensions.untrustedUnsupportedExtensions.resetViewLocation",
             "-workbench.views.extensions.virtualPartiallySupportedExtensions.focus",
+            "-workbench.views.extensions.virtualPartiallySupportedExtensions.open",
             "-workbench.views.extensions.virtualPartiallySupportedExtensions.resetViewLocation",
             "-workbench.views.extensions.virtualUnsupportedExtensions.focus",
+            "-workbench.views.extensions.virtualUnsupportedExtensions.open",
             "-workbench.views.extensions.virtualUnsupportedExtensions.resetViewLocation",
             "-workbench.views.extensions.workspaceRecommendations.focus",
+            "-workbench.views.extensions.workspaceRecommendations.open",
             "-workbench.views.extensions.workspaceRecommendations.resetViewLocation",
             "-workbench.views.sync.conflicts.focus",
+            "-workbench.views.sync.conflicts.open",
             "-workbench.views.sync.conflicts.resetViewLocation",
             "-workbench.views.sync.externalActivity.focus",
+            "-workbench.views.sync.externalActivity.open",
             "-workbench.views.sync.externalActivity.resetViewLocation",
             "-workbench.views.sync.localActivity.focus",
+            "-workbench.views.sync.localActivity.open",
             "-workbench.views.sync.localActivity.resetViewLocation",
             "-workbench.views.sync.machines.focus",
+            "-workbench.views.sync.machines.open",
             "-workbench.views.sync.machines.resetViewLocation",
             "-workbench.views.sync.remoteActivity.focus",
+            "-workbench.views.sync.remoteActivity.open",
             "-workbench.views.sync.remoteActivity.resetViewLocation",
             "-workbench.views.sync.troubleshoot.focus",
+            "-workbench.views.sync.troubleshoot.open",
             "-workbench.views.sync.troubleshoot.resetViewLocation"
           ],
           "enumDescriptions": [
             "Focus on Ports View",
+            "Opens view Ports",
             "Hides the Ports view if it is visible and the view container it is located in is visible",
             "Reset Location",
             "Toggles the visibility of the Ports view if the view container it is located in is visible",
@@ -10170,14 +11242,15 @@
             "Open Changes in Diff Editor",
             "Remove File",
             "View All Edits",
+            "View Previous Edits",
             "Keep Chat Edits",
             "Keep this Change",
             "Go to Next Chat Edit",
             "Go to Previous Chat Edit",
             "Undo Chat Edits",
             "Review",
-            "Show Accessible Diff View",
-            "Toggle Diff Editor",
+            "Show Accessible Diff View for Chat Edits",
+            "Toggle Diff Editor for Chat Edits",
             "Undo this Change",
             null,
             null,
@@ -10411,7 +11484,6 @@
             null,
             null,
             null,
-            null,
             "Always Show Toolbar",
             null,
             null,
@@ -10554,6 +11626,7 @@
             null,
             null,
             null,
+            "Copy Address",
             null,
             null,
             null,
@@ -10695,6 +11768,7 @@
             "Visualization",
             "Show Featured Extensions",
             "Focus on Recommended View",
+            "Opens view Recommended",
             "Reset Location",
             "Install Count",
             "Name",
@@ -10859,6 +11933,7 @@
             "Undo Last Commit",
             "Unstage Changes",
             "Unstage All Changes",
+            "Unstage Change",
             "Unstage Changes",
             "Unstage Selected Ranges",
             "Open Changes",
@@ -10891,8 +11966,10 @@
             null,
             null,
             null,
+            null,
+            null,
             "Increase Context Lines",
-            "Read Line with Inline Hints",
+            "Read Line with Inlay Hints",
             "Stop Inlay Hints Reading",
             "Accept Changes",
             "Cursor Down",
@@ -10912,8 +11989,11 @@
             "Toggle Changes",
             "Resume Last Dismissed Inline Chat",
             "View in Chat",
+            "Cancel Request",
+            "Close",
+            "Keep",
             "Toggle Inline Chat",
-            "Undo & Close",
+            "Undo",
             null,
             null,
             null,
@@ -10936,10 +12016,13 @@
             null,
             null,
             "Focus on Event Listener Breakpoints View",
+            "Opens view Event Listener Breakpoints",
             "Reset Location",
             "Focus on Network View",
+            "Opens view Network",
             "Reset Location",
             "Focus on Excluded Callers View",
+            "Opens view Excluded Callers",
             "Reset Location",
             null,
             null,
@@ -11036,8 +12119,8 @@
             "Compare Current Conflict",
             "Next Conflict",
             "Previous Conflict",
-            "Accept All Changes from Left",
-            "Accept All Changes from Right",
+            "Accept All Incoming Changes from Left",
+            "Accept All Current Changes from Right",
             "Column Layout",
             "Copy Merge Editor State as JSON",
             "Load Merge Editor State from Folder",
@@ -11055,11 +12138,13 @@
             "Show Non-Conflicting Changes",
             "Toggle Current Conflict from Left",
             "Toggle Current Conflict from Right",
+            "Accept All Combination",
             "Complete Merge",
             "Compare Input 1 With Base",
             "Compare Input 2 With Base",
             "Reset Choice for 'Close with Conflicts'",
             "Reset Result",
+            "Toggle Between Merge Editor Inputs",
             "Move the active editor by tabs or groups",
             null,
             "Collapse All Diffs",
@@ -11149,9 +12234,10 @@
             "Show Cell Line Numbers",
             "Toggle Outputs",
             "Toggle Scroll Cell Output",
-            "Show empty outputs",
+            "Show Empty Outputs",
             "Add Cell Output to Chat",
             "Copy Cell Output",
+            "Open in Output Preview",
             "Open Cell Output in Text Editor",
             "Center Active Cell",
             "",
@@ -11238,6 +12324,7 @@
             null,
             null,
             "Focus on NPM Scripts View",
+            "Opens view NPM Scripts",
             null,
             null,
             null,
@@ -11258,6 +12345,7 @@
             "Filter on Type",
             "Focus on Outline View",
             "Follow Cursor",
+            "Opens view Outline",
             "Hides the Outline view if it is visible and the view container it is located in is visible",
             "Reset Location",
             "Sort By: Category",
@@ -11301,6 +12389,7 @@
             "Focus on Refactor Preview View",
             "Group Changes By File",
             "Group Changes By Type",
+            "Opens view Refactor Preview",
             "Reset Location",
             "Reset Location",
             "Toggle Change",
@@ -11327,8 +12416,10 @@
             null,
             null,
             "Focus on Reference Search Results View",
+            "Opens view Reference Search Results",
             "Reset Location",
             "Registers a new title variable",
+            null,
             null,
             null,
             null,
@@ -11525,6 +12616,7 @@
             "View as List",
             "View as Tree",
             "Focus on Timeline View",
+            "Opens view Timeline",
             "Hides the Timeline view if it is visible and the view container it is located in is visible",
             "Reset Location",
             "Toggles the visibility of the Timeline view if the view container it is located in is visible",
@@ -11535,7 +12627,6 @@
             "Toggle visibility of the Command Center in title bar",
             "Hide Custom Title Bar",
             "Hide Custom Title Bar In Full Screen",
-            "Restore Native Title Bar",
             "Editor Actions",
             "Toggle visibility of the Share action in title bar",
             "Toggle visibility of the Layout Controls in title bar",
@@ -11561,6 +12652,8 @@
             null,
             null,
             "Type",
+            null,
+            null,
             null,
             null,
             null,
@@ -11611,8 +12704,10 @@
             "Go Back",
             "Mark Step Complete",
             "Mark Step Incomplete",
+            null,
             "Open Walkthrough...",
             "New File...",
+            "Open New Welcome Experience",
             null,
             null,
             "Sign in to GitHub",
@@ -11630,23 +12725,24 @@
             "Align Quick Input Center",
             "Align Quick Input Top",
             null,
+            "Ask @vscode",
             "Remove keyboard focus from focused element",
             "Browse Color Themes in Marketplace",
             "Accept",
             "",
             "Chat with Extension",
-            "Add Selected Files to Working Set",
             "Add File to Chat",
             "Apply Edits",
             "Apply in Editor",
             "",
-            "Use Prompt",
-            "Add Context",
+            "Attach Instructions...",
+            "Add Context...",
             "Add File to Chat",
             "Add Folder to Chat",
             "Add Selection to Chat",
             "Select Tools...",
             "Cancel",
+            "Change Model",
             "Clear All Workspace Chats",
             "Clear Input History",
             "Configure Code Completions...",
@@ -11655,8 +12751,6 @@
             "Copy",
             "Copy Link",
             "Discard Edits",
-            "Done",
-            "Add Context to Copilot Edits",
             "Export Chat...",
             "Focus Chat Input",
             "Hide Copilot",
@@ -11671,38 +12765,39 @@
             "Start Voice Chat",
             "Log Chat Index",
             "Log Chat Input History",
+            "Manage Copilot Overages",
             "Manage Copilot",
             "Helpful",
             "Unhelpful",
             "New Chat",
-            "New Chat",
+            null,
             "Next Code Block",
             "Next File Tree",
             "Open Chat",
-            "Open Copilot Edits",
+            "Open Chat (Agent)",
+            "Open Chat (Ask)",
+            "Open Chat (Edit)",
             "Open Chat in Editor",
             "Open Chat in New Window",
             "Open Chat in Side Bar",
-            "Upgrade to Copilot Pro",
+            "Open Model Picker",
+            "Upgrade Copilot Plan",
             "Open Chat Storage Folder",
             "Previous Code Block",
             "Previous File Tree",
             "Quick Voice Chat",
             "Read Aloud",
             "Redo Last Request",
-            "Remove Request",
             "Report Issue",
             "Reset Tool Confirmations",
             "Retry",
+            "Run Prompt In New Chat",
+            "Run Prompt...",
+            "Run Prompt in Current Chat",
             "Insert into Terminal",
-            "",
-            "",
-            "",
-            "",
-            "Send to Copilot Edits",
+            "Save chat session to a prompt file",
             "Send to New Chat",
             "Show Extensions using Copilot",
-            "Edit with Copilot",
             "Start Voice Chat",
             "Stop Listening",
             "Stop Listening and Submit",
@@ -11714,6 +12809,8 @@
             "Toggle Chat",
             "Set Chat Mode",
             "Toggle Request Paused",
+            "Use AI Features with Copilot for free...",
+            "Sign in to use Copilot...",
             "Use AI Features with Copilot for free...",
             "Undo Last Request",
             "Undo Requests",
@@ -11793,6 +12890,8 @@
             "Decrease Editor Height",
             "Decrease Current View Size",
             "Decrease Editor Width",
+            "Unset Compact Mode",
+            "Unset Always on Top",
             "Download Visual Studio Code",
             "Duplicate Editor Group Down",
             "Duplicate Editor Group Left",
@@ -11817,10 +12916,9 @@
             "Two Rows Editor Layout",
             "Two Rows Right Editor Layout",
             "Add Files From References",
-            "Add File to Copilot Edits",
-            "Add Folder to Copilot Edits",
-            "Add Selection to Copilot Edits",
             "Send",
+            "Set Compact Mode",
+            "Set Always on Top",
             "Reset Editor Group Sizes",
             null,
             "Expand All Comments",
@@ -11889,7 +12987,6 @@
             "Focus Title Bar",
             "Generate Color Theme From Current Settings",
             "Get Started with Accessibility Features",
-            "Get Started with Copilot",
             "Go to Line/Column...",
             "Go to Symbol in Editor...",
             null,
@@ -11988,7 +13085,7 @@
             "Open Output in Editor",
             "Open Output in New Window",
             "Open Application Settings (JSON)",
-            "Open Editor",
+            "New Chat Editor",
             "Open Default Keyboard Shortcuts (JSON)",
             "Documentation",
             null,
@@ -12061,7 +13158,7 @@
             "Git",
             "GitHub Authentication",
             "GitHub",
-            "Toggle Output",
+            "Opens view Output",
             "Connection: Pause socket writing",
             null,
             "Fill File with Snippet",
@@ -12316,7 +13413,7 @@
             "Toggle Find Using Regex",
             "Toggle Find Using Whole Word",
             "Toggle Sticky Scroll",
-            "Toggle Terminal",
+            "Opens view Terminal",
             "Unsplit Terminal",
             "Write Data to Terminal",
             "Toggle Activity Bar Visibility",
@@ -12324,6 +13421,7 @@
             "Open/Show and Close/Hide Secondary Side Bar",
             "Toggle Centered Layout",
             "Toggle Editor Commenting",
+            "Toggle Window Compact Mode",
             null,
             "Toggle Developer Tools",
             "Toggle Vertical/Horizontal Editor Layout",
@@ -12350,6 +13448,7 @@
             "Toggle Split Editor in Group",
             "Toggle Layout of Split Editor in Group",
             "Toggle Status Bar Visibility",
+            "Toggle Window Always on Top",
             "Toggle Zen Mode",
             "Connection: Trigger Reconnect",
             "Troubleshoot Issue...",
@@ -12378,7 +13477,7 @@
             "Show the problems view as a table.",
             "Show the problems view as a tree.",
             "Collapse All",
-            "Toggle Problems",
+            "Opens view Problems",
             "Toggle Problems (Errors, Warnings, Infos)",
             "Show Resolved",
             "Position in File",
@@ -12407,12 +13506,16 @@
             "Focus on Debug Console View",
             "Focus on Variables View",
             "Focus on Watch View",
-            "Toggle Debug Console",
+            "Opens view Debug Console",
+            "Opens view Breakpoints",
             "Reset Location",
+            "Opens view Call Stack",
             "Reset Location",
             "Focus on Loaded Scripts View",
+            "Opens view Loaded Scripts",
             "Reset Location",
             "Clears all program output from your debug REPL",
+            "Opens view Variables",
             "Reset Location",
             "Add Data Breakpoint at Address",
             "Add Function Breakpoint",
@@ -12428,8 +13531,10 @@
             "Remove Breakpoint",
             "Toggle Activate Breakpoints",
             null,
+            "Opens view Watch",
             "Reset Location",
             "Focus on Run View",
+            "Opens view Run",
             "Hides the Run view if it is visible and the view container it is located in is visible",
             "Reset Location",
             "Toggles the visibility of the Run view if the view container it is located in is visible",
@@ -12444,10 +13549,12 @@
             "Turn on Cloud Changes...",
             "Store Working Changes",
             "Store Working Changes in Cloud",
+            "Opens view No Folder Opened",
             "Hides the No Folder Opened view if it is visible and the view container it is located in is visible",
             "Reset Location",
             "Toggles the visibility of the No Folder Opened view if the view container it is located in is visible",
             "Focus on No Folder Opened View",
+            "Opens view Open Editors",
             "Hides the Open Editors view if it is visible and the view container it is located in is visible",
             "Reset Location",
             "Toggles the visibility of the Open Editors view if the view container it is located in is visible",
@@ -12550,6 +13657,7 @@
             "Reset Trust",
             "Restart Server",
             "Server Options",
+            "Show Configuration",
             "Show Output",
             "Start Server",
             "Stop Server",
@@ -12561,16 +13669,12 @@
             "Clear Output",
             "Switch Output",
             "Toggle Auto Scrolling",
-            "Toggle Chat",
+            "Opens view Chat",
             "Reset Location",
             "Focus on Chat View",
             "Hides the Chat view if it is visible and the view container it is located in is visible",
             "Reset Location",
             "Toggles the visibility of the Chat view if the view container it is located in is visible",
-            "Focus on Copilot Edits View",
-            "Reset Location",
-            "Toggle Copilot Edits",
-            "Reset Location",
             "Reset Location",
             "Focus on Problems View",
             "Hides the Problems view if it is visible and the view container it is located in is visible",
@@ -12588,6 +13692,7 @@
             "Toggles the visibility of the Debug Console view if the view container it is located in is visible",
             "Reset Location",
             "Focus on Test Results View",
+            "Opens view Test Results",
             "Reset Location",
             "Cleanup Profiles",
             "Save Current Profile As...",
@@ -12632,9 +13737,11 @@
             "View as Tree",
             "Focus on Changes View",
             "Focus on Graph View",
+            "Opens view Graph",
             "Reset Location",
             "Hides the Changes view if it is visible and the view container it is located in is visible",
             "Focus on Repositories View",
+            "Opens view Repositories",
             "Reset Location",
             "Reset Location",
             "Toggles the visibility of the Changes view if the view container it is located in is visible",
@@ -12674,9 +13781,9 @@
             "Reset Location",
             "Show Remote Explorer",
             "Reset Location",
-            "Show Changes",
+            "Opens view Changes",
             "Reset Location",
-            "Show Search",
+            "Opens view Search",
             "Focus on Search View",
             "Hides the Search view if it is visible and the view container it is located in is visible",
             "Reset Location",
@@ -12685,66 +13792,97 @@
             "Show Settings Sync",
             "Reset Location",
             "Focus on Test Coverage View",
+            "Opens view Test Coverage",
             "Reset Location",
             "Focus on Test Explorer View",
+            "Opens view Test Explorer",
             "Reset Location",
             "Focus on Cloud Changes View",
+            "Opens view Cloud Changes",
             "Reset Location",
             "Focus on Features View",
+            "Opens view Features",
             "Reset Location",
             "Focus on Programming Languages View",
+            "Opens view Programming Languages",
             "Reset Location",
             "Focus on Themes View",
+            "Opens view Themes",
             "Reset Location",
             "Focus on Deprecated View",
+            "Opens view Deprecated",
             "Reset Location",
             "Focus on Disabled View",
+            "Opens view Disabled",
             "Reset Location",
             "Focus on Enabled View",
+            "Opens view Enabled",
             "Reset Location",
             "Focus on Installed View",
+            "Opens view Installed",
             "Reset Location",
             "Focus on Marketplace View",
+            "Opens view Marketplace",
             "Reset Location",
             "Focus on Other Recommendations View",
+            "Opens view Other Recommendations",
             "Reset Location",
             "Focus on Popular View",
+            "Opens view Popular",
             "Reset Location",
             "Focus on Builtin View",
+            "Opens view Builtin",
             "Reset Location",
             "Focus on Disabled View",
+            "Opens view Disabled",
             "Reset Location",
             "Focus on Enabled View",
+            "Opens view Enabled",
             "Reset Location",
             "Focus on Installed View",
+            "Opens view Installed",
             "Reset Location",
             "Focus on Available Updates View",
+            "Opens view Available Updates",
             "Reset Location",
             "Focus on Recently Updated View",
+            "Opens view Recently Updated",
             "Reset Location",
             "Focus on Workspace Unsupported View",
+            "Opens view Workspace Unsupported",
             "Reset Location",
             "Focus on Limited in Restricted Mode View",
+            "Opens view Limited in Restricted Mode",
             "Reset Location",
             "Focus on Disabled in Restricted Mode View",
+            "Opens view Disabled in Restricted Mode",
             "Reset Location",
             "Focus on Limited in Virtual Workspaces View",
+            "Opens view Limited in Virtual Workspaces",
             "Reset Location",
             "Focus on Disabled in Virtual Workspaces View",
+            "Opens view Disabled in Virtual Workspaces",
             "Reset Location",
             "Focus on Workspace Recommendations View",
+            "Opens view Workspace Recommendations",
             "Reset Location",
             "Focus on Conflicts View",
+            "Opens view Conflicts",
             "Reset Location",
             "Focus on Sync Activity (Developer) View",
+            "Opens view Sync Activity (Developer)",
             "Reset Location",
             "Focus on Sync Activity (Local) View",
+            "Opens view Sync Activity (Local)",
             "Reset Location",
             "Focus on Synced Machines View",
+            "Opens view Synced Machines",
             "Reset Location",
             "Focus on Sync Activity (Remote) View",
+            "Opens view Sync Activity (Remote)",
             "Reset Location",
             "Focus on Troubleshoot View",
+            "Opens view Troubleshoot",
             "Reset Location"
           ],
           "description": "Name of the command to remove keyboard shortcut for"
@@ -12791,7 +13929,7 @@
       "command": {
         "anyOf": [
           {
-            "$ref": "#/$defs/_25"
+            "$ref": "#/$defs/_26"
           },
           {
             "if": {
@@ -12804,7 +13942,7 @@
               "errorMessage": "Incorrect type. Expected \"string\". The field 'command' does not support running multiple commands. Use command 'runCommands' to pass it multiple commands to run."
             },
             "else": {
-              "$ref": "#/$defs/_25"
+              "$ref": "#/$defs/_26"
             }
           }
         ]
@@ -13115,17 +14253,32 @@
           "type": "object",
           "properties": {
             "preserveFocus": {
-              "$ref": "#/$defs/_1"
+              "type": "boolean",
+              "default": false,
+              "description": "Whether to preserve the existing focus when opening the view."
             }
           }
         }
       }
     },
     "_20": {
+      "required": [],
+      "properties": {
+        "args": {
+          "type": "object",
+          "properties": {
+            "preserveFocus": {
+              "$ref": "#/$defs/_1"
+            }
+          }
+        }
+      }
+    },
+    "_21": {
       "type": "string",
       "description": "The task's label or a term to filter by"
     },
-    "_21": {
+    "_22": {
       "required": [],
       "properties": {
         "args": {
@@ -13152,7 +14305,7 @@
         }
       }
     },
-    "_22": {
+    "_23": {
       "properties": {
         "args": {
           "required": [
@@ -13175,17 +14328,17 @@
         }
       }
     },
-    "_23": {
+    "_24": {
       "required": [
         "kind"
       ],
       "properties": {
         "kind": {
-          "$ref": "#/$defs/_24"
+          "$ref": "#/$defs/_25"
         }
       }
     },
-    "_24": {
+    "_25": {
       "anyOf": [
         {
           "enum": []
@@ -13195,7 +14348,7 @@
         }
       ]
     },
-    "_25": {
+    "_26": {
       "$ref": "#/definitions/commandType"
     }
   }

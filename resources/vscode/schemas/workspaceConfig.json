@@ -79,9 +79,8 @@
         "inputs": [],
         "servers": {
           "mcp-server-time": {
-            "command": "python",
+            "command": "uvx",
             "args": [
-              "-m",
               "mcp_server_time",
               "--local-timezone=America/Los_Angeles"
             ]
