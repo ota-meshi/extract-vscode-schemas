@@ -80,7 +80,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_81"
+          "$ref": "#/$defs/_83"
         }
       ]
     },
@@ -91,7 +91,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_81"
+          "$ref": "#/$defs/_83"
         }
       ]
     },
@@ -152,7 +152,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_82"
+          "$ref": "#/$defs/_84"
         }
       ]
     },
@@ -174,7 +174,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_82"
+          "$ref": "#/$defs/_84"
         }
       ]
     },
@@ -185,7 +185,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_82"
+          "$ref": "#/$defs/_84"
         }
       ]
     },
@@ -622,7 +622,45 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_86"
+          "$ref": "#/$defs/_90"
+        }
+      ]
+    },
+    "chat.linesAddedForeground": {
+      "description": "Foreground color of lines added in chat code block pill.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#54b054}"
+            }
+          ],
+          "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+          "patternErrorMessage": "This color must be transparent or it will obscure content"
+        }
+      ]
+    },
+    "chat.linesRemovedForeground": {
+      "description": "Foreground color of lines removed in chat code block pill.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#fc6a6a}"
+            }
+          ],
+          "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+          "patternErrorMessage": "This color must be transparent or it will obscure content"
         }
       ]
     },
@@ -650,7 +688,29 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_85"
+          "$ref": "#/$defs/_89"
+        }
+      ]
+    },
+    "chat.requestBubbleBackground": {
+      "description": "Background color of the chat request bubble.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_68"
+        }
+      ]
+    },
+    "chat.requestCodeBorder": {
+      "description": "Border color of code blocks within the chat request bubble.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_76"
         }
       ]
     },
@@ -665,7 +725,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#34414b}"
+              "body": "${1:#26477866}"
             }
           ]
         }
@@ -682,7 +742,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#40a6ff}"
+              "body": "${1:#85b6ff}"
             }
           ]
         }
@@ -1053,7 +1113,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_91"
+          "$ref": "#/$defs/_93"
         }
       ]
     },
@@ -1092,7 +1152,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_91"
+          "$ref": "#/$defs/_93"
         }
       ]
     },
@@ -1114,7 +1174,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_95"
+          "$ref": "#/$defs/_97"
         }
       ]
     },
@@ -1174,10 +1234,10 @@
       ]
     },
     "debugIcon.stepOutForeground": {
-      "$ref": "#/$defs/_96"
+      "$ref": "#/$defs/_98"
     },
     "debugIcon.stepOverForeground": {
-      "$ref": "#/$defs/_96"
+      "$ref": "#/$defs/_98"
     },
     "debugIcon.stopForeground": {
       "description": "Debug toolbar icon for stop.",
@@ -1186,7 +1246,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_95"
+          "$ref": "#/$defs/_97"
         }
       ]
     },
@@ -1208,7 +1268,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_95"
+          "$ref": "#/$defs/_97"
         }
       ]
     },
@@ -1287,7 +1347,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_84"
+          "$ref": "#/$defs/_86"
         }
       ]
     },
@@ -1832,15 +1892,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#264f784d}"
-            }
-          ],
-          "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
-          "patternErrorMessage": "This color must be transparent or it will obscure content"
+          "$ref": "#/$defs/_68"
         }
       ]
     },
@@ -1934,7 +1986,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_75"
+          "$ref": "#/$defs/_77"
         }
       ]
     },
@@ -1973,7 +2025,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_73"
+          "$ref": "#/$defs/_74"
         }
       ]
     },
@@ -2172,7 +2224,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_74"
+          "$ref": "#/$defs/_75"
         }
       ]
     },
@@ -2194,15 +2246,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#004972b8}"
-            }
-          ],
-          "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
-          "patternErrorMessage": "This color must be transparent or it will obscure content"
+          "$ref": "#/$defs/_76"
         }
       ]
     },
@@ -2224,7 +2268,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_74"
+          "$ref": "#/$defs/_75"
         }
       ]
     },
@@ -2592,7 +2636,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_87"
+          "$ref": "#/$defs/_91"
         }
       ]
     },
@@ -2603,7 +2647,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_87"
+          "$ref": "#/$defs/_91"
         }
       ]
     },
@@ -2735,7 +2779,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_77"
+          "$ref": "#/$defs/_79"
         }
       ]
     },
@@ -2746,7 +2790,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_78"
+          "$ref": "#/$defs/_80"
         }
       ]
     },
@@ -2856,7 +2900,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_88"
+          "$ref": "#/$defs/_92"
         }
       ]
     },
@@ -2939,7 +2983,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_80"
+          "$ref": "#/$defs/_82"
         }
       ]
     },
@@ -3478,7 +3522,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_71"
+          "$ref": "#/$defs/_72"
         }
       ]
     },
@@ -3500,7 +3544,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_72"
+          "$ref": "#/$defs/_73"
         }
       ]
     },
@@ -3539,7 +3583,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_83"
+          "$ref": "#/$defs/_85"
         }
       ]
     },
@@ -3781,7 +3825,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_83"
+          "$ref": "#/$defs/_85"
         }
       ]
     },
@@ -4162,7 +4206,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_84"
+          "$ref": "#/$defs/_86"
         }
       ]
     },
@@ -4551,7 +4595,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_89"
+          "$ref": "#/$defs/_87"
         }
       ]
     },
@@ -4579,7 +4623,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_90"
+          "$ref": "#/$defs/_88"
         }
       ]
     },
@@ -4601,7 +4645,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_86"
+          "$ref": "#/$defs/_90"
         }
       ]
     },
@@ -4612,7 +4656,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_92"
+          "$ref": "#/$defs/_94"
         }
       ]
     },
@@ -4623,7 +4667,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_90"
+          "$ref": "#/$defs/_88"
         }
       ]
     },
@@ -4634,7 +4678,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_86"
+          "$ref": "#/$defs/_90"
         }
       ]
     },
@@ -4662,7 +4706,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_92"
+          "$ref": "#/$defs/_94"
         }
       ]
     },
@@ -4947,7 +4991,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_70"
+          "$ref": "#/$defs/_71"
         }
       ]
     },
@@ -5015,7 +5059,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_69"
+          "$ref": "#/$defs/_70"
         }
       ]
     },
@@ -5026,7 +5070,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_68"
+          "$ref": "#/$defs/_69"
         }
       ]
     },
@@ -5037,7 +5081,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_68"
+          "$ref": "#/$defs/_69"
         }
       ]
     },
@@ -5048,7 +5092,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_70"
+          "$ref": "#/$defs/_71"
         }
       ]
     },
@@ -5059,7 +5103,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_69"
+          "$ref": "#/$defs/_70"
         }
       ]
     },
@@ -5959,7 +6003,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_70"
+          "$ref": "#/$defs/_71"
         }
       ]
     },
@@ -6286,7 +6330,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_88"
+          "$ref": "#/$defs/_92"
         }
       ]
     },
@@ -6877,7 +6921,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_78"
+          "$ref": "#/$defs/_80"
         }
       ]
     },
@@ -7324,40 +7368,6 @@
         }
       ]
     },
-    "prompt.frontMatter.background": {
-      "description": "Background color of a Front Matter header block.",
-      "oneOf": [
-        {
-          "$ref": "#/$defs/_1"
-        },
-        {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#191919}"
-            }
-          ]
-        }
-      ]
-    },
-    "prompt.frontMatter.inactiveBackground": {
-      "description": "Background color of an inactive Front Matter header block.",
-      "oneOf": [
-        {
-          "$ref": "#/$defs/_1"
-        },
-        {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#1c1c1c}"
-            }
-          ]
-        }
-      ]
-    },
     "quickInput.background": {
       "description": "Quick picker background color. The quick picker widget is the container for pickers like the command palette.",
       "oneOf": [
@@ -7645,7 +7655,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_89"
+          "$ref": "#/$defs/_87"
         }
       ]
     },
@@ -7678,7 +7688,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_90"
+          "$ref": "#/$defs/_88"
         }
       ]
     },
@@ -8104,7 +8114,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_78"
+          "$ref": "#/$defs/_80"
         }
       ]
     },
@@ -8236,7 +8246,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_77"
+          "$ref": "#/$defs/_79"
         }
       ]
     },
@@ -8247,7 +8257,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_77"
+          "$ref": "#/$defs/_79"
         }
       ]
     },
@@ -8407,7 +8417,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_80"
+          "$ref": "#/$defs/_82"
         }
       ]
     },
@@ -8429,7 +8439,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_79"
+          "$ref": "#/$defs/_81"
         }
       ]
     },
@@ -8462,7 +8472,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_79"
+          "$ref": "#/$defs/_81"
         }
       ]
     },
@@ -8512,7 +8522,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_79"
+          "$ref": "#/$defs/_81"
         }
       ]
     },
@@ -8562,7 +8572,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_79"
+          "$ref": "#/$defs/_81"
         }
       ]
     },
@@ -8606,7 +8616,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_79"
+          "$ref": "#/$defs/_81"
         }
       ]
     },
@@ -8656,7 +8666,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_79"
+          "$ref": "#/$defs/_81"
         }
       ]
     },
@@ -9179,7 +9189,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_76"
+          "$ref": "#/$defs/_78"
         }
       ]
     },
@@ -9279,7 +9289,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_75"
+          "$ref": "#/$defs/_77"
         }
       ]
     },
@@ -9290,7 +9300,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_76"
+          "$ref": "#/$defs/_78"
         }
       ]
     },
@@ -9503,7 +9513,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_97"
+          "$ref": "#/$defs/_99"
         }
       ]
     },
@@ -9599,7 +9609,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_97"
+          "$ref": "#/$defs/_99"
         }
       ]
     },
@@ -10086,7 +10096,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_70"
+          "$ref": "#/$defs/_71"
         }
       ]
     },
@@ -10114,7 +10124,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_83"
+          "$ref": "#/$defs/_85"
         }
       ]
     },
@@ -10136,7 +10146,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_93"
+          "$ref": "#/$defs/_95"
         }
       ]
     },
@@ -10158,7 +10168,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_93"
+          "$ref": "#/$defs/_95"
         }
       ]
     },
@@ -10169,7 +10179,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_92"
+          "$ref": "#/$defs/_94"
         }
       ]
     },
@@ -10225,7 +10235,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_91"
+          "$ref": "#/$defs/_93"
         }
       ]
     },
@@ -10236,7 +10246,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_94"
+          "$ref": "#/$defs/_96"
         }
       ]
     },
@@ -10247,7 +10257,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_91"
+          "$ref": "#/$defs/_93"
         }
       ]
     },
@@ -10258,7 +10268,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_94"
+          "$ref": "#/$defs/_96"
         }
       ]
     },
@@ -10346,7 +10356,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_72"
+          "$ref": "#/$defs/_73"
         }
       ]
     },
@@ -10368,7 +10378,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_71"
+          "$ref": "#/$defs/_72"
         }
       ]
     },
@@ -10379,7 +10389,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_92"
+          "$ref": "#/$defs/_94"
         }
       ]
     },
@@ -10390,7 +10400,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_69"
+          "$ref": "#/$defs/_70"
         }
       ]
     },
@@ -10435,7 +10445,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_73"
+          "$ref": "#/$defs/_74"
         }
       ]
     },
@@ -10774,7 +10784,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_85"
+          "$ref": "#/$defs/_89"
         }
       ]
     },
@@ -11456,7 +11466,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#ff000029}"
+          "body": "${1:#264f784d}"
         }
       ],
       "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
@@ -11467,16 +11477,18 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#ff000033}"
+          "body": "${1:#ff000029}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "_70": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#9ccc2c33}"
+          "body": "${1:#ff000033}"
         }
       ]
     },
@@ -11485,7 +11497,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#f14c4c1a}"
+          "body": "${1:#9ccc2c33}"
         }
       ]
     },
@@ -11494,7 +11506,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#3794ff1a}"
+          "body": "${1:#f14c4c1a}"
         }
       ]
     },
@@ -11503,11 +11515,20 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#ff00004d}"
+          "body": "${1:#3794ff1a}"
         }
       ]
     },
     "_74": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff00004d}"
+        }
+      ]
+    },
+    "_75": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -11518,7 +11539,18 @@
       "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
       "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
-    "_75": {
+    "_76": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#004972b8}"
+        }
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
+    },
+    "_77": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -11527,7 +11559,7 @@
         }
       ]
     },
-    "_76": {
+    "_78": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -11536,7 +11568,7 @@
         }
       ]
     },
-    "_77": {
+    "_79": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -11545,7 +11577,7 @@
         }
       ]
     },
-    "_78": {
+    "_80": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -11554,7 +11586,7 @@
         }
       ]
     },
-    "_79": {
+    "_81": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -11563,7 +11595,7 @@
         }
       ]
     },
-    "_80": {
+    "_82": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -11572,7 +11604,7 @@
         }
       ]
     },
-    "_81": {
+    "_83": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -11581,7 +11613,7 @@
         }
       ]
     },
-    "_82": {
+    "_84": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -11590,7 +11622,7 @@
         }
       ]
     },
-    "_83": {
+    "_85": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -11599,7 +11631,7 @@
         }
       ]
     },
-    "_84": {
+    "_86": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -11608,43 +11640,7 @@
         }
       ]
     },
-    "_85": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ffffff1a}"
-        }
-      ]
-    },
-    "_86": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#e2c08d}"
-        }
-      ]
-    },
     "_87": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#0078d41a}"
-        }
-      ]
-    },
-    "_88": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#2ea043}"
-        }
-      ]
-    },
-    "_89": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -11653,7 +11649,7 @@
         }
       ]
     },
-    "_90": {
+    "_88": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -11662,12 +11658,30 @@
         }
       ]
     },
+    "_89": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ffffff1a}"
+        }
+      ]
+    },
+    "_90": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#e2c08d}"
+        }
+      ]
+    },
     "_91": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#848484}"
+          "body": "${1:#0078d41a}"
         }
       ]
     },
@@ -11676,7 +11690,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#73c991}"
+          "body": "${1:#2ea043}"
         }
       ]
     },
@@ -11685,7 +11699,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#f14c4cb3}"
+          "body": "${1:#848484}"
         }
       ]
     },
@@ -11694,7 +11708,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#848484b3}"
+          "body": "${1:#73c991}"
         }
       ]
     },
@@ -11703,11 +11717,29 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#f48771}"
+          "body": "${1:#f14c4cb3}"
         }
       ]
     },
     "_96": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#848484b3}"
+        }
+      ]
+    },
+    "_97": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#f48771}"
+        }
+      ]
+    },
+    "_98": {
       "description": "Debug toolbar icon for step over.",
       "oneOf": [
         {
@@ -11718,7 +11750,7 @@
         }
       ]
     },
-    "_97": {
+    "_99": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [

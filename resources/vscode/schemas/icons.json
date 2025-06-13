@@ -768,6 +768,10 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon shown with a activation time message in the extension editor.: $(extension-activation-time)"
     },
+    "extension-default-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon used for the default extension in the extensions view and editor.: $(extension-default-icon)"
+    },
     "extension-workspace-trust": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon shown with a workspace trust message in the extension editor.: $(extension-workspace-trust)"
@@ -810,6 +814,9 @@
     "extensions-install-workspace-recommended": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for the 'Install Workspace Recommended Extensions' action in the extensions view.: $(extensions-install-workspace-recommended)"
+    },
+    "extensions-large": {
+      "$ref": "#/$defs/_0"
     },
     "extensions-manage": {
       "$ref": "#/definitions/icons",
@@ -1360,6 +1367,9 @@
     "layout-panel-center": {
       "$ref": "#/$defs/_0"
     },
+    "layout-panel-dock": {
+      "$ref": "#/$defs/_0"
+    },
     "layout-panel-justify": {
       "$ref": "#/$defs/_0"
     },
@@ -1375,10 +1385,16 @@
     "layout-sidebar-left": {
       "$ref": "#/$defs/_0"
     },
+    "layout-sidebar-left-dock": {
+      "$ref": "#/$defs/_0"
+    },
     "layout-sidebar-left-off": {
       "$ref": "#/$defs/_0"
     },
     "layout-sidebar-right": {
+      "$ref": "#/$defs/_0"
+    },
+    "layout-sidebar-right-dock": {
       "$ref": "#/$defs/_0"
     },
     "layout-sidebar-right-off": {
@@ -1523,6 +1539,13 @@
     "markers-view-multi-line-expanded": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon indicating that multiple lines are shown in the markers view.: $(markers-view-multi-line-expanded)"
+    },
+    "mcp": {
+      "$ref": "#/$defs/_0"
+    },
+    "mcp-server": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon used for the MCP server.: $(mcp-server)"
     },
     "megaphone": {
       "$ref": "#/$defs/_0"
@@ -1939,9 +1962,17 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "View icon of the remote ports view.: $(ports-view-icon)"
     },
+    "preferences-ai-results": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for showing AI results in the Settings UI.: $(preferences-ai-results)"
+    },
     "preferences-clear-input": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for clear input in the Settings and keybinding UI.: $(preferences-clear-input)"
+    },
+    "preferences-editor-label-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon of the preferences editor label.: $(preferences-editor-label-icon)"
     },
     "preferences-filter": {
       "$ref": "#/definitions/icons",
@@ -1966,6 +1997,10 @@
     "private-ports-view-icon": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon representing a private remote port.: $(private-ports-view-icon)"
+    },
+    "process-explorer-editor-label-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon of the process explorer editor label.: $(process-explorer-editor-label-icon)"
     },
     "profiles-editor-edit-folder": {
       "$ref": "#/definitions/icons",

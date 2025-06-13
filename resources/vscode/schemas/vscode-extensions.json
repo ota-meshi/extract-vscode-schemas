@@ -342,6 +342,14 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
+              "authorizationServerGlobs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "A list of globs that match the authorization servers that this provider supports."
+                },
+                "description": "A list of globs that match the authorization servers that this provider supports."
+              },
               "id": {
                 "type": "string",
                 "description": "The id of the authentication provider."
@@ -1627,6 +1635,11 @@
                       "keyboard-tab-above",
                       "keyboard-tab-below",
                       "git-pull-request-done",
+                      "mcp",
+                      "extensions-large",
+                      "layout-panel-dock",
+                      "layout-sidebar-left-dock",
+                      "layout-sidebar-right-dock",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -1734,11 +1747,13 @@
                       "extensions-info-message",
                       "extension-workspace-trust",
                       "extension-activation-time",
+                      "extension-default-icon",
                       "extensions-verified-publisher",
                       "view-pane-container-expanded",
                       "view-pane-container-collapsed",
                       "breadcrumb-separator",
                       "defaultProfile-icon",
+                      "mcp-server",
                       "notebook-kernel-select",
                       "notebook-execute",
                       "notebook-execute-above",
@@ -1821,6 +1836,7 @@
                       "accounts-view-bar-icon",
                       "keybindings-editor-label-icon",
                       "settings-editor-label-icon",
+                      "preferences-editor-label-icon",
                       "settings-sync-view-icon",
                       "settings-folder-dropdown",
                       "settings-more-action",
@@ -1832,10 +1848,33 @@
                       "settings-remove",
                       "settings-discard",
                       "preferences-clear-input",
+                      "preferences-ai-results",
                       "preferences-filter",
                       "preferences-open-settings",
+                      "search-details",
+                      "search-see-more",
+                      "search-show-context",
+                      "search-hide-replace",
+                      "search-show-replace",
+                      "search-replace-all",
+                      "search-replace",
+                      "search-remove",
+                      "search-refresh",
+                      "search-collapse-results",
+                      "search-expand-results",
+                      "search-tree",
+                      "search-list",
+                      "search-clear-results",
+                      "search-view-icon",
+                      "search-new-editor",
+                      "search-open-in-file",
+                      "search-sparkle-filled",
+                      "search-sparkle-empty",
                       "find-filter",
+                      "search-editor-label-icon",
                       "start-inline-chat",
+                      "extensions-editor-label-icon",
+                      "runtime-extensions-editor-label-icon",
                       "repl-editor-label-icon",
                       "test-view-icon",
                       "test-results-icon",
@@ -1877,32 +1916,11 @@
                       "explorer-view-icon",
                       "open-editors-view-icon",
                       "refactor-preview-view-icon",
-                      "search-details",
-                      "search-see-more",
-                      "search-show-context",
-                      "search-hide-replace",
-                      "search-show-replace",
-                      "search-replace-all",
-                      "search-replace",
-                      "search-remove",
-                      "search-refresh",
-                      "search-collapse-results",
-                      "search-expand-results",
-                      "search-tree",
-                      "search-list",
-                      "search-clear-results",
-                      "search-view-icon",
-                      "search-new-editor",
-                      "search-open-in-file",
-                      "search-sparkle-filled",
-                      "search-sparkle-empty",
-                      "search-editor-label-icon",
                       "source-control-view-icon",
                       "markers-view-multi-line-expanded",
                       "markers-view-multi-line-collapsed",
                       "markers-view-icon",
-                      "extensions-editor-label-icon",
-                      "runtime-extensions-editor-label-icon",
+                      "process-explorer-editor-label-icon",
                       "output-view-icon",
                       "terminal-symbol-flag",
                       "terminal-symbol-alias",
@@ -2562,6 +2580,11 @@
                       "",
                       "",
                       "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
                       "Icon for breakpoints waiting on another breakpoint.",
                       "Icon for the close action in widgets.",
                       "Icon for goto previous editor location.",
@@ -2646,11 +2669,13 @@
                       "Icon shown with an info message in the extensions editor.",
                       "Icon shown with a workspace trust message in the extension editor.",
                       "Icon shown with a activation time message in the extension editor.",
+                      "Icon used for the default extension in the extensions view and editor.",
                       "Icon used for the verified extension publisher in the extensions view and editor.",
                       "Icon for an expanded view pane container.",
                       "Icon for a collapsed view pane container.",
                       "Icon for the separator in the breadcrumbs.",
                       "Icon for Default Profile.",
+                      "Icon used for the MCP server.",
                       "Configure icon to select a kernel in notebook editors.",
                       "Icon to execute in notebook editors.",
                       "Icon to execute above cells in notebook editors.",
@@ -2733,6 +2758,7 @@
                       "Accounts icon in the view bar.",
                       "Icon of the keybindings editor label.",
                       "Icon of the settings editor label.",
+                      "Icon of the preferences editor label.",
                       "View icon of the Settings Sync view.",
                       "Icon for the folder dropdown button in the split JSON Settings editor.",
                       "Icon for the 'more actions' action in the Settings UI.",
@@ -2744,10 +2770,33 @@
                       "Icon for the remove action in the Settings UI.",
                       "Icon for the discard action in the Settings UI.",
                       "Icon for clear input in the Settings and keybinding UI.",
+                      "Icon for showing AI results in the Settings UI.",
                       "Icon for the button that suggests filters for the Settings UI.",
                       "Icon for open settings commands.",
+                      "Icon to make search details visible.",
+                      "Icon to view more context in the search view.",
+                      "Icon for toggle the context in the search editor.",
+                      "Icon to collapse the replace section in the search view.",
+                      "Icon to expand the replace section in the search view.",
+                      "Icon for replace all in the search view.",
+                      "Icon for replace in the search view.",
+                      "Icon to remove a search result.",
+                      "Icon for refresh in the search view.",
+                      "Icon for collapse results in the search view.",
+                      "Icon for expand results in the search view.",
+                      "Icon for viewing results as a tree in the search view.",
+                      "Icon for viewing results as a list in the search view.",
+                      "Icon for clear results in the search view.",
+                      "View icon of the search view.",
+                      "Icon for the action to open a new search editor.",
+                      "Icon for the action to go to the file of the current search result.",
+                      "Icon to show AI results in search.",
+                      "Icon to hide AI results in search.",
                       "Icon for Find Filter in find widget.",
+                      "Icon of the search editor label.",
                       "Icon which spawns the inline chat from the editor toolbar.",
+                      "Icon of the extensions editor label.",
+                      "Icon of the runtime extensions editor label.",
                       "Icon of the REPL editor label.",
                       "View icon of the test view.",
                       "Icons for test results.",
@@ -2789,32 +2838,11 @@
                       "View icon of the explorer view.",
                       "View icon of the open editors view.",
                       "View icon of the refactor preview view.",
-                      "Icon to make search details visible.",
-                      "Icon to view more context in the search view.",
-                      "Icon for toggle the context in the search editor.",
-                      "Icon to collapse the replace section in the search view.",
-                      "Icon to expand the replace section in the search view.",
-                      "Icon for replace all in the search view.",
-                      "Icon for replace in the search view.",
-                      "Icon to remove a search result.",
-                      "Icon for refresh in the search view.",
-                      "Icon for collapse results in the search view.",
-                      "Icon for expand results in the search view.",
-                      "Icon for viewing results as a tree in the search view.",
-                      "Icon for viewing results as a list in the search view.",
-                      "Icon for clear results in the search view.",
-                      "View icon of the search view.",
-                      "Icon for the action to open a new search editor.",
-                      "Icon for the action to go to the file of the current search result.",
-                      "Icon to show AI results in search.",
-                      "Icon to hide AI results in search.",
-                      "Icon of the search editor label.",
                       "View icon of the Source Control view.",
                       "Icon indicating that multiple lines are shown in the markers view.",
                       "Icon indicating that multiple lines are collapsed in the markers view.",
                       "View icon of the markers view.",
-                      "Icon of the extensions editor label.",
-                      "Icon of the runtime extensions editor label.",
+                      "Icon of the process explorer editor label.",
                       "View icon of the output view.",
                       "Icon for flags in the terminal suggest widget.",
                       "Icon for aliases in the terminal suggest widget.",
@@ -3017,12 +3045,12 @@
           "description": "Contribute language models of a specific vendor.",
           "oneOf": [
             {
-              "$ref": "#/$defs/_6"
+              "$ref": "#/$defs/_4"
             },
             {
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_6"
+                "$ref": "#/$defs/_4"
               }
             }
           ]
@@ -3112,6 +3140,53 @@
             }
           }
         },
+        "languageModelToolSets": {
+          "description": "Contributes a set of language model tools that can be used together.",
+          "type": "array",
+          "items": {
+            "additionalProperties": false,
+            "type": "object",
+            "defaultSnippets": [
+              {
+                "body": {
+                  "name": "${1}",
+                  "description": "${2}",
+                  "tools": [
+                    "${3}"
+                  ]
+                }
+              }
+            ],
+            "required": [
+              "name",
+              "description",
+              "tools"
+            ],
+            "properties": {
+              "description": {
+                "description": "A description of this tool set.",
+                "type": "string"
+              },
+              "icon": {
+                "markdownDescription": "An icon that represents this tool set, like `$(zap)`",
+                "type": "string"
+              },
+              "name": {
+                "description": "A name for this tool set. Used as reference and should not contain whitespace.",
+                "type": "string",
+                "pattern": "^[\\w-]+$"
+              },
+              "tools": {
+                "markdownDescription": "A list of tools or tool sets to include in this tool set. Cannot be empty and must reference tools by their `toolReferenceName`.",
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
         "languages": {
           "description": "Contributes language declarations.",
           "type": "array",
@@ -3177,10 +3252,10 @@
                 "description": "A icon to use as file icon, if no icon theme provides one for the language.",
                 "properties": {
                   "dark": {
-                    "$ref": "#/$defs/_5"
+                    "$ref": "#/$defs/_6"
                   },
                   "light": {
-                    "$ref": "#/$defs/_4"
+                    "$ref": "#/$defs/_5"
                   }
                 }
               },
@@ -3272,6 +3347,42 @@
                     }
                   ]
                 }
+              }
+            }
+          }
+        },
+        "mcpServerDefinitionProviders": {
+          "description": "Contributes Model Context Protocol servers. Users of this should also use `vscode.lm.registerMcpConfigurationProvider`.",
+          "type": "array",
+          "defaultSnippets": [
+            {
+              "body": [
+                {
+                  "id": "",
+                  "label": ""
+                }
+              ]
+            }
+          ],
+          "items": {
+            "additionalProperties": false,
+            "type": "object",
+            "defaultSnippets": [
+              {
+                "body": {
+                  "id": "",
+                  "label": ""
+                }
+              }
+            ],
+            "properties": {
+              "id": {
+                "description": "Unique ID for the collection.",
+                "type": "string"
+              },
+              "label": {
+                "description": "Display name for the collection.",
+                "type": "string"
               }
             }
           }
@@ -3810,42 +3921,6 @@
             "type": "array",
             "items": {
               "$ref": "#/$defs/_10"
-            }
-          }
-        },
-        "modelContextServerCollections": {
-          "description": "Contributes Model Context Protocol servers. Users of this should also use `vscode.lm.registerMcpConfigurationProvider`.",
-          "type": "array",
-          "defaultSnippets": [
-            {
-              "body": [
-                {
-                  "id": "",
-                  "label": ""
-                }
-              ]
-            }
-          ],
-          "items": {
-            "additionalProperties": false,
-            "type": "object",
-            "defaultSnippets": [
-              {
-                "body": {
-                  "id": "",
-                  "label": ""
-                }
-              }
-            ],
-            "properties": {
-              "id": {
-                "description": "Unique ID for the collection.",
-                "type": "string"
-              },
-              "label": {
-                "description": "Display name for the collection.",
-                "type": "string"
-              }
             }
           }
         },
@@ -5297,6 +5372,7 @@
           "aiRelatedInformation",
           "aiSettingsSearch",
           "aiTextSearchProvider",
+          "authIssuers",
           "authLearnMore",
           "authSession",
           "canonicalUriProvider",
@@ -5326,6 +5402,7 @@
           "contribEditorContentMenu",
           "contribEditSessions",
           "contribLabelFormatterWorkspaceTooltip",
+          "contribLanguageModelToolSets",
           "contribMenuBarHome",
           "contribMergeEditorMenus",
           "contribMultiDiffEditorMenus",
@@ -5370,12 +5447,10 @@
           "languageModelSystem",
           "languageStatusText",
           "mappedEditsProvider",
-          "mcpConfigurationProvider",
           "multiDocumentHighlightProvider",
           "nativeWindowHandle",
           "newSymbolNamesProvider",
           "notebookCellExecution",
-          "notebookCellExecutionState",
           "notebookControllerAffinityHidden",
           "notebookDeprecated",
           "notebookExecution",
@@ -5435,6 +5510,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiRelatedInformation.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiSettingsSearch.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiTextSearchProvider.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authIssuers.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authLearnMore.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authSession.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.canonicalUriProvider.d.ts",
@@ -5464,6 +5540,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribEditorContentMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribEditSessions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribLabelFormatterWorkspaceTooltip.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribLanguageModelToolSets.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribMenuBarHome.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribMergeEditorMenus.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribMultiDiffEditorMenus.d.ts",
@@ -5508,12 +5585,10 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageModelSystem.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageStatusText.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.mappedEditsProvider.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.mcpConfigurationProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.multiDocumentHighlightProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.nativeWindowHandle.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.newSymbolNamesProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookCellExecution.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookCellExecutionState.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookControllerAffinityHidden.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookDeprecated.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.notebookExecution.d.ts",
@@ -6361,6 +6436,19 @@
         "extensionButton.prominentHoverBackground",
         "extensionIcon.verifiedForeground",
         "editorWatermark.foreground",
+        "scmGraph.historyItemRefColor",
+        "scmGraph.historyItemRemoteRefColor",
+        "scmGraph.historyItemBaseRefColor",
+        "scmGraph.historyItemHoverDefaultLabelForeground",
+        "scmGraph.historyItemHoverDefaultLabelBackground",
+        "scmGraph.historyItemHoverLabelForeground",
+        "scmGraph.historyItemHoverAdditionsForeground",
+        "scmGraph.historyItemHoverDeletionsForeground",
+        "scmGraph.foreground1",
+        "scmGraph.foreground2",
+        "scmGraph.foreground3",
+        "scmGraph.foreground4",
+        "scmGraph.foreground5",
         "extensionIcon.starForeground",
         "extensionIcon.preReleaseForeground",
         "extensionIcon.sponsorForeground",
@@ -6372,6 +6460,10 @@
         "chat.avatarBackground",
         "chat.avatarForeground",
         "chat.editedFileForeground",
+        "chat.requestCodeBorder",
+        "chat.requestBubbleBackground",
+        "chat.linesAddedForeground",
+        "chat.linesRemovedForeground",
         "commentsView.resolvedIcon",
         "commentsView.unresolvedIcon",
         "editorCommentsWidget.replyInputBackground",
@@ -6439,19 +6531,6 @@
         "terminal.dropBackground",
         "terminal.tab.activeBorder",
         "terminal.initialHintForeground",
-        "scmGraph.historyItemRefColor",
-        "scmGraph.historyItemRemoteRefColor",
-        "scmGraph.historyItemBaseRefColor",
-        "scmGraph.historyItemHoverDefaultLabelForeground",
-        "scmGraph.historyItemHoverDefaultLabelBackground",
-        "scmGraph.historyItemHoverLabelForeground",
-        "scmGraph.historyItemHoverAdditionsForeground",
-        "scmGraph.historyItemHoverDeletionsForeground",
-        "scmGraph.foreground1",
-        "scmGraph.foreground2",
-        "scmGraph.foreground3",
-        "scmGraph.foreground4",
-        "scmGraph.foreground5",
         "editorGutter.commentRangeForeground",
         "editorOverviewRuler.commentForeground",
         "editorOverviewRuler.commentUnresolvedForeground",
@@ -6495,8 +6574,6 @@
         "multiDiffEditor.headerBackground",
         "multiDiffEditor.background",
         "multiDiffEditor.border",
-        "prompt.frontMatter.background",
-        "prompt.frontMatter.inactiveBackground",
         "minimap.chatEditHighlight",
         "gauge.background",
         "gauge.foreground",
@@ -7239,6 +7316,19 @@
         "Button background hover color for extension actions that stand out (e.g. install button).",
         "The icon color for extension verified publisher.",
         "Foreground color for the labels in the editor watermark.",
+        "History item reference color.",
+        "History item remote reference color.",
+        "History item base reference color.",
+        "History item hover default label foreground color.",
+        "History item hover default label background color.",
+        "History item hover label foreground color.",
+        "History item hover additions foreground color.",
+        "History item hover deletions foreground color.",
+        "Source control graph foreground color (1).",
+        "Source control graph foreground color (2).",
+        "Source control graph foreground color (3).",
+        "Source control graph foreground color (4).",
+        "Source control graph foreground color (5).",
         "The icon color for extension ratings.",
         "The icon color for pre-release extension.",
         "The icon color for extension sponsor.",
@@ -7250,6 +7340,10 @@
         "The background color of a chat avatar.",
         "The foreground color of a chat avatar.",
         "The foreground color of a chat edited file in the edited file list.",
+        "Border color of code blocks within the chat request bubble.",
+        "Background color of the chat request bubble.",
+        "Foreground color of lines added in chat code block pill.",
+        "Foreground color of lines removed in chat code block pill.",
         "Icon color for resolved comments.",
         "Icon color for unresolved comments.",
         "Background color for comment reply input box.",
@@ -7317,19 +7411,6 @@
         "Background color when dragging on top of terminals. The color should have transparency so that the terminal contents can still shine through.",
         "Border on the side of the terminal tab in the panel. This defaults to tab.activeBorder.",
         "Foreground color of the terminal initial hint.",
-        "History item reference color.",
-        "History item remote reference color.",
-        "History item base reference color.",
-        "History item hover default label foreground color.",
-        "History item hover default label background color.",
-        "History item hover label foreground color.",
-        "History item hover additions foreground color.",
-        "History item hover deletions foreground color.",
-        "Source control graph foreground color (1).",
-        "Source control graph foreground color (2).",
-        "Source control graph foreground color (3).",
-        "Source control graph foreground color (4).",
-        "Source control graph foreground color (5).",
         "Editor gutter decoration color for commenting ranges. This color should be opaque.",
         "Editor overview ruler decoration color for resolved comments. This color should be opaque.",
         "Editor overview ruler decoration color for unresolved comments. This color should be opaque.",
@@ -7373,8 +7454,6 @@
         "The background color of the diff editor's header",
         "The background color of the multi file diff editor",
         "The border color of the multi file diff editor",
-        "Background color of a Front Matter header block.",
-        "Background color of an inactive Front Matter header block.",
         "Color of pending edit regions in the minimap",
         "Gauge background color.",
         "Gauge foreground color.",
@@ -7581,14 +7660,6 @@
       }
     },
     "_4": {
-      "description": "Icon path when a light theme is used",
-      "type": "string"
-    },
-    "_5": {
-      "description": "Icon path when a dark theme is used",
-      "type": "string"
-    },
-    "_6": {
       "type": "object",
       "properties": {
         "vendor": {
@@ -7596,6 +7667,14 @@
           "description": "A globally unique vendor of language models."
         }
       }
+    },
+    "_5": {
+      "description": "Icon path when a light theme is used",
+      "type": "string"
+    },
+    "_6": {
+      "description": "Icon path when a dark theme is used",
+      "type": "string"
     },
     "_7": {
       "type": "object",
@@ -7641,10 +7720,10 @@
       "type": "object",
       "properties": {
         "light": {
-          "$ref": "#/$defs/_4"
+          "$ref": "#/$defs/_5"
         },
         "dark": {
-          "$ref": "#/$defs/_5"
+          "$ref": "#/$defs/_6"
         }
       }
     },

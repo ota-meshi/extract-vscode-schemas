@@ -41,7 +41,7 @@
                 "description": "The command to execute for this input variable."
               },
               "id": {
-                "$ref": "#/$defs/_0"
+                "$ref": "#/$defs/_1"
               },
               "type": {
                 "type": "string",
@@ -66,13 +66,13 @@
             "additionalProperties": false,
             "properties": {
               "default": {
-                "$ref": "#/$defs/_2"
+                "$ref": "#/$defs/_3"
               },
               "description": {
-                "$ref": "#/$defs/_1"
+                "$ref": "#/$defs/_2"
               },
               "id": {
-                "$ref": "#/$defs/_0"
+                "$ref": "#/$defs/_1"
               },
               "options": {
                 "type": "array",
@@ -124,13 +124,13 @@
             "additionalProperties": false,
             "properties": {
               "default": {
-                "$ref": "#/$defs/_2"
+                "$ref": "#/$defs/_3"
               },
               "description": {
-                "$ref": "#/$defs/_1"
+                "$ref": "#/$defs/_2"
               },
               "id": {
-                "$ref": "#/$defs/_0"
+                "$ref": "#/$defs/_1"
               },
               "password": {
                 "type": "boolean",
@@ -201,6 +201,13 @@
                 "type": "string",
                 "description": "The command to run the server."
               },
+              "cwd": {
+                "type": "string",
+                "description": "The working directory for the server command. Defaults to the workspace folder when run in a workspace.",
+                "examples": [
+                  "${workspaceFolder}"
+                ]
+              },
               "args": {
                 "type": "array",
                 "description": "Arguments passed to the server.",
@@ -230,6 +237,64 @@
                     }
                   ]
                 }
+              },
+              "dev": {
+                "type": "object",
+                "markdownDescription": "Enabled development mode for the server. When present, the server will be started eagerly and output will be included in its output. Properties inside the `dev` object can configure additional behavior.",
+                "examples": [
+                  {
+                    "watch": "src/**/*.ts",
+                    "debug": {
+                      "type": "node"
+                    }
+                  }
+                ],
+                "properties": {
+                  "watch": {
+                    "$ref": "#/$defs/_0"
+                  },
+                  "debug": {
+                    "markdownDescription": "If set, debugs the MCP server using the given runtime as it's started.",
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "node"
+                            ],
+                            "description": "Debug the MCP server using Node.js."
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "debugpy"
+                            ],
+                            "description": "Debug the MCP server using Python and debugpy."
+                          },
+                          "debugpyPath": {
+                            "type": "string",
+                            "description": "Path to the debugpy executable."
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                }
               }
             }
           },
@@ -257,6 +322,8 @@
               "url": {
                 "type": "string",
                 "format": "uri",
+                "pattern": "^https?:\\/\\/.+",
+                "patternErrorMessage": "The URL must start with 'http://' or 'https://'.",
                 "description": "The URL of the Streamable HTTP or SSE endpoint."
               },
               "headers": {
@@ -264,6 +331,23 @@
                 "description": "Additional headers sent to the server.",
                 "additionalProperties": {
                   "type": "string"
+                }
+              },
+              "dev": {
+                "type": "object",
+                "markdownDescription": "Enabled development mode for the server. When present, the server will be started eagerly and output will be included in its output. Properties inside the `dev` object can configure additional behavior.",
+                "examples": [
+                  {
+                    "watch": "src/**/*.ts",
+                    "debug": {
+                      "type": "node"
+                    }
+                  }
+                ],
+                "properties": {
+                  "watch": {
+                    "$ref": "#/$defs/_0"
+                  }
                 }
               }
             }
@@ -274,14 +358,31 @@
   },
   "$defs": {
     "_0": {
-      "type": "string",
-      "description": "The input's id is used to associate an input with a variable of the form ${input:id}."
+      "description": "A glob pattern or list of glob patterns relative to the workspace folder to watch. The MCP server will be restarted when these files change.",
+      "examples": [
+        "src/**/*.ts"
+      ],
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      ]
     },
     "_1": {
       "type": "string",
-      "description": "The description is shown when the user is prompted for input."
+      "description": "The input's id is used to associate an input with a variable of the form ${input:id}."
     },
     "_2": {
+      "type": "string",
+      "description": "The description is shown when the user is prompted for input."
+    },
+    "_3": {
       "type": "string",
       "description": "The default value for the input."
     }

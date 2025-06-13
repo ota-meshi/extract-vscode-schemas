@@ -1282,8 +1282,8 @@
       "description": "Sets whether the new experimental edit context should be used instead of the text area.",
       "included": true,
       "type": "boolean",
-      "default": false,
-      "defaultDefaultValue": false,
+      "default": true,
+      "defaultDefaultValue": true,
       "scope": 6,
       "restricted": false
     },
@@ -1362,6 +1362,14 @@
       "type": "boolean",
       "default": true,
       "description": "Controls whether the cursor should jump to find matches while typing.",
+      "defaultDefaultValue": true,
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.find.findOnType": {
+      "type": "boolean",
+      "default": true,
+      "description": "Controls whether the Find Widget should search as you type.",
       "defaultDefaultValue": true,
       "scope": 6,
       "restricted": false
@@ -2236,6 +2244,20 @@
       "default": true,
       "description": "Controls whether to automatically show inline suggestions in the editor.",
       "defaultDefaultValue": true,
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.inlineSuggest.experimental.suppressInlineSuggestions": {
+      "type": "array",
+      "tags": [
+        "experimental",
+        "onExp"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "description": "Suppresses inline completions for specified extension IDs.",
+      "default": [],
       "scope": 6,
       "restricted": false
     },
@@ -4331,13 +4353,10 @@
       "$ref": "#/$defs/_9"
     },
     "javascript.preferences.renameMatchingJsxTags": {
-      "$ref": "#/$defs/_14"
-    },
-    "javascript.preferences.renameShorthandProperties": {
-      "$ref": "#/$defs/_12"
+      "$ref": "#/$defs/_13"
     },
     "javascript.preferences.useAliasesForRenames": {
-      "$ref": "#/$defs/_13"
+      "$ref": "#/$defs/_12"
     },
     "javascript.suggest.completeJSDocs": {
       "$ref": "#/$defs/_7"
@@ -4636,13 +4655,10 @@
       "$ref": "#/$defs/_9"
     },
     "typescript.preferences.renameMatchingJsxTags": {
-      "$ref": "#/$defs/_14"
-    },
-    "typescript.preferences.renameShorthandProperties": {
-      "$ref": "#/$defs/_12"
+      "$ref": "#/$defs/_13"
     },
     "typescript.preferences.useAliasesForRenames": {
-      "$ref": "#/$defs/_13"
+      "$ref": "#/$defs/_12"
     },
     "typescript.suggest.completeJSDocs": {
       "$ref": "#/$defs/_7"
@@ -4845,7 +4861,6 @@
       "type": "boolean",
       "default": true,
       "description": "Enable/disable introducing aliases for object shorthand properties during renames.",
-      "deprecationMessage": "The setting 'typescript.preferences.renameShorthandProperties' has been deprecated in favor of 'typescript.preferences.useAliasesForRenames'",
       "scope": 6,
       "source": {
         "id": "vscode.typescript-language-features",
@@ -4855,18 +4870,6 @@
       "restricted": false
     },
     "_13": {
-      "type": "boolean",
-      "default": true,
-      "description": "Enable/disable introducing aliases for object shorthand properties during renames.",
-      "scope": 6,
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "_14": {
       "type": "boolean",
       "default": true,
       "description": "When on a JSX tag, try to rename the matching tag instead of renaming the symbol. Requires using TypeScript 5.1+ in the workspace.",
