@@ -66,7 +66,7 @@
             "description": "Task to run before any of the compound configurations start."
           },
           "presentation": {
-            "$ref": "#/$defs/_104"
+            "$ref": "#/$defs/_105"
           },
           "stopAll": {
             "type": "boolean",
@@ -636,6 +636,370 @@
           {
             "properties": {
               "address": {
+                "$ref": "#/$defs/_100"
+              },
+              "browserLaunchLocation": {
+                "$ref": "#/$defs/_84"
+              },
+              "cascadeTerminateToConfigurations": {
+                "$ref": "#/$defs/_3"
+              },
+              "cleanUp": {
+                "$ref": "#/$defs/_85"
+              },
+              "customDescriptionGenerator": {
+                "$ref": "#/$defs/_5"
+              },
+              "customPropertiesGenerator": {
+                "$ref": "#/$defs/_6"
+              },
+              "cwd": {
+                "$ref": "#/$defs/_86"
+              },
+              "debugServer": {
+                "$ref": "#/$defs/_37"
+              },
+              "disableNetworkCache": {
+                "$ref": "#/$defs/_70"
+              },
+              "enableContentValidation": {
+                "$ref": "#/$defs/_8"
+              },
+              "enableDWARF": {
+                "$ref": "#/$defs/_9"
+              },
+              "env": {
+                "$ref": "#/$defs/_87"
+              },
+              "file": {
+                "$ref": "#/$defs/_88"
+              },
+              "includeDefaultArgs": {
+                "$ref": "#/$defs/_89"
+              },
+              "includeLaunchArgs": {
+                "$ref": "#/$defs/_90"
+              },
+              "inspectUri": {
+                "$ref": "#/$defs/_71"
+              },
+              "internalConsoleOptions": {
+                "$ref": "#/$defs/_41"
+              },
+              "killBehavior": {
+                "$ref": "#/$defs/_91"
+              },
+              "linux": {
+                "$ref": "#/definitions/msedge:launch:platform",
+                "description": "Linux specific launch configuration attributes."
+              },
+              "name": {
+                "$ref": "#/$defs/_36"
+              },
+              "osx": {
+                "$ref": "#/definitions/msedge:launch:platform",
+                "description": "OS X specific launch configuration attributes."
+              },
+              "outFiles": {
+                "$ref": "#/$defs/_14"
+              },
+              "outputCapture": {
+                "$ref": "#/$defs/_15"
+              },
+              "pathMapping": {
+                "$ref": "#/$defs/_72"
+              },
+              "pauseForSourceMap": {
+                "$ref": "#/$defs/_16"
+              },
+              "perScriptSourcemaps": {
+                "$ref": "#/$defs/_73"
+              },
+              "port": {
+                "$ref": "#/$defs/_101"
+              },
+              "postDebugTask": {
+                "$ref": "#/$defs/_39"
+              },
+              "preLaunchTask": {
+                "$ref": "#/$defs/_38"
+              },
+              "presentation": {
+                "$ref": "#/$defs/_40"
+              },
+              "profileStartup": {
+                "$ref": "#/$defs/_93"
+              },
+              "request": {
+                "$ref": "#/$defs/_55"
+              },
+              "resolveSourceMapLocations": {
+                "$ref": "#/$defs/_75"
+              },
+              "runtimeArgs": {
+                "$ref": "#/$defs/_94"
+              },
+              "runtimeExecutable": {
+                "$ref": "#/$defs/_102"
+              },
+              "server": {
+                "$ref": "#/$defs/_77"
+              },
+              "serverReadyAction": {
+                "$ref": "#/$defs/_54"
+              },
+              "showAsyncStacks": {
+                "$ref": "#/$defs/_24"
+              },
+              "skipFiles": {
+                "$ref": "#/$defs/_25"
+              },
+              "smartStep": {
+                "$ref": "#/$defs/_26"
+              },
+              "sourceMapPathOverrides": {
+                "$ref": "#/$defs/_27"
+              },
+              "sourceMapRenames": {
+                "$ref": "#/$defs/_28"
+              },
+              "sourceMaps": {
+                "$ref": "#/$defs/_29"
+              },
+              "suppressMultipleSessionWarning": {
+                "$ref": "#/$defs/_42"
+              },
+              "timeout": {
+                "$ref": "#/$defs/_30"
+              },
+              "timeouts": {
+                "$ref": "#/$defs/_31"
+              },
+              "trace": {
+                "$ref": "#/$defs/_32"
+              },
+              "type": {
+                "$ref": "#/$defs/_104"
+              },
+              "url": {
+                "$ref": "#/$defs/_79"
+              },
+              "urlFilter": {
+                "$ref": "#/$defs/_80"
+              },
+              "userDataDir": {
+                "$ref": "#/$defs/_96"
+              },
+              "useWebView": {
+                "$ref": "#/$defs/_103"
+              },
+              "vueComponentPaths": {
+                "$ref": "#/$defs/_81"
+              },
+              "webRoot": {
+                "$ref": "#/$defs/_82"
+              },
+              "windows": {
+                "$ref": "#/definitions/msedge:launch:platform",
+                "description": "Windows specific launch configuration attributes."
+              }
+            },
+            "required": [
+              "name",
+              "type",
+              "request",
+              "name",
+              "type",
+              "request"
+            ],
+            "additionalProperties": false,
+            "type": "object"
+          },
+          {
+            "properties": {
+              "address": {
+                "$ref": "#/$defs/_100"
+              },
+              "browserLaunchLocation": {
+                "$ref": "#/$defs/_84"
+              },
+              "cascadeTerminateToConfigurations": {
+                "$ref": "#/$defs/_3"
+              },
+              "cleanUp": {
+                "$ref": "#/$defs/_85"
+              },
+              "customDescriptionGenerator": {
+                "$ref": "#/$defs/_5"
+              },
+              "customPropertiesGenerator": {
+                "$ref": "#/$defs/_6"
+              },
+              "cwd": {
+                "$ref": "#/$defs/_86"
+              },
+              "debugServer": {
+                "$ref": "#/$defs/_37"
+              },
+              "disableNetworkCache": {
+                "$ref": "#/$defs/_70"
+              },
+              "enableContentValidation": {
+                "$ref": "#/$defs/_8"
+              },
+              "enableDWARF": {
+                "$ref": "#/$defs/_9"
+              },
+              "env": {
+                "$ref": "#/$defs/_87"
+              },
+              "file": {
+                "$ref": "#/$defs/_88"
+              },
+              "includeDefaultArgs": {
+                "$ref": "#/$defs/_89"
+              },
+              "includeLaunchArgs": {
+                "$ref": "#/$defs/_90"
+              },
+              "inspectUri": {
+                "$ref": "#/$defs/_71"
+              },
+              "internalConsoleOptions": {
+                "$ref": "#/$defs/_41"
+              },
+              "killBehavior": {
+                "$ref": "#/$defs/_91"
+              },
+              "linux": {
+                "$ref": "#/definitions/pwa-msedge:launch:platform",
+                "description": "Linux specific launch configuration attributes."
+              },
+              "name": {
+                "$ref": "#/$defs/_36"
+              },
+              "osx": {
+                "$ref": "#/definitions/pwa-msedge:launch:platform",
+                "description": "OS X specific launch configuration attributes."
+              },
+              "outFiles": {
+                "$ref": "#/$defs/_14"
+              },
+              "outputCapture": {
+                "$ref": "#/$defs/_15"
+              },
+              "pathMapping": {
+                "$ref": "#/$defs/_72"
+              },
+              "pauseForSourceMap": {
+                "$ref": "#/$defs/_16"
+              },
+              "perScriptSourcemaps": {
+                "$ref": "#/$defs/_73"
+              },
+              "port": {
+                "$ref": "#/$defs/_101"
+              },
+              "postDebugTask": {
+                "$ref": "#/$defs/_39"
+              },
+              "preLaunchTask": {
+                "$ref": "#/$defs/_38"
+              },
+              "presentation": {
+                "$ref": "#/$defs/_40"
+              },
+              "profileStartup": {
+                "$ref": "#/$defs/_93"
+              },
+              "request": {
+                "$ref": "#/$defs/_55"
+              },
+              "resolveSourceMapLocations": {
+                "$ref": "#/$defs/_75"
+              },
+              "runtimeArgs": {
+                "$ref": "#/$defs/_94"
+              },
+              "runtimeExecutable": {
+                "$ref": "#/$defs/_102"
+              },
+              "server": {
+                "$ref": "#/$defs/_77"
+              },
+              "serverReadyAction": {
+                "$ref": "#/$defs/_54"
+              },
+              "showAsyncStacks": {
+                "$ref": "#/$defs/_24"
+              },
+              "skipFiles": {
+                "$ref": "#/$defs/_25"
+              },
+              "smartStep": {
+                "$ref": "#/$defs/_26"
+              },
+              "sourceMapPathOverrides": {
+                "$ref": "#/$defs/_27"
+              },
+              "sourceMapRenames": {
+                "$ref": "#/$defs/_28"
+              },
+              "sourceMaps": {
+                "$ref": "#/$defs/_29"
+              },
+              "suppressMultipleSessionWarning": {
+                "$ref": "#/$defs/_42"
+              },
+              "timeout": {
+                "$ref": "#/$defs/_30"
+              },
+              "timeouts": {
+                "$ref": "#/$defs/_31"
+              },
+              "trace": {
+                "$ref": "#/$defs/_32"
+              },
+              "type": {
+                "$ref": "#/$defs/_99"
+              },
+              "url": {
+                "$ref": "#/$defs/_79"
+              },
+              "urlFilter": {
+                "$ref": "#/$defs/_80"
+              },
+              "userDataDir": {
+                "$ref": "#/$defs/_96"
+              },
+              "useWebView": {
+                "$ref": "#/$defs/_103"
+              },
+              "vueComponentPaths": {
+                "$ref": "#/$defs/_81"
+              },
+              "webRoot": {
+                "$ref": "#/$defs/_82"
+              },
+              "windows": {
+                "$ref": "#/definitions/pwa-msedge:launch:platform",
+                "description": "Windows specific launch configuration attributes."
+              }
+            },
+            "required": [
+              "name",
+              "type",
+              "request",
+              "name",
+              "type",
+              "request"
+            ],
+            "additionalProperties": false,
+            "type": "object"
+          },
+          {
+            "properties": {
+              "address": {
                 "$ref": "#/$defs/_68"
               },
               "browserAttachLocation": {
@@ -752,7 +1116,7 @@
                 "$ref": "#/$defs/_32"
               },
               "type": {
-                "$ref": "#/$defs/_96"
+                "$ref": "#/$defs/_97"
               },
               "url": {
                 "$ref": "#/$defs/_79"
@@ -901,7 +1265,7 @@
                 "$ref": "#/$defs/_32"
               },
               "type": {
-                "$ref": "#/$defs/_103"
+                "$ref": "#/$defs/_104"
               },
               "url": {
                 "$ref": "#/$defs/_79"
@@ -910,7 +1274,7 @@
                 "$ref": "#/$defs/_80"
               },
               "useWebView": {
-                "$ref": "#/$defs/_97"
+                "$ref": "#/$defs/_98"
               },
               "vueComponentPaths": {
                 "$ref": "#/$defs/_81"
@@ -1202,7 +1566,7 @@
                 "$ref": "#/$defs/_32"
               },
               "type": {
-                "$ref": "#/$defs/_98"
+                "$ref": "#/$defs/_99"
               },
               "url": {
                 "$ref": "#/$defs/_79"
@@ -1211,7 +1575,7 @@
                 "$ref": "#/$defs/_80"
               },
               "useWebView": {
-                "$ref": "#/$defs/_97"
+                "$ref": "#/$defs/_98"
               },
               "vueComponentPaths": {
                 "$ref": "#/$defs/_81"
@@ -1221,364 +1585,6 @@
               },
               "windows": {
                 "$ref": "#/definitions/pwa-msedge:attach:platform",
-                "description": "Windows specific launch configuration attributes."
-              }
-            },
-            "required": [
-              "name",
-              "type",
-              "request",
-              "name",
-              "type",
-              "request"
-            ],
-            "additionalProperties": false,
-            "type": "object"
-          },
-          {
-            "properties": {
-              "address": {
-                "$ref": "#/$defs/_99"
-              },
-              "browserLaunchLocation": {
-                "$ref": "#/$defs/_84"
-              },
-              "cascadeTerminateToConfigurations": {
-                "$ref": "#/$defs/_3"
-              },
-              "cleanUp": {
-                "$ref": "#/$defs/_85"
-              },
-              "customDescriptionGenerator": {
-                "$ref": "#/$defs/_5"
-              },
-              "customPropertiesGenerator": {
-                "$ref": "#/$defs/_6"
-              },
-              "cwd": {
-                "$ref": "#/$defs/_86"
-              },
-              "debugServer": {
-                "$ref": "#/$defs/_37"
-              },
-              "disableNetworkCache": {
-                "$ref": "#/$defs/_70"
-              },
-              "enableContentValidation": {
-                "$ref": "#/$defs/_8"
-              },
-              "enableDWARF": {
-                "$ref": "#/$defs/_9"
-              },
-              "env": {
-                "$ref": "#/$defs/_87"
-              },
-              "file": {
-                "$ref": "#/$defs/_88"
-              },
-              "includeDefaultArgs": {
-                "$ref": "#/$defs/_89"
-              },
-              "includeLaunchArgs": {
-                "$ref": "#/$defs/_90"
-              },
-              "inspectUri": {
-                "$ref": "#/$defs/_71"
-              },
-              "internalConsoleOptions": {
-                "$ref": "#/$defs/_41"
-              },
-              "linux": {
-                "$ref": "#/definitions/msedge:launch:platform",
-                "description": "Linux specific launch configuration attributes."
-              },
-              "name": {
-                "$ref": "#/$defs/_36"
-              },
-              "osx": {
-                "$ref": "#/definitions/msedge:launch:platform",
-                "description": "OS X specific launch configuration attributes."
-              },
-              "outFiles": {
-                "$ref": "#/$defs/_14"
-              },
-              "outputCapture": {
-                "$ref": "#/$defs/_15"
-              },
-              "pathMapping": {
-                "$ref": "#/$defs/_72"
-              },
-              "pauseForSourceMap": {
-                "$ref": "#/$defs/_16"
-              },
-              "perScriptSourcemaps": {
-                "$ref": "#/$defs/_73"
-              },
-              "port": {
-                "$ref": "#/$defs/_100"
-              },
-              "postDebugTask": {
-                "$ref": "#/$defs/_39"
-              },
-              "preLaunchTask": {
-                "$ref": "#/$defs/_38"
-              },
-              "presentation": {
-                "$ref": "#/$defs/_40"
-              },
-              "profileStartup": {
-                "$ref": "#/$defs/_92"
-              },
-              "request": {
-                "$ref": "#/$defs/_55"
-              },
-              "resolveSourceMapLocations": {
-                "$ref": "#/$defs/_75"
-              },
-              "runtimeArgs": {
-                "$ref": "#/$defs/_93"
-              },
-              "runtimeExecutable": {
-                "$ref": "#/$defs/_101"
-              },
-              "server": {
-                "$ref": "#/$defs/_77"
-              },
-              "serverReadyAction": {
-                "$ref": "#/$defs/_54"
-              },
-              "showAsyncStacks": {
-                "$ref": "#/$defs/_24"
-              },
-              "skipFiles": {
-                "$ref": "#/$defs/_25"
-              },
-              "smartStep": {
-                "$ref": "#/$defs/_26"
-              },
-              "sourceMapPathOverrides": {
-                "$ref": "#/$defs/_27"
-              },
-              "sourceMapRenames": {
-                "$ref": "#/$defs/_28"
-              },
-              "sourceMaps": {
-                "$ref": "#/$defs/_29"
-              },
-              "suppressMultipleSessionWarning": {
-                "$ref": "#/$defs/_42"
-              },
-              "timeout": {
-                "$ref": "#/$defs/_30"
-              },
-              "timeouts": {
-                "$ref": "#/$defs/_31"
-              },
-              "trace": {
-                "$ref": "#/$defs/_32"
-              },
-              "type": {
-                "$ref": "#/$defs/_103"
-              },
-              "url": {
-                "$ref": "#/$defs/_79"
-              },
-              "urlFilter": {
-                "$ref": "#/$defs/_80"
-              },
-              "userDataDir": {
-                "$ref": "#/$defs/_95"
-              },
-              "useWebView": {
-                "$ref": "#/$defs/_102"
-              },
-              "vueComponentPaths": {
-                "$ref": "#/$defs/_81"
-              },
-              "webRoot": {
-                "$ref": "#/$defs/_82"
-              },
-              "windows": {
-                "$ref": "#/definitions/msedge:launch:platform",
-                "description": "Windows specific launch configuration attributes."
-              }
-            },
-            "required": [
-              "name",
-              "type",
-              "request",
-              "name",
-              "type",
-              "request"
-            ],
-            "additionalProperties": false,
-            "type": "object"
-          },
-          {
-            "properties": {
-              "address": {
-                "$ref": "#/$defs/_99"
-              },
-              "browserLaunchLocation": {
-                "$ref": "#/$defs/_84"
-              },
-              "cascadeTerminateToConfigurations": {
-                "$ref": "#/$defs/_3"
-              },
-              "cleanUp": {
-                "$ref": "#/$defs/_85"
-              },
-              "customDescriptionGenerator": {
-                "$ref": "#/$defs/_5"
-              },
-              "customPropertiesGenerator": {
-                "$ref": "#/$defs/_6"
-              },
-              "cwd": {
-                "$ref": "#/$defs/_86"
-              },
-              "debugServer": {
-                "$ref": "#/$defs/_37"
-              },
-              "disableNetworkCache": {
-                "$ref": "#/$defs/_70"
-              },
-              "enableContentValidation": {
-                "$ref": "#/$defs/_8"
-              },
-              "enableDWARF": {
-                "$ref": "#/$defs/_9"
-              },
-              "env": {
-                "$ref": "#/$defs/_87"
-              },
-              "file": {
-                "$ref": "#/$defs/_88"
-              },
-              "includeDefaultArgs": {
-                "$ref": "#/$defs/_89"
-              },
-              "includeLaunchArgs": {
-                "$ref": "#/$defs/_90"
-              },
-              "inspectUri": {
-                "$ref": "#/$defs/_71"
-              },
-              "internalConsoleOptions": {
-                "$ref": "#/$defs/_41"
-              },
-              "linux": {
-                "$ref": "#/definitions/pwa-msedge:launch:platform",
-                "description": "Linux specific launch configuration attributes."
-              },
-              "name": {
-                "$ref": "#/$defs/_36"
-              },
-              "osx": {
-                "$ref": "#/definitions/pwa-msedge:launch:platform",
-                "description": "OS X specific launch configuration attributes."
-              },
-              "outFiles": {
-                "$ref": "#/$defs/_14"
-              },
-              "outputCapture": {
-                "$ref": "#/$defs/_15"
-              },
-              "pathMapping": {
-                "$ref": "#/$defs/_72"
-              },
-              "pauseForSourceMap": {
-                "$ref": "#/$defs/_16"
-              },
-              "perScriptSourcemaps": {
-                "$ref": "#/$defs/_73"
-              },
-              "port": {
-                "$ref": "#/$defs/_100"
-              },
-              "postDebugTask": {
-                "$ref": "#/$defs/_39"
-              },
-              "preLaunchTask": {
-                "$ref": "#/$defs/_38"
-              },
-              "presentation": {
-                "$ref": "#/$defs/_40"
-              },
-              "profileStartup": {
-                "$ref": "#/$defs/_92"
-              },
-              "request": {
-                "$ref": "#/$defs/_55"
-              },
-              "resolveSourceMapLocations": {
-                "$ref": "#/$defs/_75"
-              },
-              "runtimeArgs": {
-                "$ref": "#/$defs/_93"
-              },
-              "runtimeExecutable": {
-                "$ref": "#/$defs/_101"
-              },
-              "server": {
-                "$ref": "#/$defs/_77"
-              },
-              "serverReadyAction": {
-                "$ref": "#/$defs/_54"
-              },
-              "showAsyncStacks": {
-                "$ref": "#/$defs/_24"
-              },
-              "skipFiles": {
-                "$ref": "#/$defs/_25"
-              },
-              "smartStep": {
-                "$ref": "#/$defs/_26"
-              },
-              "sourceMapPathOverrides": {
-                "$ref": "#/$defs/_27"
-              },
-              "sourceMapRenames": {
-                "$ref": "#/$defs/_28"
-              },
-              "sourceMaps": {
-                "$ref": "#/$defs/_29"
-              },
-              "suppressMultipleSessionWarning": {
-                "$ref": "#/$defs/_42"
-              },
-              "timeout": {
-                "$ref": "#/$defs/_30"
-              },
-              "timeouts": {
-                "$ref": "#/$defs/_31"
-              },
-              "trace": {
-                "$ref": "#/$defs/_32"
-              },
-              "type": {
-                "$ref": "#/$defs/_98"
-              },
-              "url": {
-                "$ref": "#/$defs/_79"
-              },
-              "urlFilter": {
-                "$ref": "#/$defs/_80"
-              },
-              "userDataDir": {
-                "$ref": "#/$defs/_95"
-              },
-              "useWebView": {
-                "$ref": "#/$defs/_102"
-              },
-              "vueComponentPaths": {
-                "$ref": "#/$defs/_81"
-              },
-              "webRoot": {
-                "$ref": "#/$defs/_82"
-              },
-              "windows": {
-                "$ref": "#/definitions/pwa-msedge:launch:platform",
                 "description": "Windows specific launch configuration attributes."
               }
             },
@@ -2430,6 +2436,9 @@
               "internalConsoleOptions": {
                 "$ref": "#/$defs/_41"
               },
+              "killBehavior": {
+                "$ref": "#/$defs/_91"
+              },
               "linux": {
                 "$ref": "#/definitions/chrome:launch:platform",
                 "description": "Linux specific launch configuration attributes."
@@ -2457,7 +2466,7 @@
                 "$ref": "#/$defs/_73"
               },
               "port": {
-                "$ref": "#/$defs/_91"
+                "$ref": "#/$defs/_92"
               },
               "postDebugTask": {
                 "$ref": "#/$defs/_39"
@@ -2469,7 +2478,7 @@
                 "$ref": "#/$defs/_40"
               },
               "profileStartup": {
-                "$ref": "#/$defs/_92"
+                "$ref": "#/$defs/_93"
               },
               "request": {
                 "$ref": "#/$defs/_55"
@@ -2478,10 +2487,10 @@
                 "$ref": "#/$defs/_75"
               },
               "runtimeArgs": {
-                "$ref": "#/$defs/_93"
+                "$ref": "#/$defs/_94"
               },
               "runtimeExecutable": {
-                "$ref": "#/$defs/_94"
+                "$ref": "#/$defs/_95"
               },
               "server": {
                 "$ref": "#/$defs/_77"
@@ -2520,7 +2529,7 @@
                 "$ref": "#/$defs/_32"
               },
               "type": {
-                "$ref": "#/$defs/_96"
+                "$ref": "#/$defs/_97"
               },
               "url": {
                 "$ref": "#/$defs/_79"
@@ -2529,7 +2538,7 @@
                 "$ref": "#/$defs/_80"
               },
               "userDataDir": {
-                "$ref": "#/$defs/_95"
+                "$ref": "#/$defs/_96"
               },
               "vueComponentPaths": {
                 "$ref": "#/$defs/_81"
@@ -2603,6 +2612,9 @@
               "internalConsoleOptions": {
                 "$ref": "#/$defs/_41"
               },
+              "killBehavior": {
+                "$ref": "#/$defs/_91"
+              },
               "linux": {
                 "$ref": "#/definitions/pwa-chrome:launch:platform",
                 "description": "Linux specific launch configuration attributes."
@@ -2630,7 +2642,7 @@
                 "$ref": "#/$defs/_73"
               },
               "port": {
-                "$ref": "#/$defs/_91"
+                "$ref": "#/$defs/_92"
               },
               "postDebugTask": {
                 "$ref": "#/$defs/_39"
@@ -2642,7 +2654,7 @@
                 "$ref": "#/$defs/_40"
               },
               "profileStartup": {
-                "$ref": "#/$defs/_92"
+                "$ref": "#/$defs/_93"
               },
               "request": {
                 "$ref": "#/$defs/_55"
@@ -2651,10 +2663,10 @@
                 "$ref": "#/$defs/_75"
               },
               "runtimeArgs": {
-                "$ref": "#/$defs/_93"
+                "$ref": "#/$defs/_94"
               },
               "runtimeExecutable": {
-                "$ref": "#/$defs/_94"
+                "$ref": "#/$defs/_95"
               },
               "server": {
                 "$ref": "#/$defs/_77"
@@ -2702,7 +2714,7 @@
                 "$ref": "#/$defs/_80"
               },
               "userDataDir": {
-                "$ref": "#/$defs/_95"
+                "$ref": "#/$defs/_96"
               },
               "vueComponentPaths": {
                 "$ref": "#/$defs/_81"
@@ -2764,7 +2776,7 @@
                 "description": "The command to execute for this input variable."
               },
               "id": {
-                "$ref": "#/$defs/_105"
+                "$ref": "#/$defs/_106"
               },
               "type": {
                 "type": "string",
@@ -2789,13 +2801,13 @@
             "additionalProperties": false,
             "properties": {
               "default": {
-                "$ref": "#/$defs/_107"
+                "$ref": "#/$defs/_108"
               },
               "description": {
-                "$ref": "#/$defs/_106"
+                "$ref": "#/$defs/_107"
               },
               "id": {
-                "$ref": "#/$defs/_105"
+                "$ref": "#/$defs/_106"
               },
               "options": {
                 "type": "array",
@@ -2847,13 +2859,13 @@
             "additionalProperties": false,
             "properties": {
               "default": {
-                "$ref": "#/$defs/_107"
+                "$ref": "#/$defs/_108"
               },
               "description": {
-                "$ref": "#/$defs/_106"
+                "$ref": "#/$defs/_107"
               },
               "id": {
-                "$ref": "#/$defs/_105"
+                "$ref": "#/$defs/_106"
               },
               "password": {
                 "type": "boolean",
@@ -2994,7 +3006,7 @@
           "$ref": "#/$defs/_32"
         },
         "type": {
-          "$ref": "#/$defs/_96"
+          "$ref": "#/$defs/_97"
         },
         "url": {
           "$ref": "#/$defs/_79"
@@ -3021,7 +3033,7 @@
       "type": "object"
     },
     "chrome:attach:platform": {
-      "$ref": "#/$defs/_112"
+      "$ref": "#/$defs/_113"
     },
     "chrome:launch": {
       "properties": {
@@ -3073,6 +3085,9 @@
         "internalConsoleOptions": {
           "$ref": "#/$defs/_41"
         },
+        "killBehavior": {
+          "$ref": "#/$defs/_91"
+        },
         "name": {
           "$ref": "#/$defs/_36"
         },
@@ -3092,7 +3107,7 @@
           "$ref": "#/$defs/_73"
         },
         "port": {
-          "$ref": "#/$defs/_91"
+          "$ref": "#/$defs/_92"
         },
         "postDebugTask": {
           "$ref": "#/$defs/_39"
@@ -3104,7 +3119,7 @@
           "$ref": "#/$defs/_40"
         },
         "profileStartup": {
-          "$ref": "#/$defs/_92"
+          "$ref": "#/$defs/_93"
         },
         "request": {
           "$ref": "#/$defs/_55"
@@ -3113,10 +3128,10 @@
           "$ref": "#/$defs/_75"
         },
         "runtimeArgs": {
-          "$ref": "#/$defs/_93"
+          "$ref": "#/$defs/_94"
         },
         "runtimeExecutable": {
-          "$ref": "#/$defs/_94"
+          "$ref": "#/$defs/_95"
         },
         "server": {
           "$ref": "#/$defs/_77"
@@ -3155,7 +3170,7 @@
           "$ref": "#/$defs/_32"
         },
         "type": {
-          "$ref": "#/$defs/_96"
+          "$ref": "#/$defs/_97"
         },
         "url": {
           "$ref": "#/$defs/_79"
@@ -3164,7 +3179,7 @@
           "$ref": "#/$defs/_80"
         },
         "userDataDir": {
-          "$ref": "#/$defs/_95"
+          "$ref": "#/$defs/_96"
         },
         "vueComponentPaths": {
           "$ref": "#/$defs/_81"
@@ -3185,7 +3200,7 @@
       "type": "object"
     },
     "chrome:launch:platform": {
-      "$ref": "#/$defs/_113"
+      "$ref": "#/$defs/_114"
     },
     "common": {
       "properties": {
@@ -3214,7 +3229,7 @@
         "postDebugTask": {
           "anyOf": [
             {
-              "$ref": "#/$defs/_108"
+              "$ref": "#/$defs/_109"
             },
             {
               "type": [
@@ -3237,7 +3252,7 @@
         "preLaunchTask": {
           "anyOf": [
             {
-              "$ref": "#/$defs/_108"
+              "$ref": "#/$defs/_109"
             },
             {
               "type": [
@@ -3258,7 +3273,7 @@
           "examples": []
         },
         "presentation": {
-          "$ref": "#/$defs/_104"
+          "$ref": "#/$defs/_105"
         },
         "suppressMultipleSessionWarning": {
           "type": "boolean",
@@ -3411,7 +3426,7 @@
       "type": "object"
     },
     "extensionHost:launch:platform": {
-      "$ref": "#/$defs/_111"
+      "$ref": "#/$defs/_112"
     },
     "msedge:attach": {
       "properties": {
@@ -3524,7 +3539,7 @@
           "$ref": "#/$defs/_32"
         },
         "type": {
-          "$ref": "#/$defs/_103"
+          "$ref": "#/$defs/_104"
         },
         "url": {
           "$ref": "#/$defs/_79"
@@ -3533,7 +3548,7 @@
           "$ref": "#/$defs/_80"
         },
         "useWebView": {
-          "$ref": "#/$defs/_97"
+          "$ref": "#/$defs/_98"
         },
         "vueComponentPaths": {
           "$ref": "#/$defs/_81"
@@ -3554,12 +3569,12 @@
       "type": "object"
     },
     "msedge:attach:platform": {
-      "$ref": "#/$defs/_114"
+      "$ref": "#/$defs/_115"
     },
     "msedge:launch": {
       "properties": {
         "address": {
-          "$ref": "#/$defs/_99"
+          "$ref": "#/$defs/_100"
         },
         "browserLaunchLocation": {
           "$ref": "#/$defs/_84"
@@ -3609,6 +3624,9 @@
         "internalConsoleOptions": {
           "$ref": "#/$defs/_41"
         },
+        "killBehavior": {
+          "$ref": "#/$defs/_91"
+        },
         "name": {
           "$ref": "#/$defs/_36"
         },
@@ -3628,7 +3646,7 @@
           "$ref": "#/$defs/_73"
         },
         "port": {
-          "$ref": "#/$defs/_100"
+          "$ref": "#/$defs/_101"
         },
         "postDebugTask": {
           "$ref": "#/$defs/_39"
@@ -3640,7 +3658,7 @@
           "$ref": "#/$defs/_40"
         },
         "profileStartup": {
-          "$ref": "#/$defs/_92"
+          "$ref": "#/$defs/_93"
         },
         "request": {
           "$ref": "#/$defs/_55"
@@ -3649,10 +3667,10 @@
           "$ref": "#/$defs/_75"
         },
         "runtimeArgs": {
-          "$ref": "#/$defs/_93"
+          "$ref": "#/$defs/_94"
         },
         "runtimeExecutable": {
-          "$ref": "#/$defs/_101"
+          "$ref": "#/$defs/_102"
         },
         "server": {
           "$ref": "#/$defs/_77"
@@ -3691,7 +3709,7 @@
           "$ref": "#/$defs/_32"
         },
         "type": {
-          "$ref": "#/$defs/_103"
+          "$ref": "#/$defs/_104"
         },
         "url": {
           "$ref": "#/$defs/_79"
@@ -3700,10 +3718,10 @@
           "$ref": "#/$defs/_80"
         },
         "userDataDir": {
-          "$ref": "#/$defs/_95"
+          "$ref": "#/$defs/_96"
         },
         "useWebView": {
-          "$ref": "#/$defs/_102"
+          "$ref": "#/$defs/_103"
         },
         "vueComponentPaths": {
           "$ref": "#/$defs/_81"
@@ -3724,7 +3742,7 @@
       "type": "object"
     },
     "msedge:launch:platform": {
-      "$ref": "#/$defs/_115"
+      "$ref": "#/$defs/_116"
     },
     "node-terminal:launch": {
       "properties": {
@@ -4103,7 +4121,7 @@
       "type": "object"
     },
     "node:attach:platform": {
-      "$ref": "#/$defs/_109"
+      "$ref": "#/$defs/_110"
     },
     "node:launch": {
       "properties": {
@@ -4264,7 +4282,7 @@
       "type": "object"
     },
     "node:launch:platform": {
-      "$ref": "#/$defs/_110"
+      "$ref": "#/$defs/_111"
     },
     "pwa-chrome:attach": {
       "properties": {
@@ -4404,7 +4422,7 @@
       "type": "object"
     },
     "pwa-chrome:attach:platform": {
-      "$ref": "#/$defs/_112"
+      "$ref": "#/$defs/_113"
     },
     "pwa-chrome:launch": {
       "properties": {
@@ -4456,6 +4474,9 @@
         "internalConsoleOptions": {
           "$ref": "#/$defs/_41"
         },
+        "killBehavior": {
+          "$ref": "#/$defs/_91"
+        },
         "name": {
           "$ref": "#/$defs/_36"
         },
@@ -4475,7 +4496,7 @@
           "$ref": "#/$defs/_73"
         },
         "port": {
-          "$ref": "#/$defs/_91"
+          "$ref": "#/$defs/_92"
         },
         "postDebugTask": {
           "$ref": "#/$defs/_39"
@@ -4487,7 +4508,7 @@
           "$ref": "#/$defs/_40"
         },
         "profileStartup": {
-          "$ref": "#/$defs/_92"
+          "$ref": "#/$defs/_93"
         },
         "request": {
           "$ref": "#/$defs/_55"
@@ -4496,10 +4517,10 @@
           "$ref": "#/$defs/_75"
         },
         "runtimeArgs": {
-          "$ref": "#/$defs/_93"
+          "$ref": "#/$defs/_94"
         },
         "runtimeExecutable": {
-          "$ref": "#/$defs/_94"
+          "$ref": "#/$defs/_95"
         },
         "server": {
           "$ref": "#/$defs/_77"
@@ -4547,7 +4568,7 @@
           "$ref": "#/$defs/_80"
         },
         "userDataDir": {
-          "$ref": "#/$defs/_95"
+          "$ref": "#/$defs/_96"
         },
         "vueComponentPaths": {
           "$ref": "#/$defs/_81"
@@ -4568,7 +4589,7 @@
       "type": "object"
     },
     "pwa-chrome:launch:platform": {
-      "$ref": "#/$defs/_113"
+      "$ref": "#/$defs/_114"
     },
     "pwa-extensionHost:launch": {
       "properties": {
@@ -4714,7 +4735,7 @@
       "type": "object"
     },
     "pwa-extensionHost:launch:platform": {
-      "$ref": "#/$defs/_111"
+      "$ref": "#/$defs/_112"
     },
     "pwa-msedge:attach": {
       "properties": {
@@ -4827,7 +4848,7 @@
           "$ref": "#/$defs/_32"
         },
         "type": {
-          "$ref": "#/$defs/_98"
+          "$ref": "#/$defs/_99"
         },
         "url": {
           "$ref": "#/$defs/_79"
@@ -4836,7 +4857,7 @@
           "$ref": "#/$defs/_80"
         },
         "useWebView": {
-          "$ref": "#/$defs/_97"
+          "$ref": "#/$defs/_98"
         },
         "vueComponentPaths": {
           "$ref": "#/$defs/_81"
@@ -4857,12 +4878,12 @@
       "type": "object"
     },
     "pwa-msedge:attach:platform": {
-      "$ref": "#/$defs/_114"
+      "$ref": "#/$defs/_115"
     },
     "pwa-msedge:launch": {
       "properties": {
         "address": {
-          "$ref": "#/$defs/_99"
+          "$ref": "#/$defs/_100"
         },
         "browserLaunchLocation": {
           "$ref": "#/$defs/_84"
@@ -4912,6 +4933,9 @@
         "internalConsoleOptions": {
           "$ref": "#/$defs/_41"
         },
+        "killBehavior": {
+          "$ref": "#/$defs/_91"
+        },
         "name": {
           "$ref": "#/$defs/_36"
         },
@@ -4931,7 +4955,7 @@
           "$ref": "#/$defs/_73"
         },
         "port": {
-          "$ref": "#/$defs/_100"
+          "$ref": "#/$defs/_101"
         },
         "postDebugTask": {
           "$ref": "#/$defs/_39"
@@ -4943,7 +4967,7 @@
           "$ref": "#/$defs/_40"
         },
         "profileStartup": {
-          "$ref": "#/$defs/_92"
+          "$ref": "#/$defs/_93"
         },
         "request": {
           "$ref": "#/$defs/_55"
@@ -4952,10 +4976,10 @@
           "$ref": "#/$defs/_75"
         },
         "runtimeArgs": {
-          "$ref": "#/$defs/_93"
+          "$ref": "#/$defs/_94"
         },
         "runtimeExecutable": {
-          "$ref": "#/$defs/_101"
+          "$ref": "#/$defs/_102"
         },
         "server": {
           "$ref": "#/$defs/_77"
@@ -4994,7 +5018,7 @@
           "$ref": "#/$defs/_32"
         },
         "type": {
-          "$ref": "#/$defs/_98"
+          "$ref": "#/$defs/_99"
         },
         "url": {
           "$ref": "#/$defs/_79"
@@ -5003,10 +5027,10 @@
           "$ref": "#/$defs/_80"
         },
         "userDataDir": {
-          "$ref": "#/$defs/_95"
+          "$ref": "#/$defs/_96"
         },
         "useWebView": {
-          "$ref": "#/$defs/_102"
+          "$ref": "#/$defs/_103"
         },
         "vueComponentPaths": {
           "$ref": "#/$defs/_81"
@@ -5027,7 +5051,7 @@
       "type": "object"
     },
     "pwa-msedge:launch:platform": {
-      "$ref": "#/$defs/_115"
+      "$ref": "#/$defs/_116"
     },
     "pwa-node:attach": {
       "properties": {
@@ -5173,7 +5197,7 @@
       "type": "object"
     },
     "pwa-node:attach:platform": {
-      "$ref": "#/$defs/_109"
+      "$ref": "#/$defs/_110"
     },
     "pwa-node:launch": {
       "properties": {
@@ -5334,7 +5358,7 @@
       "type": "object"
     },
     "pwa-node:launch:platform": {
-      "$ref": "#/$defs/_110"
+      "$ref": "#/$defs/_111"
     }
   },
   "$defs": {
@@ -5363,7 +5387,7 @@
       "default": [],
       "description": "A list of debug sessions which, when this debug session is terminated, will also be stopped.",
       "items": {
-        "$ref": "#/$defs/_116"
+        "$ref": "#/$defs/_117"
       },
       "type": "array",
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -5497,7 +5521,7 @@
           "type": "integer"
         },
         {
-          "$ref": "#/$defs/_117"
+          "$ref": "#/$defs/_118"
         }
       ],
       "tags": [
@@ -5553,7 +5577,7 @@
           "type": "boolean"
         },
         {
-          "$ref": "#/$defs/_118"
+          "$ref": "#/$defs/_119"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -5577,10 +5601,10 @@
           "type": "boolean"
         },
         {
-          "$ref": "#/$defs/_119"
+          "$ref": "#/$defs/_120"
         },
         {
-          "$ref": "#/$defs/_120"
+          "$ref": "#/$defs/_121"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -5641,13 +5665,13 @@
       "markdownDescription": "Timeouts for several debugger operations.",
       "properties": {
         "hoverEvaluation": {
-          "$ref": "#/$defs/_121"
-        },
-        "sourceMapCumulativePause": {
           "$ref": "#/$defs/_122"
         },
-        "sourceMapMinPause": {
+        "sourceMapCumulativePause": {
           "$ref": "#/$defs/_123"
+        },
+        "sourceMapMinPause": {
+          "$ref": "#/$defs/_124"
         }
       },
       "type": "object",
@@ -5659,10 +5683,10 @@
       "description": "Configures what diagnostic output is produced.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_124"
+          "$ref": "#/$defs/_125"
         },
         {
-          "$ref": "#/$defs/_125"
+          "$ref": "#/$defs/_126"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -5755,7 +5779,7 @@
           "type": "integer"
         },
         {
-          "$ref": "#/$defs/_117"
+          "$ref": "#/$defs/_118"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -5882,13 +5906,13 @@
               "default": "openExternally"
             },
             "pattern": {
-              "$ref": "#/$defs/_126"
-            },
-            "uriFormat": {
               "$ref": "#/$defs/_127"
             },
-            "killOnServerStop": {
+            "uriFormat": {
               "$ref": "#/$defs/_128"
+            },
+            "killOnServerStop": {
+              "$ref": "#/$defs/_129"
             }
           }
         },
@@ -5917,10 +5941,10 @@
               "default": "debugWithEdge"
             },
             "pattern": {
-              "$ref": "#/$defs/_126"
+              "$ref": "#/$defs/_127"
             },
             "uriFormat": {
-              "$ref": "#/$defs/_127"
+              "$ref": "#/$defs/_128"
             },
             "webRoot": {
               "type": "string",
@@ -5928,7 +5952,7 @@
               "default": "${workspaceFolder}"
             },
             "killOnServerStop": {
-              "$ref": "#/$defs/_128"
+              "$ref": "#/$defs/_129"
             }
           }
         },
@@ -5946,10 +5970,10 @@
           ],
           "properties": {
             "action": {
-              "$ref": "#/$defs/_129"
+              "$ref": "#/$defs/_130"
             },
             "pattern": {
-              "$ref": "#/$defs/_126"
+              "$ref": "#/$defs/_127"
             },
             "name": {
               "type": "string",
@@ -5957,7 +5981,7 @@
               "default": "Launch Browser"
             },
             "killOnServerStop": {
-              "$ref": "#/$defs/_128"
+              "$ref": "#/$defs/_129"
             }
           }
         },
@@ -5978,10 +6002,10 @@
           ],
           "properties": {
             "action": {
-              "$ref": "#/$defs/_129"
+              "$ref": "#/$defs/_130"
             },
             "pattern": {
-              "$ref": "#/$defs/_126"
+              "$ref": "#/$defs/_127"
             },
             "config": {
               "type": "object",
@@ -5989,7 +6013,7 @@
               "default": {}
             },
             "killOnServerStop": {
-              "$ref": "#/$defs/_128"
+              "$ref": "#/$defs/_129"
             }
           }
         }
@@ -6096,18 +6120,18 @@
               "type": "null"
             },
             {
-              "$ref": "#/$defs/_130"
+              "$ref": "#/$defs/_131"
             }
           ]
         },
         "cascadeTerminateToConfigurations": {
-          "$ref": "#/$defs/_131"
-        },
-        "customDescriptionGenerator": {
           "$ref": "#/$defs/_132"
         },
-        "customPropertiesGenerator": {
+        "customDescriptionGenerator": {
           "$ref": "#/$defs/_133"
+        },
+        "customPropertiesGenerator": {
+          "$ref": "#/$defs/_134"
         },
         "disableNetworkCache": {
           "default": true,
@@ -6115,10 +6139,10 @@
           "type": "boolean"
         },
         "enableContentValidation": {
-          "$ref": "#/$defs/_134"
+          "$ref": "#/$defs/_135"
         },
         "enableDWARF": {
-          "$ref": "#/$defs/_135"
+          "$ref": "#/$defs/_136"
         },
         "inspectUri": {
           "default": null,
@@ -6129,10 +6153,10 @@
           ]
         },
         "outFiles": {
-          "$ref": "#/$defs/_136"
+          "$ref": "#/$defs/_137"
         },
         "outputCapture": {
-          "$ref": "#/$defs/_137"
+          "$ref": "#/$defs/_138"
         },
         "pathMapping": {
           "default": {},
@@ -6140,7 +6164,7 @@
           "type": "object"
         },
         "pauseForSourceMap": {
-          "$ref": "#/$defs/_138"
+          "$ref": "#/$defs/_139"
         },
         "perScriptSourcemaps": {
           "default": "auto",
@@ -6160,7 +6184,7 @@
               "type": "integer"
             },
             {
-              "$ref": "#/$defs/_117"
+              "$ref": "#/$defs/_118"
             }
           ],
           "tags": [
@@ -6186,30 +6210,30 @@
         "server": {
           "oneOf": [
             {
-              "$ref": "#/$defs/_139"
+              "$ref": "#/$defs/_140"
             },
             {
-              "$ref": "#/$defs/_140"
+              "$ref": "#/$defs/_141"
             }
           ]
         },
         "showAsyncStacks": {
-          "$ref": "#/$defs/_141"
-        },
-        "skipFiles": {
           "$ref": "#/$defs/_142"
         },
-        "smartStep": {
+        "skipFiles": {
           "$ref": "#/$defs/_143"
         },
-        "sourceMapPathOverrides": {
+        "smartStep": {
           "$ref": "#/$defs/_144"
         },
-        "sourceMapRenames": {
+        "sourceMapPathOverrides": {
           "$ref": "#/$defs/_145"
         },
-        "sourceMaps": {
+        "sourceMapRenames": {
           "$ref": "#/$defs/_146"
+        },
+        "sourceMaps": {
+          "$ref": "#/$defs/_147"
         },
         "targetSelection": {
           "default": "automatic",
@@ -6221,13 +6245,13 @@
           "type": "string"
         },
         "timeout": {
-          "$ref": "#/$defs/_147"
-        },
-        "timeouts": {
           "$ref": "#/$defs/_148"
         },
-        "trace": {
+        "timeouts": {
           "$ref": "#/$defs/_149"
+        },
+        "trace": {
+          "$ref": "#/$defs/_150"
         },
         "url": {
           "default": "http://localhost:8080",
@@ -6328,7 +6352,7 @@
           "type": "null"
         },
         {
-          "$ref": "#/$defs/_130"
+          "$ref": "#/$defs/_131"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -6378,7 +6402,7 @@
           "type": "integer"
         },
         {
-          "$ref": "#/$defs/_117"
+          "$ref": "#/$defs/_118"
         }
       ],
       "tags": [
@@ -6410,10 +6434,10 @@
     "_77": {
       "oneOf": [
         {
-          "$ref": "#/$defs/_139"
+          "$ref": "#/$defs/_140"
         },
         {
-          "$ref": "#/$defs/_140"
+          "$ref": "#/$defs/_141"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -6488,7 +6512,7 @@
           "type": "null"
         },
         {
-          "$ref": "#/$defs/_130"
+          "$ref": "#/$defs/_131"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -6544,20 +6568,32 @@
       "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
     },
     "_91": {
+      "default": "forceful",
+      "enum": [
+        "forceful",
+        "polite",
+        "none"
+      ],
+      "markdownDescription": "Configures how browser processes are killed when stopping the session with `cleanUp: wholeBrowser`. Can be:\n\n- forceful (default): forcefully tears down the process tree. Sends SIGKILL on posix, or `taskkill.exe /F` on Windows.\n- polite: gracefully tears down the process tree. It's possible that misbehaving processes continue to run after shutdown in this way. Sends SIGTERM on posix, or `taskkill.exe` with no `/F` (force) flag on Windows.\n- none: no termination will happen.",
+      "type": "string",
+      "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+      "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+    },
+    "_92": {
       "default": 0,
       "description": "Port for the browser to listen on. Defaults to \"0\", which will cause the browser to be debugged via pipes, which is generally more secure and should be chosen unless you need to attach to the browser from another tool.",
       "type": "number",
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
       "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
     },
-    "_92": {
+    "_93": {
       "default": true,
       "description": "If true, will start profiling soon as the process launches",
       "type": "boolean",
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
       "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
     },
-    "_93": {
+    "_94": {
       "default": [],
       "description": "Optional arguments passed to the runtime executable.",
       "items": {
@@ -6567,7 +6603,7 @@
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
       "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
     },
-    "_94": {
+    "_95": {
       "default": "stable",
       "description": "Either 'canary', 'stable', 'custom' or path to the browser executable. Custom means a custom wrapper, custom build or CHROME_PATH environment variable.",
       "type": [
@@ -6577,7 +6613,7 @@
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
       "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
     },
-    "_95": {
+    "_96": {
       "default": true,
       "description": "By default, the browser is launched with a separate user profile in a temp folder. Use this option to override it. Set to false to launch with your default user profile. A new browser can't be launched if an instance is already running from `userDataDir`.",
       "type": [
@@ -6587,7 +6623,7 @@
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
       "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
     },
-    "_96": {
+    "_97": {
       "enum": [
         "chrome"
       ],
@@ -6600,7 +6636,7 @@
       "errorMessage": "The debug type is not recognized. Make sure that you have a corresponding debug extension installed and that it is enabled.",
       "patternErrorMessage": "\"node2\" is no longer supported, use \"node\" instead and set the \"protocol\" attribute to \"inspector\"."
     },
-    "_97": {
+    "_98": {
       "default": {
         "pipeName": "MyPipeName"
       },
@@ -6614,7 +6650,7 @@
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
       "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
     },
-    "_98": {
+    "_99": {
       "enum": [
         "pwa-msedge"
       ],
@@ -6628,21 +6664,21 @@
       "errorMessage": "The debug type is not recognized. Make sure that you have a corresponding debug extension installed and that it is enabled.",
       "patternErrorMessage": "\"node2\" is no longer supported, use \"node\" instead and set the \"protocol\" attribute to \"inspector\"."
     },
-    "_99": {
+    "_100": {
       "default": "localhost",
       "description": "When debugging webviews, the IP address or hostname the webview is listening on. Will be automatically discovered if not set.",
       "type": "string",
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
       "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
     },
-    "_100": {
+    "_101": {
       "default": 9229,
       "description": "When debugging webviews, the port the webview debugger is listening on. Will be automatically discovered if not set.",
       "type": "number",
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
       "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
     },
-    "_101": {
+    "_102": {
       "default": "stable",
       "description": "Either 'canary', 'stable', 'dev', 'custom' or path to the browser executable. Custom means a custom wrapper, custom build or EDGE_PATH environment variable.",
       "type": [
@@ -6652,14 +6688,14 @@
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
       "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
     },
-    "_102": {
+    "_103": {
       "default": false,
       "description": "When 'true', the debugger will treat the runtime executable as a host application that contains a WebView allowing you to debug the WebView script content.",
       "type": "boolean",
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
       "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
     },
-    "_103": {
+    "_104": {
       "enum": [
         "msedge"
       ],
@@ -6672,7 +6708,7 @@
       "errorMessage": "The debug type is not recognized. Make sure that you have a corresponding debug extension installed and that it is enabled.",
       "patternErrorMessage": "\"node2\" is no longer supported, use \"node\" instead and set the \"protocol\" attribute to \"inspector\"."
     },
-    "_104": {
+    "_105": {
       "type": "object",
       "description": "Presentation options on how to show this configuration in the debug configuration dropdown and the command palette.",
       "properties": {
@@ -6698,19 +6734,19 @@
         "order": 1
       }
     },
-    "_105": {
+    "_106": {
       "type": "string",
       "description": "The input's id is used to associate an input with a variable of the form ${input:id}."
     },
-    "_106": {
+    "_107": {
       "type": "string",
       "description": "The description is shown when the user is prompted for input."
     },
-    "_107": {
+    "_108": {
       "type": "string",
       "description": "The default value for the input."
     },
-    "_108": {
+    "_109": {
       "oneOf": [
         {
           "type": "object",
@@ -6832,7 +6868,7 @@
         }
       ]
     },
-    "_109": {
+    "_110": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -6958,7 +6994,7 @@
         }
       }
     },
-    "_110": {
+    "_111": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -7099,7 +7135,7 @@
         }
       }
     },
-    "_111": {
+    "_112": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -7225,7 +7261,7 @@
         }
       }
     },
-    "_112": {
+    "_113": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -7345,7 +7381,7 @@
         }
       }
     },
-    "_113": {
+    "_114": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -7391,6 +7427,9 @@
         "inspectUri": {
           "$ref": "#/$defs/_71"
         },
+        "killBehavior": {
+          "$ref": "#/$defs/_91"
+        },
         "outFiles": {
           "$ref": "#/$defs/_14"
         },
@@ -7407,19 +7446,19 @@
           "$ref": "#/$defs/_73"
         },
         "port": {
-          "$ref": "#/$defs/_91"
+          "$ref": "#/$defs/_92"
         },
         "profileStartup": {
-          "$ref": "#/$defs/_92"
+          "$ref": "#/$defs/_93"
         },
         "resolveSourceMapLocations": {
           "$ref": "#/$defs/_75"
         },
         "runtimeArgs": {
-          "$ref": "#/$defs/_93"
+          "$ref": "#/$defs/_94"
         },
         "runtimeExecutable": {
-          "$ref": "#/$defs/_94"
+          "$ref": "#/$defs/_95"
         },
         "server": {
           "$ref": "#/$defs/_77"
@@ -7458,7 +7497,7 @@
           "$ref": "#/$defs/_80"
         },
         "userDataDir": {
-          "$ref": "#/$defs/_95"
+          "$ref": "#/$defs/_96"
         },
         "vueComponentPaths": {
           "$ref": "#/$defs/_81"
@@ -7468,129 +7507,6 @@
         },
         "serverReadyAction": {
           "$ref": "#/$defs/_54"
-        },
-        "debugServer": {
-          "$ref": "#/$defs/_37"
-        },
-        "preLaunchTask": {
-          "$ref": "#/$defs/_38"
-        },
-        "postDebugTask": {
-          "$ref": "#/$defs/_39"
-        },
-        "presentation": {
-          "$ref": "#/$defs/_40"
-        },
-        "internalConsoleOptions": {
-          "$ref": "#/$defs/_41"
-        },
-        "suppressMultipleSessionWarning": {
-          "$ref": "#/$defs/_42"
-        }
-      }
-    },
-    "_114": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "address": {
-          "$ref": "#/$defs/_68"
-        },
-        "browserAttachLocation": {
-          "$ref": "#/$defs/_69"
-        },
-        "cascadeTerminateToConfigurations": {
-          "$ref": "#/$defs/_3"
-        },
-        "customDescriptionGenerator": {
-          "$ref": "#/$defs/_5"
-        },
-        "customPropertiesGenerator": {
-          "$ref": "#/$defs/_6"
-        },
-        "disableNetworkCache": {
-          "$ref": "#/$defs/_70"
-        },
-        "enableContentValidation": {
-          "$ref": "#/$defs/_8"
-        },
-        "enableDWARF": {
-          "$ref": "#/$defs/_9"
-        },
-        "inspectUri": {
-          "$ref": "#/$defs/_71"
-        },
-        "outFiles": {
-          "$ref": "#/$defs/_14"
-        },
-        "outputCapture": {
-          "$ref": "#/$defs/_15"
-        },
-        "pathMapping": {
-          "$ref": "#/$defs/_72"
-        },
-        "pauseForSourceMap": {
-          "$ref": "#/$defs/_16"
-        },
-        "perScriptSourcemaps": {
-          "$ref": "#/$defs/_73"
-        },
-        "port": {
-          "$ref": "#/$defs/_74"
-        },
-        "resolveSourceMapLocations": {
-          "$ref": "#/$defs/_75"
-        },
-        "restart": {
-          "$ref": "#/$defs/_76"
-        },
-        "server": {
-          "$ref": "#/$defs/_77"
-        },
-        "showAsyncStacks": {
-          "$ref": "#/$defs/_24"
-        },
-        "skipFiles": {
-          "$ref": "#/$defs/_25"
-        },
-        "smartStep": {
-          "$ref": "#/$defs/_26"
-        },
-        "sourceMapPathOverrides": {
-          "$ref": "#/$defs/_27"
-        },
-        "sourceMapRenames": {
-          "$ref": "#/$defs/_28"
-        },
-        "sourceMaps": {
-          "$ref": "#/$defs/_29"
-        },
-        "targetSelection": {
-          "$ref": "#/$defs/_78"
-        },
-        "timeout": {
-          "$ref": "#/$defs/_30"
-        },
-        "timeouts": {
-          "$ref": "#/$defs/_31"
-        },
-        "trace": {
-          "$ref": "#/$defs/_32"
-        },
-        "url": {
-          "$ref": "#/$defs/_79"
-        },
-        "urlFilter": {
-          "$ref": "#/$defs/_80"
-        },
-        "useWebView": {
-          "$ref": "#/$defs/_97"
-        },
-        "vueComponentPaths": {
-          "$ref": "#/$defs/_81"
-        },
-        "webRoot": {
-          "$ref": "#/$defs/_82"
         },
         "debugServer": {
           "$ref": "#/$defs/_37"
@@ -7617,7 +7533,130 @@
       "additionalProperties": false,
       "properties": {
         "address": {
-          "$ref": "#/$defs/_99"
+          "$ref": "#/$defs/_68"
+        },
+        "browserAttachLocation": {
+          "$ref": "#/$defs/_69"
+        },
+        "cascadeTerminateToConfigurations": {
+          "$ref": "#/$defs/_3"
+        },
+        "customDescriptionGenerator": {
+          "$ref": "#/$defs/_5"
+        },
+        "customPropertiesGenerator": {
+          "$ref": "#/$defs/_6"
+        },
+        "disableNetworkCache": {
+          "$ref": "#/$defs/_70"
+        },
+        "enableContentValidation": {
+          "$ref": "#/$defs/_8"
+        },
+        "enableDWARF": {
+          "$ref": "#/$defs/_9"
+        },
+        "inspectUri": {
+          "$ref": "#/$defs/_71"
+        },
+        "outFiles": {
+          "$ref": "#/$defs/_14"
+        },
+        "outputCapture": {
+          "$ref": "#/$defs/_15"
+        },
+        "pathMapping": {
+          "$ref": "#/$defs/_72"
+        },
+        "pauseForSourceMap": {
+          "$ref": "#/$defs/_16"
+        },
+        "perScriptSourcemaps": {
+          "$ref": "#/$defs/_73"
+        },
+        "port": {
+          "$ref": "#/$defs/_74"
+        },
+        "resolveSourceMapLocations": {
+          "$ref": "#/$defs/_75"
+        },
+        "restart": {
+          "$ref": "#/$defs/_76"
+        },
+        "server": {
+          "$ref": "#/$defs/_77"
+        },
+        "showAsyncStacks": {
+          "$ref": "#/$defs/_24"
+        },
+        "skipFiles": {
+          "$ref": "#/$defs/_25"
+        },
+        "smartStep": {
+          "$ref": "#/$defs/_26"
+        },
+        "sourceMapPathOverrides": {
+          "$ref": "#/$defs/_27"
+        },
+        "sourceMapRenames": {
+          "$ref": "#/$defs/_28"
+        },
+        "sourceMaps": {
+          "$ref": "#/$defs/_29"
+        },
+        "targetSelection": {
+          "$ref": "#/$defs/_78"
+        },
+        "timeout": {
+          "$ref": "#/$defs/_30"
+        },
+        "timeouts": {
+          "$ref": "#/$defs/_31"
+        },
+        "trace": {
+          "$ref": "#/$defs/_32"
+        },
+        "url": {
+          "$ref": "#/$defs/_79"
+        },
+        "urlFilter": {
+          "$ref": "#/$defs/_80"
+        },
+        "useWebView": {
+          "$ref": "#/$defs/_98"
+        },
+        "vueComponentPaths": {
+          "$ref": "#/$defs/_81"
+        },
+        "webRoot": {
+          "$ref": "#/$defs/_82"
+        },
+        "debugServer": {
+          "$ref": "#/$defs/_37"
+        },
+        "preLaunchTask": {
+          "$ref": "#/$defs/_38"
+        },
+        "postDebugTask": {
+          "$ref": "#/$defs/_39"
+        },
+        "presentation": {
+          "$ref": "#/$defs/_40"
+        },
+        "internalConsoleOptions": {
+          "$ref": "#/$defs/_41"
+        },
+        "suppressMultipleSessionWarning": {
+          "$ref": "#/$defs/_42"
+        }
+      }
+    },
+    "_116": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "$ref": "#/$defs/_100"
         },
         "browserLaunchLocation": {
           "$ref": "#/$defs/_84"
@@ -7661,6 +7700,9 @@
         "inspectUri": {
           "$ref": "#/$defs/_71"
         },
+        "killBehavior": {
+          "$ref": "#/$defs/_91"
+        },
         "outFiles": {
           "$ref": "#/$defs/_14"
         },
@@ -7677,19 +7719,19 @@
           "$ref": "#/$defs/_73"
         },
         "port": {
-          "$ref": "#/$defs/_100"
+          "$ref": "#/$defs/_101"
         },
         "profileStartup": {
-          "$ref": "#/$defs/_92"
+          "$ref": "#/$defs/_93"
         },
         "resolveSourceMapLocations": {
           "$ref": "#/$defs/_75"
         },
         "runtimeArgs": {
-          "$ref": "#/$defs/_93"
+          "$ref": "#/$defs/_94"
         },
         "runtimeExecutable": {
-          "$ref": "#/$defs/_101"
+          "$ref": "#/$defs/_102"
         },
         "server": {
           "$ref": "#/$defs/_77"
@@ -7728,10 +7770,10 @@
           "$ref": "#/$defs/_80"
         },
         "useWebView": {
-          "$ref": "#/$defs/_102"
+          "$ref": "#/$defs/_103"
         },
         "userDataDir": {
-          "$ref": "#/$defs/_95"
+          "$ref": "#/$defs/_96"
         },
         "vueComponentPaths": {
           "$ref": "#/$defs/_81"
@@ -7762,15 +7804,15 @@
         }
       }
     },
-    "_116": {
+    "_117": {
       "type": "string",
       "uniqueItems": true
     },
-    "_117": {
+    "_118": {
       "pattern": "^\\${.*}$",
       "type": "string"
     },
-    "_118": {
+    "_119": {
       "properties": {
         "delay": {
           "default": 1000,
@@ -7785,10 +7827,10 @@
       },
       "type": "object"
     },
-    "_119": {
+    "_120": {
       "properties": {
         "onAttach": {
-          "$ref": "#/$defs/_150"
+          "$ref": "#/$defs/_151"
         }
       },
       "required": [
@@ -7796,10 +7838,10 @@
       ],
       "type": "object"
     },
-    "_120": {
+    "_121": {
       "properties": {
         "onceBreakpointResolved": {
-          "$ref": "#/$defs/_150"
+          "$ref": "#/$defs/_151"
         }
       },
       "required": [
@@ -7807,26 +7849,26 @@
       ],
       "type": "object"
     },
-    "_121": {
+    "_122": {
       "default": 500,
       "description": "Time until value evaluation for hovered symbols is aborted. If set to 0, hover evaluation does never time out.",
       "type": "number"
     },
-    "_122": {
+    "_123": {
       "default": 1000,
       "description": "Extra time in milliseconds allowed per session to be spent waiting for source-maps to be processed, after the minimum time (sourceMapMinPause) has been exhausted",
       "type": "number"
     },
-    "_123": {
+    "_124": {
       "default": 1000,
       "description": "Minimum time in milliseconds spent waiting for each source-map to be processed when a script is being parsed",
       "type": "number"
     },
-    "_124": {
+    "_125": {
       "description": "Trace may be set to 'true' to write diagnostic logs to the disk.",
       "type": "boolean"
     },
-    "_125": {
+    "_126": {
       "additionalProperties": false,
       "properties": {
         "logFile": {
@@ -7843,22 +7885,22 @@
       },
       "type": "object"
     },
-    "_126": {
+    "_127": {
       "type": "string",
       "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
       "default": "listening on port ([0-9]+)"
     },
-    "_127": {
+    "_128": {
       "type": "string",
       "markdownDescription": "A format string used when constructing the URI from a port number. The first '%s' is substituted with the port number.",
       "default": "http://localhost:%s"
     },
-    "_128": {
+    "_129": {
       "type": "boolean",
       "markdownDescription": "Stop the child session when the parent session stopped.",
       "default": false
     },
-    "_129": {
+    "_130": {
       "type": "string",
       "enum": [
         "startDebugging"
@@ -7869,41 +7911,41 @@
       "markdownDescription": "What to do with the URI when the server is ready.",
       "default": "startDebugging"
     },
-    "_130": {
+    "_131": {
       "enum": [
         "ui",
         "workspace"
       ],
       "type": "string"
     },
-    "_131": {
+    "_132": {
       "default": [],
       "description": "A list of debug sessions which, when this debug session is terminated, will also be stopped.",
       "items": {
-        "$ref": "#/$defs/_116"
+        "$ref": "#/$defs/_117"
       },
       "type": "array"
     },
-    "_132": {
+    "_133": {
       "description": "Customize the textual description the debugger shows for objects (local variables, etc...). Samples:\n      1. this.toString() // will call toString to print all objects\n      2. this.customDescription ? this.customDescription() : defaultValue // Use customDescription method if available, if not return defaultValue\n      3. function (def) { return this.customDescription ? this.customDescription() : def } // Use customDescription method if available, if not return defaultValue\n      ",
       "type": "string"
     },
-    "_133": {
+    "_134": {
       "deprecated": true,
       "description": "Customize the properties shown for an object in the debugger (local variables, etc...). Samples:\n    1. { ...this, extraProperty: '12345' } // Add an extraProperty 12345 to all objects\n    2. this.customProperties ? this.customProperties() : this // Use customProperties method if available, if not use the properties in this (the default properties)\n    3. function () { return this.customProperties ? this.customProperties() : this } // Use customDescription method if available, if not return the default properties\n\n    Deprecated: This is a temporary implementation of this feature until we have time to implement it in the way described here: https://github.com/microsoft/vscode/issues/102181",
       "type": "string"
     },
-    "_134": {
+    "_135": {
       "default": true,
       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
       "type": "boolean"
     },
-    "_135": {
+    "_136": {
       "default": true,
       "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
       "type": "boolean"
     },
-    "_136": {
+    "_137": {
       "default": [
         "${workspaceFolder}/**/*.(m|c|)js",
         "!**/node_modules/**"
@@ -7919,7 +7961,7 @@
         "array"
       ]
     },
-    "_137": {
+    "_138": {
       "default": "console",
       "enum": [
         "console",
@@ -7927,12 +7969,12 @@
       ],
       "markdownDescription": "From where to capture output messages: the default debug API if set to `console`, or stdout/stderr streams if set to `std`."
     },
-    "_138": {
+    "_139": {
       "default": false,
       "markdownDescription": "Whether to wait for source maps to load for each incoming script. This has a performance overhead, and might be safely disabled when running off of disk, so long as `rootPath` is not disabled.",
       "type": "boolean"
     },
-    "_139": {
+    "_140": {
       "additionalProperties": false,
       "default": {
         "program": "node my-server.js"
@@ -7961,15 +8003,15 @@
               "type": "integer"
             },
             {
-              "$ref": "#/$defs/_117"
+              "$ref": "#/$defs/_118"
             }
           ]
         },
         "autoAttachChildProcesses": {
-          "$ref": "#/$defs/_151"
+          "$ref": "#/$defs/_152"
         },
         "cascadeTerminateToConfigurations": {
-          "$ref": "#/$defs/_131"
+          "$ref": "#/$defs/_132"
         },
         "console": {
           "default": "internalConsole",
@@ -7987,10 +8029,10 @@
           "type": "string"
         },
         "customDescriptionGenerator": {
-          "$ref": "#/$defs/_132"
+          "$ref": "#/$defs/_133"
         },
         "customPropertiesGenerator": {
-          "$ref": "#/$defs/_133"
+          "$ref": "#/$defs/_134"
         },
         "cwd": {
           "default": "${workspaceFolder}",
@@ -8001,16 +8043,16 @@
           "type": "string"
         },
         "enableContentValidation": {
-          "$ref": "#/$defs/_134"
-        },
-        "enableDWARF": {
           "$ref": "#/$defs/_135"
         },
+        "enableDWARF": {
+          "$ref": "#/$defs/_136"
+        },
         "env": {
-          "$ref": "#/$defs/_152"
+          "$ref": "#/$defs/_153"
         },
         "envFile": {
-          "$ref": "#/$defs/_153"
+          "$ref": "#/$defs/_154"
         },
         "experimentalNetworking": {
           "default": "auto",
@@ -8033,19 +8075,19 @@
           "type": "string"
         },
         "localRoot": {
-          "$ref": "#/$defs/_154"
-        },
-        "nodeVersionHint": {
           "$ref": "#/$defs/_155"
         },
-        "outFiles": {
-          "$ref": "#/$defs/_136"
+        "nodeVersionHint": {
+          "$ref": "#/$defs/_156"
         },
-        "outputCapture": {
+        "outFiles": {
           "$ref": "#/$defs/_137"
         },
-        "pauseForSourceMap": {
+        "outputCapture": {
           "$ref": "#/$defs/_138"
+        },
+        "pauseForSourceMap": {
+          "$ref": "#/$defs/_139"
         },
         "profileStartup": {
           "default": true,
@@ -8061,10 +8103,10 @@
           "type": "string"
         },
         "remoteRoot": {
-          "$ref": "#/$defs/_156"
+          "$ref": "#/$defs/_157"
         },
         "resolveSourceMapLocations": {
-          "$ref": "#/$defs/_157"
+          "$ref": "#/$defs/_158"
         },
         "restart": {
           "default": true,
@@ -8074,7 +8116,7 @@
               "type": "boolean"
             },
             {
-              "$ref": "#/$defs/_118"
+              "$ref": "#/$defs/_119"
             }
           ]
         },
@@ -8098,7 +8140,7 @@
           ]
         },
         "runtimeSourcemapPausePatterns": {
-          "$ref": "#/$defs/_158"
+          "$ref": "#/$defs/_159"
         },
         "runtimeVersion": {
           "default": "default",
@@ -8106,22 +8148,22 @@
           "type": "string"
         },
         "showAsyncStacks": {
-          "$ref": "#/$defs/_141"
-        },
-        "skipFiles": {
           "$ref": "#/$defs/_142"
         },
-        "smartStep": {
+        "skipFiles": {
           "$ref": "#/$defs/_143"
         },
-        "sourceMapPathOverrides": {
+        "smartStep": {
           "$ref": "#/$defs/_144"
         },
-        "sourceMapRenames": {
+        "sourceMapPathOverrides": {
           "$ref": "#/$defs/_145"
         },
-        "sourceMaps": {
+        "sourceMapRenames": {
           "$ref": "#/$defs/_146"
+        },
+        "sourceMaps": {
+          "$ref": "#/$defs/_147"
         },
         "stopOnEntry": {
           "default": true,
@@ -8132,18 +8174,18 @@
           ]
         },
         "timeout": {
-          "$ref": "#/$defs/_147"
-        },
-        "timeouts": {
           "$ref": "#/$defs/_148"
         },
-        "trace": {
+        "timeouts": {
           "$ref": "#/$defs/_149"
+        },
+        "trace": {
+          "$ref": "#/$defs/_150"
         }
       },
       "type": "object"
     },
-    "_140": {
+    "_141": {
       "additionalProperties": false,
       "default": {
         "program": "npm start"
@@ -8151,10 +8193,10 @@
       "description": "JavaScript Debug Terminal",
       "properties": {
         "autoAttachChildProcesses": {
-          "$ref": "#/$defs/_151"
+          "$ref": "#/$defs/_152"
         },
         "cascadeTerminateToConfigurations": {
-          "$ref": "#/$defs/_131"
+          "$ref": "#/$defs/_132"
         },
         "command": {
           "default": "npm start",
@@ -8168,10 +8210,10 @@
           ]
         },
         "customDescriptionGenerator": {
-          "$ref": "#/$defs/_132"
+          "$ref": "#/$defs/_133"
         },
         "customPropertiesGenerator": {
-          "$ref": "#/$defs/_133"
+          "$ref": "#/$defs/_134"
         },
         "cwd": {
           "default": "${workspaceFolder}",
@@ -8183,72 +8225,72 @@
           "type": "string"
         },
         "enableContentValidation": {
-          "$ref": "#/$defs/_134"
-        },
-        "enableDWARF": {
           "$ref": "#/$defs/_135"
         },
-        "env": {
-          "$ref": "#/$defs/_152"
-        },
-        "envFile": {
-          "$ref": "#/$defs/_153"
-        },
-        "localRoot": {
-          "$ref": "#/$defs/_154"
-        },
-        "nodeVersionHint": {
-          "$ref": "#/$defs/_155"
-        },
-        "outFiles": {
+        "enableDWARF": {
           "$ref": "#/$defs/_136"
         },
-        "outputCapture": {
-          "$ref": "#/$defs/_137"
+        "env": {
+          "$ref": "#/$defs/_153"
         },
-        "pauseForSourceMap": {
-          "$ref": "#/$defs/_138"
+        "envFile": {
+          "$ref": "#/$defs/_154"
         },
-        "remoteRoot": {
+        "localRoot": {
+          "$ref": "#/$defs/_155"
+        },
+        "nodeVersionHint": {
           "$ref": "#/$defs/_156"
         },
-        "resolveSourceMapLocations": {
+        "outFiles": {
+          "$ref": "#/$defs/_137"
+        },
+        "outputCapture": {
+          "$ref": "#/$defs/_138"
+        },
+        "pauseForSourceMap": {
+          "$ref": "#/$defs/_139"
+        },
+        "remoteRoot": {
           "$ref": "#/$defs/_157"
         },
-        "runtimeSourcemapPausePatterns": {
+        "resolveSourceMapLocations": {
           "$ref": "#/$defs/_158"
         },
-        "showAsyncStacks": {
-          "$ref": "#/$defs/_141"
+        "runtimeSourcemapPausePatterns": {
+          "$ref": "#/$defs/_159"
         },
-        "skipFiles": {
+        "showAsyncStacks": {
           "$ref": "#/$defs/_142"
         },
-        "smartStep": {
+        "skipFiles": {
           "$ref": "#/$defs/_143"
         },
-        "sourceMapPathOverrides": {
+        "smartStep": {
           "$ref": "#/$defs/_144"
         },
-        "sourceMapRenames": {
+        "sourceMapPathOverrides": {
           "$ref": "#/$defs/_145"
         },
-        "sourceMaps": {
+        "sourceMapRenames": {
           "$ref": "#/$defs/_146"
         },
-        "timeout": {
+        "sourceMaps": {
           "$ref": "#/$defs/_147"
         },
-        "timeouts": {
+        "timeout": {
           "$ref": "#/$defs/_148"
         },
-        "trace": {
+        "timeouts": {
           "$ref": "#/$defs/_149"
+        },
+        "trace": {
+          "$ref": "#/$defs/_150"
         }
       },
       "type": "object"
     },
-    "_141": {
+    "_142": {
       "default": true,
       "description": "Show the async calls that led to the current call stack.",
       "oneOf": [
@@ -8256,26 +8298,26 @@
           "type": "boolean"
         },
         {
-          "$ref": "#/$defs/_119"
+          "$ref": "#/$defs/_120"
         },
         {
-          "$ref": "#/$defs/_120"
+          "$ref": "#/$defs/_121"
         }
       ]
     },
-    "_142": {
+    "_143": {
       "default": [
         "${/**"
       ],
       "description": "An array of file or folder names, or path globs, to skip when debugging. Star patterns and negations are allowed, for example, `[\"**/node_modules/**\", \"!**/node_modules/my-module/**\"]`",
       "type": "array"
     },
-    "_143": {
+    "_144": {
       "default": true,
       "description": "Automatically step through generated code that cannot be mapped back to the original source.",
       "type": "boolean"
     },
-    "_144": {
+    "_145": {
       "default": {
         "meteor://💻app/*": "${workspaceFolder}/*",
         "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
@@ -8284,61 +8326,61 @@
       "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
       "type": "object"
     },
-    "_145": {
+    "_146": {
       "default": true,
       "description": "Whether to use the \"names\" mapping in sourcemaps. This requires requesting source content, which can be slow with certain debuggers.",
       "type": "boolean"
     },
-    "_146": {
+    "_147": {
       "default": true,
       "description": "Use JavaScript source maps (if they exist).",
       "type": "boolean"
     },
-    "_147": {
+    "_148": {
       "default": 10000,
       "description": "Retry for this number of milliseconds to connect to Node.js. Default is 10000 ms.",
       "type": "number"
     },
-    "_148": {
+    "_149": {
       "additionalProperties": false,
       "default": {},
       "description": "Timeouts for several debugger operations.",
       "markdownDescription": "Timeouts for several debugger operations.",
       "properties": {
         "hoverEvaluation": {
-          "$ref": "#/$defs/_121"
-        },
-        "sourceMapCumulativePause": {
           "$ref": "#/$defs/_122"
         },
-        "sourceMapMinPause": {
+        "sourceMapCumulativePause": {
           "$ref": "#/$defs/_123"
+        },
+        "sourceMapMinPause": {
+          "$ref": "#/$defs/_124"
         }
       },
       "type": "object"
     },
-    "_149": {
+    "_150": {
       "default": true,
       "description": "Configures what diagnostic output is produced.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_124"
+          "$ref": "#/$defs/_125"
         },
         {
-          "$ref": "#/$defs/_125"
+          "$ref": "#/$defs/_126"
         }
       ]
     },
-    "_150": {
+    "_151": {
       "default": 32,
       "type": "number"
     },
-    "_151": {
+    "_152": {
       "default": true,
       "description": "Attach debugger to new child processes automatically.",
       "type": "boolean"
     },
-    "_152": {
+    "_153": {
       "additionalProperties": {
         "type": [
           "string",
@@ -8352,12 +8394,12 @@
       ],
       "type": "object"
     },
-    "_153": {
+    "_154": {
       "default": "${workspaceFolder}/.env",
       "description": "Absolute path to a file containing environment variable definitions.",
       "type": "string"
     },
-    "_154": {
+    "_155": {
       "default": null,
       "description": "Path to the local directory containing the program.",
       "type": [
@@ -8365,13 +8407,13 @@
         "null"
       ]
     },
-    "_155": {
+    "_156": {
       "default": 12,
       "description": "Allows you to explicitly specify the Node version that's running, which can be used to disable or enable certain behaviors in cases where the automatic version detection does not work.",
       "minimum": 8,
       "type": "number"
     },
-    "_156": {
+    "_157": {
       "default": null,
       "description": "Absolute path to the remote directory containing the program.",
       "type": [
@@ -8379,7 +8421,7 @@
         "null"
       ]
     },
-    "_157": {
+    "_158": {
       "default": [
         "${workspaceFolder}/**",
         "!**/node_modules/**"
@@ -8393,7 +8435,7 @@
         "null"
       ]
     },
-    "_158": {
+    "_159": {
       "default": [],
       "items": {
         "type": "string"

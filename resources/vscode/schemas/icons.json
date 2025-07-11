@@ -101,21 +101,29 @@
     "attach": {
       "$ref": "#/$defs/_0"
     },
+    "auxiliarybar-close": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon to close the secondary side bar.: $(auxiliarybar-close)"
+    },
     "auxiliarybar-left-layout-icon": {
       "$ref": "#/definitions/icons",
-      "markdownDescription": "Icon to toggle the auxiliary bar in its left position.: $(auxiliarybar-left-layout-icon)"
+      "markdownDescription": "Icon to toggle the secondary side bar in its left position.: $(auxiliarybar-left-layout-icon)"
     },
     "auxiliarybar-left-off-layout-icon": {
       "$ref": "#/definitions/icons",
-      "markdownDescription": "Icon to toggle the auxiliary bar on in its left position.: $(auxiliarybar-left-off-layout-icon)"
+      "markdownDescription": "Icon to toggle the secondary side bar on in its left position.: $(auxiliarybar-left-off-layout-icon)"
+    },
+    "auxiliarybar-maximize": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon to maximize the secondary side bar.: $(auxiliarybar-maximize)"
     },
     "auxiliarybar-right-layout-icon": {
       "$ref": "#/definitions/icons",
-      "markdownDescription": "Icon to toggle the auxiliary bar off in its right position.: $(auxiliarybar-right-layout-icon)"
+      "markdownDescription": "Icon to toggle the secondary side bar off in its right position.: $(auxiliarybar-right-layout-icon)"
     },
     "auxiliarybar-right-off-layout-icon": {
       "$ref": "#/definitions/icons",
-      "markdownDescription": "Icon to toggle the auxiliary bar on in its right position.: $(auxiliarybar-right-off-layout-icon)"
+      "markdownDescription": "Icon to toggle the secondary side bar on in its right position.: $(auxiliarybar-right-off-layout-icon)"
     },
     "azure": {
       "$ref": "#/$defs/_0"
@@ -225,6 +233,9 @@
     "chat-editor-label-icon": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon of the chat editor label.: $(chat-editor-label-icon)"
+    },
+    "chat-sparkle": {
+      "$ref": "#/$defs/_0"
     },
     "check": {
       "$ref": "#/$defs/_0"
@@ -387,10 +398,22 @@
     "copilot-blocked": {
       "$ref": "#/$defs/_0"
     },
+    "copilot-error": {
+      "$ref": "#/$defs/_0"
+    },
+    "copilot-in-progress": {
+      "$ref": "#/$defs/_0"
+    },
     "copilot-large": {
       "$ref": "#/$defs/_0"
     },
     "copilot-not-connected": {
+      "$ref": "#/$defs/_0"
+    },
+    "copilot-snooze": {
+      "$ref": "#/$defs/_0"
+    },
+    "copilot-success": {
       "$ref": "#/$defs/_0"
     },
     "copilot-unavailable": {
@@ -735,6 +758,9 @@
     "edit-sessions-view-icon": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "View icon of the cloud changes view.: $(edit-sessions-view-icon)"
+    },
+    "edit-sparkle": {
+      "$ref": "#/$defs/_0"
     },
     "editor-layout": {
       "$ref": "#/$defs/_0"
@@ -1547,6 +1573,10 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon used for the MCP server.: $(mcp-server)"
     },
+    "mcp-server-editor-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon of the MCP Server editor.: $(mcp-server-editor-icon)"
+    },
     "megaphone": {
       "$ref": "#/$defs/_0"
     },
@@ -1851,10 +1881,6 @@
     "panel-maximize": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon to maximize a panel.: $(panel-maximize)"
-    },
-    "panel-restore": {
-      "$ref": "#/definitions/icons",
-      "markdownDescription": "Icon to restore a panel.: $(panel-restore)"
     },
     "panel-right": {
       "$ref": "#/definitions/icons",
@@ -2313,6 +2339,9 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon to expand the replace section in the search view.: $(search-show-replace)"
     },
+    "search-sparkle": {
+      "$ref": "#/$defs/_0"
+    },
     "search-sparkle-empty": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon to hide AI results in search.: $(search-sparkle-empty)"
@@ -2739,6 +2768,16 @@
       "$ref": "#/definitions/icons",
       "deprecationMessage": "terminalSymbolIcon.optionValueForeground",
       "markdownDescription": "Icon for enum members in the terminal suggest widget.: $(terminal-symbol-option-value)"
+    },
+    "terminal-symbol-symbolic-link-file": {
+      "$ref": "#/definitions/icons",
+      "deprecationMessage": "terminalSymbolIcon.symbolicLinkFileForeground",
+      "markdownDescription": "Icon for symbolic link files in the terminal suggest widget.: $(terminal-symbol-symbolic-link-file)"
+    },
+    "terminal-symbol-symbolic-link-folder": {
+      "$ref": "#/definitions/icons",
+      "deprecationMessage": "terminalSymbolIcon.symbolicLinkFolderForeground",
+      "markdownDescription": "Icon for symbolic link folders in the terminal suggest widget.: $(terminal-symbol-symbolic-link-folder)"
     },
     "terminal-tmux": {
       "$ref": "#/$defs/_0"

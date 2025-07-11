@@ -474,6 +474,33 @@
       "scope": 6,
       "restricted": false
     },
+    "editor.allowVariableFonts": {
+      "description": "Controls whether to allow using variable fonts in the editor.",
+      "type": "boolean",
+      "default": true,
+      "defaultDefaultValue": true,
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.allowVariableFontsInAccessibilityMode": {
+      "description": "Controls whether to allow using variable fonts in the editor in the accessibility mode.",
+      "tags": [
+        "accessibility"
+      ],
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.allowVariableLineHeights": {
+      "description": "Controls whether to allow using variable line heights in the editor.",
+      "type": "boolean",
+      "default": true,
+      "defaultDefaultValue": true,
+      "scope": 6,
+      "restricted": false
+    },
     "editor.autoClosingBrackets": {
       "enumDescriptions": [
         "",
@@ -589,6 +616,22 @@
       ],
       "default": "full",
       "defaultDefaultValue": "full",
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.autoIndentOnPaste": {
+      "description": "Controls whether the editor should automatically auto-indent the pasted content.",
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.autoIndentOnPasteWithinString": {
+      "description": "Controls whether the editor should automatically auto-indent the pasted content when pasted within a string. This takes effect when autoIndentOnPaste is true.",
+      "type": "boolean",
+      "default": true,
+      "defaultDefaultValue": true,
       "scope": 6,
       "restricted": false
     },
@@ -1180,6 +1223,15 @@
       "scope": 6,
       "restricted": false
     },
+    "editor.editContext": {
+      "description": "Sets whether the EditContext API should be used instead of the text area to power input in the editor.",
+      "included": true,
+      "type": "boolean",
+      "default": true,
+      "defaultDefaultValue": true,
+      "scope": 6,
+      "restricted": false
+    },
     "editor.emptySelectionClipboard": {
       "description": "Controls whether copying without a selection copies the current line.",
       "type": "boolean",
@@ -1275,15 +1327,6 @@
         "onExP"
       ],
       "defaultDefaultValue": false,
-      "scope": 6,
-      "restricted": false
-    },
-    "editor.experimentalEditContextEnabled": {
-      "description": "Sets whether the new experimental edit context should be used instead of the text area.",
-      "included": true,
-      "type": "boolean",
-      "default": true,
-      "defaultDefaultValue": true,
       "scope": 6,
       "restricted": false
     },
@@ -2248,16 +2291,26 @@
       "restricted": false
     },
     "editor.inlineSuggest.experimental.suppressInlineSuggestions": {
-      "type": "array",
+      "type": "string",
+      "default": "",
       "tags": [
         "experimental",
         "onExp"
       ],
-      "items": {
-        "type": "string"
-      },
-      "description": "Suppresses inline completions for specified extension IDs.",
-      "default": [],
+      "description": "Suppresses inline completions for specified extension IDs -- comma separated.",
+      "defaultDefaultValue": "",
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.inlineSuggest.experimental.triggerCommandOnProviderChange": {
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "experimental",
+        "onExp"
+      ],
+      "description": "Controls whether to trigger a command when the inline suggestion provider changes.",
+      "defaultDefaultValue": true,
       "scope": 6,
       "restricted": false
     },
@@ -2850,6 +2903,9 @@
     },
     "editor.quickSuggestionsDelay": {
       "description": "Controls the delay in milliseconds after which quick suggestions will show up.",
+      "tags": [
+        "onExP"
+      ],
       "type": "integer",
       "default": 10,
       "minimum": 0,
@@ -3079,6 +3135,14 @@
       "type": "boolean",
       "default": true,
       "defaultDefaultValue": true,
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.scrollOnMiddleClick": {
+      "description": "Controls whether the editor will scroll when the middle button is pressed.",
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
       "scope": 6,
       "restricted": false
     },

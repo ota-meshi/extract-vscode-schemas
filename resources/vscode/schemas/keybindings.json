@@ -61,16 +61,15 @@
         "chat.toolOutput.save",
         "chatEditing.acceptAllFiles",
         "chatEditing.acceptFile",
-        "chatEditing.clearWorkingSet",
         "chatEditing.discardAllFiles",
         "chatEditing.discardFile",
         "chatEditing.multidiff.acceptAllFiles",
         "chatEditing.multidiff.discardAllFiles",
         "chatEditing.openFileInDiff",
-        "chatEditing.removeFileFromWorkingSet",
         "chatEditing.viewChanges",
         "chatEditing.viewPreviousEdits",
         "chatEditor.action.accept",
+        "chatEditor.action.acceptAllEdits",
         "chatEditor.action.acceptHunk",
         "chatEditor.action.navigateNext",
         "chatEditor.action.navigatePrevious",
@@ -305,12 +304,14 @@
         "editor.action.indentUsingTabs",
         "editor.action.inlineSuggest.acceptNextLine",
         "editor.action.inlineSuggest.acceptNextWord",
+        "editor.action.inlineSuggest.cancelSnooze",
         "editor.action.inlineSuggest.commit",
         "editor.action.inlineSuggest.dev.extractRepro",
         "editor.action.inlineSuggest.hide",
         "editor.action.inlineSuggest.jump",
         "editor.action.inlineSuggest.showNext",
         "editor.action.inlineSuggest.showPrevious",
+        "editor.action.inlineSuggest.snooze",
         "editor.action.inlineSuggest.toggleAlwaysShowToolbar",
         "editor.action.inlineSuggest.toggleShowCollapsed",
         "editor.action.inlineSuggest.trigger",
@@ -1400,6 +1401,7 @@
         "testing.debugAll",
         "testing.debugAtCursor",
         "testing.debugCurrentFile",
+        "testing.debugFailedFromLastRun",
         "testing.debugFailTests",
         "testing.debugLastRun",
         "testing.debugSelected",
@@ -1416,6 +1418,7 @@
         "testing.peekRelatedCode",
         "testing.peekRelatedTest",
         "testing.refreshTests",
+        "testing.reRunFailedFromLastRun",
         "testing.reRunFailTests",
         "testing.reRunLastRun",
         "testing.run",
@@ -1580,9 +1583,12 @@
         "workbench.action.chat.copyCodeBlock",
         "workbench.action.chat.copyItem",
         "workbench.action.chat.copyLink",
+        "workbench.action.chat.createRemoteAgentJob",
         "workbench.action.chat.discardCompareEdits",
+        "workbench.action.chat.editRequests",
         "workbench.action.chat.export",
         "workbench.action.chat.focusInput",
+        "workbench.action.chat.generateInstructions",
         "workbench.action.chat.hideSetup",
         "workbench.action.chat.history",
         "workbench.action.chat.holdToVoiceChatInChatView",
@@ -1596,6 +1602,7 @@
         "workbench.action.chat.logChatIndex",
         "workbench.action.chat.logInputHistory",
         "workbench.action.chat.manage.mode",
+        "workbench.action.chat.manageLanguageModelAuthentication",
         "workbench.action.chat.manageOverages",
         "workbench.action.chat.manageSettings",
         "workbench.action.chat.markHelpful",
@@ -1612,8 +1619,10 @@
         "workbench.action.chat.openInNewWindow",
         "workbench.action.chat.openInSidebar",
         "workbench.action.chat.openModelPicker",
+        "workbench.action.chat.openModePicker",
         "workbench.action.chat.openQuotaExceededDialog",
         "workbench.action.chat.openStorageFolder",
+        "workbench.action.chat.picker.configmode",
         "workbench.action.chat.previousCodeBlock",
         "workbench.action.chat.previousFileTree",
         "workbench.action.chat.quickVoiceChat",
@@ -1640,6 +1649,7 @@
         "workbench.action.chat.switchToNextModel",
         "workbench.action.chat.toggle",
         "workbench.action.chat.toggleAgentMode",
+        "workbench.action.chat.toggleDefaultVisibility",
         "workbench.action.chat.toggleRequestPaused",
         "workbench.action.chat.triggerSetup",
         "workbench.action.chat.triggerSetupFromAccounts",
@@ -1859,6 +1869,7 @@
         "workbench.action.logStorage",
         "workbench.action.logWorkingCopies",
         "workbench.action.manageTrustedDomain",
+        "workbench.action.maximizeAuxiliaryBar",
         "workbench.action.maximizeEditorHideSidebar",
         "workbench.action.minimizeOtherEditors",
         "workbench.action.minimizeOtherEditorsHideSidebar",
@@ -2053,6 +2064,7 @@
         "workbench.action.resetFocusedViewLocation",
         "workbench.action.resetViewLocations",
         "workbench.action.restartExtensionHost",
+        "workbench.action.restoreAuxiliaryBar",
         "workbench.action.restoreEditorsToMainWindow",
         "workbench.action.revealUserDataFolder",
         "workbench.action.revertAndCloseActiveEditor",
@@ -2109,6 +2121,7 @@
         "workbench.action.tasks.manageAutomaticRunning",
         "workbench.action.tasks.openUserTasks",
         "workbench.action.tasks.openWorkspaceFileTasks",
+        "workbench.action.tasks.rerunAllRunningTasks",
         "workbench.action.tasks.rerunForActiveTerminal",
         "workbench.action.tasks.reRunTask",
         "workbench.action.tasks.restartTask",
@@ -2231,6 +2244,7 @@
         "workbench.action.terminal.selectToPreviousCommand",
         "workbench.action.terminal.selectToPreviousLine",
         "workbench.action.terminal.sendSequence",
+        "workbench.action.terminal.sendSignal",
         "workbench.action.terminal.setDimensions",
         "workbench.action.terminal.showEnvironmentContributions",
         "workbench.action.terminal.showQuickFixes",
@@ -2239,6 +2253,7 @@
         "workbench.action.terminal.split",
         "workbench.action.terminal.splitActiveTab",
         "workbench.action.terminal.splitInActiveWorkspace",
+        "workbench.action.terminal.suggestLearnMore",
         "workbench.action.terminal.suggestToggleDetails",
         "workbench.action.terminal.suggestToggleDetailsFocus",
         "workbench.action.terminal.switchTerminal",
@@ -2267,6 +2282,7 @@
         "workbench.action.toggleKeybindingsLog",
         "workbench.action.toggleLightDarkThemes",
         "workbench.action.toggleLockedScrolling",
+        "workbench.action.toggleMaximizedAuxiliaryBar",
         "workbench.action.toggleMaximizedPanel",
         "workbench.action.toggleMaximizeEditorGroup",
         "workbench.action.toggleMenuBar",
@@ -2333,6 +2349,7 @@
         "workbench.command.new.instructions",
         "workbench.command.new.mode",
         "workbench.command.new.prompt",
+        "workbench.command.new.untitled.prompt",
         "workbench.debug.action.copyAll",
         "workbench.debug.action.focusBreakpointsView",
         "workbench.debug.action.focusCallStackView",
@@ -2371,6 +2388,7 @@
         "workbench.debug.welcome.removeView",
         "workbench.debug.welcome.resetViewLocation",
         "workbench.debug.welcome.toggleVisibility",
+        "workbench.edit.chat.cancel",
         "workbench.editSessions.actions.delete",
         "workbench.editSessions.actions.deleteAll",
         "workbench.editSessions.actions.resetAuth",
@@ -2486,16 +2504,21 @@
         "workbench.mcp.addConfiguration",
         "workbench.mcp.browseResources",
         "workbench.mcp.browseServers",
+        "workbench.mcp.browseServersPage",
         "workbench.mcp.configureSamplingModels",
         "workbench.mcp.editStoredInput",
-        "workbench.mcp.installFromActivation",
         "workbench.mcp.listServer",
+        "workbench.mcp.openRemoteUserMcpJson",
+        "workbench.mcp.openUserMcpJson",
+        "workbench.mcp.openWorkspaceFolderMcpJson",
+        "workbench.mcp.openWorkspaceMcpJson",
         "workbench.mcp.removeStoredInput",
         "workbench.mcp.resetCachedTools",
         "workbench.mcp.resetTrust",
         "workbench.mcp.restartServer",
         "workbench.mcp.serverOptions",
         "workbench.mcp.showConfiguration",
+        "workbench.mcp.showInstalledServers",
         "workbench.mcp.showOutput",
         "workbench.mcp.startPromptForServer",
         "workbench.mcp.startServer",
@@ -2711,6 +2734,9 @@
         "workbench.views.extensions.workspaceRecommendations.focus",
         "workbench.views.extensions.workspaceRecommendations.open",
         "workbench.views.extensions.workspaceRecommendations.resetViewLocation",
+        "workbench.views.mcp.default.marketplace.focus",
+        "workbench.views.mcp.default.marketplace.open",
+        "workbench.views.mcp.default.marketplace.resetViewLocation",
         "workbench.views.mcp.installed.focus",
         "workbench.views.mcp.installed.open",
         "workbench.views.mcp.installed.resetViewLocation",
@@ -2777,7 +2803,7 @@
         null,
         null,
         "Focus Chat List",
-        "Configure Tool Sets",
+        "Configure Tool Sets...",
         "Add File to Chat",
         "Copy",
         "Open to the Side",
@@ -2790,16 +2816,15 @@
         "Save As...",
         "Keep",
         "Keep",
-        "Clear Working Set",
         "Undo",
         "Undo",
         "Keep All Edits",
         "Undo All Edits",
         "Open Changes in Diff Editor",
-        "Remove File",
         "View All Edits",
         "View Previous Edits",
         "Keep Chat Edits",
+        "Keep All Chat Edits",
         "Keep this Change",
         "Go to Next Chat Edit",
         "Go to Previous Chat Edit",
@@ -3034,12 +3059,14 @@
         "Use indentation with tabs.",
         null,
         null,
+        "Cancel Snooze Inline Suggestions",
         null,
         null,
         null,
         null,
         null,
         null,
+        "Snooze Inline Suggestions",
         "Always Show Toolbar",
         null,
         null,
@@ -4129,6 +4156,7 @@
         "Debug All Tests",
         "Debug Test at Cursor",
         "Debug Tests in Current File",
+        "Debug Failed Tests from Last Run",
         "Debug Failed Tests",
         "Debug Last Run",
         "Debug Tests",
@@ -4145,6 +4173,7 @@
         "Peek Related Code",
         "Peek Related Test",
         "Refresh Tests",
+        "Rerun Failed Tests from Last Run",
         "Rerun Failed Tests",
         "Rerun Last Run",
         "Run Test",
@@ -4301,17 +4330,20 @@
         "Change Model",
         "Clear All Workspace Chats",
         "Clear Input History",
-        "Configure Instructions",
-        "Configure Prompt Files",
+        "Configure Instructions...",
+        "Configure Prompt Files...",
         "Configure Code Completions...",
         "Configure Tools...",
         "Copy All",
         "Copy",
         "Copy",
         "Copy Link",
+        "Delegate to coding agent",
         "Discard Edits",
+        "Edit Request",
         "Export Chat...",
         "Focus Chat Input",
+        "Generate Workspace Instructions File",
         "Hide Copilot",
         "Show Chats...",
         "Hold to Voice Chat in Chat View",
@@ -4324,7 +4356,8 @@
         "Start Voice Chat",
         "Log Chat Index",
         "Log Chat Input History",
-        "Configure Chat Modes",
+        "Configure Chat Modes...",
+        "Manage Language Model Access...",
         "Manage Copilot Overages",
         "Manage Copilot",
         "Helpful",
@@ -4341,8 +4374,10 @@
         "Open Chat in New Window",
         "Open Chat in Side Bar",
         "Open Model Picker",
+        "Open Mode Picker",
         "Upgrade Copilot Plan",
         "Open Chat Storage Folder",
+        "Configure Modes...",
         "Previous Code Block",
         "Previous File Tree",
         "Quick Voice Chat",
@@ -4369,6 +4404,7 @@
         "Switch to Next Model",
         "Toggle Chat",
         "Set Chat Mode",
+        "Show View by Default",
         "Toggle Request Paused",
         "Use AI Features with Copilot for free...",
         "Sign in to use Copilot...",
@@ -4588,6 +4624,7 @@
         "Log Storage Database Contents",
         "Log Working Copies",
         null,
+        "Maximize Secondary Side Bar",
         "Maximize Editor Group and Hide Side Bars",
         "Expand Editor Group",
         "Expand Editor Group and Hide Side Bars",
@@ -4782,6 +4819,7 @@
         "Reset Focused View Location",
         "Reset View Locations",
         "Restart Extension Host",
+        "Restore Secondary Side Bar",
         "Restore Editors into Main Window",
         "Reveal User Data Folder",
         "Revert and Close Editor",
@@ -4836,6 +4874,7 @@
         null,
         null,
         "Manage Automatic Tasks",
+        null,
         null,
         null,
         "Rerun Task",
@@ -4959,7 +4998,8 @@
         "Select to Next Line",
         "Select to Previous Command",
         "Select to Previous Line",
-        null,
+        "Send Sequence",
+        "Send Signal",
         "Set Fixed Dimensions",
         "Show Environment Contributions",
         "Show Terminal Quick Fixes",
@@ -4968,6 +5008,7 @@
         "Split Terminal",
         "Split Terminal",
         "Split Terminal (In Active Workspace)",
+        "Learn More",
         "Suggest Toggle Details",
         "Suggest Toggle Suggestion Focus",
         "Switch Terminal",
@@ -4996,6 +5037,7 @@
         "Toggle Keyboard Shortcuts Troubleshooting",
         "Toggle between Light/Dark Themes",
         "Synchronize Scrolling Editors",
+        "Toggle Maximized Secondary Side Bar",
         "Toggle Maximized Panel",
         "Toggle Maximize Editor Group",
         "Toggle Menu Bar",
@@ -5062,6 +5104,7 @@
         "New Instructions File...",
         "New Mode File...",
         "New Prompt File...",
+        "New Untitled Prompt File",
         "Copy All",
         "Focus on Breakpoints View",
         "Focus on Call Stack View",
@@ -5100,6 +5143,7 @@
         "Hides the Run view if it is visible and the view container it is located in is visible",
         "Reset Location",
         "Toggles the visibility of the Run view if the view container it is located in is visible",
+        "Cancel Edit",
         "Delete Working Changes",
         "Delete All Working Changes from Cloud",
         "Turn off Cloud Changes...",
@@ -5215,16 +5259,21 @@
         "Installs a new Model Context protocol to the mcp.json settings",
         "Browse Resources...",
         "MCP Servers",
+        "Browse MCP Servers",
         "Configure SamplingModel",
         "Edit Stored Input",
-        "Install...",
         "List Servers",
+        "Open Remote User Configuration",
+        "Open User Configuration",
+        "Open Workspace Folder MCP Configuration",
+        "Open Workspace MCP Configuration",
         "Reset Cached Tools",
         "Reset Cached Tools",
         "Reset Trust",
         "Restart Server",
         "Server Options",
         "Show Configuration",
+        "Show Installed Servers",
         "Show Output",
         "Start Prompting Server",
         "Start Server",
@@ -5439,6 +5488,9 @@
         "Reset Location",
         "Focus on Workspace Recommendations View",
         "Opens view Workspace Recommendations",
+        "Reset Location",
+        "Focus on MCP Servers View",
+        "Opens view MCP Servers",
         "Reset Location",
         "Focus on MCP Servers - Installed View",
         "Opens view MCP Servers - Installed",
@@ -5670,7 +5722,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_13"
+            "$ref": "#/$defs/_12"
           }
         },
         {
@@ -6143,7 +6195,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_13"
+            "$ref": "#/$defs/_12"
           }
         },
         {
@@ -6272,7 +6324,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_11"
+            "$ref": "#/$defs/_13"
           }
         },
         {
@@ -6287,7 +6339,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_11"
+            "$ref": "#/$defs/_13"
           }
         },
         {
@@ -6879,7 +6931,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_12"
+            "$ref": "#/$defs/_11"
           }
         },
         {
@@ -7046,6 +7098,37 @@
                     "description": "The new name for the terminal",
                     "type": "string",
                     "minLength": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.action.terminal.sendSignal"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "args"
+            ],
+            "properties": {
+              "args": {
+                "type": "object",
+                "required": [
+                  "signal"
+                ],
+                "properties": {
+                  "signal": {
+                    "description": "The signal to send to the terminal process (e.g., 'SIGTERM', 'SIGINT', 'SIGKILL')",
+                    "type": "string"
                   }
                 }
               }
@@ -7334,7 +7417,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_12"
+            "$ref": "#/$defs/_11"
           }
         },
         {
@@ -7349,7 +7432,7 @@
             }
           },
           "then": {
-            "$ref": "#/$defs/_12"
+            "$ref": "#/$defs/_11"
           }
         },
         {
@@ -8349,6 +8432,36 @@
             ],
             "properties": {
               "command": {
+                "const": "workbench.views.mcp.default.marketplace.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.mcp.default.marketplace.open"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_19"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
                 "const": "workbench.views.mcp.installed.focus"
               }
             }
@@ -8645,16 +8758,15 @@
             "-chat.toolOutput.save",
             "-chatEditing.acceptAllFiles",
             "-chatEditing.acceptFile",
-            "-chatEditing.clearWorkingSet",
             "-chatEditing.discardAllFiles",
             "-chatEditing.discardFile",
             "-chatEditing.multidiff.acceptAllFiles",
             "-chatEditing.multidiff.discardAllFiles",
             "-chatEditing.openFileInDiff",
-            "-chatEditing.removeFileFromWorkingSet",
             "-chatEditing.viewChanges",
             "-chatEditing.viewPreviousEdits",
             "-chatEditor.action.accept",
+            "-chatEditor.action.acceptAllEdits",
             "-chatEditor.action.acceptHunk",
             "-chatEditor.action.navigateNext",
             "-chatEditor.action.navigatePrevious",
@@ -8889,12 +9001,14 @@
             "-editor.action.indentUsingTabs",
             "-editor.action.inlineSuggest.acceptNextLine",
             "-editor.action.inlineSuggest.acceptNextWord",
+            "-editor.action.inlineSuggest.cancelSnooze",
             "-editor.action.inlineSuggest.commit",
             "-editor.action.inlineSuggest.dev.extractRepro",
             "-editor.action.inlineSuggest.hide",
             "-editor.action.inlineSuggest.jump",
             "-editor.action.inlineSuggest.showNext",
             "-editor.action.inlineSuggest.showPrevious",
+            "-editor.action.inlineSuggest.snooze",
             "-editor.action.inlineSuggest.toggleAlwaysShowToolbar",
             "-editor.action.inlineSuggest.toggleShowCollapsed",
             "-editor.action.inlineSuggest.trigger",
@@ -9984,6 +10098,7 @@
             "-testing.debugAll",
             "-testing.debugAtCursor",
             "-testing.debugCurrentFile",
+            "-testing.debugFailedFromLastRun",
             "-testing.debugFailTests",
             "-testing.debugLastRun",
             "-testing.debugSelected",
@@ -10000,6 +10115,7 @@
             "-testing.peekRelatedCode",
             "-testing.peekRelatedTest",
             "-testing.refreshTests",
+            "-testing.reRunFailedFromLastRun",
             "-testing.reRunFailTests",
             "-testing.reRunLastRun",
             "-testing.run",
@@ -10164,9 +10280,12 @@
             "-workbench.action.chat.copyCodeBlock",
             "-workbench.action.chat.copyItem",
             "-workbench.action.chat.copyLink",
+            "-workbench.action.chat.createRemoteAgentJob",
             "-workbench.action.chat.discardCompareEdits",
+            "-workbench.action.chat.editRequests",
             "-workbench.action.chat.export",
             "-workbench.action.chat.focusInput",
+            "-workbench.action.chat.generateInstructions",
             "-workbench.action.chat.hideSetup",
             "-workbench.action.chat.history",
             "-workbench.action.chat.holdToVoiceChatInChatView",
@@ -10180,6 +10299,7 @@
             "-workbench.action.chat.logChatIndex",
             "-workbench.action.chat.logInputHistory",
             "-workbench.action.chat.manage.mode",
+            "-workbench.action.chat.manageLanguageModelAuthentication",
             "-workbench.action.chat.manageOverages",
             "-workbench.action.chat.manageSettings",
             "-workbench.action.chat.markHelpful",
@@ -10196,8 +10316,10 @@
             "-workbench.action.chat.openInNewWindow",
             "-workbench.action.chat.openInSidebar",
             "-workbench.action.chat.openModelPicker",
+            "-workbench.action.chat.openModePicker",
             "-workbench.action.chat.openQuotaExceededDialog",
             "-workbench.action.chat.openStorageFolder",
+            "-workbench.action.chat.picker.configmode",
             "-workbench.action.chat.previousCodeBlock",
             "-workbench.action.chat.previousFileTree",
             "-workbench.action.chat.quickVoiceChat",
@@ -10224,6 +10346,7 @@
             "-workbench.action.chat.switchToNextModel",
             "-workbench.action.chat.toggle",
             "-workbench.action.chat.toggleAgentMode",
+            "-workbench.action.chat.toggleDefaultVisibility",
             "-workbench.action.chat.toggleRequestPaused",
             "-workbench.action.chat.triggerSetup",
             "-workbench.action.chat.triggerSetupFromAccounts",
@@ -10443,6 +10566,7 @@
             "-workbench.action.logStorage",
             "-workbench.action.logWorkingCopies",
             "-workbench.action.manageTrustedDomain",
+            "-workbench.action.maximizeAuxiliaryBar",
             "-workbench.action.maximizeEditorHideSidebar",
             "-workbench.action.minimizeOtherEditors",
             "-workbench.action.minimizeOtherEditorsHideSidebar",
@@ -10637,6 +10761,7 @@
             "-workbench.action.resetFocusedViewLocation",
             "-workbench.action.resetViewLocations",
             "-workbench.action.restartExtensionHost",
+            "-workbench.action.restoreAuxiliaryBar",
             "-workbench.action.restoreEditorsToMainWindow",
             "-workbench.action.revealUserDataFolder",
             "-workbench.action.revertAndCloseActiveEditor",
@@ -10693,6 +10818,7 @@
             "-workbench.action.tasks.manageAutomaticRunning",
             "-workbench.action.tasks.openUserTasks",
             "-workbench.action.tasks.openWorkspaceFileTasks",
+            "-workbench.action.tasks.rerunAllRunningTasks",
             "-workbench.action.tasks.rerunForActiveTerminal",
             "-workbench.action.tasks.reRunTask",
             "-workbench.action.tasks.restartTask",
@@ -10815,6 +10941,7 @@
             "-workbench.action.terminal.selectToPreviousCommand",
             "-workbench.action.terminal.selectToPreviousLine",
             "-workbench.action.terminal.sendSequence",
+            "-workbench.action.terminal.sendSignal",
             "-workbench.action.terminal.setDimensions",
             "-workbench.action.terminal.showEnvironmentContributions",
             "-workbench.action.terminal.showQuickFixes",
@@ -10823,6 +10950,7 @@
             "-workbench.action.terminal.split",
             "-workbench.action.terminal.splitActiveTab",
             "-workbench.action.terminal.splitInActiveWorkspace",
+            "-workbench.action.terminal.suggestLearnMore",
             "-workbench.action.terminal.suggestToggleDetails",
             "-workbench.action.terminal.suggestToggleDetailsFocus",
             "-workbench.action.terminal.switchTerminal",
@@ -10851,6 +10979,7 @@
             "-workbench.action.toggleKeybindingsLog",
             "-workbench.action.toggleLightDarkThemes",
             "-workbench.action.toggleLockedScrolling",
+            "-workbench.action.toggleMaximizedAuxiliaryBar",
             "-workbench.action.toggleMaximizedPanel",
             "-workbench.action.toggleMaximizeEditorGroup",
             "-workbench.action.toggleMenuBar",
@@ -10917,6 +11046,7 @@
             "-workbench.command.new.instructions",
             "-workbench.command.new.mode",
             "-workbench.command.new.prompt",
+            "-workbench.command.new.untitled.prompt",
             "-workbench.debug.action.copyAll",
             "-workbench.debug.action.focusBreakpointsView",
             "-workbench.debug.action.focusCallStackView",
@@ -10955,6 +11085,7 @@
             "-workbench.debug.welcome.removeView",
             "-workbench.debug.welcome.resetViewLocation",
             "-workbench.debug.welcome.toggleVisibility",
+            "-workbench.edit.chat.cancel",
             "-workbench.editSessions.actions.delete",
             "-workbench.editSessions.actions.deleteAll",
             "-workbench.editSessions.actions.resetAuth",
@@ -11070,16 +11201,21 @@
             "-workbench.mcp.addConfiguration",
             "-workbench.mcp.browseResources",
             "-workbench.mcp.browseServers",
+            "-workbench.mcp.browseServersPage",
             "-workbench.mcp.configureSamplingModels",
             "-workbench.mcp.editStoredInput",
-            "-workbench.mcp.installFromActivation",
             "-workbench.mcp.listServer",
+            "-workbench.mcp.openRemoteUserMcpJson",
+            "-workbench.mcp.openUserMcpJson",
+            "-workbench.mcp.openWorkspaceFolderMcpJson",
+            "-workbench.mcp.openWorkspaceMcpJson",
             "-workbench.mcp.removeStoredInput",
             "-workbench.mcp.resetCachedTools",
             "-workbench.mcp.resetTrust",
             "-workbench.mcp.restartServer",
             "-workbench.mcp.serverOptions",
             "-workbench.mcp.showConfiguration",
+            "-workbench.mcp.showInstalledServers",
             "-workbench.mcp.showOutput",
             "-workbench.mcp.startPromptForServer",
             "-workbench.mcp.startServer",
@@ -11295,6 +11431,9 @@
             "-workbench.views.extensions.workspaceRecommendations.focus",
             "-workbench.views.extensions.workspaceRecommendations.open",
             "-workbench.views.extensions.workspaceRecommendations.resetViewLocation",
+            "-workbench.views.mcp.default.marketplace.focus",
+            "-workbench.views.mcp.default.marketplace.open",
+            "-workbench.views.mcp.default.marketplace.resetViewLocation",
             "-workbench.views.mcp.installed.focus",
             "-workbench.views.mcp.installed.open",
             "-workbench.views.mcp.installed.resetViewLocation",
@@ -11361,7 +11500,7 @@
             null,
             null,
             "Focus Chat List",
-            "Configure Tool Sets",
+            "Configure Tool Sets...",
             "Add File to Chat",
             "Copy",
             "Open to the Side",
@@ -11374,16 +11513,15 @@
             "Save As...",
             "Keep",
             "Keep",
-            "Clear Working Set",
             "Undo",
             "Undo",
             "Keep All Edits",
             "Undo All Edits",
             "Open Changes in Diff Editor",
-            "Remove File",
             "View All Edits",
             "View Previous Edits",
             "Keep Chat Edits",
+            "Keep All Chat Edits",
             "Keep this Change",
             "Go to Next Chat Edit",
             "Go to Previous Chat Edit",
@@ -11618,12 +11756,14 @@
             "Use indentation with tabs.",
             null,
             null,
+            "Cancel Snooze Inline Suggestions",
             null,
             null,
             null,
             null,
             null,
             null,
+            "Snooze Inline Suggestions",
             "Always Show Toolbar",
             null,
             null,
@@ -12713,6 +12853,7 @@
             "Debug All Tests",
             "Debug Test at Cursor",
             "Debug Tests in Current File",
+            "Debug Failed Tests from Last Run",
             "Debug Failed Tests",
             "Debug Last Run",
             "Debug Tests",
@@ -12729,6 +12870,7 @@
             "Peek Related Code",
             "Peek Related Test",
             "Refresh Tests",
+            "Rerun Failed Tests from Last Run",
             "Rerun Failed Tests",
             "Rerun Last Run",
             "Run Test",
@@ -12885,17 +13027,20 @@
             "Change Model",
             "Clear All Workspace Chats",
             "Clear Input History",
-            "Configure Instructions",
-            "Configure Prompt Files",
+            "Configure Instructions...",
+            "Configure Prompt Files...",
             "Configure Code Completions...",
             "Configure Tools...",
             "Copy All",
             "Copy",
             "Copy",
             "Copy Link",
+            "Delegate to coding agent",
             "Discard Edits",
+            "Edit Request",
             "Export Chat...",
             "Focus Chat Input",
+            "Generate Workspace Instructions File",
             "Hide Copilot",
             "Show Chats...",
             "Hold to Voice Chat in Chat View",
@@ -12908,7 +13053,8 @@
             "Start Voice Chat",
             "Log Chat Index",
             "Log Chat Input History",
-            "Configure Chat Modes",
+            "Configure Chat Modes...",
+            "Manage Language Model Access...",
             "Manage Copilot Overages",
             "Manage Copilot",
             "Helpful",
@@ -12925,8 +13071,10 @@
             "Open Chat in New Window",
             "Open Chat in Side Bar",
             "Open Model Picker",
+            "Open Mode Picker",
             "Upgrade Copilot Plan",
             "Open Chat Storage Folder",
+            "Configure Modes...",
             "Previous Code Block",
             "Previous File Tree",
             "Quick Voice Chat",
@@ -12953,6 +13101,7 @@
             "Switch to Next Model",
             "Toggle Chat",
             "Set Chat Mode",
+            "Show View by Default",
             "Toggle Request Paused",
             "Use AI Features with Copilot for free...",
             "Sign in to use Copilot...",
@@ -13172,6 +13321,7 @@
             "Log Storage Database Contents",
             "Log Working Copies",
             null,
+            "Maximize Secondary Side Bar",
             "Maximize Editor Group and Hide Side Bars",
             "Expand Editor Group",
             "Expand Editor Group and Hide Side Bars",
@@ -13366,6 +13516,7 @@
             "Reset Focused View Location",
             "Reset View Locations",
             "Restart Extension Host",
+            "Restore Secondary Side Bar",
             "Restore Editors into Main Window",
             "Reveal User Data Folder",
             "Revert and Close Editor",
@@ -13420,6 +13571,7 @@
             null,
             null,
             "Manage Automatic Tasks",
+            null,
             null,
             null,
             "Rerun Task",
@@ -13543,7 +13695,8 @@
             "Select to Next Line",
             "Select to Previous Command",
             "Select to Previous Line",
-            null,
+            "Send Sequence",
+            "Send Signal",
             "Set Fixed Dimensions",
             "Show Environment Contributions",
             "Show Terminal Quick Fixes",
@@ -13552,6 +13705,7 @@
             "Split Terminal",
             "Split Terminal",
             "Split Terminal (In Active Workspace)",
+            "Learn More",
             "Suggest Toggle Details",
             "Suggest Toggle Suggestion Focus",
             "Switch Terminal",
@@ -13580,6 +13734,7 @@
             "Toggle Keyboard Shortcuts Troubleshooting",
             "Toggle between Light/Dark Themes",
             "Synchronize Scrolling Editors",
+            "Toggle Maximized Secondary Side Bar",
             "Toggle Maximized Panel",
             "Toggle Maximize Editor Group",
             "Toggle Menu Bar",
@@ -13646,6 +13801,7 @@
             "New Instructions File...",
             "New Mode File...",
             "New Prompt File...",
+            "New Untitled Prompt File",
             "Copy All",
             "Focus on Breakpoints View",
             "Focus on Call Stack View",
@@ -13684,6 +13840,7 @@
             "Hides the Run view if it is visible and the view container it is located in is visible",
             "Reset Location",
             "Toggles the visibility of the Run view if the view container it is located in is visible",
+            "Cancel Edit",
             "Delete Working Changes",
             "Delete All Working Changes from Cloud",
             "Turn off Cloud Changes...",
@@ -13799,16 +13956,21 @@
             "Installs a new Model Context protocol to the mcp.json settings",
             "Browse Resources...",
             "MCP Servers",
+            "Browse MCP Servers",
             "Configure SamplingModel",
             "Edit Stored Input",
-            "Install...",
             "List Servers",
+            "Open Remote User Configuration",
+            "Open User Configuration",
+            "Open Workspace Folder MCP Configuration",
+            "Open Workspace MCP Configuration",
             "Reset Cached Tools",
             "Reset Cached Tools",
             "Reset Trust",
             "Restart Server",
             "Server Options",
             "Show Configuration",
+            "Show Installed Servers",
             "Show Output",
             "Start Prompting Server",
             "Start Server",
@@ -14023,6 +14185,9 @@
             "Reset Location",
             "Focus on Workspace Recommendations View",
             "Opens view Workspace Recommendations",
+            "Reset Location",
+            "Focus on MCP Servers View",
+            "Opens view MCP Servers",
             "Reset Location",
             "Focus on MCP Servers - Installed View",
             "Opens view MCP Servers - Installed",
@@ -14255,35 +14420,11 @@
       "required": [],
       "properties": {
         "args": {
-          "type": "object",
-          "required": [
-            "index",
-            "direction"
-          ],
-          "properties": {
-            "index": {
-              "type": "number"
-            },
-            "direction": {
-              "$ref": "#/$defs/_9"
-            },
-            "levels": {
-              "type": "number",
-              "default": 1
-            }
-          }
-        }
-      }
-    },
-    "_12": {
-      "required": [],
-      "properties": {
-        "args": {
           "type": "string"
         }
       }
     },
-    "_13": {
+    "_12": {
       "required": [
         "args"
       ],
@@ -14310,6 +14451,30 @@
             },
             "value": {
               "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "_13": {
+      "required": [],
+      "properties": {
+        "args": {
+          "type": "object",
+          "required": [
+            "index",
+            "direction"
+          ],
+          "properties": {
+            "index": {
+              "type": "number"
+            },
+            "direction": {
+              "$ref": "#/$defs/_9"
+            },
+            "levels": {
+              "type": "number",
+              "default": 1
             }
           }
         }

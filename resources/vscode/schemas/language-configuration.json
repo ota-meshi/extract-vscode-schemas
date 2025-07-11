@@ -173,7 +173,10 @@
           "/*",
           "*/"
         ],
-        "lineComment": "//"
+        "lineComment": {
+          "comment": "//",
+          "noIndent": false
+        }
       },
       "description": "Defines the comment symbols",
       "type": "object",
@@ -193,8 +196,23 @@
           ]
         },
         "lineComment": {
-          "type": "string",
-          "description": "The character sequence that starts a line comment."
+          "type": "object",
+          "description": "Configuration for line comments.",
+          "properties": {
+            "comment": {
+              "type": "string",
+              "description": "The character sequence that starts a line comment."
+            },
+            "noIndent": {
+              "type": "boolean",
+              "description": "Whether the comment token should not be indented and placed at the first column. Defaults to false.",
+              "default": false
+            }
+          },
+          "required": [
+            "comment"
+          ],
+          "additionalProperties": false
         }
       }
     },
