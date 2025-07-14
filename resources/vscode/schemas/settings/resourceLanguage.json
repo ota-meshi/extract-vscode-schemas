@@ -1196,7 +1196,9 @@
         "anyOf": [
           {
             "enum": [
-              null
+              "text.plain",
+              "uri.path.absolute",
+              "uri.path.relative"
             ]
           },
           {
@@ -2803,7 +2805,13 @@
         "anyOf": [
           {
             "enum": [
-              null
+              "chat.attach.attachments",
+              "chat.attach.image",
+              "chat.attach.text",
+              "html",
+              "text.plain",
+              "uri.path.absolute",
+              "uri.path.relative"
             ]
           },
           {
