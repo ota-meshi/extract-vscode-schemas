@@ -529,7 +529,6 @@
         "editor.unfoldAllMarkerRegions",
         "editor.unfoldRecursively",
         "editorScroll",
-        "emmet.expandAbbreviation",
         "expandLineSelection",
         "explorer.download",
         "explorer.newFile",
@@ -3223,29 +3222,29 @@
         null,
         null,
         "Detect Language from Content",
-        "Balance (inward)",
-        "Balance (outward)",
-        "Decrement by 1",
-        "Decrement by 0.1",
-        "Decrement by 10",
-        "Evaluate Math Expression",
         null,
-        "Increment by 1",
-        "Increment by 0.1",
-        "Increment by 10",
-        "Go to Matching Pair",
-        "Merge Lines",
-        "Go to Next Edit Point",
-        "Go to Previous Edit Point",
-        "Reflect CSS Value",
-        "Remove Tag",
-        "Select Next Item",
-        "Select Previous Item",
-        "Split/Join Tag",
-        "Toggle Comment",
-        "Update Image Size",
-        "Update Tag",
-        "Wrap with Abbreviation",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         "Fold the content in the editor",
         null,
         null,
@@ -3285,7 +3284,6 @@
         null,
         null,
         "Scroll editor in the given direction",
-        null,
         null,
         null,
         null,
@@ -4842,7 +4840,7 @@
         "Show Editors in Active Group By Most Recently Used",
         null,
         "Show Tab Bar with one Tab",
-        "Show Emmet Commands",
+        null,
         null,
         "Show GPU Info",
         null,
@@ -5554,23 +5552,7 @@
           "then": {
             "properties": {
               "args": {
-                "required": [
-                  "kind"
-                ],
-                "properties": {
-                  "kind": {
-                    "anyOf": [
-                      {
-                        "enum": [
-                          null
-                        ]
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  }
-                }
+                "$ref": "#/$defs/_24"
               }
             }
           }
@@ -5600,14 +5582,7 @@
               "args": {
                 "oneOf": [
                   {
-                    "required": [
-                      "kind"
-                    ],
-                    "properties": {
-                      "kind": {
-                        "$ref": "#/$defs/_24"
-                      }
-                    }
+                    "$ref": "#/$defs/_24"
                   },
                   {
                     "required": [
@@ -5617,7 +5592,7 @@
                       "preferences": {
                         "type": "array",
                         "items": {
-                          "$ref": "#/$defs/_24"
+                          "$ref": "#/$defs/_25"
                         }
                       }
                     }
@@ -9251,7 +9226,6 @@
             "-editor.unfoldAllMarkerRegions",
             "-editor.unfoldRecursively",
             "-editorScroll",
-            "-emmet.expandAbbreviation",
             "-expandLineSelection",
             "-explorer.download",
             "-explorer.newFile",
@@ -11945,29 +11919,29 @@
             null,
             null,
             "Detect Language from Content",
-            "Balance (inward)",
-            "Balance (outward)",
-            "Decrement by 1",
-            "Decrement by 0.1",
-            "Decrement by 10",
-            "Evaluate Math Expression",
             null,
-            "Increment by 1",
-            "Increment by 0.1",
-            "Increment by 10",
-            "Go to Matching Pair",
-            "Merge Lines",
-            "Go to Next Edit Point",
-            "Go to Previous Edit Point",
-            "Reflect CSS Value",
-            "Remove Tag",
-            "Select Next Item",
-            "Select Previous Item",
-            "Split/Join Tag",
-            "Toggle Comment",
-            "Update Image Size",
-            "Update Tag",
-            "Wrap with Abbreviation",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
             "Fold the content in the editor",
             null,
             null,
@@ -12007,7 +11981,6 @@
             null,
             null,
             "Scroll editor in the given direction",
-            null,
             null,
             null,
             null,
@@ -13564,7 +13537,7 @@
             "Show Editors in Active Group By Most Recently Used",
             null,
             "Show Tab Bar with one Tab",
-            "Show Emmet Commands",
+            null,
             null,
             "Show GPU Info",
             null,
@@ -14285,7 +14258,7 @@
       "command": {
         "anyOf": [
           {
-            "$ref": "#/$defs/_25"
+            "$ref": "#/$defs/_26"
           },
           {
             "if": {
@@ -14298,7 +14271,7 @@
               "errorMessage": "Incorrect type. Expected \"string\". The field 'command' does not support running multiple commands. Use command 'runCommands' to pass it multiple commands to run."
             },
             "else": {
-              "$ref": "#/$defs/_25"
+              "$ref": "#/$defs/_26"
             }
           }
         ]
@@ -14685,24 +14658,26 @@
       }
     },
     "_24": {
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "$ref": "#/$defs/_25"
+        }
+      }
+    },
+    "_25": {
       "anyOf": [
         {
-          "enum": [
-            "text.plain",
-            "uri.path.absolute",
-            "uri.path.relative",
-            "html",
-            "chat.attach.attachments",
-            "chat.attach.image",
-            "chat.attach.text"
-          ]
+          "enum": []
         },
         {
           "type": "string"
         }
       ]
     },
-    "_25": {
+    "_26": {
       "$ref": "#/definitions/commandType"
     }
   }

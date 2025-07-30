@@ -5156,9 +5156,7 @@
         "anyOf": [
           {
             "enum": [
-              "text.plain",
-              "uri.path.absolute",
-              "uri.path.relative"
+              null
             ]
           },
           {
@@ -5668,13 +5666,7 @@
         "anyOf": [
           {
             "enum": [
-              "chat.attach.attachments",
-              "chat.attach.image",
-              "chat.attach.text",
-              "html",
-              "text.plain",
-              "uri.path.absolute",
-              "uri.path.relative"
+              null
             ]
           },
           {
@@ -15128,11 +15120,11 @@
     "telemetry.editStats.enabled": {
       "markdownDescription": "Controls whether to enable telemetry for edit statistics (only sends statistics if general telemetry is enabled).",
       "type": "boolean",
-      "default": true,
+      "default": false,
       "tags": [
         "experimental"
       ],
-      "defaultDefaultValue": true,
+      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },
