@@ -1577,6 +1577,14 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon of the MCP Server editor.: $(mcp-server-editor-icon)"
     },
+    "mcp-server-remote": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon to indicate that an MCP server is for the remote user scope.: $(mcp-server-remote)"
+    },
+    "mcp-server-workspace": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon to indicate that an MCP server is for the workspace scope.: $(mcp-server-workspace)"
+    },
     "megaphone": {
       "$ref": "#/$defs/_0"
     },
@@ -2366,6 +2374,9 @@
       "$ref": "#/$defs/_0"
     },
     "send": {
+      "$ref": "#/$defs/_0"
+    },
+    "send-to-remote-agent": {
       "$ref": "#/$defs/_0"
     },
     "server": {

@@ -142,9 +142,19 @@
             "description": "An activation event emitted when the specified language model tool is invoked."
           },
           {
+            "label": "onTerminal",
+            "body": "onTerminal:{1:shellType}",
+            "description": "An activation event emitted when a terminal of the given shell type is opened."
+          },
+          {
             "label": "onTerminalCompletionsRequested",
             "body": "onTerminalCompletionsRequested",
             "description": "An activation event emitted when terminal completions are requested."
+          },
+          {
+            "label": "onTerminalShellIntegration",
+            "body": "onTerminalShellIntegration:${1:shellType}",
+            "description": "An activation event emitted when terminal shell integration is activated for the given shell type."
           },
           {
             "label": "onMcpCollection",
@@ -396,6 +406,31 @@
             }
           }
         },
+        "chatOutputRenderers": {
+          "description": "Contributes a renderer for specific MIME types in chat outputs",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "viewType",
+              "mimeTypes"
+            ],
+            "properties": {
+              "mimeTypes": {
+                "type": "array",
+                "description": "MIME types that this renderer can handle",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "viewType": {
+                "type": "string",
+                "description": "Unique identifier for the renderer."
+              }
+            }
+          }
+        },
         "chatParticipants": {
           "description": "Contributes a chat participant",
           "type": "array",
@@ -554,6 +589,40 @@
                 "type": "string"
               }
             }
+          }
+        },
+        "chatSessions": {
+          "description": "Contributes chat session integrations to the chat widget.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": {
+                "description": "Description of the chat session for use in menus and tooltips.",
+                "type": "string"
+              },
+              "displayName": {
+                "description": "A longer name for this item which is used for display in menus.",
+                "type": "string"
+              },
+              "name": {
+                "description": "Name shown in the chat widget. (eg: @agent)",
+                "type": "string"
+              },
+              "type": {
+                "description": "Unique identifier for the type of chat session.",
+                "type": "string"
+              },
+              "when": {
+                "$ref": "#/$defs/_41"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "displayName",
+              "description"
+            ]
           }
         },
         "chatViewsWelcome": {
@@ -1646,6 +1715,7 @@
                       "search-sparkle",
                       "edit-sparkle",
                       "copilot-snooze",
+                      "send-to-remote-agent",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -1707,7 +1777,6 @@
                       "disassembly-editor-label-icon",
                       "chat-editor-label-icon",
                       "multi-diff-editor-label-icon",
-                      "mcp-server",
                       "default-view-icon",
                       "view-pane-container-expanded",
                       "view-pane-container-collapsed",
@@ -1883,6 +1952,9 @@
                       "start-inline-chat",
                       "extensions-editor-label-icon",
                       "runtime-extensions-editor-label-icon",
+                      "mcp-server",
+                      "mcp-server-remote",
+                      "mcp-server-workspace",
                       "mcp-server-editor-icon",
                       "repl-editor-label-icon",
                       "test-view-icon",
@@ -2602,6 +2674,7 @@
                       "",
                       "",
                       "",
+                      "",
                       "Icon for breakpoints waiting on another breakpoint.",
                       "Icon for the close action in widgets.",
                       "Icon for goto previous editor location.",
@@ -2640,7 +2713,6 @@
                       "Icon of the disassembly editor label.",
                       "Icon of the chat editor label.",
                       "Icon of the multi diff editor label.",
-                      "Icon used for the MCP server.",
                       "Default view icon.",
                       "Icon for an expanded view pane container.",
                       "Icon for a collapsed view pane container.",
@@ -2816,6 +2888,9 @@
                       "Icon which spawns the inline chat from the editor toolbar.",
                       "Icon of the extensions editor label.",
                       "Icon of the runtime extensions editor label.",
+                      "Icon used for the MCP server.",
+                      "Icon to indicate that an MCP server is for the remote user scope.",
+                      "Icon to indicate that an MCP server is for the workspace scope.",
                       "Icon of the MCP Server editor.",
                       "Icon of the REPL editor label.",
                       "View icon of the test view.",
@@ -3412,8 +3487,8 @@
           "description": "Contributes menu items to the editor",
           "type": "object",
           "properties": {
-            "chat/modelPicker": {
-              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatParticipantPrivate\"]` - The chat model picker dropdown menu",
+            "chat/chatSessions": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - The Chat Sessions menu.",
               "type": "array",
               "items": {
                 "$ref": "#/$defs/_9"
@@ -3517,6 +3592,13 @@
                 "$ref": "#/$defs/_10"
               }
             },
+            "debug/watch/context": {
+              "markdownDescription": "The debug watch view context menu",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/_10"
+              }
+            },
             "diffEditor/gutter/hunk": {
               "$ref": "#/$defs/_11"
             },
@@ -3605,13 +3687,6 @@
               "type": "array",
               "items": {
                 "$ref": "#/$defs/_10"
-              }
-            },
-            "explorer/context/chat": {
-              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatParticipantPrivate\"]` - The Chat submenu in the explorer context menu.",
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/_9"
               }
             },
             "explorer/context/share": {
@@ -5456,11 +5531,13 @@
           "authSession",
           "canonicalUriProvider",
           "chatEditing",
+          "chatOutputRenderer",
           "chatParticipantAdditions",
           "chatParticipantPrivate",
           "chatProvider",
           "chatReferenceBinaryData",
           "chatReferenceDiagnostic",
+          "chatSessionsProvider",
           "chatStatusItem",
           "chatTab",
           "codeActionAI",
@@ -5497,6 +5574,7 @@
           "contribViewsRemote",
           "contribViewsWelcome",
           "customEditorMove",
+          "dataChannels",
           "debugVisualization",
           "defaultChatParticipant",
           "diffCommand",
@@ -5523,6 +5601,7 @@
           "languageModelCapabilities",
           "languageModelDataPart",
           "languageModelSystem",
+          "languageModelToolResultAudience",
           "languageStatusText",
           "mappedEditsProvider",
           "multiDocumentHighlightProvider",
@@ -5549,14 +5628,17 @@
           "scmActionButton",
           "scmHistoryProvider",
           "scmMultiDiffEditor",
+          "scmProviderOptions",
           "scmSelectedProvider",
           "scmTextDocument",
           "scmValidation",
+          "secretStorageKeys",
           "shareProvider",
           "speech",
           "statusBarItemTooltip",
           "tabInputMultiDiff",
           "tabInputTextMerge",
+          "taskExecutionTerminal",
           "taskPresentationGroup",
           "taskProblemMatcherStatus",
           "telemetry",
@@ -5596,11 +5678,13 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authSession.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.canonicalUriProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatEditing.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatOutputRenderer.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatParticipantAdditions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatParticipantPrivate.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatReferenceBinaryData.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatReferenceDiagnostic.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatSessionsProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatStatusItem.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatTab.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.codeActionAI.d.ts",
@@ -5637,6 +5721,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribViewsRemote.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribViewsWelcome.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.customEditorMove.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.dataChannels.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.debugVisualization.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.defaultChatParticipant.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.diffCommand.d.ts",
@@ -5663,6 +5748,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageModelCapabilities.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageModelDataPart.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageModelSystem.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageModelToolResultAudience.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageStatusText.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.mappedEditsProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.multiDocumentHighlightProvider.d.ts",
@@ -5689,14 +5775,17 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmActionButton.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmHistoryProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmMultiDiffEditor.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmProviderOptions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmSelectedProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmTextDocument.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.scmValidation.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.secretStorageKeys.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.shareProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.speech.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.statusBarItemTooltip.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.tabInputMultiDiff.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.tabInputTextMerge.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.taskExecutionTerminal.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.taskPresentationGroup.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.taskProblemMatcherStatus.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.telemetry.d.ts",
@@ -6619,6 +6708,7 @@
         "chat.requestCodeBorder",
         "chat.requestBubbleBackground",
         "chat.requestBubbleHoverBackground",
+        "chat.checkpointSeparator",
         "chat.linesAddedForeground",
         "chat.linesRemovedForeground",
         "notebook.cellBorderColor",
@@ -7504,6 +7594,7 @@
         "Border color of code blocks within the chat request bubble.",
         "Background color of the chat request bubble.",
         "Background color of the chat request bubble on hover.",
+        "Chat checkpoint separator color.",
         "Foreground color of lines added in chat code block pill.",
         "Foreground color of lines removed in chat code block pill.",
         "The border color for notebook cells.",
@@ -7757,6 +7848,14 @@
         "vendor": {
           "type": "string",
           "description": "A globally unique vendor of language models."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The display name of the language model vendor."
+        },
+        "managementCommand": {
+          "type": "string",
+          "description": "A command to manage the language model vendor, e.g. 'Manage Copilot models'. This is used in the chat model picker. If not provided, a gear icon is not rendered during vendor selection."
         }
       }
     },

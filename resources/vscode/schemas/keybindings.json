@@ -381,6 +381,7 @@
         "editor.action.revealDeclaration",
         "editor.action.revealDefinition",
         "editor.action.revealDefinitionAside",
+        "editor.action.reverseLines",
         "editor.action.scrollDownHover",
         "editor.action.scrollLeftHover",
         "editor.action.scrollRightHover",
@@ -529,7 +530,6 @@
         "editor.unfoldAllMarkerRegions",
         "editor.unfoldRecursively",
         "editorScroll",
-        "emmet.expandAbbreviation",
         "expandLineSelection",
         "explorer.download",
         "explorer.newFile",
@@ -671,10 +671,13 @@
         "git.copyCommitMessage",
         "git.copyContentToClipboard",
         "git.createTag",
+        "git.createWorktree",
         "git.deleteBranch",
         "git.deleteRemoteBranch",
         "git.deleteRemoteTag",
         "git.deleteTag",
+        "git.deleteWorktree",
+        "git.deleteWorktreeFromPalette",
         "git.diff.stageHunk",
         "git.diff.stageSelection",
         "git.fetch",
@@ -700,6 +703,8 @@
         "git.openRepositoriesInParentFolders",
         "git.openRepository",
         "git.openResource",
+        "git.openWorktree",
+        "git.openWorktreeInNewWindow",
         "git.publish",
         "git.pull",
         "git.pullFrom",
@@ -1542,7 +1547,6 @@
         "welcome.showNewWelcome",
         "widgetNavigation.focusNext",
         "widgetNavigation.focusPrevious",
-        "workbench.accounts.actions.signin",
         "workbench.action.acceptSelectedQuickOpenItem",
         "workbench.action.activityBarLocation.bottom",
         "workbench.action.activityBarLocation.default",
@@ -1604,6 +1608,7 @@
         "workbench.action.chat.logInputHistory",
         "workbench.action.chat.manage.mode",
         "workbench.action.chat.manageLanguageModelAuthentication",
+        "workbench.action.chat.manageLanguageModels",
         "workbench.action.chat.manageOverages",
         "workbench.action.chat.manageSettings",
         "workbench.action.chat.markHelpful",
@@ -1629,8 +1634,11 @@
         "workbench.action.chat.quickVoiceChat",
         "workbench.action.chat.readChatResponseAloud",
         "workbench.action.chat.redoEdit",
+        "workbench.action.chat.redoEdit2",
         "workbench.action.chat.reportIssueForBug",
         "workbench.action.chat.resetTrustedTools",
+        "workbench.action.chat.restoreCheckpoint",
+        "workbench.action.chat.restoreLastCheckpoint",
         "workbench.action.chat.retry",
         "workbench.action.chat.run-in-new-chat.prompt.current",
         "workbench.action.chat.run.prompt",
@@ -1653,6 +1661,7 @@
         "workbench.action.chat.toggleDefaultVisibility",
         "workbench.action.chat.toggleRequestPaused",
         "workbench.action.chat.triggerSetup",
+        "workbench.action.chat.triggerSetupForceSignIn",
         "workbench.action.chat.triggerSetupFromAccounts",
         "workbench.action.chat.triggerSetupWithoutDialog",
         "workbench.action.chat.undoEdit",
@@ -2052,7 +2061,6 @@
         "workbench.action.reloadWindow",
         "workbench.action.reloadWindowWithExtensionsDisabled",
         "workbench.action.remote.close",
-        "workbench.action.remote.extensions",
         "workbench.action.remote.showMenu",
         "workbench.action.removeDynamicAuthenticationProviders",
         "workbench.action.removeLargeStorageDatabaseEntries",
@@ -2254,6 +2262,8 @@
         "workbench.action.terminal.split",
         "workbench.action.terminal.splitActiveTab",
         "workbench.action.terminal.splitInActiveWorkspace",
+        "workbench.action.terminal.startVoice",
+        "workbench.action.terminal.stopVoice",
         "workbench.action.terminal.suggestLearnMore",
         "workbench.action.terminal.suggestToggleDetails",
         "workbench.action.terminal.suggestToggleDetailsFocus",
@@ -2314,6 +2324,7 @@
         "workbench.action.zoomIn",
         "workbench.action.zoomOut",
         "workbench.action.zoomReset",
+        "workbench.actions.accounts.signIn",
         "workbench.actions.sync.editMachineName",
         "workbench.actions.sync.loadActivity",
         "workbench.actions.sync.turnOffSyncOnMachine",
@@ -2426,6 +2437,7 @@
         "workbench.extensions.action.copyExtensionId",
         "workbench.extensions.action.copyLink",
         "workbench.extensions.action.debugExtensionHost",
+        "workbench.extensions.action.devtoolsExtensionHost",
         "workbench.extensions.action.disableAll",
         "workbench.extensions.action.disableAllWorkspace",
         "workbench.extensions.action.disableAutoUpdate",
@@ -2482,6 +2494,7 @@
         "workbench.extensions.action.toggleIgnoreExtension",
         "workbench.extensions.action.undoIgnoredRecommendation",
         "workbench.extensions.action.updateAllExtensions",
+        "workbench.extensions.actions.gallery.signIn",
         "workbench.extensions.command.installFromVSIX",
         "workbench.extensions.installExtension",
         "workbench.extensions.installMissingDependencies",
@@ -2693,6 +2706,9 @@
         "workbench.views.extensions.marketplace.focus",
         "workbench.views.extensions.marketplace.open",
         "workbench.views.extensions.marketplace.resetViewLocation",
+        "workbench.views.extensions.marketplaceAccess.focus",
+        "workbench.views.extensions.marketplaceAccess.open",
+        "workbench.views.extensions.marketplaceAccess.resetViewLocation",
         "workbench.views.extensions.otherRecommendations.focus",
         "workbench.views.extensions.otherRecommendations.open",
         "workbench.views.extensions.otherRecommendations.resetViewLocation",
@@ -3137,6 +3153,7 @@
         "Go to Declaration",
         "Go to Definition",
         "Open Definition to the Side",
+        null,
         "Scroll down the editor hover.",
         "Scroll left the editor hover.",
         "Scroll right the editor hover.",
@@ -3223,29 +3240,29 @@
         null,
         null,
         "Detect Language from Content",
-        "Balance (inward)",
-        "Balance (outward)",
-        "Decrement by 1",
-        "Decrement by 0.1",
-        "Decrement by 10",
-        "Evaluate Math Expression",
         null,
-        "Increment by 1",
-        "Increment by 0.1",
-        "Increment by 10",
-        "Go to Matching Pair",
-        "Merge Lines",
-        "Go to Next Edit Point",
-        "Go to Previous Edit Point",
-        "Reflect CSS Value",
-        "Remove Tag",
-        "Select Next Item",
-        "Select Previous Item",
-        "Split/Join Tag",
-        "Toggle Comment",
-        "Update Image Size",
-        "Update Tag",
-        "Wrap with Abbreviation",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         "Fold the content in the editor",
         null,
         null,
@@ -3285,7 +3302,6 @@
         null,
         null,
         "Scroll editor in the given direction",
-        null,
         null,
         null,
         null,
@@ -3427,10 +3443,13 @@
         "Copy Commit Message",
         null,
         "Create Tag...",
+        "Create Worktree...",
         "Delete Branch...",
         "Delete Remote Branch...",
         "Delete Remote Tag...",
         "Delete Tag...",
+        "Delete Worktree",
+        "Delete Worktree...",
         "Stage Block",
         "Stage Selection",
         "Fetch",
@@ -3456,6 +3475,8 @@
         "Open Repositories In Parent Folders",
         "Open Repository",
         null,
+        "Open Worktree in Current Window",
+        "Open Worktree in New Window",
         "Publish Branch...",
         "Pull",
         "Pull from...",
@@ -4040,7 +4061,7 @@
         null,
         null,
         null,
-        "Generate Commit Message with Copilot",
+        "Generate commit message",
         null,
         null,
         null,
@@ -4208,7 +4229,7 @@
         "Hides the Timeline view if it is visible and the view container it is located in is visible",
         "Reset Location",
         "Toggles the visibility of the Timeline view if the view container it is located in is visible",
-        "Toggle visibility of the Copilot Controls in title bar",
+        "Toggle visibility of the Chat Controls in title bar",
         null,
         null,
         "Custom Title Bar",
@@ -4298,7 +4319,6 @@
         "Open New Welcome Experience",
         null,
         null,
-        "Sign in to GitHub",
         null,
         "Move Activity Bar to Bottom",
         "Move Activity Bar to Side",
@@ -4346,7 +4366,7 @@
         "Export Chat...",
         "Focus Chat Input",
         "Generate Workspace Instructions File",
-        "Hide Copilot",
+        "Hide AI Features",
         "Show Chats...",
         "Hold to Voice Chat in Chat View",
         "Import Chat...",
@@ -4360,8 +4380,9 @@
         "Log Chat Input History",
         "Configure Chat Modes...",
         "Manage Language Model Access...",
+        "Manage Language Models...",
         "Manage Copilot Overages",
-        "Manage Copilot",
+        "Manage Chat",
         "Helpful",
         "Unhelpful",
         "New Chat",
@@ -4385,8 +4406,11 @@
         "Quick Voice Chat",
         "Read Aloud",
         "Redo Last Request",
+        "Redo",
         "Report Issue",
         "Reset Tool Confirmations",
+        "Restore Checkpoint",
+        "Restore to last checkpoint",
         "Retry",
         "Run Prompt In New Chat",
         "Run Prompt...",
@@ -4409,6 +4433,7 @@
         "Show View by Default",
         "Toggle Request Paused",
         "Use AI Features with Copilot for free...",
+        "Sign in to use Copilot",
         "Sign in to use Copilot...",
         "Use AI Features with Copilot for free...",
         "Undo Last Request",
@@ -4808,7 +4833,6 @@
         "Reload Window",
         "Reload with Extensions Disabled",
         "Close Remote Connection",
-        "Install Remote Development Extensions",
         "Show Remote Menu",
         "Remove Dynamic Authentication Providers",
         "Remove Large Storage Database Entries...",
@@ -4842,7 +4866,7 @@
         "Show Editors in Active Group By Most Recently Used",
         null,
         "Show Tab Bar with one Tab",
-        "Show Emmet Commands",
+        null,
         null,
         "Show GPU Info",
         null,
@@ -5010,6 +5034,8 @@
         "Split Terminal",
         "Split Terminal",
         "Split Terminal (In Active Workspace)",
+        "Start Dictation in Terminal",
+        "Stop Dictation in Terminal",
         "Learn More",
         "Suggest Toggle Details",
         "Suggest Toggle Suggestion Focus",
@@ -5070,6 +5096,7 @@
         "Zoom In",
         "Zoom Out",
         "Reset Zoom",
+        "Sign in to GitHub",
         "Edit Name",
         "Load Sync Activity",
         "Turn off Settings Sync",
@@ -5182,6 +5209,7 @@
         "Copy Extension ID",
         "Copy Link",
         "Start Debugging Extension Host In New Window",
+        "Open Developer Tools for Extension Host",
         "Disable All Installed Extensions",
         "Disable All Installed Extensions for this Workspace",
         "Disable Auto Update for All Extensions",
@@ -5238,6 +5266,7 @@
         "Sync This Extension",
         "Undo Ignored Recommendation",
         "Update All Extensions",
+        "Sign in to access Extensions Marketplace",
         "Install Extension VSIX",
         "Install the given extension",
         null,
@@ -5340,7 +5369,7 @@
         null,
         null,
         null,
-        "Add History Item to Chat",
+        "Add to Chat",
         "Open File",
         "History Item Reference Picker",
         "Repository Picker",
@@ -5348,7 +5377,7 @@
         "Go to Current History Item",
         "View as List",
         "View as Tree",
-        "Summarize History Item",
+        "Explain Changes",
         "Open Changes",
         "Sort by Discovery Time",
         "Sort by Name",
@@ -5445,6 +5474,9 @@
         "Reset Location",
         "Focus on Installed View",
         "Opens view Installed",
+        "Reset Location",
+        "Focus on Marketplace View",
+        "Opens view Marketplace",
         "Reset Location",
         "Focus on Marketplace View",
         "Opens view Marketplace",
@@ -5554,23 +5586,7 @@
           "then": {
             "properties": {
               "args": {
-                "required": [
-                  "kind"
-                ],
-                "properties": {
-                  "kind": {
-                    "anyOf": [
-                      {
-                        "enum": [
-                          null
-                        ]
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  }
-                }
+                "$ref": "#/$defs/_24"
               }
             }
           }
@@ -5600,14 +5616,7 @@
               "args": {
                 "oneOf": [
                   {
-                    "required": [
-                      "kind"
-                    ],
-                    "properties": {
-                      "kind": {
-                        "$ref": "#/$defs/_24"
-                      }
-                    }
+                    "$ref": "#/$defs/_24"
                   },
                   {
                     "required": [
@@ -5617,7 +5626,7 @@
                       "preferences": {
                         "type": "array",
                         "items": {
-                          "$ref": "#/$defs/_24"
+                          "$ref": "#/$defs/_25"
                         }
                       }
                     }
@@ -8037,6 +8046,36 @@
             ],
             "properties": {
               "command": {
+                "const": "workbench.views.extensions.marketplaceAccess.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.views.extensions.marketplaceAccess.open"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_19"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
                 "const": "workbench.views.extensions.otherRecommendations.focus"
               }
             }
@@ -9103,6 +9142,7 @@
             "-editor.action.revealDeclaration",
             "-editor.action.revealDefinition",
             "-editor.action.revealDefinitionAside",
+            "-editor.action.reverseLines",
             "-editor.action.scrollDownHover",
             "-editor.action.scrollLeftHover",
             "-editor.action.scrollRightHover",
@@ -9251,7 +9291,6 @@
             "-editor.unfoldAllMarkerRegions",
             "-editor.unfoldRecursively",
             "-editorScroll",
-            "-emmet.expandAbbreviation",
             "-expandLineSelection",
             "-explorer.download",
             "-explorer.newFile",
@@ -9393,10 +9432,13 @@
             "-git.copyCommitMessage",
             "-git.copyContentToClipboard",
             "-git.createTag",
+            "-git.createWorktree",
             "-git.deleteBranch",
             "-git.deleteRemoteBranch",
             "-git.deleteRemoteTag",
             "-git.deleteTag",
+            "-git.deleteWorktree",
+            "-git.deleteWorktreeFromPalette",
             "-git.diff.stageHunk",
             "-git.diff.stageSelection",
             "-git.fetch",
@@ -9422,6 +9464,8 @@
             "-git.openRepositoriesInParentFolders",
             "-git.openRepository",
             "-git.openResource",
+            "-git.openWorktree",
+            "-git.openWorktreeInNewWindow",
             "-git.publish",
             "-git.pull",
             "-git.pullFrom",
@@ -10264,7 +10308,6 @@
             "-welcome.showNewWelcome",
             "-widgetNavigation.focusNext",
             "-widgetNavigation.focusPrevious",
-            "-workbench.accounts.actions.signin",
             "-workbench.action.acceptSelectedQuickOpenItem",
             "-workbench.action.activityBarLocation.bottom",
             "-workbench.action.activityBarLocation.default",
@@ -10326,6 +10369,7 @@
             "-workbench.action.chat.logInputHistory",
             "-workbench.action.chat.manage.mode",
             "-workbench.action.chat.manageLanguageModelAuthentication",
+            "-workbench.action.chat.manageLanguageModels",
             "-workbench.action.chat.manageOverages",
             "-workbench.action.chat.manageSettings",
             "-workbench.action.chat.markHelpful",
@@ -10351,8 +10395,11 @@
             "-workbench.action.chat.quickVoiceChat",
             "-workbench.action.chat.readChatResponseAloud",
             "-workbench.action.chat.redoEdit",
+            "-workbench.action.chat.redoEdit2",
             "-workbench.action.chat.reportIssueForBug",
             "-workbench.action.chat.resetTrustedTools",
+            "-workbench.action.chat.restoreCheckpoint",
+            "-workbench.action.chat.restoreLastCheckpoint",
             "-workbench.action.chat.retry",
             "-workbench.action.chat.run-in-new-chat.prompt.current",
             "-workbench.action.chat.run.prompt",
@@ -10375,6 +10422,7 @@
             "-workbench.action.chat.toggleDefaultVisibility",
             "-workbench.action.chat.toggleRequestPaused",
             "-workbench.action.chat.triggerSetup",
+            "-workbench.action.chat.triggerSetupForceSignIn",
             "-workbench.action.chat.triggerSetupFromAccounts",
             "-workbench.action.chat.triggerSetupWithoutDialog",
             "-workbench.action.chat.undoEdit",
@@ -10774,7 +10822,6 @@
             "-workbench.action.reloadWindow",
             "-workbench.action.reloadWindowWithExtensionsDisabled",
             "-workbench.action.remote.close",
-            "-workbench.action.remote.extensions",
             "-workbench.action.remote.showMenu",
             "-workbench.action.removeDynamicAuthenticationProviders",
             "-workbench.action.removeLargeStorageDatabaseEntries",
@@ -10976,6 +11023,8 @@
             "-workbench.action.terminal.split",
             "-workbench.action.terminal.splitActiveTab",
             "-workbench.action.terminal.splitInActiveWorkspace",
+            "-workbench.action.terminal.startVoice",
+            "-workbench.action.terminal.stopVoice",
             "-workbench.action.terminal.suggestLearnMore",
             "-workbench.action.terminal.suggestToggleDetails",
             "-workbench.action.terminal.suggestToggleDetailsFocus",
@@ -11036,6 +11085,7 @@
             "-workbench.action.zoomIn",
             "-workbench.action.zoomOut",
             "-workbench.action.zoomReset",
+            "-workbench.actions.accounts.signIn",
             "-workbench.actions.sync.editMachineName",
             "-workbench.actions.sync.loadActivity",
             "-workbench.actions.sync.turnOffSyncOnMachine",
@@ -11148,6 +11198,7 @@
             "-workbench.extensions.action.copyExtensionId",
             "-workbench.extensions.action.copyLink",
             "-workbench.extensions.action.debugExtensionHost",
+            "-workbench.extensions.action.devtoolsExtensionHost",
             "-workbench.extensions.action.disableAll",
             "-workbench.extensions.action.disableAllWorkspace",
             "-workbench.extensions.action.disableAutoUpdate",
@@ -11204,6 +11255,7 @@
             "-workbench.extensions.action.toggleIgnoreExtension",
             "-workbench.extensions.action.undoIgnoredRecommendation",
             "-workbench.extensions.action.updateAllExtensions",
+            "-workbench.extensions.actions.gallery.signIn",
             "-workbench.extensions.command.installFromVSIX",
             "-workbench.extensions.installExtension",
             "-workbench.extensions.installMissingDependencies",
@@ -11415,6 +11467,9 @@
             "-workbench.views.extensions.marketplace.focus",
             "-workbench.views.extensions.marketplace.open",
             "-workbench.views.extensions.marketplace.resetViewLocation",
+            "-workbench.views.extensions.marketplaceAccess.focus",
+            "-workbench.views.extensions.marketplaceAccess.open",
+            "-workbench.views.extensions.marketplaceAccess.resetViewLocation",
             "-workbench.views.extensions.otherRecommendations.focus",
             "-workbench.views.extensions.otherRecommendations.open",
             "-workbench.views.extensions.otherRecommendations.resetViewLocation",
@@ -11859,6 +11914,7 @@
             "Go to Declaration",
             "Go to Definition",
             "Open Definition to the Side",
+            null,
             "Scroll down the editor hover.",
             "Scroll left the editor hover.",
             "Scroll right the editor hover.",
@@ -11945,29 +12001,29 @@
             null,
             null,
             "Detect Language from Content",
-            "Balance (inward)",
-            "Balance (outward)",
-            "Decrement by 1",
-            "Decrement by 0.1",
-            "Decrement by 10",
-            "Evaluate Math Expression",
             null,
-            "Increment by 1",
-            "Increment by 0.1",
-            "Increment by 10",
-            "Go to Matching Pair",
-            "Merge Lines",
-            "Go to Next Edit Point",
-            "Go to Previous Edit Point",
-            "Reflect CSS Value",
-            "Remove Tag",
-            "Select Next Item",
-            "Select Previous Item",
-            "Split/Join Tag",
-            "Toggle Comment",
-            "Update Image Size",
-            "Update Tag",
-            "Wrap with Abbreviation",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
             "Fold the content in the editor",
             null,
             null,
@@ -12007,7 +12063,6 @@
             null,
             null,
             "Scroll editor in the given direction",
-            null,
             null,
             null,
             null,
@@ -12149,10 +12204,13 @@
             "Copy Commit Message",
             null,
             "Create Tag...",
+            "Create Worktree...",
             "Delete Branch...",
             "Delete Remote Branch...",
             "Delete Remote Tag...",
             "Delete Tag...",
+            "Delete Worktree",
+            "Delete Worktree...",
             "Stage Block",
             "Stage Selection",
             "Fetch",
@@ -12178,6 +12236,8 @@
             "Open Repositories In Parent Folders",
             "Open Repository",
             null,
+            "Open Worktree in Current Window",
+            "Open Worktree in New Window",
             "Publish Branch...",
             "Pull",
             "Pull from...",
@@ -12762,7 +12822,7 @@
             null,
             null,
             null,
-            "Generate Commit Message with Copilot",
+            "Generate commit message",
             null,
             null,
             null,
@@ -12930,7 +12990,7 @@
             "Hides the Timeline view if it is visible and the view container it is located in is visible",
             "Reset Location",
             "Toggles the visibility of the Timeline view if the view container it is located in is visible",
-            "Toggle visibility of the Copilot Controls in title bar",
+            "Toggle visibility of the Chat Controls in title bar",
             null,
             null,
             "Custom Title Bar",
@@ -13020,7 +13080,6 @@
             "Open New Welcome Experience",
             null,
             null,
-            "Sign in to GitHub",
             null,
             "Move Activity Bar to Bottom",
             "Move Activity Bar to Side",
@@ -13068,7 +13127,7 @@
             "Export Chat...",
             "Focus Chat Input",
             "Generate Workspace Instructions File",
-            "Hide Copilot",
+            "Hide AI Features",
             "Show Chats...",
             "Hold to Voice Chat in Chat View",
             "Import Chat...",
@@ -13082,8 +13141,9 @@
             "Log Chat Input History",
             "Configure Chat Modes...",
             "Manage Language Model Access...",
+            "Manage Language Models...",
             "Manage Copilot Overages",
-            "Manage Copilot",
+            "Manage Chat",
             "Helpful",
             "Unhelpful",
             "New Chat",
@@ -13107,8 +13167,11 @@
             "Quick Voice Chat",
             "Read Aloud",
             "Redo Last Request",
+            "Redo",
             "Report Issue",
             "Reset Tool Confirmations",
+            "Restore Checkpoint",
+            "Restore to last checkpoint",
             "Retry",
             "Run Prompt In New Chat",
             "Run Prompt...",
@@ -13131,6 +13194,7 @@
             "Show View by Default",
             "Toggle Request Paused",
             "Use AI Features with Copilot for free...",
+            "Sign in to use Copilot",
             "Sign in to use Copilot...",
             "Use AI Features with Copilot for free...",
             "Undo Last Request",
@@ -13530,7 +13594,6 @@
             "Reload Window",
             "Reload with Extensions Disabled",
             "Close Remote Connection",
-            "Install Remote Development Extensions",
             "Show Remote Menu",
             "Remove Dynamic Authentication Providers",
             "Remove Large Storage Database Entries...",
@@ -13564,7 +13627,7 @@
             "Show Editors in Active Group By Most Recently Used",
             null,
             "Show Tab Bar with one Tab",
-            "Show Emmet Commands",
+            null,
             null,
             "Show GPU Info",
             null,
@@ -13732,6 +13795,8 @@
             "Split Terminal",
             "Split Terminal",
             "Split Terminal (In Active Workspace)",
+            "Start Dictation in Terminal",
+            "Stop Dictation in Terminal",
             "Learn More",
             "Suggest Toggle Details",
             "Suggest Toggle Suggestion Focus",
@@ -13792,6 +13857,7 @@
             "Zoom In",
             "Zoom Out",
             "Reset Zoom",
+            "Sign in to GitHub",
             "Edit Name",
             "Load Sync Activity",
             "Turn off Settings Sync",
@@ -13904,6 +13970,7 @@
             "Copy Extension ID",
             "Copy Link",
             "Start Debugging Extension Host In New Window",
+            "Open Developer Tools for Extension Host",
             "Disable All Installed Extensions",
             "Disable All Installed Extensions for this Workspace",
             "Disable Auto Update for All Extensions",
@@ -13960,6 +14027,7 @@
             "Sync This Extension",
             "Undo Ignored Recommendation",
             "Update All Extensions",
+            "Sign in to access Extensions Marketplace",
             "Install Extension VSIX",
             "Install the given extension",
             null,
@@ -14062,7 +14130,7 @@
             null,
             null,
             null,
-            "Add History Item to Chat",
+            "Add to Chat",
             "Open File",
             "History Item Reference Picker",
             "Repository Picker",
@@ -14070,7 +14138,7 @@
             "Go to Current History Item",
             "View as List",
             "View as Tree",
-            "Summarize History Item",
+            "Explain Changes",
             "Open Changes",
             "Sort by Discovery Time",
             "Sort by Name",
@@ -14167,6 +14235,9 @@
             "Reset Location",
             "Focus on Installed View",
             "Opens view Installed",
+            "Reset Location",
+            "Focus on Marketplace View",
+            "Opens view Marketplace",
             "Reset Location",
             "Focus on Marketplace View",
             "Opens view Marketplace",
@@ -14285,7 +14356,7 @@
       "command": {
         "anyOf": [
           {
-            "$ref": "#/$defs/_25"
+            "$ref": "#/$defs/_26"
           },
           {
             "if": {
@@ -14298,7 +14369,7 @@
               "errorMessage": "Incorrect type. Expected \"string\". The field 'command' does not support running multiple commands. Use command 'runCommands' to pass it multiple commands to run."
             },
             "else": {
-              "$ref": "#/$defs/_25"
+              "$ref": "#/$defs/_26"
             }
           }
         ]
@@ -14685,24 +14756,26 @@
       }
     },
     "_24": {
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "$ref": "#/$defs/_25"
+        }
+      }
+    },
+    "_25": {
       "anyOf": [
         {
-          "enum": [
-            "text.plain",
-            "uri.path.absolute",
-            "uri.path.relative",
-            "html",
-            "chat.attach.attachments",
-            "chat.attach.image",
-            "chat.attach.text"
-          ]
+          "enum": []
         },
         {
           "type": "string"
         }
       ]
     },
-    "_25": {
+    "_26": {
       "$ref": "#/definitions/commandType"
     }
   }

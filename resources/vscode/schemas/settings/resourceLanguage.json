@@ -834,6 +834,16 @@
       "scope": 6,
       "restricted": false
     },
+    "editor.cursorHeight": {
+      "markdownDescription": "Controls the height of the cursor when `#editor.cursorStyle#` is set to `line`. Cursor's max height depends on line height.",
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 1073741824,
+      "defaultDefaultValue": 0,
+      "scope": 6,
+      "restricted": false
+    },
     "editor.cursorSmoothCaretAnimation": {
       "enumDescriptions": [
         "Smooth caret animation is enabled only when the user moves the cursor with an explicit gesture.",
@@ -1196,9 +1206,7 @@
         "anyOf": [
           {
             "enum": [
-              "text.plain",
-              "uri.path.absolute",
-              "uri.path.relative"
+              null
             ]
           },
           {
@@ -1280,6 +1288,9 @@
         "experimental",
         "onExP"
       ],
+      "experiment": {
+        "mode": "startup"
+      },
       "defaultDefaultValue": false,
       "scope": 6,
       "restricted": false
@@ -1292,6 +1303,9 @@
         "experimental",
         "onExP"
       ],
+      "experiment": {
+        "mode": "startup"
+      },
       "defaultDefaultValue": false,
       "scope": 6,
       "restricted": false
@@ -1304,6 +1318,9 @@
         "experimental",
         "onExP"
       ],
+      "experiment": {
+        "mode": "startup"
+      },
       "defaultDefaultValue": false,
       "scope": 6,
       "restricted": false
@@ -1316,6 +1333,9 @@
         "experimental",
         "onExP"
       ],
+      "experiment": {
+        "mode": "startup"
+      },
       "defaultDefaultValue": false,
       "scope": 6,
       "restricted": false
@@ -1328,6 +1348,9 @@
         "experimental",
         "onExP"
       ],
+      "experiment": {
+        "mode": "startup"
+      },
       "defaultDefaultValue": false,
       "scope": 6,
       "restricted": false
@@ -2178,6 +2201,14 @@
       "scope": 6,
       "restricted": false
     },
+    "editor.inertialScroll": {
+      "description": "Make scrolling inertial - mostly useful with touchpad on linux.",
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 6,
+      "restricted": false
+    },
     "editor.inlayHints.enabled": {
       "type": "string",
       "default": "on",
@@ -2297,22 +2328,28 @@
       "default": "",
       "tags": [
         "experimental",
-        "onExp"
+        "onExP"
       ],
       "description": "Suppresses inline completions for specified extension IDs -- comma separated.",
+      "experiment": {
+        "mode": "startup"
+      },
       "defaultDefaultValue": "",
       "scope": 6,
       "restricted": false
     },
     "editor.inlineSuggest.experimental.triggerCommandOnProviderChange": {
       "type": "boolean",
-      "default": true,
+      "default": false,
       "tags": [
         "experimental",
-        "onExp"
+        "onExP"
       ],
       "description": "Controls whether to trigger a command when the inline suggestion provider changes.",
-      "defaultDefaultValue": true,
+      "experiment": {
+        "mode": "startup"
+      },
+      "defaultDefaultValue": false,
       "scope": 6,
       "restricted": false
     },
@@ -2432,6 +2469,8 @@
       "markdownDescription": "Controls the line height. \n - Use 0 to automatically compute the line height from the font size.\n - Values between 0 and 8 will be used as a multiplier with the font size.\n - Values greater than or equal to 8 will be used as effective values.",
       "type": "number",
       "default": 0,
+      "minimum": 0,
+      "maximum": 150,
       "defaultDefaultValue": 0,
       "scope": 6,
       "restricted": false
@@ -2494,10 +2533,20 @@
       "restricted": false
     },
     "editor.minimap.autohide": {
-      "type": "boolean",
-      "default": false,
+      "type": "string",
+      "enum": [
+        "mouseover",
+        "none",
+        "scroll"
+      ],
+      "enumDescriptions": [
+        "The minimap is hidden when mouse is not over the minimap and shown when mouse is over the minimap.",
+        "The minimap is always shown.",
+        "The minimap is only shown when the editor is scrolled"
+      ],
+      "default": "none",
       "description": "Controls whether the minimap is hidden automatically.",
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": "none",
       "scope": 6,
       "restricted": false
     },
@@ -2805,13 +2854,7 @@
         "anyOf": [
           {
             "enum": [
-              "chat.attach.attachments",
-              "chat.attach.image",
-              "chat.attach.text",
-              "html",
-              "text.plain",
-              "uri.path.absolute",
-              "uri.path.relative"
+              null
             ]
           },
           {
@@ -2911,16 +2954,19 @@
     },
     "editor.quickSuggestionsDelay": {
       "description": "Controls the delay in milliseconds after which quick suggestions will show up.",
-      "tags": [
-        "onExP"
-      ],
+      "experiment": {
+        "mode": "startup"
+      },
       "type": "integer",
       "default": 10,
       "minimum": 0,
       "maximum": 1073741824,
       "defaultDefaultValue": 10,
       "scope": 6,
-      "restricted": false
+      "restricted": false,
+      "tags": [
+        "onExP"
+      ]
     },
     "editor.rename.enablePreview": {
       "scope": 6,
@@ -2983,6 +3029,14 @@
     },
     "editor.renderLineHighlightOnlyWhenFocus": {
       "description": "Controls if the editor should render the current line highlight only when the editor is focused.",
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.renderRichScreenReaderContent": {
+      "description": "Whether to render rich screen reader content when the `editor.editContext` is enabled.",
       "type": "boolean",
       "default": false,
       "defaultDefaultValue": false,
@@ -3176,6 +3230,24 @@
       "type": "boolean",
       "default": true,
       "defaultDefaultValue": true,
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.selectionHighlightMaxLength": {
+      "description": "Controls how many characters can be in the selection before similiar matches are not highlighted. Set to zero for unlimited.",
+      "type": "integer",
+      "default": 200,
+      "minimum": 0,
+      "maximum": 1073741824,
+      "defaultDefaultValue": 200,
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.selectionHighlightMultiline": {
+      "description": "Controls whether the editor should highlight selection matches that span multiple lines.",
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
       "scope": 6,
       "restricted": false
     },
@@ -3767,7 +3839,7 @@
       "type": "number",
       "default": 4,
       "minimum": 1,
-      "maximum": 16,
+      "maximum": 100,
       "markdownDescription": "The number of spaces a tab is equal to. This setting is overridden based on the file contents when `#editor.detectIndentation#` is on.",
       "defaultDefaultValue": 4,
       "scope": 6,
@@ -3778,6 +3850,14 @@
       "default": true,
       "description": "Remove trailing auto inserted whitespace.",
       "defaultDefaultValue": true,
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.trimWhitespaceOnDelete": {
+      "description": "Controls whether the editor will also delete the next line's indentation whitespace when deleting a newline.",
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
       "scope": 6,
       "restricted": false
     },
@@ -3945,18 +4025,19 @@
     "editor.wordSegmenterLocales": {
       "anyOf": [
         {
-          "description": "Locales to be used for word segmentation when doing word related navigations or operations. Specify the BCP 47 language tag of the word you wish to recognize (e.g., ja, zh-CN, zh-Hant-TW, etc.).",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "$ref": "#/$defs/_3"
         },
         {
-          "description": "Locales to be used for word segmentation when doing word related navigations or operations. Specify the BCP 47 language tag of the word you wish to recognize (e.g., ja, zh-CN, zh-Hant-TW, etc.).",
           "type": "string"
         }
       ],
-      "default": null,
+      "description": "Locales to be used for word segmentation when doing word related navigations or operations. Specify the BCP 47 language tag of the word you wish to recognize (e.g., ja, zh-CN, zh-Hant-TW, etc.).",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "defaultDefaultValue": [],
       "scope": 6,
       "restricted": false
     },
@@ -3995,6 +4076,14 @@
       "minimum": 1,
       "maximum": 1073741824,
       "defaultDefaultValue": 80,
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.wrapOnEscapedLineFeeds": {
+      "markdownDescription": "Controls whether literal `\\n` shall trigger a wordWrap when `#editor.wordWrap#` is enabled.\n\nFor example:\n```c\nchar* str=\"hello\\nworld\"\n```\nwill be displayed as\n```c\nchar* str=\"hello\\n\n           world\"\n```",
+      "type": "boolean",
+      "default": false,
+      "defaultDefaultValue": false,
       "scope": 6,
       "restricted": false
     },
@@ -4794,14 +4883,14 @@
       "description": "Number of monospace characters at which this editor ruler will render."
     },
     "_3": {
-      "type": "object",
-      "additionalProperties": {
+      "type": "array",
+      "items": {
         "type": "string"
       }
     },
     "_4": {
-      "type": "array",
-      "items": {
+      "type": "object",
+      "additionalProperties": {
         "type": "string"
       }
     },
