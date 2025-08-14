@@ -1253,7 +1253,7 @@
           ]
         },
         "sound": {
-          "$ref": "#/$defs/_329"
+          "$ref": "#/$defs/_330"
         }
       },
       "defaultDefaultValue": {
@@ -1534,10 +1534,10 @@
       "restricted": false
     },
     "accessibility.signals.positionHasError": {
-      "$ref": "#/$defs/_330"
+      "$ref": "#/$defs/_331"
     },
     "accessibility.signals.positionHasWarning": {
-      "$ref": "#/$defs/_330"
+      "$ref": "#/$defs/_331"
     },
     "accessibility.signals.progress": {
       "type": "object",
@@ -2555,13 +2555,13 @@
       "restricted": false
     },
     "chat.agent.terminal.allowList": {
-      "$ref": "#/$defs/_286"
+      "$ref": "#/$defs/_287"
     },
     "chat.agent.terminal.autoApprove": {
-      "$ref": "#/$defs/_286"
+      "$ref": "#/$defs/_287"
     },
     "chat.agent.terminal.denyList": {
-      "$ref": "#/$defs/_286"
+      "$ref": "#/$defs/_287"
     },
     "chat.agentSessionsViewLocation": {
       "type": "string",
@@ -3111,6 +3111,67 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.tools.terminal.autoApprove": {
+      "markdownDescription": "A list of commands or regular expressions that control whether the run in terminal tool commands require explicit approval. These will be matched against the start of a command. A regular expression can be provided by wrapping the string in `/` characters followed by optional flags such as `i` for case-insensitivity.\n\nSet to `true` to automatically approve commands, `false` to always require explicit approval or `null` to unset the value.\n\nNote that these commands and regular expressions are evaluated for every _sub-command_ within the full _command line_, so `foo && bar` for example will need both `foo` and `bar` to match a `true` entry and must not match a `false` entry in order to auto approve. Inline commands are also detected so `echo $(rm file)` will need both `echo $(rm file)` and `rm file` to pass.\n\nAn object can be used to match against the full command line instead of matching sub-commands and inline commands, for example `{ approve: false, matchCommandLine: true }`. In order to be auto approved _both_ the sub-command and command line must not be explicitly denied, then _either_ all sub-commands or command line needs to be approved.\n\nExamples:\n|Value|Description|\n|---|---|\n| `\"mkdir\": true` | Allow all commands starting with `mkdir`\n| `\"npm run build\": true` | Allow all commands starting with `npm run build`\n| `\"/^git (status\\|show\\b.*)$/\": true` | Allow `git status` and all commands starting with `git show`\n| `\"/^Get-ChildItem\\b/i\": true` | will allow `Get-ChildItem` commands regardless of casing\n| `\"/.*/\": true` | Allow all commands (denied commands still require approval)\n| `\"rm\": false` | Require explicit approval for all commands starting with `rm`\n| `\"/.ps1/i\": { approve: false, matchCommandLine: true }` | Require explicit approval for any _command line_ that contains `\".ps1\"` regardless of casing\n| `\"rm\": null` | Unset the default `false` value for `rm`",
+      "type": "object",
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/_286"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "approve": {
+                "$ref": "#/$defs/_286"
+              },
+              "matchCommandLine": {
+                "type": "boolean",
+                "enum": [
+                  true,
+                  false
+                ],
+                "enumDescriptions": [
+                  "Match against the full command line, eg. `foo && bar`.",
+                  "Match against sub-commands and inline commands, eg. `foo && bar` will need both `foo` and `bar` to match."
+                ],
+                "description": "Whether to match against the full command line, as opposed to splitting by sub-commands and inline commands."
+              }
+            }
+          },
+          {
+            "type": "null",
+            "description": "Ignore the pattern, this is useful for unsetting the same pattern set at a higher scope."
+          }
+        ]
+      },
+      "default": {
+        "/^Remove-Item\\b/i": false,
+        "chmod": false,
+        "chown": false,
+        "curl": false,
+        "del": false,
+        "eval": false,
+        "kill": false,
+        "rm": false,
+        "rmdir": false,
+        "wget": false
+      },
+      "defaultDefaultValue": {
+        "/^Remove-Item\\b/i": false,
+        "chmod": false,
+        "chown": false,
+        "curl": false,
+        "del": false,
+        "eval": false,
+        "kill": false,
+        "rm": false,
+        "rmdir": false,
+        "wget": false
+      },
+      "scope": 4,
+      "restricted": false
+    },
     "chat.tools.useTreePicker": {
       "type": "boolean",
       "default": true,
@@ -3226,10 +3287,10 @@
       "restricted": false
     },
     "css.completion.completePropertyWithSemicolon": {
-      "$ref": "#/$defs/_332"
+      "$ref": "#/$defs/_333"
     },
     "css.completion.triggerPropertyValueCompletion": {
-      "$ref": "#/$defs/_331"
+      "$ref": "#/$defs/_332"
     },
     "css.customData": {
       "type": "array",
@@ -3247,7 +3308,7 @@
       "restricted": false
     },
     "css.format.braceStyle": {
-      "$ref": "#/$defs/_357"
+      "$ref": "#/$defs/_358"
     },
     "css.format.enable": {
       "type": "boolean",
@@ -3277,16 +3338,16 @@
       "restricted": false
     },
     "css.format.newlineBetweenRules": {
-      "$ref": "#/$defs/_355"
+      "$ref": "#/$defs/_356"
     },
     "css.format.newlineBetweenSelectors": {
-      "$ref": "#/$defs/_354"
+      "$ref": "#/$defs/_355"
     },
     "css.format.preserveNewLines": {
-      "$ref": "#/$defs/_358"
+      "$ref": "#/$defs/_359"
     },
     "css.format.spaceAroundSelectorSeparator": {
-      "$ref": "#/$defs/_356"
+      "$ref": "#/$defs/_357"
     },
     "css.hover.documentation": {
       "type": "boolean",
@@ -3313,64 +3374,64 @@
       "restricted": false
     },
     "css.lint.argumentsInColorFunction": {
-      "$ref": "#/$defs/_344"
-    },
-    "css.lint.boxModel": {
-      "$ref": "#/$defs/_339"
-    },
-    "css.lint.compatibleVendorPrefixes": {
-      "$ref": "#/$defs/_334"
-    },
-    "css.lint.duplicateProperties": {
-      "$ref": "#/$defs/_336"
-    },
-    "css.lint.emptyRules": {
-      "$ref": "#/$defs/_337"
-    },
-    "css.lint.float": {
-      "$ref": "#/$defs/_351"
-    },
-    "css.lint.fontFaceProperties": {
-      "$ref": "#/$defs/_342"
-    },
-    "css.lint.hexColorLength": {
-      "$ref": "#/$defs/_343"
-    },
-    "css.lint.idSelector": {
-      "$ref": "#/$defs/_352"
-    },
-    "css.lint.ieHack": {
-      "$ref": "#/$defs/_347"
-    },
-    "css.lint.important": {
-      "$ref": "#/$defs/_350"
-    },
-    "css.lint.importStatement": {
-      "$ref": "#/$defs/_338"
-    },
-    "css.lint.propertyIgnoredDueToDisplay": {
-      "$ref": "#/$defs/_349"
-    },
-    "css.lint.universalSelector": {
-      "$ref": "#/$defs/_340"
-    },
-    "css.lint.unknownAtRules": {
-      "$ref": "#/$defs/_353"
-    },
-    "css.lint.unknownProperties": {
       "$ref": "#/$defs/_345"
     },
-    "css.lint.unknownVendorSpecificProperties": {
-      "$ref": "#/$defs/_348"
+    "css.lint.boxModel": {
+      "$ref": "#/$defs/_340"
     },
-    "css.lint.validProperties": {
-      "$ref": "#/$defs/_346"
-    },
-    "css.lint.vendorPrefix": {
+    "css.lint.compatibleVendorPrefixes": {
       "$ref": "#/$defs/_335"
     },
-    "css.lint.zeroUnits": {
+    "css.lint.duplicateProperties": {
+      "$ref": "#/$defs/_337"
+    },
+    "css.lint.emptyRules": {
+      "$ref": "#/$defs/_338"
+    },
+    "css.lint.float": {
+      "$ref": "#/$defs/_352"
+    },
+    "css.lint.fontFaceProperties": {
+      "$ref": "#/$defs/_343"
+    },
+    "css.lint.hexColorLength": {
+      "$ref": "#/$defs/_344"
+    },
+    "css.lint.idSelector": {
+      "$ref": "#/$defs/_353"
+    },
+    "css.lint.ieHack": {
+      "$ref": "#/$defs/_348"
+    },
+    "css.lint.important": {
+      "$ref": "#/$defs/_351"
+    },
+    "css.lint.importStatement": {
+      "$ref": "#/$defs/_339"
+    },
+    "css.lint.propertyIgnoredDueToDisplay": {
+      "$ref": "#/$defs/_350"
+    },
+    "css.lint.universalSelector": {
       "$ref": "#/$defs/_341"
+    },
+    "css.lint.unknownAtRules": {
+      "$ref": "#/$defs/_354"
+    },
+    "css.lint.unknownProperties": {
+      "$ref": "#/$defs/_346"
+    },
+    "css.lint.unknownVendorSpecificProperties": {
+      "$ref": "#/$defs/_349"
+    },
+    "css.lint.validProperties": {
+      "$ref": "#/$defs/_347"
+    },
+    "css.lint.vendorPrefix": {
+      "$ref": "#/$defs/_336"
+    },
+    "css.lint.zeroUnits": {
+      "$ref": "#/$defs/_342"
     },
     "css.trace.server": {
       "type": "string",
@@ -3390,7 +3451,7 @@
       "restricted": false
     },
     "css.validate": {
-      "$ref": "#/$defs/_333"
+      "$ref": "#/$defs/_334"
     },
     "debug.allowBreakpointsEverywhere": {
       "type": "boolean",
@@ -3707,7 +3768,7 @@
       "description": "Options used when debugging open links clicked from inside the JavaScript Debug Terminal. Can be set to \"off\" to disable this behavior, or \"always\" to enable debugging in all terminals.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_319"
+          "$ref": "#/$defs/_320"
         },
         {
           "type": "object",
@@ -3729,7 +3790,7 @@
               ]
             },
             "cascadeTerminateToConfigurations": {
-              "$ref": "#/$defs/_308"
+              "$ref": "#/$defs/_309"
             },
             "cleanUp": {
               "type": "string",
@@ -3741,10 +3802,10 @@
               "default": "wholeBrowser"
             },
             "customDescriptionGenerator": {
-              "$ref": "#/$defs/_306"
+              "$ref": "#/$defs/_307"
             },
             "customPropertiesGenerator": {
-              "$ref": "#/$defs/_307"
+              "$ref": "#/$defs/_308"
             },
             "cwd": {
               "type": "string",
@@ -3757,13 +3818,13 @@
               "default": true
             },
             "enableContentValidation": {
-              "$ref": "#/$defs/_305"
+              "$ref": "#/$defs/_306"
             },
             "enabled": {
-              "$ref": "#/$defs/_319"
+              "$ref": "#/$defs/_320"
             },
             "enableDWARF": {
-              "$ref": "#/$defs/_309"
+              "$ref": "#/$defs/_310"
             },
             "env": {
               "type": "object",
@@ -3807,10 +3868,10 @@
               "markdownDescription": "Configures how browser processes are killed when stopping the session with `cleanUp: wholeBrowser`. Can be:\n\n- forceful (default): forcefully tears down the process tree. Sends SIGKILL on posix, or `taskkill.exe /F` on Windows.\n- polite: gracefully tears down the process tree. It's possible that misbehaving processes continue to run after shutdown in this way. Sends SIGTERM on posix, or `taskkill.exe` with no `/F` (force) flag on Windows.\n- none: no termination will happen."
             },
             "outFiles": {
-              "$ref": "#/$defs/_293"
+              "$ref": "#/$defs/_294"
             },
             "outputCapture": {
-              "$ref": "#/$defs/_304"
+              "$ref": "#/$defs/_305"
             },
             "pathMapping": {
               "type": "object",
@@ -3818,7 +3879,7 @@
               "default": {}
             },
             "pauseForSourceMap": {
-              "$ref": "#/$defs/_294"
+              "$ref": "#/$defs/_295"
             },
             "perScriptSourcemaps": {
               "type": "string",
@@ -3894,7 +3955,7 @@
                     "attachSimplePort": {
                       "oneOf": [
                         {
-                          "$ref": "#/$defs/_321"
+                          "$ref": "#/$defs/_322"
                         },
                         {
                           "type": "integer"
@@ -3904,10 +3965,10 @@
                       "default": 9229
                     },
                     "autoAttachChildProcesses": {
-                      "$ref": "#/$defs/_313"
+                      "$ref": "#/$defs/_314"
                     },
                     "cascadeTerminateToConfigurations": {
-                      "$ref": "#/$defs/_308"
+                      "$ref": "#/$defs/_309"
                     },
                     "console": {
                       "type": "string",
@@ -3925,10 +3986,10 @@
                       "default": "internalConsole"
                     },
                     "customDescriptionGenerator": {
-                      "$ref": "#/$defs/_306"
+                      "$ref": "#/$defs/_307"
                     },
                     "customPropertiesGenerator": {
-                      "$ref": "#/$defs/_307"
+                      "$ref": "#/$defs/_308"
                     },
                     "cwd": {
                       "type": "string",
@@ -3939,16 +4000,16 @@
                       ]
                     },
                     "enableContentValidation": {
-                      "$ref": "#/$defs/_305"
+                      "$ref": "#/$defs/_306"
                     },
                     "enableDWARF": {
-                      "$ref": "#/$defs/_309"
+                      "$ref": "#/$defs/_310"
                     },
                     "env": {
-                      "$ref": "#/$defs/_314"
+                      "$ref": "#/$defs/_315"
                     },
                     "envFile": {
-                      "$ref": "#/$defs/_315"
+                      "$ref": "#/$defs/_316"
                     },
                     "experimentalNetworking": {
                       "type": "string",
@@ -3971,19 +4032,19 @@
                       "markdownDescription": "Configures how debug processes are killed when stopping the session. Can be:\n\n- forceful (default): forcefully tears down the process tree. Sends SIGKILL on posix, or `taskkill.exe /F` on Windows.\n- polite: gracefully tears down the process tree. It's possible that misbehaving processes continue to run after shutdown in this way. Sends SIGTERM on posix, or `taskkill.exe` with no `/F` (force) flag on Windows.\n- none: no termination will happen."
                     },
                     "localRoot": {
-                      "$ref": "#/$defs/_311"
+                      "$ref": "#/$defs/_312"
                     },
                     "nodeVersionHint": {
-                      "$ref": "#/$defs/_317"
+                      "$ref": "#/$defs/_318"
                     },
                     "outFiles": {
-                      "$ref": "#/$defs/_293"
+                      "$ref": "#/$defs/_294"
                     },
                     "outputCapture": {
-                      "$ref": "#/$defs/_304"
+                      "$ref": "#/$defs/_305"
                     },
                     "pauseForSourceMap": {
-                      "$ref": "#/$defs/_294"
+                      "$ref": "#/$defs/_295"
                     },
                     "profileStartup": {
                       "type": "boolean",
@@ -3999,13 +4060,13 @@
                       ]
                     },
                     "remoteRoot": {
-                      "$ref": "#/$defs/_312"
+                      "$ref": "#/$defs/_313"
                     },
                     "resolveSourceMapLocations": {
-                      "$ref": "#/$defs/_292"
+                      "$ref": "#/$defs/_293"
                     },
                     "restart": {
-                      "$ref": "#/$defs/_320"
+                      "$ref": "#/$defs/_321"
                     },
                     "runtimeArgs": {
                       "type": "array",
@@ -4027,7 +4088,7 @@
                       "default": "node"
                     },
                     "runtimeSourcemapPausePatterns": {
-                      "$ref": "#/$defs/_316"
+                      "$ref": "#/$defs/_317"
                     },
                     "runtimeVersion": {
                       "type": "string",
@@ -4035,22 +4096,22 @@
                       "default": "default"
                     },
                     "showAsyncStacks": {
-                      "$ref": "#/$defs/_295"
-                    },
-                    "skipFiles": {
                       "$ref": "#/$defs/_296"
                     },
-                    "smartStep": {
+                    "skipFiles": {
                       "$ref": "#/$defs/_297"
                     },
+                    "smartStep": {
+                      "$ref": "#/$defs/_298"
+                    },
                     "sourceMapPathOverrides": {
-                      "$ref": "#/$defs/_300"
+                      "$ref": "#/$defs/_301"
                     },
                     "sourceMapRenames": {
-                      "$ref": "#/$defs/_299"
+                      "$ref": "#/$defs/_300"
                     },
                     "sourceMaps": {
-                      "$ref": "#/$defs/_298"
+                      "$ref": "#/$defs/_299"
                     },
                     "stopOnEntry": {
                       "type": [
@@ -4061,13 +4122,13 @@
                       "default": true
                     },
                     "timeout": {
-                      "$ref": "#/$defs/_301"
-                    },
-                    "timeouts": {
                       "$ref": "#/$defs/_302"
                     },
-                    "trace": {
+                    "timeouts": {
                       "$ref": "#/$defs/_303"
+                    },
+                    "trace": {
+                      "$ref": "#/$defs/_304"
                     }
                   }
                 },
@@ -4080,116 +4141,116 @@
                   },
                   "properties": {
                     "autoAttachChildProcesses": {
-                      "$ref": "#/$defs/_313"
-                    },
-                    "cascadeTerminateToConfigurations": {
-                      "$ref": "#/$defs/_308"
-                    },
-                    "command": {
-                      "$ref": "#/$defs/_318"
-                    },
-                    "customDescriptionGenerator": {
-                      "$ref": "#/$defs/_306"
-                    },
-                    "customPropertiesGenerator": {
-                      "$ref": "#/$defs/_307"
-                    },
-                    "cwd": {
-                      "$ref": "#/$defs/_310"
-                    },
-                    "enableContentValidation": {
-                      "$ref": "#/$defs/_305"
-                    },
-                    "enableDWARF": {
-                      "$ref": "#/$defs/_309"
-                    },
-                    "env": {
                       "$ref": "#/$defs/_314"
                     },
-                    "envFile": {
-                      "$ref": "#/$defs/_315"
+                    "cascadeTerminateToConfigurations": {
+                      "$ref": "#/$defs/_309"
                     },
-                    "localRoot": {
+                    "command": {
+                      "$ref": "#/$defs/_319"
+                    },
+                    "customDescriptionGenerator": {
+                      "$ref": "#/$defs/_307"
+                    },
+                    "customPropertiesGenerator": {
+                      "$ref": "#/$defs/_308"
+                    },
+                    "cwd": {
                       "$ref": "#/$defs/_311"
                     },
-                    "nodeVersionHint": {
-                      "$ref": "#/$defs/_317"
+                    "enableContentValidation": {
+                      "$ref": "#/$defs/_306"
                     },
-                    "outFiles": {
-                      "$ref": "#/$defs/_293"
+                    "enableDWARF": {
+                      "$ref": "#/$defs/_310"
                     },
-                    "outputCapture": {
-                      "$ref": "#/$defs/_304"
+                    "env": {
+                      "$ref": "#/$defs/_315"
                     },
-                    "pauseForSourceMap": {
-                      "$ref": "#/$defs/_294"
-                    },
-                    "remoteRoot": {
-                      "$ref": "#/$defs/_312"
-                    },
-                    "resolveSourceMapLocations": {
-                      "$ref": "#/$defs/_292"
-                    },
-                    "runtimeSourcemapPausePatterns": {
+                    "envFile": {
                       "$ref": "#/$defs/_316"
                     },
-                    "showAsyncStacks": {
+                    "localRoot": {
+                      "$ref": "#/$defs/_312"
+                    },
+                    "nodeVersionHint": {
+                      "$ref": "#/$defs/_318"
+                    },
+                    "outFiles": {
+                      "$ref": "#/$defs/_294"
+                    },
+                    "outputCapture": {
+                      "$ref": "#/$defs/_305"
+                    },
+                    "pauseForSourceMap": {
                       "$ref": "#/$defs/_295"
                     },
-                    "skipFiles": {
+                    "remoteRoot": {
+                      "$ref": "#/$defs/_313"
+                    },
+                    "resolveSourceMapLocations": {
+                      "$ref": "#/$defs/_293"
+                    },
+                    "runtimeSourcemapPausePatterns": {
+                      "$ref": "#/$defs/_317"
+                    },
+                    "showAsyncStacks": {
                       "$ref": "#/$defs/_296"
                     },
-                    "smartStep": {
+                    "skipFiles": {
                       "$ref": "#/$defs/_297"
                     },
-                    "sourceMapPathOverrides": {
-                      "$ref": "#/$defs/_300"
-                    },
-                    "sourceMapRenames": {
-                      "$ref": "#/$defs/_299"
-                    },
-                    "sourceMaps": {
+                    "smartStep": {
                       "$ref": "#/$defs/_298"
                     },
-                    "timeout": {
+                    "sourceMapPathOverrides": {
                       "$ref": "#/$defs/_301"
                     },
-                    "timeouts": {
+                    "sourceMapRenames": {
+                      "$ref": "#/$defs/_300"
+                    },
+                    "sourceMaps": {
+                      "$ref": "#/$defs/_299"
+                    },
+                    "timeout": {
                       "$ref": "#/$defs/_302"
                     },
-                    "trace": {
+                    "timeouts": {
                       "$ref": "#/$defs/_303"
+                    },
+                    "trace": {
+                      "$ref": "#/$defs/_304"
                     }
                   }
                 }
               ]
             },
             "showAsyncStacks": {
-              "$ref": "#/$defs/_295"
-            },
-            "skipFiles": {
               "$ref": "#/$defs/_296"
             },
-            "smartStep": {
+            "skipFiles": {
               "$ref": "#/$defs/_297"
             },
-            "sourceMapPathOverrides": {
-              "$ref": "#/$defs/_300"
-            },
-            "sourceMapRenames": {
-              "$ref": "#/$defs/_299"
-            },
-            "sourceMaps": {
+            "smartStep": {
               "$ref": "#/$defs/_298"
             },
-            "timeout": {
+            "sourceMapPathOverrides": {
               "$ref": "#/$defs/_301"
             },
-            "timeouts": {
+            "sourceMapRenames": {
+              "$ref": "#/$defs/_300"
+            },
+            "sourceMaps": {
+              "$ref": "#/$defs/_299"
+            },
+            "timeout": {
               "$ref": "#/$defs/_302"
             },
-            "trace": {
+            "timeouts": {
               "$ref": "#/$defs/_303"
+            },
+            "trace": {
+              "$ref": "#/$defs/_304"
             },
             "url": {
               "type": "string",
@@ -4293,10 +4354,10 @@
           "default": false
         },
         "autoAttachChildProcesses": {
-          "$ref": "#/$defs/_313"
+          "$ref": "#/$defs/_314"
         },
         "cascadeTerminateToConfigurations": {
-          "$ref": "#/$defs/_308"
+          "$ref": "#/$defs/_309"
         },
         "continueOnAttach": {
           "type": "boolean",
@@ -4304,47 +4365,47 @@
           "default": true
         },
         "customDescriptionGenerator": {
-          "$ref": "#/$defs/_306"
-        },
-        "customPropertiesGenerator": {
           "$ref": "#/$defs/_307"
         },
+        "customPropertiesGenerator": {
+          "$ref": "#/$defs/_308"
+        },
         "cwd": {
-          "$ref": "#/$defs/_310"
-        },
-        "enableContentValidation": {
-          "$ref": "#/$defs/_305"
-        },
-        "enableDWARF": {
-          "$ref": "#/$defs/_309"
-        },
-        "env": {
-          "$ref": "#/$defs/_314"
-        },
-        "envFile": {
-          "$ref": "#/$defs/_315"
-        },
-        "localRoot": {
           "$ref": "#/$defs/_311"
         },
+        "enableContentValidation": {
+          "$ref": "#/$defs/_306"
+        },
+        "enableDWARF": {
+          "$ref": "#/$defs/_310"
+        },
+        "env": {
+          "$ref": "#/$defs/_315"
+        },
+        "envFile": {
+          "$ref": "#/$defs/_316"
+        },
+        "localRoot": {
+          "$ref": "#/$defs/_312"
+        },
         "nodeVersionHint": {
-          "$ref": "#/$defs/_317"
+          "$ref": "#/$defs/_318"
         },
         "outFiles": {
-          "$ref": "#/$defs/_293"
+          "$ref": "#/$defs/_294"
         },
         "outputCapture": {
-          "$ref": "#/$defs/_304"
+          "$ref": "#/$defs/_305"
         },
         "pauseForSourceMap": {
-          "$ref": "#/$defs/_294"
+          "$ref": "#/$defs/_295"
         },
         "port": {
           "description": "Debug port to attach to. Default is 9229.",
           "default": 9229,
           "oneOf": [
             {
-              "$ref": "#/$defs/_321"
+              "$ref": "#/$defs/_322"
             },
             {
               "type": "integer"
@@ -4364,43 +4425,43 @@
           "description": "Explicit Host header to use when connecting to the websocket of inspector. If unspecified, the host header will be set to 'localhost'. This is useful when the inspector is running behind a proxy that only accept particular Host header."
         },
         "remoteRoot": {
-          "$ref": "#/$defs/_312"
+          "$ref": "#/$defs/_313"
         },
         "resolveSourceMapLocations": {
-          "$ref": "#/$defs/_292"
+          "$ref": "#/$defs/_293"
         },
         "restart": {
-          "$ref": "#/$defs/_320"
+          "$ref": "#/$defs/_321"
         },
         "runtimeSourcemapPausePatterns": {
-          "$ref": "#/$defs/_316"
+          "$ref": "#/$defs/_317"
         },
         "showAsyncStacks": {
-          "$ref": "#/$defs/_295"
-        },
-        "skipFiles": {
           "$ref": "#/$defs/_296"
         },
-        "smartStep": {
+        "skipFiles": {
           "$ref": "#/$defs/_297"
         },
-        "sourceMapPathOverrides": {
-          "$ref": "#/$defs/_300"
-        },
-        "sourceMapRenames": {
-          "$ref": "#/$defs/_299"
-        },
-        "sourceMaps": {
+        "smartStep": {
           "$ref": "#/$defs/_298"
         },
-        "timeout": {
+        "sourceMapPathOverrides": {
           "$ref": "#/$defs/_301"
         },
-        "timeouts": {
+        "sourceMapRenames": {
+          "$ref": "#/$defs/_300"
+        },
+        "sourceMaps": {
+          "$ref": "#/$defs/_299"
+        },
+        "timeout": {
           "$ref": "#/$defs/_302"
         },
-        "trace": {
+        "timeouts": {
           "$ref": "#/$defs/_303"
+        },
+        "trace": {
+          "$ref": "#/$defs/_304"
         },
         "websocketAddress": {
           "type": "string",
@@ -4433,85 +4494,85 @@
       "default": {},
       "properties": {
         "autoAttachChildProcesses": {
-          "$ref": "#/$defs/_313"
-        },
-        "cascadeTerminateToConfigurations": {
-          "$ref": "#/$defs/_308"
-        },
-        "command": {
-          "$ref": "#/$defs/_318"
-        },
-        "customDescriptionGenerator": {
-          "$ref": "#/$defs/_306"
-        },
-        "customPropertiesGenerator": {
-          "$ref": "#/$defs/_307"
-        },
-        "cwd": {
-          "$ref": "#/$defs/_310"
-        },
-        "enableContentValidation": {
-          "$ref": "#/$defs/_305"
-        },
-        "enableDWARF": {
-          "$ref": "#/$defs/_309"
-        },
-        "env": {
           "$ref": "#/$defs/_314"
         },
-        "envFile": {
-          "$ref": "#/$defs/_315"
+        "cascadeTerminateToConfigurations": {
+          "$ref": "#/$defs/_309"
         },
-        "localRoot": {
+        "command": {
+          "$ref": "#/$defs/_319"
+        },
+        "customDescriptionGenerator": {
+          "$ref": "#/$defs/_307"
+        },
+        "customPropertiesGenerator": {
+          "$ref": "#/$defs/_308"
+        },
+        "cwd": {
           "$ref": "#/$defs/_311"
         },
-        "nodeVersionHint": {
-          "$ref": "#/$defs/_317"
+        "enableContentValidation": {
+          "$ref": "#/$defs/_306"
         },
-        "outFiles": {
-          "$ref": "#/$defs/_293"
+        "enableDWARF": {
+          "$ref": "#/$defs/_310"
         },
-        "outputCapture": {
-          "$ref": "#/$defs/_304"
+        "env": {
+          "$ref": "#/$defs/_315"
         },
-        "pauseForSourceMap": {
-          "$ref": "#/$defs/_294"
-        },
-        "remoteRoot": {
-          "$ref": "#/$defs/_312"
-        },
-        "resolveSourceMapLocations": {
-          "$ref": "#/$defs/_292"
-        },
-        "runtimeSourcemapPausePatterns": {
+        "envFile": {
           "$ref": "#/$defs/_316"
         },
-        "showAsyncStacks": {
+        "localRoot": {
+          "$ref": "#/$defs/_312"
+        },
+        "nodeVersionHint": {
+          "$ref": "#/$defs/_318"
+        },
+        "outFiles": {
+          "$ref": "#/$defs/_294"
+        },
+        "outputCapture": {
+          "$ref": "#/$defs/_305"
+        },
+        "pauseForSourceMap": {
           "$ref": "#/$defs/_295"
         },
-        "skipFiles": {
+        "remoteRoot": {
+          "$ref": "#/$defs/_313"
+        },
+        "resolveSourceMapLocations": {
+          "$ref": "#/$defs/_293"
+        },
+        "runtimeSourcemapPausePatterns": {
+          "$ref": "#/$defs/_317"
+        },
+        "showAsyncStacks": {
           "$ref": "#/$defs/_296"
         },
-        "smartStep": {
+        "skipFiles": {
           "$ref": "#/$defs/_297"
         },
-        "sourceMapPathOverrides": {
-          "$ref": "#/$defs/_300"
-        },
-        "sourceMapRenames": {
-          "$ref": "#/$defs/_299"
-        },
-        "sourceMaps": {
+        "smartStep": {
           "$ref": "#/$defs/_298"
         },
-        "timeout": {
+        "sourceMapPathOverrides": {
           "$ref": "#/$defs/_301"
         },
-        "timeouts": {
+        "sourceMapRenames": {
+          "$ref": "#/$defs/_300"
+        },
+        "sourceMaps": {
+          "$ref": "#/$defs/_299"
+        },
+        "timeout": {
           "$ref": "#/$defs/_302"
         },
-        "trace": {
+        "timeouts": {
           "$ref": "#/$defs/_303"
+        },
+        "trace": {
+          "$ref": "#/$defs/_304"
         }
       },
       "scope": 4,
@@ -4918,10 +4979,10 @@
     "editor.codeActionsOnSave": {
       "oneOf": [
         {
-          "$ref": "#/$defs/_327"
+          "$ref": "#/$defs/_328"
         },
         {
-          "$ref": "#/$defs/_328"
+          "$ref": "#/$defs/_329"
         }
       ],
       "markdownDescription": "Run Code Actions for the editor on save. Code Actions must be specified and the editor must not be shutting down. When `#files.autoSave#` is set to `afterDelay`, Code Actions will only be run when the file is saved explicitly. Example: `\"source.organizeImports\": \"explicit\" `",
@@ -5648,7 +5709,7 @@
       "default": null,
       "description": "Defines the bracket symbols that increase or decrease the indentation.",
       "items": {
-        "$ref": "#/$defs/_325"
+        "$ref": "#/$defs/_326"
       },
       "defaultDefaultValue": null,
       "scope": 6,
@@ -5662,7 +5723,7 @@
       "default": null,
       "description": "Defines the bracket pairs that are colorized by their nesting level if bracket pair colorization is enabled.",
       "items": {
-        "$ref": "#/$defs/_325"
+        "$ref": "#/$defs/_326"
       },
       "defaultDefaultValue": null,
       "scope": 6,
@@ -7525,7 +7586,7 @@
             "description": "The glob pattern to match file paths against. Set to true or false to enable or disable the pattern."
           },
           {
-            "$ref": "#/$defs/_326"
+            "$ref": "#/$defs/_327"
           }
         ]
       },
@@ -9142,10 +9203,10 @@
       "restricted": false
     },
     "github.copilot.chat.agent.terminal.allowList": {
-      "$ref": "#/$defs/_286"
+      "$ref": "#/$defs/_287"
     },
     "github.copilot.chat.agent.terminal.denyList": {
-      "$ref": "#/$defs/_286"
+      "$ref": "#/$defs/_287"
     },
     "github.gitAuthentication": {
       "type": "boolean",
@@ -9715,7 +9776,7 @@
       "restricted": false
     },
     "javascript.autoClosingTags": {
-      "$ref": "#/$defs/_360"
+      "$ref": "#/$defs/_361"
     },
     "javascript.format.enable": {
       "type": "boolean",
@@ -9730,88 +9791,88 @@
       "restricted": false
     },
     "javascript.format.indentSwitchCase": {
-      "$ref": "#/$defs/_393"
-    },
-    "javascript.format.insertSpaceAfterCommaDelimiter": {
-      "$ref": "#/$defs/_377"
-    },
-    "javascript.format.insertSpaceAfterConstructor": {
-      "$ref": "#/$defs/_378"
-    },
-    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": {
-      "$ref": "#/$defs/_382"
-    },
-    "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": {
-      "$ref": "#/$defs/_381"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": {
-      "$ref": "#/$defs/_387"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": {
-      "$ref": "#/$defs/_389"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": {
-      "$ref": "#/$defs/_386"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": {
-      "$ref": "#/$defs/_385"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": {
-      "$ref": "#/$defs/_384"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": {
-      "$ref": "#/$defs/_388"
-    },
-    "javascript.format.insertSpaceAfterSemicolonInForStatements": {
-      "$ref": "#/$defs/_379"
-    },
-    "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": {
-      "$ref": "#/$defs/_380"
-    },
-    "javascript.format.insertSpaceBeforeFunctionParenthesis": {
-      "$ref": "#/$defs/_383"
-    },
-    "javascript.format.placeOpenBraceOnNewLineForControlBlocks": {
-      "$ref": "#/$defs/_391"
-    },
-    "javascript.format.placeOpenBraceOnNewLineForFunctions": {
-      "$ref": "#/$defs/_390"
-    },
-    "javascript.format.semicolons": {
-      "$ref": "#/$defs/_392"
-    },
-    "javascript.inlayHints.functionLikeReturnTypes.enabled": {
-      "$ref": "#/$defs/_400"
-    },
-    "javascript.inlayHints.parameterNames.enabled": {
       "$ref": "#/$defs/_394"
     },
-    "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": {
+    "javascript.format.insertSpaceAfterCommaDelimiter": {
+      "$ref": "#/$defs/_378"
+    },
+    "javascript.format.insertSpaceAfterConstructor": {
+      "$ref": "#/$defs/_379"
+    },
+    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": {
+      "$ref": "#/$defs/_383"
+    },
+    "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": {
+      "$ref": "#/$defs/_382"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": {
+      "$ref": "#/$defs/_388"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": {
+      "$ref": "#/$defs/_390"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": {
+      "$ref": "#/$defs/_387"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": {
+      "$ref": "#/$defs/_386"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": {
+      "$ref": "#/$defs/_385"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": {
+      "$ref": "#/$defs/_389"
+    },
+    "javascript.format.insertSpaceAfterSemicolonInForStatements": {
+      "$ref": "#/$defs/_380"
+    },
+    "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": {
+      "$ref": "#/$defs/_381"
+    },
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": {
+      "$ref": "#/$defs/_384"
+    },
+    "javascript.format.placeOpenBraceOnNewLineForControlBlocks": {
+      "$ref": "#/$defs/_392"
+    },
+    "javascript.format.placeOpenBraceOnNewLineForFunctions": {
+      "$ref": "#/$defs/_391"
+    },
+    "javascript.format.semicolons": {
+      "$ref": "#/$defs/_393"
+    },
+    "javascript.inlayHints.functionLikeReturnTypes.enabled": {
+      "$ref": "#/$defs/_401"
+    },
+    "javascript.inlayHints.parameterNames.enabled": {
       "$ref": "#/$defs/_395"
     },
-    "javascript.inlayHints.parameterTypes.enabled": {
+    "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": {
       "$ref": "#/$defs/_396"
     },
-    "javascript.inlayHints.propertyDeclarationTypes.enabled": {
-      "$ref": "#/$defs/_399"
-    },
-    "javascript.inlayHints.variableTypes.enabled": {
+    "javascript.inlayHints.parameterTypes.enabled": {
       "$ref": "#/$defs/_397"
     },
-    "javascript.inlayHints.variableTypes.suppressWhenTypeMatchesName": {
+    "javascript.inlayHints.propertyDeclarationTypes.enabled": {
+      "$ref": "#/$defs/_400"
+    },
+    "javascript.inlayHints.variableTypes.enabled": {
       "$ref": "#/$defs/_398"
     },
-    "javascript.preferences.autoImportFileExcludePatterns": {
-      "$ref": "#/$defs/_373"
+    "javascript.inlayHints.variableTypes.suppressWhenTypeMatchesName": {
+      "$ref": "#/$defs/_399"
     },
-    "javascript.preferences.autoImportSpecifierExcludeRegexes": {
+    "javascript.preferences.autoImportFileExcludePatterns": {
       "$ref": "#/$defs/_374"
     },
+    "javascript.preferences.autoImportSpecifierExcludeRegexes": {
+      "$ref": "#/$defs/_375"
+    },
     "javascript.preferences.importModuleSpecifier": {
-      "$ref": "#/$defs/_371"
+      "$ref": "#/$defs/_372"
     },
     "javascript.preferences.importModuleSpecifierEnding": {
-      "$ref": "#/$defs/_372"
+      "$ref": "#/$defs/_373"
     },
     "javascript.preferences.jsxAttributeCompletionStyle": {
       "type": "string",
@@ -9836,19 +9897,19 @@
       "restricted": false
     },
     "javascript.preferences.organizeImports": {
-      "$ref": "#/$defs/_324"
+      "$ref": "#/$defs/_325"
     },
     "javascript.preferences.quoteStyle": {
-      "$ref": "#/$defs/_370"
+      "$ref": "#/$defs/_371"
     },
     "javascript.preferences.renameMatchingJsxTags": {
-      "$ref": "#/$defs/_376"
+      "$ref": "#/$defs/_377"
     },
     "javascript.preferences.useAliasesForRenames": {
-      "$ref": "#/$defs/_375"
+      "$ref": "#/$defs/_376"
     },
     "javascript.preferGoToSourceDefinition": {
-      "$ref": "#/$defs/_322"
+      "$ref": "#/$defs/_323"
     },
     "javascript.referencesCodeLens.enabled": {
       "type": "boolean",
@@ -9875,28 +9936,28 @@
       "restricted": false
     },
     "javascript.suggest.autoImports": {
-      "$ref": "#/$defs/_362"
-    },
-    "javascript.suggest.classMemberSnippets.enabled": {
-      "$ref": "#/$defs/_369"
-    },
-    "javascript.suggest.completeFunctionCalls": {
       "$ref": "#/$defs/_363"
     },
+    "javascript.suggest.classMemberSnippets.enabled": {
+      "$ref": "#/$defs/_370"
+    },
+    "javascript.suggest.completeFunctionCalls": {
+      "$ref": "#/$defs/_364"
+    },
     "javascript.suggest.completeJSDocs": {
-      "$ref": "#/$defs/_365"
+      "$ref": "#/$defs/_366"
     },
     "javascript.suggest.enabled": {
-      "$ref": "#/$defs/_361"
+      "$ref": "#/$defs/_362"
     },
     "javascript.suggest.includeAutomaticOptionalChainCompletions": {
-      "$ref": "#/$defs/_367"
-    },
-    "javascript.suggest.includeCompletionsForImportStatements": {
       "$ref": "#/$defs/_368"
     },
+    "javascript.suggest.includeCompletionsForImportStatements": {
+      "$ref": "#/$defs/_369"
+    },
     "javascript.suggest.jsdoc.generateReturns": {
-      "$ref": "#/$defs/_366"
+      "$ref": "#/$defs/_367"
     },
     "javascript.suggest.names": {
       "type": "boolean",
@@ -9911,7 +9972,7 @@
       "restricted": false
     },
     "javascript.suggest.paths": {
-      "$ref": "#/$defs/_364"
+      "$ref": "#/$defs/_365"
     },
     "javascript.suggestionActions.enabled": {
       "type": "boolean",
@@ -9926,10 +9987,10 @@
       "restricted": false
     },
     "javascript.updateImportsOnFileMove.enabled": {
-      "$ref": "#/$defs/_359"
+      "$ref": "#/$defs/_360"
     },
     "javascript.updateImportsOnPaste.enabled": {
-      "$ref": "#/$defs/_323"
+      "$ref": "#/$defs/_324"
     },
     "javascript.validate.enable": {
       "type": "boolean",
@@ -10208,13 +10269,13 @@
       "restricted": false
     },
     "less.completion.completePropertyWithSemicolon": {
-      "$ref": "#/$defs/_332"
+      "$ref": "#/$defs/_333"
     },
     "less.completion.triggerPropertyValueCompletion": {
-      "$ref": "#/$defs/_331"
+      "$ref": "#/$defs/_332"
     },
     "less.format.braceStyle": {
-      "$ref": "#/$defs/_357"
+      "$ref": "#/$defs/_358"
     },
     "less.format.enable": {
       "type": "boolean",
@@ -10244,16 +10305,16 @@
       "restricted": false
     },
     "less.format.newlineBetweenRules": {
-      "$ref": "#/$defs/_355"
+      "$ref": "#/$defs/_356"
     },
     "less.format.newlineBetweenSelectors": {
-      "$ref": "#/$defs/_354"
+      "$ref": "#/$defs/_355"
     },
     "less.format.preserveNewLines": {
-      "$ref": "#/$defs/_358"
+      "$ref": "#/$defs/_359"
     },
     "less.format.spaceAroundSelectorSeparator": {
-      "$ref": "#/$defs/_356"
+      "$ref": "#/$defs/_357"
     },
     "less.hover.documentation": {
       "type": "boolean",
@@ -10280,67 +10341,67 @@
       "restricted": false
     },
     "less.lint.argumentsInColorFunction": {
-      "$ref": "#/$defs/_344"
-    },
-    "less.lint.boxModel": {
-      "$ref": "#/$defs/_339"
-    },
-    "less.lint.compatibleVendorPrefixes": {
-      "$ref": "#/$defs/_334"
-    },
-    "less.lint.duplicateProperties": {
-      "$ref": "#/$defs/_336"
-    },
-    "less.lint.emptyRules": {
-      "$ref": "#/$defs/_337"
-    },
-    "less.lint.float": {
-      "$ref": "#/$defs/_351"
-    },
-    "less.lint.fontFaceProperties": {
-      "$ref": "#/$defs/_342"
-    },
-    "less.lint.hexColorLength": {
-      "$ref": "#/$defs/_343"
-    },
-    "less.lint.idSelector": {
-      "$ref": "#/$defs/_352"
-    },
-    "less.lint.ieHack": {
-      "$ref": "#/$defs/_347"
-    },
-    "less.lint.important": {
-      "$ref": "#/$defs/_350"
-    },
-    "less.lint.importStatement": {
-      "$ref": "#/$defs/_338"
-    },
-    "less.lint.propertyIgnoredDueToDisplay": {
-      "$ref": "#/$defs/_349"
-    },
-    "less.lint.universalSelector": {
-      "$ref": "#/$defs/_340"
-    },
-    "less.lint.unknownAtRules": {
-      "$ref": "#/$defs/_353"
-    },
-    "less.lint.unknownProperties": {
       "$ref": "#/$defs/_345"
     },
-    "less.lint.unknownVendorSpecificProperties": {
-      "$ref": "#/$defs/_348"
+    "less.lint.boxModel": {
+      "$ref": "#/$defs/_340"
     },
-    "less.lint.validProperties": {
-      "$ref": "#/$defs/_346"
-    },
-    "less.lint.vendorPrefix": {
+    "less.lint.compatibleVendorPrefixes": {
       "$ref": "#/$defs/_335"
     },
-    "less.lint.zeroUnits": {
+    "less.lint.duplicateProperties": {
+      "$ref": "#/$defs/_337"
+    },
+    "less.lint.emptyRules": {
+      "$ref": "#/$defs/_338"
+    },
+    "less.lint.float": {
+      "$ref": "#/$defs/_352"
+    },
+    "less.lint.fontFaceProperties": {
+      "$ref": "#/$defs/_343"
+    },
+    "less.lint.hexColorLength": {
+      "$ref": "#/$defs/_344"
+    },
+    "less.lint.idSelector": {
+      "$ref": "#/$defs/_353"
+    },
+    "less.lint.ieHack": {
+      "$ref": "#/$defs/_348"
+    },
+    "less.lint.important": {
+      "$ref": "#/$defs/_351"
+    },
+    "less.lint.importStatement": {
+      "$ref": "#/$defs/_339"
+    },
+    "less.lint.propertyIgnoredDueToDisplay": {
+      "$ref": "#/$defs/_350"
+    },
+    "less.lint.universalSelector": {
       "$ref": "#/$defs/_341"
     },
+    "less.lint.unknownAtRules": {
+      "$ref": "#/$defs/_354"
+    },
+    "less.lint.unknownProperties": {
+      "$ref": "#/$defs/_346"
+    },
+    "less.lint.unknownVendorSpecificProperties": {
+      "$ref": "#/$defs/_349"
+    },
+    "less.lint.validProperties": {
+      "$ref": "#/$defs/_347"
+    },
+    "less.lint.vendorPrefix": {
+      "$ref": "#/$defs/_336"
+    },
+    "less.lint.zeroUnits": {
+      "$ref": "#/$defs/_342"
+    },
     "less.validate": {
-      "$ref": "#/$defs/_333"
+      "$ref": "#/$defs/_334"
     },
     "markdown.copyFiles.destination": {
       "type": "object",
@@ -11316,10 +11377,10 @@
     "notebook.codeActionsOnSave": {
       "oneOf": [
         {
-          "$ref": "#/$defs/_327"
+          "$ref": "#/$defs/_328"
         },
         {
-          "$ref": "#/$defs/_328"
+          "$ref": "#/$defs/_329"
         }
       ],
       "markdownDescription": "Run a series of Code Actions for a notebook on save. Code Actions must be specified and the editor must not be shutting down. When `#files.autoSave#` is set to `afterDelay`, Code Actions will only be run when the file is saved explicitly. Example: `\"notebook.source.organizeImports\": \"explicit\"`",
@@ -13438,12 +13499,12 @@
         "([a-z0-9A-Z][a-z0-9-A-Z]*)\\.([a-z0-9A-Z][a-z0-9-A-Z]*)$": {
           "oneOf": [
             {
-              "$ref": "#/$defs/_287"
+              "$ref": "#/$defs/_288"
             },
             {
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_287"
+                "$ref": "#/$defs/_288"
               }
             }
           ],
@@ -13489,10 +13550,10 @@
       "type": "object",
       "properties": {
         "elevateIfNeeded": {
-          "$ref": "#/$defs/_288"
+          "$ref": "#/$defs/_289"
         },
         "label": {
-          "$ref": "#/$defs/_289"
+          "$ref": "#/$defs/_290"
         },
         "onAutoForward": {
           "type": "string",
@@ -13514,10 +13575,10 @@
           "default": "notify"
         },
         "protocol": {
-          "$ref": "#/$defs/_291"
+          "$ref": "#/$defs/_292"
         },
         "requireLocalPort": {
-          "$ref": "#/$defs/_290"
+          "$ref": "#/$defs/_291"
         }
       },
       "defaultSnippets": [
@@ -13541,10 +13602,10 @@
           "description": "A port, range of ports (ex. \"40000-55000\"), host and port (ex. \"db:1234\"), or regular expression (ex. \".+\\\\/server.js\").  For a port number or range, the attributes will apply to that port number or range of port numbers. Attributes which use a regular expression will apply to ports whose associated process command line matches the expression.",
           "properties": {
             "elevateIfNeeded": {
-              "$ref": "#/$defs/_288"
+              "$ref": "#/$defs/_289"
             },
             "label": {
-              "$ref": "#/$defs/_289"
+              "$ref": "#/$defs/_290"
             },
             "onAutoForward": {
               "type": "string",
@@ -13568,10 +13629,10 @@
               "default": "notify"
             },
             "protocol": {
-              "$ref": "#/$defs/_291"
+              "$ref": "#/$defs/_292"
             },
             "requireLocalPort": {
-              "$ref": "#/$defs/_290"
+              "$ref": "#/$defs/_291"
             }
           },
           "default": {
@@ -14068,13 +14129,13 @@
       "restricted": false
     },
     "scss.completion.completePropertyWithSemicolon": {
-      "$ref": "#/$defs/_332"
+      "$ref": "#/$defs/_333"
     },
     "scss.completion.triggerPropertyValueCompletion": {
-      "$ref": "#/$defs/_331"
+      "$ref": "#/$defs/_332"
     },
     "scss.format.braceStyle": {
-      "$ref": "#/$defs/_357"
+      "$ref": "#/$defs/_358"
     },
     "scss.format.enable": {
       "type": "boolean",
@@ -14104,16 +14165,16 @@
       "restricted": false
     },
     "scss.format.newlineBetweenRules": {
-      "$ref": "#/$defs/_355"
+      "$ref": "#/$defs/_356"
     },
     "scss.format.newlineBetweenSelectors": {
-      "$ref": "#/$defs/_354"
+      "$ref": "#/$defs/_355"
     },
     "scss.format.preserveNewLines": {
-      "$ref": "#/$defs/_358"
+      "$ref": "#/$defs/_359"
     },
     "scss.format.spaceAroundSelectorSeparator": {
-      "$ref": "#/$defs/_356"
+      "$ref": "#/$defs/_357"
     },
     "scss.hover.documentation": {
       "type": "boolean",
@@ -14140,67 +14201,67 @@
       "restricted": false
     },
     "scss.lint.argumentsInColorFunction": {
-      "$ref": "#/$defs/_344"
-    },
-    "scss.lint.boxModel": {
-      "$ref": "#/$defs/_339"
-    },
-    "scss.lint.compatibleVendorPrefixes": {
-      "$ref": "#/$defs/_334"
-    },
-    "scss.lint.duplicateProperties": {
-      "$ref": "#/$defs/_336"
-    },
-    "scss.lint.emptyRules": {
-      "$ref": "#/$defs/_337"
-    },
-    "scss.lint.float": {
-      "$ref": "#/$defs/_351"
-    },
-    "scss.lint.fontFaceProperties": {
-      "$ref": "#/$defs/_342"
-    },
-    "scss.lint.hexColorLength": {
-      "$ref": "#/$defs/_343"
-    },
-    "scss.lint.idSelector": {
-      "$ref": "#/$defs/_352"
-    },
-    "scss.lint.ieHack": {
-      "$ref": "#/$defs/_347"
-    },
-    "scss.lint.important": {
-      "$ref": "#/$defs/_350"
-    },
-    "scss.lint.importStatement": {
-      "$ref": "#/$defs/_338"
-    },
-    "scss.lint.propertyIgnoredDueToDisplay": {
-      "$ref": "#/$defs/_349"
-    },
-    "scss.lint.universalSelector": {
-      "$ref": "#/$defs/_340"
-    },
-    "scss.lint.unknownAtRules": {
-      "$ref": "#/$defs/_353"
-    },
-    "scss.lint.unknownProperties": {
       "$ref": "#/$defs/_345"
     },
-    "scss.lint.unknownVendorSpecificProperties": {
-      "$ref": "#/$defs/_348"
+    "scss.lint.boxModel": {
+      "$ref": "#/$defs/_340"
     },
-    "scss.lint.validProperties": {
-      "$ref": "#/$defs/_346"
-    },
-    "scss.lint.vendorPrefix": {
+    "scss.lint.compatibleVendorPrefixes": {
       "$ref": "#/$defs/_335"
     },
-    "scss.lint.zeroUnits": {
+    "scss.lint.duplicateProperties": {
+      "$ref": "#/$defs/_337"
+    },
+    "scss.lint.emptyRules": {
+      "$ref": "#/$defs/_338"
+    },
+    "scss.lint.float": {
+      "$ref": "#/$defs/_352"
+    },
+    "scss.lint.fontFaceProperties": {
+      "$ref": "#/$defs/_343"
+    },
+    "scss.lint.hexColorLength": {
+      "$ref": "#/$defs/_344"
+    },
+    "scss.lint.idSelector": {
+      "$ref": "#/$defs/_353"
+    },
+    "scss.lint.ieHack": {
+      "$ref": "#/$defs/_348"
+    },
+    "scss.lint.important": {
+      "$ref": "#/$defs/_351"
+    },
+    "scss.lint.importStatement": {
+      "$ref": "#/$defs/_339"
+    },
+    "scss.lint.propertyIgnoredDueToDisplay": {
+      "$ref": "#/$defs/_350"
+    },
+    "scss.lint.universalSelector": {
       "$ref": "#/$defs/_341"
     },
+    "scss.lint.unknownAtRules": {
+      "$ref": "#/$defs/_354"
+    },
+    "scss.lint.unknownProperties": {
+      "$ref": "#/$defs/_346"
+    },
+    "scss.lint.unknownVendorSpecificProperties": {
+      "$ref": "#/$defs/_349"
+    },
+    "scss.lint.validProperties": {
+      "$ref": "#/$defs/_347"
+    },
+    "scss.lint.vendorPrefix": {
+      "$ref": "#/$defs/_336"
+    },
+    "scss.lint.zeroUnits": {
+      "$ref": "#/$defs/_342"
+    },
     "scss.validate": {
-      "$ref": "#/$defs/_333"
+      "$ref": "#/$defs/_334"
     },
     "search.actionsPosition": {
       "type": "string",
@@ -14282,7 +14343,7 @@
             "$ref": "#/$defs/_272"
           },
           {
-            "$ref": "#/$defs/_326"
+            "$ref": "#/$defs/_327"
           }
         ]
       },
@@ -18314,7 +18375,7 @@
       "restricted": false
     },
     "typescript.autoClosingTags": {
-      "$ref": "#/$defs/_360"
+      "$ref": "#/$defs/_361"
     },
     "typescript.check.npmIsInstalled": {
       "type": "boolean",
@@ -18383,40 +18444,40 @@
       "restricted": false
     },
     "typescript.format.indentSwitchCase": {
-      "$ref": "#/$defs/_393"
+      "$ref": "#/$defs/_394"
     },
     "typescript.format.insertSpaceAfterCommaDelimiter": {
-      "$ref": "#/$defs/_377"
-    },
-    "typescript.format.insertSpaceAfterConstructor": {
       "$ref": "#/$defs/_378"
     },
+    "typescript.format.insertSpaceAfterConstructor": {
+      "$ref": "#/$defs/_379"
+    },
     "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": {
-      "$ref": "#/$defs/_382"
+      "$ref": "#/$defs/_383"
     },
     "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": {
-      "$ref": "#/$defs/_381"
+      "$ref": "#/$defs/_382"
     },
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": {
-      "$ref": "#/$defs/_387"
-    },
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": {
-      "$ref": "#/$defs/_389"
-    },
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": {
-      "$ref": "#/$defs/_386"
-    },
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": {
-      "$ref": "#/$defs/_385"
-    },
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": {
-      "$ref": "#/$defs/_384"
-    },
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": {
       "$ref": "#/$defs/_388"
     },
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": {
+      "$ref": "#/$defs/_390"
+    },
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": {
+      "$ref": "#/$defs/_387"
+    },
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": {
+      "$ref": "#/$defs/_386"
+    },
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": {
+      "$ref": "#/$defs/_385"
+    },
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": {
+      "$ref": "#/$defs/_389"
+    },
     "typescript.format.insertSpaceAfterSemicolonInForStatements": {
-      "$ref": "#/$defs/_379"
+      "$ref": "#/$defs/_380"
     },
     "typescript.format.insertSpaceAfterTypeAssertion": {
       "type": "boolean",
@@ -18431,19 +18492,19 @@
       "restricted": false
     },
     "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": {
-      "$ref": "#/$defs/_380"
+      "$ref": "#/$defs/_381"
     },
     "typescript.format.insertSpaceBeforeFunctionParenthesis": {
-      "$ref": "#/$defs/_383"
+      "$ref": "#/$defs/_384"
     },
     "typescript.format.placeOpenBraceOnNewLineForControlBlocks": {
-      "$ref": "#/$defs/_391"
+      "$ref": "#/$defs/_392"
     },
     "typescript.format.placeOpenBraceOnNewLineForFunctions": {
-      "$ref": "#/$defs/_390"
+      "$ref": "#/$defs/_391"
     },
     "typescript.format.semicolons": {
-      "$ref": "#/$defs/_392"
+      "$ref": "#/$defs/_393"
     },
     "typescript.implementationsCodeLens.enabled": {
       "type": "boolean",
@@ -18482,25 +18543,25 @@
       "restricted": false
     },
     "typescript.inlayHints.functionLikeReturnTypes.enabled": {
-      "$ref": "#/$defs/_400"
+      "$ref": "#/$defs/_401"
     },
     "typescript.inlayHints.parameterNames.enabled": {
-      "$ref": "#/$defs/_394"
-    },
-    "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": {
       "$ref": "#/$defs/_395"
     },
-    "typescript.inlayHints.parameterTypes.enabled": {
+    "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": {
       "$ref": "#/$defs/_396"
     },
-    "typescript.inlayHints.propertyDeclarationTypes.enabled": {
-      "$ref": "#/$defs/_399"
-    },
-    "typescript.inlayHints.variableTypes.enabled": {
+    "typescript.inlayHints.parameterTypes.enabled": {
       "$ref": "#/$defs/_397"
     },
-    "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": {
+    "typescript.inlayHints.propertyDeclarationTypes.enabled": {
+      "$ref": "#/$defs/_400"
+    },
+    "typescript.inlayHints.variableTypes.enabled": {
       "$ref": "#/$defs/_398"
+    },
+    "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": {
+      "$ref": "#/$defs/_399"
     },
     "typescript.locale": {
       "type": "string",
@@ -18552,16 +18613,16 @@
       "restricted": true
     },
     "typescript.preferences.autoImportFileExcludePatterns": {
-      "$ref": "#/$defs/_373"
-    },
-    "typescript.preferences.autoImportSpecifierExcludeRegexes": {
       "$ref": "#/$defs/_374"
     },
+    "typescript.preferences.autoImportSpecifierExcludeRegexes": {
+      "$ref": "#/$defs/_375"
+    },
     "typescript.preferences.importModuleSpecifier": {
-      "$ref": "#/$defs/_371"
+      "$ref": "#/$defs/_372"
     },
     "typescript.preferences.importModuleSpecifierEnding": {
-      "$ref": "#/$defs/_372"
+      "$ref": "#/$defs/_373"
     },
     "typescript.preferences.includePackageJsonAutoImports": {
       "type": "string",
@@ -18608,7 +18669,7 @@
       "restricted": false
     },
     "typescript.preferences.organizeImports": {
-      "$ref": "#/$defs/_324"
+      "$ref": "#/$defs/_325"
     },
     "typescript.preferences.preferTypeOnlyAutoImports": {
       "type": "boolean",
@@ -18623,16 +18684,16 @@
       "restricted": false
     },
     "typescript.preferences.quoteStyle": {
-      "$ref": "#/$defs/_370"
+      "$ref": "#/$defs/_371"
     },
     "typescript.preferences.renameMatchingJsxTags": {
-      "$ref": "#/$defs/_376"
+      "$ref": "#/$defs/_377"
     },
     "typescript.preferences.useAliasesForRenames": {
-      "$ref": "#/$defs/_375"
+      "$ref": "#/$defs/_376"
     },
     "typescript.preferGoToSourceDefinition": {
-      "$ref": "#/$defs/_322"
+      "$ref": "#/$defs/_323"
     },
     "typescript.referencesCodeLens.enabled": {
       "type": "boolean",
@@ -18671,28 +18732,28 @@
       "restricted": false
     },
     "typescript.suggest.autoImports": {
-      "$ref": "#/$defs/_362"
-    },
-    "typescript.suggest.classMemberSnippets.enabled": {
-      "$ref": "#/$defs/_369"
-    },
-    "typescript.suggest.completeFunctionCalls": {
       "$ref": "#/$defs/_363"
     },
+    "typescript.suggest.classMemberSnippets.enabled": {
+      "$ref": "#/$defs/_370"
+    },
+    "typescript.suggest.completeFunctionCalls": {
+      "$ref": "#/$defs/_364"
+    },
     "typescript.suggest.completeJSDocs": {
-      "$ref": "#/$defs/_365"
+      "$ref": "#/$defs/_366"
     },
     "typescript.suggest.enabled": {
-      "$ref": "#/$defs/_361"
+      "$ref": "#/$defs/_362"
     },
     "typescript.suggest.includeAutomaticOptionalChainCompletions": {
-      "$ref": "#/$defs/_367"
-    },
-    "typescript.suggest.includeCompletionsForImportStatements": {
       "$ref": "#/$defs/_368"
     },
+    "typescript.suggest.includeCompletionsForImportStatements": {
+      "$ref": "#/$defs/_369"
+    },
     "typescript.suggest.jsdoc.generateReturns": {
-      "$ref": "#/$defs/_366"
+      "$ref": "#/$defs/_367"
     },
     "typescript.suggest.objectLiteralMethodSnippets.enabled": {
       "type": "boolean",
@@ -18707,7 +18768,7 @@
       "restricted": false
     },
     "typescript.suggest.paths": {
-      "$ref": "#/$defs/_364"
+      "$ref": "#/$defs/_365"
     },
     "typescript.suggestionActions.enabled": {
       "type": "boolean",
@@ -18991,10 +19052,10 @@
       "restricted": false
     },
     "typescript.updateImportsOnFileMove.enabled": {
-      "$ref": "#/$defs/_359"
+      "$ref": "#/$defs/_360"
     },
     "typescript.updateImportsOnPaste.enabled": {
-      "$ref": "#/$defs/_323"
+      "$ref": "#/$defs/_324"
     },
     "typescript.validate.enable": {
       "type": "boolean",
@@ -23323,7 +23384,7 @@
               "type": "boolean"
             },
             {
-              "$ref": "#/$defs/_401"
+              "$ref": "#/$defs/_402"
             }
           ],
           "default": "off",
@@ -23335,7 +23396,7 @@
               "type": "boolean"
             },
             {
-              "$ref": "#/$defs/_401"
+              "$ref": "#/$defs/_402"
             }
           ],
           "default": "off",
@@ -23347,7 +23408,7 @@
               "type": "boolean"
             },
             {
-              "$ref": "#/$defs/_401"
+              "$ref": "#/$defs/_402"
             }
           ],
           "default": "on",
@@ -23486,7 +23547,7 @@
       "items": {
         "anyOf": [
           {
-            "$ref": "#/$defs/_402"
+            "$ref": "#/$defs/_403"
           },
           {
             "type": [
@@ -23494,7 +23555,7 @@
             ],
             "properties": {
               "column": {
-                "$ref": "#/$defs/_402"
+                "$ref": "#/$defs/_403"
               },
               "color": {
                 "type": "string",
@@ -24323,7 +24384,7 @@
           "type": "string"
         },
         {
-          "$ref": "#/$defs/_328"
+          "$ref": "#/$defs/_329"
         }
       ],
       "description": "Locales to be used for word segmentation when doing word related navigations or operations. Specify the BCP 47 language tag of the word you wish to recognize (e.g., ja, zh-CN, zh-Hant-TW, etc.).",
@@ -26005,6 +26066,18 @@
       ]
     },
     "_286": {
+      "type": "boolean",
+      "enum": [
+        true,
+        false
+      ],
+      "enumDescriptions": [
+        "Automatically approve the pattern.",
+        "Require explicit approval for the pattern."
+      ],
+      "description": "The start of a command to match against. A regular expression can be provided by wrapping the string in `/` characters."
+    },
+    "_287": {
       "deprecated": true,
       "markdownDeprecationMessage": "Use `#chat.tools.terminal.autoApprove#` instead",
       "default": null,
@@ -26012,7 +26085,7 @@
       "restricted": false,
       "deprecationMessage": "Use `#chat.tools.terminal.autoApprove#` instead"
     },
-    "_287": {
+    "_288": {
       "type": "string",
       "enum": [
         "ui",
@@ -26023,22 +26096,22 @@
         "Workspace extension kind. In a remote window, such extensions are enabled only when available on the remote."
       ]
     },
-    "_288": {
+    "_289": {
       "type": "boolean",
       "description": "Automatically prompt for elevation (if needed) when this port is forwarded. Elevate is required if the local port is a privileged port.",
       "default": false
     },
-    "_289": {
+    "_290": {
       "type": "string",
       "description": "Label that will be shown in the UI for this port.",
       "default": "Application"
     },
-    "_290": {
+    "_291": {
       "type": "boolean",
       "markdownDescription": "When true, a modal dialog will show if the chosen local port isn't used for forwarding.",
       "default": false
     },
-    "_291": {
+    "_292": {
       "type": "string",
       "enum": [
         "http",
@@ -26046,7 +26119,7 @@
       ],
       "description": "The protocol to use when forwarding this port."
     },
-    "_292": {
+    "_293": {
       "type": [
         "array",
         "null"
@@ -26060,7 +26133,7 @@
         "type": "string"
       }
     },
-    "_293": {
+    "_294": {
       "type": [
         "array"
       ],
@@ -26076,12 +26149,12 @@
         "setup"
       ]
     },
-    "_294": {
+    "_295": {
       "type": "boolean",
       "markdownDescription": "Whether to wait for source maps to load for each incoming script. This has a performance overhead, and might be safely disabled when running off of disk, so long as `rootPath` is not disabled.",
       "default": false
     },
-    "_295": {
+    "_296": {
       "description": "Show the async calls that led to the current call stack.",
       "default": true,
       "oneOf": [
@@ -26095,7 +26168,7 @@
           ],
           "properties": {
             "onAttach": {
-              "$ref": "#/$defs/_403"
+              "$ref": "#/$defs/_404"
             }
           }
         },
@@ -26106,35 +26179,35 @@
           ],
           "properties": {
             "onceBreakpointResolved": {
-              "$ref": "#/$defs/_403"
+              "$ref": "#/$defs/_404"
             }
           }
         }
       ]
     },
-    "_296": {
+    "_297": {
       "type": "array",
       "description": "An array of file or folder names, or path globs, to skip when debugging. Star patterns and negations are allowed, for example, `[\"**/node_modules/**\", \"!**/node_modules/my-module/**\"]`",
       "default": [
         "${/**"
       ]
     },
-    "_297": {
+    "_298": {
       "type": "boolean",
       "description": "Automatically step through generated code that cannot be mapped back to the original source.",
       "default": true
     },
-    "_298": {
+    "_299": {
       "type": "boolean",
       "description": "Use JavaScript source maps (if they exist).",
       "default": true
     },
-    "_299": {
+    "_300": {
       "type": "boolean",
       "default": true,
       "description": "Whether to use the \"names\" mapping in sourcemaps. This requires requesting source content, which can be slow with certain debuggers."
     },
-    "_300": {
+    "_301": {
       "type": "object",
       "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
       "default": {
@@ -26143,12 +26216,12 @@
         "meteor://💻app/*": "${workspaceFolder}/*"
       }
     },
-    "_301": {
+    "_302": {
       "type": "number",
       "description": "Retry for this number of milliseconds to connect to Node.js. Default is 10000 ms.",
       "default": 10000
     },
-    "_302": {
+    "_303": {
       "type": "object",
       "description": "Timeouts for several debugger operations.",
       "default": {},
@@ -26172,7 +26245,7 @@
       "additionalProperties": false,
       "markdownDescription": "Timeouts for several debugger operations."
     },
-    "_303": {
+    "_304": {
       "description": "Configures what diagnostic output is produced.",
       "default": true,
       "oneOf": [
@@ -26199,7 +26272,7 @@
         }
       ]
     },
-    "_304": {
+    "_305": {
       "enum": [
         "console",
         "std"
@@ -26207,21 +26280,21 @@
       "markdownDescription": "From where to capture output messages: the default debug API if set to `console`, or stdout/stderr streams if set to `std`.",
       "default": "console"
     },
-    "_305": {
+    "_306": {
       "default": true,
       "type": "boolean",
       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example."
     },
-    "_306": {
+    "_307": {
       "type": "string",
       "description": "Customize the textual description the debugger shows for objects (local variables, etc...). Samples:\n      1. this.toString() // will call toString to print all objects\n      2. this.customDescription ? this.customDescription() : defaultValue // Use customDescription method if available, if not return defaultValue\n      3. function (def) { return this.customDescription ? this.customDescription() : def } // Use customDescription method if available, if not return defaultValue\n      "
     },
-    "_307": {
+    "_308": {
       "type": "string",
       "deprecated": true,
       "description": "Customize the properties shown for an object in the debugger (local variables, etc...). Samples:\n    1. { ...this, extraProperty: '12345' } // Add an extraProperty 12345 to all objects\n    2. this.customProperties ? this.customProperties() : this // Use customProperties method if available, if not use the properties in this (the default properties)\n    3. function () { return this.customProperties ? this.customProperties() : this } // Use customDescription method if available, if not return the default properties\n\n    Deprecated: This is a temporary implementation of this feature until we have time to implement it in the way described here: https://github.com/microsoft/vscode/issues/102181"
     },
-    "_308": {
+    "_309": {
       "type": "array",
       "items": {
         "$ref": "#/$defs/_282"
@@ -26229,12 +26302,12 @@
       "default": [],
       "description": "A list of debug sessions which, when this debug session is terminated, will also be stopped."
     },
-    "_309": {
+    "_310": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function."
     },
-    "_310": {
+    "_311": {
       "type": "string",
       "description": "Absolute path to the working directory of the program being debugged. If you've set localRoot then cwd will match that value otherwise it falls back to your workspaceFolder",
       "default": "${workspaceFolder}",
@@ -26243,7 +26316,7 @@
         "setup"
       ]
     },
-    "_311": {
+    "_312": {
       "type": [
         "string",
         "null"
@@ -26251,7 +26324,7 @@
       "description": "Path to the local directory containing the program.",
       "default": null
     },
-    "_312": {
+    "_313": {
       "type": [
         "string",
         "null"
@@ -26259,12 +26332,12 @@
       "description": "Absolute path to the remote directory containing the program.",
       "default": null
     },
-    "_313": {
+    "_314": {
       "type": "boolean",
       "description": "Attach debugger to new child processes automatically.",
       "default": true
     },
-    "_314": {
+    "_315": {
       "type": "object",
       "additionalProperties": {
         "type": [
@@ -26278,12 +26351,12 @@
         "setup"
       ]
     },
-    "_315": {
+    "_316": {
       "type": "string",
       "description": "Absolute path to a file containing environment variable definitions.",
       "default": "${workspaceFolder}/.env"
     },
-    "_316": {
+    "_317": {
       "type": "array",
       "items": {
         "type": "string"
@@ -26291,13 +26364,13 @@
       "markdownDescription": "A list of patterns at which to manually insert entrypoint breakpoints. This can be useful to give the debugger an opportunity to set breakpoints when using sourcemaps that don't exist or can't be detected before launch, such as [with the Serverless framework](https://github.com/microsoft/vscode-js-debug/issues/492).",
       "default": []
     },
-    "_317": {
+    "_318": {
       "type": "number",
       "minimum": 8,
       "description": "Allows you to explicitly specify the Node version that's running, which can be used to disable or enable certain behaviors in cases where the automatic version detection does not work.",
       "default": 12
     },
-    "_318": {
+    "_319": {
       "type": [
         "string",
         "null"
@@ -26308,7 +26381,7 @@
         "setup"
       ]
     },
-    "_319": {
+    "_320": {
       "type": "string",
       "enum": [
         "on",
@@ -26316,7 +26389,7 @@
         "always"
       ]
     },
-    "_320": {
+    "_321": {
       "description": "Try to reconnect to the program if we lose connection. If set to `true`, we'll try once a second, forever. You can customize the interval and maximum number of attempts by specifying the `delay` and `maxAttempts` in an object instead.",
       "default": true,
       "oneOf": [
@@ -26340,11 +26413,11 @@
         }
       ]
     },
-    "_321": {
+    "_322": {
       "type": "string",
       "pattern": "^\\${.*}$"
     },
-    "_322": {
+    "_323": {
       "type": "boolean",
       "default": false,
       "description": "Makes `Go to Definition` avoid type declaration files when possible by triggering `Go to Source Definition` instead. This allows `Go to Source Definition` to be triggered with the mouse gesture.",
@@ -26356,7 +26429,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_323": {
+    "_324": {
       "scope": 4,
       "type": "boolean",
       "default": true,
@@ -26368,7 +26441,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_324": {
+    "_325": {
       "type": "object",
       "markdownDescription": "Advanced preferences that control how imports are ordered.",
       "properties": {
@@ -26453,7 +26526,7 @@
       "default": {},
       "restricted": false
     },
-    "_325": {
+    "_326": {
       "type": "array",
       "items": [
         {
@@ -26466,7 +26539,7 @@
         }
       ]
     },
-    "_326": {
+    "_327": {
       "type": "object",
       "properties": {
         "when": {
@@ -26477,19 +26550,19 @@
         }
       }
     },
-    "_327": {
+    "_328": {
       "type": "object",
       "additionalProperties": {
         "type": "string"
       }
     },
-    "_328": {
+    "_329": {
       "type": "array",
       "items": {
         "type": "string"
       }
     },
-    "_329": {
+    "_330": {
       "description": "Plays a sound when the active line has a warning.",
       "type": "string",
       "enum": [
@@ -26507,7 +26580,7 @@
         "accessibility"
       ]
     },
-    "_330": {
+    "_331": {
       "type": "object",
       "tags": [
         "accessibility"
@@ -26520,7 +26593,7 @@
       "description": "Plays a signal - sound (audio cue) and/or announcement (alert) - when the active line has a warning.",
       "properties": {
         "sound": {
-          "$ref": "#/$defs/_329"
+          "$ref": "#/$defs/_330"
         },
         "announcement": {
           "description": "Announces when the active line has a warning.",
@@ -26546,7 +26619,7 @@
       "scope": 5,
       "restricted": false
     },
-    "_331": {
+    "_332": {
       "type": "boolean",
       "scope": 5,
       "default": true,
@@ -26558,7 +26631,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_332": {
+    "_333": {
       "type": "boolean",
       "scope": 5,
       "default": true,
@@ -26570,7 +26643,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_333": {
+    "_334": {
       "type": "boolean",
       "scope": 5,
       "default": true,
@@ -26582,7 +26655,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_334": {
+    "_335": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26599,7 +26672,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_335": {
+    "_336": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26616,7 +26689,7 @@
       "defaultDefaultValue": "warning",
       "restricted": false
     },
-    "_336": {
+    "_337": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26633,7 +26706,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_337": {
+    "_338": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26650,7 +26723,7 @@
       "defaultDefaultValue": "warning",
       "restricted": false
     },
-    "_338": {
+    "_339": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26667,7 +26740,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_339": {
+    "_340": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26684,7 +26757,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_340": {
+    "_341": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26701,7 +26774,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_341": {
+    "_342": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26718,7 +26791,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_342": {
+    "_343": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26735,7 +26808,7 @@
       "defaultDefaultValue": "warning",
       "restricted": false
     },
-    "_343": {
+    "_344": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26752,7 +26825,7 @@
       "defaultDefaultValue": "error",
       "restricted": false
     },
-    "_344": {
+    "_345": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26769,7 +26842,7 @@
       "defaultDefaultValue": "error",
       "restricted": false
     },
-    "_345": {
+    "_346": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26786,7 +26859,7 @@
       "defaultDefaultValue": "warning",
       "restricted": false
     },
-    "_346": {
+    "_347": {
       "type": "array",
       "uniqueItems": true,
       "items": {
@@ -26802,7 +26875,7 @@
       "defaultDefaultValue": [],
       "restricted": false
     },
-    "_347": {
+    "_348": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26819,7 +26892,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_348": {
+    "_349": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26836,7 +26909,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_349": {
+    "_350": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26853,7 +26926,7 @@
       "defaultDefaultValue": "warning",
       "restricted": false
     },
-    "_350": {
+    "_351": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26870,7 +26943,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_351": {
+    "_352": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26887,7 +26960,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_352": {
+    "_353": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26904,7 +26977,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_353": {
+    "_354": {
       "type": "string",
       "scope": 5,
       "enum": [
@@ -26921,7 +26994,7 @@
       "defaultDefaultValue": "warning",
       "restricted": false
     },
-    "_354": {
+    "_355": {
       "type": "boolean",
       "scope": 5,
       "default": true,
@@ -26933,7 +27006,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_355": {
+    "_356": {
       "type": "boolean",
       "scope": 5,
       "default": true,
@@ -26945,7 +27018,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_356": {
+    "_357": {
       "type": "boolean",
       "scope": 5,
       "default": false,
@@ -26957,7 +27030,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_357": {
+    "_358": {
       "type": "string",
       "scope": 5,
       "default": "collapse",
@@ -26973,7 +27046,7 @@
       "defaultDefaultValue": "collapse",
       "restricted": false
     },
-    "_358": {
+    "_359": {
       "type": "boolean",
       "scope": 5,
       "default": true,
@@ -26985,7 +27058,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_359": {
+    "_360": {
       "type": "string",
       "enum": [
         "prompt",
@@ -27007,7 +27080,7 @@
       "defaultDefaultValue": "prompt",
       "restricted": false
     },
-    "_360": {
+    "_361": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable automatic closing of JSX tags.",
@@ -27019,7 +27092,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_361": {
+    "_362": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable autocomplete suggestions.",
@@ -27031,7 +27104,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_362": {
+    "_363": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable auto import suggestions.",
@@ -27043,7 +27116,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_363": {
+    "_364": {
       "type": "boolean",
       "default": false,
       "description": "Complete functions with their parameter signature.",
@@ -27055,7 +27128,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_364": {
+    "_365": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable suggestions for paths in import statements and require calls.",
@@ -27067,7 +27140,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_365": {
+    "_366": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable suggestion to complete JSDoc comments.",
@@ -27079,7 +27152,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_366": {
+    "_367": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "Enable/disable generating `@returns` annotations for JSDoc templates.",
@@ -27091,7 +27164,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_367": {
+    "_368": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable showing completions on potentially undefined values that insert an optional chain call. Requires strict null checks to be enabled.",
@@ -27103,7 +27176,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_368": {
+    "_369": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable auto-import-style completions on partially-typed import statements.",
@@ -27115,7 +27188,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_369": {
+    "_370": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable snippet completions for class members.",
@@ -27127,7 +27200,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_370": {
+    "_371": {
       "type": "string",
       "enum": [
         "auto",
@@ -27149,7 +27222,7 @@
       "defaultDefaultValue": "auto",
       "restricted": false
     },
-    "_371": {
+    "_372": {
       "type": "string",
       "enum": [
         "shortest",
@@ -27173,7 +27246,7 @@
       "defaultDefaultValue": "shortest",
       "restricted": false
     },
-    "_372": {
+    "_373": {
       "type": "string",
       "enum": [
         "auto",
@@ -27203,7 +27276,7 @@
       "defaultDefaultValue": "auto",
       "restricted": false
     },
-    "_373": {
+    "_374": {
       "type": "array",
       "items": {
         "type": "string"
@@ -27217,7 +27290,7 @@
       "default": [],
       "restricted": false
     },
-    "_374": {
+    "_375": {
       "type": "array",
       "items": {
         "type": "string"
@@ -27231,7 +27304,7 @@
       "default": [],
       "restricted": false
     },
-    "_375": {
+    "_376": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable introducing aliases for object shorthand properties during renames.",
@@ -27243,7 +27316,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_376": {
+    "_377": {
       "type": "boolean",
       "default": true,
       "description": "When on a JSX tag, try to rename the matching tag instead of renaming the symbol. Requires using TypeScript 5.1+ in the workspace.",
@@ -27255,7 +27328,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_377": {
+    "_378": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after a comma delimiter.",
@@ -27267,7 +27340,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_378": {
+    "_379": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling after the constructor keyword.",
@@ -27279,7 +27352,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_379": {
+    "_380": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after a semicolon in a for statement.",
@@ -27291,7 +27364,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_380": {
+    "_381": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after a binary operator.",
@@ -27303,7 +27376,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_381": {
+    "_382": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after keywords in a control flow statement.",
@@ -27315,7 +27388,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_382": {
+    "_383": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after function keyword for anonymous functions.",
@@ -27327,7 +27400,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_383": {
+    "_384": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling before function argument parentheses.",
@@ -27339,7 +27412,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_384": {
+    "_385": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling after opening and before closing non-empty parenthesis.",
@@ -27351,7 +27424,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_385": {
+    "_386": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling after opening and before closing non-empty brackets.",
@@ -27363,7 +27436,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_386": {
+    "_387": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after opening and before closing non-empty braces.",
@@ -27375,7 +27448,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_387": {
+    "_388": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after opening and before closing empty braces.",
@@ -27387,7 +27460,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_388": {
+    "_389": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling after opening and before closing template string braces.",
@@ -27399,7 +27472,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_389": {
+    "_390": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling after opening and before closing JSX expression braces.",
@@ -27411,7 +27484,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_390": {
+    "_391": {
       "type": "boolean",
       "default": false,
       "description": "Defines whether an open brace is put onto a new line for functions or not.",
@@ -27423,7 +27496,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_391": {
+    "_392": {
       "type": "boolean",
       "default": false,
       "description": "Defines whether an open brace is put onto a new line for control blocks or not.",
@@ -27435,7 +27508,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_392": {
+    "_393": {
       "type": "string",
       "default": "ignore",
       "description": "Defines handling of optional semicolons.",
@@ -27457,7 +27530,7 @@
       "defaultDefaultValue": "ignore",
       "restricted": false
     },
-    "_393": {
+    "_394": {
       "type": "boolean",
       "default": true,
       "description": "Indent case clauses in switch statements. Requires using TypeScript 5.1+ in the workspace.",
@@ -27469,7 +27542,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_394": {
+    "_395": {
       "type": "string",
       "enum": [
         "none",
@@ -27491,7 +27564,7 @@
       "defaultDefaultValue": "none",
       "restricted": false
     },
-    "_395": {
+    "_396": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "Suppress parameter name hints on arguments whose text is identical to the parameter name.",
@@ -27503,7 +27576,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_396": {
+    "_397": {
       "type": "boolean",
       "default": false,
       "markdownDescription": "Enable/disable inlay hints for implicit parameter types:\n```typescript\n\nel.addEventListener('click', e /* :MouseEvent */ => ...)\n \n```",
@@ -27515,7 +27588,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_397": {
+    "_398": {
       "type": "boolean",
       "default": false,
       "markdownDescription": "Enable/disable inlay hints for implicit variable types:\n```typescript\n\nconst foo /* :number */ = Date.now();\n \n```",
@@ -27527,7 +27600,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_398": {
+    "_399": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "Suppress type hints on variables whose name is identical to the type name.",
@@ -27539,7 +27612,7 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "_399": {
+    "_400": {
       "type": "boolean",
       "default": false,
       "markdownDescription": "Enable/disable inlay hints for implicit types on property declarations:\n```typescript\n\nclass Foo {\n\tprop /* :number */ = Date.now();\n}\n \n```",
@@ -27551,7 +27624,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_400": {
+    "_401": {
       "type": "boolean",
       "default": false,
       "markdownDescription": "Enable/disable inlay hints for implicit return types on function signatures:\n```typescript\n\nfunction foo() /* :number */ {\n\treturn Date.now();\n} \n \n```",
@@ -27563,7 +27636,7 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "_401": {
+    "_402": {
       "type": "string",
       "enum": [
         "on",
@@ -27576,11 +27649,11 @@
         "Quick suggestions are disabled"
       ]
     },
-    "_402": {
+    "_403": {
       "type": "number",
       "description": "Number of monospace characters at which this editor ruler will render."
     },
-    "_403": {
+    "_404": {
       "type": "number",
       "default": 32
     }

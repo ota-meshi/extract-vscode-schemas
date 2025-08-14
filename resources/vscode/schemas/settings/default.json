@@ -3186,7 +3186,6 @@
     "chat.tools.terminal.autoApprove": {
       "markdownDescription": "A list of commands or regular expressions that control whether the run in terminal tool commands require explicit approval. These will be matched against the start of a command. A regular expression can be provided by wrapping the string in `/` characters followed by optional flags such as `i` for case-insensitivity.\n\nSet to `true` to automatically approve commands, `false` to always require explicit approval or `null` to unset the value.\n\nNote that these commands and regular expressions are evaluated for every _sub-command_ within the full _command line_, so `foo && bar` for example will need both `foo` and `bar` to match a `true` entry and must not match a `false` entry in order to auto approve. Inline commands are also detected so `echo $(rm file)` will need both `echo $(rm file)` and `rm file` to pass.\n\nAn object can be used to match against the full command line instead of matching sub-commands and inline commands, for example `{ approve: false, matchCommandLine: true }`. In order to be auto approved _both_ the sub-command and command line must not be explicitly denied, then _either_ all sub-commands or command line needs to be approved.\n\nExamples:\n|Value|Description|\n|---|---|\n| `\"mkdir\": true` | Allow all commands starting with `mkdir`\n| `\"npm run build\": true` | Allow all commands starting with `npm run build`\n| `\"/^git (status\\|show\\b.*)$/\": true` | Allow `git status` and all commands starting with `git show`\n| `\"/^Get-ChildItem\\b/i\": true` | will allow `Get-ChildItem` commands regardless of casing\n| `\"/.*/\": true` | Allow all commands (denied commands still require approval)\n| `\"rm\": false` | Require explicit approval for all commands starting with `rm`\n| `\"/.ps1/i\": { approve: false, matchCommandLine: true }` | Require explicit approval for any _command line_ that contains `\".ps1\"` regardless of casing\n| `\"rm\": null` | Unset the default `false` value for `rm`",
       "type": "object",
-      "scope": 3,
       "additionalProperties": {
         "anyOf": [
           {
@@ -3242,6 +3241,7 @@
         "rmdir": false,
         "wget": false
       },
+      "scope": 4,
       "restricted": false
     },
     "chat.tools.useTreePicker": {
