@@ -237,6 +237,12 @@
     "chat-sparkle": {
       "$ref": "#/$defs/_0"
     },
+    "chat-sparkle-error": {
+      "$ref": "#/$defs/_0"
+    },
+    "chat-sparkle-warning": {
+      "$ref": "#/$defs/_0"
+    },
     "check": {
       "$ref": "#/$defs/_0"
     },
@@ -361,6 +367,9 @@
       "$ref": "#/$defs/_0"
     },
     "comment-discussion": {
+      "$ref": "#/$defs/_0"
+    },
+    "comment-discussion-sparkle": {
       "$ref": "#/$defs/_0"
     },
     "comment-draft": {
@@ -1581,6 +1590,10 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon to indicate that an MCP server is for the remote user scope.: $(mcp-server-remote)"
     },
+    "mcp-server-starred": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon shown along with the starred status.: $(mcp-server-starred)"
+    },
     "mcp-server-workspace": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon to indicate that an MCP server is for the workspace scope.: $(mcp-server-workspace)"
@@ -2745,6 +2758,16 @@
       "deprecationMessage": "terminalSymbolIcon.argumentForeground",
       "markdownDescription": "Icon for arguments in the terminal suggest widget.: $(terminal-symbol-argument)"
     },
+    "terminal-symbol-branch": {
+      "$ref": "#/definitions/icons",
+      "deprecationMessage": "terminalSymbolIcon.branchForeground",
+      "markdownDescription": "Icon for branches in the terminal suggest widget.: $(terminal-symbol-branch)"
+    },
+    "terminal-symbol-commit": {
+      "$ref": "#/definitions/icons",
+      "deprecationMessage": "terminalSymbolIcon.commitForeground",
+      "markdownDescription": "Icon for commits in the terminal suggest widget.: $(terminal-symbol-commit)"
+    },
     "terminal-symbol-file": {
       "$ref": "#/definitions/icons",
       "deprecationMessage": "terminalSymbolIcon.fileForeground",
@@ -2780,6 +2803,26 @@
       "deprecationMessage": "terminalSymbolIcon.optionValueForeground",
       "markdownDescription": "Icon for enum members in the terminal suggest widget.: $(terminal-symbol-option-value)"
     },
+    "terminal-symbol-pull-request": {
+      "$ref": "#/definitions/icons",
+      "deprecationMessage": "terminalSymbolIcon.pullRequestForeground",
+      "markdownDescription": "Icon for pull requests in the terminal suggest widget.: $(terminal-symbol-pull-request)"
+    },
+    "terminal-symbol-pull-request-done": {
+      "$ref": "#/definitions/icons",
+      "deprecationMessage": "terminalSymbolIcon.pullRequestDoneForeground",
+      "markdownDescription": "Icon for completed pull requests in the terminal suggest widget.: $(terminal-symbol-pull-request-done)"
+    },
+    "terminal-symbol-remote": {
+      "$ref": "#/definitions/icons",
+      "deprecationMessage": "terminalSymbolIcon.remoteForeground",
+      "markdownDescription": "Icon for remotes in the terminal suggest widget.: $(terminal-symbol-remote)"
+    },
+    "terminal-symbol-stash": {
+      "$ref": "#/definitions/icons",
+      "deprecationMessage": "terminalSymbolIcon.stashForeground",
+      "markdownDescription": "Icon for stashes in the terminal suggest widget.: $(terminal-symbol-stash)"
+    },
     "terminal-symbol-symbolic-link-file": {
       "$ref": "#/definitions/icons",
       "deprecationMessage": "terminalSymbolIcon.symbolicLinkFileForeground",
@@ -2789,6 +2832,11 @@
       "$ref": "#/definitions/icons",
       "deprecationMessage": "terminalSymbolIcon.symbolicLinkFolderForeground",
       "markdownDescription": "Icon for symbolic link folders in the terminal suggest widget.: $(terminal-symbol-symbolic-link-folder)"
+    },
+    "terminal-symbol-tag": {
+      "$ref": "#/definitions/icons",
+      "deprecationMessage": "terminalSymbolIcon.tagForeground",
+      "markdownDescription": "Icon for tags in the terminal suggest widget.: $(terminal-symbol-tag)"
     },
     "terminal-tmux": {
       "$ref": "#/$defs/_0"

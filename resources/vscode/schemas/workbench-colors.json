@@ -633,7 +633,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_94"
+          "$ref": "#/$defs/_95"
         }
       ]
     },
@@ -699,7 +699,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_93"
+          "$ref": "#/$defs/_94"
         }
       ]
     },
@@ -1135,7 +1135,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_95"
+          "$ref": "#/$defs/_96"
         }
       ]
     },
@@ -1174,7 +1174,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_95"
+          "$ref": "#/$defs/_96"
         }
       ]
     },
@@ -1196,7 +1196,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_99"
+          "$ref": "#/$defs/_100"
         }
       ]
     },
@@ -1256,10 +1256,10 @@
       ]
     },
     "debugIcon.stepOutForeground": {
-      "$ref": "#/$defs/_100"
+      "$ref": "#/$defs/_101"
     },
     "debugIcon.stepOverForeground": {
-      "$ref": "#/$defs/_100"
+      "$ref": "#/$defs/_101"
     },
     "debugIcon.stopForeground": {
       "description": "Debug toolbar icon for stop.",
@@ -1268,7 +1268,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_99"
+          "$ref": "#/$defs/_100"
         }
       ]
     },
@@ -1290,7 +1290,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_99"
+          "$ref": "#/$defs/_100"
         }
       ]
     },
@@ -4472,13 +4472,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#ff8e00}"
-            }
-          ]
+          "$ref": "#/$defs/_93"
         }
       ]
     },
@@ -4522,7 +4516,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_50"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#007acc4d}"
+            }
+          ]
         }
       ]
     },
@@ -4544,17 +4544,6 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_52"
-        }
-      ]
-    },
-    "gauge.errorForeground": {
-      "description": "Gauge error foreground color.",
-      "oneOf": [
-        {
-          "$ref": "#/$defs/_1"
-        },
-        {
           "type": "string",
           "format": "color-hex",
           "defaultSnippets": [
@@ -4565,6 +4554,17 @@
         }
       ]
     },
+    "gauge.errorForeground": {
+      "description": "Gauge error foreground color.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_52"
+        }
+      ]
+    },
     "gauge.foreground": {
       "description": "Gauge foreground color.",
       "oneOf": [
@@ -4572,29 +4572,12 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#007acc4d}"
-            }
-          ]
+          "$ref": "#/$defs/_50"
         }
       ]
     },
     "gauge.warningBackground": {
       "description": "Gauge warning background color.",
-      "oneOf": [
-        {
-          "$ref": "#/$defs/_1"
-        },
-        {
-          "$ref": "#/$defs/_51"
-        }
-      ]
-    },
-    "gauge.warningForeground": {
-      "description": "Gauge warning foreground color.",
       "oneOf": [
         {
           "$ref": "#/$defs/_1"
@@ -4607,6 +4590,17 @@
               "body": "${1:#b895004d}"
             }
           ]
+        }
+      ]
+    },
+    "gauge.warningForeground": {
+      "description": "Gauge warning foreground color.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_51"
         }
       ]
     },
@@ -4678,7 +4672,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_94"
+          "$ref": "#/$defs/_95"
         }
       ]
     },
@@ -4689,7 +4683,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_96"
+          "$ref": "#/$defs/_97"
         }
       ]
     },
@@ -4711,7 +4705,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_94"
+          "$ref": "#/$defs/_95"
         }
       ]
     },
@@ -4739,7 +4733,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_96"
+          "$ref": "#/$defs/_97"
         }
       ]
     },
@@ -5774,6 +5768,17 @@
         },
         {
           "$ref": "#/$defs/_37"
+        }
+      ]
+    },
+    "mcpIcon.starForeground": {
+      "description": "The icon color for mcp starred.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_93"
         }
       ]
     },
@@ -9549,7 +9554,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_101"
+          "$ref": "#/$defs/_102"
         }
       ]
     },
@@ -9645,7 +9650,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_101"
+          "$ref": "#/$defs/_102"
         }
       ]
     },
@@ -10026,6 +10031,28 @@
         }
       ]
     },
+    "terminalSymbolIcon.branchForeground": {
+      "description": "The foreground color for a branch icon. These icons will appear in the terminal suggest widget.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_0"
+        },
+        {
+          "$ref": "#/$defs/_1"
+        }
+      ]
+    },
+    "terminalSymbolIcon.commitForeground": {
+      "description": "The foreground color for a commit icon. These icons will appear in the terminal suggest widget.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_0"
+        },
+        {
+          "$ref": "#/$defs/_1"
+        }
+      ]
+    },
     "terminalSymbolIcon.fileForeground": {
       "description": "The foreground color for a file icon. These icons will appear in the terminal suggest widget.",
       "oneOf": [
@@ -10103,6 +10130,50 @@
         }
       ]
     },
+    "terminalSymbolIcon.pullRequestDoneForeground": {
+      "description": "The foreground color for a completed pull request icon. These icons will appear in the terminal suggest widget.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_0"
+        },
+        {
+          "$ref": "#/$defs/_1"
+        }
+      ]
+    },
+    "terminalSymbolIcon.pullRequestForeground": {
+      "description": "The foreground color for a pull request icon. These icons will appear in the terminal suggest widget.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_0"
+        },
+        {
+          "$ref": "#/$defs/_1"
+        }
+      ]
+    },
+    "terminalSymbolIcon.remoteForeground": {
+      "description": "The foreground color for a remote icon. These icons will appear in the terminal suggest widget.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_0"
+        },
+        {
+          "$ref": "#/$defs/_1"
+        }
+      ]
+    },
+    "terminalSymbolIcon.stashForeground": {
+      "description": "The foreground color for a stash icon. These icons will appear in the terminal suggest widget.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_0"
+        },
+        {
+          "$ref": "#/$defs/_1"
+        }
+      ]
+    },
     "terminalSymbolIcon.symbolicLinkFileForeground": {
       "description": "The foreground color for a symbolic link file icon. These icons will appear in the terminal suggest widget.",
       "oneOf": [
@@ -10116,6 +10187,17 @@
     },
     "terminalSymbolIcon.symbolicLinkFolderForeground": {
       "description": "The foreground color for a symbolic link folder icon. These icons will appear in the terminal suggest widget.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_0"
+        },
+        {
+          "$ref": "#/$defs/_1"
+        }
+      ]
+    },
+    "terminalSymbolIcon.tagForeground": {
+      "description": "The foreground color for a tag icon. These icons will appear in the terminal suggest widget.",
       "oneOf": [
         {
           "$ref": "#/$defs/_0"
@@ -10204,7 +10286,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_97"
+          "$ref": "#/$defs/_98"
         }
       ]
     },
@@ -10226,7 +10308,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_97"
+          "$ref": "#/$defs/_98"
         }
       ]
     },
@@ -10237,7 +10319,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_96"
+          "$ref": "#/$defs/_97"
         }
       ]
     },
@@ -10293,7 +10375,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_95"
+          "$ref": "#/$defs/_96"
         }
       ]
     },
@@ -10304,7 +10386,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_98"
+          "$ref": "#/$defs/_99"
         }
       ]
     },
@@ -10315,7 +10397,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_95"
+          "$ref": "#/$defs/_96"
         }
       ]
     },
@@ -10326,7 +10408,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_98"
+          "$ref": "#/$defs/_99"
         }
       ]
     },
@@ -10447,7 +10529,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_96"
+          "$ref": "#/$defs/_97"
         }
       ]
     },
@@ -10836,7 +10918,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_93"
+          "$ref": "#/$defs/_94"
         }
       ]
     },
@@ -11753,7 +11835,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#ffffff1a}"
+          "body": "${1:#ff8e00}"
         }
       ]
     },
@@ -11762,7 +11844,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#e2c08d}"
+          "body": "${1:#ffffff1a}"
         }
       ]
     },
@@ -11771,7 +11853,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#848484}"
+          "body": "${1:#e2c08d}"
         }
       ]
     },
@@ -11780,7 +11862,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#73c991}"
+          "body": "${1:#848484}"
         }
       ]
     },
@@ -11789,7 +11871,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#f14c4cb3}"
+          "body": "${1:#73c991}"
         }
       ]
     },
@@ -11798,7 +11880,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#848484b3}"
+          "body": "${1:#f14c4cb3}"
         }
       ]
     },
@@ -11807,11 +11889,20 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#f48771}"
+          "body": "${1:#848484b3}"
         }
       ]
     },
     "_100": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#f48771}"
+        }
+      ]
+    },
+    "_101": {
       "description": "Debug toolbar icon for step over.",
       "oneOf": [
         {
@@ -11822,7 +11913,7 @@
         }
       ]
     },
-    "_101": {
+    "_102": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [

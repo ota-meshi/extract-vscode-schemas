@@ -1206,7 +1206,9 @@
         "anyOf": [
           {
             "enum": [
-              null
+              "text.plain",
+              "uri.path.absolute",
+              "uri.path.relative"
             ]
           },
           {
@@ -1283,13 +1285,13 @@
     "editor.experimental.preferTreeSitter.css": {
       "type": "boolean",
       "default": false,
-      "markdownDescription": "Controls whether tree sitter parsing should be turned on for css. This will take precedence over `editor.experimental.treeSitterTelemetry` for css.",
+      "markdownDescription": "Controls whether tree sitter parsing should be turned on for css. This will take precedence over `#editor.experimental.treeSitterTelemetry#` for css.",
       "tags": [
         "experimental",
         "onExP"
       ],
       "experiment": {
-        "mode": "startup"
+        "mode": "auto"
       },
       "defaultDefaultValue": false,
       "scope": 6,
@@ -1298,13 +1300,13 @@
     "editor.experimental.preferTreeSitter.ini": {
       "type": "boolean",
       "default": false,
-      "markdownDescription": "Controls whether tree sitter parsing should be turned on for ini. This will take precedence over `editor.experimental.treeSitterTelemetry` for ini.",
+      "markdownDescription": "Controls whether tree sitter parsing should be turned on for ini. This will take precedence over `#editor.experimental.treeSitterTelemetry#` for ini.",
       "tags": [
         "experimental",
         "onExP"
       ],
       "experiment": {
-        "mode": "startup"
+        "mode": "auto"
       },
       "defaultDefaultValue": false,
       "scope": 6,
@@ -1313,13 +1315,13 @@
     "editor.experimental.preferTreeSitter.regex": {
       "type": "boolean",
       "default": false,
-      "markdownDescription": "Controls whether tree sitter parsing should be turned on for regex. This will take precedence over `editor.experimental.treeSitterTelemetry` for regex.",
+      "markdownDescription": "Controls whether tree sitter parsing should be turned on for regex. This will take precedence over `#editor.experimental.treeSitterTelemetry#` for regex.",
       "tags": [
         "experimental",
         "onExP"
       ],
       "experiment": {
-        "mode": "startup"
+        "mode": "auto"
       },
       "defaultDefaultValue": false,
       "scope": 6,
@@ -1328,13 +1330,13 @@
     "editor.experimental.preferTreeSitter.typescript": {
       "type": "boolean",
       "default": false,
-      "markdownDescription": "Controls whether tree sitter parsing should be turned on for typescript. This will take precedence over `editor.experimental.treeSitterTelemetry` for typescript.",
+      "markdownDescription": "Controls whether tree sitter parsing should be turned on for typescript. This will take precedence over `#editor.experimental.treeSitterTelemetry#` for typescript.",
       "tags": [
         "experimental",
         "onExP"
       ],
       "experiment": {
-        "mode": "startup"
+        "mode": "auto"
       },
       "defaultDefaultValue": false,
       "scope": 6,
@@ -1343,13 +1345,13 @@
     "editor.experimental.treeSitterTelemetry": {
       "type": "boolean",
       "default": false,
-      "markdownDescription": "Controls whether tree sitter parsing should be turned on and telemetry collected. Setting `editor.experimental.preferTreeSitter` for specific languages will take precedence.",
+      "markdownDescription": "Controls whether tree sitter parsing should be turned on and telemetry collected. Setting `#editor.experimental.preferTreeSitter#` for specific languages will take precedence.",
       "tags": [
         "experimental",
         "onExP"
       ],
       "experiment": {
-        "mode": "startup"
+        "mode": "auto"
       },
       "defaultDefaultValue": false,
       "scope": 6,
@@ -2169,7 +2171,7 @@
       "type": "integer",
       "minimum": 0,
       "default": 300,
-      "description": "Controls the delay in milliseconds after which the hover is hidden. Requires `editor.hover.sticky` to be enabled.",
+      "markdownDescription": "Controls the delay in milliseconds after which the hover is hidden. Requires `#editor.hover.sticky#` to be enabled.",
       "defaultDefaultValue": 300,
       "scope": 6,
       "restricted": false
@@ -2323,6 +2325,26 @@
       "scope": 6,
       "restricted": false
     },
+    "editor.inlineSuggest.experimental.showOnSuggestConflict": {
+      "type": "string",
+      "default": "never",
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "enum": [
+        "always",
+        "never",
+        "whenSuggestListIsIncomplete"
+      ],
+      "description": "Controls whether to show inline suggestions when there is a suggest conflict.",
+      "experiment": {
+        "mode": "auto"
+      },
+      "defaultDefaultValue": "never",
+      "scope": 6,
+      "restricted": false
+    },
     "editor.inlineSuggest.experimental.suppressInlineSuggestions": {
       "type": "string",
       "default": "",
@@ -2332,24 +2354,9 @@
       ],
       "description": "Suppresses inline completions for specified extension IDs -- comma separated.",
       "experiment": {
-        "mode": "startup"
+        "mode": "auto"
       },
       "defaultDefaultValue": "",
-      "scope": 6,
-      "restricted": false
-    },
-    "editor.inlineSuggest.experimental.triggerCommandOnProviderChange": {
-      "type": "boolean",
-      "default": false,
-      "tags": [
-        "experimental",
-        "onExP"
-      ],
-      "description": "Controls whether to trigger a command when the inline suggestion provider changes.",
-      "experiment": {
-        "mode": "startup"
-      },
-      "defaultDefaultValue": false,
       "scope": 6,
       "restricted": false
     },
@@ -2358,6 +2365,16 @@
       "default": "default",
       "description": "Controls the font family of the inline suggestions.",
       "defaultDefaultValue": "default",
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.inlineSuggest.minShowDelay": {
+      "type": "number",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 10000,
+      "description": "Controls the minimal delay in milliseconds after which inline suggestions are shown after typing.",
+      "defaultDefaultValue": 0,
       "scope": 6,
       "restricted": false
     },
@@ -2391,6 +2408,21 @@
       "type": "boolean",
       "default": true,
       "description": "Controls whether to show syntax highlighting for inline suggestions in the editor.",
+      "defaultDefaultValue": true,
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.inlineSuggest.triggerCommandOnProviderChange": {
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "description": "Controls whether to trigger a command when the inline suggestion provider changes.",
+      "experiment": {
+        "mode": "auto"
+      },
       "defaultDefaultValue": true,
       "scope": 6,
       "restricted": false
@@ -2854,7 +2886,13 @@
         "anyOf": [
           {
             "enum": [
-              null
+              "chat.attach.attachments",
+              "chat.attach.image",
+              "chat.attach.text",
+              "html",
+              "text.plain",
+              "uri.path.absolute",
+              "uri.path.relative"
             ]
           },
           {
@@ -2955,7 +2993,7 @@
     "editor.quickSuggestionsDelay": {
       "description": "Controls the delay in milliseconds after which quick suggestions will show up.",
       "experiment": {
-        "mode": "startup"
+        "mode": "auto"
       },
       "type": "integer",
       "default": 10,
@@ -2978,13 +3016,13 @@
     },
     "editor.renameOnType": {
       "description": "Controls whether the editor auto renames on type.",
-      "markdownDeprecationMessage": "Deprecated, use `editor.linkedEditing` instead.",
+      "markdownDeprecationMessage": "Deprecated, use `#editor.linkedEditing#` instead.",
       "type": "boolean",
       "default": false,
       "defaultDefaultValue": false,
       "scope": 6,
       "restricted": false,
-      "deprecationMessage": "Deprecated, use `editor.linkedEditing` instead."
+      "deprecationMessage": "Deprecated, use `#editor.linkedEditing#` instead."
     },
     "editor.renderControlCharacters": {
       "description": "Controls whether the editor should render control characters.",
@@ -3036,7 +3074,7 @@
       "restricted": false
     },
     "editor.renderRichScreenReaderContent": {
-      "description": "Whether to render rich screen reader content when the `editor.editContext` is enabled.",
+      "markdownDescription": "Whether to render rich screen reader content when the `#editor.editContext#` setting is enabled.",
       "type": "boolean",
       "default": false,
       "defaultDefaultValue": false,

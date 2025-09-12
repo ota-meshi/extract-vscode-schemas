@@ -137,6 +137,11 @@
             "description": "An activation event emitted when the specified chat participant is invoked."
           },
           {
+            "label": "onLanguageModelChatProvider",
+            "body": "onLanguageModelChatProvider:${1:vendor}",
+            "description": "An activation event emitted when a chat model provider for the given vendor is requested."
+          },
+          {
             "label": "onLanguageModelTool",
             "body": "onLanguageModelTool:${1:toolId}",
             "description": "An activation event emitted when the specified language model tool is invoked."
@@ -597,6 +602,20 @@
           "items": {
             "type": "object",
             "properties": {
+              "capabilities": {
+                "description": "Optional capabilities for this chat session.",
+                "type": "object",
+                "properties": {
+                  "supportsFileAttachments": {
+                    "description": "Whether this chat session supports attaching files or file references.",
+                    "type": "boolean"
+                  },
+                  "supportsToolAttachments": {
+                    "description": "Whether this chat session supports attaching tools or tool references.",
+                    "type": "boolean"
+                  }
+                }
+              },
               "description": {
                 "description": "Description of the chat session for use in menus and tooltips.",
                 "type": "string"
@@ -618,7 +637,7 @@
               }
             },
             "required": [
-              "id",
+              "type",
               "name",
               "displayName",
               "description"
@@ -1716,6 +1735,9 @@
                       "edit-sparkle",
                       "copilot-snooze",
                       "send-to-remote-agent",
+                      "comment-discussion-sparkle",
+                      "chat-sparkle-warning",
+                      "chat-sparkle-error",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -1955,6 +1977,7 @@
                       "mcp-server",
                       "mcp-server-remote",
                       "mcp-server-workspace",
+                      "mcp-server-starred",
                       "mcp-server-editor-icon",
                       "repl-editor-label-icon",
                       "test-view-icon",
@@ -2012,6 +2035,13 @@
                       "terminal-symbol-inline-suggestion",
                       "terminal-symbol-file",
                       "terminal-symbol-folder",
+                      "terminal-symbol-commit",
+                      "terminal-symbol-branch",
+                      "terminal-symbol-tag",
+                      "terminal-symbol-stash",
+                      "terminal-symbol-remote",
+                      "terminal-symbol-pull-request",
+                      "terminal-symbol-pull-request-done",
                       "terminal-symbol-symbolic-link-file",
                       "terminal-symbol-symbolic-link-folder",
                       "tasks-list-configure",
@@ -2675,6 +2705,9 @@
                       "",
                       "",
                       "",
+                      "",
+                      "",
+                      "",
                       "Icon for breakpoints waiting on another breakpoint.",
                       "Icon for the close action in widgets.",
                       "Icon for goto previous editor location.",
@@ -2891,6 +2924,7 @@
                       "Icon used for the MCP server.",
                       "Icon to indicate that an MCP server is for the remote user scope.",
                       "Icon to indicate that an MCP server is for the workspace scope.",
+                      "Icon shown along with the starred status.",
                       "Icon of the MCP Server editor.",
                       "Icon of the REPL editor label.",
                       "View icon of the test view.",
@@ -2948,6 +2982,13 @@
                       "Icon for inline suggestions in the terminal suggest widget.",
                       "Icon for files in the terminal suggest widget.",
                       "Icon for folders in the terminal suggest widget.",
+                      "Icon for commits in the terminal suggest widget.",
+                      "Icon for branches in the terminal suggest widget.",
+                      "Icon for tags in the terminal suggest widget.",
+                      "Icon for stashes in the terminal suggest widget.",
+                      "Icon for remotes in the terminal suggest widget.",
+                      "Icon for pull requests in the terminal suggest widget.",
+                      "Icon for completed pull requests in the terminal suggest widget.",
                       "Icon for symbolic link files in the terminal suggest widget.",
                       "Icon for symbolic link folders in the terminal suggest widget.",
                       "Configuration icon in the tasks selection list.",
@@ -3137,8 +3178,8 @@
             }
           ]
         },
-        "languageModels": {
-          "description": "Contribute language models of a specific vendor.",
+        "languageModelChatProviders": {
+          "description": "Contribute language model chat providers of a specific vendor.",
           "oneOf": [
             {
               "$ref": "#/$defs/_4"
@@ -3189,7 +3230,7 @@
                 "type": "string"
               },
               "icon": {
-                "markdownDescription": "An icon that represents this tool. Either a file path, an object with file paths for dark and light themes, or a theme icon reference, like `$(zap)`",
+                "markdownDescription": "An icon that represents this tool. Either a file path, an object with file paths for dark and light themes, or a theme icon reference, like \"\\$(zap)\"",
                 "anyOf": [
                   {
                     "$ref": "#/$defs/_8"
@@ -3489,6 +3530,13 @@
           "properties": {
             "chat/chatSessions": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - The Chat Sessions menu.",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/_9"
+              }
+            },
+            "chat/multiDiff/context": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - The Chat Multi-Diff context menu.",
               "type": "array",
               "items": {
                 "$ref": "#/$defs/_9"
@@ -3925,13 +3973,6 @@
               "type": "array",
               "items": {
                 "$ref": "#/$defs/_10"
-              }
-            },
-            "terminal/context/chat": {
-              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatParticipantPrivate\"]` - The Chat submenu in the terminal context menu.",
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/_9"
               }
             },
             "terminal/title/context": {
@@ -4879,7 +4920,7 @@
             ],
             "properties": {
               "icon": {
-                "description": "(Optional) Icon which is used to represent the submenu in the UI. Either a file path, an object with file paths for dark and light themes, or a theme icon references, like `\\$(zap)`",
+                "description": "(Optional) Icon which is used to represent the submenu in the UI. Either a file path, an object with file paths for dark and light themes, or a theme icon references, like \"\\$(zap)\"",
                 "anyOf": [
                   {
                     "$ref": "#/$defs/_8"
@@ -5205,6 +5246,13 @@
               "items": {
                 "$ref": "#/$defs/_13"
               }
+            },
+            "secondarySidebar": {
+              "description": "Contribute views containers to Secondary Side Bar",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/_13"
+              }
             }
           },
           "additionalProperties": false
@@ -5525,6 +5573,7 @@
           "aiRelatedInformation",
           "aiSettingsSearch",
           "aiTextSearchProvider",
+          "authenticationChallenges",
           "authIssuers",
           "authLearnMore",
           "authProviderSpecific",
@@ -5564,6 +5613,7 @@
           "contribMultiDiffEditorMenus",
           "contribNotebookStaticPreloads",
           "contribRemoteHelp",
+          "contribSecondarySidebar",
           "contribShareMenu",
           "contribSourceControlHistoryItemMenu",
           "contribSourceControlHistoryTitleMenu",
@@ -5601,6 +5651,7 @@
           "languageModelCapabilities",
           "languageModelDataPart",
           "languageModelSystem",
+          "languageModelThinkingPart",
           "languageModelToolResultAudience",
           "languageStatusText",
           "mappedEditsProvider",
@@ -5672,6 +5723,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiRelatedInformation.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiSettingsSearch.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiTextSearchProvider.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authenticationChallenges.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authIssuers.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authLearnMore.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authProviderSpecific.d.ts",
@@ -5711,6 +5763,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribMultiDiffEditorMenus.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribNotebookStaticPreloads.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribRemoteHelp.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribSecondarySidebar.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribShareMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribSourceControlHistoryItemMenu.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribSourceControlHistoryTitleMenu.d.ts",
@@ -5748,6 +5801,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageModelCapabilities.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageModelDataPart.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageModelSystem.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageModelThinkingPart.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageModelToolResultAudience.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageStatusText.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.mappedEditsProvider.d.ts",
@@ -6750,13 +6804,14 @@
         "multiDiffEditor.background",
         "multiDiffEditor.border",
         "minimap.chatEditHighlight",
-        "gauge.background",
         "gauge.foreground",
+        "gauge.background",
         "gauge.border",
-        "gauge.warningBackground",
         "gauge.warningForeground",
-        "gauge.errorBackground",
+        "gauge.warningBackground",
         "gauge.errorForeground",
+        "gauge.errorBackground",
+        "mcpIcon.starForeground",
         "interactive.activeCodeBorder",
         "interactive.inactiveCodeBorder",
         "testing.iconFailed",
@@ -6865,6 +6920,13 @@
         "terminalSymbolIcon.inlineSuggestionForeground",
         "terminalSymbolIcon.fileForeground",
         "terminalSymbolIcon.folderForeground",
+        "terminalSymbolIcon.commitForeground",
+        "terminalSymbolIcon.branchForeground",
+        "terminalSymbolIcon.tagForeground",
+        "terminalSymbolIcon.stashForeground",
+        "terminalSymbolIcon.remoteForeground",
+        "terminalSymbolIcon.pullRequestForeground",
+        "terminalSymbolIcon.pullRequestDoneForeground",
         "terminalSymbolIcon.symbolicLinkFileForeground",
         "terminalSymbolIcon.symbolicLinkFolderForeground",
         "welcomePage.background",
@@ -7636,13 +7698,14 @@
         "The background color of the multi file diff editor",
         "The border color of the multi file diff editor",
         "Color of pending edit regions in the minimap",
-        "Gauge background color.",
         "Gauge foreground color.",
+        "Gauge background color.",
         "Gauge border color.",
-        "Gauge warning background color.",
         "Gauge warning foreground color.",
-        "Gauge error background color.",
+        "Gauge warning background color.",
         "Gauge error foreground color.",
+        "Gauge error background color.",
+        "The icon color for mcp starred.",
         "The border color for the current interactive code cell when the editor has focus.",
         "The border color for the current interactive code cell when the editor does not have focus.",
         "Color for the 'failed' icon in the test explorer.",
@@ -7751,6 +7814,13 @@
         "The foreground color for an inline suggestion icon. These icons will appear in the terminal suggest widget.",
         "The foreground color for a file icon. These icons will appear in the terminal suggest widget.",
         "The foreground color for a folder icon. These icons will appear in the terminal suggest widget.",
+        "The foreground color for a commit icon. These icons will appear in the terminal suggest widget.",
+        "The foreground color for a branch icon. These icons will appear in the terminal suggest widget.",
+        "The foreground color for a tag icon. These icons will appear in the terminal suggest widget.",
+        "The foreground color for a stash icon. These icons will appear in the terminal suggest widget.",
+        "The foreground color for a remote icon. These icons will appear in the terminal suggest widget.",
+        "The foreground color for a pull request icon. These icons will appear in the terminal suggest widget.",
+        "The foreground color for a completed pull request icon. These icons will appear in the terminal suggest widget.",
         "The foreground color for a symbolic link file icon. These icons will appear in the terminal suggest widget.",
         "The foreground color for a symbolic link folder icon. These icons will appear in the terminal suggest widget.",
         "Background color for the Welcome page.",
@@ -7847,15 +7917,15 @@
       "properties": {
         "vendor": {
           "type": "string",
-          "description": "A globally unique vendor of language models."
+          "description": "A globally unique vendor of language model chat provider."
         },
         "displayName": {
           "type": "string",
-          "description": "The display name of the language model vendor."
+          "description": "The display name of the language model chat provider."
         },
         "managementCommand": {
           "type": "string",
-          "description": "A command to manage the language model vendor, e.g. 'Manage Copilot models'. This is used in the chat model picker. If not provided, a gear icon is not rendered during vendor selection."
+          "description": "A command to manage the language model chat provider, e.g. 'Manage Copilot models'. This is used in the chat model picker. If not provided, a gear icon is not rendered during vendor selection."
         }
       }
     },
@@ -7895,7 +7965,7 @@
           "type": "string"
         },
         "icon": {
-          "description": "(Optional) Icon which is used to represent the command in the UI. Either a file path, an object with file paths for dark and light themes, or a theme icon references, like `\\$(zap)`",
+          "description": "(Optional) Icon which is used to represent the command in the UI. Either a file path, an object with file paths for dark and light themes, or a theme icon references, like \"\\$(zap)\"",
           "anyOf": [
             {
               "type": "string"
