@@ -2590,7 +2590,7 @@
     },
     "chat.agent.thinkingStyle": {
       "type": "string",
-      "default": "collapsedPreview",
+      "default": "collapsed",
       "enum": [
         "collapsed",
         "collapsedPreview",
@@ -2607,7 +2607,7 @@
       "tags": [
         "experimental"
       ],
-      "defaultDefaultValue": "collapsedPreview",
+      "defaultDefaultValue": "collapsed",
       "scope": 4,
       "restricted": false
     },
