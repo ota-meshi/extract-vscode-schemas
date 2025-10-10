@@ -964,6 +964,7 @@
         "vscode.markdown-math",
         "vscode.media-preview",
         "vscode.merge-conflict",
+        "vscode.mermaid-chat-features",
         "vscode.microsoft-authentication",
         "vscode.npm",
         "vscode.php-language-features",
@@ -1000,6 +1001,7 @@
         "JavaScript Debugger Companion Extension",
         "Media Preview",
         "Merge Conflict",
+        "Mermaid Chat Features",
         "Microsoft Account",
         "NPM support for VS Code",
         "Reference Search View",
@@ -1034,6 +1036,7 @@
         "Adds math support to Markdown in notebooks.",
         "Provides VS Code's built-in previews for images, audio, and video",
         "Highlighting and commands for inline merge conflicts.",
+        "Adds Mermaid diagram support to built-in chats.",
         "Microsoft authentication provider",
         "Extension to add task support for npm scripts.",
         "Provides rich language support for PHP files.",
@@ -1080,6 +1083,7 @@
         "vscode.markdown-math",
         "vscode.media-preview",
         "vscode.merge-conflict",
+        "vscode.mermaid-chat-features",
         "vscode.microsoft-authentication",
         "vscode.npm",
         "vscode.php-language-features",
@@ -1116,6 +1120,7 @@
         "JavaScript Debugger Companion Extension",
         "Media Preview",
         "Merge Conflict",
+        "Mermaid Chat Features",
         "Microsoft Account",
         "NPM support for VS Code",
         "Reference Search View",
@@ -1150,6 +1155,7 @@
         "Adds math support to Markdown in notebooks.",
         "Provides VS Code's built-in previews for images, audio, and video",
         "Highlighting and commands for inline merge conflicts.",
+        "Adds Mermaid diagram support to built-in chats.",
         "Microsoft authentication provider",
         "Extension to add task support for npm scripts.",
         "Provides rich language support for PHP files.",
@@ -2325,6 +2331,21 @@
       "scope": 6,
       "restricted": false
     },
+    "editor.inlineSuggest.experimental.emptyResponseInformation": {
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "description": "Controls whether to send request information from the inline suggestion provider.",
+      "experiment": {
+        "mode": "auto"
+      },
+      "defaultDefaultValue": true,
+      "scope": 6,
+      "restricted": false
+    },
     "editor.inlineSuggest.experimental.showOnSuggestConflict": {
       "type": "string",
       "default": "never",
@@ -2393,6 +2414,14 @@
       ],
       "description": "Controls when to show the inline suggestion toolbar.",
       "defaultDefaultValue": "onHover",
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.inlineSuggest.suppressInSnippetMode": {
+      "type": "boolean",
+      "default": true,
+      "description": "Controls whether inline suggestions are suppressed when in snippet mode.",
+      "defaultDefaultValue": true,
       "scope": 6,
       "restricted": false
     },
@@ -2700,6 +2729,19 @@
       "default": "proportional",
       "description": "Controls the size of the minimap.",
       "defaultDefaultValue": "proportional",
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.mouseMiddleClickAction": {
+      "description": "Controls what happens when middle mouse button is clicked in the editor.",
+      "type": "string",
+      "enum": [
+        "ctrlLeftClick",
+        "default",
+        "openLink"
+      ],
+      "default": "default",
+      "defaultDefaultValue": "default",
       "scope": 6,
       "restricted": false
     },

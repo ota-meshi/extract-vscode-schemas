@@ -354,6 +354,9 @@
     "collapse-all": {
       "$ref": "#/$defs/_0"
     },
+    "collection": {
+      "$ref": "#/$defs/_0"
+    },
     "color-mode": {
       "$ref": "#/$defs/_0"
     },
@@ -1586,6 +1589,10 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon of the MCP Server editor.: $(mcp-server-editor-icon)"
     },
+    "mcp-server-license": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon shown along with the license status.: $(mcp-server-license)"
+    },
     "mcp-server-remote": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon to indicate that an MCP server is for the remote user scope.: $(mcp-server-remote)"
@@ -1664,6 +1671,9 @@
       "$ref": "#/$defs/_0"
     },
     "mute": {
+      "$ref": "#/$defs/_0"
+    },
+    "new-collection": {
       "$ref": "#/$defs/_0"
     },
     "new-file": {
@@ -2966,6 +2976,9 @@
     "theme-selection-manage-extension": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for the 'Manage' action in the theme selection quick pick.: $(theme-selection-manage-extension)"
+    },
+    "thinking": {
+      "$ref": "#/$defs/_0"
     },
     "three-bars": {
       "$ref": "#/$defs/_0"
