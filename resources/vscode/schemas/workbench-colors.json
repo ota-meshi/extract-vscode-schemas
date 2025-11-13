@@ -710,7 +710,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_68"
+          "$ref": "#/$defs/_70"
         }
       ]
     },
@@ -775,6 +775,17 @@
               "body": "${1:#85b6ff}"
             }
           ]
+        }
+      ]
+    },
+    "chatManagement.sashBorder": {
+      "description": "The color of the Chat Management editor splitview sash border.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_9"
         }
       ]
     },
@@ -1922,7 +1933,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_68"
+          "$ref": "#/$defs/_70"
         }
       ]
     },
@@ -3552,7 +3563,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_72"
+          "$ref": "#/$defs/_68"
         }
       ]
     },
@@ -3574,7 +3585,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_73"
+          "$ref": "#/$defs/_69"
         }
       ]
     },
@@ -5026,7 +5037,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_71"
+          "$ref": "#/$defs/_73"
         }
       ]
     },
@@ -5094,7 +5105,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_70"
+          "$ref": "#/$defs/_72"
         }
       ]
     },
@@ -5105,7 +5116,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_69"
+          "$ref": "#/$defs/_71"
         }
       ]
     },
@@ -5116,7 +5127,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_69"
+          "$ref": "#/$defs/_71"
         }
       ]
     },
@@ -5127,7 +5138,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_71"
+          "$ref": "#/$defs/_73"
         }
       ]
     },
@@ -5138,7 +5149,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_70"
+          "$ref": "#/$defs/_72"
         }
       ]
     },
@@ -5779,6 +5790,61 @@
         }
       ]
     },
+    "markdownAlert.caution.foreground": {
+      "description": "Foreground color for caution alerts in markdown.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_14"
+        }
+      ]
+    },
+    "markdownAlert.important.foreground": {
+      "description": "Foreground color for important alerts in markdown.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_44"
+        }
+      ]
+    },
+    "markdownAlert.note.foreground": {
+      "description": "Foreground color for note alerts in markdown.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_24"
+        }
+      ]
+    },
+    "markdownAlert.tip.foreground": {
+      "description": "Foreground color for tip alerts in markdown.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_43"
+        }
+      ]
+    },
+    "markdownAlert.warning.foreground": {
+      "description": "Foreground color for warning alerts in markdown.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_13"
+        }
+      ]
+    },
     "mcpIcon.starForeground": {
       "description": "The icon color for mcp starred.",
       "oneOf": [
@@ -6049,7 +6115,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_71"
+          "$ref": "#/$defs/_73"
         }
       ]
     },
@@ -7762,7 +7828,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_27"
+          "$ref": "#/$defs/_36"
         }
       ]
     },
@@ -7785,6 +7851,17 @@
         },
         {
           "$ref": "#/$defs/_44"
+        }
+      ]
+    },
+    "scrollbar.background": {
+      "description": "Scrollbar track background color.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_6"
         }
       ]
     },
@@ -9804,7 +9881,7 @@
       ]
     },
     "terminal.hoverHighlightBackground": {
-      "description": "Border color of the other search matches in the terminal.",
+      "description": "Highlight below the word for which a hover is shown. The color must not be opaque so as not to hide underlying decorations.",
       "oneOf": [
         {
           "$ref": "#/$defs/_1"
@@ -10224,6 +10301,17 @@
         }
       ]
     },
+    "terminalSymbolIcon.symbolText": {
+      "description": "The foreground color for a plaintext suggestion. These icons will appear in the terminal suggest widget.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_0"
+        },
+        {
+          "$ref": "#/$defs/_1"
+        }
+      ]
+    },
     "terminalSymbolIcon.tagForeground": {
       "description": "The foreground color for a tag icon. These icons will appear in the terminal suggest widget.",
       "oneOf": [
@@ -10264,7 +10352,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_71"
+          "$ref": "#/$defs/_73"
         }
       ]
     },
@@ -10524,7 +10612,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_73"
+          "$ref": "#/$defs/_69"
         }
       ]
     },
@@ -10546,7 +10634,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_72"
+          "$ref": "#/$defs/_68"
         }
       ]
     },
@@ -10568,7 +10656,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_70"
+          "$ref": "#/$defs/_72"
         }
       ]
     },
@@ -11628,13 +11716,31 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
+          "body": "${1:#f14c4c1a}"
+        }
+      ]
+    },
+    "_69": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#3794ff1a}"
+        }
+      ]
+    },
+    "_70": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
           "body": "${1:#264f784d}"
         }
       ],
       "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
       "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
-    "_69": {
+    "_71": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -11645,7 +11751,7 @@
       "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
       "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
-    "_70": {
+    "_72": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -11654,30 +11760,12 @@
         }
       ]
     },
-    "_71": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#9ccc2c33}"
-        }
-      ]
-    },
-    "_72": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#f14c4c1a}"
-        }
-      ]
-    },
     "_73": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#3794ff1a}"
+          "body": "${1:#9ccc2c33}"
         }
       ]
     },

@@ -3217,6 +3217,11 @@
           ],
           "default": "openOnFirstSessionStart",
           "description": "Controls when the internal Debug Console should open.",
+          "section": {
+            "id": "debug",
+            "title": "Debug",
+            "order": 20
+          },
           "defaultDefaultValue": "openOnFirstSessionStart",
           "scope": 4,
           "restricted": false

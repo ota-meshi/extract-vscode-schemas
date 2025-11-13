@@ -47,6 +47,13 @@
     "add": {
       "$ref": "#/$defs/_0"
     },
+    "agent": {
+      "$ref": "#/$defs/_0"
+    },
+    "ai-management-editor-label-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon of the AI Management editor label.: $(ai-management-editor-label-icon)"
+    },
     "alert": {
       "$ref": "#/$defs/_0"
     },
@@ -198,6 +205,9 @@
     "bug": {
       "$ref": "#/$defs/_0"
     },
+    "build": {
+      "$ref": "#/$defs/_0"
+    },
     "calendar": {
       "$ref": "#/$defs/_0"
     },
@@ -233,6 +243,10 @@
     "chat-editor-label-icon": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon of the chat editor label.: $(chat-editor-label-icon)"
+    },
+    "chat-sessions-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for Agent Sessions View: $(chat-sessions-icon)"
     },
     "chat-sparkle": {
       "$ref": "#/$defs/_0"
@@ -372,6 +386,9 @@
     "comment-discussion": {
       "$ref": "#/$defs/_0"
     },
+    "comment-discussion-quote": {
+      "$ref": "#/$defs/_0"
+    },
     "comment-discussion-sparkle": {
       "$ref": "#/$defs/_0"
     },
@@ -444,6 +461,9 @@
       "$ref": "#/$defs/_0"
     },
     "credit-card": {
+      "$ref": "#/$defs/_0"
+    },
+    "cursor": {
       "$ref": "#/$defs/_0"
     },
     "dash": {
@@ -542,6 +562,9 @@
     "debug-configure": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for the debug configure action.: $(debug-configure)"
+    },
+    "debug-connected": {
+      "$ref": "#/$defs/_0"
     },
     "debug-console": {
       "$ref": "#/definitions/icons",
@@ -764,6 +787,9 @@
     "edit": {
       "$ref": "#/$defs/_0"
     },
+    "edit-code": {
+      "$ref": "#/$defs/_0"
+    },
     "edit-session": {
       "$ref": "#/$defs/_0"
     },
@@ -781,6 +807,9 @@
       "$ref": "#/$defs/_0"
     },
     "empty-window": {
+      "$ref": "#/$defs/_0"
+    },
+    "eraser": {
       "$ref": "#/$defs/_0"
     },
     "error": {
@@ -1116,10 +1145,19 @@
     "git-branch": {
       "$ref": "#/$defs/_0"
     },
+    "git-branch-changes": {
+      "$ref": "#/$defs/_0"
+    },
+    "git-branch-conflicts": {
+      "$ref": "#/$defs/_0"
+    },
     "git-branch-create": {
       "$ref": "#/$defs/_0"
     },
     "git-branch-delete": {
+      "$ref": "#/$defs/_0"
+    },
+    "git-branch-staged-changes": {
       "$ref": "#/$defs/_0"
     },
     "git-commit": {
@@ -1132,6 +1170,9 @@
       "$ref": "#/$defs/_0"
     },
     "git-fork-private": {
+      "$ref": "#/$defs/_0"
+    },
+    "git-lens": {
       "$ref": "#/$defs/_0"
     },
     "git-merge": {
@@ -1288,6 +1329,9 @@
       "$ref": "#/$defs/_0"
     },
     "indent": {
+      "$ref": "#/$defs/_0"
+    },
+    "index-zero": {
       "$ref": "#/$defs/_0"
     },
     "info": {
@@ -1630,6 +1674,9 @@
     "merge": {
       "$ref": "#/$defs/_0"
     },
+    "merge-into": {
+      "$ref": "#/$defs/_0"
+    },
     "mic": {
       "$ref": "#/$defs/_0"
     },
@@ -1650,6 +1697,10 @@
     },
     "mirror-public": {
       "$ref": "#/$defs/_0"
+    },
+    "models-management-editor-label-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon of the Models Management editor label.: $(models-management-editor-label-icon)"
     },
     "more": {
       "$ref": "#/$defs/_0"
@@ -1839,6 +1890,9 @@
     "open-editors-view-icon": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "View icon of the open editors view.: $(open-editors-view-icon)"
+    },
+    "open-in-product": {
+      "$ref": "#/$defs/_0"
     },
     "open-preview": {
       "$ref": "#/$defs/_0"
@@ -2093,6 +2147,9 @@
     "quote": {
       "$ref": "#/$defs/_0"
     },
+    "quotes": {
+      "$ref": "#/$defs/_0"
+    },
     "radio-tower": {
       "$ref": "#/$defs/_0"
     },
@@ -2160,6 +2217,9 @@
     "remove-close": {
       "$ref": "#/$defs/_0"
     },
+    "rename": {
+      "$ref": "#/$defs/_0"
+    },
     "repl": {
       "$ref": "#/$defs/_0"
     },
@@ -2204,6 +2264,9 @@
       "$ref": "#/$defs/_0"
     },
     "repo-push": {
+      "$ref": "#/$defs/_0"
+    },
+    "repo-selected": {
       "$ref": "#/$defs/_0"
     },
     "repo-sync": {
@@ -2266,6 +2329,9 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "View icon of the run view.: $(run-view-icon)"
     },
+    "run-with-deps": {
+      "$ref": "#/$defs/_0"
+    },
     "runtime-extensions-editor-label-icon": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon of the runtime extensions editor label.: $(runtime-extensions-editor-label-icon)"
@@ -2326,6 +2392,9 @@
     "search-hide-replace": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon to collapse the replace section in the search view.: $(search-hide-replace)"
+    },
+    "search-large": {
+      "$ref": "#/$defs/_0"
     },
     "search-list": {
       "$ref": "#/definitions/icons",
@@ -2461,6 +2530,9 @@
     "sign-out": {
       "$ref": "#/$defs/_0"
     },
+    "skip": {
+      "$ref": "#/$defs/_0"
+    },
     "smiley": {
       "$ref": "#/$defs/_0"
     },
@@ -2525,6 +2597,9 @@
       "$ref": "#/$defs/_0"
     },
     "stop-circle": {
+      "$ref": "#/$defs/_0"
+    },
+    "strikethrough": {
       "$ref": "#/$defs/_0"
     },
     "suggest-more-info": {
@@ -2740,6 +2815,9 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for a terminal decoration of a command that was successful. $(terminal-decoration-success)"
     },
+    "terminal-git-bash": {
+      "$ref": "#/$defs/_0"
+    },
     "terminal-kill": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for killing a terminal instance.: $(terminal-kill)"
@@ -2832,6 +2910,11 @@
       "$ref": "#/definitions/icons",
       "deprecationMessage": "terminalSymbolIcon.stashForeground",
       "markdownDescription": "Icon for stashes in the terminal suggest widget.: $(terminal-symbol-stash)"
+    },
+    "terminal-symbol-symbol-text": {
+      "$ref": "#/definitions/icons",
+      "deprecationMessage": "terminalSymbolIcon.symbolText",
+      "markdownDescription": "Icon for plain text suggestions in the terminal suggest widget.: $(terminal-symbol-symbol-text)"
     },
     "terminal-symbol-symbolic-link-file": {
       "$ref": "#/definitions/icons",

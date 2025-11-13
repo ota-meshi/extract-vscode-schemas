@@ -11,7 +11,7 @@ You able to get it in the form of `https://raw.githubusercontent.com/ota-meshi/e
 
 <!--EXTRACT-INFO-START-->
 
-Version of VSCode used for extraction: 1.105.1
+Version of VSCode used for extraction: 1.106.0
 
 Extracted Resources:
 
@@ -24,6 +24,7 @@ Extracted Resources:
 | `vscode://schemas/icon-theme` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/icon-theme.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/icon-theme.json) |
 | `vscode://schemas/icons` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/icons.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/icons.json) |
 | `vscode://schemas/ignoredSettings` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/ignoredSettings.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/ignoredSettings.json) |
+| `vscode://schemas/inlineCompletionProviderIdArgs` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/inlineCompletionProviderIdArgs.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/inlineCompletionProviderIdArgs.json) |
 | `vscode://schemas/keybindings` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/keybindings.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/keybindings.json) |
 | `vscode://schemas/language-configuration` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/language-configuration.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/language-configuration.json) |
 | `vscode://schemas/launch` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/launch.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/launch.json) |
