@@ -3928,7 +3928,7 @@
         "**/.vscode/*.json": false,
         "**/{package.json,package-lock.json,server.xml,build.rs,web.config,.gitattributes,.env}": false,
         "**/*": true,
-        "**/*.{csproj,fsproj,vbproj,vcxproj,proj,targets,props}": false
+        "**/*.{code-workspace,csproj,fsproj,vbproj,vcxproj,proj,targets,props}": false
       },
       "markdownDescription": "Controls whether edits made by chat are automatically approved. The default is to approve all edits except those made to certain files which have the potential to cause immediate unintended side-effects, such as `**/.vscode/*.json`.\n\nSet to `true` to automatically approve edits to matching files, `false` to always require explicit approval. The last pattern matching a given file will determine whether the edit is automatically approved.",
       "type": "object",
@@ -3944,8 +3944,43 @@
         "**/.vscode/*.json": false,
         "**/{package.json,package-lock.json,server.xml,build.rs,web.config,.gitattributes,.env}": false,
         "**/*": true,
-        "**/*.{csproj,fsproj,vbproj,vcxproj,proj,targets,props}": false
+        "**/*.{code-workspace,csproj,fsproj,vbproj,vcxproj,proj,targets,props}": false
       },
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.tools.eligibleForAutoApproval": {
+      "default": {},
+      "markdownDescription": "Controls which tools are eligible for automatic approval. Tools set to 'false' will always present a confirmation and will never offer the option to auto-approve. The default behavior (or setting a tool to 'true') may result in the tool offering auto-approval options.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "boolean"
+      },
+      "tags": [
+        "experimental"
+      ],
+      "examples": [
+        {
+          "fetch": false,
+          "runTests": false
+        }
+      ],
+      "policy": {
+        "name": "ChatToolsEligibleForAutoApproval",
+        "category": "InteractiveSession",
+        "minimumVersion": "1.106",
+        "localization": {
+          "description": {
+            "key": "chat.tools.eligibleForAutoApproval",
+            "value": "Controls which tools are eligible for automatic approval. Tools set to 'false' will always present a confirmation and will never offer the option to auto-approve. The default behavior (or setting a tool to 'true') may result in the tool offering auto-approval options."
+          }
+        }
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": {},
       "scope": 4,
       "restricted": false
     },
@@ -24233,17 +24268,17 @@
     },
     "terminal.integrated.suggest.providers": {
       "restricted": true,
-      "markdownDescription": "Controls which suggestions automatically show up while typing. Suggestion providers are disabled by default.",
+      "markdownDescription": "Controls which suggestions automatically show up while typing. Suggestion providers are enabled by default.",
       "type": "object",
       "properties": {
         "lsp": {
           "type": "boolean",
-          "default": false,
+          "default": true,
           "description": "Show suggestions from language servers."
         }
       },
       "default": {
-        "lsp": false
+        "lsp": true
       },
       "tags": [
         "preview"
@@ -24255,7 +24290,7 @@
         "order": 100
       },
       "defaultDefaultValue": {
-        "lsp": false
+        "lsp": true
       },
       "scope": 4
     },
