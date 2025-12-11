@@ -332,6 +332,9 @@
     "clock": {
       "$ref": "#/$defs/_0"
     },
+    "clockface": {
+      "$ref": "#/$defs/_0"
+    },
     "clone": {
       "$ref": "#/$defs/_0"
     },
@@ -348,6 +351,9 @@
       "$ref": "#/$defs/_0"
     },
     "cloud-download": {
+      "$ref": "#/$defs/_0"
+    },
+    "cloud-small": {
       "$ref": "#/$defs/_0"
     },
     "cloud-upload": {
@@ -369,6 +375,9 @@
       "$ref": "#/$defs/_0"
     },
     "collection": {
+      "$ref": "#/$defs/_0"
+    },
+    "collection-small": {
       "$ref": "#/$defs/_0"
     },
     "color-mode": {
@@ -781,6 +790,9 @@
     "discard": {
       "$ref": "#/$defs/_0"
     },
+    "download": {
+      "$ref": "#/$defs/_0"
+    },
     "drop-down-button": {
       "$ref": "#/$defs/_0"
     },
@@ -1094,6 +1106,9 @@
     "folding-manual-expanded": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for manually expanded ranges in the editor glyph margin.: $(folding-manual-expanded)"
+    },
+    "forward": {
+      "$ref": "#/$defs/_0"
     },
     "fullscreen": {
       "$ref": "#/definitions/icons",
@@ -1825,6 +1840,10 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon to revert in notebook editors.: $(notebook-revert)"
     },
+    "notebook-save": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon to save content to disk: $(notebook-save)"
+    },
     "notebook-split-cell": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon to split a cell in notebook editors.: $(notebook-split-cell)"
@@ -2478,6 +2497,9 @@
       "$ref": "#/$defs/_0"
     },
     "server-process": {
+      "$ref": "#/$defs/_0"
+    },
+    "session-in-progress": {
       "$ref": "#/$defs/_0"
     },
     "settings": {
@@ -3153,6 +3175,9 @@
     "type-hierarchy-super": {
       "$ref": "#/$defs/_0"
     },
+    "unarchive": {
+      "$ref": "#/$defs/_0"
+    },
     "unfold": {
       "$ref": "#/$defs/_0"
     },
@@ -3210,6 +3235,9 @@
     "vm-running": {
       "$ref": "#/$defs/_0"
     },
+    "vm-small": {
+      "$ref": "#/$defs/_0"
+    },
     "vr": {
       "$ref": "#/$defs/_0"
     },
@@ -3263,6 +3291,9 @@
       "markdownDescription": "Icon for the close action in widgets.: $(widget-close)"
     },
     "window": {
+      "$ref": "#/$defs/_0"
+    },
+    "window-active": {
       "$ref": "#/$defs/_0"
     },
     "word-wrap": {

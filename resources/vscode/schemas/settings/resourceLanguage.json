@@ -2916,15 +2916,25 @@
       "restricted": false
     },
     "editor.hover.enabled": {
-      "type": "boolean",
-      "default": true,
+      "type": "string",
+      "enum": [
+        "off",
+        "on",
+        "onKeyboardModifier"
+      ],
+      "default": "on",
+      "markdownEnumDescriptions": [
+        "Hover is disabled.",
+        "Hover is enabled.",
+        "Hover is shown when holding `Control` or `Alt` (the opposite modifier of `#editor.multiCursorModifier#`)"
+      ],
       "description": "Controls whether the hover is shown.",
       "section": {
         "id": "editor",
         "title": "Editor",
         "order": 5
       },
-      "defaultDefaultValue": true,
+      "defaultDefaultValue": "on",
       "scope": 6,
       "restricted": false
     },
@@ -3140,6 +3150,23 @@
         "order": 5
       },
       "defaultDefaultValue": false,
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.inlineSuggest.edits.showLongDistanceHint": {
+      "type": "boolean",
+      "default": true,
+      "description": "Controls whether long distance inline suggestions are shown.",
+      "tags": [
+        "nextEditSuggestions",
+        "experimental"
+      ],
+      "section": {
+        "id": "editor",
+        "title": "Editor",
+        "order": 5
+      },
+      "defaultDefaultValue": true,
       "scope": 6,
       "restricted": false
     },
