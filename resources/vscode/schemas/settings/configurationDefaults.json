@@ -2997,7 +2997,7 @@
     },
     "chat.agent.enabled": {
       "type": "boolean",
-      "description": "Enable agent mode for chat. When this is enabled, agent mode can be activated via the dropdown in the view.",
+      "description": "When enabled, agent mode can be activated from chat and tools in agentic contexts with side effects can be used.",
       "default": true,
       "policy": {
         "name": "ChatAgentMode",
@@ -3006,7 +3006,7 @@
         "localization": {
           "description": {
             "key": "chat.agent.enabled.description",
-            "value": "Enable agent mode for chat. When this is enabled, agent mode can be activated via the dropdown in the view."
+            "value": "When enabled, agent mode can be activated from chat and tools in agentic contexts with side effects can be used."
           }
         }
       },
@@ -3926,6 +3926,33 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.statusWidget.sku": {
+      "type": "string",
+      "enum": [
+        "anonymous",
+        "free"
+      ],
+      "enumDescriptions": [
+        "Show status widget for anonymous users.",
+        "Show status widget for free tier users."
+      ],
+      "description": "Controls which user type should see the status widget in new chat sessions when quota is exceeded.",
+      "default": "",
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "scope": 4,
+      "restricted": false
+    },
     "chat.suspendThrottling": {
       "type": "boolean",
       "description": "Controls whether background throttling is suspended when a chat request is in progress, allowing the chat session to continue even when the window is not in focus.",
@@ -4600,10 +4627,10 @@
       ],
       "enumDescriptions": [
         "Automatically determine the orientation based on available space.",
-        "Display sessions side by side if space is sufficient.",
+        "Display sessions side by side if space is sufficient, otherwise stacked.",
         "Display sessions vertically stacked unless a chat session is visible."
       ],
-      "default": "auto",
+      "default": "sideBySide",
       "description": "Controls the orientation of the chat agent sessions view when it is shown alongside the chat.",
       "tags": [
         "preview",
@@ -4617,7 +4644,7 @@
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": "auto",
+      "defaultDefaultValue": "sideBySide",
       "scope": 4,
       "restricted": false
     },
