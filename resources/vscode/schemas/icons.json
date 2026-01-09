@@ -47,6 +47,9 @@
     "add": {
       "$ref": "#/$defs/_0"
     },
+    "add-small": {
+      "$ref": "#/$defs/_0"
+    },
     "agent": {
       "$ref": "#/$defs/_0"
     },
@@ -243,10 +246,6 @@
     "chat-editor-label-icon": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon of the chat editor label.: $(chat-editor-label-icon)"
-    },
-    "chat-sessions-icon": {
-      "$ref": "#/definitions/icons",
-      "markdownDescription": "Icon for Agent Sessions View: $(chat-sessions-icon)"
     },
     "chat-sparkle": {
       "$ref": "#/$defs/_0"
@@ -1185,9 +1184,6 @@
       "$ref": "#/$defs/_0"
     },
     "git-fork-private": {
-      "$ref": "#/$defs/_0"
-    },
-    "git-lens": {
       "$ref": "#/$defs/_0"
     },
     "git-merge": {
@@ -2234,6 +2230,9 @@
       "$ref": "#/$defs/_0"
     },
     "remove-close": {
+      "$ref": "#/$defs/_0"
+    },
+    "remove-small": {
       "$ref": "#/$defs/_0"
     },
     "rename": {
@@ -3337,6 +3336,12 @@
       "$ref": "#/$defs/_0"
     },
     "workspace-untrusted": {
+      "$ref": "#/$defs/_0"
+    },
+    "worktree": {
+      "$ref": "#/$defs/_0"
+    },
+    "worktree-small": {
       "$ref": "#/$defs/_0"
     },
     "wrench": {

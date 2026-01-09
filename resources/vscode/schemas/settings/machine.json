@@ -2955,6 +2955,19 @@
       "scope": 4,
       "restricted": false
     },
+    "breadcrumbs.symbolPathSeparator": {
+      "description": "The separator used when copying the breadcrumb symbol path.",
+      "type": "string",
+      "default": ".",
+      "scope": 6,
+      "section": {
+        "id": "breadcrumbs",
+        "title": "Breadcrumb Navigation",
+        "order": 101
+      },
+      "defaultDefaultValue": ".",
+      "restricted": false
+    },
     "breadcrumbs.symbolSortOrder": {
       "description": "Controls how symbols are sorted in the breadcrumbs outline view.",
       "type": "string",
@@ -3099,31 +3112,6 @@
         "title": "Chat"
       },
       "defaultDefaultValue": "fixedScrolling",
-      "scope": 4,
-      "restricted": false
-    },
-    "chat.agentSessionsViewLocation": {
-      "type": "string",
-      "enum": [
-        "disabled",
-        "single-view",
-        "view"
-      ],
-      "description": "Controls where to show the agent sessions menu.",
-      "default": "disabled",
-      "tags": [
-        "preview",
-        "experimental",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "auto"
-      },
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": "disabled",
       "scope": 4,
       "restricted": false
     },
@@ -3851,7 +3839,7 @@
     "chat.restoreLastPanelSession": {
       "type": "boolean",
       "description": "Controls whether the last session is restored in panel after restart.",
-      "default": true,
+      "default": false,
       "tags": [
         "experimental",
         "onExP"
@@ -3863,7 +3851,7 @@
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": true,
+      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },
@@ -3904,18 +3892,6 @@
       "tags": [
         "preview"
       ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": true,
-      "scope": 4,
-      "restricted": false
-    },
-    "chat.showAgentSessionsViewDescription": {
-      "type": "boolean",
-      "description": "Controls whether session descriptions are displayed on a second row in the Chat Sessions view.",
-      "default": true,
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
@@ -4068,7 +4044,7 @@
       "examples": [
         {
           "fetch": false,
-          "runTests": false
+          "runTask": false
         }
       ],
       "policy": {
@@ -4159,8 +4135,18 @@
         "/^date\\b.*(-s|--set)\\b/": false,
         "/^find\\b.*-(delete|exec|execdir|fprint|fprintf|fls|ok|okdir)\\b/": false,
         "/^Format-[a-z0-9]/i": true,
-        "/^git branch\\b.*-(d|D|m|M|-delete|-force)\\b/": false,
+        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+branch\\b.*-(d|D|m|M|-delete|-force)\\b/": false,
+        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+branch\\b/": true,
+        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+diff\\b/": true,
+        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+grep\\b/": true,
+        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+log\\b/": true,
+        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+ls-files\\b/": true,
+        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+show\\b/": true,
+        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+status\\b/": true,
         "/^Measure-[a-z0-9]/i": true,
+        "/^rg\\b.*(--pre|--hostname-bin)\\b/": false,
+        "/^sed\\b.*(-[a-zA-Z]*(e|i|I|f)[a-zA-Z]*|--expression|--file|--in-place)\\b/": false,
+        "/^sed\\b.*(/e|/w|;W)/": false,
         "/^Select-[a-z0-9]/i": true,
         "/^Sort-[a-z0-9]/i": true,
         "/^sort\\b.*-(o|S)\\b/": false,
@@ -4191,12 +4177,6 @@
         "Get-Date": true,
         "Get-Location": true,
         "Get-Random": true,
-        "git branch": true,
-        "git diff": true,
-        "git grep": true,
-        "git log": true,
-        "git show": true,
-        "git status": true,
         "grep": true,
         "head": true,
         "iex": false,
@@ -4210,15 +4190,18 @@
         "kill": false,
         "ls": true,
         "nl": true,
+        "Out-String": true,
         "ps": false,
         "pwd": true,
         "rd": false,
         "readlink": true,
         "realpath": true,
         "Remove-Item": false,
+        "rg": true,
         "ri": false,
         "rm": false,
         "rmdir": false,
+        "sed": true,
         "Set-Acl": false,
         "Set-ItemProperty": false,
         "sleep": true,
@@ -4254,8 +4237,18 @@
         "/^date\\b.*(-s|--set)\\b/": false,
         "/^find\\b.*-(delete|exec|execdir|fprint|fprintf|fls|ok|okdir)\\b/": false,
         "/^Format-[a-z0-9]/i": true,
-        "/^git branch\\b.*-(d|D|m|M|-delete|-force)\\b/": false,
+        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+branch\\b.*-(d|D|m|M|-delete|-force)\\b/": false,
+        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+branch\\b/": true,
+        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+diff\\b/": true,
+        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+grep\\b/": true,
+        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+log\\b/": true,
+        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+ls-files\\b/": true,
+        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+show\\b/": true,
+        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+status\\b/": true,
         "/^Measure-[a-z0-9]/i": true,
+        "/^rg\\b.*(--pre|--hostname-bin)\\b/": false,
+        "/^sed\\b.*(-[a-zA-Z]*(e|i|I|f)[a-zA-Z]*|--expression|--file|--in-place)\\b/": false,
+        "/^sed\\b.*(/e|/w|;W)/": false,
         "/^Select-[a-z0-9]/i": true,
         "/^Sort-[a-z0-9]/i": true,
         "/^sort\\b.*-(o|S)\\b/": false,
@@ -4286,12 +4279,6 @@
         "Get-Date": true,
         "Get-Location": true,
         "Get-Random": true,
-        "git branch": true,
-        "git diff": true,
-        "git grep": true,
-        "git log": true,
-        "git show": true,
-        "git status": true,
         "grep": true,
         "head": true,
         "iex": false,
@@ -4305,15 +4292,18 @@
         "kill": false,
         "ls": true,
         "nl": true,
+        "Out-String": true,
         "ps": false,
         "pwd": true,
         "rd": false,
         "readlink": true,
         "realpath": true,
         "Remove-Item": false,
+        "rg": true,
         "ri": false,
         "rm": false,
         "rmdir": false,
+        "sed": true,
         "Set-Acl": false,
         "Set-ItemProperty": false,
         "sleep": true,
@@ -4340,6 +4330,22 @@
       },
       "scope": 4,
       "restricted": false
+    },
+    "chat.tools.terminal.autoApproveWorkspaceNpmScripts": {
+      "restricted": true,
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "experimental"
+      ],
+      "markdownDescription": "Whether to automatically approve npm, yarn, and pnpm run commands when the script is defined in a workspace package.json file. Since the workspace is trusted, scripts defined in package.json are considered safe to run without explicit approval.",
+      "section": {
+        "id": "terminal",
+        "title": "Integrated Terminal",
+        "order": 100
+      },
+      "defaultDefaultValue": true,
+      "scope": 4
     },
     "chat.tools.terminal.autoReplyToPrompts": {
       "type": "boolean",
@@ -4448,6 +4454,19 @@
         "order": 100
       },
       "defaultDefaultValue": "terminal",
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.tools.terminal.preventShellHistory": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "Whether to exclude commands run by the terminal tool from the shell history. See below for the supported shells and the method used for each:\n- `bash`: Sets `HISTCONTROL=ignorespace` and prepends the command with space\n- `zsh`: Sets `HIST_IGNORE_SPACE` option and prepends the command with space\n- `fish`: Sets `fish_private_mode` to prevent any command from entering history\n- `pwsh`: Sets a custom history handler via PSReadLine's `AddToHistoryHandler` to prevent any command from entering history",
+      "section": {
+        "id": "terminal",
+        "title": "Integrated Terminal",
+        "order": 100
+      },
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -4622,30 +4641,10 @@
       "scope": 4,
       "restricted": false
     },
-    "chat.useAgentsMdFile": {
+    "chat.useAgentSkills": {
       "type": "boolean",
-      "title": "Use AGENTS.MD file",
-      "markdownDescription": "Controls whether instructions from `AGENTS.MD` file found in a workspace roots are attached to all chat requests.",
-      "default": true,
-      "restricted": true,
-      "disallowConfigurationDefault": true,
-      "tags": [
-        "prompts",
-        "reusable prompts",
-        "prompt snippets",
-        "instructions"
-      ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": true,
-      "scope": 4
-    },
-    "chat.useClaudeSkills": {
-      "type": "boolean",
-      "title": "Use Claude skills",
-      "markdownDescription": "Controls whether Claude skills found in the workspace and user home directories under `.claude/skills` are listed in all chat requests. The language model can load these skills on-demand if the `read` tool is available.",
+      "title": "Use Agent skills",
+      "markdownDescription": "Controls whether skills are provided as specialized capabilities to the chat requests. Skills are loaded from `.github/skills`, `~/.copilot/skills`, `.claude/skills`, and `~/.claude/skills`. The language model can load these skills on-demand if the `read` tool is available. Learn more about [Agent Skills](https://aka.ms/vscode-agent-skills).",
       "default": false,
       "restricted": true,
       "disallowConfigurationDefault": true,
@@ -4663,10 +4662,30 @@
       "defaultDefaultValue": false,
       "scope": 4
     },
+    "chat.useAgentsMdFile": {
+      "type": "boolean",
+      "title": "Use AGENTS.md file",
+      "markdownDescription": "Controls whether instructions from `AGENTS.md` file found in a workspace roots are attached to all chat requests.",
+      "default": true,
+      "restricted": true,
+      "disallowConfigurationDefault": true,
+      "tags": [
+        "prompts",
+        "reusable prompts",
+        "prompt snippets",
+        "instructions"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": true,
+      "scope": 4
+    },
     "chat.useNestedAgentsMdFiles": {
       "type": "boolean",
-      "title": "Use nested AGENTS.MD files",
-      "markdownDescription": "Controls whether instructions from nested `AGENTS.MD` files found in the workspace are listed in all chat requests. The language model can load these skills on-demand if the `read` tool is available.",
+      "title": "Use nested AGENTS.md files",
+      "markdownDescription": "Controls whether instructions from nested `AGENTS.md` files found in the workspace are listed in all chat requests. The language model can load these skills on-demand if the `read` tool is available.",
       "default": false,
       "restricted": true,
       "disallowConfigurationDefault": true,
@@ -4688,14 +4707,6 @@
       "type": "boolean",
       "default": true,
       "description": "Show chat agent sessions when chat is empty or to the side when chat view is wide enough.",
-      "tags": [
-        "preview",
-        "experimental",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "auto"
-      },
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
@@ -4707,25 +4718,15 @@
     "chat.viewSessions.orientation": {
       "type": "string",
       "enum": [
-        "auto",
         "sideBySide",
         "stacked"
       ],
       "enumDescriptions": [
-        "Automatically determine the orientation based on available space.",
-        "Display sessions side by side if space is sufficient, otherwise stacked.",
-        "Display sessions vertically stacked unless a chat session is visible."
+        "Display chat sessions side by side if space is sufficient, otherwise fallback to stacked above the chat input unless a chat session is visible.",
+        "Display chat sessions vertically stacked above the chat input unless a chat session is visible."
       ],
       "default": "sideBySide",
       "description": "Controls the orientation of the chat agent sessions view when it is shown alongside the chat.",
-      "tags": [
-        "preview",
-        "experimental",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "auto"
-      },
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
@@ -4738,14 +4739,6 @@
       "type": "boolean",
       "default": true,
       "description": "Show the title of the chat above the chat in the chat view.",
-      "tags": [
-        "preview",
-        "experimental",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "auto"
-      },
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
@@ -5743,6 +5736,23 @@
         "order": 20
       },
       "defaultDefaultValue": "auto",
+      "scope": 4,
+      "restricted": false
+    },
+    "debug.breakpointsView.presentation": {
+      "type": "string",
+      "description": "Controls whether breakpoints are displayed in a tree view grouped by file, or as a flat list.",
+      "enum": [
+        "list",
+        "tree"
+      ],
+      "default": "list",
+      "section": {
+        "id": "debug",
+        "title": "Debug",
+        "order": 20
+      },
+      "defaultDefaultValue": "list",
       "scope": 4,
       "restricted": false
     },
@@ -8254,8 +8264,8 @@
       ],
       "enumDescriptions": [
         "Format the whole file.",
-        "Format modifications (requires source control).",
-        "Will attempt to format modifications only (requires source control). If source control can't be used, then the whole file will be formatted."
+        "Format modifications. Requires source control and a formatter that supports 'Format Selection'.",
+        "Will attempt to format modifications only (requires source control and a formatter that supports 'Format Selection'). If source control can't be used, then the whole file will be formatted."
       ],
       "markdownDescription": "Controls if format on save formats the whole file or only modifications. Only applies when `#editor.formatOnSave#` is enabled.",
       "scope": 6,
@@ -9235,16 +9245,21 @@
         "allDocuments",
         "currentDocument",
         "matchingDocuments",
-        "off"
+        "off",
+        "offWithInlineSuggestions"
       ],
       "default": "matchingDocuments",
       "enumDescriptions": [
         "Suggest words from all open documents.",
         "Only suggest words from the active document.",
         "Suggest words from all open documents of the same language.",
-        "Turn off Word Based Suggestions."
+        "Turn off Word Based Suggestions.",
+        "Turn off Word Based Suggestions when Inline Suggestions are present."
       ],
       "description": "Controls whether completions should be computed based on words in the document and from which documents they are computed.",
+      "experiment": {
+        "mode": "auto"
+      },
       "section": {
         "id": "editor",
         "title": "Editor",
@@ -9252,7 +9267,10 @@
       },
       "defaultDefaultValue": "matchingDocuments",
       "scope": 6,
-      "restricted": false
+      "restricted": false,
+      "tags": [
+        "onExP"
+      ]
     },
     "editor.wordBreak": {
       "$ref": "#/$defs/_257"
@@ -9782,7 +9800,7 @@
     },
     "explorer.confirmDelete": {
       "type": "boolean",
-      "description": "Controls whether the Explorer should ask for confirmation when deleting a file via the trash.",
+      "description": "Controls whether the Explorer should ask for confirmation when deleting files and folders.",
       "default": true,
       "section": {
         "id": "explorer",
@@ -11171,6 +11189,26 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
+    "git.blame.editorDecoration.disableHover": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "Controls whether to disable the blame information editor decoration hover.",
+      "scope": 4,
+      "section": {
+        "id": "vscode.git",
+        "title": "Git",
+        "extensionInfo": {
+          "id": "vscode.git",
+          "displayName": "Git"
+        }
+      },
+      "source": {
+        "id": "vscode.git",
+        "displayName": "Git"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
     "git.blame.editorDecoration.enabled": {
       "type": "boolean",
       "default": false,
@@ -11209,6 +11247,26 @@
         "displayName": "Git"
       },
       "defaultDefaultValue": "${subject}, ${authorName} (${authorDateAgo})",
+      "restricted": false
+    },
+    "git.blame.ignoreWhitespace": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "Controls whether to ignore whitespace changes when computing blame information.",
+      "scope": 4,
+      "section": {
+        "id": "vscode.git",
+        "title": "Git",
+        "extensionInfo": {
+          "id": "vscode.git",
+          "displayName": "Git"
+        }
+      },
+      "source": {
+        "id": "vscode.git",
+        "displayName": "Git"
+      },
+      "defaultDefaultValue": false,
       "restricted": false
     },
     "git.blame.statusBarItem.enabled": {
@@ -13889,27 +13947,6 @@
       },
       "defaultDefaultValue": true,
       "scope": 2
-    },
-    "inlineChat.accessibleDiffView": {
-      "description": "Whether the inline chat also renders an accessible diff viewer for its changes.",
-      "default": "auto",
-      "type": "string",
-      "enum": [
-        "auto",
-        "off",
-        "on"
-      ],
-      "markdownEnumDescriptions": [
-        "The accessible diff viewer is based on screen reader mode being enabled.",
-        "The accessible diff viewer is never enabled.",
-        "The accessible diff viewer is always enabled."
-      ],
-      "section": {
-        "id": "editor"
-      },
-      "defaultDefaultValue": "auto",
-      "scope": 4,
-      "restricted": false
     },
     "inlineChat.enableV2": {
       "description": "Whether to use the next version of inline chat.",
@@ -16893,15 +16930,6 @@
         "displayName": "Microsoft Account"
       },
       "default": "",
-      "restricted": false
-    },
-    "multiDiffEditor.experimental.enabled": {
-      "type": "boolean",
-      "default": true,
-      "description": "Enable experimental multi diff editor.",
-      "section": {},
-      "defaultDefaultValue": true,
-      "scope": 4,
       "restricted": false
     },
     "notebook.backup.sizeLimit": {
@@ -22762,7 +22790,7 @@
       "restricted": false
     },
     "terminal.integrated.customGlyphs": {
-      "markdownDescription": "Whether to draw custom glyphs for block element and box drawing characters instead of using the font, which typically yields better rendering with continuous lines. Note that this doesn't work when `#terminal.integrated.gpuAcceleration#` is disabled.",
+      "markdownDescription": "Whether to draw custom glyphs instead of using the font for the following unicode ranges:\n\n- Box Drawing (U+2500-U+257F)\n- Block Elements (U+2580-U+259F)\n- Braille Patterns (U+2800-U+28FF)\n- Powerline Symbols (U+E0A0-U+E0D4, Private Use Area)\n- Progress Indicators (U+EE00-U+EE0B, Private Use Area)\n- Git Branch Symbols (U+F5D0-U+F60D, Private Use Area)\n- Symbols for Legacy Computing (U+1FB00-U+1FBFF)\n\nThis will typically result in better rendering with continuous lines, even when line height and letter spacing is used. This feature only works when `#terminal.integrated.gpuAcceleration#` is enabled.",
       "type": "boolean",
       "default": true,
       "section": {
@@ -24065,9 +24093,7 @@
             "${env:windir}\\System32\\cmd.exe"
           ],
           "args": [],
-          "icon": {
-            "id": "terminal-cmd"
-          }
+          "icon": "terminal-cmd"
         },
         "Git Bash": {
           "source": "Git Bash",
@@ -24130,9 +24156,7 @@
             "${env:windir}\\System32\\cmd.exe"
           ],
           "args": [],
-          "icon": {
-            "id": "terminal-cmd"
-          }
+          "icon": "terminal-cmd"
         },
         "Git Bash": {
           "source": "Git Bash",
@@ -24418,22 +24442,16 @@
     },
     "terminal.integrated.suggest.enabled": {
       "restricted": true,
-      "markdownDescription": "Enables terminal intellisense suggestions (preview) for supported shells (PowerShell v7+, zsh, bash, fish) when `#terminal.integrated.shellIntegration.enabled#` is set to `true`.",
+      "markdownDescription": "Enables terminal IntelliSense suggestions (also known as autocomplete) for supported shells (Windows PowerShell, PowerShell v7+, zsh, bash, fish). This requires `#terminal.integrated.shellIntegration.enabled#` to be enabled and working or [manually installed](https://code.visualstudio.com/docs/terminal/shell-integration#_manual-installation-install).",
       "type": "boolean",
-      "default": false,
-      "experiment": {
-        "mode": "auto"
-      },
+      "default": true,
       "section": {
         "id": "terminal",
         "title": "Integrated Terminal",
         "order": 100
       },
-      "defaultDefaultValue": false,
-      "scope": 4,
-      "tags": [
-        "onExP"
-      ]
+      "defaultDefaultValue": true,
+      "scope": 4
     },
     "terminal.integrated.suggest.inlineSuggestion": {
       "restricted": true,
@@ -24446,7 +24464,7 @@
       ],
       "markdownEnumDescriptions": [
         "Enable the feature and always put the inline suggestion on top.",
-        "Enable the feature and sort the inline suggestion without forcing it to be on top. This means that exact matches will be will be above the inline suggestion.",
+        "Enable the feature and sort the inline suggestion without forcing it to be on top. This means that exact matches will be above the inline suggestion.",
         "Disable the feature."
       ],
       "default": "alwaysOnTop",
@@ -24478,12 +24496,12 @@
       "properties": {
         "lsp": {
           "type": "boolean",
-          "default": true,
+          "default": false,
           "description": "Show suggestions from language servers."
         }
       },
       "default": {
-        "lsp": true
+        "lsp": false
       },
       "tags": [
         "preview"
@@ -24495,55 +24513,54 @@
         "order": 100
       },
       "defaultDefaultValue": {
-        "lsp": true
+        "lsp": false
       },
       "scope": 4
     },
     "terminal.integrated.suggest.quickSuggestions": {
       "restricted": true,
       "markdownDescription": "Controls whether suggestions should automatically show up while typing. Also be aware of the `#terminal.integrated.suggest.suggestOnTriggerCharacters#`-setting which controls if suggestions are triggered by special characters.",
-      "type": "object",
-      "properties": {
-        "arguments": {
-          "description": "Enable quick suggestions for arguments, anything after the first word in a command line input.",
-          "type": "string",
-          "enum": [
-            "off",
-            "on"
-          ]
+      "oneOf": [
+        {
+          "type": "boolean"
         },
-        "commands": {
-          "description": "Enable quick suggestions for commands, the first word in a command line input.",
-          "type": "string",
-          "enum": [
-            "off",
-            "on"
-          ]
-        },
-        "unknown": {
-          "description": "Enable quick suggestions when it's unclear what the best suggestion is, if this is on files and folders will be suggested as a fallback.",
-          "type": "string",
-          "enum": [
-            "off",
-            "on"
-          ]
+        {
+          "type": "object",
+          "properties": {
+            "arguments": {
+              "description": "Enable quick suggestions for arguments, anything after the first word in a command line input.",
+              "type": "string",
+              "enum": [
+                "off",
+                "on"
+              ]
+            },
+            "commands": {
+              "description": "Enable quick suggestions for commands, the first word in a command line input.",
+              "type": "string",
+              "enum": [
+                "off",
+                "on"
+              ]
+            },
+            "unknown": {
+              "description": "Enable quick suggestions when it's unclear what the best suggestion is, if this is on files and folders will be suggested as a fallback.",
+              "type": "string",
+              "enum": [
+                "off",
+                "on"
+              ]
+            }
+          }
         }
-      },
-      "default": {
-        "arguments": "on",
-        "commands": "on",
-        "unknown": "off"
-      },
+      ],
+      "default": false,
       "section": {
         "id": "terminal",
         "title": "Integrated Terminal",
         "order": 100
       },
-      "defaultDefaultValue": {
-        "arguments": "on",
-        "commands": "on",
-        "unknown": "off"
-      },
+      "defaultDefaultValue": false,
       "scope": 4
     },
     "terminal.integrated.suggest.runOnEnter": {
@@ -24610,13 +24627,13 @@
       "restricted": true,
       "markdownDescription": "Controls whether suggestions should automatically show up when typing trigger characters.",
       "type": "boolean",
-      "default": true,
+      "default": false,
       "section": {
         "id": "terminal",
         "title": "Integrated Terminal",
         "order": 100
       },
-      "defaultDefaultValue": true,
+      "defaultDefaultValue": false,
       "scope": 4
     },
     "terminal.integrated.suggest.upArrowNavigatesHistory": {
@@ -24678,6 +24695,7 @@
         "account",
         "activate-breakpoints",
         "add",
+        "add-small",
         "agent",
         "alert",
         "archive",
@@ -24932,7 +24950,6 @@
         "git-compare",
         "git-fetch",
         "git-fork-private",
-        "git-lens",
         "git-merge",
         "git-pull-request",
         "git-pull-request-abandoned",
@@ -25132,6 +25149,7 @@
         "remote-explorer",
         "remove",
         "remove-close",
+        "remove-small",
         "rename",
         "repl",
         "replace",
@@ -25335,6 +25353,8 @@
         "workspace-unknown",
         "workspace-unspecified",
         "workspace-untrusted",
+        "worktree",
+        "worktree-small",
         "wrench",
         "wrench-subaction",
         "x",
@@ -25346,6 +25366,7 @@
         "$(account)",
         "$(activate-breakpoints)",
         "$(add)",
+        "$(add-small)",
         "$(agent)",
         "$(alert)",
         "$(archive)",
@@ -25600,7 +25621,6 @@
         "$(git-compare)",
         "$(git-fetch)",
         "$(git-fork-private)",
-        "$(git-lens)",
         "$(git-merge)",
         "$(git-pull-request)",
         "$(git-pull-request-abandoned)",
@@ -25800,6 +25820,7 @@
         "$(remote-explorer)",
         "$(remove)",
         "$(remove-close)",
+        "$(remove-small)",
         "$(rename)",
         "$(repl)",
         "$(replace)",
@@ -26003,6 +26024,8 @@
         "$(workspace-unknown)",
         "$(workspace-unspecified)",
         "$(workspace-untrusted)",
+        "$(worktree)",
+        "$(worktree-small)",
         "$(wrench)",
         "$(wrench-subaction)",
         "$(x)",
@@ -26262,20 +26285,24 @@
       "restricted": false
     },
     "terminal.integrated.windowsUseConptyDll": {
-      "markdownDescription": "Whether to use the experimental conpty.dll (v1.22.250204002) shipped with VS Code, instead of the one bundled with Windows.",
+      "restricted": true,
+      "markdownDescription": "Whether to use the experimental conpty.dll (v1.23.251008001) shipped with VS Code, instead of the one bundled with Windows.",
       "type": "boolean",
       "tags": [
-        "preview"
+        "preview",
+        "onExP"
       ],
       "default": false,
+      "experiment": {
+        "mode": "auto"
+      },
       "section": {
         "id": "terminal",
         "title": "Integrated Terminal",
         "order": 100
       },
       "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
+      "scope": 4
     },
     "terminal.integrated.wordSeparators": {
       "markdownDescription": "A string containing all characters to be considered word separators when double-clicking to select word and in the fallback 'word' link detection. Since this is used for link detection, including characters such as `:` that are used when detecting links will cause the line and column part of links like `file:10:5` to be ignored.",
@@ -27768,7 +27795,7 @@
     "window.title": {
       "type": "string",
       "default": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}${separator}${appName}",
-      "markdownDescription": "Controls the window title based on the current context such as the opened workspace or active editor. Variables are substituted based on the context:\n- `${activeEditorShort}`: the file name (e.g. myFile.txt).\n- `${activeEditorMedium}`: the path of the file relative to the workspace folder (e.g. myFolder/myFileFolder/myFile.txt).\n- `${activeEditorLong}`: the full path of the file (e.g. /Users/Development/myFolder/myFileFolder/myFile.txt).\n- `${activeFolderShort}`: the name of the folder the file is contained in (e.g. myFileFolder).\n- `${activeFolderMedium}`: the path of the folder the file is contained in, relative to the workspace folder (e.g. myFolder/myFileFolder).\n- `${activeFolderLong}`: the full path of the folder the file is contained in (e.g. /Users/Development/myFolder/myFileFolder).\n- `${folderName}`: name of the workspace folder the file is contained in (e.g. myFolder).\n- `${folderPath}`: file path of the workspace folder the file is contained in (e.g. /Users/Development/myFolder).\n- `${rootName}`: name of the workspace with optional remote name and workspace indicator if applicable (e.g. myFolder, myRemoteFolder [SSH] or myWorkspace (Workspace)).\n- `${rootNameShort}`: shortened name of the workspace without suffixes (e.g. myFolder, myRemoteFolder or myWorkspace).\n- `${rootPath}`: file path of the opened workspace or folder (e.g. /Users/Development/myWorkspace).\n- `${profileName}`: name of the profile in which the workspace is opened (e.g. Data Science (Profile)). Ignored if default profile is used.\n- `${appName}`: e.g. VS Code.\n- `${remoteName}`: e.g. SSH\n- `${dirty}`: an indicator for when the active editor has unsaved changes.\n- `${focusedView}`: the name of the view that is currently focused.\n- `${activeRepositoryName}`: the name of the active repository (e.g. vscode).\n- `${activeRepositoryBranchName}`: the name of the active branch in the active repository (e.g. main).\n- `${activeEditorState}`: provides information about the state of the active editor (e.g. modified). This will be appended by default when in screen reader mode with `accessibility.windowTitleOptimized` enabled.\n- `${separator}`: a conditional separator (\" - \") that only shows when surrounded by variables with values or static text.",
+      "markdownDescription": "Controls the window title based on the current context such as the opened workspace or active editor. Variables are substituted based on the context:\n- `${activeEditorShort}`: the file name (e.g. myFile.txt).\n- `${activeEditorMedium}`: the path of the file relative to the workspace folder (e.g. myFolder/myFileFolder/myFile.txt).\n- `${activeEditorLong}`: the full path of the file (e.g. /Users/Development/myFolder/myFileFolder/myFile.txt).\n- `${activeEditorLanguageId}`: the language identifier of the active editor (e.g. typescript).\n- `${activeFolderShort}`: the name of the folder the file is contained in (e.g. myFileFolder).\n- `${activeFolderMedium}`: the path of the folder the file is contained in, relative to the workspace folder (e.g. myFolder/myFileFolder).\n- `${activeFolderLong}`: the full path of the folder the file is contained in (e.g. /Users/Development/myFolder/myFileFolder).\n- `${folderName}`: name of the workspace folder the file is contained in (e.g. myFolder).\n- `${folderPath}`: file path of the workspace folder the file is contained in (e.g. /Users/Development/myFolder).\n- `${rootName}`: name of the workspace with optional remote name and workspace indicator if applicable (e.g. myFolder, myRemoteFolder [SSH] or myWorkspace (Workspace)).\n- `${rootNameShort}`: shortened name of the workspace without suffixes (e.g. myFolder, myRemoteFolder or myWorkspace).\n- `${rootPath}`: file path of the opened workspace or folder (e.g. /Users/Development/myWorkspace).\n- `${profileName}`: name of the profile in which the workspace is opened (e.g. Data Science (Profile)). Ignored if default profile is used.\n- `${appName}`: e.g. VS Code.\n- `${remoteName}`: e.g. SSH\n- `${dirty}`: an indicator for when the active editor has unsaved changes.\n- `${focusedView}`: the name of the view that is currently focused.\n- `${activeRepositoryName}`: the name of the active repository (e.g. vscode).\n- `${activeRepositoryBranchName}`: the name of the active branch in the active repository (e.g. main).\n- `${activeEditorState}`: provides information about the state of the active editor (e.g. modified). This will be appended by default when in screen reader mode with `accessibility.windowTitleOptimized` enabled.\n- `${separator}`: a conditional separator (\" - \") that only shows when surrounded by variables with values or static text.",
       "section": {
         "id": "window",
         "title": "Window",
@@ -30251,6 +30278,19 @@
       "scope": 4,
       "restricted": false
     },
+    "workbench.settings.alwaysShowAdvancedSettings": {
+      "type": "boolean",
+      "description": "Controls whether advanced settings are always shown in the settings editor without requiring the `@tag:advanced` filter.",
+      "default": false,
+      "section": {
+        "id": "workbench",
+        "title": "Workbench",
+        "order": 7
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "workbench.settings.editor": {
       "type": "string",
       "enum": [
@@ -31964,13 +32004,13 @@
     "_85": {
       "description": "Controls the font family.",
       "type": "string",
-      "default": "'Droid Sans Mono', 'monospace', monospace",
+      "default": "'Droid Sans Mono', monospace",
       "section": {
         "id": "editor",
         "title": "Editor",
         "order": 5
       },
-      "defaultDefaultValue": "'Droid Sans Mono', 'monospace', monospace",
+      "defaultDefaultValue": "'Droid Sans Mono', monospace",
       "scope": 6,
       "restricted": false,
       "defaultSnippets": [
@@ -35616,6 +35656,7 @@
         "italic",
         "jersey",
         "json",
+        "bracket",
         "kebab-vertical",
         "key",
         "law",
@@ -35842,7 +35883,6 @@
         "graph-line",
         "graph-scatter",
         "pie-chart",
-        "bracket",
         "bracket-dot",
         "bracket-error",
         "lock-small",
@@ -35973,7 +36013,6 @@
         "cursor",
         "eraser",
         "file-text",
-        "git-lens",
         "quotes",
         "rename",
         "run-with-deps",
@@ -36003,6 +36042,10 @@
         "collection-small",
         "vm-small",
         "cloud-small",
+        "add-small",
+        "remove-small",
+        "worktree-small",
+        "worktree",
         "dialog-error",
         "dialog-warning",
         "dialog-info",
@@ -36284,6 +36327,7 @@
         "$(italic)",
         "$(jersey)",
         "$(json)",
+        "$(bracket)",
         "$(kebab-vertical)",
         "$(key)",
         "$(law)",
@@ -36510,7 +36554,6 @@
         "$(graph-line)",
         "$(graph-scatter)",
         "$(pie-chart)",
-        "$(bracket)",
         "$(bracket-dot)",
         "$(bracket-error)",
         "$(lock-small)",
@@ -36641,7 +36684,6 @@
         "$(cursor)",
         "$(eraser)",
         "$(file-text)",
-        "$(git-lens)",
         "$(quotes)",
         "$(rename)",
         "$(run-with-deps)",
@@ -36671,6 +36713,10 @@
         "$(collection-small)",
         "$(vm-small)",
         "$(cloud-small)",
+        "$(add-small)",
+        "$(remove-small)",
+        "$(worktree-small)",
+        "$(worktree)",
         "$(dialog-error)",
         "$(dialog-warning)",
         "$(dialog-info)",

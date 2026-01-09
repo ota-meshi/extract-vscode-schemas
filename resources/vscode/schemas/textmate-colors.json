@@ -21,6 +21,14 @@
           "type": "string",
           "deprecationMessage": "Token background colors are currently not supported."
         },
+        "fontFamily": {
+          "type": "string",
+          "description": "Font family for the token (e.g., \"Fira Code\", \"JetBrains Mono\")."
+        },
+        "fontSize": {
+          "type": "string",
+          "description": "Font size string for the token (e.g., \"14px\", \"1.2em\")."
+        },
         "fontStyle": {
           "type": "string",
           "description": "Font style of the rule: 'italic', 'bold', 'underline', 'strikethrough' or a combination. The empty string unsets inherited settings.",
@@ -83,6 +91,10 @@
           "description": "Foreground color for the token.",
           "format": "color-hex",
           "default": "#ff0000"
+        },
+        "lineHeight": {
+          "type": "number",
+          "description": "Line height number for the token (e.g., \"20\")."
         }
       },
       "additionalProperties": false,

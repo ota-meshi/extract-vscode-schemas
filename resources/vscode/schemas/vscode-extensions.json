@@ -1528,6 +1528,7 @@
                       "italic",
                       "jersey",
                       "json",
+                      "bracket",
                       "kebab-vertical",
                       "key",
                       "law",
@@ -1754,7 +1755,6 @@
                       "graph-line",
                       "graph-scatter",
                       "pie-chart",
-                      "bracket",
                       "bracket-dot",
                       "bracket-error",
                       "lock-small",
@@ -1885,7 +1885,6 @@
                       "cursor",
                       "eraser",
                       "file-text",
-                      "git-lens",
                       "quotes",
                       "rename",
                       "run-with-deps",
@@ -1915,6 +1914,10 @@
                       "collection-small",
                       "vm-small",
                       "cloud-small",
+                      "add-small",
+                      "remove-small",
+                      "worktree-small",
+                      "worktree",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -2158,11 +2161,8 @@
                       "search-sparkle-empty",
                       "find-filter",
                       "search-editor-label-icon",
-                      "chat-sessions-icon",
                       "ai-management-editor-label-icon",
                       "models-management-editor-label-icon",
-                      "localHistory-icon",
-                      "localHistory-restore",
                       "start-inline-chat",
                       "extensions-editor-label-icon",
                       "runtime-extensions-editor-label-icon",
@@ -2248,6 +2248,8 @@
                       "timeline-view-icon",
                       "timeline-open",
                       "timeline-filter",
+                      "localHistory-icon",
+                      "localHistory-restore",
                       "workspace-trust-banner",
                       "workspace-trust-editor-check",
                       "workspace-trust-editor-cross",
@@ -2579,6 +2581,7 @@
                       "",
                       "",
                       "",
+                      "",
                       "Icon for stop in the search view.",
                       "",
                       "",
@@ -2764,8 +2767,10 @@
                       "",
                       "",
                       "",
-                      "",
                       "Icon for a terminal decoration of a command that errored.",
+                      "",
+                      "",
+                      "",
                       "",
                       "",
                       "",
@@ -3145,11 +3150,8 @@
                       "Icon to hide AI results in search.",
                       "Icon for Find Filter in find widget.",
                       "Icon of the search editor label.",
-                      "Icon for Agent Sessions View",
                       "Icon of the AI Management editor label.",
                       "Icon of the Models Management editor label.",
-                      "Icon for a local history entry in the timeline view.",
-                      "Icon for restoring contents of a local history entry.",
                       "Icon which spawns the inline chat from the editor toolbar.",
                       "Icon of the extensions editor label.",
                       "Icon of the runtime extensions editor label.",
@@ -3235,6 +3237,8 @@
                       "View icon of the timeline view.",
                       "Icon for the open timeline action.",
                       "Icon for the filter timeline action.",
+                      "Icon for a local history entry in the timeline view.",
+                      "Icon for restoring contents of a local history entry.",
                       "Icon for workspace trust ion the banner.",
                       "Icon for the checkmark in the workspace trust editor.",
                       "Icon for the cross in the workspace trust editor.",
@@ -5433,14 +5437,6 @@
           "description": "Contributes views to the editor",
           "type": "object",
           "properties": {
-            "agentSessions": {
-              "description": "Contributes views to Agent Sessions container in the Activity bar. To contribute to this container, the 'chatSessionsProvider' API proposal must be enabled.",
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/_14"
-              },
-              "default": []
-            },
             "debug": {
               "description": "Contributes views to Debug container in the Activity bar",
               "type": "array",
@@ -5968,9 +5964,7 @@
           "profileContentHandlers",
           "quickDiffProvider",
           "quickInputButtonLocation",
-          "quickPickItemResource",
           "quickPickItemTooltip",
-          "quickPickPrompt",
           "quickPickSortByLabel",
           "remoteCodingAgents",
           "resolvers",
@@ -6125,9 +6119,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.profileContentHandlers.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.quickDiffProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.quickInputButtonLocation.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.quickPickItemResource.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.quickPickItemTooltip.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.quickPickPrompt.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.quickPickSortByLabel.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.remoteCodingAgents.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.resolvers.d.ts",
@@ -6377,6 +6369,7 @@
         "textSeparator.foreground",
         "textPreformat.foreground",
         "textPreformat.background",
+        "textPreformat.border",
         "textBlockQuote.background",
         "textBlockQuote.border",
         "textCodeBlock.background",
@@ -6960,7 +6953,6 @@
         "editorOverviewRuler.deletedForeground",
         "editorGutter.itemGlyphForeground",
         "editorGutter.itemBackground",
-        "agentSessionReadIndicator.foreground",
         "terminal.background",
         "terminal.foreground",
         "terminalCursor.foreground",
@@ -7010,6 +7002,9 @@
         "editorGutter.commentGlyphForeground",
         "editorGutter.commentUnresolvedGlyphForeground",
         "editorGutter.commentDraftGlyphForeground",
+        "agentSessionReadIndicator.foreground",
+        "agentSessionSelectedBadge.border",
+        "agentSessionSelectedUnfocusedBadge.border",
         "ports.iconRunningProcessForeground",
         "settings.headerForeground",
         "settings.settingsHeaderHoverForeground",
@@ -7282,6 +7277,7 @@
         "Color for text separators.",
         "Foreground color for preformatted text segments.",
         "Background color for preformatted text segments.",
+        "Border color for preformatted text segments.",
         "Background color for block quotes in text.",
         "Border color for block quotes in text.",
         "Background color for code blocks in text.",
@@ -7865,7 +7861,6 @@
         "Overview ruler marker color for deleted content.",
         "Editor gutter decoration color for gutter item glyphs.",
         "Editor gutter decoration color for gutter item background. This color should be opaque.",
-        "Foreground color for the read indicator in an agent session.",
         "The background color of the terminal, this allows coloring the terminal differently to the panel.",
         "The foreground color of the terminal.",
         "The foreground color of the terminal cursor.",
@@ -7915,6 +7910,9 @@
         "Editor gutter decoration color for commenting glyphs.",
         "Editor gutter decoration color for commenting glyphs for unresolved comment threads.",
         "Editor gutter decoration color for commenting glyphs for comment threads with draft comments.",
+        "Foreground color for the read indicator in an agent session.",
+        "Border color for the badges in selected agent session items.",
+        "Border color for the badges in selected agent session items when the view is unfocused.",
         "The color of the icon for a port that has an associated running process.",
         "The foreground color for a section header or active title.",
         "The foreground color for a section header or hovered title.",
@@ -8687,28 +8685,26 @@
       "defaultSnippets": [
         {
           "body": {
-            "name": "exampleName",
-            "path": "./relative/path/to/file.md",
-            "description": "Optional description"
+            "path": "./relative/path/to/file.md"
           }
         }
       ],
       "required": [
-        "name",
         "path"
       ],
       "properties": {
-        "name": {
-          "description": "Identifier for this file. Must be unique within this extension for this contribution point.",
-          "type": "string",
-          "pattern": "^[\\w.-]+$"
-        },
         "path": {
           "description": "Path to the file relative to the extension root.",
           "type": "string"
         },
+        "name": {
+          "description": "(Optional) Name for this entry.",
+          "deprecationMessage": "Specify \"name\" in the prompt file itself instead.",
+          "type": "string"
+        },
         "description": {
-          "description": "(Optional) Description of the file.",
+          "description": "(Optional) Description of the entry.",
+          "deprecationMessage": "Specify \"description\" in the prompt file itself instead.",
           "type": "string"
         }
       }

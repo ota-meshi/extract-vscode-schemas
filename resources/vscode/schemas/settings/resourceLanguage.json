@@ -338,6 +338,19 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
+    "breadcrumbs.symbolPathSeparator": {
+      "description": "The separator used when copying the breadcrumb symbol path.",
+      "type": "string",
+      "default": ".",
+      "scope": 6,
+      "section": {
+        "id": "breadcrumbs",
+        "title": "Breadcrumb Navigation",
+        "order": 101
+      },
+      "defaultDefaultValue": ".",
+      "restricted": false
+    },
     "breadcrumbs.symbolSortOrder": {
       "description": "Controls how symbols are sorted in the breadcrumbs outline view.",
       "type": "string",
@@ -2166,13 +2179,13 @@
     "editor.fontFamily": {
       "description": "Controls the font family.",
       "type": "string",
-      "default": "'Droid Sans Mono', 'monospace', monospace",
+      "default": "'Droid Sans Mono', monospace",
       "section": {
         "id": "editor",
         "title": "Editor",
         "order": 5
       },
-      "defaultDefaultValue": "'Droid Sans Mono', 'monospace', monospace",
+      "defaultDefaultValue": "'Droid Sans Mono', monospace",
       "scope": 6,
       "restricted": false,
       "defaultSnippets": [
@@ -2470,8 +2483,8 @@
       ],
       "enumDescriptions": [
         "Format the whole file.",
-        "Format modifications (requires source control).",
-        "Will attempt to format modifications only (requires source control). If source control can't be used, then the whole file will be formatted."
+        "Format modifications. Requires source control and a formatter that supports 'Format Selection'.",
+        "Will attempt to format modifications only (requires source control and a formatter that supports 'Format Selection'). If source control can't be used, then the whole file will be formatted."
       ],
       "markdownDescription": "Controls if format on save formats the whole file or only modifications. Only applies when `#editor.formatOnSave#` is enabled.",
       "scope": 6,
@@ -5712,16 +5725,21 @@
         "allDocuments",
         "currentDocument",
         "matchingDocuments",
-        "off"
+        "off",
+        "offWithInlineSuggestions"
       ],
       "default": "matchingDocuments",
       "enumDescriptions": [
         "Suggest words from all open documents.",
         "Only suggest words from the active document.",
         "Suggest words from all open documents of the same language.",
-        "Turn off Word Based Suggestions."
+        "Turn off Word Based Suggestions.",
+        "Turn off Word Based Suggestions when Inline Suggestions are present."
       ],
       "description": "Controls whether completions should be computed based on words in the document and from which documents they are computed.",
+      "experiment": {
+        "mode": "auto"
+      },
       "section": {
         "id": "editor",
         "title": "Editor",
@@ -5729,7 +5747,10 @@
       },
       "defaultDefaultValue": "matchingDocuments",
       "scope": 6,
-      "restricted": false
+      "restricted": false,
+      "tags": [
+        "onExP"
+      ]
     },
     "editor.wordBreak": {
       "markdownEnumDescriptions": [
