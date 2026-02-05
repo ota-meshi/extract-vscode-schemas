@@ -26,8 +26,8 @@
           "description": "Font family for the token (e.g., \"Fira Code\", \"JetBrains Mono\")."
         },
         "fontSize": {
-          "type": "string",
-          "description": "Font size string for the token (e.g., \"14px\", \"1.2em\")."
+          "type": "number",
+          "description": "Font size multiplier for the token (e.g., 1.2 will use 1.2 times the default font size)."
         },
         "fontStyle": {
           "type": "string",
@@ -94,7 +94,7 @@
         },
         "lineHeight": {
           "type": "number",
-          "description": "Line height number for the token (e.g., \"20\")."
+          "description": "Line height multiplier for the token (e.g., 1.2 will use 1.2 times the default height). If the font size is set and the line height is not explicitly set, the line height will be computed based on the font size."
         }
       },
       "additionalProperties": false,
