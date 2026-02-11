@@ -23042,6 +23042,7 @@
           }
         ]
       },
+      "restricted": true,
       "default": {},
       "section": {
         "id": "terminal",
@@ -23049,8 +23050,7 @@
         "order": 100
       },
       "defaultDefaultValue": {},
-      "scope": 4,
-      "restricted": false
+      "scope": 4
     },
     "terminal.integrated.bellDuration": {
       "markdownDescription": "The number of milliseconds to show the bell within a terminal tab when triggered.",
