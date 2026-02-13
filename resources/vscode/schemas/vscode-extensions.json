@@ -3851,6 +3851,13 @@
                 "$ref": "#/$defs/_10"
               }
             },
+            "chat/newSession": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - The Chat new session menu.",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/_11"
+              }
+            },
             "chatSessions/newSession": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - Menu for new chat sessions.",
               "type": "array",
@@ -5940,6 +5947,7 @@
           "authSession",
           "canonicalUriProvider",
           "chatContextProvider",
+          "chatHooks",
           "chatOutputRenderer",
           "chatParticipantAdditions",
           "chatParticipantPrivate",
@@ -6101,6 +6109,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authSession.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.canonicalUriProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatContextProvider.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatHooks.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatOutputRenderer.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatParticipantAdditions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatParticipantPrivate.d.ts",

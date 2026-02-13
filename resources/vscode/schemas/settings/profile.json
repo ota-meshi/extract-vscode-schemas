@@ -3138,6 +3138,7 @@
       "title": "Agent File Locations",
       "markdownDescription": "Specify location(s) of custom agent files (`*.agent.md`). [Learn More](https://aka.ms/vscode-ghcp-custom-chat-modes).\n\nRelative paths are resolved from the root folder(s) of your workspace.",
       "default": {
+        ".claude/agents": true,
         ".github/agents": true
       },
       "additionalProperties": {
@@ -3169,6 +3170,7 @@
         "title": "Chat"
       },
       "defaultDefaultValue": {
+        ".claude/agents": true,
         ".github/agents": true
       },
       "scope": 4
@@ -3665,6 +3667,50 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.hookFilesLocations": {
+      "type": "object",
+      "title": "Hook File Locations",
+      "markdownDescription": "Specify paths to hook configuration files that define custom shell commands to execute at strategic points in an agent's workflow. [Learn More](https://aka.ms/vscode-chat-hooks).\n\nRelative paths are resolved from the root folder(s) of your workspace. Supports Copilot hooks (`*.json`) and Claude Code hooks (`settings.json`, `settings.local.json`).",
+      "default": {
+        ".claude/settings.json": true,
+        ".claude/settings.local.json": true,
+        ".github/hooks": true,
+        "~/.claude/settings.json": true
+      },
+      "additionalProperties": {
+        "type": "boolean"
+      },
+      "propertyNames": {
+        "$ref": "#/$defs/_279"
+      },
+      "restricted": true,
+      "tags": [
+        "preview",
+        "prompts",
+        "hooks",
+        "agent"
+      ],
+      "examples": [
+        {
+          ".github/hooks": true
+        },
+        {
+          ".github/hooks": true,
+          "custom-hooks/hooks.json": true
+        }
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": {
+        ".claude/settings.json": true,
+        ".claude/settings.local.json": true,
+        ".github/hooks": true,
+        "~/.claude/settings.json": true
+      },
+      "scope": 4
+    },
     "chat.implicitContext.enabled": {
       "type": "object",
       "description": "Enables automatically using the active editor as chat context for specified chat locations.",
@@ -3772,6 +3818,7 @@
       "title": "Instructions File Locations",
       "markdownDescription": "Specify location(s) of instructions files (`*.instructions.md`) that can be attached in Chat sessions. [Learn More](https://aka.ms/vscode-ghcp-custom-instructions).\n\nRelative paths are resolved from the root folder(s) of your workspace.",
       "default": {
+        ".claude/rules": true,
         ".github/instructions": true
       },
       "additionalProperties": {
@@ -3789,7 +3836,8 @@
       ],
       "examples": [
         {
-          ".github/instructions": true
+          ".github/instructions": true,
+          ".claude/rules": true
         },
         {
           ".github/instructions": true,
@@ -3801,6 +3849,7 @@
         "title": "Chat"
       },
       "defaultDefaultValue": {
+        ".claude/rules": true,
         ".github/instructions": true
       },
       "scope": 4
@@ -4152,6 +4201,41 @@
         "title": "Chat"
       },
       "defaultDefaultValue": {},
+      "restricted": false
+    },
+    "chat.requestQueuing.defaultAction": {
+      "type": "string",
+      "enum": [
+        "queue",
+        "steer"
+      ],
+      "enumDescriptions": [
+        "Queue the message to send after the current request completes.",
+        "Steer the current request by sending the message immediately, signaling the current request to yield."
+      ],
+      "description": "Controls which action is the default for the queue button when a request is in progress.",
+      "default": "steer",
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "steer",
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.requestQueuing.enabled": {
+      "type": "boolean",
+      "description": "When enabled, allows queuing additional messages while a request is in progress and steering the current request with a new message.",
+      "default": true,
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
       "restricted": false
     },
     "chat.restoreLastPanelSession": {
@@ -5164,6 +5248,77 @@
         "prompt snippets",
         "instructions"
       ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": true,
+      "scope": 4
+    },
+    "chat.useClaudeHooks": {
+      "type": "boolean",
+      "title": "Use Claude Hooks",
+      "markdownDescription": "Controls whether hooks from Claude configuration files can execute. When disabled, only Copilot-format hooks are used. Hooks are loaded from the files configured in `#chat.hookFilesLocations#`.",
+      "default": false,
+      "restricted": true,
+      "disallowConfigurationDefault": true,
+      "tags": [
+        "preview",
+        "prompts",
+        "hooks",
+        "agent"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4
+    },
+    "chat.useClaudeMdFile": {
+      "type": "boolean",
+      "title": "Use CLAUDE.md file",
+      "markdownDescription": "Controls whether instructions from `CLAUDE.md` file found in workspace roots, .claude and ~/.claude folder are attached to all chat requests.",
+      "default": true,
+      "restricted": true,
+      "disallowConfigurationDefault": true,
+      "tags": [
+        "prompts",
+        "reusable prompts",
+        "prompt snippets",
+        "instructions"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": true,
+      "scope": 4
+    },
+    "chat.useHooks": {
+      "type": "boolean",
+      "title": "Use Chat Hooks",
+      "markdownDescription": "Controls whether chat hooks are executed at strategic points during an agent's workflow. Hooks are loaded from the files configured in `#chat.hookFilesLocations#`.",
+      "default": true,
+      "restricted": true,
+      "disallowConfigurationDefault": true,
+      "tags": [
+        "preview",
+        "prompts",
+        "hooks",
+        "agent"
+      ],
+      "policy": {
+        "name": "ChatHooks",
+        "category": "InteractiveSession",
+        "minimumVersion": "1.109",
+        "localization": {
+          "description": {
+            "key": "chat.useHooks.description",
+            "value": "Controls whether chat hooks are executed at strategic points during an agent's workflow. Hooks are loaded from the files configured in `#chat.hookFilesLocations#`."
+          }
+        }
+      },
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
