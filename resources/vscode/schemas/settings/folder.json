@@ -3549,7 +3549,7 @@
     "chat.exitAfterDelegation": {
       "type": "boolean",
       "description": "Controls whether the chat panel automatically exits after delegating a request to another session.",
-      "default": true,
+      "default": false,
       "tags": [
         "preview"
       ],
@@ -3557,7 +3557,7 @@
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": true,
+      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },

@@ -682,6 +682,10 @@
                     "description": "Whether this chat session supports attaching problems.",
                     "type": "boolean"
                   },
+                  "supportsPromptAttachments": {
+                    "description": "Whether this chat session supports attaching prompts.",
+                    "type": "boolean"
+                  },
                   "supportsSearchResultAttachments": {
                     "description": "Whether this chat session supports attaching search results.",
                     "type": "boolean"
