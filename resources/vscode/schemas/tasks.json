@@ -120,7 +120,7 @@
           "$ref": "#/$defs/_58"
         },
         "inputs": {
-          "$ref": "#/$defs/_90"
+          "$ref": "#/$defs/_91"
         },
         "isBackground": {
           "$ref": "#/$defs/_41"
@@ -899,6 +899,7 @@
                 "new-collection",
                 "new-file",
                 "new-folder",
+                "new-session",
                 "newline",
                 "newline",
                 "no-newline",
@@ -907,6 +908,7 @@
                 "notebook-template",
                 "octoface",
                 "open-in-product",
+                "open-in-window",
                 "open-preview",
                 "openai",
                 "organization",
@@ -1574,6 +1576,7 @@
                 "$(new-collection)",
                 "$(new-file)",
                 "$(new-folder)",
+                "$(new-session)",
                 "$(newline)",
                 "$(newline)",
                 "$(no-newline)",
@@ -1582,6 +1585,7 @@
                 "$(notebook-template)",
                 "$(octoface)",
                 "$(open-in-product)",
+                "$(open-in-window)",
                 "$(open-preview)",
                 "$(openai)",
                 "$(organization)",
@@ -1855,6 +1859,13 @@
           "type": "string",
           "description": "A user defined identifier to reference the task in launch.json or a dependsOn clause.",
           "deprecationMessage": "User defined identifiers are deprecated. For custom task use the name as a reference and for tasks provided by extensions use their defined task identifier.",
+          "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
+          "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
+        },
+        "inSessions": {
+          "type": "boolean",
+          "description": "Show this task in the Agent Sessions run action dropdown",
+          "default": false,
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
@@ -2149,7 +2160,7 @@
           "$ref": "#/$defs/_58"
         },
         "inputs": {
-          "$ref": "#/$defs/_90"
+          "$ref": "#/$defs/_91"
         },
         "isBackground": {
           "$ref": "#/$defs/_41"
@@ -2195,13 +2206,13 @@
                     "description": "Command line arguments to pass to the grunt task"
                   },
                   "dependsOn": {
-                    "$ref": "#/$defs/_75"
-                  },
-                  "dependsOrder": {
                     "$ref": "#/$defs/_76"
                   },
-                  "detail": {
+                  "dependsOrder": {
                     "$ref": "#/$defs/_77"
+                  },
+                  "detail": {
+                    "$ref": "#/$defs/_78"
                   },
                   "file": {
                     "type": "string",
@@ -2219,6 +2230,9 @@
                   "identifier": {
                     "$ref": "#/$defs/_67"
                   },
+                  "inSessions": {
+                    "$ref": "#/$defs/_72"
+                  },
                   "isBackground": {
                     "$ref": "#/$defs/_25"
                   },
@@ -2226,19 +2240,19 @@
                     "$ref": "#/$defs/_65"
                   },
                   "options": {
-                    "$ref": "#/$defs/_72"
+                    "$ref": "#/$defs/_73"
                   },
                   "presentation": {
                     "$ref": "#/$defs/_69"
                   },
                   "problemMatcher": {
-                    "$ref": "#/$defs/_73"
+                    "$ref": "#/$defs/_74"
                   },
                   "promptOnClose": {
                     "$ref": "#/$defs/_26"
                   },
                   "runOptions": {
-                    "$ref": "#/$defs/_74"
+                    "$ref": "#/$defs/_75"
                   },
                   "task": {
                     "type": "string",
@@ -2269,13 +2283,13 @@
                     "deprecationMessage": "The customize property is deprecated. See the 1.14 release notes on how to migrate to the new task customization approach"
                   },
                   "dependsOn": {
-                    "$ref": "#/$defs/_75"
-                  },
-                  "dependsOrder": {
                     "$ref": "#/$defs/_76"
                   },
-                  "detail": {
+                  "dependsOrder": {
                     "$ref": "#/$defs/_77"
+                  },
+                  "detail": {
+                    "$ref": "#/$defs/_78"
                   },
                   "group": {
                     "$ref": "#/$defs/_68"
@@ -2289,6 +2303,9 @@
                   "identifier": {
                     "$ref": "#/$defs/_67"
                   },
+                  "inSessions": {
+                    "$ref": "#/$defs/_72"
+                  },
                   "isBackground": {
                     "$ref": "#/$defs/_25"
                   },
@@ -2296,19 +2313,19 @@
                     "$ref": "#/$defs/_65"
                   },
                   "options": {
-                    "$ref": "#/$defs/_72"
+                    "$ref": "#/$defs/_73"
                   },
                   "presentation": {
                     "$ref": "#/$defs/_69"
                   },
                   "problemMatcher": {
-                    "$ref": "#/$defs/_73"
+                    "$ref": "#/$defs/_74"
                   },
                   "promptOnClose": {
                     "$ref": "#/$defs/_26"
                   },
                   "runOptions": {
-                    "$ref": "#/$defs/_74"
+                    "$ref": "#/$defs/_75"
                   },
                   "taskName": {
                     "$ref": "#/$defs/_66"
@@ -2323,13 +2340,13 @@
                 "additionalProperties": false,
                 "properties": {
                   "dependsOn": {
-                    "$ref": "#/$defs/_75"
-                  },
-                  "dependsOrder": {
                     "$ref": "#/$defs/_76"
                   },
-                  "detail": {
+                  "dependsOrder": {
                     "$ref": "#/$defs/_77"
+                  },
+                  "detail": {
+                    "$ref": "#/$defs/_78"
                   },
                   "file": {
                     "type": "string",
@@ -2347,6 +2364,9 @@
                   "identifier": {
                     "$ref": "#/$defs/_67"
                   },
+                  "inSessions": {
+                    "$ref": "#/$defs/_72"
+                  },
                   "isBackground": {
                     "$ref": "#/$defs/_25"
                   },
@@ -2354,19 +2374,19 @@
                     "$ref": "#/$defs/_65"
                   },
                   "options": {
-                    "$ref": "#/$defs/_72"
+                    "$ref": "#/$defs/_73"
                   },
                   "presentation": {
                     "$ref": "#/$defs/_69"
                   },
                   "problemMatcher": {
-                    "$ref": "#/$defs/_73"
+                    "$ref": "#/$defs/_74"
                   },
                   "promptOnClose": {
                     "$ref": "#/$defs/_26"
                   },
                   "runOptions": {
-                    "$ref": "#/$defs/_74"
+                    "$ref": "#/$defs/_75"
                   },
                   "task": {
                     "type": "string",
@@ -2393,13 +2413,13 @@
                 "additionalProperties": false,
                 "properties": {
                   "dependsOn": {
-                    "$ref": "#/$defs/_75"
-                  },
-                  "dependsOrder": {
                     "$ref": "#/$defs/_76"
                   },
-                  "detail": {
+                  "dependsOrder": {
                     "$ref": "#/$defs/_77"
+                  },
+                  "detail": {
+                    "$ref": "#/$defs/_78"
                   },
                   "file": {
                     "type": "string",
@@ -2417,6 +2437,9 @@
                   "identifier": {
                     "$ref": "#/$defs/_67"
                   },
+                  "inSessions": {
+                    "$ref": "#/$defs/_72"
+                  },
                   "isBackground": {
                     "$ref": "#/$defs/_25"
                   },
@@ -2424,19 +2447,19 @@
                     "$ref": "#/$defs/_65"
                   },
                   "options": {
-                    "$ref": "#/$defs/_72"
+                    "$ref": "#/$defs/_73"
                   },
                   "presentation": {
                     "$ref": "#/$defs/_69"
                   },
                   "problemMatcher": {
-                    "$ref": "#/$defs/_73"
+                    "$ref": "#/$defs/_74"
                   },
                   "promptOnClose": {
                     "$ref": "#/$defs/_26"
                   },
                   "runOptions": {
-                    "$ref": "#/$defs/_74"
+                    "$ref": "#/$defs/_75"
                   },
                   "task": {
                     "type": "string",
@@ -2463,13 +2486,13 @@
                 "additionalProperties": false,
                 "properties": {
                   "dependsOn": {
-                    "$ref": "#/$defs/_75"
-                  },
-                  "dependsOrder": {
                     "$ref": "#/$defs/_76"
                   },
-                  "detail": {
+                  "dependsOrder": {
                     "$ref": "#/$defs/_77"
+                  },
+                  "detail": {
+                    "$ref": "#/$defs/_78"
                   },
                   "group": {
                     "$ref": "#/$defs/_68"
@@ -2483,6 +2506,9 @@
                   "identifier": {
                     "$ref": "#/$defs/_67"
                   },
+                  "inSessions": {
+                    "$ref": "#/$defs/_72"
+                  },
                   "isBackground": {
                     "$ref": "#/$defs/_25"
                   },
@@ -2493,19 +2519,19 @@
                     "type": "string"
                   },
                   "options": {
-                    "$ref": "#/$defs/_72"
+                    "$ref": "#/$defs/_73"
                   },
                   "presentation": {
                     "$ref": "#/$defs/_69"
                   },
                   "problemMatcher": {
-                    "$ref": "#/$defs/_73"
+                    "$ref": "#/$defs/_74"
                   },
                   "promptOnClose": {
                     "$ref": "#/$defs/_26"
                   },
                   "runOptions": {
-                    "$ref": "#/$defs/_74"
+                    "$ref": "#/$defs/_75"
                   },
                   "taskName": {
                     "$ref": "#/$defs/_66"
@@ -2532,13 +2558,13 @@
                 "additionalProperties": false,
                 "properties": {
                   "dependsOn": {
-                    "$ref": "#/$defs/_75"
-                  },
-                  "dependsOrder": {
                     "$ref": "#/$defs/_76"
                   },
-                  "detail": {
+                  "dependsOrder": {
                     "$ref": "#/$defs/_77"
+                  },
+                  "detail": {
+                    "$ref": "#/$defs/_78"
                   },
                   "group": {
                     "$ref": "#/$defs/_68"
@@ -2552,6 +2578,9 @@
                   "identifier": {
                     "$ref": "#/$defs/_67"
                   },
+                  "inSessions": {
+                    "$ref": "#/$defs/_72"
+                  },
                   "isBackground": {
                     "$ref": "#/$defs/_25"
                   },
@@ -2559,7 +2588,7 @@
                     "$ref": "#/$defs/_65"
                   },
                   "options": {
-                    "$ref": "#/$defs/_72"
+                    "$ref": "#/$defs/_73"
                   },
                   "path": {
                     "type": "string",
@@ -2569,13 +2598,13 @@
                     "$ref": "#/$defs/_69"
                   },
                   "problemMatcher": {
-                    "$ref": "#/$defs/_73"
+                    "$ref": "#/$defs/_74"
                   },
                   "promptOnClose": {
                     "$ref": "#/$defs/_26"
                   },
                   "runOptions": {
-                    "$ref": "#/$defs/_74"
+                    "$ref": "#/$defs/_75"
                   },
                   "script": {
                     "type": "string",
@@ -2609,7 +2638,7 @@
                   "args": {
                     "type": "array",
                     "items": {
-                      "$ref": "#/$defs/_78"
+                      "$ref": "#/$defs/_79"
                     },
                     "description": "Arguments passed to the command when this task is invoked."
                   },
@@ -2625,13 +2654,13 @@
                     "description": "The command to be executed. Can be an external program or a shell command."
                   },
                   "dependsOn": {
-                    "$ref": "#/$defs/_75"
-                  },
-                  "dependsOrder": {
                     "$ref": "#/$defs/_76"
                   },
-                  "detail": {
+                  "dependsOrder": {
                     "$ref": "#/$defs/_77"
+                  },
+                  "detail": {
+                    "$ref": "#/$defs/_78"
                   },
                   "echoCommand": {
                     "$ref": "#/$defs/_23"
@@ -2648,6 +2677,9 @@
                   "identifier": {
                     "$ref": "#/$defs/_67"
                   },
+                  "inSessions": {
+                    "$ref": "#/$defs/_72"
+                  },
                   "isBackground": {
                     "$ref": "#/$defs/_25"
                   },
@@ -2660,7 +2692,7 @@
                         "$ref": "#/$defs/_20"
                       },
                       {
-                        "$ref": "#/$defs/_79"
+                        "$ref": "#/$defs/_80"
                       }
                     ],
                     "deprecationMessage": "The property isShellCommand is deprecated. Use the type property of the task and the shell property in the options instead. See also the 1.14 release notes."
@@ -2702,13 +2734,13 @@
                     "$ref": "#/$defs/_69"
                   },
                   "problemMatcher": {
-                    "$ref": "#/$defs/_73"
+                    "$ref": "#/$defs/_74"
                   },
                   "promptOnClose": {
                     "$ref": "#/$defs/_26"
                   },
                   "runOptions": {
-                    "$ref": "#/$defs/_74"
+                    "$ref": "#/$defs/_75"
                   },
                   "showOutput": {
                     "$ref": "#/definitions/showOutputType2",
@@ -2734,34 +2766,34 @@
                     "additionalProperties": false,
                     "properties": {
                       "clear": {
-                        "$ref": "#/$defs/_86"
-                      },
-                      "close": {
-                        "$ref": "#/$defs/_88"
-                      },
-                      "echo": {
-                        "$ref": "#/$defs/_80"
-                      },
-                      "focus": {
-                        "$ref": "#/$defs/_81"
-                      },
-                      "group": {
                         "$ref": "#/$defs/_87"
                       },
-                      "panel": {
-                        "$ref": "#/$defs/_84"
-                      },
-                      "preserveTerminalName": {
+                      "close": {
                         "$ref": "#/$defs/_89"
                       },
-                      "reveal": {
-                        "$ref": "#/$defs/_83"
+                      "echo": {
+                        "$ref": "#/$defs/_81"
                       },
-                      "revealProblems": {
+                      "focus": {
                         "$ref": "#/$defs/_82"
                       },
-                      "showReuseMessage": {
+                      "group": {
+                        "$ref": "#/$defs/_88"
+                      },
+                      "panel": {
                         "$ref": "#/$defs/_85"
+                      },
+                      "preserveTerminalName": {
+                        "$ref": "#/$defs/_90"
+                      },
+                      "reveal": {
+                        "$ref": "#/$defs/_84"
+                      },
+                      "revealProblems": {
+                        "$ref": "#/$defs/_83"
+                      },
+                      "showReuseMessage": {
+                        "$ref": "#/$defs/_86"
                       }
                     },
                     "deprecationMessage": "The terminal property is deprecated. Use presentation instead"
@@ -3007,12 +3039,12 @@
           "description": "The name of a contributed or predefined pattern"
         },
         {
-          "$ref": "#/$defs/_91"
+          "$ref": "#/$defs/_92"
         },
         {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/_91"
+            "$ref": "#/$defs/_92"
           }
         }
       ],
@@ -3021,13 +3053,13 @@
     "_11": {
       "oneOf": [
         {
-          "$ref": "#/$defs/_92"
+          "$ref": "#/$defs/_93"
         },
         {
           "type": "array",
           "prefixItems": [
             {
-              "$ref": "#/$defs/_92"
+              "$ref": "#/$defs/_93"
             }
           ],
           "minItems": 1,
@@ -3075,10 +3107,10 @@
               "type": "object",
               "properties": {
                 "include": {
-                  "$ref": "#/$defs/_93"
+                  "$ref": "#/$defs/_94"
                 },
                 "exclude": {
-                  "$ref": "#/$defs/_93"
+                  "$ref": "#/$defs/_94"
                 }
               },
               "required": [
@@ -3127,7 +3159,7 @@
               "type": "string"
             },
             {
-              "$ref": "#/$defs/_94"
+              "$ref": "#/$defs/_95"
             }
           ],
           "description": "If matched in the output the start of a background task is signaled."
@@ -3138,7 +3170,7 @@
               "type": "string"
             },
             {
-              "$ref": "#/$defs/_94"
+              "$ref": "#/$defs/_95"
             }
           ],
           "description": "If matched in the output the end of a background task is signaled."
@@ -3161,7 +3193,7 @@
               "type": "string"
             },
             {
-              "$ref": "#/$defs/_94"
+              "$ref": "#/$defs/_95"
             }
           ],
           "description": "If matched in the output the start of a watching task is signaled."
@@ -3172,7 +3204,7 @@
               "type": "string"
             },
             {
-              "$ref": "#/$defs/_94"
+              "$ref": "#/$defs/_95"
             }
           ],
           "description": "If matched in the output the end of a watching task is signaled."
@@ -3282,7 +3314,7 @@
     "_31": {
       "type": "array",
       "items": {
-        "$ref": "#/$defs/_78"
+        "$ref": "#/$defs/_79"
       },
       "description": "Arguments passed to the command when this task is invoked.",
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -3299,7 +3331,7 @@
           "$ref": "#/$defs/_20"
         },
         {
-          "$ref": "#/$defs/_79"
+          "$ref": "#/$defs/_80"
         }
       ],
       "deprecationMessage": "The property isShellCommand is deprecated. Use the type property of the task and the shell property in the options instead. See also the 1.14 release notes.",
@@ -3312,7 +3344,7 @@
           "type": "string"
         },
         {
-          "$ref": "#/$defs/_95"
+          "$ref": "#/$defs/_96"
         }
       ]
     },
@@ -3329,7 +3361,7 @@
               "type": "string"
             },
             {
-              "$ref": "#/$defs/_95"
+              "$ref": "#/$defs/_96"
             }
           ],
           "description": "The actual command value"
@@ -3358,7 +3390,7 @@
     "_37": {
       "properties": {
         "problemMatcher": {
-          "$ref": "#/$defs/_73"
+          "$ref": "#/$defs/_74"
         }
       }
     },
@@ -3570,10 +3602,10 @@
     "_58": {
       "oneOf": [
         {
-          "$ref": "#/$defs/_96"
+          "$ref": "#/$defs/_97"
         },
         {
-          "$ref": "#/$defs/_97"
+          "$ref": "#/$defs/_98"
         }
       ],
       "defaultSnippets": [
@@ -3657,10 +3689,10 @@
     "_68": {
       "oneOf": [
         {
-          "$ref": "#/$defs/_96"
+          "$ref": "#/$defs/_97"
         },
         {
-          "$ref": "#/$defs/_97"
+          "$ref": "#/$defs/_98"
         }
       ],
       "defaultSnippets": [
@@ -3695,34 +3727,34 @@
       "additionalProperties": false,
       "properties": {
         "echo": {
-          "$ref": "#/$defs/_80"
-        },
-        "focus": {
           "$ref": "#/$defs/_81"
         },
-        "revealProblems": {
+        "focus": {
           "$ref": "#/$defs/_82"
         },
-        "reveal": {
+        "revealProblems": {
           "$ref": "#/$defs/_83"
         },
-        "panel": {
+        "reveal": {
           "$ref": "#/$defs/_84"
         },
-        "showReuseMessage": {
+        "panel": {
           "$ref": "#/$defs/_85"
         },
-        "clear": {
+        "showReuseMessage": {
           "$ref": "#/$defs/_86"
         },
-        "group": {
+        "clear": {
           "$ref": "#/$defs/_87"
         },
-        "close": {
+        "group": {
           "$ref": "#/$defs/_88"
         },
-        "preserveTerminalName": {
+        "close": {
           "$ref": "#/$defs/_89"
+        },
+        "preserveTerminalName": {
+          "$ref": "#/$defs/_90"
         }
       }
     },
@@ -4382,6 +4414,8 @@
             "ask",
             "openai",
             "claude",
+            "open-in-window",
+            "new-session",
             "dialog-error",
             "dialog-warning",
             "dialog-info",
@@ -5057,6 +5091,8 @@
             "$(ask)",
             "$(openai)",
             "$(claude)",
+            "$(open-in-window)",
+            "$(new-session)",
             "$(dialog-error)",
             "$(dialog-warning)",
             "$(dialog-info)",
@@ -5112,6 +5148,11 @@
       "default": true
     },
     "_72": {
+      "type": "boolean",
+      "description": "Show this task in the Agent Sessions run action dropdown",
+      "default": false
+    },
+    "_73": {
       "type": "object",
       "description": "Additional command options",
       "properties": {
@@ -5129,11 +5170,11 @@
         "$ref": "#/$defs/_2"
       }
     },
-    "_73": {
+    "_74": {
       "$ref": "#/definitions/problemMatcherType2",
       "description": "The problem matcher(s) to use. Can either be a string or a problem matcher definition or an array of strings and problem matchers."
     },
-    "_74": {
+    "_75": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -5178,7 +5219,7 @@
       },
       "description": "The task's run related options"
     },
-    "_75": {
+    "_76": {
       "anyOf": [
         {
           "$ref": "#/$defs/_43"
@@ -5192,7 +5233,7 @@
       ],
       "description": "Either a string representing another task or an array of other tasks that this task depends on."
     },
-    "_76": {
+    "_77": {
       "type": "string",
       "enum": [
         "parallel",
@@ -5205,11 +5246,11 @@
       "default": "parallel",
       "description": "Determines the order of the dependsOn tasks for this task. Note that this property is not recursive."
     },
-    "_77": {
+    "_78": {
       "type": "string",
       "description": "An optional description of a task that shows in the Run Task quick pick as a detail."
     },
-    "_78": {
+    "_79": {
       "oneOf": [
         {
           "type": "string"
@@ -5244,20 +5285,20 @@
         }
       ]
     },
-    "_79": {
+    "_80": {
       "$ref": "#/definitions/shellConfiguration2"
     },
-    "_80": {
+    "_81": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether the executed command is echoed to the panel. Default is true."
     },
-    "_81": {
+    "_82": {
       "type": "boolean",
       "default": false,
       "description": "Controls whether the panel takes focus. Default is false. If set to true the panel is revealed as well."
     },
-    "_82": {
+    "_83": {
       "type": "string",
       "enum": [
         "always",
@@ -5272,7 +5313,7 @@
       "default": "never",
       "description": "Controls whether the problems panel is revealed when running this task or not. Takes precedence over option \"reveal\". Default is \"never\"."
     },
-    "_83": {
+    "_84": {
       "type": "string",
       "enum": [
         "always",
@@ -5287,7 +5328,7 @@
       "default": "always",
       "description": "Controls whether the terminal running the task is revealed or not. May be overridden by option \"revealProblems\". Default is \"always\"."
     },
-    "_84": {
+    "_85": {
       "type": "string",
       "enum": [
         "shared",
@@ -5297,30 +5338,30 @@
       "default": "shared",
       "description": "Controls if the panel is shared between tasks, dedicated to this task or a new one is created on every run."
     },
-    "_85": {
+    "_86": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether to show the `Terminal will be reused by tasks, press any key to close it` message."
     },
-    "_86": {
+    "_87": {
       "type": "boolean",
       "default": false,
       "description": "Controls whether the terminal is cleared before executing the task."
     },
-    "_87": {
+    "_88": {
       "type": "string",
       "description": "Controls whether the task is executed in a specific terminal group using split panes."
     },
-    "_88": {
+    "_89": {
       "type": "boolean",
       "description": "Controls whether the terminal the task runs in is closed when the task exits."
     },
-    "_89": {
+    "_90": {
       "type": "boolean",
       "default": false,
       "description": "Controls whether to preserve the task name in the terminal after task completion."
     },
-    "_90": {
+    "_91": {
       "type": "array",
       "description": "User inputs. Used for defining user input prompts, such as free string input or a choice from several options.",
       "items": {
@@ -5335,7 +5376,7 @@
             "additionalProperties": false,
             "properties": {
               "id": {
-                "$ref": "#/$defs/_98"
+                "$ref": "#/$defs/_99"
               },
               "type": {
                 "type": "string",
@@ -5348,10 +5389,10 @@
                 ]
               },
               "description": {
-                "$ref": "#/$defs/_99"
+                "$ref": "#/$defs/_100"
               },
               "default": {
-                "$ref": "#/$defs/_100"
+                "$ref": "#/$defs/_101"
               },
               "password": {
                 "type": "boolean",
@@ -5370,7 +5411,7 @@
             "additionalProperties": false,
             "properties": {
               "id": {
-                "$ref": "#/$defs/_98"
+                "$ref": "#/$defs/_99"
               },
               "type": {
                 "type": "string",
@@ -5383,10 +5424,10 @@
                 ]
               },
               "description": {
-                "$ref": "#/$defs/_99"
+                "$ref": "#/$defs/_100"
               },
               "default": {
-                "$ref": "#/$defs/_100"
+                "$ref": "#/$defs/_101"
               },
               "options": {
                 "type": "array",
@@ -5428,7 +5469,7 @@
             "additionalProperties": false,
             "properties": {
               "id": {
-                "$ref": "#/$defs/_98"
+                "$ref": "#/$defs/_99"
               },
               "type": {
                 "type": "string",
@@ -5467,7 +5508,7 @@
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
       "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
     },
-    "_91": {
+    "_92": {
       "default": {
         "regexp": "^([^\\\\s].*)\\\\((\\\\d+,\\\\d+)\\\\):\\\\s*(.*)$",
         "file": 1,
@@ -5527,7 +5568,7 @@
         }
       }
     },
-    "_92": {
+    "_93": {
       "type": "string",
       "enum": [
         "absolute",
@@ -5536,7 +5577,7 @@
         "search"
       ]
     },
-    "_93": {
+    "_94": {
       "oneOf": [
         {
           "type": "string"
@@ -5549,7 +5590,7 @@
         }
       ]
     },
-    "_94": {
+    "_95": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -5563,14 +5604,14 @@
         }
       }
     },
-    "_95": {
+    "_96": {
       "type": "array",
       "items": {
         "type": "string"
       },
       "description": "The shell command to be executed. Array items will be joined using a space character"
     },
-    "_96": {
+    "_97": {
       "type": "string",
       "enum": [
         "build",
@@ -5584,11 +5625,11 @@
       ],
       "description": "The task's execution group."
     },
-    "_97": {
+    "_98": {
       "type": "object",
       "properties": {
         "kind": {
-          "$ref": "#/$defs/_96"
+          "$ref": "#/$defs/_97"
         },
         "isDefault": {
           "type": [
@@ -5600,15 +5641,15 @@
         }
       }
     },
-    "_98": {
+    "_99": {
       "type": "string",
       "description": "The input's id is used to associate an input with a variable of the form ${input:id}."
     },
-    "_99": {
+    "_100": {
       "type": "string",
       "description": "The description is shown when the user is prompted for input."
     },
-    "_100": {
+    "_101": {
       "type": "string",
       "description": "The default value for the input."
     }

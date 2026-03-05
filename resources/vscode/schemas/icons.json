@@ -53,6 +53,54 @@
     "agent": {
       "$ref": "#/$defs/_0"
     },
+    "ai-customization-add": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for adding new items.: $(ai-customization-add)"
+    },
+    "ai-customization-agent": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for custom agents.: $(ai-customization-agent)"
+    },
+    "ai-customization-extension": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for extension-contributed items.: $(ai-customization-extension)"
+    },
+    "ai-customization-hook": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for hooks.: $(ai-customization-hook)"
+    },
+    "ai-customization-instructions": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for instruction files.: $(ai-customization-instructions)"
+    },
+    "ai-customization-plugin": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for plugin-contributed items.: $(ai-customization-plugin)"
+    },
+    "ai-customization-prompt": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for prompt files.: $(ai-customization-prompt)"
+    },
+    "ai-customization-run": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for running a prompt or agent.: $(ai-customization-run)"
+    },
+    "ai-customization-skill": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for skills.: $(ai-customization-skill)"
+    },
+    "ai-customization-user": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for user items.: $(ai-customization-user)"
+    },
+    "ai-customization-view-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for the Chat Customization view.: $(ai-customization-view-icon)"
+    },
+    "ai-customization-workspace": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for workspace items.: $(ai-customization-workspace)"
+    },
     "ai-management-editor-label-icon": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon of the AI Management editor label.: $(ai-management-editor-label-icon)"
@@ -129,10 +177,6 @@
     "auxiliarybar-maximize": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon to maximize the secondary side bar.: $(auxiliarybar-maximize)"
-    },
-    "auxiliarybar-restore": {
-      "$ref": "#/definitions/icons",
-      "markdownDescription": "Icon to restore the secondary side bar.: $(auxiliarybar-restore)"
     },
     "auxiliarybar-right-layout-icon": {
       "$ref": "#/definitions/icons",
@@ -249,6 +293,10 @@
     "centerLayoutIcon": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Represents centered layout mode: $(centerLayoutIcon)"
+    },
+    "chat-debug-editor-label-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon of the chat debug editor label.: $(chat-debug-editor-label-icon)"
     },
     "chat-editor-label-icon": {
       "$ref": "#/definitions/icons",
@@ -863,6 +911,10 @@
     "extension-default-icon": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon used for the default extension in the extensions view and editor.: $(extension-default-icon)"
+    },
+    "extension-restart-required": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon shown when an extension requires a restart in the extensions view.: $(extension-restart-required)"
     },
     "extension-workspace-trust": {
       "$ref": "#/definitions/icons",
@@ -1762,6 +1814,9 @@
     "new-folder": {
       "$ref": "#/$defs/_0"
     },
+    "new-session": {
+      "$ref": "#/$defs/_0"
+    },
     "newline": {
       "$ref": "#/$defs/_0"
     },
@@ -1901,6 +1956,10 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for the collapse action in notifications.: $(notifications-collapse)"
     },
+    "notifications-collapse-up": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for the collapse action in notifications when the notification center is at the top.: $(notifications-collapse-up)"
+    },
     "notifications-configure": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for the configure action in notifications.: $(notifications-configure)"
@@ -1913,9 +1972,21 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for the expand action in notifications.: $(notifications-expand)"
     },
+    "notifications-expand-down": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for the expand action in notifications when the notification center is at the top.: $(notifications-expand-down)"
+    },
     "notifications-hide": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for the hide action in notifications.: $(notifications-hide)"
+    },
+    "notifications-hide-up": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for the hide action in notifications when positioned at the top.: $(notifications-hide-up)"
+    },
+    "notifications-position": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for the position action in notifications.: $(notifications-position)"
     },
     "octoface": {
       "$ref": "#/$defs/_0"
@@ -1925,6 +1996,9 @@
       "markdownDescription": "View icon of the open editors view.: $(open-editors-view-icon)"
     },
     "open-in-product": {
+      "$ref": "#/$defs/_0"
+    },
+    "open-in-window": {
       "$ref": "#/$defs/_0"
     },
     "open-preview": {
@@ -2002,10 +2076,6 @@
     "panel-maximize": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon to maximize a panel.: $(panel-maximize)"
-    },
-    "panel-restore": {
-      "$ref": "#/definitions/icons",
-      "markdownDescription": "Icon to restore a panel.: $(panel-restore)"
     },
     "panel-right": {
       "$ref": "#/definitions/icons",

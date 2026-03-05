@@ -8,7 +8,7 @@
         "defaultSnippets": [
           {
             "label": "onWebviewPanel",
-            "description": "An activation event emmited when a webview is loaded of a certain viewType",
+            "description": "An activation event emitted when a webview is loaded of a certain viewType",
             "body": "onWebviewPanel:viewType"
           },
           {
@@ -163,7 +163,7 @@
           },
           {
             "label": "onMcpCollection",
-            "description": "An activation event emitted whenver a tool from the MCP server is requested.",
+            "description": "An activation event emitted whenever a tool from the MCP server is requested.",
             "body": "onMcpCollection:${2:collectionId}"
           },
           {
@@ -425,14 +425,14 @@
             "type": "object",
             "properties": {
               "displayName": {
-                "$ref": "#/$defs/_29"
+                "$ref": "#/$defs/_32"
               },
               "icon": {
                 "description": "The icon associated with this chat context item.",
                 "type": "string"
               },
               "id": {
-                "$ref": "#/$defs/_28"
+                "$ref": "#/$defs/_31"
               }
             },
             "required": [
@@ -512,7 +512,7 @@
                   ],
                   "properties": {
                     "description": {
-                      "$ref": "#/$defs/_25"
+                      "$ref": "#/$defs/_28"
                     },
                     "disambiguation": {
                       "description": "Metadata to help with automatically routing user questions to this chat command.",
@@ -536,7 +536,7 @@
                         ],
                         "properties": {
                           "category": {
-                            "$ref": "#/$defs/_23"
+                            "$ref": "#/$defs/_26"
                           },
                           "description": {
                             "description": "A detailed description of the kinds of questions that are suitable for this chat command.",
@@ -550,17 +550,17 @@
                       }
                     },
                     "isSticky": {
-                      "$ref": "#/$defs/_22"
+                      "$ref": "#/$defs/_25"
                     },
                     "name": {
-                      "$ref": "#/$defs/_24"
+                      "$ref": "#/$defs/_27"
                     },
                     "sampleRequest": {
                       "description": "When the user clicks this command in `/help`, this text will be submitted to the participant.",
                       "type": "string"
                     },
                     "when": {
-                      "$ref": "#/$defs/_26"
+                      "$ref": "#/$defs/_29"
                     }
                   }
                 }
@@ -591,7 +591,7 @@
                   ],
                   "properties": {
                     "category": {
-                      "$ref": "#/$defs/_23"
+                      "$ref": "#/$defs/_26"
                     },
                     "description": {
                       "description": "A detailed description of the kinds of questions that are suitable for this chat participant.",
@@ -613,7 +613,7 @@
                 "type": "string"
               },
               "isSticky": {
-                "$ref": "#/$defs/_22"
+                "$ref": "#/$defs/_25"
               },
               "name": {
                 "description": "User-facing name for this chat participant. The user will use '@' with this name to invoke the participant. Name must not contain whitespace.",
@@ -723,13 +723,13 @@
                   ],
                   "properties": {
                     "description": {
-                      "$ref": "#/$defs/_25"
+                      "$ref": "#/$defs/_28"
                     },
                     "name": {
-                      "$ref": "#/$defs/_24"
+                      "$ref": "#/$defs/_27"
                     },
                     "when": {
-                      "$ref": "#/$defs/_26"
+                      "$ref": "#/$defs/_29"
                     }
                   }
                 }
@@ -770,6 +770,11 @@
                 "description": "Order in which this item should be displayed.",
                 "type": "integer"
               },
+              "requiresCustomModels": {
+                "description": "When set, the chat session will show a filtered model picker that prefers custom models. This enables the use of standard model picker with contributed sessions.",
+                "type": "boolean",
+                "default": false
+              },
               "type": {
                 "description": "Unique identifier for the type of chat session.",
                 "type": "string"
@@ -787,7 +792,7 @@
                 "type": "string"
               },
               "when": {
-                "$ref": "#/$defs/_27"
+                "$ref": "#/$defs/_30"
               }
             },
             "required": [
@@ -802,7 +807,33 @@
           "description": "Contributes chatSkills for chat prompts.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/_21"
+            "additionalProperties": false,
+            "type": "object",
+            "defaultSnippets": [
+              {
+                "body": {
+                  "path": "./relative/path/to/skill-name/SKILL.md"
+                }
+              }
+            ],
+            "required": [
+              "path"
+            ],
+            "properties": {
+              "description": {
+                "$ref": "#/$defs/_23"
+              },
+              "name": {
+                "$ref": "#/$defs/_22"
+              },
+              "path": {
+                "description": "Path to the SKILL.md file relative to the extension root. The folder name must match the \"name\" property in SKILL.md.",
+                "type": "string"
+              },
+              "when": {
+                "$ref": "#/$defs/_24"
+              }
+            }
           }
         },
         "chatViewsWelcome": {
@@ -971,7 +1002,7 @@
                 "type": "string"
               },
               "when": {
-                "$ref": "#/$defs/_27"
+                "$ref": "#/$defs/_30"
               }
             },
             "required": [
@@ -1967,6 +1998,8 @@
                       "ask",
                       "openai",
                       "claude",
+                      "open-in-window",
+                      "new-session",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -2026,9 +2059,9 @@
                       "parameter-hints-previous",
                       "extensions-warning-message",
                       "disassembly-editor-label-icon",
+                      "default-view-icon",
                       "chat-editor-label-icon",
                       "multi-diff-editor-label-icon",
-                      "default-view-icon",
                       "view-pane-container-expanded",
                       "view-pane-container-collapsed",
                       "defaultProfile-icon",
@@ -2036,14 +2069,12 @@
                       "comments-view-icon",
                       "rerun-task",
                       "auxiliarybar-maximize",
-                      "auxiliarybar-restore",
                       "auxiliarybar-close",
                       "auxiliarybar-right-layout-icon",
                       "auxiliarybar-right-off-layout-icon",
                       "auxiliarybar-left-layout-icon",
                       "auxiliarybar-left-off-layout-icon",
                       "panel-maximize",
-                      "panel-restore",
                       "panel-close",
                       "panel-layout-icon",
                       "panel-layout-icon-off",
@@ -2157,6 +2188,7 @@
                       "extensions-info-message",
                       "extension-workspace-trust",
                       "extension-activation-time",
+                      "extension-restart-required",
                       "debug-console-view-icon",
                       "run-view-icon",
                       "watch-view-icon",
@@ -2212,19 +2244,32 @@
                       "search-sparkle-empty",
                       "find-filter",
                       "search-editor-label-icon",
+                      "chat-debug-editor-label-icon",
                       "ai-management-editor-label-icon",
                       "models-management-editor-label-icon",
                       "language-models-open-settings",
-                      "chat-view-icon",
-                      "start-inline-chat",
-                      "extensions-editor-label-icon",
-                      "runtime-extensions-editor-label-icon",
+                      "ai-customization-view-icon",
+                      "ai-customization-agent",
+                      "ai-customization-skill",
+                      "ai-customization-instructions",
+                      "ai-customization-prompt",
+                      "ai-customization-hook",
+                      "ai-customization-add",
+                      "ai-customization-run",
+                      "ai-customization-workspace",
+                      "ai-customization-user",
+                      "ai-customization-extension",
+                      "ai-customization-plugin",
+                      "mcp-server-editor-icon",
                       "mcp-server",
                       "mcp-server-remote",
                       "mcp-server-workspace",
                       "mcp-server-starred",
                       "mcp-server-license",
-                      "mcp-server-editor-icon",
+                      "chat-view-icon",
+                      "extensions-editor-label-icon",
+                      "runtime-extensions-editor-label-icon",
+                      "start-inline-chat",
                       "repl-editor-label-icon",
                       "test-view-icon",
                       "test-results-icon",
@@ -2313,10 +2358,14 @@
                       "notifications-clear",
                       "notifications-clear-all",
                       "notifications-hide",
+                      "notifications-hide-up",
                       "notifications-expand",
+                      "notifications-expand-down",
                       "notifications-collapse",
+                      "notifications-collapse-up",
                       "notifications-configure",
-                      "notifications-do-not-disturb"
+                      "notifications-do-not-disturb",
+                      "notifications-position"
                     ],
                     "enumDescriptions": [
                       "",
@@ -2987,6 +3036,8 @@
                       "",
                       "",
                       "",
+                      "",
+                      "",
                       "Icon for breakpoints waiting on another breakpoint.",
                       "Icon for the close action in widgets.",
                       "Icon for goto previous editor location.",
@@ -3023,9 +3074,9 @@
                       "Icon for show previous parameter hint.",
                       "Icon shown with a warning message in the extensions editor.",
                       "Icon of the disassembly editor label.",
+                      "Default view icon.",
                       "Icon of the chat editor label.",
                       "Icon of the multi diff editor label.",
-                      "Default view icon.",
                       "Icon for an expanded view pane container.",
                       "Icon for a collapsed view pane container.",
                       "Icon for Default Profile.",
@@ -3033,14 +3084,12 @@
                       "View icon of the comments view.",
                       "View icon of the rerun task.",
                       "Icon to maximize the secondary side bar.",
-                      "Icon to restore the secondary side bar.",
                       "Icon to close the secondary side bar.",
                       "Icon to toggle the secondary side bar off in its right position.",
                       "Icon to toggle the secondary side bar on in its right position.",
                       "Icon to toggle the secondary side bar in its left position.",
                       "Icon to toggle the secondary side bar on in its left position.",
                       "Icon to maximize a panel.",
-                      "Icon to restore a panel.",
                       "Icon to close a panel.",
                       "Icon to toggle the panel off when it is on.",
                       "Icon to toggle the panel on when it is off.",
@@ -3154,6 +3203,7 @@
                       "Icon shown with an info message in the extensions editor.",
                       "Icon shown with a workspace trust message in the extension editor.",
                       "Icon shown with a activation time message in the extension editor.",
+                      "Icon shown when an extension requires a restart in the extensions view.",
                       "View icon of the debug console view.",
                       "View icon of the run view.",
                       "View icon of the watch view.",
@@ -3209,19 +3259,32 @@
                       "Icon to hide AI results in search.",
                       "Icon for Find Filter in find widget.",
                       "Icon of the search editor label.",
+                      "Icon of the chat debug editor label.",
                       "Icon of the AI Management editor label.",
                       "Icon of the Models Management editor label.",
                       "Icon for open language models settings commands.",
-                      "View icon of the chat view.",
-                      "Icon which spawns the inline chat from the editor toolbar.",
-                      "Icon of the extensions editor label.",
-                      "Icon of the runtime extensions editor label.",
+                      "Icon for the Chat Customization view.",
+                      "Icon for custom agents.",
+                      "Icon for skills.",
+                      "Icon for instruction files.",
+                      "Icon for prompt files.",
+                      "Icon for hooks.",
+                      "Icon for adding new items.",
+                      "Icon for running a prompt or agent.",
+                      "Icon for workspace items.",
+                      "Icon for user items.",
+                      "Icon for extension-contributed items.",
+                      "Icon for plugin-contributed items.",
+                      "Icon of the MCP Server editor.",
                       "Icon used for the MCP server.",
                       "Icon to indicate that an MCP server is for the remote user scope.",
                       "Icon to indicate that an MCP server is for the workspace scope.",
                       "Icon shown along with the starred status.",
                       "Icon shown along with the license status.",
-                      "Icon of the MCP Server editor.",
+                      "View icon of the chat view.",
+                      "Icon of the extensions editor label.",
+                      "Icon of the runtime extensions editor label.",
+                      "Icon which spawns the inline chat from the editor toolbar.",
                       "Icon of the REPL editor label.",
                       "View icon of the test view.",
                       "Icons for test results.",
@@ -3310,10 +3373,14 @@
                       "Icon for the clear action in notifications.",
                       "Icon for the clear all action in notifications.",
                       "Icon for the hide action in notifications.",
+                      "Icon for the hide action in notifications when positioned at the top.",
                       "Icon for the expand action in notifications.",
+                      "Icon for the expand action in notifications when the notification center is at the top.",
                       "Icon for the collapse action in notifications.",
+                      "Icon for the collapse action in notifications when the notification center is at the top.",
                       "Icon for the configure action in notifications.",
-                      "Icon for the mute all action in notifications."
+                      "Icon for the mute all action in notifications.",
+                      "Icon for the position action in notifications."
                     ]
                   },
                   {
@@ -4680,7 +4747,7 @@
                   "beginsPattern": {
                     "oneOf": [
                       {
-                        "$ref": "#/$defs/_46"
+                        "$ref": "#/$defs/_49"
                       },
                       {
                         "type": "string"
@@ -4691,7 +4758,7 @@
                   "endsPattern": {
                     "oneOf": [
                       {
-                        "$ref": "#/$defs/_46"
+                        "$ref": "#/$defs/_49"
                       },
                       {
                         "type": "string"
@@ -4708,13 +4775,13 @@
               "fileLocation": {
                 "oneOf": [
                   {
-                    "$ref": "#/$defs/_44"
+                    "$ref": "#/$defs/_47"
                   },
                   {
                     "type": "array",
                     "prefixItems": [
                       {
-                        "$ref": "#/$defs/_44"
+                        "$ref": "#/$defs/_47"
                       }
                     ],
                     "minItems": 1,
@@ -4762,10 +4829,10 @@
                         "type": "object",
                         "properties": {
                           "include": {
-                            "$ref": "#/$defs/_45"
+                            "$ref": "#/$defs/_48"
                           },
                           "exclude": {
-                            "$ref": "#/$defs/_45"
+                            "$ref": "#/$defs/_48"
                           }
                         },
                         "required": [
@@ -4814,12 +4881,12 @@
               "pattern": {
                 "anyOf": [
                   {
-                    "$ref": "#/$defs/_43"
+                    "$ref": "#/$defs/_46"
                   },
                   {
                     "type": "array",
                     "items": {
-                      "$ref": "#/$defs/_43"
+                      "$ref": "#/$defs/_46"
                     }
                   },
                   {
@@ -4855,7 +4922,7 @@
                   "beginsPattern": {
                     "oneOf": [
                       {
-                        "$ref": "#/$defs/_46"
+                        "$ref": "#/$defs/_49"
                       },
                       {
                         "type": "string"
@@ -4866,7 +4933,7 @@
                   "endsPattern": {
                     "oneOf": [
                       {
-                        "$ref": "#/$defs/_46"
+                        "$ref": "#/$defs/_49"
                       },
                       {
                         "type": "string"
@@ -4895,44 +4962,44 @@
                 "additionalProperties": false,
                 "properties": {
                   "code": {
-                    "$ref": "#/$defs/_40"
+                    "$ref": "#/$defs/_43"
                   },
                   "column": {
-                    "$ref": "#/$defs/_36"
+                    "$ref": "#/$defs/_39"
                   },
                   "endColumn": {
-                    "$ref": "#/$defs/_38"
+                    "$ref": "#/$defs/_41"
                   },
                   "endLine": {
-                    "$ref": "#/$defs/_37"
+                    "$ref": "#/$defs/_40"
                   },
                   "file": {
-                    "$ref": "#/$defs/_33"
+                    "$ref": "#/$defs/_36"
                   },
                   "kind": {
-                    "$ref": "#/$defs/_32"
-                  },
-                  "line": {
                     "$ref": "#/$defs/_35"
                   },
+                  "line": {
+                    "$ref": "#/$defs/_38"
+                  },
                   "location": {
-                    "$ref": "#/$defs/_34"
+                    "$ref": "#/$defs/_37"
                   },
                   "loop": {
-                    "$ref": "#/$defs/_42"
+                    "$ref": "#/$defs/_45"
                   },
                   "message": {
-                    "$ref": "#/$defs/_41"
+                    "$ref": "#/$defs/_44"
                   },
                   "name": {
                     "type": "string",
                     "description": "The name of the problem pattern."
                   },
                   "regexp": {
-                    "$ref": "#/$defs/_31"
+                    "$ref": "#/$defs/_34"
                   },
                   "severity": {
-                    "$ref": "#/$defs/_39"
+                    "$ref": "#/$defs/_42"
                   }
                 }
               },
@@ -4948,7 +5015,7 @@
                     "type": "array",
                     "description": "The actual patterns.",
                     "items": {
-                      "$ref": "#/$defs/_43"
+                      "$ref": "#/$defs/_46"
                     }
                   }
                 }
@@ -5005,17 +5072,17 @@
                 "type": "string"
               },
               "displayName": {
-                "$ref": "#/$defs/_29"
+                "$ref": "#/$defs/_32"
               },
               "followUpRegex": {
                 "description": "The last occurrence of pattern in an existing chat conversation is sent to the contributing extension to facilitate follow-up responses.",
                 "type": "string"
               },
               "id": {
-                "$ref": "#/$defs/_28"
+                "$ref": "#/$defs/_31"
               },
               "when": {
-                "$ref": "#/$defs/_27"
+                "$ref": "#/$defs/_30"
               }
             },
             "required": [
@@ -5380,6 +5447,10 @@
                   "title": {
                     "description": "Title for this terminal profile.",
                     "type": "string"
+                  },
+                  "titleTemplate": {
+                    "description": "A title template string for the terminal tab. Supports variables like ${sequence}, ${process}, ${cwd}, etc. Overrides the default terminal.integrated.tabs.title setting for terminals created with this profile.",
+                    "type": "string"
                   }
                 }
               }
@@ -5421,7 +5492,7 @@
                 ]
               },
               "commandLineMatcher": {
-                "$ref": "#/$defs/_30"
+                "$ref": "#/$defs/_33"
               },
               "id": {
                 "description": "The ID of the quick fix provider",
@@ -5460,7 +5531,7 @@
                     "type": "number"
                   },
                   "lineMatcher": {
-                    "$ref": "#/$defs/_30"
+                    "$ref": "#/$defs/_33"
                   },
                   "offset": {
                     "description": "The number of lines vertically from the anchor in the buffer to start matching against",
@@ -5828,7 +5899,7 @@
                           "additionalProperties": false,
                           "properties": {
                             "altText": {
-                              "$ref": "#/$defs/_48"
+                              "$ref": "#/$defs/_51"
                             },
                             "image": {
                               "description": "Path to an image - or object consisting of paths to light, dark, and hc images - relative to extension directory. Depending on context, the image will be displayed from 400px to 800px wide, with similar bounds on height. To support HIDPI displays, the image will be rendered at 1.5x scaling, for example a 900 physical pixels wide image will be displayed as 600 logical pixels wide.",
@@ -5866,7 +5937,7 @@
                               ]
                             },
                             "path": {
-                              "$ref": "#/$defs/_47"
+                              "$ref": "#/$defs/_50"
                             }
                           }
                         },
@@ -5881,7 +5952,7 @@
                               "type": "string"
                             },
                             "path": {
-                              "$ref": "#/$defs/_47"
+                              "$ref": "#/$defs/_50"
                             }
                           }
                         },
@@ -5893,7 +5964,7 @@
                           "additionalProperties": false,
                           "properties": {
                             "altText": {
-                              "$ref": "#/$defs/_48"
+                              "$ref": "#/$defs/_51"
                             },
                             "svg": {
                               "description": "Path to an svg, color tokens are supported in variables to support theming to match the workbench.",
@@ -5951,6 +6022,7 @@
           "authSession",
           "canonicalUriProvider",
           "chatContextProvider",
+          "chatDebug",
           "chatHooks",
           "chatOutputRenderer",
           "chatParticipantAdditions",
@@ -6011,7 +6083,8 @@
           "editorInsets",
           "editSessionIdentityProvider",
           "embeddings",
-          "envIsAppPortable",
+          "environmentPower",
+          "envIsConnectionMetered",
           "extensionAffinity",
           "extensionRuntime",
           "extensionsAny",
@@ -6081,6 +6154,7 @@
           "terminalQuickFixProvider",
           "terminalSelection",
           "terminalShellEnv",
+          "terminalTitle",
           "testObserver",
           "testRelatedCode",
           "textDocumentChangeReason",
@@ -6113,6 +6187,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authSession.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.canonicalUriProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatContextProvider.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatDebug.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatHooks.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatOutputRenderer.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatParticipantAdditions.d.ts",
@@ -6173,7 +6248,8 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.editorInsets.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.editSessionIdentityProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.embeddings.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.envIsAppPortable.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.environmentPower.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.envIsConnectionMetered.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.extensionAffinity.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.extensionRuntime.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.extensionsAny.d.ts",
@@ -6243,6 +6319,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalQuickFixProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalSelection.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalShellEnv.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalTitle.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.testObserver.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.testRelatedCode.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.textDocumentChangeReason.d.ts",
@@ -6284,7 +6361,7 @@
       "type": "array",
       "uniqueItems": true,
       "items": {
-        "$ref": "#/$defs/_49"
+        "$ref": "#/$defs/_52"
       }
     },
     "extensionDependencies": {
@@ -6292,7 +6369,7 @@
       "type": "array",
       "uniqueItems": true,
       "items": {
-        "$ref": "#/$defs/_49"
+        "$ref": "#/$defs/_52"
       }
     },
     "extensionKind": {
@@ -6350,7 +6427,7 @@
       "type": "array",
       "uniqueItems": true,
       "items": {
-        "$ref": "#/$defs/_49"
+        "$ref": "#/$defs/_52"
       }
     },
     "galleryBanner": {
@@ -7045,6 +7122,9 @@
         "notificationsInfoIcon.foreground",
         "window.activeBorder",
         "window.inactiveBorder",
+        "agentSessionReadIndicator.foreground",
+        "agentSessionSelectedBadge.border",
+        "agentSessionSelectedUnfocusedBadge.border",
         "editorGutter.modifiedBackground",
         "editorGutter.modifiedSecondaryBackground",
         "editorGutter.addedBackground",
@@ -7108,9 +7188,6 @@
         "editorGutter.commentGlyphForeground",
         "editorGutter.commentUnresolvedGlyphForeground",
         "editorGutter.commentDraftGlyphForeground",
-        "agentSessionReadIndicator.foreground",
-        "agentSessionSelectedBadge.border",
-        "agentSessionSelectedUnfocusedBadge.border",
         "ports.iconRunningProcessForeground",
         "settings.headerForeground",
         "settings.settingsHeaderHoverForeground",
@@ -7187,6 +7264,7 @@
         "multiDiffEditor.background",
         "multiDiffEditor.border",
         "extensionIcon.verifiedForeground",
+        "agentStatusIndicator.background",
         "chat.requestBorder",
         "chat.requestBackground",
         "chat.slashCommandBackground",
@@ -7218,6 +7296,8 @@
         "editor.focusedStackFrameHighlightBackground",
         "minimap.chatEditHighlight",
         "chatManagement.sashBorder",
+        "mcpIcon.starForeground",
+        "aiCustomizationManagement.sashBorder",
         "gauge.foreground",
         "gauge.background",
         "gauge.border",
@@ -7225,7 +7305,6 @@
         "gauge.warningBackground",
         "gauge.errorForeground",
         "gauge.errorBackground",
-        "mcpIcon.starForeground",
         "interactive.activeCodeBorder",
         "interactive.inactiveCodeBorder",
         "testing.iconFailed",
@@ -7957,6 +8036,9 @@
         "The color used for the icon of info notifications. Notifications slide in from the bottom right of the window.",
         "The color used for the border of the window when it is active on macOS or Linux. Requires custom title bar style and custom or hidden window controls on Linux.",
         "The color used for the border of the window when it is inactive on macOS or Linux. Requires custom title bar style and custom or hidden window controls on Linux.",
+        "Foreground color for the read indicator in an agent session.",
+        "Border color for the badges in selected agent session items.",
+        "Border color for the badges in selected agent session items when the view is unfocused.",
         "Editor gutter background color for lines that are modified.",
         "Editor gutter secondary background color for lines that are modified.",
         "Editor gutter background color for lines that are added.",
@@ -8020,9 +8102,6 @@
         "Editor gutter decoration color for commenting glyphs.",
         "Editor gutter decoration color for commenting glyphs for unresolved comment threads.",
         "Editor gutter decoration color for commenting glyphs for comment threads with draft comments.",
-        "Foreground color for the read indicator in an agent session.",
-        "Border color for the badges in selected agent session items.",
-        "Border color for the badges in selected agent session items when the view is unfocused.",
         "The color of the icon for a port that has an associated running process.",
         "The foreground color for a section header or active title.",
         "The foreground color for a section header or hovered title.",
@@ -8099,6 +8178,7 @@
         "The background color of the multi file diff editor",
         "The border color of the multi file diff editor",
         "The icon color for extension verified publisher.",
+        "Background color of the agent status indicator in the titlebar.",
         "The border color of a chat request.",
         "The background color of a chat request.",
         "The background color of a chat slash command.",
@@ -8130,6 +8210,8 @@
         "Background color for the highlight of line at focused stack frame position.",
         "Color of pending edit regions in the minimap",
         "The color of the Chat Management editor splitview sash border.",
+        "The icon color for mcp starred.",
+        "The color of the Chat Customization Management editor splitview sash border.",
         "Gauge foreground color.",
         "Gauge background color.",
         "Gauge border color.",
@@ -8137,7 +8219,6 @@
         "Gauge warning background color.",
         "Gauge error foreground color.",
         "Gauge error background color.",
-        "The icon color for mcp starred.",
         "The border color for the current interactive code cell when the editor has focus.",
         "The border color for the current interactive code cell when the editor does not have focus.",
         "Color for the 'failed' icon in the test explorer.",
@@ -8380,11 +8461,11 @@
                 "properties": {
                   "type": "object",
                   "additionalProperties": {
-                    "$ref": "#/$defs/_50"
+                    "$ref": "#/$defs/_53"
                   }
                 },
                 "additionalProperties": {
-                  "$ref": "#/$defs/_50"
+                  "$ref": "#/$defs/_53"
                 }
               }
             }
@@ -8479,10 +8560,10 @@
           "type": "string"
         },
         "when": {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_54"
         },
         "group": {
-          "$ref": "#/$defs/_52"
+          "$ref": "#/$defs/_55"
         }
       }
     },
@@ -8502,10 +8583,10 @@
               "type": "string"
             },
             "when": {
-              "$ref": "#/$defs/_51"
+              "$ref": "#/$defs/_54"
             },
             "group": {
-              "$ref": "#/$defs/_52"
+              "$ref": "#/$defs/_55"
             }
           }
         }
@@ -8627,6 +8708,13 @@
                   "ignoreSync": {
                     "type": "boolean",
                     "description": "When enabled, Settings Sync will not sync the user value of this configuration by default."
+                  },
+                  "keywords": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "A list of keywords that help users find this setting in the Settings editor. These are not shown to the user."
                   },
                   "tags": {
                     "type": "array",
@@ -8837,102 +8925,115 @@
           "type": "string"
         },
         "name": {
-          "description": "(Optional) Name for this entry.",
-          "deprecationMessage": "Specify \"name\" in the prompt file itself instead.",
-          "type": "string"
+          "$ref": "#/$defs/_22"
         },
         "description": {
-          "description": "(Optional) Description of the entry.",
-          "deprecationMessage": "Specify \"description\" in the prompt file itself instead.",
-          "type": "string"
+          "$ref": "#/$defs/_23"
+        },
+        "when": {
+          "$ref": "#/$defs/_24"
         }
       }
     },
     "_22": {
-      "description": "Whether invoking the command puts the chat into a persistent mode, where the command is automatically added to the chat input for the next message.",
-      "type": "boolean"
+      "description": "(Optional) Name for this entry.",
+      "deprecationMessage": "Specify \"name\" in the prompt file itself instead.",
+      "type": "string"
     },
     "_23": {
-      "markdownDescription": "A detailed name for this category, e.g. `workspace_questions` or `web_questions`.",
+      "description": "(Optional) Description of the entry.",
+      "deprecationMessage": "Specify \"description\" in the prompt file itself instead.",
       "type": "string"
     },
     "_24": {
-      "description": "A short name by which this command is referred to in the UI, e.g. `fix` or `explain` for commands that fix an issue or explain code. The name should be unique among the commands provided by this participant.",
+      "description": "(Optional) A condition which must be true to enable this entry.",
       "type": "string"
     },
     "_25": {
-      "description": "A description of this command.",
-      "type": "string"
+      "description": "Whether invoking the command puts the chat into a persistent mode, where the command is automatically added to the chat input for the next message.",
+      "type": "boolean"
     },
     "_26": {
-      "description": "A condition which must be true to enable this command.",
+      "markdownDescription": "A detailed name for this category, e.g. `workspace_questions` or `web_questions`.",
       "type": "string"
     },
     "_27": {
-      "description": "Condition which must be true to show this item.",
+      "description": "A short name by which this command is referred to in the UI, e.g. `fix` or `explain` for commands that fix an issue or explain code. The name should be unique among the commands provided by this participant.",
       "type": "string"
     },
     "_28": {
-      "description": "A unique identifier for this item.",
+      "description": "A description of this command.",
       "type": "string"
     },
     "_29": {
-      "description": "A user-friendly name for this item which is used for display in menus.",
+      "description": "A condition which must be true to enable this command.",
       "type": "string"
     },
     "_30": {
-      "description": "A regular expression or string to test the command line against",
+      "description": "Condition which must be true to show this item.",
       "type": "string"
     },
     "_31": {
+      "description": "A unique identifier for this item.",
+      "type": "string"
+    },
+    "_32": {
+      "description": "A user-friendly name for this item which is used for display in menus.",
+      "type": "string"
+    },
+    "_33": {
+      "description": "A regular expression or string to test the command line against",
+      "type": "string"
+    },
+    "_34": {
       "type": "string",
       "description": "The regular expression to find an error, warning or info in the output."
     },
-    "_32": {
+    "_35": {
       "type": "string",
       "description": "whether the pattern matches a location (file and line) or only a file."
     },
-    "_33": {
+    "_36": {
       "type": "integer",
       "description": "The match group index of the filename. If omitted 1 is used."
     },
-    "_34": {
+    "_37": {
       "type": "integer",
       "description": "The match group index of the problem's location. Valid location patterns are: (line), (line,column) and (startLine,startColumn,endLine,endColumn). If omitted (line,column) is assumed."
     },
-    "_35": {
+    "_38": {
       "type": "integer",
       "description": "The match group index of the problem's line. Defaults to 2"
     },
-    "_36": {
+    "_39": {
       "type": "integer",
       "description": "The match group index of the problem's line character. Defaults to 3"
     },
-    "_37": {
+    "_40": {
       "type": "integer",
       "description": "The match group index of the problem's end line. Defaults to undefined"
     },
-    "_38": {
+    "_41": {
       "type": "integer",
       "description": "The match group index of the problem's end line character. Defaults to undefined"
     },
-    "_39": {
+    "_42": {
       "type": "integer",
       "description": "The match group index of the problem's severity. Defaults to undefined"
     },
-    "_40": {
+    "_43": {
       "type": "integer",
       "description": "The match group index of the problem's code. Defaults to undefined"
     },
-    "_41": {
+    "_44": {
       "type": "integer",
       "description": "The match group index of the message. If omitted it defaults to 4 if location is specified. Otherwise it defaults to 5."
     },
-    "_42": {
+    "_45": {
       "type": "boolean",
       "description": "In a multi line matcher loop indicated whether this pattern is executed in a loop as long as it matches. Can only specified on a last pattern in a multi line pattern."
     },
-    "_43": {
+    "_46": {
       "default": {
         "regexp": "^([^\\\\s].*)\\\\((\\\\d+,\\\\d+)\\\\):\\\\s*(.*)$",
         "file": 1,
@@ -8943,44 +9044,44 @@
       "additionalProperties": false,
       "properties": {
         "regexp": {
-          "$ref": "#/$defs/_31"
-        },
-        "kind": {
-          "$ref": "#/$defs/_32"
-        },
-        "file": {
-          "$ref": "#/$defs/_33"
-        },
-        "location": {
           "$ref": "#/$defs/_34"
         },
-        "line": {
+        "kind": {
           "$ref": "#/$defs/_35"
         },
-        "column": {
+        "file": {
           "$ref": "#/$defs/_36"
         },
-        "endLine": {
+        "location": {
           "$ref": "#/$defs/_37"
         },
-        "endColumn": {
+        "line": {
           "$ref": "#/$defs/_38"
         },
-        "severity": {
+        "column": {
           "$ref": "#/$defs/_39"
         },
-        "code": {
+        "endLine": {
           "$ref": "#/$defs/_40"
         },
-        "message": {
+        "endColumn": {
           "$ref": "#/$defs/_41"
         },
-        "loop": {
+        "severity": {
           "$ref": "#/$defs/_42"
+        },
+        "code": {
+          "$ref": "#/$defs/_43"
+        },
+        "message": {
+          "$ref": "#/$defs/_44"
+        },
+        "loop": {
+          "$ref": "#/$defs/_45"
         }
       }
     },
-    "_44": {
+    "_47": {
       "type": "string",
       "enum": [
         "absolute",
@@ -8989,7 +9090,7 @@
         "search"
       ]
     },
-    "_45": {
+    "_48": {
       "oneOf": [
         {
           "type": "string"
@@ -8999,7 +9100,7 @@
         }
       ]
     },
-    "_46": {
+    "_49": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -9013,18 +9114,18 @@
         }
       }
     },
-    "_47": {
+    "_50": {
       "deprecationMessage": "Deprecated. Please use `image` or `markdown` instead"
     },
-    "_48": {
+    "_51": {
       "type": "string",
       "description": "Alternate text to display when the image cannot be loaded or in screen readers."
     },
-    "_49": {
+    "_52": {
       "type": "string",
       "pattern": "^([a-z0-9A-Z][a-z0-9-A-Z]*)\\.([a-z0-9A-Z][a-z0-9-A-Z]*)$"
     },
-    "_50": {
+    "_53": {
       "$ref": "http://json-schema.org/draft-07/schema#",
       "properties": {
         "secret": {
@@ -9033,11 +9134,11 @@
         }
       }
     },
-    "_51": {
+    "_54": {
       "description": "Condition which must be true to show this item",
       "type": "string"
     },
-    "_52": {
+    "_55": {
       "description": "Group into which this item belongs",
       "type": "string"
     }

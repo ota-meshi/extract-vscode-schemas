@@ -1431,7 +1431,7 @@
         "Markdown Language Features",
         "Markdown Math",
         "PHP Language Features",
-        "TypeScript and JavaScript Language Features",
+        "JavaScript and TypeScript Language Features",
         "Configuration Editing",
         "Node Debug Auto-attach",
         "Server Ready Action",
@@ -1555,7 +1555,7 @@
         "Markdown Language Features",
         "Markdown Math",
         "PHP Language Features",
-        "TypeScript and JavaScript Language Features",
+        "JavaScript and TypeScript Language Features",
         "Configuration Editing",
         "Node Debug Auto-attach",
         "Server Ready Action",
@@ -1645,6 +1645,19 @@
       "type": "boolean",
       "default": true,
       "markdownDescription": "Controls whether `#editor.tabSize#` and `#editor.insertSpaces#` will be automatically detected when a file is opened based on the file contents.",
+      "section": {
+        "id": "editor",
+        "title": "Editor",
+        "order": 5
+      },
+      "defaultDefaultValue": true,
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.doubleClickSelectsBlock": {
+      "description": "Controls whether double-clicking next to a bracket or quote selects the content inside.",
+      "type": "boolean",
+      "default": true,
       "section": {
         "id": "editor",
         "title": "Editor",
@@ -4118,52 +4131,77 @@
       "restricted": false
     },
     "editor.quickSuggestions": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "comments": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/_1"
-            },
-            {
-              "type": "boolean"
-            }
-          ],
-          "default": "off",
-          "description": "Enable quick suggestions inside comments."
+      "anyOf": [
+        {
+          "type": "boolean"
         },
-        "other": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/_1"
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "comments": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/_1"
+                },
+                {
+                  "type": "boolean"
+                }
+              ],
+              "default": "off",
+              "description": "Enable quick suggestions inside comments."
             },
-            {
-              "type": "boolean"
+            "other": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/_1"
+                },
+                {
+                  "type": "boolean"
+                }
+              ],
+              "default": "on",
+              "description": "Enable quick suggestions outside of strings and comments."
+            },
+            "strings": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/_1"
+                },
+                {
+                  "type": "boolean"
+                }
+              ],
+              "default": "off",
+              "description": "Enable quick suggestions inside strings."
             }
-          ],
-          "default": "on",
-          "description": "Enable quick suggestions outside of strings and comments."
+          }
         },
-        "strings": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/_1"
-            },
-            {
-              "type": "boolean"
-            }
+        {
+          "type": "string",
+          "enum": [
+            "inline",
+            "off",
+            "offWhenInlineCompletions",
+            "on"
           ],
-          "default": "off",
-          "description": "Enable quick suggestions inside strings."
+          "enumDescriptions": [
+            "Quick suggestions show as ghost text for all token types",
+            "Quick suggestions are disabled for all token types",
+            "Quick suggestions are disabled for all token types when an inline completion provider is available",
+            "Quick suggestions are enabled for all token types"
+          ]
         }
-      },
+      ],
       "default": {
         "comments": "off",
         "other": "on",
         "strings": "off"
       },
       "markdownDescription": "Controls whether suggestions should automatically show up while typing. This can be controlled for typing in comments, strings, and other code. Quick suggestion can be configured to show as ghost text or with the suggest widget. Also be aware of the `#editor.suggestOnTriggerCharacters#`-setting which controls if suggestions are triggered by special characters.",
+      "experiment": {
+        "mode": "auto"
+      },
       "section": {
         "id": "editor",
         "title": "Editor",
@@ -4175,7 +4213,10 @@
         "strings": "off"
       },
       "scope": 6,
-      "restricted": false
+      "restricted": false,
+      "tags": [
+        "onExP"
+      ]
     },
     "editor.quickSuggestionsDelay": {
       "description": "Controls the delay in milliseconds after which quick suggestions will show up.",
@@ -6347,13 +6388,13 @@
       "restricted": false
     },
     "javascript.autoClosingTags": {
-      "$ref": "#/$defs/_5"
-    },
-    "javascript.preferences.importModuleSpecifier": {
       "$ref": "#/$defs/_10"
     },
+    "javascript.preferences.importModuleSpecifier": {
+      "$ref": "#/$defs/_6"
+    },
     "javascript.preferences.importModuleSpecifierEnding": {
-      "$ref": "#/$defs/_11"
+      "$ref": "#/$defs/_7"
     },
     "javascript.preferences.jsxAttributeCompletionStyle": {
       "type": "string",
@@ -6369,40 +6410,1352 @@
       ],
       "default": "auto",
       "description": "Preferred style for JSX attribute completions.",
+      "markdownDeprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.jsxAttributeCompletionStyle#` instead.",
       "scope": 6,
       "section": {
         "id": "vscode.typescript-language-features",
         "title": "Preferences",
-        "order": 21,
         "extensionInfo": {
           "id": "vscode.typescript-language-features",
-          "displayName": "TypeScript and JavaScript Language Features"
+          "displayName": "JavaScript and TypeScript Language Features"
         }
       },
       "source": {
         "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": "auto",
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.jsxAttributeCompletionStyle#` instead."
+    },
+    "javascript.preferences.quoteStyle": {
+      "$ref": "#/$defs/_5"
+    },
+    "javascript.preferences.renameMatchingJsxTags": {
+      "$ref": "#/$defs/_9"
+    },
+    "javascript.preferences.useAliasesForRenames": {
+      "$ref": "#/$defs/_8"
+    },
+    "javascript.suggest.completeJSDocs": {
+      "$ref": "#/$defs/_12"
+    },
+    "javascript.suggest.enabled": {
+      "$ref": "#/$defs/_11"
+    },
+    "javascript.suggest.jsdoc.generateReturns": {
+      "$ref": "#/$defs/_13"
+    },
+    "js/ts.autoClosingTags.enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable automatic closing of JSX tags.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Language Features",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.format.enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable the default JavaScript and TypeScript formatter.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Formatting",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.format.indentSwitchCase": {
+      "type": "boolean",
+      "default": true,
+      "description": "Indent case clauses in switch statements. Requires using TypeScript 5.1+ in the workspace.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Formatting",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.format.insertSpaceAfterCommaDelimiter": {
+      "type": "boolean",
+      "default": true,
+      "description": "Defines space handling after a comma delimiter.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Formatting",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.format.insertSpaceAfterConstructor": {
+      "type": "boolean",
+      "default": false,
+      "description": "Defines space handling after the constructor keyword.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Formatting",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "js/ts.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": {
+      "type": "boolean",
+      "default": true,
+      "description": "Defines space handling after function keyword for anonymous functions.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Formatting",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.format.insertSpaceAfterKeywordsInControlFlowStatements": {
+      "type": "boolean",
+      "default": true,
+      "description": "Defines space handling after keywords in a control flow statement.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Formatting",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": {
+      "type": "boolean",
+      "default": true,
+      "description": "Defines space handling after opening and before closing empty braces.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Formatting",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": {
+      "type": "boolean",
+      "default": false,
+      "description": "Defines space handling after opening and before closing JSX expression braces.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Formatting",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "js/ts.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": {
+      "type": "boolean",
+      "default": true,
+      "description": "Defines space handling after opening and before closing non-empty braces.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Formatting",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": {
+      "type": "boolean",
+      "default": false,
+      "description": "Defines space handling after opening and before closing non-empty brackets.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Formatting",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "js/ts.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": {
+      "type": "boolean",
+      "default": false,
+      "description": "Defines space handling after opening and before closing non-empty parenthesis.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Formatting",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "js/ts.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": {
+      "type": "boolean",
+      "default": false,
+      "description": "Defines space handling after opening and before closing template string braces.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Formatting",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "js/ts.format.insertSpaceAfterSemicolonInForStatements": {
+      "type": "boolean",
+      "default": true,
+      "description": "Defines space handling after a semicolon in a for statement.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Formatting",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.format.insertSpaceAfterTypeAssertion": {
+      "type": "boolean",
+      "default": false,
+      "description": "Defines space handling after type assertions in TypeScript.",
+      "scope": 6,
+      "keywords": [
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Formatting",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "js/ts.format.insertSpaceBeforeAndAfterBinaryOperators": {
+      "type": "boolean",
+      "default": true,
+      "description": "Defines space handling after a binary operator.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Formatting",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.format.insertSpaceBeforeFunctionParenthesis": {
+      "type": "boolean",
+      "default": false,
+      "description": "Defines space handling before function argument parentheses.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Formatting",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "js/ts.format.placeOpenBraceOnNewLineForControlBlocks": {
+      "type": "boolean",
+      "default": false,
+      "description": "Defines whether an open brace is put onto a new line for control blocks or not.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Formatting",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "js/ts.format.placeOpenBraceOnNewLineForFunctions": {
+      "type": "boolean",
+      "default": false,
+      "description": "Defines whether an open brace is put onto a new line for functions or not.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Formatting",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "js/ts.format.semicolons": {
+      "type": "string",
+      "default": "ignore",
+      "description": "Defines handling of optional semicolons.",
+      "scope": 6,
+      "enum": [
+        "ignore",
+        "insert",
+        "remove"
+      ],
+      "enumDescriptions": [
+        "Don't insert or remove any semicolons.",
+        "Insert semicolons at statement ends.",
+        "Remove unnecessary semicolons."
+      ],
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Formatting",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": "ignore",
+      "restricted": false
+    },
+    "js/ts.implementationsCodeLens.enabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable/disable implementations CodeLens in TypeScript files. This CodeLens shows the implementers of TypeScript interfaces.",
+      "scope": 6,
+      "keywords": [
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "CodeLens",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "js/ts.implementationsCodeLens.showOnAllClassMethods": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "Enable/disable showing [implementations CodeLens](#js/ts.implementationsCodeLens.enabled) above all TypeScript class methods instead of only on abstract methods.",
+      "scope": 6,
+      "keywords": [
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "CodeLens",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "js/ts.implementationsCodeLens.showOnInterfaceMethods": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "Enable/disable [implementations CodeLens](#js/ts.implementationsCodeLens.enabled) on TypeScript interface methods.",
+      "scope": 6,
+      "keywords": [
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "CodeLens",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "js/ts.inlayHints.enumMemberValues.enabled": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "Enable/disable inlay hints for member values in enum declarations:\n```typescript\n\nenum MyValue {\n\tA /* = 0 */;\n\tB /* = 1 */;\n}\n \n```",
+      "scope": 6,
+      "keywords": [
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Inlay Hints",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "js/ts.inlayHints.functionLikeReturnTypes.enabled": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "Enable/disable inlay hints for implicit return types on function signatures:\n```typescript\n\nfunction foo() /* :number */ {\n\treturn Date.now();\n} \n \n```",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Inlay Hints",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "js/ts.inlayHints.parameterNames.enabled": {
+      "type": "string",
+      "enum": [
+        "all",
+        "literals",
+        "none"
+      ],
+      "enumDescriptions": [
+        "Enable parameter name hints for literal and non-literal arguments.",
+        "Enable parameter name hints only for literal arguments.",
+        "Disable parameter name hints."
+      ],
+      "default": "none",
+      "markdownDescription": "Enable/disable inlay hints for parameter names:\n```typescript\n\nparseInt(/* str: */ '123', /* radix: */ 8)\n \n```",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Inlay Hints",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": "none",
+      "restricted": false
+    },
+    "js/ts.inlayHints.parameterNames.suppressWhenArgumentMatchesName": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "Suppress parameter name hints on arguments whose text is identical to the parameter name.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Inlay Hints",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.inlayHints.parameterTypes.enabled": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "Enable/disable inlay hints for implicit parameter types:\n```typescript\n\nel.addEventListener('click', e /* :MouseEvent */ => ...)\n \n```",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Inlay Hints",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "js/ts.inlayHints.propertyDeclarationTypes.enabled": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "Enable/disable inlay hints for implicit types on property declarations:\n```typescript\n\nclass Foo {\n\tprop /* :number */ = Date.now();\n}\n \n```",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Inlay Hints",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "js/ts.inlayHints.variableTypes.enabled": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "Enable/disable inlay hints for implicit variable types:\n```typescript\n\nconst foo /* :number */ = Date.now();\n \n```",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Inlay Hints",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "js/ts.inlayHints.variableTypes.suppressWhenTypeMatchesName": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "Suppress type hints on variables whose name is identical to the type name.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Inlay Hints",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.preferences.importModuleSpecifier": {
+      "type": "string",
+      "enum": [
+        "non-relative",
+        "project-relative",
+        "relative",
+        "shortest"
+      ],
+      "markdownEnumDescriptions": [
+        "Prefers a non-relative import based on the `baseUrl` or `paths` configured in your `jsconfig.json` / `tsconfig.json`.",
+        "Prefers a non-relative import only if the relative import path would leave the package or project directory.",
+        "Prefers a relative path to the imported file location.",
+        "Prefers a non-relative import only if one is available that has fewer path segments than a relative import."
+      ],
+      "default": "shortest",
+      "description": "Preferred path style for auto imports.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Preferences",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": "shortest",
+      "restricted": false
+    },
+    "js/ts.preferences.importModuleSpecifierEnding": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "index",
+        "js",
+        "minimal"
+      ],
+      "enumItemLabels": [
+        null,
+        null,
+        null,
+        ".js / .ts"
+      ],
+      "markdownEnumDescriptions": [
+        "Use project settings to select a default.",
+        "Shorten `./component/index.js` to `./component/index`.",
+        "Do not shorten path endings; include the `.js` or `.ts` extension.",
+        "Shorten `./component/index.js` to `./component`."
+      ],
+      "default": "auto",
+      "description": "Preferred path ending for auto imports.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Preferences",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
       },
       "defaultDefaultValue": "auto",
       "restricted": false
     },
-    "javascript.preferences.quoteStyle": {
-      "$ref": "#/$defs/_9"
+    "js/ts.preferences.jsxAttributeCompletionStyle": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "braces",
+        "none"
+      ],
+      "markdownEnumDescriptions": [
+        "Insert `={}` or `=\"\"` after attribute names based on the prop type. See `#js/ts.preferences.quoteStyle#` to control the type of quotes used for string attributes.",
+        "Insert `={}` after attribute names.",
+        "Only insert attribute names."
+      ],
+      "default": "auto",
+      "description": "Preferred style for JSX attribute completions.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Preferences",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": "auto",
+      "restricted": false
     },
-    "javascript.preferences.renameMatchingJsxTags": {
-      "$ref": "#/$defs/_13"
+    "js/ts.preferences.quoteStyle": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "double",
+        "single"
+      ],
+      "default": "auto",
+      "markdownDescription": "Preferred quote style to use for Quick Fixes.",
+      "markdownEnumDescriptions": [
+        "Infer quote type from existing code",
+        "Always use double quotes: `\"`",
+        "Always use single quotes: `'`"
+      ],
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Preferences",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": "auto",
+      "restricted": false
     },
-    "javascript.preferences.useAliasesForRenames": {
-      "$ref": "#/$defs/_12"
+    "js/ts.preferences.renameMatchingJsxTags": {
+      "type": "boolean",
+      "default": true,
+      "description": "When on a JSX tag, try to rename the matching tag instead of renaming the symbol. Requires using TypeScript 5.1+ in the workspace.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Preferences",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
     },
-    "javascript.suggest.completeJSDocs": {
-      "$ref": "#/$defs/_7"
+    "js/ts.preferences.useAliasesForRenames": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable introducing aliases for object shorthand properties during renames.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Preferences",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
     },
-    "javascript.suggest.enabled": {
-      "$ref": "#/$defs/_6"
+    "js/ts.referencesCodeLens.enabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable/disable references CodeLens in JavaScript and TypeScript files. This CodeLens shows the number of references for classes and exported functions and allows you to peek or navigate to them.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "CodeLens",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
     },
-    "javascript.suggest.jsdoc.generateReturns": {
-      "$ref": "#/$defs/_8"
+    "js/ts.referencesCodeLens.showOnAllFunctions": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "Enable/disable the [references CodeLens](#js/ts.referencesCodeLens.enabled) on all functions in JavaScript and TypeScript files.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "CodeLens",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "js/ts.suggest.autoImports": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable auto import suggestions.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Suggestions",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.suggest.classMemberSnippets.enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable snippet completions for class members.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Suggestions",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.suggest.completeFunctionCalls": {
+      "type": "boolean",
+      "default": false,
+      "description": "Complete functions with their parameter signature.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Suggestions",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "js/ts.suggest.enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable autocomplete suggestions.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Suggestions",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.suggest.includeAutomaticOptionalChainCompletions": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable showing completions on potentially undefined values that insert an optional chain call. Requires strict null checks to be enabled.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Suggestions",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.suggest.includeCompletionsForImportStatements": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable auto-import-style completions on partially-typed import statements.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Suggestions",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.suggest.jsdoc.enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable suggestion to complete JSDoc comments.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Suggestions",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.suggest.jsdoc.generateReturns": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "Enable/disable generating `@returns` annotations for JSDoc templates.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Suggestions",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.suggest.names": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "Enable/disable including unique names from the file in JavaScript suggestions. Note that name suggestions are always disabled in JavaScript code that is semantically checked using `@ts-check` or `checkJs`.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Suggestions",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.suggest.objectLiteralMethodSnippets.enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable snippet completions for methods in object literals.",
+      "scope": 6,
+      "keywords": [
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Suggestions",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.suggest.paths": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable suggestions for paths in import statements and require calls.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Suggestions",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.suggestionActions.enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable suggestion diagnostics for JavaScript and TypeScript files in the editor.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Validation",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "js/ts.validate.enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable JavaScript and TypeScript validation.",
+      "scope": 6,
+      "keywords": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Validation",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
     },
     "notebook.codeActionsOnSave": {
       "oneOf": [
@@ -6798,13 +8151,13 @@
       "restricted": false
     },
     "typescript.autoClosingTags": {
-      "$ref": "#/$defs/_5"
-    },
-    "typescript.preferences.importModuleSpecifier": {
       "$ref": "#/$defs/_10"
     },
+    "typescript.preferences.importModuleSpecifier": {
+      "$ref": "#/$defs/_6"
+    },
     "typescript.preferences.importModuleSpecifierEnding": {
-      "$ref": "#/$defs/_11"
+      "$ref": "#/$defs/_7"
     },
     "typescript.preferences.jsxAttributeCompletionStyle": {
       "type": "string",
@@ -6820,40 +8173,41 @@
       ],
       "default": "auto",
       "description": "Preferred style for JSX attribute completions.",
+      "markdownDeprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.jsxAttributeCompletionStyle#` instead.",
       "scope": 6,
       "section": {
         "id": "vscode.typescript-language-features",
         "title": "Preferences",
-        "order": 21,
         "extensionInfo": {
           "id": "vscode.typescript-language-features",
-          "displayName": "TypeScript and JavaScript Language Features"
+          "displayName": "JavaScript and TypeScript Language Features"
         }
       },
       "source": {
         "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
+        "displayName": "JavaScript and TypeScript Language Features"
       },
       "defaultDefaultValue": "auto",
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.jsxAttributeCompletionStyle#` instead."
     },
     "typescript.preferences.quoteStyle": {
-      "$ref": "#/$defs/_9"
+      "$ref": "#/$defs/_5"
     },
     "typescript.preferences.renameMatchingJsxTags": {
-      "$ref": "#/$defs/_13"
+      "$ref": "#/$defs/_9"
     },
     "typescript.preferences.useAliasesForRenames": {
-      "$ref": "#/$defs/_12"
+      "$ref": "#/$defs/_8"
     },
     "typescript.suggest.completeJSDocs": {
-      "$ref": "#/$defs/_7"
+      "$ref": "#/$defs/_12"
     },
     "typescript.suggest.enabled": {
-      "$ref": "#/$defs/_6"
+      "$ref": "#/$defs/_11"
     },
     "typescript.suggest.jsdoc.generateReturns": {
-      "$ref": "#/$defs/_8"
+      "$ref": "#/$defs/_13"
     },
     "workbench.editor.languageDetection": {
       "type": "boolean",
@@ -6905,12 +8259,14 @@
       "enum": [
         "on",
         "inline",
-        "off"
+        "off",
+        "offWhenInlineCompletions"
       ],
       "enumDescriptions": [
         "Quick suggestions show inside the suggest widget",
         "Quick suggestions show as ghost text",
-        "Quick suggestions are disabled"
+        "Quick suggestions are disabled",
+        "Quick suggestions are disabled when an inline completion provider is available"
       ]
     },
     "_2": {
@@ -6930,90 +8286,6 @@
       }
     },
     "_5": {
-      "type": "boolean",
-      "default": true,
-      "description": "Enable/disable automatic closing of JSX tags.",
-      "scope": 6,
-      "section": {
-        "id": "vscode.typescript-language-features",
-        "title": "TypeScript and JavaScript Language Features",
-        "order": 20,
-        "extensionInfo": {
-          "id": "vscode.typescript-language-features",
-          "displayName": "TypeScript and JavaScript Language Features"
-        }
-      },
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "_6": {
-      "type": "boolean",
-      "default": true,
-      "description": "Enable/disable autocomplete suggestions.",
-      "scope": 6,
-      "section": {
-        "id": "vscode.typescript-language-features",
-        "title": "Suggestions",
-        "order": 21,
-        "extensionInfo": {
-          "id": "vscode.typescript-language-features",
-          "displayName": "TypeScript and JavaScript Language Features"
-        }
-      },
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "_7": {
-      "type": "boolean",
-      "default": true,
-      "description": "Enable/disable suggestion to complete JSDoc comments.",
-      "scope": 6,
-      "section": {
-        "id": "vscode.typescript-language-features",
-        "title": "Suggestions",
-        "order": 21,
-        "extensionInfo": {
-          "id": "vscode.typescript-language-features",
-          "displayName": "TypeScript and JavaScript Language Features"
-        }
-      },
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "_8": {
-      "type": "boolean",
-      "default": true,
-      "markdownDescription": "Enable/disable generating `@returns` annotations for JSDoc templates.",
-      "scope": 6,
-      "section": {
-        "id": "vscode.typescript-language-features",
-        "title": "Suggestions",
-        "order": 21,
-        "extensionInfo": {
-          "id": "vscode.typescript-language-features",
-          "displayName": "TypeScript and JavaScript Language Features"
-        }
-      },
-      "source": {
-        "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "_9": {
       "type": "string",
       "enum": [
         "auto",
@@ -7027,24 +8299,25 @@
         "Always use single quotes: `'`",
         "Always use double quotes: `\"`"
       ],
+      "markdownDeprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.quoteStyle#` instead.",
       "scope": 6,
       "section": {
         "id": "vscode.typescript-language-features",
         "title": "Preferences",
-        "order": 21,
         "extensionInfo": {
           "id": "vscode.typescript-language-features",
-          "displayName": "TypeScript and JavaScript Language Features"
+          "displayName": "JavaScript and TypeScript Language Features"
         }
       },
       "source": {
         "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
+        "displayName": "JavaScript and TypeScript Language Features"
       },
       "defaultDefaultValue": "auto",
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.quoteStyle#` instead."
     },
-    "_10": {
+    "_6": {
       "type": "string",
       "enum": [
         "shortest",
@@ -7060,24 +8333,25 @@
       ],
       "default": "shortest",
       "description": "Preferred path style for auto imports.",
+      "markdownDeprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.importModuleSpecifier#` instead.",
       "scope": 6,
       "section": {
         "id": "vscode.typescript-language-features",
         "title": "Preferences",
-        "order": 21,
         "extensionInfo": {
           "id": "vscode.typescript-language-features",
-          "displayName": "TypeScript and JavaScript Language Features"
+          "displayName": "JavaScript and TypeScript Language Features"
         }
       },
       "source": {
         "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
+        "displayName": "JavaScript and TypeScript Language Features"
       },
       "defaultDefaultValue": "shortest",
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.importModuleSpecifier#` instead."
     },
-    "_11": {
+    "_7": {
       "type": "string",
       "enum": [
         "auto",
@@ -7099,64 +8373,155 @@
       ],
       "default": "auto",
       "description": "Preferred path ending for auto imports.",
+      "markdownDeprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.importModuleSpecifierEnding#` instead.",
       "scope": 6,
       "section": {
         "id": "vscode.typescript-language-features",
         "title": "Preferences",
-        "order": 21,
         "extensionInfo": {
           "id": "vscode.typescript-language-features",
-          "displayName": "TypeScript and JavaScript Language Features"
+          "displayName": "JavaScript and TypeScript Language Features"
         }
       },
       "source": {
         "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
+        "displayName": "JavaScript and TypeScript Language Features"
       },
       "defaultDefaultValue": "auto",
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.importModuleSpecifierEnding#` instead."
+    },
+    "_8": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable introducing aliases for object shorthand properties during renames.",
+      "markdownDeprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.useAliasesForRenames#` instead.",
+      "scope": 6,
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Preferences",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.useAliasesForRenames#` instead."
+    },
+    "_9": {
+      "type": "boolean",
+      "default": true,
+      "description": "When on a JSX tag, try to rename the matching tag instead of renaming the symbol. Requires using TypeScript 5.1+ in the workspace.",
+      "markdownDeprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.renameMatchingJsxTags#` instead.",
+      "scope": 6,
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Preferences",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.renameMatchingJsxTags#` instead."
+    },
+    "_10": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable automatic closing of JSX tags.",
+      "markdownDeprecationMessage": "This setting is deprecated. Use `#js/ts.autoClosingTags.enabled#` instead.",
+      "scope": 6,
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Language Features",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `#js/ts.autoClosingTags.enabled#` instead."
+    },
+    "_11": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable autocomplete suggestions.",
+      "markdownDeprecationMessage": "This setting is deprecated. Use `#js/ts.suggest.enabled#` instead.",
+      "scope": 6,
+      "section": {
+        "id": "vscode.typescript-language-features",
+        "title": "Suggestions",
+        "extensionInfo": {
+          "id": "vscode.typescript-language-features",
+          "displayName": "JavaScript and TypeScript Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.typescript-language-features",
+        "displayName": "JavaScript and TypeScript Language Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `#js/ts.suggest.enabled#` instead."
     },
     "_12": {
       "type": "boolean",
       "default": true,
-      "description": "Enable/disable introducing aliases for object shorthand properties during renames.",
+      "description": "Enable/disable suggestion to complete JSDoc comments.",
+      "markdownDeprecationMessage": "This setting is deprecated. Use `#js/ts.suggest.jsdoc.enabled#` instead.",
       "scope": 6,
       "section": {
         "id": "vscode.typescript-language-features",
-        "title": "Preferences",
-        "order": 21,
+        "title": "Suggestions",
         "extensionInfo": {
           "id": "vscode.typescript-language-features",
-          "displayName": "TypeScript and JavaScript Language Features"
+          "displayName": "JavaScript and TypeScript Language Features"
         }
       },
       "source": {
         "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
+        "displayName": "JavaScript and TypeScript Language Features"
       },
       "defaultDefaultValue": true,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `#js/ts.suggest.jsdoc.enabled#` instead."
     },
     "_13": {
       "type": "boolean",
       "default": true,
-      "description": "When on a JSX tag, try to rename the matching tag instead of renaming the symbol. Requires using TypeScript 5.1+ in the workspace.",
+      "markdownDescription": "Enable/disable generating `@returns` annotations for JSDoc templates.",
+      "markdownDeprecationMessage": "This setting is deprecated. Use `#js/ts.suggest.jsdoc.generateReturns#` instead.",
       "scope": 6,
       "section": {
         "id": "vscode.typescript-language-features",
-        "title": "Preferences",
-        "order": 21,
+        "title": "Suggestions",
         "extensionInfo": {
           "id": "vscode.typescript-language-features",
-          "displayName": "TypeScript and JavaScript Language Features"
+          "displayName": "JavaScript and TypeScript Language Features"
         }
       },
       "source": {
         "id": "vscode.typescript-language-features",
-        "displayName": "TypeScript and JavaScript Language Features"
+        "displayName": "JavaScript and TypeScript Language Features"
       },
       "defaultDefaultValue": true,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting is deprecated. Use `#js/ts.suggest.jsdoc.generateReturns#` instead."
     }
   }
 }
