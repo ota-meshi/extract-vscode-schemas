@@ -2978,6 +2978,19 @@
       "scope": 6,
       "restricted": false
     },
+    "editor.hover.showLongLineWarning": {
+      "type": "boolean",
+      "default": true,
+      "description": "Controls whether long line warning hovers are shown, such as when tokenization is skipped or rendering is paused.",
+      "section": {
+        "id": "editor",
+        "title": "Editor",
+        "order": 5
+      },
+      "defaultDefaultValue": true,
+      "scope": 6,
+      "restricted": false
+    },
     "editor.hover.sticky": {
       "type": "boolean",
       "default": true,

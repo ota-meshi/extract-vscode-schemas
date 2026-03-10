@@ -41,6 +41,10 @@
       "type": "boolean",
       "description": "Forces the renderer to be accessible. ONLY change this if you are using a screen reader on Linux. On other platforms the renderer will automatically be accessible. This flag is automatically set if you have editor.accessibilitySupport: on."
     },
+    "js-flags": {
+      "type": "string",
+      "description": "Specifies V8 JavaScript engine flags to pass (e.g. \"--max-old-space-size=4096\"). These flags are applied to the main process, renderer and utility processes."
+    },
     "locale": {
       "type": "string",
       "description": "The display Language to use. Picking a different language requires the associated language pack to be installed."

@@ -666,6 +666,10 @@
                     "description": "Whether this chat session supports attaching files or file references.",
                     "type": "boolean"
                   },
+                  "supportsHandOffs": {
+                    "description": "Whether this chat session supports hand-off prompts.",
+                    "type": "boolean"
+                  },
                   "supportsImageAttachments": {
                     "description": "Whether this chat session supports attaching images.",
                     "type": "boolean"
@@ -2260,12 +2264,14 @@
                       "ai-customization-user",
                       "ai-customization-extension",
                       "ai-customization-plugin",
+                      "ai-customization-mcp-server",
                       "mcp-server-editor-icon",
                       "mcp-server",
                       "mcp-server-remote",
                       "mcp-server-workspace",
                       "mcp-server-starred",
                       "mcp-server-license",
+                      "agent-plugin-editor-icon",
                       "chat-view-icon",
                       "extensions-editor-label-icon",
                       "runtime-extensions-editor-label-icon",
@@ -3275,12 +3281,14 @@
                       "Icon for user items.",
                       "Icon for extension-contributed items.",
                       "Icon for plugin-contributed items.",
+                      "Icon for MCP servers.",
                       "Icon of the MCP Server editor.",
                       "Icon used for the MCP server.",
                       "Icon to indicate that an MCP server is for the remote user scope.",
                       "Icon to indicate that an MCP server is for the workspace scope.",
                       "Icon shown along with the starred status.",
                       "Icon shown along with the license status.",
+                      "Icon of the Agent Plugin editor.",
                       "View icon of the chat view.",
                       "Icon of the extensions editor label.",
                       "Icon of the runtime extensions editor label.",
@@ -3906,6 +3914,13 @@
               "type": "array",
               "items": {
                 "$ref": "#/$defs/_10"
+              }
+            },
+            "chat/input/editing/sessionApplyActions": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - Submenu for apply actions in the Chat Editing session changes toolbar.",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/_11"
               }
             },
             "chat/input/editing/sessionToolbar": {
@@ -4654,7 +4669,7 @@
                     "enumDescriptions": [
                       "Messaging is required. The renderer will only be used when it's part of an extension that can be run in an extension host.",
                       "The renderer does not require messaging.",
-                      "The renderer is better with messaging available, but it's not requried."
+                      "The renderer is better with messaging available, but it's not required."
                     ],
                     "description": "Defines how and if the renderer needs to communicate with an extension host, via `createRendererMessaging`. Renderers with stronger messaging requirements may not work in all environments."
                   }
@@ -7067,6 +7082,7 @@
         "panelStickyScroll.background",
         "panelStickyScroll.border",
         "panelStickyScroll.shadow",
+        "browser.border",
         "profileBadge.background",
         "profileBadge.foreground",
         "statusBarItem.remoteBackground",
@@ -7981,6 +7997,7 @@
         "Background color of sticky scroll in the panel.",
         "Border color of sticky scroll in the panel.",
         "Shadow color of sticky scroll in the panel.",
+        "Border color for integrated browser pages.",
         "Profile badge background color. The profile badge shows on top of the settings gear icon in the activity bar.",
         "Profile badge foreground color. The profile badge shows on top of the settings gear icon in the activity bar.",
         "Background color for the remote indicator on the status bar.",

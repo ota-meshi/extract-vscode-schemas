@@ -53,6 +53,10 @@
     "agent": {
       "$ref": "#/$defs/_0"
     },
+    "agent-plugin-editor-icon": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon of the Agent Plugin editor.: $(agent-plugin-editor-icon)"
+    },
     "ai-customization-add": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for adding new items.: $(ai-customization-add)"
@@ -72,6 +76,10 @@
     "ai-customization-instructions": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for instruction files.: $(ai-customization-instructions)"
+    },
+    "ai-customization-mcp-server": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for MCP servers.: $(ai-customization-mcp-server)"
     },
     "ai-customization-plugin": {
       "$ref": "#/definitions/icons",

@@ -433,6 +433,17 @@
         }
       ]
     },
+    "browser.border": {
+      "description": "Border color for integrated browser pages.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_9"
+        }
+      ]
+    },
     "button.background": {
       "description": "Button background color.",
       "oneOf": [
