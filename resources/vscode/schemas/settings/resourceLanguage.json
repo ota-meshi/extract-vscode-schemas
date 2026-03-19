@@ -2010,6 +2010,19 @@
       "scope": 6,
       "restricted": false
     },
+    "editor.find.closeOnResult": {
+      "type": "boolean",
+      "default": false,
+      "description": "Controls whether the Find Widget closes after an explicit find navigation command lands on a result.",
+      "section": {
+        "id": "editor",
+        "title": "Editor",
+        "order": 5
+      },
+      "defaultDefaultValue": false,
+      "scope": 6,
+      "restricted": false
+    },
     "editor.find.cursorMoveOnType": {
       "type": "boolean",
       "default": true,
@@ -4081,6 +4094,7 @@
             "enum": [
               "chat.attach.attachments",
               "chat.attach.image",
+              "chat.attach.symbol",
               "chat.attach.text",
               "html",
               "text.plain",
@@ -4201,7 +4215,7 @@
           "enumDescriptions": [
             "Quick suggestions show as ghost text for all token types",
             "Quick suggestions are disabled for all token types",
-            "Quick suggestions are disabled for all token types when an inline completion provider is available",
+            "Quick suggestions are disabled for all token types when inline completions are showing",
             "Quick suggestions are enabled for all token types"
           ]
         }
@@ -4276,7 +4290,7 @@
       "defaultDefaultValue": false,
       "scope": 6,
       "restricted": false,
-      "deprecationMessage": "Deprecated, use `#editor.linkedEditing#` instead."
+      "deprecationMessage": "Deprecated, use editor.linkedEditing instead."
     },
     "editor.renderControlCharacters": {
       "description": "Controls whether the editor should render control characters.",
@@ -6439,7 +6453,7 @@
       },
       "defaultDefaultValue": "auto",
       "restricted": false,
-      "deprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.jsxAttributeCompletionStyle#` instead."
+      "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.jsxAttributeCompletionStyle instead."
     },
     "javascript.preferences.quoteStyle": {
       "$ref": "#/$defs/_5"
@@ -8202,7 +8216,7 @@
       },
       "defaultDefaultValue": "auto",
       "restricted": false,
-      "deprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.jsxAttributeCompletionStyle#` instead."
+      "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.jsxAttributeCompletionStyle instead."
     },
     "typescript.preferences.quoteStyle": {
       "$ref": "#/$defs/_5"
@@ -8279,7 +8293,7 @@
         "Quick suggestions show inside the suggest widget",
         "Quick suggestions show as ghost text",
         "Quick suggestions are disabled",
-        "Quick suggestions are disabled when an inline completion provider is available"
+        "Quick suggestions are disabled when inline completions are showing"
       ]
     },
     "_2": {
@@ -8328,7 +8342,7 @@
       },
       "defaultDefaultValue": "auto",
       "restricted": false,
-      "deprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.quoteStyle#` instead."
+      "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.quoteStyle instead."
     },
     "_6": {
       "type": "string",
@@ -8362,7 +8376,7 @@
       },
       "defaultDefaultValue": "shortest",
       "restricted": false,
-      "deprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.importModuleSpecifier#` instead."
+      "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.importModuleSpecifier instead."
     },
     "_7": {
       "type": "string",
@@ -8402,7 +8416,7 @@
       },
       "defaultDefaultValue": "auto",
       "restricted": false,
-      "deprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.importModuleSpecifierEnding#` instead."
+      "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.importModuleSpecifierEnding instead."
     },
     "_8": {
       "type": "boolean",
@@ -8424,7 +8438,7 @@
       },
       "defaultDefaultValue": true,
       "restricted": false,
-      "deprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.useAliasesForRenames#` instead."
+      "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.useAliasesForRenames instead."
     },
     "_9": {
       "type": "boolean",
@@ -8446,7 +8460,7 @@
       },
       "defaultDefaultValue": true,
       "restricted": false,
-      "deprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.renameMatchingJsxTags#` instead."
+      "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.renameMatchingJsxTags instead."
     },
     "_10": {
       "type": "boolean",
@@ -8468,7 +8482,7 @@
       },
       "defaultDefaultValue": true,
       "restricted": false,
-      "deprecationMessage": "This setting is deprecated. Use `#js/ts.autoClosingTags.enabled#` instead."
+      "deprecationMessage": "This setting is deprecated. Use js/ts.autoClosingTags.enabled instead."
     },
     "_11": {
       "type": "boolean",
@@ -8490,7 +8504,7 @@
       },
       "defaultDefaultValue": true,
       "restricted": false,
-      "deprecationMessage": "This setting is deprecated. Use `#js/ts.suggest.enabled#` instead."
+      "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.enabled instead."
     },
     "_12": {
       "type": "boolean",
@@ -8512,7 +8526,7 @@
       },
       "defaultDefaultValue": true,
       "restricted": false,
-      "deprecationMessage": "This setting is deprecated. Use `#js/ts.suggest.jsdoc.enabled#` instead."
+      "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.jsdoc.enabled instead."
     },
     "_13": {
       "type": "boolean",
@@ -8534,7 +8548,7 @@
       },
       "defaultDefaultValue": true,
       "restricted": false,
-      "deprecationMessage": "This setting is deprecated. Use `#js/ts.suggest.jsdoc.generateReturns#` instead."
+      "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.jsdoc.generateReturns instead."
     }
   }
 }

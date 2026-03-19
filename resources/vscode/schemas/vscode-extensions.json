@@ -2248,6 +2248,9 @@
                       "search-sparkle-empty",
                       "find-filter",
                       "search-editor-label-icon",
+                      "extensions-editor-label-icon",
+                      "runtime-extensions-editor-label-icon",
+                      "agent-plugin-editor-icon",
                       "chat-debug-editor-label-icon",
                       "ai-management-editor-label-icon",
                       "models-management-editor-label-icon",
@@ -2264,6 +2267,7 @@
                       "ai-customization-user",
                       "ai-customization-extension",
                       "ai-customization-plugin",
+                      "ai-customization-builtin",
                       "ai-customization-mcp-server",
                       "mcp-server-editor-icon",
                       "mcp-server",
@@ -2271,10 +2275,7 @@
                       "mcp-server-workspace",
                       "mcp-server-starred",
                       "mcp-server-license",
-                      "agent-plugin-editor-icon",
                       "chat-view-icon",
-                      "extensions-editor-label-icon",
-                      "runtime-extensions-editor-label-icon",
                       "start-inline-chat",
                       "repl-editor-label-icon",
                       "test-view-icon",
@@ -3265,6 +3266,9 @@
                       "Icon to hide AI results in search.",
                       "Icon for Find Filter in find widget.",
                       "Icon of the search editor label.",
+                      "Icon of the extensions editor label.",
+                      "Icon of the runtime extensions editor label.",
+                      "Icon of the Agent Plugin editor.",
                       "Icon of the chat debug editor label.",
                       "Icon of the AI Management editor label.",
                       "Icon of the Models Management editor label.",
@@ -3281,6 +3285,7 @@
                       "Icon for user items.",
                       "Icon for extension-contributed items.",
                       "Icon for plugin-contributed items.",
+                      "Icon for built-in items.",
                       "Icon for MCP servers.",
                       "Icon of the MCP Server editor.",
                       "Icon used for the MCP server.",
@@ -3288,10 +3293,7 @@
                       "Icon to indicate that an MCP server is for the workspace scope.",
                       "Icon shown along with the starred status.",
                       "Icon shown along with the license status.",
-                      "Icon of the Agent Plugin editor.",
                       "View icon of the chat view.",
-                      "Icon of the extensions editor label.",
-                      "Icon of the runtime extensions editor label.",
                       "Icon which spawns the inline chat from the editor toolbar.",
                       "Icon of the REPL editor label.",
                       "View icon of the test view.",
@@ -4211,6 +4213,13 @@
             },
             "mergeEditor/result/title": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribMergeEditorMenus\"]` - The result toolbar of the merge editor",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/_11"
+              }
+            },
+            "modalEditor/editorTitle": {
+              "markdownDescription": "The editor title menu in the modal editor",
               "type": "array",
               "items": {
                 "$ref": "#/$defs/_11"
@@ -6035,6 +6044,7 @@
           "authLearnMore",
           "authProviderSpecific",
           "authSession",
+          "browser",
           "canonicalUriProvider",
           "chatContextProvider",
           "chatDebug",
@@ -6161,6 +6171,7 @@
           "taskExecutionTerminal",
           "taskPresentationGroup",
           "taskProblemMatcherStatus",
+          "taskRunOptions",
           "telemetry",
           "terminalCompletionProvider",
           "terminalDataWriteEvent",
@@ -6200,6 +6211,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authLearnMore.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authProviderSpecific.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authSession.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.browser.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.canonicalUriProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatContextProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatDebug.d.ts",
@@ -6326,6 +6338,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.taskExecutionTerminal.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.taskPresentationGroup.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.taskProblemMatcherStatus.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.taskRunOptions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.telemetry.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalCompletionProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.terminalDataWriteEvent.d.ts",
@@ -6366,8 +6379,8 @@
       "properties": {
         "vscode": {
           "type": "string",
-          "description": "For VS Code extensions, specifies the VS Code version that the extension is compatible with. Cannot be *. For example: ^0.10.5 indicates compatibility with a minimum VS Code version of 0.10.5.",
-          "default": "^1.22.0"
+          "description": "For VS Code extensions, specifies the VS Code version that the extension is compatible with. Cannot be *. For example: ^1.105.0 indicates compatibility with a minimum VS Code version of 1.105.0.",
+          "default": "^1.105.0"
         }
       }
     },

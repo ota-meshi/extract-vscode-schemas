@@ -66,7 +66,7 @@
             "description": "Task to run before any of the compound configurations start."
           },
           "presentation": {
-            "$ref": "#/$defs/_105"
+            "$ref": "#/$defs/_107"
           },
           "stopAll": {
             "type": "boolean",
@@ -319,6 +319,27 @@
             },
             "description": "Attach to an instance of Edge already in debug mode",
             "label": "Edge: Attach"
+          },
+          {
+            "body": {
+              "name": "Launch Integrated Browser",
+              "request": "launch",
+              "type": "editor-browser",
+              "url": "http://localhost:8080",
+              "webRoot": "^\"${2:\\${workspaceFolder\\}}\""
+            },
+            "description": "Launch a VS Code integrated browser to debug a URL",
+            "label": "Integrated Browser: Launch"
+          },
+          {
+            "body": {
+              "name": "Attach to Integrated Browser",
+              "request": "attach",
+              "type": "editor-browser",
+              "webRoot": "^\"${2:\\${workspaceFolder\\}}\""
+            },
+            "description": "Attach to an open VS Code integrated browser",
+            "label": "Integrated Browser: Attach"
           }
         ],
         "type": "object",
@@ -2737,6 +2758,550 @@
             ],
             "additionalProperties": false,
             "type": "object"
+          },
+          {
+            "properties": {
+              "cascadeTerminateToConfigurations": {
+                "$ref": "#/$defs/_3"
+              },
+              "customDescriptionGenerator": {
+                "$ref": "#/$defs/_5"
+              },
+              "customPropertiesGenerator": {
+                "$ref": "#/$defs/_6"
+              },
+              "debugServer": {
+                "$ref": "#/$defs/_37"
+              },
+              "disableNetworkCache": {
+                "$ref": "#/$defs/_70"
+              },
+              "enableContentValidation": {
+                "$ref": "#/$defs/_8"
+              },
+              "enableDWARF": {
+                "$ref": "#/$defs/_9"
+              },
+              "inspectUri": {
+                "$ref": "#/$defs/_71"
+              },
+              "internalConsoleOptions": {
+                "$ref": "#/$defs/_41"
+              },
+              "linux": {
+                "$ref": "#/definitions/editor-browser:attach:platform",
+                "description": "Linux specific launch configuration attributes."
+              },
+              "name": {
+                "$ref": "#/$defs/_36"
+              },
+              "osx": {
+                "$ref": "#/definitions/editor-browser:attach:platform",
+                "description": "OS X specific launch configuration attributes."
+              },
+              "outFiles": {
+                "$ref": "#/$defs/_14"
+              },
+              "outputCapture": {
+                "$ref": "#/$defs/_15"
+              },
+              "pathMapping": {
+                "$ref": "#/$defs/_72"
+              },
+              "pauseForSourceMap": {
+                "$ref": "#/$defs/_16"
+              },
+              "perScriptSourcemaps": {
+                "$ref": "#/$defs/_73"
+              },
+              "postDebugTask": {
+                "$ref": "#/$defs/_39"
+              },
+              "preLaunchTask": {
+                "$ref": "#/$defs/_38"
+              },
+              "presentation": {
+                "$ref": "#/$defs/_40"
+              },
+              "request": {
+                "$ref": "#/$defs/_35"
+              },
+              "resolveSourceMapLocations": {
+                "$ref": "#/$defs/_75"
+              },
+              "server": {
+                "$ref": "#/$defs/_77"
+              },
+              "showAsyncStacks": {
+                "$ref": "#/$defs/_24"
+              },
+              "skipFiles": {
+                "$ref": "#/$defs/_25"
+              },
+              "smartStep": {
+                "$ref": "#/$defs/_26"
+              },
+              "sourceMapPathOverrides": {
+                "$ref": "#/$defs/_27"
+              },
+              "sourceMapRenames": {
+                "$ref": "#/$defs/_28"
+              },
+              "sourceMaps": {
+                "$ref": "#/$defs/_29"
+              },
+              "suppressMultipleSessionWarning": {
+                "$ref": "#/$defs/_42"
+              },
+              "timeout": {
+                "$ref": "#/$defs/_30"
+              },
+              "timeouts": {
+                "$ref": "#/$defs/_31"
+              },
+              "trace": {
+                "$ref": "#/$defs/_32"
+              },
+              "type": {
+                "$ref": "#/$defs/_106"
+              },
+              "url": {
+                "$ref": "#/$defs/_79"
+              },
+              "urlFilter": {
+                "$ref": "#/$defs/_80"
+              },
+              "vueComponentPaths": {
+                "$ref": "#/$defs/_81"
+              },
+              "webRoot": {
+                "$ref": "#/$defs/_82"
+              },
+              "windows": {
+                "$ref": "#/definitions/editor-browser:attach:platform",
+                "description": "Windows specific launch configuration attributes."
+              }
+            },
+            "required": [
+              "name",
+              "type",
+              "request",
+              "name",
+              "type",
+              "request"
+            ],
+            "additionalProperties": false,
+            "type": "object"
+          },
+          {
+            "properties": {
+              "cascadeTerminateToConfigurations": {
+                "$ref": "#/$defs/_3"
+              },
+              "customDescriptionGenerator": {
+                "$ref": "#/$defs/_5"
+              },
+              "customPropertiesGenerator": {
+                "$ref": "#/$defs/_6"
+              },
+              "debugServer": {
+                "$ref": "#/$defs/_37"
+              },
+              "disableNetworkCache": {
+                "$ref": "#/$defs/_70"
+              },
+              "enableContentValidation": {
+                "$ref": "#/$defs/_8"
+              },
+              "enableDWARF": {
+                "$ref": "#/$defs/_9"
+              },
+              "inspectUri": {
+                "$ref": "#/$defs/_71"
+              },
+              "internalConsoleOptions": {
+                "$ref": "#/$defs/_41"
+              },
+              "linux": {
+                "$ref": "#/definitions/editor-browser:launch:platform",
+                "description": "Linux specific launch configuration attributes."
+              },
+              "name": {
+                "$ref": "#/$defs/_36"
+              },
+              "osx": {
+                "$ref": "#/definitions/editor-browser:launch:platform",
+                "description": "OS X specific launch configuration attributes."
+              },
+              "outFiles": {
+                "$ref": "#/$defs/_14"
+              },
+              "outputCapture": {
+                "$ref": "#/$defs/_15"
+              },
+              "pathMapping": {
+                "$ref": "#/$defs/_72"
+              },
+              "pauseForSourceMap": {
+                "$ref": "#/$defs/_16"
+              },
+              "perScriptSourcemaps": {
+                "$ref": "#/$defs/_73"
+              },
+              "postDebugTask": {
+                "$ref": "#/$defs/_39"
+              },
+              "preLaunchTask": {
+                "$ref": "#/$defs/_38"
+              },
+              "presentation": {
+                "$ref": "#/$defs/_40"
+              },
+              "request": {
+                "$ref": "#/$defs/_55"
+              },
+              "resolveSourceMapLocations": {
+                "$ref": "#/$defs/_75"
+              },
+              "server": {
+                "$ref": "#/$defs/_77"
+              },
+              "serverReadyAction": {
+                "$ref": "#/$defs/_54"
+              },
+              "showAsyncStacks": {
+                "$ref": "#/$defs/_24"
+              },
+              "skipFiles": {
+                "$ref": "#/$defs/_25"
+              },
+              "smartStep": {
+                "$ref": "#/$defs/_26"
+              },
+              "sourceMapPathOverrides": {
+                "$ref": "#/$defs/_27"
+              },
+              "sourceMapRenames": {
+                "$ref": "#/$defs/_28"
+              },
+              "sourceMaps": {
+                "$ref": "#/$defs/_29"
+              },
+              "suppressMultipleSessionWarning": {
+                "$ref": "#/$defs/_42"
+              },
+              "timeout": {
+                "$ref": "#/$defs/_30"
+              },
+              "timeouts": {
+                "$ref": "#/$defs/_31"
+              },
+              "trace": {
+                "$ref": "#/$defs/_32"
+              },
+              "type": {
+                "$ref": "#/$defs/_106"
+              },
+              "url": {
+                "$ref": "#/$defs/_79"
+              },
+              "urlFilter": {
+                "$ref": "#/$defs/_80"
+              },
+              "vueComponentPaths": {
+                "$ref": "#/$defs/_81"
+              },
+              "webRoot": {
+                "$ref": "#/$defs/_82"
+              },
+              "windows": {
+                "$ref": "#/definitions/editor-browser:launch:platform",
+                "description": "Windows specific launch configuration attributes."
+              }
+            },
+            "required": [
+              "name",
+              "type",
+              "request",
+              "name",
+              "type",
+              "request",
+              "url"
+            ],
+            "additionalProperties": false,
+            "type": "object"
+          },
+          {
+            "properties": {
+              "cascadeTerminateToConfigurations": {
+                "$ref": "#/$defs/_3"
+              },
+              "customDescriptionGenerator": {
+                "$ref": "#/$defs/_5"
+              },
+              "customPropertiesGenerator": {
+                "$ref": "#/$defs/_6"
+              },
+              "debugServer": {
+                "$ref": "#/$defs/_37"
+              },
+              "disableNetworkCache": {
+                "$ref": "#/$defs/_70"
+              },
+              "enableContentValidation": {
+                "$ref": "#/$defs/_8"
+              },
+              "enableDWARF": {
+                "$ref": "#/$defs/_9"
+              },
+              "inspectUri": {
+                "$ref": "#/$defs/_71"
+              },
+              "internalConsoleOptions": {
+                "$ref": "#/$defs/_41"
+              },
+              "linux": {
+                "$ref": "#/definitions/pwa-editor-browser:attach:platform",
+                "description": "Linux specific launch configuration attributes."
+              },
+              "name": {
+                "$ref": "#/$defs/_36"
+              },
+              "osx": {
+                "$ref": "#/definitions/pwa-editor-browser:attach:platform",
+                "description": "OS X specific launch configuration attributes."
+              },
+              "outFiles": {
+                "$ref": "#/$defs/_14"
+              },
+              "outputCapture": {
+                "$ref": "#/$defs/_15"
+              },
+              "pathMapping": {
+                "$ref": "#/$defs/_72"
+              },
+              "pauseForSourceMap": {
+                "$ref": "#/$defs/_16"
+              },
+              "perScriptSourcemaps": {
+                "$ref": "#/$defs/_73"
+              },
+              "postDebugTask": {
+                "$ref": "#/$defs/_39"
+              },
+              "preLaunchTask": {
+                "$ref": "#/$defs/_38"
+              },
+              "presentation": {
+                "$ref": "#/$defs/_40"
+              },
+              "request": {
+                "$ref": "#/$defs/_35"
+              },
+              "resolveSourceMapLocations": {
+                "$ref": "#/$defs/_75"
+              },
+              "server": {
+                "$ref": "#/$defs/_77"
+              },
+              "showAsyncStacks": {
+                "$ref": "#/$defs/_24"
+              },
+              "skipFiles": {
+                "$ref": "#/$defs/_25"
+              },
+              "smartStep": {
+                "$ref": "#/$defs/_26"
+              },
+              "sourceMapPathOverrides": {
+                "$ref": "#/$defs/_27"
+              },
+              "sourceMapRenames": {
+                "$ref": "#/$defs/_28"
+              },
+              "sourceMaps": {
+                "$ref": "#/$defs/_29"
+              },
+              "suppressMultipleSessionWarning": {
+                "$ref": "#/$defs/_42"
+              },
+              "timeout": {
+                "$ref": "#/$defs/_30"
+              },
+              "timeouts": {
+                "$ref": "#/$defs/_31"
+              },
+              "trace": {
+                "$ref": "#/$defs/_32"
+              },
+              "type": {
+                "$ref": "#/$defs/_105"
+              },
+              "url": {
+                "$ref": "#/$defs/_79"
+              },
+              "urlFilter": {
+                "$ref": "#/$defs/_80"
+              },
+              "vueComponentPaths": {
+                "$ref": "#/$defs/_81"
+              },
+              "webRoot": {
+                "$ref": "#/$defs/_82"
+              },
+              "windows": {
+                "$ref": "#/definitions/pwa-editor-browser:attach:platform",
+                "description": "Windows specific launch configuration attributes."
+              }
+            },
+            "required": [
+              "name",
+              "type",
+              "request",
+              "name",
+              "type",
+              "request"
+            ],
+            "additionalProperties": false,
+            "type": "object"
+          },
+          {
+            "properties": {
+              "cascadeTerminateToConfigurations": {
+                "$ref": "#/$defs/_3"
+              },
+              "customDescriptionGenerator": {
+                "$ref": "#/$defs/_5"
+              },
+              "customPropertiesGenerator": {
+                "$ref": "#/$defs/_6"
+              },
+              "debugServer": {
+                "$ref": "#/$defs/_37"
+              },
+              "disableNetworkCache": {
+                "$ref": "#/$defs/_70"
+              },
+              "enableContentValidation": {
+                "$ref": "#/$defs/_8"
+              },
+              "enableDWARF": {
+                "$ref": "#/$defs/_9"
+              },
+              "inspectUri": {
+                "$ref": "#/$defs/_71"
+              },
+              "internalConsoleOptions": {
+                "$ref": "#/$defs/_41"
+              },
+              "linux": {
+                "$ref": "#/definitions/pwa-editor-browser:launch:platform",
+                "description": "Linux specific launch configuration attributes."
+              },
+              "name": {
+                "$ref": "#/$defs/_36"
+              },
+              "osx": {
+                "$ref": "#/definitions/pwa-editor-browser:launch:platform",
+                "description": "OS X specific launch configuration attributes."
+              },
+              "outFiles": {
+                "$ref": "#/$defs/_14"
+              },
+              "outputCapture": {
+                "$ref": "#/$defs/_15"
+              },
+              "pathMapping": {
+                "$ref": "#/$defs/_72"
+              },
+              "pauseForSourceMap": {
+                "$ref": "#/$defs/_16"
+              },
+              "perScriptSourcemaps": {
+                "$ref": "#/$defs/_73"
+              },
+              "postDebugTask": {
+                "$ref": "#/$defs/_39"
+              },
+              "preLaunchTask": {
+                "$ref": "#/$defs/_38"
+              },
+              "presentation": {
+                "$ref": "#/$defs/_40"
+              },
+              "request": {
+                "$ref": "#/$defs/_55"
+              },
+              "resolveSourceMapLocations": {
+                "$ref": "#/$defs/_75"
+              },
+              "server": {
+                "$ref": "#/$defs/_77"
+              },
+              "serverReadyAction": {
+                "$ref": "#/$defs/_54"
+              },
+              "showAsyncStacks": {
+                "$ref": "#/$defs/_24"
+              },
+              "skipFiles": {
+                "$ref": "#/$defs/_25"
+              },
+              "smartStep": {
+                "$ref": "#/$defs/_26"
+              },
+              "sourceMapPathOverrides": {
+                "$ref": "#/$defs/_27"
+              },
+              "sourceMapRenames": {
+                "$ref": "#/$defs/_28"
+              },
+              "sourceMaps": {
+                "$ref": "#/$defs/_29"
+              },
+              "suppressMultipleSessionWarning": {
+                "$ref": "#/$defs/_42"
+              },
+              "timeout": {
+                "$ref": "#/$defs/_30"
+              },
+              "timeouts": {
+                "$ref": "#/$defs/_31"
+              },
+              "trace": {
+                "$ref": "#/$defs/_32"
+              },
+              "type": {
+                "$ref": "#/$defs/_105"
+              },
+              "url": {
+                "$ref": "#/$defs/_79"
+              },
+              "urlFilter": {
+                "$ref": "#/$defs/_80"
+              },
+              "vueComponentPaths": {
+                "$ref": "#/$defs/_81"
+              },
+              "webRoot": {
+                "$ref": "#/$defs/_82"
+              },
+              "windows": {
+                "$ref": "#/definitions/pwa-editor-browser:launch:platform",
+                "description": "Windows specific launch configuration attributes."
+              }
+            },
+            "required": [
+              "name",
+              "type",
+              "request",
+              "name",
+              "type",
+              "request",
+              "url"
+            ],
+            "additionalProperties": false,
+            "type": "object"
           }
         ]
       }
@@ -2776,7 +3341,7 @@
                 "description": "The command to execute for this input variable."
               },
               "id": {
-                "$ref": "#/$defs/_106"
+                "$ref": "#/$defs/_108"
               },
               "type": {
                 "type": "string",
@@ -2801,13 +3366,13 @@
             "additionalProperties": false,
             "properties": {
               "default": {
-                "$ref": "#/$defs/_108"
+                "$ref": "#/$defs/_110"
               },
               "description": {
-                "$ref": "#/$defs/_107"
+                "$ref": "#/$defs/_109"
               },
               "id": {
-                "$ref": "#/$defs/_106"
+                "$ref": "#/$defs/_108"
               },
               "options": {
                 "type": "array",
@@ -2859,13 +3424,13 @@
             "additionalProperties": false,
             "properties": {
               "default": {
-                "$ref": "#/$defs/_108"
+                "$ref": "#/$defs/_110"
               },
               "description": {
-                "$ref": "#/$defs/_107"
+                "$ref": "#/$defs/_109"
               },
               "id": {
-                "$ref": "#/$defs/_106"
+                "$ref": "#/$defs/_108"
               },
               "password": {
                 "type": "boolean",
@@ -3033,7 +3598,7 @@
       "type": "object"
     },
     "chrome:attach:platform": {
-      "$ref": "#/$defs/_113"
+      "$ref": "#/$defs/_115"
     },
     "chrome:launch": {
       "properties": {
@@ -3200,7 +3765,7 @@
       "type": "object"
     },
     "chrome:launch:platform": {
-      "$ref": "#/$defs/_114"
+      "$ref": "#/$defs/_116"
     },
     "common": {
       "properties": {
@@ -3234,7 +3799,7 @@
         "postDebugTask": {
           "anyOf": [
             {
-              "$ref": "#/$defs/_109"
+              "$ref": "#/$defs/_111"
             },
             {
               "type": [
@@ -3257,7 +3822,7 @@
         "preLaunchTask": {
           "anyOf": [
             {
-              "$ref": "#/$defs/_109"
+              "$ref": "#/$defs/_111"
             },
             {
               "type": [
@@ -3278,7 +3843,7 @@
           "examples": []
         },
         "presentation": {
-          "$ref": "#/$defs/_105"
+          "$ref": "#/$defs/_107"
         },
         "suppressMultipleSessionWarning": {
           "type": "boolean",
@@ -3286,6 +3851,260 @@
           "default": true
         }
       }
+    },
+    "editor-browser:attach": {
+      "properties": {
+        "cascadeTerminateToConfigurations": {
+          "$ref": "#/$defs/_3"
+        },
+        "customDescriptionGenerator": {
+          "$ref": "#/$defs/_5"
+        },
+        "customPropertiesGenerator": {
+          "$ref": "#/$defs/_6"
+        },
+        "debugServer": {
+          "$ref": "#/$defs/_37"
+        },
+        "disableNetworkCache": {
+          "$ref": "#/$defs/_70"
+        },
+        "enableContentValidation": {
+          "$ref": "#/$defs/_8"
+        },
+        "enableDWARF": {
+          "$ref": "#/$defs/_9"
+        },
+        "inspectUri": {
+          "$ref": "#/$defs/_71"
+        },
+        "internalConsoleOptions": {
+          "$ref": "#/$defs/_41"
+        },
+        "name": {
+          "$ref": "#/$defs/_36"
+        },
+        "outFiles": {
+          "$ref": "#/$defs/_14"
+        },
+        "outputCapture": {
+          "$ref": "#/$defs/_15"
+        },
+        "pathMapping": {
+          "$ref": "#/$defs/_72"
+        },
+        "pauseForSourceMap": {
+          "$ref": "#/$defs/_16"
+        },
+        "perScriptSourcemaps": {
+          "$ref": "#/$defs/_73"
+        },
+        "postDebugTask": {
+          "$ref": "#/$defs/_39"
+        },
+        "preLaunchTask": {
+          "$ref": "#/$defs/_38"
+        },
+        "presentation": {
+          "$ref": "#/$defs/_40"
+        },
+        "request": {
+          "$ref": "#/$defs/_35"
+        },
+        "resolveSourceMapLocations": {
+          "$ref": "#/$defs/_75"
+        },
+        "server": {
+          "$ref": "#/$defs/_77"
+        },
+        "showAsyncStacks": {
+          "$ref": "#/$defs/_24"
+        },
+        "skipFiles": {
+          "$ref": "#/$defs/_25"
+        },
+        "smartStep": {
+          "$ref": "#/$defs/_26"
+        },
+        "sourceMapPathOverrides": {
+          "$ref": "#/$defs/_27"
+        },
+        "sourceMapRenames": {
+          "$ref": "#/$defs/_28"
+        },
+        "sourceMaps": {
+          "$ref": "#/$defs/_29"
+        },
+        "suppressMultipleSessionWarning": {
+          "$ref": "#/$defs/_42"
+        },
+        "timeout": {
+          "$ref": "#/$defs/_30"
+        },
+        "timeouts": {
+          "$ref": "#/$defs/_31"
+        },
+        "trace": {
+          "$ref": "#/$defs/_32"
+        },
+        "type": {
+          "$ref": "#/$defs/_106"
+        },
+        "url": {
+          "$ref": "#/$defs/_79"
+        },
+        "urlFilter": {
+          "$ref": "#/$defs/_80"
+        },
+        "vueComponentPaths": {
+          "$ref": "#/$defs/_81"
+        },
+        "webRoot": {
+          "$ref": "#/$defs/_82"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "request",
+        "name",
+        "type",
+        "request"
+      ],
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "editor-browser:attach:platform": {
+      "$ref": "#/$defs/_119"
+    },
+    "editor-browser:launch": {
+      "properties": {
+        "cascadeTerminateToConfigurations": {
+          "$ref": "#/$defs/_3"
+        },
+        "customDescriptionGenerator": {
+          "$ref": "#/$defs/_5"
+        },
+        "customPropertiesGenerator": {
+          "$ref": "#/$defs/_6"
+        },
+        "debugServer": {
+          "$ref": "#/$defs/_37"
+        },
+        "disableNetworkCache": {
+          "$ref": "#/$defs/_70"
+        },
+        "enableContentValidation": {
+          "$ref": "#/$defs/_8"
+        },
+        "enableDWARF": {
+          "$ref": "#/$defs/_9"
+        },
+        "inspectUri": {
+          "$ref": "#/$defs/_71"
+        },
+        "internalConsoleOptions": {
+          "$ref": "#/$defs/_41"
+        },
+        "name": {
+          "$ref": "#/$defs/_36"
+        },
+        "outFiles": {
+          "$ref": "#/$defs/_14"
+        },
+        "outputCapture": {
+          "$ref": "#/$defs/_15"
+        },
+        "pathMapping": {
+          "$ref": "#/$defs/_72"
+        },
+        "pauseForSourceMap": {
+          "$ref": "#/$defs/_16"
+        },
+        "perScriptSourcemaps": {
+          "$ref": "#/$defs/_73"
+        },
+        "postDebugTask": {
+          "$ref": "#/$defs/_39"
+        },
+        "preLaunchTask": {
+          "$ref": "#/$defs/_38"
+        },
+        "presentation": {
+          "$ref": "#/$defs/_40"
+        },
+        "request": {
+          "$ref": "#/$defs/_55"
+        },
+        "resolveSourceMapLocations": {
+          "$ref": "#/$defs/_75"
+        },
+        "server": {
+          "$ref": "#/$defs/_77"
+        },
+        "serverReadyAction": {
+          "$ref": "#/$defs/_54"
+        },
+        "showAsyncStacks": {
+          "$ref": "#/$defs/_24"
+        },
+        "skipFiles": {
+          "$ref": "#/$defs/_25"
+        },
+        "smartStep": {
+          "$ref": "#/$defs/_26"
+        },
+        "sourceMapPathOverrides": {
+          "$ref": "#/$defs/_27"
+        },
+        "sourceMapRenames": {
+          "$ref": "#/$defs/_28"
+        },
+        "sourceMaps": {
+          "$ref": "#/$defs/_29"
+        },
+        "suppressMultipleSessionWarning": {
+          "$ref": "#/$defs/_42"
+        },
+        "timeout": {
+          "$ref": "#/$defs/_30"
+        },
+        "timeouts": {
+          "$ref": "#/$defs/_31"
+        },
+        "trace": {
+          "$ref": "#/$defs/_32"
+        },
+        "type": {
+          "$ref": "#/$defs/_106"
+        },
+        "url": {
+          "$ref": "#/$defs/_79"
+        },
+        "urlFilter": {
+          "$ref": "#/$defs/_80"
+        },
+        "vueComponentPaths": {
+          "$ref": "#/$defs/_81"
+        },
+        "webRoot": {
+          "$ref": "#/$defs/_82"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "request",
+        "name",
+        "type",
+        "request",
+        "url"
+      ],
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "editor-browser:launch:platform": {
+      "$ref": "#/$defs/_120"
     },
     "extensionHost:launch": {
       "properties": {
@@ -3431,7 +4250,7 @@
       "type": "object"
     },
     "extensionHost:launch:platform": {
-      "$ref": "#/$defs/_112"
+      "$ref": "#/$defs/_114"
     },
     "msedge:attach": {
       "properties": {
@@ -3574,7 +4393,7 @@
       "type": "object"
     },
     "msedge:attach:platform": {
-      "$ref": "#/$defs/_115"
+      "$ref": "#/$defs/_117"
     },
     "msedge:launch": {
       "properties": {
@@ -3747,7 +4566,7 @@
       "type": "object"
     },
     "msedge:launch:platform": {
-      "$ref": "#/$defs/_116"
+      "$ref": "#/$defs/_118"
     },
     "node-terminal:launch": {
       "properties": {
@@ -4126,7 +4945,7 @@
       "type": "object"
     },
     "node:attach:platform": {
-      "$ref": "#/$defs/_110"
+      "$ref": "#/$defs/_112"
     },
     "node:launch": {
       "properties": {
@@ -4287,7 +5106,7 @@
       "type": "object"
     },
     "node:launch:platform": {
-      "$ref": "#/$defs/_111"
+      "$ref": "#/$defs/_113"
     },
     "pwa-chrome:attach": {
       "properties": {
@@ -4427,7 +5246,7 @@
       "type": "object"
     },
     "pwa-chrome:attach:platform": {
-      "$ref": "#/$defs/_113"
+      "$ref": "#/$defs/_115"
     },
     "pwa-chrome:launch": {
       "properties": {
@@ -4594,7 +5413,261 @@
       "type": "object"
     },
     "pwa-chrome:launch:platform": {
-      "$ref": "#/$defs/_114"
+      "$ref": "#/$defs/_116"
+    },
+    "pwa-editor-browser:attach": {
+      "properties": {
+        "cascadeTerminateToConfigurations": {
+          "$ref": "#/$defs/_3"
+        },
+        "customDescriptionGenerator": {
+          "$ref": "#/$defs/_5"
+        },
+        "customPropertiesGenerator": {
+          "$ref": "#/$defs/_6"
+        },
+        "debugServer": {
+          "$ref": "#/$defs/_37"
+        },
+        "disableNetworkCache": {
+          "$ref": "#/$defs/_70"
+        },
+        "enableContentValidation": {
+          "$ref": "#/$defs/_8"
+        },
+        "enableDWARF": {
+          "$ref": "#/$defs/_9"
+        },
+        "inspectUri": {
+          "$ref": "#/$defs/_71"
+        },
+        "internalConsoleOptions": {
+          "$ref": "#/$defs/_41"
+        },
+        "name": {
+          "$ref": "#/$defs/_36"
+        },
+        "outFiles": {
+          "$ref": "#/$defs/_14"
+        },
+        "outputCapture": {
+          "$ref": "#/$defs/_15"
+        },
+        "pathMapping": {
+          "$ref": "#/$defs/_72"
+        },
+        "pauseForSourceMap": {
+          "$ref": "#/$defs/_16"
+        },
+        "perScriptSourcemaps": {
+          "$ref": "#/$defs/_73"
+        },
+        "postDebugTask": {
+          "$ref": "#/$defs/_39"
+        },
+        "preLaunchTask": {
+          "$ref": "#/$defs/_38"
+        },
+        "presentation": {
+          "$ref": "#/$defs/_40"
+        },
+        "request": {
+          "$ref": "#/$defs/_35"
+        },
+        "resolveSourceMapLocations": {
+          "$ref": "#/$defs/_75"
+        },
+        "server": {
+          "$ref": "#/$defs/_77"
+        },
+        "showAsyncStacks": {
+          "$ref": "#/$defs/_24"
+        },
+        "skipFiles": {
+          "$ref": "#/$defs/_25"
+        },
+        "smartStep": {
+          "$ref": "#/$defs/_26"
+        },
+        "sourceMapPathOverrides": {
+          "$ref": "#/$defs/_27"
+        },
+        "sourceMapRenames": {
+          "$ref": "#/$defs/_28"
+        },
+        "sourceMaps": {
+          "$ref": "#/$defs/_29"
+        },
+        "suppressMultipleSessionWarning": {
+          "$ref": "#/$defs/_42"
+        },
+        "timeout": {
+          "$ref": "#/$defs/_30"
+        },
+        "timeouts": {
+          "$ref": "#/$defs/_31"
+        },
+        "trace": {
+          "$ref": "#/$defs/_32"
+        },
+        "type": {
+          "$ref": "#/$defs/_105"
+        },
+        "url": {
+          "$ref": "#/$defs/_79"
+        },
+        "urlFilter": {
+          "$ref": "#/$defs/_80"
+        },
+        "vueComponentPaths": {
+          "$ref": "#/$defs/_81"
+        },
+        "webRoot": {
+          "$ref": "#/$defs/_82"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "request",
+        "name",
+        "type",
+        "request"
+      ],
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "pwa-editor-browser:attach:platform": {
+      "$ref": "#/$defs/_119"
+    },
+    "pwa-editor-browser:launch": {
+      "properties": {
+        "cascadeTerminateToConfigurations": {
+          "$ref": "#/$defs/_3"
+        },
+        "customDescriptionGenerator": {
+          "$ref": "#/$defs/_5"
+        },
+        "customPropertiesGenerator": {
+          "$ref": "#/$defs/_6"
+        },
+        "debugServer": {
+          "$ref": "#/$defs/_37"
+        },
+        "disableNetworkCache": {
+          "$ref": "#/$defs/_70"
+        },
+        "enableContentValidation": {
+          "$ref": "#/$defs/_8"
+        },
+        "enableDWARF": {
+          "$ref": "#/$defs/_9"
+        },
+        "inspectUri": {
+          "$ref": "#/$defs/_71"
+        },
+        "internalConsoleOptions": {
+          "$ref": "#/$defs/_41"
+        },
+        "name": {
+          "$ref": "#/$defs/_36"
+        },
+        "outFiles": {
+          "$ref": "#/$defs/_14"
+        },
+        "outputCapture": {
+          "$ref": "#/$defs/_15"
+        },
+        "pathMapping": {
+          "$ref": "#/$defs/_72"
+        },
+        "pauseForSourceMap": {
+          "$ref": "#/$defs/_16"
+        },
+        "perScriptSourcemaps": {
+          "$ref": "#/$defs/_73"
+        },
+        "postDebugTask": {
+          "$ref": "#/$defs/_39"
+        },
+        "preLaunchTask": {
+          "$ref": "#/$defs/_38"
+        },
+        "presentation": {
+          "$ref": "#/$defs/_40"
+        },
+        "request": {
+          "$ref": "#/$defs/_55"
+        },
+        "resolveSourceMapLocations": {
+          "$ref": "#/$defs/_75"
+        },
+        "server": {
+          "$ref": "#/$defs/_77"
+        },
+        "serverReadyAction": {
+          "$ref": "#/$defs/_54"
+        },
+        "showAsyncStacks": {
+          "$ref": "#/$defs/_24"
+        },
+        "skipFiles": {
+          "$ref": "#/$defs/_25"
+        },
+        "smartStep": {
+          "$ref": "#/$defs/_26"
+        },
+        "sourceMapPathOverrides": {
+          "$ref": "#/$defs/_27"
+        },
+        "sourceMapRenames": {
+          "$ref": "#/$defs/_28"
+        },
+        "sourceMaps": {
+          "$ref": "#/$defs/_29"
+        },
+        "suppressMultipleSessionWarning": {
+          "$ref": "#/$defs/_42"
+        },
+        "timeout": {
+          "$ref": "#/$defs/_30"
+        },
+        "timeouts": {
+          "$ref": "#/$defs/_31"
+        },
+        "trace": {
+          "$ref": "#/$defs/_32"
+        },
+        "type": {
+          "$ref": "#/$defs/_105"
+        },
+        "url": {
+          "$ref": "#/$defs/_79"
+        },
+        "urlFilter": {
+          "$ref": "#/$defs/_80"
+        },
+        "vueComponentPaths": {
+          "$ref": "#/$defs/_81"
+        },
+        "webRoot": {
+          "$ref": "#/$defs/_82"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "request",
+        "name",
+        "type",
+        "request",
+        "url"
+      ],
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "pwa-editor-browser:launch:platform": {
+      "$ref": "#/$defs/_120"
     },
     "pwa-extensionHost:launch": {
       "properties": {
@@ -4740,7 +5813,7 @@
       "type": "object"
     },
     "pwa-extensionHost:launch:platform": {
-      "$ref": "#/$defs/_112"
+      "$ref": "#/$defs/_114"
     },
     "pwa-msedge:attach": {
       "properties": {
@@ -4883,7 +5956,7 @@
       "type": "object"
     },
     "pwa-msedge:attach:platform": {
-      "$ref": "#/$defs/_115"
+      "$ref": "#/$defs/_117"
     },
     "pwa-msedge:launch": {
       "properties": {
@@ -5056,7 +6129,7 @@
       "type": "object"
     },
     "pwa-msedge:launch:platform": {
-      "$ref": "#/$defs/_116"
+      "$ref": "#/$defs/_118"
     },
     "pwa-node:attach": {
       "properties": {
@@ -5202,7 +6275,7 @@
       "type": "object"
     },
     "pwa-node:attach:platform": {
-      "$ref": "#/$defs/_110"
+      "$ref": "#/$defs/_112"
     },
     "pwa-node:launch": {
       "properties": {
@@ -5363,7 +6436,7 @@
       "type": "object"
     },
     "pwa-node:launch:platform": {
-      "$ref": "#/$defs/_111"
+      "$ref": "#/$defs/_113"
     }
   },
   "$defs": {
@@ -5392,7 +6465,7 @@
       "default": [],
       "description": "A list of debug sessions which, when this debug session is terminated, will also be stopped.",
       "items": {
-        "$ref": "#/$defs/_117"
+        "$ref": "#/$defs/_121"
       },
       "type": "array",
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -5526,7 +6599,7 @@
           "type": "integer"
         },
         {
-          "$ref": "#/$defs/_118"
+          "$ref": "#/$defs/_122"
         }
       ],
       "tags": [
@@ -5582,7 +6655,7 @@
           "type": "boolean"
         },
         {
-          "$ref": "#/$defs/_119"
+          "$ref": "#/$defs/_123"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -5606,10 +6679,10 @@
           "type": "boolean"
         },
         {
-          "$ref": "#/$defs/_120"
+          "$ref": "#/$defs/_124"
         },
         {
-          "$ref": "#/$defs/_121"
+          "$ref": "#/$defs/_125"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -5670,13 +6743,13 @@
       "markdownDescription": "Timeouts for several debugger operations.",
       "properties": {
         "hoverEvaluation": {
-          "$ref": "#/$defs/_122"
+          "$ref": "#/$defs/_126"
         },
         "sourceMapCumulativePause": {
-          "$ref": "#/$defs/_123"
+          "$ref": "#/$defs/_127"
         },
         "sourceMapMinPause": {
-          "$ref": "#/$defs/_124"
+          "$ref": "#/$defs/_128"
         }
       },
       "type": "object",
@@ -5688,10 +6761,10 @@
       "description": "Configures what diagnostic output is produced.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_125"
+          "$ref": "#/$defs/_129"
         },
         {
-          "$ref": "#/$defs/_126"
+          "$ref": "#/$defs/_130"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -5784,7 +6857,7 @@
           "type": "integer"
         },
         {
-          "$ref": "#/$defs/_118"
+          "$ref": "#/$defs/_122"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -5911,13 +6984,13 @@
               "default": "openExternally"
             },
             "pattern": {
-              "$ref": "#/$defs/_127"
+              "$ref": "#/$defs/_131"
             },
             "uriFormat": {
-              "$ref": "#/$defs/_128"
+              "$ref": "#/$defs/_132"
             },
             "killOnServerStop": {
-              "$ref": "#/$defs/_129"
+              "$ref": "#/$defs/_133"
             }
           }
         },
@@ -5946,10 +7019,10 @@
               "default": "debugWithEdge"
             },
             "pattern": {
-              "$ref": "#/$defs/_127"
+              "$ref": "#/$defs/_131"
             },
             "uriFormat": {
-              "$ref": "#/$defs/_128"
+              "$ref": "#/$defs/_132"
             },
             "webRoot": {
               "type": "string",
@@ -5957,7 +7030,7 @@
               "default": "${workspaceFolder}"
             },
             "killOnServerStop": {
-              "$ref": "#/$defs/_129"
+              "$ref": "#/$defs/_133"
             }
           }
         },
@@ -5975,10 +7048,10 @@
           ],
           "properties": {
             "action": {
-              "$ref": "#/$defs/_130"
+              "$ref": "#/$defs/_134"
             },
             "pattern": {
-              "$ref": "#/$defs/_127"
+              "$ref": "#/$defs/_131"
             },
             "name": {
               "type": "string",
@@ -5986,7 +7059,7 @@
               "default": "Launch Browser"
             },
             "killOnServerStop": {
-              "$ref": "#/$defs/_129"
+              "$ref": "#/$defs/_133"
             }
           }
         },
@@ -6007,10 +7080,10 @@
           ],
           "properties": {
             "action": {
-              "$ref": "#/$defs/_130"
+              "$ref": "#/$defs/_134"
             },
             "pattern": {
-              "$ref": "#/$defs/_127"
+              "$ref": "#/$defs/_131"
             },
             "config": {
               "type": "object",
@@ -6018,7 +7091,7 @@
               "default": {}
             },
             "killOnServerStop": {
-              "$ref": "#/$defs/_129"
+              "$ref": "#/$defs/_133"
             }
           }
         }
@@ -6125,18 +7198,18 @@
               "type": "null"
             },
             {
-              "$ref": "#/$defs/_131"
+              "$ref": "#/$defs/_135"
             }
           ]
         },
         "cascadeTerminateToConfigurations": {
-          "$ref": "#/$defs/_132"
+          "$ref": "#/$defs/_136"
         },
         "customDescriptionGenerator": {
-          "$ref": "#/$defs/_133"
+          "$ref": "#/$defs/_137"
         },
         "customPropertiesGenerator": {
-          "$ref": "#/$defs/_134"
+          "$ref": "#/$defs/_138"
         },
         "disableNetworkCache": {
           "default": true,
@@ -6144,10 +7217,10 @@
           "type": "boolean"
         },
         "enableContentValidation": {
-          "$ref": "#/$defs/_135"
+          "$ref": "#/$defs/_139"
         },
         "enableDWARF": {
-          "$ref": "#/$defs/_136"
+          "$ref": "#/$defs/_140"
         },
         "inspectUri": {
           "default": null,
@@ -6158,10 +7231,10 @@
           ]
         },
         "outFiles": {
-          "$ref": "#/$defs/_137"
+          "$ref": "#/$defs/_141"
         },
         "outputCapture": {
-          "$ref": "#/$defs/_138"
+          "$ref": "#/$defs/_142"
         },
         "pathMapping": {
           "default": {},
@@ -6169,7 +7242,7 @@
           "type": "object"
         },
         "pauseForSourceMap": {
-          "$ref": "#/$defs/_139"
+          "$ref": "#/$defs/_143"
         },
         "perScriptSourcemaps": {
           "default": "auto",
@@ -6189,7 +7262,7 @@
               "type": "integer"
             },
             {
-              "$ref": "#/$defs/_118"
+              "$ref": "#/$defs/_122"
             }
           ],
           "tags": [
@@ -6215,30 +7288,30 @@
         "server": {
           "oneOf": [
             {
-              "$ref": "#/$defs/_140"
+              "$ref": "#/$defs/_144"
             },
             {
-              "$ref": "#/$defs/_141"
+              "$ref": "#/$defs/_145"
             }
           ]
         },
         "showAsyncStacks": {
-          "$ref": "#/$defs/_142"
-        },
-        "skipFiles": {
-          "$ref": "#/$defs/_143"
-        },
-        "smartStep": {
-          "$ref": "#/$defs/_144"
-        },
-        "sourceMapPathOverrides": {
-          "$ref": "#/$defs/_145"
-        },
-        "sourceMapRenames": {
           "$ref": "#/$defs/_146"
         },
-        "sourceMaps": {
+        "skipFiles": {
           "$ref": "#/$defs/_147"
+        },
+        "smartStep": {
+          "$ref": "#/$defs/_148"
+        },
+        "sourceMapPathOverrides": {
+          "$ref": "#/$defs/_149"
+        },
+        "sourceMapRenames": {
+          "$ref": "#/$defs/_150"
+        },
+        "sourceMaps": {
+          "$ref": "#/$defs/_151"
         },
         "targetSelection": {
           "default": "automatic",
@@ -6250,13 +7323,13 @@
           "type": "string"
         },
         "timeout": {
-          "$ref": "#/$defs/_148"
+          "$ref": "#/$defs/_152"
         },
         "timeouts": {
-          "$ref": "#/$defs/_149"
+          "$ref": "#/$defs/_153"
         },
         "trace": {
-          "$ref": "#/$defs/_150"
+          "$ref": "#/$defs/_154"
         },
         "url": {
           "default": "http://localhost:8080",
@@ -6357,7 +7430,7 @@
           "type": "null"
         },
         {
-          "$ref": "#/$defs/_131"
+          "$ref": "#/$defs/_135"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -6407,7 +7480,7 @@
           "type": "integer"
         },
         {
-          "$ref": "#/$defs/_118"
+          "$ref": "#/$defs/_122"
         }
       ],
       "tags": [
@@ -6439,10 +7512,10 @@
     "_77": {
       "oneOf": [
         {
-          "$ref": "#/$defs/_140"
+          "$ref": "#/$defs/_144"
         },
         {
-          "$ref": "#/$defs/_141"
+          "$ref": "#/$defs/_145"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -6517,7 +7590,7 @@
           "type": "null"
         },
         {
-          "$ref": "#/$defs/_131"
+          "$ref": "#/$defs/_135"
         }
       ],
       "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
@@ -6714,6 +7787,33 @@
       "patternErrorMessage": "\"node2\" is no longer supported, use \"node\" instead and set the \"protocol\" attribute to \"inspector\"."
     },
     "_105": {
+      "enum": [
+        "pwa-editor-browser"
+      ],
+      "enumDescriptions": [
+        "Web App (Integrated Browser)"
+      ],
+      "description": "Type of configuration.",
+      "pattern": "^(?!node2)",
+      "deprecationMessage": "Please use type editor-browser instead",
+      "doNotSuggest": true,
+      "errorMessage": "The debug type is not recognized. Make sure that you have a corresponding debug extension installed and that it is enabled.",
+      "patternErrorMessage": "\"node2\" is no longer supported, use \"node\" instead and set the \"protocol\" attribute to \"inspector\"."
+    },
+    "_106": {
+      "enum": [
+        "editor-browser"
+      ],
+      "enumDescriptions": [
+        "Web App (Integrated Browser)"
+      ],
+      "description": "Type of configuration.",
+      "pattern": "^(?!node2)",
+      "doNotSuggest": false,
+      "errorMessage": "The debug type is not recognized. Make sure that you have a corresponding debug extension installed and that it is enabled.",
+      "patternErrorMessage": "\"node2\" is no longer supported, use \"node\" instead and set the \"protocol\" attribute to \"inspector\"."
+    },
+    "_107": {
       "type": "object",
       "description": "Presentation options on how to show this configuration in the debug configuration dropdown and the command palette.",
       "properties": {
@@ -6739,19 +7839,19 @@
         "order": 1
       }
     },
-    "_106": {
+    "_108": {
       "type": "string",
       "description": "The input's id is used to associate an input with a variable of the form ${input:id}."
     },
-    "_107": {
+    "_109": {
       "type": "string",
       "description": "The description is shown when the user is prompted for input."
     },
-    "_108": {
+    "_110": {
       "type": "string",
       "description": "The default value for the input."
     },
-    "_109": {
+    "_111": {
       "oneOf": [
         {
           "type": "object",
@@ -6873,7 +7973,7 @@
         }
       ]
     },
-    "_110": {
+    "_112": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -6999,7 +8099,7 @@
         }
       }
     },
-    "_111": {
+    "_113": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -7140,7 +8240,7 @@
         }
       }
     },
-    "_112": {
+    "_114": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -7266,7 +8366,7 @@
         }
       }
     },
-    "_113": {
+    "_115": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -7386,7 +8486,7 @@
         }
       }
     },
-    "_114": {
+    "_116": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -7533,7 +8633,7 @@
         }
       }
     },
-    "_115": {
+    "_117": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -7656,7 +8756,7 @@
         }
       }
     },
-    "_116": {
+    "_118": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -7809,15 +8909,228 @@
         }
       }
     },
-    "_117": {
+    "_119": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cascadeTerminateToConfigurations": {
+          "$ref": "#/$defs/_3"
+        },
+        "customDescriptionGenerator": {
+          "$ref": "#/$defs/_5"
+        },
+        "customPropertiesGenerator": {
+          "$ref": "#/$defs/_6"
+        },
+        "disableNetworkCache": {
+          "$ref": "#/$defs/_70"
+        },
+        "enableContentValidation": {
+          "$ref": "#/$defs/_8"
+        },
+        "enableDWARF": {
+          "$ref": "#/$defs/_9"
+        },
+        "inspectUri": {
+          "$ref": "#/$defs/_71"
+        },
+        "outFiles": {
+          "$ref": "#/$defs/_14"
+        },
+        "outputCapture": {
+          "$ref": "#/$defs/_15"
+        },
+        "pathMapping": {
+          "$ref": "#/$defs/_72"
+        },
+        "pauseForSourceMap": {
+          "$ref": "#/$defs/_16"
+        },
+        "perScriptSourcemaps": {
+          "$ref": "#/$defs/_73"
+        },
+        "resolveSourceMapLocations": {
+          "$ref": "#/$defs/_75"
+        },
+        "server": {
+          "$ref": "#/$defs/_77"
+        },
+        "showAsyncStacks": {
+          "$ref": "#/$defs/_24"
+        },
+        "skipFiles": {
+          "$ref": "#/$defs/_25"
+        },
+        "smartStep": {
+          "$ref": "#/$defs/_26"
+        },
+        "sourceMapPathOverrides": {
+          "$ref": "#/$defs/_27"
+        },
+        "sourceMapRenames": {
+          "$ref": "#/$defs/_28"
+        },
+        "sourceMaps": {
+          "$ref": "#/$defs/_29"
+        },
+        "timeout": {
+          "$ref": "#/$defs/_30"
+        },
+        "timeouts": {
+          "$ref": "#/$defs/_31"
+        },
+        "trace": {
+          "$ref": "#/$defs/_32"
+        },
+        "url": {
+          "$ref": "#/$defs/_79"
+        },
+        "urlFilter": {
+          "$ref": "#/$defs/_80"
+        },
+        "vueComponentPaths": {
+          "$ref": "#/$defs/_81"
+        },
+        "webRoot": {
+          "$ref": "#/$defs/_82"
+        },
+        "debugServer": {
+          "$ref": "#/$defs/_37"
+        },
+        "preLaunchTask": {
+          "$ref": "#/$defs/_38"
+        },
+        "postDebugTask": {
+          "$ref": "#/$defs/_39"
+        },
+        "presentation": {
+          "$ref": "#/$defs/_40"
+        },
+        "internalConsoleOptions": {
+          "$ref": "#/$defs/_41"
+        },
+        "suppressMultipleSessionWarning": {
+          "$ref": "#/$defs/_42"
+        }
+      }
+    },
+    "_120": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cascadeTerminateToConfigurations": {
+          "$ref": "#/$defs/_3"
+        },
+        "customDescriptionGenerator": {
+          "$ref": "#/$defs/_5"
+        },
+        "customPropertiesGenerator": {
+          "$ref": "#/$defs/_6"
+        },
+        "disableNetworkCache": {
+          "$ref": "#/$defs/_70"
+        },
+        "enableContentValidation": {
+          "$ref": "#/$defs/_8"
+        },
+        "enableDWARF": {
+          "$ref": "#/$defs/_9"
+        },
+        "inspectUri": {
+          "$ref": "#/$defs/_71"
+        },
+        "outFiles": {
+          "$ref": "#/$defs/_14"
+        },
+        "outputCapture": {
+          "$ref": "#/$defs/_15"
+        },
+        "pathMapping": {
+          "$ref": "#/$defs/_72"
+        },
+        "pauseForSourceMap": {
+          "$ref": "#/$defs/_16"
+        },
+        "perScriptSourcemaps": {
+          "$ref": "#/$defs/_73"
+        },
+        "resolveSourceMapLocations": {
+          "$ref": "#/$defs/_75"
+        },
+        "server": {
+          "$ref": "#/$defs/_77"
+        },
+        "showAsyncStacks": {
+          "$ref": "#/$defs/_24"
+        },
+        "skipFiles": {
+          "$ref": "#/$defs/_25"
+        },
+        "smartStep": {
+          "$ref": "#/$defs/_26"
+        },
+        "sourceMapPathOverrides": {
+          "$ref": "#/$defs/_27"
+        },
+        "sourceMapRenames": {
+          "$ref": "#/$defs/_28"
+        },
+        "sourceMaps": {
+          "$ref": "#/$defs/_29"
+        },
+        "timeout": {
+          "$ref": "#/$defs/_30"
+        },
+        "timeouts": {
+          "$ref": "#/$defs/_31"
+        },
+        "trace": {
+          "$ref": "#/$defs/_32"
+        },
+        "url": {
+          "$ref": "#/$defs/_79"
+        },
+        "urlFilter": {
+          "$ref": "#/$defs/_80"
+        },
+        "vueComponentPaths": {
+          "$ref": "#/$defs/_81"
+        },
+        "webRoot": {
+          "$ref": "#/$defs/_82"
+        },
+        "serverReadyAction": {
+          "$ref": "#/$defs/_54"
+        },
+        "debugServer": {
+          "$ref": "#/$defs/_37"
+        },
+        "preLaunchTask": {
+          "$ref": "#/$defs/_38"
+        },
+        "postDebugTask": {
+          "$ref": "#/$defs/_39"
+        },
+        "presentation": {
+          "$ref": "#/$defs/_40"
+        },
+        "internalConsoleOptions": {
+          "$ref": "#/$defs/_41"
+        },
+        "suppressMultipleSessionWarning": {
+          "$ref": "#/$defs/_42"
+        }
+      }
+    },
+    "_121": {
       "type": "string",
       "uniqueItems": true
     },
-    "_118": {
+    "_122": {
       "pattern": "^\\${.*}$",
       "type": "string"
     },
-    "_119": {
+    "_123": {
       "properties": {
         "delay": {
           "default": 1000,
@@ -7832,10 +9145,10 @@
       },
       "type": "object"
     },
-    "_120": {
+    "_124": {
       "properties": {
         "onAttach": {
-          "$ref": "#/$defs/_151"
+          "$ref": "#/$defs/_155"
         }
       },
       "required": [
@@ -7843,10 +9156,10 @@
       ],
       "type": "object"
     },
-    "_121": {
+    "_125": {
       "properties": {
         "onceBreakpointResolved": {
-          "$ref": "#/$defs/_151"
+          "$ref": "#/$defs/_155"
         }
       },
       "required": [
@@ -7854,26 +9167,26 @@
       ],
       "type": "object"
     },
-    "_122": {
+    "_126": {
       "default": 500,
       "description": "Time until value evaluation for hovered symbols is aborted. If set to 0, hover evaluation does never time out.",
       "type": "number"
     },
-    "_123": {
+    "_127": {
       "default": 1000,
       "description": "Extra time in milliseconds allowed per session to be spent waiting for source-maps to be processed, after the minimum time (sourceMapMinPause) has been exhausted",
       "type": "number"
     },
-    "_124": {
+    "_128": {
       "default": 1000,
       "description": "Minimum time in milliseconds spent waiting for each source-map to be processed when a script is being parsed",
       "type": "number"
     },
-    "_125": {
+    "_129": {
       "description": "Trace may be set to 'true' to write diagnostic logs to the disk.",
       "type": "boolean"
     },
-    "_126": {
+    "_130": {
       "additionalProperties": false,
       "properties": {
         "logFile": {
@@ -7890,22 +9203,22 @@
       },
       "type": "object"
     },
-    "_127": {
+    "_131": {
       "type": "string",
       "markdownDescription": "Server is ready if this pattern appears on the debug console. The first capture group must include a URI or a port number.",
       "default": "listening on port ([0-9]+)"
     },
-    "_128": {
+    "_132": {
       "type": "string",
       "markdownDescription": "A format string used when constructing the URI from a port number. The first '%s' is substituted with the port number.",
       "default": "http://localhost:%s"
     },
-    "_129": {
+    "_133": {
       "type": "boolean",
       "markdownDescription": "Stop the child session when the parent session stopped.",
       "default": false
     },
-    "_130": {
+    "_134": {
       "type": "string",
       "enum": [
         "startDebugging"
@@ -7916,41 +9229,41 @@
       "markdownDescription": "What to do with the URI when the server is ready.",
       "default": "startDebugging"
     },
-    "_131": {
+    "_135": {
       "enum": [
         "ui",
         "workspace"
       ],
       "type": "string"
     },
-    "_132": {
+    "_136": {
       "default": [],
       "description": "A list of debug sessions which, when this debug session is terminated, will also be stopped.",
       "items": {
-        "$ref": "#/$defs/_117"
+        "$ref": "#/$defs/_121"
       },
       "type": "array"
     },
-    "_133": {
+    "_137": {
       "description": "Customize the textual description the debugger shows for objects (local variables, etc...). Samples:\n      1. this.toString() // will call toString to print all objects\n      2. this.customDescription ? this.customDescription() : defaultValue // Use customDescription method if available, if not return defaultValue\n      3. function (def) { return this.customDescription ? this.customDescription() : def } // Use customDescription method if available, if not return defaultValue\n      ",
       "type": "string"
     },
-    "_134": {
+    "_138": {
       "deprecated": true,
       "description": "Customize the properties shown for an object in the debugger (local variables, etc...). Samples:\n    1. { ...this, extraProperty: '12345' } // Add an extraProperty 12345 to all objects\n    2. this.customProperties ? this.customProperties() : this // Use customProperties method if available, if not use the properties in this (the default properties)\n    3. function () { return this.customProperties ? this.customProperties() : this } // Use customDescription method if available, if not return the default properties\n\n    Deprecated: This is a temporary implementation of this feature until we have time to implement it in the way described here: https://github.com/microsoft/vscode/issues/102181",
       "type": "string"
     },
-    "_135": {
+    "_139": {
       "default": true,
       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example.",
       "type": "boolean"
     },
-    "_136": {
+    "_140": {
       "default": true,
       "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function.",
       "type": "boolean"
     },
-    "_137": {
+    "_141": {
       "default": [
         "${workspaceFolder}/**/*.(m|c|)js",
         "!**/node_modules/**"
@@ -7966,7 +9279,7 @@
         "array"
       ]
     },
-    "_138": {
+    "_142": {
       "default": "console",
       "enum": [
         "console",
@@ -7974,12 +9287,12 @@
       ],
       "markdownDescription": "From where to capture output messages: the default debug API if set to `console`, or stdout/stderr streams if set to `std`."
     },
-    "_139": {
+    "_143": {
       "default": false,
       "markdownDescription": "Whether to wait for source maps to load for each incoming script. This has a performance overhead, and might be safely disabled when running off of disk, so long as `rootPath` is not disabled.",
       "type": "boolean"
     },
-    "_140": {
+    "_144": {
       "additionalProperties": false,
       "default": {
         "program": "node my-server.js"
@@ -8008,15 +9321,15 @@
               "type": "integer"
             },
             {
-              "$ref": "#/$defs/_118"
+              "$ref": "#/$defs/_122"
             }
           ]
         },
         "autoAttachChildProcesses": {
-          "$ref": "#/$defs/_152"
+          "$ref": "#/$defs/_156"
         },
         "cascadeTerminateToConfigurations": {
-          "$ref": "#/$defs/_132"
+          "$ref": "#/$defs/_136"
         },
         "console": {
           "default": "internalConsole",
@@ -8034,10 +9347,10 @@
           "type": "string"
         },
         "customDescriptionGenerator": {
-          "$ref": "#/$defs/_133"
+          "$ref": "#/$defs/_137"
         },
         "customPropertiesGenerator": {
-          "$ref": "#/$defs/_134"
+          "$ref": "#/$defs/_138"
         },
         "cwd": {
           "default": "${workspaceFolder}",
@@ -8048,16 +9361,16 @@
           "type": "string"
         },
         "enableContentValidation": {
-          "$ref": "#/$defs/_135"
+          "$ref": "#/$defs/_139"
         },
         "enableDWARF": {
-          "$ref": "#/$defs/_136"
+          "$ref": "#/$defs/_140"
         },
         "env": {
-          "$ref": "#/$defs/_153"
+          "$ref": "#/$defs/_157"
         },
         "envFile": {
-          "$ref": "#/$defs/_154"
+          "$ref": "#/$defs/_158"
         },
         "experimentalNetworking": {
           "default": "auto",
@@ -8080,19 +9393,19 @@
           "type": "string"
         },
         "localRoot": {
-          "$ref": "#/$defs/_155"
+          "$ref": "#/$defs/_159"
         },
         "nodeVersionHint": {
-          "$ref": "#/$defs/_156"
+          "$ref": "#/$defs/_160"
         },
         "outFiles": {
-          "$ref": "#/$defs/_137"
+          "$ref": "#/$defs/_141"
         },
         "outputCapture": {
-          "$ref": "#/$defs/_138"
+          "$ref": "#/$defs/_142"
         },
         "pauseForSourceMap": {
-          "$ref": "#/$defs/_139"
+          "$ref": "#/$defs/_143"
         },
         "profileStartup": {
           "default": true,
@@ -8108,10 +9421,10 @@
           "type": "string"
         },
         "remoteRoot": {
-          "$ref": "#/$defs/_157"
+          "$ref": "#/$defs/_161"
         },
         "resolveSourceMapLocations": {
-          "$ref": "#/$defs/_158"
+          "$ref": "#/$defs/_162"
         },
         "restart": {
           "default": true,
@@ -8121,7 +9434,7 @@
               "type": "boolean"
             },
             {
-              "$ref": "#/$defs/_119"
+              "$ref": "#/$defs/_123"
             }
           ]
         },
@@ -8145,7 +9458,7 @@
           ]
         },
         "runtimeSourcemapPausePatterns": {
-          "$ref": "#/$defs/_159"
+          "$ref": "#/$defs/_163"
         },
         "runtimeVersion": {
           "default": "default",
@@ -8153,22 +9466,22 @@
           "type": "string"
         },
         "showAsyncStacks": {
-          "$ref": "#/$defs/_142"
-        },
-        "skipFiles": {
-          "$ref": "#/$defs/_143"
-        },
-        "smartStep": {
-          "$ref": "#/$defs/_144"
-        },
-        "sourceMapPathOverrides": {
-          "$ref": "#/$defs/_145"
-        },
-        "sourceMapRenames": {
           "$ref": "#/$defs/_146"
         },
-        "sourceMaps": {
+        "skipFiles": {
           "$ref": "#/$defs/_147"
+        },
+        "smartStep": {
+          "$ref": "#/$defs/_148"
+        },
+        "sourceMapPathOverrides": {
+          "$ref": "#/$defs/_149"
+        },
+        "sourceMapRenames": {
+          "$ref": "#/$defs/_150"
+        },
+        "sourceMaps": {
+          "$ref": "#/$defs/_151"
         },
         "stopOnEntry": {
           "default": true,
@@ -8179,18 +9492,18 @@
           ]
         },
         "timeout": {
-          "$ref": "#/$defs/_148"
+          "$ref": "#/$defs/_152"
         },
         "timeouts": {
-          "$ref": "#/$defs/_149"
+          "$ref": "#/$defs/_153"
         },
         "trace": {
-          "$ref": "#/$defs/_150"
+          "$ref": "#/$defs/_154"
         }
       },
       "type": "object"
     },
-    "_141": {
+    "_145": {
       "additionalProperties": false,
       "default": {
         "program": "npm start"
@@ -8198,10 +9511,10 @@
       "description": "JavaScript Debug Terminal",
       "properties": {
         "autoAttachChildProcesses": {
-          "$ref": "#/$defs/_152"
+          "$ref": "#/$defs/_156"
         },
         "cascadeTerminateToConfigurations": {
-          "$ref": "#/$defs/_132"
+          "$ref": "#/$defs/_136"
         },
         "command": {
           "default": "npm start",
@@ -8215,10 +9528,10 @@
           ]
         },
         "customDescriptionGenerator": {
-          "$ref": "#/$defs/_133"
+          "$ref": "#/$defs/_137"
         },
         "customPropertiesGenerator": {
-          "$ref": "#/$defs/_134"
+          "$ref": "#/$defs/_138"
         },
         "cwd": {
           "default": "${workspaceFolder}",
@@ -8230,72 +9543,72 @@
           "type": "string"
         },
         "enableContentValidation": {
-          "$ref": "#/$defs/_135"
-        },
-        "enableDWARF": {
-          "$ref": "#/$defs/_136"
-        },
-        "env": {
-          "$ref": "#/$defs/_153"
-        },
-        "envFile": {
-          "$ref": "#/$defs/_154"
-        },
-        "localRoot": {
-          "$ref": "#/$defs/_155"
-        },
-        "nodeVersionHint": {
-          "$ref": "#/$defs/_156"
-        },
-        "outFiles": {
-          "$ref": "#/$defs/_137"
-        },
-        "outputCapture": {
-          "$ref": "#/$defs/_138"
-        },
-        "pauseForSourceMap": {
           "$ref": "#/$defs/_139"
         },
-        "remoteRoot": {
+        "enableDWARF": {
+          "$ref": "#/$defs/_140"
+        },
+        "env": {
           "$ref": "#/$defs/_157"
         },
-        "resolveSourceMapLocations": {
+        "envFile": {
           "$ref": "#/$defs/_158"
         },
-        "runtimeSourcemapPausePatterns": {
+        "localRoot": {
           "$ref": "#/$defs/_159"
         },
-        "showAsyncStacks": {
+        "nodeVersionHint": {
+          "$ref": "#/$defs/_160"
+        },
+        "outFiles": {
+          "$ref": "#/$defs/_141"
+        },
+        "outputCapture": {
           "$ref": "#/$defs/_142"
         },
-        "skipFiles": {
+        "pauseForSourceMap": {
           "$ref": "#/$defs/_143"
         },
-        "smartStep": {
-          "$ref": "#/$defs/_144"
+        "remoteRoot": {
+          "$ref": "#/$defs/_161"
         },
-        "sourceMapPathOverrides": {
-          "$ref": "#/$defs/_145"
+        "resolveSourceMapLocations": {
+          "$ref": "#/$defs/_162"
         },
-        "sourceMapRenames": {
+        "runtimeSourcemapPausePatterns": {
+          "$ref": "#/$defs/_163"
+        },
+        "showAsyncStacks": {
           "$ref": "#/$defs/_146"
         },
-        "sourceMaps": {
+        "skipFiles": {
           "$ref": "#/$defs/_147"
         },
-        "timeout": {
+        "smartStep": {
           "$ref": "#/$defs/_148"
         },
-        "timeouts": {
+        "sourceMapPathOverrides": {
           "$ref": "#/$defs/_149"
         },
-        "trace": {
+        "sourceMapRenames": {
           "$ref": "#/$defs/_150"
+        },
+        "sourceMaps": {
+          "$ref": "#/$defs/_151"
+        },
+        "timeout": {
+          "$ref": "#/$defs/_152"
+        },
+        "timeouts": {
+          "$ref": "#/$defs/_153"
+        },
+        "trace": {
+          "$ref": "#/$defs/_154"
         }
       },
       "type": "object"
     },
-    "_142": {
+    "_146": {
       "default": true,
       "description": "Show the async calls that led to the current call stack.",
       "oneOf": [
@@ -8303,26 +9616,26 @@
           "type": "boolean"
         },
         {
-          "$ref": "#/$defs/_120"
+          "$ref": "#/$defs/_124"
         },
         {
-          "$ref": "#/$defs/_121"
+          "$ref": "#/$defs/_125"
         }
       ]
     },
-    "_143": {
+    "_147": {
       "default": [
         "${/**"
       ],
       "description": "An array of file or folder names, or path globs, to skip when debugging. Star patterns and negations are allowed, for example, `[\"**/node_modules/**\", \"!**/node_modules/my-module/**\"]`",
       "type": "array"
     },
-    "_144": {
+    "_148": {
       "default": true,
       "description": "Automatically step through generated code that cannot be mapped back to the original source.",
       "type": "boolean"
     },
-    "_145": {
+    "_149": {
       "default": {
         "meteor://💻app/*": "${workspaceFolder}/*",
         "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
@@ -8331,61 +9644,61 @@
       "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
       "type": "object"
     },
-    "_146": {
+    "_150": {
       "default": true,
       "description": "Whether to use the \"names\" mapping in sourcemaps. This requires requesting source content, which can be slow with certain debuggers.",
       "type": "boolean"
     },
-    "_147": {
+    "_151": {
       "default": true,
       "description": "Use JavaScript source maps (if they exist).",
       "type": "boolean"
     },
-    "_148": {
+    "_152": {
       "default": 10000,
       "description": "Retry for this number of milliseconds to connect to Node.js. Default is 10000 ms.",
       "type": "number"
     },
-    "_149": {
+    "_153": {
       "additionalProperties": false,
       "default": {},
       "description": "Timeouts for several debugger operations.",
       "markdownDescription": "Timeouts for several debugger operations.",
       "properties": {
         "hoverEvaluation": {
-          "$ref": "#/$defs/_122"
+          "$ref": "#/$defs/_126"
         },
         "sourceMapCumulativePause": {
-          "$ref": "#/$defs/_123"
+          "$ref": "#/$defs/_127"
         },
         "sourceMapMinPause": {
-          "$ref": "#/$defs/_124"
+          "$ref": "#/$defs/_128"
         }
       },
       "type": "object"
     },
-    "_150": {
+    "_154": {
       "default": true,
       "description": "Configures what diagnostic output is produced.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_125"
+          "$ref": "#/$defs/_129"
         },
         {
-          "$ref": "#/$defs/_126"
+          "$ref": "#/$defs/_130"
         }
       ]
     },
-    "_151": {
+    "_155": {
       "default": 32,
       "type": "number"
     },
-    "_152": {
+    "_156": {
       "default": true,
       "description": "Attach debugger to new child processes automatically.",
       "type": "boolean"
     },
-    "_153": {
+    "_157": {
       "additionalProperties": {
         "type": [
           "string",
@@ -8399,12 +9712,12 @@
       ],
       "type": "object"
     },
-    "_154": {
+    "_158": {
       "default": "${workspaceFolder}/.env",
       "description": "Absolute path to a file containing environment variable definitions.",
       "type": "string"
     },
-    "_155": {
+    "_159": {
       "default": null,
       "description": "Path to the local directory containing the program.",
       "type": [
@@ -8412,13 +9725,13 @@
         "null"
       ]
     },
-    "_156": {
+    "_160": {
       "default": 12,
       "description": "Allows you to explicitly specify the Node version that's running, which can be used to disable or enable certain behaviors in cases where the automatic version detection does not work.",
       "minimum": 8,
       "type": "number"
     },
-    "_157": {
+    "_161": {
       "default": null,
       "description": "Absolute path to the remote directory containing the program.",
       "type": [
@@ -8426,7 +9739,7 @@
         "null"
       ]
     },
-    "_158": {
+    "_162": {
       "default": [
         "${workspaceFolder}/**",
         "!**/node_modules/**"
@@ -8440,7 +9753,7 @@
         "null"
       ]
     },
-    "_159": {
+    "_163": {
       "default": [],
       "items": {
         "type": "string"
