@@ -1055,7 +1055,27 @@
       },
       "defaultDefaultValue": {},
       "restricted": false,
-      "properties": {}
+      "properties": {
+        "source.sort.json": {
+          "type": "string",
+          "enum": [
+            "always",
+            "explicit",
+            false,
+            "never",
+            true
+          ],
+          "enumDescriptions": [
+            "Triggers Code Actions on explicit saves and auto saves triggered by window or focus changes.",
+            "Triggers Code Actions only when explicitly saved",
+            "Never triggers Code Actions on save. This value will be deprecated in favor of \"never\".",
+            "Never triggers Code Actions on save",
+            "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\"."
+          ],
+          "default": "explicit",
+          "description": "Controls whether 'source.sort.json' actions should be run on file save."
+        }
+      }
     },
     "editor.codeActionWidget.includeNearbyQuickFixes": {
       "type": "boolean",
@@ -1549,9 +1569,9 @@
       ],
       "enumItemLabels": [
         "None",
+        "JSON Language Features",
         "CSS Language Features",
         "HTML Language Features",
-        "JSON Language Features",
         "Markdown Language Features",
         "Markdown Math",
         "PHP Language Features",
@@ -7816,7 +7836,28 @@
       "defaultDefaultValue": {},
       "scope": 6,
       "restricted": false,
-      "properties": {}
+      "properties": {
+        "source.sort.json": {
+          "type": [
+            "string",
+            "boolean"
+          ],
+          "enum": [
+            "explicit",
+            false,
+            "never",
+            true
+          ],
+          "enumDescriptions": [
+            "Triggers Code Actions only when explicitly saved.",
+            "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"never\".",
+            "Never triggers Code Actions on save.",
+            "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\"."
+          ],
+          "default": "explicit",
+          "description": "Controls whether 'source.sort.json' actions should be run on file save."
+        }
+      }
     },
     "outline.collapseItems": {
       "description": "Controls whether Outline items are collapsed or expanded.",

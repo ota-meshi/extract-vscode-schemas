@@ -33,8 +33,10 @@
         "agentSession.exitAgentSessionProjection",
         "agentSession.markRead",
         "agentSession.markUnread",
+        "agentSession.pin",
         "agentSession.rename",
         "agentSession.unarchive",
+        "agentSession.unpin",
         "agentSessions.filter.resetExcludes.agentsessionsviewerfiltersubmenu",
         "agentSessions.filter.toggleExclude:local.agentsessionsviewerfiltersubmenu",
         "agentSessions.filter.toggleExcludeArchived.agentsessionsviewerfiltersubmenu",
@@ -47,6 +49,7 @@
         "agentSessions.showAgentSessionsSidebar",
         "agentSessions.toggleAgentSessionsSidebar",
         "agentSessionSection.archive",
+        "agentSessionSection.collapseAll",
         "agentSessionSection.markRead",
         "agentSessionSection.unarchive",
         "agentSessionsViewer.find",
@@ -54,9 +57,13 @@
         "aiCustomization.openManagementEditor",
         "aiCustomizationManagement.copyPath",
         "aiCustomizationManagement.delete",
+        "aiCustomizationManagement.disableItem",
+        "aiCustomizationManagement.enableItem",
         "aiCustomizationManagement.openFile",
         "aiCustomizationManagement.revealInOS",
         "aiCustomizationManagement.runPrompt",
+        "aiCustomizationManagement.showPlugin",
+        "aiCustomizationManagement.uninstallPlugin",
         "breadcrumbs.copyPath",
         "breadcrumbs.focus",
         "breadcrumbs.focusAndSelect",
@@ -80,7 +87,6 @@
         "changeEditorIndentation1",
         "chat.action.focus",
         "chat.configureToolSets",
-        "chat.enableDebugTools",
         "chat.inlineResourceAnchor.addFileToChat",
         "chat.inlineResourceAnchor.copyResource",
         "chat.inlineResourceAnchor.openToSide",
@@ -937,6 +943,7 @@
         "jsExcludedCallers.resetViewLocation",
         "json.clearCache",
         "json.sort",
+        "json.validate",
         "jumpToNextSnippetPlaceholder",
         "jumpToPrevSnippetPlaceholder",
         "keybindings.editor.acceptWhenExpression",
@@ -1541,7 +1548,6 @@
         "timeline.removeView",
         "timeline.resetViewLocation",
         "timeline.toggleVisibility",
-        "toggle.chat.agentsControl.enabled",
         "toggle.chat.unifiedAgentsBar.enabled",
         "toggle.diff.ignoreTrimWhitespace",
         "toggle.diff.renderSideBySide",
@@ -1589,6 +1595,7 @@
         "typescript.restartTsServer",
         "typescript.selectTypeScriptVersion",
         "typescript.sortImports",
+        "typescript.tsserverRequest",
         "undo",
         "update.check",
         "update.checkForUpdate",
@@ -1654,9 +1661,12 @@
         "workbench.action.browseColorThemesInMarketplace",
         "workbench.action.browser.addConsoleLogsToChat",
         "workbench.action.browser.addElementToChat",
+        "workbench.action.browser.addFocusedElementToChat",
         "workbench.action.browser.clearEphemeralStorage",
         "workbench.action.browser.clearGlobalStorage",
         "workbench.action.browser.clearWorkspaceStorage",
+        "workbench.action.browser.closeAll",
+        "workbench.action.browser.closeAllInGroup",
         "workbench.action.browser.findNext",
         "workbench.action.browser.findPrevious",
         "workbench.action.browser.focusUrlInput",
@@ -1668,6 +1678,7 @@
         "workbench.action.browser.open",
         "workbench.action.browser.openExternal",
         "workbench.action.browser.openSettings",
+        "workbench.action.browser.quickOpen",
         "workbench.action.browser.reload",
         "workbench.action.browser.resetZoom",
         "workbench.action.browser.showFind",
@@ -1712,6 +1723,7 @@
         "workbench.action.chat.dismissTipToolbar",
         "workbench.action.chat.editRequests",
         "workbench.action.chat.editToolApproval",
+        "workbench.action.chat.executeHandoff",
         "workbench.action.chat.export",
         "workbench.action.chat.exportAgentDebugLog",
         "workbench.action.chat.exportAsZip",
@@ -1728,6 +1740,7 @@
         "workbench.action.chat.generateOnDemandInstructions",
         "workbench.action.chat.generatePrompt",
         "workbench.action.chat.generateSkill",
+        "workbench.action.chat.getHandoffs",
         "workbench.action.chat.hideSetup",
         "workbench.action.chat.history",
         "workbench.action.chat.holdToVoiceChatInChatView",
@@ -1747,6 +1760,7 @@
         "workbench.action.chat.manage",
         "workbench.action.chat.manageLanguageModelAuthentication",
         "workbench.action.chat.manageOverages",
+        "workbench.action.chat.managePluginMarketplaces",
         "workbench.action.chat.managePlugins",
         "workbench.action.chat.manageSettings",
         "workbench.action.chat.markAllAgentSessionsRead",
@@ -1778,6 +1792,7 @@
         "workbench.action.chat.openInSidebar",
         "workbench.action.chat.openModelPicker",
         "workbench.action.chat.openModePicker",
+        "workbench.action.chat.openNewChatSessionInPlace.agent-host-copilot",
         "workbench.action.chat.openNewChatSessionInPlace.local",
         "workbench.action.chat.openPermissionPicker",
         "workbench.action.chat.openQuotaExceededDialog",
@@ -2219,6 +2234,7 @@
         "workbench.action.output.show.vscode.git.Git.log",
         "workbench.action.output.show.vscode.github-authentication.GitHub Authentication.log",
         "workbench.action.output.show.vscode.github.GitHub.log",
+        "workbench.action.output.show.vscode.json-language-features.JSON Language Server.log",
         "workbench.action.output.toggleOutput",
         "workbench.action.pauseSocketWriting",
         "workbench.action.pinEditor",
@@ -2542,6 +2558,7 @@
         "workbench.action.triggerReconnect",
         "workbench.action.troubleshootIssue.start",
         "workbench.action.troubleshootIssue.stop",
+        "workbench.action.tryNewDefaultThemes",
         "workbench.action.unifiedQuickAccess",
         "workbench.action.unlockEditorGroup",
         "workbench.action.unpinEditor",
@@ -3069,8 +3086,10 @@
         "Exit Agent Session Projection",
         "Mark as Read",
         "Mark as Unread",
+        "Pin",
         "Rename...",
         "Unarchive",
+        "Unpin",
         "Reset",
         "Local",
         "Archived",
@@ -3083,6 +3102,7 @@
         "Show Agent Sessions Sidebar",
         "Toggle Agent Sessions Sidebar",
         "Archive All",
+        "Collapse All",
         "Mark All as Read",
         "Unarchive All",
         "Find Agent Session",
@@ -3090,9 +3110,13 @@
         "Open Customizations (Preview)",
         "Copy Path",
         "Delete",
+        "Disable",
+        "Enable",
         "Open",
         "Open Containing Folder",
         "Run Prompt",
+        "Show Plugin",
+        "Uninstall Plugin",
         "Copy Breadcrumbs Path",
         "Focus Breadcrumbs",
         "Focus and Select Breadcrumbs",
@@ -3116,7 +3140,6 @@
         "",
         "Focus Chat List",
         "Configure Tool Sets...",
-        "",
         "Add File to Chat",
         "Copy",
         "Open to the Side",
@@ -3958,8 +3981,8 @@
         "",
         "",
         "",
-        "",
-        "",
+        "Go to Project Configuration (jsconfig / tsconfig)",
+        "Reload Project",
         "",
         "",
         "Focus on Browser Options View",
@@ -3971,7 +3994,8 @@
         "Focus on Excluded Callers View",
         "Opens view Excluded Callers",
         "Reset Location",
-        "",
+        "Clear Schema Cache",
+        "Sort Document",
         "",
         "",
         "",
@@ -4577,7 +4601,6 @@
         "Hides the Timeline view if it is visible and the view container it is located in is visible",
         "Reset Location",
         "Toggles the visibility of the Timeline view if the view container it is located in is visible",
-        "Toggle visibility of the Agent Status in title bar",
         "Toggle Agent Quick Input, replacing the classic command center search box.",
         "",
         "",
@@ -4614,15 +4637,16 @@
         "",
         "",
         "Type",
+        "Stop using TypeScript Go (Experimental)",
+        "Use TypeScript Go (Experimental)",
         "",
+        "Go to Project Configuration (tsconfig)",
         "",
+        "Open TS Server log",
+        "Reload Project",
         "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
+        "Restart TS Server",
+        "Select TypeScript Version...",
         "",
         "",
         "",
@@ -4690,9 +4714,12 @@
         "Browse Color Themes in Marketplace",
         "Add Console Logs to Chat",
         "Add Element to Chat",
+        "Add Focused Element to Chat",
         "Clear Storage (Ephemeral)",
         "Clear Storage (Global)",
         "Clear Storage (Workspace)",
+        "Close All Browser Tabs",
+        "Close All Browser Tabs in Group",
         "Find Next",
         "Find Previous",
         "Focus URL Input",
@@ -4704,6 +4731,7 @@
         "Open Integrated Browser",
         "Open in External Browser",
         "Open Browser Settings",
+        "Quick Open Browser Tab...",
         "Reload",
         "Reset Zoom",
         "Find in Page",
@@ -4748,6 +4776,7 @@
         "Dismiss tip",
         "Edit Request",
         "Edit/manage the tool approval and confirmation preferences for AI chat agents.",
+        "Execute Handoff",
         "Export Chat...",
         "Export Agent Debug Log...",
         "Export Chat as Zip...",
@@ -4764,6 +4793,7 @@
         "Generate On-Demand Instructions",
         "Generate Prompt File",
         "Generate Skill",
+        "Get Handoffs",
         "Learn How to Hide AI Features",
         "Open Agent Session...",
         "Hold to Voice Chat in Chat View",
@@ -4783,6 +4813,7 @@
         "Manage Language Models",
         "Manage Language Model Access...",
         "Manage GitHub Copilot Overages",
+        "Manage Plugin Marketplaces",
         "Plugins",
         "Manage Chat",
         "Mark All as Read",
@@ -4808,12 +4839,13 @@
         "Open Delegation Picker",
         "Open Chat (Edit)",
         "Chat Settings",
-        "Open Image in Carousel",
+        "Open in Images Preview",
         "Move Chat into Editor Area",
         "Move Chat into New Window",
         "Move Chat into Side Bar",
         "Open Model Picker",
         "Open Agent Picker",
+        "",
         "New Local",
         "Open Permission Picker",
         "Upgrade GitHub Copilot Plan",
@@ -5196,7 +5228,7 @@
         "Open Keyboard Shortcuts",
         "Open Keyboard Shortcuts (JSON)",
         "Open User Settings",
-        "Open Images in Carousel",
+        "Open in Images Preview",
         "Open the issue reporter and optionally prefill part of the form.",
         "Open Language Models (JSON)",
         "View License",
@@ -5255,6 +5287,7 @@
         "Git",
         "GitHub Authentication",
         "GitHub",
+        "JSON Language Server",
         "Opens view Output",
         "Connection: Pause socket writing",
         "",
@@ -5578,6 +5611,7 @@
         "Connection: Trigger Reconnect",
         "Troubleshoot Issue...",
         "Stop Troubleshoot Issue",
+        "Try New Default Themes",
         "Show Agent Quick Access",
         "Unlock Editor Group",
         "",
@@ -6088,7 +6122,7 @@
             "$ref": "#/$defs/_4"
           },
           "then": {
-            "$ref": "#/$defs/_23"
+            "$ref": "#/$defs/_5"
           }
         },
         {
@@ -6096,7 +6130,27 @@
             "$ref": "#/$defs/_4"
           },
           "then": {
-            "$ref": "#/$defs/_5"
+            "properties": {
+              "args": {
+                "required": [
+                  "kind"
+                ],
+                "properties": {
+                  "kind": {
+                    "anyOf": [
+                      {
+                        "enum": [
+                          "refactor.surround"
+                        ]
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
           }
         },
         {
@@ -6122,7 +6176,7 @@
                     "anyOf": [
                       {
                         "enum": [
-                          null
+                          "source.sort.json"
                         ]
                       },
                       {
@@ -6140,7 +6194,7 @@
             "$ref": "#/$defs/_7"
           },
           "then": {
-            "$ref": "#/$defs/_23"
+            "$ref": "#/$defs/_5"
           }
         },
         {
@@ -6148,7 +6202,29 @@
             "$ref": "#/$defs/_7"
           },
           "then": {
-            "$ref": "#/$defs/_5"
+            "properties": {
+              "args": {
+                "required": [
+                  "kind"
+                ],
+                "properties": {
+                  "kind": {
+                    "anyOf": [
+                      {
+                        "enum": [
+                          "quickfix",
+                          "refactor.surround",
+                          "source.sort.json"
+                        ]
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
           }
         },
         {
@@ -6165,7 +6241,7 @@
                     ],
                     "properties": {
                       "kind": {
-                        "$ref": "#/$defs/_24"
+                        "$ref": "#/$defs/_23"
                       }
                     }
                   },
@@ -6177,7 +6253,7 @@
                       "preferences": {
                         "type": "array",
                         "items": {
-                          "$ref": "#/$defs/_24"
+                          "$ref": "#/$defs/_23"
                         }
                       }
                     }
@@ -9592,8 +9668,10 @@
             "-agentSession.exitAgentSessionProjection",
             "-agentSession.markRead",
             "-agentSession.markUnread",
+            "-agentSession.pin",
             "-agentSession.rename",
             "-agentSession.unarchive",
+            "-agentSession.unpin",
             "-agentSessions.filter.resetExcludes.agentsessionsviewerfiltersubmenu",
             "-agentSessions.filter.toggleExclude:local.agentsessionsviewerfiltersubmenu",
             "-agentSessions.filter.toggleExcludeArchived.agentsessionsviewerfiltersubmenu",
@@ -9606,6 +9684,7 @@
             "-agentSessions.showAgentSessionsSidebar",
             "-agentSessions.toggleAgentSessionsSidebar",
             "-agentSessionSection.archive",
+            "-agentSessionSection.collapseAll",
             "-agentSessionSection.markRead",
             "-agentSessionSection.unarchive",
             "-agentSessionsViewer.find",
@@ -9613,9 +9692,13 @@
             "-aiCustomization.openManagementEditor",
             "-aiCustomizationManagement.copyPath",
             "-aiCustomizationManagement.delete",
+            "-aiCustomizationManagement.disableItem",
+            "-aiCustomizationManagement.enableItem",
             "-aiCustomizationManagement.openFile",
             "-aiCustomizationManagement.revealInOS",
             "-aiCustomizationManagement.runPrompt",
+            "-aiCustomizationManagement.showPlugin",
+            "-aiCustomizationManagement.uninstallPlugin",
             "-breadcrumbs.copyPath",
             "-breadcrumbs.focus",
             "-breadcrumbs.focusAndSelect",
@@ -9639,7 +9722,6 @@
             "-changeEditorIndentation1",
             "-chat.action.focus",
             "-chat.configureToolSets",
-            "-chat.enableDebugTools",
             "-chat.inlineResourceAnchor.addFileToChat",
             "-chat.inlineResourceAnchor.copyResource",
             "-chat.inlineResourceAnchor.openToSide",
@@ -10496,6 +10578,7 @@
             "-jsExcludedCallers.resetViewLocation",
             "-json.clearCache",
             "-json.sort",
+            "-json.validate",
             "-jumpToNextSnippetPlaceholder",
             "-jumpToPrevSnippetPlaceholder",
             "-keybindings.editor.acceptWhenExpression",
@@ -11100,7 +11183,6 @@
             "-timeline.removeView",
             "-timeline.resetViewLocation",
             "-timeline.toggleVisibility",
-            "-toggle.chat.agentsControl.enabled",
             "-toggle.chat.unifiedAgentsBar.enabled",
             "-toggle.diff.ignoreTrimWhitespace",
             "-toggle.diff.renderSideBySide",
@@ -11148,6 +11230,7 @@
             "-typescript.restartTsServer",
             "-typescript.selectTypeScriptVersion",
             "-typescript.sortImports",
+            "-typescript.tsserverRequest",
             "-undo",
             "-update.check",
             "-update.checkForUpdate",
@@ -11213,9 +11296,12 @@
             "-workbench.action.browseColorThemesInMarketplace",
             "-workbench.action.browser.addConsoleLogsToChat",
             "-workbench.action.browser.addElementToChat",
+            "-workbench.action.browser.addFocusedElementToChat",
             "-workbench.action.browser.clearEphemeralStorage",
             "-workbench.action.browser.clearGlobalStorage",
             "-workbench.action.browser.clearWorkspaceStorage",
+            "-workbench.action.browser.closeAll",
+            "-workbench.action.browser.closeAllInGroup",
             "-workbench.action.browser.findNext",
             "-workbench.action.browser.findPrevious",
             "-workbench.action.browser.focusUrlInput",
@@ -11227,6 +11313,7 @@
             "-workbench.action.browser.open",
             "-workbench.action.browser.openExternal",
             "-workbench.action.browser.openSettings",
+            "-workbench.action.browser.quickOpen",
             "-workbench.action.browser.reload",
             "-workbench.action.browser.resetZoom",
             "-workbench.action.browser.showFind",
@@ -11271,6 +11358,7 @@
             "-workbench.action.chat.dismissTipToolbar",
             "-workbench.action.chat.editRequests",
             "-workbench.action.chat.editToolApproval",
+            "-workbench.action.chat.executeHandoff",
             "-workbench.action.chat.export",
             "-workbench.action.chat.exportAgentDebugLog",
             "-workbench.action.chat.exportAsZip",
@@ -11287,6 +11375,7 @@
             "-workbench.action.chat.generateOnDemandInstructions",
             "-workbench.action.chat.generatePrompt",
             "-workbench.action.chat.generateSkill",
+            "-workbench.action.chat.getHandoffs",
             "-workbench.action.chat.hideSetup",
             "-workbench.action.chat.history",
             "-workbench.action.chat.holdToVoiceChatInChatView",
@@ -11306,6 +11395,7 @@
             "-workbench.action.chat.manage",
             "-workbench.action.chat.manageLanguageModelAuthentication",
             "-workbench.action.chat.manageOverages",
+            "-workbench.action.chat.managePluginMarketplaces",
             "-workbench.action.chat.managePlugins",
             "-workbench.action.chat.manageSettings",
             "-workbench.action.chat.markAllAgentSessionsRead",
@@ -11337,6 +11427,7 @@
             "-workbench.action.chat.openInSidebar",
             "-workbench.action.chat.openModelPicker",
             "-workbench.action.chat.openModePicker",
+            "-workbench.action.chat.openNewChatSessionInPlace.agent-host-copilot",
             "-workbench.action.chat.openNewChatSessionInPlace.local",
             "-workbench.action.chat.openPermissionPicker",
             "-workbench.action.chat.openQuotaExceededDialog",
@@ -11778,6 +11869,7 @@
             "-workbench.action.output.show.vscode.git.Git.log",
             "-workbench.action.output.show.vscode.github-authentication.GitHub Authentication.log",
             "-workbench.action.output.show.vscode.github.GitHub.log",
+            "-workbench.action.output.show.vscode.json-language-features.JSON Language Server.log",
             "-workbench.action.output.toggleOutput",
             "-workbench.action.pauseSocketWriting",
             "-workbench.action.pinEditor",
@@ -12101,6 +12193,7 @@
             "-workbench.action.triggerReconnect",
             "-workbench.action.troubleshootIssue.start",
             "-workbench.action.troubleshootIssue.stop",
+            "-workbench.action.tryNewDefaultThemes",
             "-workbench.action.unifiedQuickAccess",
             "-workbench.action.unlockEditorGroup",
             "-workbench.action.unpinEditor",
@@ -12628,8 +12721,10 @@
             "Exit Agent Session Projection",
             "Mark as Read",
             "Mark as Unread",
+            "Pin",
             "Rename...",
             "Unarchive",
+            "Unpin",
             "Reset",
             "Local",
             "Archived",
@@ -12642,6 +12737,7 @@
             "Show Agent Sessions Sidebar",
             "Toggle Agent Sessions Sidebar",
             "Archive All",
+            "Collapse All",
             "Mark All as Read",
             "Unarchive All",
             "Find Agent Session",
@@ -12649,9 +12745,13 @@
             "Open Customizations (Preview)",
             "Copy Path",
             "Delete",
+            "Disable",
+            "Enable",
             "Open",
             "Open Containing Folder",
             "Run Prompt",
+            "Show Plugin",
+            "Uninstall Plugin",
             "Copy Breadcrumbs Path",
             "Focus Breadcrumbs",
             "Focus and Select Breadcrumbs",
@@ -12675,7 +12775,6 @@
             "",
             "Focus Chat List",
             "Configure Tool Sets...",
-            "",
             "Add File to Chat",
             "Copy",
             "Open to the Side",
@@ -13517,8 +13616,8 @@
             "",
             "",
             "",
-            "",
-            "",
+            "Go to Project Configuration (jsconfig / tsconfig)",
+            "Reload Project",
             "",
             "",
             "Focus on Browser Options View",
@@ -13530,7 +13629,8 @@
             "Focus on Excluded Callers View",
             "Opens view Excluded Callers",
             "Reset Location",
-            "",
+            "Clear Schema Cache",
+            "Sort Document",
             "",
             "",
             "",
@@ -14136,7 +14236,6 @@
             "Hides the Timeline view if it is visible and the view container it is located in is visible",
             "Reset Location",
             "Toggles the visibility of the Timeline view if the view container it is located in is visible",
-            "Toggle visibility of the Agent Status in title bar",
             "Toggle Agent Quick Input, replacing the classic command center search box.",
             "",
             "",
@@ -14173,15 +14272,16 @@
             "",
             "",
             "Type",
+            "Stop using TypeScript Go (Experimental)",
+            "Use TypeScript Go (Experimental)",
             "",
+            "Go to Project Configuration (tsconfig)",
             "",
+            "Open TS Server log",
+            "Reload Project",
             "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
+            "Restart TS Server",
+            "Select TypeScript Version...",
             "",
             "",
             "",
@@ -14249,9 +14349,12 @@
             "Browse Color Themes in Marketplace",
             "Add Console Logs to Chat",
             "Add Element to Chat",
+            "Add Focused Element to Chat",
             "Clear Storage (Ephemeral)",
             "Clear Storage (Global)",
             "Clear Storage (Workspace)",
+            "Close All Browser Tabs",
+            "Close All Browser Tabs in Group",
             "Find Next",
             "Find Previous",
             "Focus URL Input",
@@ -14263,6 +14366,7 @@
             "Open Integrated Browser",
             "Open in External Browser",
             "Open Browser Settings",
+            "Quick Open Browser Tab...",
             "Reload",
             "Reset Zoom",
             "Find in Page",
@@ -14307,6 +14411,7 @@
             "Dismiss tip",
             "Edit Request",
             "Edit/manage the tool approval and confirmation preferences for AI chat agents.",
+            "Execute Handoff",
             "Export Chat...",
             "Export Agent Debug Log...",
             "Export Chat as Zip...",
@@ -14323,6 +14428,7 @@
             "Generate On-Demand Instructions",
             "Generate Prompt File",
             "Generate Skill",
+            "Get Handoffs",
             "Learn How to Hide AI Features",
             "Open Agent Session...",
             "Hold to Voice Chat in Chat View",
@@ -14342,6 +14448,7 @@
             "Manage Language Models",
             "Manage Language Model Access...",
             "Manage GitHub Copilot Overages",
+            "Manage Plugin Marketplaces",
             "Plugins",
             "Manage Chat",
             "Mark All as Read",
@@ -14367,12 +14474,13 @@
             "Open Delegation Picker",
             "Open Chat (Edit)",
             "Chat Settings",
-            "Open Image in Carousel",
+            "Open in Images Preview",
             "Move Chat into Editor Area",
             "Move Chat into New Window",
             "Move Chat into Side Bar",
             "Open Model Picker",
             "Open Agent Picker",
+            "",
             "New Local",
             "Open Permission Picker",
             "Upgrade GitHub Copilot Plan",
@@ -14755,7 +14863,7 @@
             "Open Keyboard Shortcuts",
             "Open Keyboard Shortcuts (JSON)",
             "Open User Settings",
-            "Open Images in Carousel",
+            "Open in Images Preview",
             "Open the issue reporter and optionally prefill part of the form.",
             "Open Language Models (JSON)",
             "View License",
@@ -14814,6 +14922,7 @@
             "Git",
             "GitHub Authentication",
             "GitHub",
+            "JSON Language Server",
             "Opens view Output",
             "Connection: Pause socket writing",
             "",
@@ -15137,6 +15246,7 @@
             "Connection: Trigger Reconnect",
             "Troubleshoot Issue...",
             "Stop Troubleshoot Issue",
+            "Try New Default Themes",
             "Show Agent Quick Access",
             "Unlock Editor Group",
             "",
@@ -15682,7 +15792,7 @@
       "command": {
         "anyOf": [
           {
-            "$ref": "#/$defs/_25"
+            "$ref": "#/$defs/_24"
           },
           {
             "if": {
@@ -15695,7 +15805,7 @@
               "errorMessage": "Incorrect type. Expected \"string\". The field 'command' does not support running multiple commands. Use command 'runCommands' to pass it multiple commands to run."
             },
             "else": {
-              "$ref": "#/$defs/_25"
+              "$ref": "#/$defs/_24"
             }
           }
         ]
@@ -16059,29 +16169,6 @@
       }
     },
     "_23": {
-      "properties": {
-        "args": {
-          "required": [
-            "kind"
-          ],
-          "properties": {
-            "kind": {
-              "anyOf": [
-                {
-                  "enum": [
-                    "refactor.surround"
-                  ]
-                },
-                {
-                  "type": "string"
-                }
-              ]
-            }
-          }
-        }
-      }
-    },
-    "_24": {
       "anyOf": [
         {
           "enum": [
@@ -16100,7 +16187,7 @@
         }
       ]
     },
-    "_25": {
+    "_24": {
       "$ref": "#/definitions/commandType"
     }
   }

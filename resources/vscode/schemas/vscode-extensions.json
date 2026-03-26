@@ -652,6 +652,11 @@
                   "type": "string"
                 }
               },
+              "autoAttachReferences": {
+                "description": "Whether to automatically attach instruction files to chat requests for this session type.",
+                "type": "boolean",
+                "default": false
+              },
               "canDelegate": {
                 "description": "Whether delegation is supported. Default is false. Note that enabling this is experimental and may not be respected at all times.",
                 "type": "boolean",
@@ -2004,6 +2009,7 @@
                       "claude",
                       "open-in-window",
                       "new-session",
+                      "terminal-secure",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -2877,6 +2883,7 @@
                       "",
                       "",
                       "Icon for a terminal decoration of a command that errored.",
+                      "",
                       "",
                       "",
                       "",
@@ -5591,11 +5598,11 @@
                 "type": "string"
               },
               "path": {
-                "description": "Path of the tmTheme file. The path is relative to the extension folder and is typically './colorthemes/awesome-color-theme.json'.",
+                "markdownDescription": "Path of the tmTheme file. The path is relative to the extension folder and is typically `./colorthemes/awesome-color-theme.json`.",
                 "type": "string"
               },
               "uiTheme": {
-                "description": "Base theme defining the colors around the editor: 'vs' is the light color theme, 'vs-dark' is the dark color theme. 'hc-black' is the dark high contrast theme, 'hc-light' is the light high contrast theme.",
+                "markdownDescription": "Base theme defining the colors around the editor: `vs` is the light color theme, `vs-dark` is the dark color theme. `hc-black` is the dark high contrast theme, `hc-light` is the light high contrast theme.",
                 "enum": [
                   "hc-black",
                   "hc-light",
@@ -6190,6 +6197,7 @@
           "textSearchProvider2",
           "timeline",
           "tokenInformation",
+          "toolInvocationApproveCombination",
           "toolProgress",
           "treeItemMarkdownLabel",
           "treeViewActiveItem",
@@ -6357,6 +6365,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.textSearchProvider2.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.timeline.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.tokenInformation.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.toolInvocationApproveCombination.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.toolProgress.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.treeItemMarkdownLabel.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.treeViewActiveItem.d.ts",

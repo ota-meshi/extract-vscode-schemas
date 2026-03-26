@@ -3198,11 +3198,11 @@
             "type": "string"
           },
           "default": [],
-          "description": "Custom loading messages to show during thinking, terminal, and tool operations."
+          "description": "Custom loading messages to show during thinking, working progress, terminal, and tool operations."
         }
       },
       "additionalProperties": false,
-      "markdownDescription": "Customize the loading messages shown during agent operations. Use `\"mode\": \"replace\"` to use only your phrases, or `\"mode\": \"append\"` to add them to the defaults.",
+      "markdownDescription": "Customize the loading messages shown during agent thinking and progress indicators. Use `\"mode\": \"replace\"` to use only your phrases, or `\"mode\": \"append\"` to add them to the defaults.",
       "tags": [
         "experimental"
       ],
@@ -3302,9 +3302,19 @@
       "scope": 4
     },
     "chat.agentsControl.enabled": {
-      "type": "boolean",
-      "markdownDescription": "Controls whether the 'Agent Status' indicator is shown in the title bar command center. Enabling this setting will automatically enable `#window.commandCenter#`. The unread/in-progress session indicators require `#chat.viewSessions.enabled#` to be enabled.",
-      "default": true,
+      "type": "string",
+      "enum": [
+        "badge",
+        "compact",
+        "hidden"
+      ],
+      "enumDescriptions": [
+        "Shows the agent status as a badge next to the command center.",
+        "Replaces the command center search box with a compact agent status indicator and unified chat widget.",
+        "The agent status indicator is hidden from the title bar."
+      ],
+      "markdownDescription": "Controls how the 'Agent Status' indicator appears in the title bar command center. When set to `hidden`, the indicator is not shown. Other values show the indicator and automatically enable `#window.commandCenter#`. The unread and in-progress session indicators require `#chat.viewSessions.enabled#` to be enabled.",
+      "default": "compact",
       "tags": [
         "experimental"
       ],
@@ -3312,7 +3322,7 @@
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": true,
+      "defaultDefaultValue": "compact",
       "scope": 4,
       "restricted": false
     },
@@ -3392,6 +3402,21 @@
       "experiment": {
         "mode": "auto"
       },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.artifacts.enabled": {
+      "default": false,
+      "description": "Controls whether the artifacts view is available in chat.",
+      "type": "boolean",
+      "tags": [
+        "experimental"
+      ],
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
@@ -3485,12 +3510,27 @@
         "onExP"
       ]
     },
+    "chat.customizations.harnessSelector.enabled": {
+      "type": "boolean",
+      "tags": [
+        "preview"
+      ],
+      "description": "Controls whether the harness selector (Local, Copilot CLI, Claude) is shown in the Chat Customizations editor sidebar. When disabled, the editor always shows all customizations without filtering.",
+      "default": true,
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.customizationsMenu.enabled": {
       "type": "boolean",
       "tags": [
         "preview"
       ],
-      "description": "Controls whether the Chat Customizations editor is available in the Command Palette. When disabled, the Chat Customizations editor and related commands are hidden.",
+      "description": "Controls whether the Chat Customizations editor is enabled. When enabled, the gear icon in the Chat view opens the Customizations editor directly and additional actions are moved to the overflow menu. When disabled, the gear icon shows the legacy configuration dropdown.",
       "default": true,
       "section": {
         "id": "chatSidebar",
@@ -3578,6 +3618,18 @@
         "title": "Chat"
       },
       "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.editing.revealNextChangeOnResolve": {
+      "type": "boolean",
+      "markdownDescription": "Controls whether the editor automatically reveals the next change after keeping or undoing a chat edit.",
+      "default": true,
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -3929,21 +3981,6 @@
         "~/.copilot/hooks": true
       },
       "scope": 4
-    },
-    "chat.imageCarousel.enabled": {
-      "default": false,
-      "description": "Controls whether clicking an image attachment in chat opens the image carousel viewer.",
-      "type": "boolean",
-      "tags": [
-        "experimental"
-      ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
     },
     "chat.implicitContext.enabled": {
       "type": "object",
@@ -4641,6 +4678,25 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.subagents.allowInvocationsFromSubagents": {
+      "type": "boolean",
+      "description": "Allow subagents to invoke subagents.",
+      "markdownDescription": "Controls whether subagents can invoke other subagents. When enabled, nesting is limited to a maximum depth of 5.",
+      "default": false,
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false,
+      "tags": [
+        "onExP"
+      ]
+    },
     "chat.tips.enabled": {
       "type": "boolean",
       "scope": 1,
@@ -4716,20 +4772,16 @@
           "getTaskOutput",
           "getTerminalOutput",
           "killTerminal",
-          "listDebugEvents",
           "new",
           "openBrowserPage",
-          "rename",
           "renderMermaidDiagram",
-          "resolveDebugEventDetails",
           "runInTerminal",
           "runSubagent",
           "runTask",
           "runTests",
           "terminalLastCommand",
           "terminalSelection",
-          "todo",
-          "usages"
+          "todo"
         ],
         "enumDescriptions": [
           "askQuestions - Ask structured clarifying questions using single select, multi-select, or freeform inputs to collect task requirements before proceeding.",
@@ -4739,20 +4791,16 @@
           "getTaskOutput - Get Task Output",
           "getTerminalOutput - Get Terminal Output",
           "killTerminal - Kill Terminal",
-          "listDebugEvents - List Debug Events",
           "new - Scaffold a new workspace in VS Code",
           "openBrowserPage - Open a URL in the integrated browser",
-          "rename - Rename a symbol across the workspace",
           "renderMermaidDiagram - Render a Mermaid.js diagrams from markup.",
-          "resolveDebugEventDetails - Resolve Debug Event Details",
           "runInTerminal - Run commands in the terminal",
           "runSubagent - Run a task within an isolated subagent context to enable efficient organization of tasks and context window management.",
           "runTask - Run tasks in the workspace",
           "runTests - Run unit tests (optionally with coverage)",
           "terminalLastCommand - Get Terminal Last Command",
           "terminalSelection - Get Terminal Selection",
-          "todo - Manage and track todo items for task planning",
-          "usages - Find references, definitions, and implementations of a symbol"
+          "todo - Manage and track todo items for task planning"
         ]
       },
       "additionalProperties": {
@@ -5223,6 +5271,21 @@
       "defaultDefaultValue": true,
       "scope": 4
     },
+    "chat.tools.terminal.idlePollInterval": {
+      "markdownDescription": "Configures the idle poll interval in milliseconds used by the run in terminal tool to detect when commands have finished executing. Lower values make command detection faster but may cause false positives on slow systems. This primarily affects terminals without shell integration where idle detection is used instead of shell integration events.",
+      "type": "integer",
+      "minimum": 50,
+      "maximum": 10000,
+      "default": 1000,
+      "section": {
+        "id": "terminal",
+        "title": "Integrated Terminal",
+        "order": 100
+      },
+      "defaultDefaultValue": 1000,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.tools.terminal.ignoreDefaultAutoApproveRules": {
       "type": "boolean",
       "default": false,
@@ -5379,36 +5442,26 @@
       "scope": 4
     },
     "chat.tools.terminal.sandbox.network": {
-      "markdownDescription": "Note: this setting is applicable only when `#chat.tools.terminal.sandbox.enabled#` is enabled. Controls network access in the terminal sandbox.",
+      "deprecationMessage": "This setting has been split into chat.tools.terminal.sandbox.network.allowedDomains, chat.tools.terminal.sandbox.network.deniedDomains, and chat.tools.terminal.sandbox.network.allowTrustedDomains.",
       "type": "object",
-      "properties": {
-        "allowedDomains": {
-          "type": "array",
-          "description": " Supports wildcards like `*.example.com` and an empty list means no network access.",
-          "items": {
-            "type": "string"
-          },
-          "default": []
-        },
-        "allowTrustedDomains": {
-          "type": "boolean",
-          "description": "When enabled, the Trusted Domains list is included in the allowed domains for network access.",
-          "default": false
-        },
-        "deniedDomains": {
-          "type": "array",
-          "description": "Array of denied domains (checked first, takes precedence over allowedDomains).",
-          "items": {
-            "type": "string"
-          },
-          "default": []
-        }
+      "deprecated": true,
+      "markdownDeprecationMessage": "This setting has been split into `#chat.tools.terminal.sandbox.network.allowedDomains#`, `#chat.tools.terminal.sandbox.network.deniedDomains#`, and `#chat.tools.terminal.sandbox.network.allowTrustedDomains#`.",
+      "section": {
+        "id": "terminal",
+        "title": "Integrated Terminal",
+        "order": 100
       },
-      "default": {
-        "allowedDomains": [],
-        "allowTrustedDomains": false,
-        "deniedDomains": []
+      "default": {},
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.tools.terminal.sandbox.network.allowedDomains": {
+      "markdownDescription": "Note: this setting is applicable only when `#chat.tools.terminal.sandbox.enabled#` is enabled. Allowed domains for network access in the terminal sandbox. Supports wildcards like `*.example.com` and an empty list means no network access.",
+      "type": "array",
+      "items": {
+        "type": "string"
       },
+      "default": [],
       "tags": [
         "preview"
       ],
@@ -5418,16 +5471,47 @@
         "title": "Integrated Terminal",
         "order": 100
       },
-      "defaultDefaultValue": {
-        "allowedDomains": [],
-        "allowTrustedDomains": false,
-        "deniedDomains": []
+      "defaultDefaultValue": [],
+      "scope": 4
+    },
+    "chat.tools.terminal.sandbox.network.allowTrustedDomains": {
+      "markdownDescription": "Note: this setting is applicable only when `#chat.tools.terminal.sandbox.enabled#` is enabled. When enabled, the Trusted Domains list is included in the allowed domains for network access in the terminal sandbox.",
+      "type": "boolean",
+      "default": false,
+      "tags": [
+        "preview"
+      ],
+      "restricted": true,
+      "section": {
+        "id": "terminal",
+        "title": "Integrated Terminal",
+        "order": 100
       },
+      "defaultDefaultValue": false,
+      "scope": 4
+    },
+    "chat.tools.terminal.sandbox.network.deniedDomains": {
+      "markdownDescription": "Note: this setting is applicable only when `#chat.tools.terminal.sandbox.enabled#` is enabled. Array of denied domains for network access in the terminal sandbox (checked first, takes precedence over `#chat.tools.terminal.sandbox.network.allowedDomains#`).",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "tags": [
+        "preview"
+      ],
+      "restricted": true,
+      "section": {
+        "id": "terminal",
+        "title": "Integrated Terminal",
+        "order": 100
+      },
+      "defaultDefaultValue": [],
       "scope": 4
     },
     "chat.tools.terminal.shellIntegrationTimeout": {
       "deprecationMessage": "Use terminal.integrated.shellIntegration.timeout instead",
-      "markdownDescription": "Configures the duration in milliseconds to wait for shell integration to be detected when the run in terminal tool launches a new terminal. Set to `0` to wait the minimum time, the default value `-1` means the wait time is variable based on the value of `#terminal.integrated.shellIntegration.enabled#` and whether it's a remote window. A large value can be useful if your shell starts very slowly and a low value if you're intentionally not using shell integration.",
+      "markdownDescription": "Configures the duration in milliseconds to wait for shell integration to be detected when the run in terminal tool launches a new terminal. Set to `0` to skip the wait entirely, the default value `-1` uses a variable wait time based on the value of `#terminal.integrated.shellIntegration.enabled#` and whether it's a remote window. A large value can be useful if your shell starts very slowly.",
       "type": "integer",
       "minimum": -1,
       "maximum": 60000,
@@ -8769,7 +8853,27 @@
       },
       "defaultDefaultValue": {},
       "restricted": false,
-      "properties": {}
+      "properties": {
+        "source.sort.json": {
+          "type": "string",
+          "enum": [
+            "always",
+            "explicit",
+            false,
+            "never",
+            true
+          ],
+          "enumDescriptions": [
+            "Triggers Code Actions on explicit saves and auto saves triggered by window or focus changes.",
+            "Triggers Code Actions only when explicitly saved",
+            "Never triggers Code Actions on save. This value will be deprecated in favor of \"never\".",
+            "Never triggers Code Actions on save",
+            "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\"."
+          ],
+          "default": "explicit",
+          "description": "Controls whether 'source.sort.json' actions should be run on file save."
+        }
+      }
     },
     "editor.codeActionWidget.includeNearbyQuickFixes": {
       "type": "boolean",
@@ -9020,9 +9124,9 @@
       ],
       "enumItemLabels": [
         "None",
+        "JSON Language Features",
         "CSS Language Features",
         "HTML Language Features",
-        "JSON Language Features",
         "Markdown Language Features",
         "Markdown Math",
         "PHP Language Features",
@@ -9934,10 +10038,10 @@
             "[Abyss]": {
               "$ref": "#/$defs/_269"
             },
-            "[Default Dark Modern]": {
+            "[Dark Modern]": {
               "$ref": "#/$defs/_269"
             },
-            "[Default Dark+]": {
+            "[Dark+]": {
               "$ref": "#/$defs/_269"
             },
             "[Default High Contrast Light]": {
@@ -9946,19 +10050,13 @@
             "[Default High Contrast]": {
               "$ref": "#/$defs/_269"
             },
-            "[Default Light Modern]": {
-              "$ref": "#/$defs/_269"
-            },
-            "[Default Light+]": {
-              "$ref": "#/$defs/_269"
-            },
-            "[Experimental Dark]": {
-              "$ref": "#/$defs/_269"
-            },
-            "[Experimental Light]": {
-              "$ref": "#/$defs/_269"
-            },
             "[Kimbie Dark]": {
+              "$ref": "#/$defs/_269"
+            },
+            "[Light Modern]": {
+              "$ref": "#/$defs/_269"
+            },
+            "[Light+]": {
               "$ref": "#/$defs/_269"
             },
             "[Monokai Dimmed]": {
@@ -9986,6 +10084,12 @@
               "$ref": "#/$defs/_269"
             },
             "[Visual Studio Light]": {
+              "$ref": "#/$defs/_269"
+            },
+            "[VS Code Dark]": {
+              "$ref": "#/$defs/_269"
+            },
+            "[VS Code Light]": {
               "$ref": "#/$defs/_269"
             }
           },
@@ -10267,10 +10371,10 @@
             "[Abyss]": {
               "$ref": "#/$defs/_266"
             },
-            "[Default Dark Modern]": {
+            "[Dark Modern]": {
               "$ref": "#/$defs/_266"
             },
-            "[Default Dark+]": {
+            "[Dark+]": {
               "$ref": "#/$defs/_266"
             },
             "[Default High Contrast Light]": {
@@ -10279,19 +10383,13 @@
             "[Default High Contrast]": {
               "$ref": "#/$defs/_266"
             },
-            "[Default Light Modern]": {
-              "$ref": "#/$defs/_266"
-            },
-            "[Default Light+]": {
-              "$ref": "#/$defs/_266"
-            },
-            "[Experimental Dark]": {
-              "$ref": "#/$defs/_266"
-            },
-            "[Experimental Light]": {
-              "$ref": "#/$defs/_266"
-            },
             "[Kimbie Dark]": {
+              "$ref": "#/$defs/_266"
+            },
+            "[Light Modern]": {
+              "$ref": "#/$defs/_266"
+            },
+            "[Light+]": {
               "$ref": "#/$defs/_266"
             },
             "[Monokai Dimmed]": {
@@ -10319,6 +10417,12 @@
               "$ref": "#/$defs/_266"
             },
             "[Visual Studio Light]": {
+              "$ref": "#/$defs/_266"
+            },
+            "[VS Code Dark]": {
+              "$ref": "#/$defs/_266"
+            },
+            "[VS Code Light]": {
               "$ref": "#/$defs/_266"
             }
           },
@@ -15766,18 +15870,33 @@
       "defaultDefaultValue": true,
       "scope": 1
     },
-    "imageCarousel.explorerContextMenu.enabled": {
+    "imageCarousel.chat.enabled": {
       "type": "boolean",
-      "default": false,
-      "markdownDescription": "Controls whether the **Open Images in Carousel** option appears in the Explorer context menu. This is an experimental feature.",
+      "default": true,
+      "description": "Controls whether clicking an image attachment in chat opens the Images Preview viewer.",
       "tags": [
         "experimental"
       ],
       "section": {
         "id": "imageCarousel",
-        "title": "Image Carousel"
+        "title": "Images Preview"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
+    "imageCarousel.explorerContextMenu.enabled": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "Controls whether the **Open in Images Preview** option appears in the Explorer context menu.",
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "imageCarousel",
+        "title": "Images Preview"
+      },
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -15806,6 +15925,17 @@
         "id": "editor"
       },
       "defaultDefaultValue": "off",
+      "scope": 4,
+      "restricted": false
+    },
+    "inlineChat.askInChat": {
+      "description": "Controls whether files in a chat editing session use Ask in Chat instead of Inline Chat.",
+      "default": true,
+      "type": "boolean",
+      "section": {
+        "id": "editor"
+      },
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -21372,7 +21502,28 @@
       "defaultDefaultValue": {},
       "scope": 6,
       "restricted": false,
-      "properties": {}
+      "properties": {
+        "source.sort.json": {
+          "type": [
+            "string",
+            "boolean"
+          ],
+          "enum": [
+            "explicit",
+            false,
+            "never",
+            true
+          ],
+          "enumDescriptions": [
+            "Triggers Code Actions only when explicitly saved.",
+            "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"never\".",
+            "Never triggers Code Actions on save.",
+            "Triggers Code Actions only when explicitly saved. This value will be deprecated in favor of \"explicit\"."
+          ],
+          "default": "explicit",
+          "description": "Controls whether 'source.sort.json' actions should be run on file save."
+        }
+      }
     },
     "notebook.compactView": {
       "description": "Control whether the notebook editor should be rendered in a compact form. For example, when turned on, it will decrease the left margin width.",
@@ -21480,9 +21631,9 @@
       ],
       "enumItemLabels": [
         "None",
+        "JSON Language Features",
         "CSS Language Features",
         "HTML Language Features",
-        "JSON Language Features",
         "Markdown Language Features",
         "Markdown Math",
         "PHP Language Features",
@@ -26616,26 +26767,6 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
-    "simpleBrowser.useIntegratedBrowser": {
-      "type": "boolean",
-      "default": true,
-      "markdownDescription": "When enabled, the `simpleBrowser.show` command will open URLs in the integrated browser instead of the Simple Browser webview. **Note:** This setting is only available on desktop.",
-      "scope": 1,
-      "section": {
-        "id": "vscode.simple-browser",
-        "title": "Simple Browser",
-        "extensionInfo": {
-          "id": "vscode.simple-browser",
-          "displayName": "Simple Browser"
-        }
-      },
-      "source": {
-        "id": "vscode.simple-browser",
-        "displayName": "Simple Browser"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
     "task.allowAutomaticTasks": {
       "type": "string",
       "enum": [
@@ -29110,7 +29241,7 @@
     },
     "terminal.integrated.shellIntegration.timeout": {
       "restricted": true,
-      "markdownDescription": "Configures the duration in milliseconds to wait for shell integration after launch before declaring it's not there. Set to `0` to wait the minimum time (500ms), the default value `-1` means the wait time is variable based on whether shell integration injection is enabled and whether it's a remote window. Consider setting this to a small value if you intentionally disabled shell integration, or a large value if your shell starts very slowly.",
+      "markdownDescription": "Configures the duration in milliseconds to wait for shell integration after launch before declaring it's not there. Set to `0` to skip the wait entirely. The default value `-1` uses a variable wait time based on whether shell integration injection is enabled and whether it's a remote window. Values between 1 and 499 are clamped to 500ms. Consider setting this to `0` if you intentionally disabled shell integration, or a large value if your shell starts very slowly.",
       "type": "integer",
       "minimum": -1,
       "maximum": 60000,
@@ -30129,6 +30260,7 @@
         "terminal-git-bash",
         "terminal-linux",
         "terminal-powershell",
+        "terminal-secure",
         "terminal-tmux",
         "terminal-ubuntu",
         "text-size",
@@ -30806,6 +30938,7 @@
         "$(terminal-git-bash)",
         "$(terminal-linux)",
         "$(terminal-powershell)",
+        "$(terminal-secure)",
         "$(terminal-tmux)",
         "$(terminal-ubuntu)",
         "$(text-size)",
@@ -31128,7 +31261,7 @@
     },
     "terminal.integrated.windowsUseConptyDll": {
       "restricted": true,
-      "markdownDescription": "Whether to use the experimental conpty.dll (v1.23.251008001) shipped with VS Code, instead of the one bundled with Windows.",
+      "markdownDescription": "Whether to use the experimental conpty.dll (v1.25.260303002) shipped with VS Code, instead of the one bundled with Windows.",
       "type": "boolean",
       "tags": [
         "preview",
@@ -33368,8 +33501,21 @@
       "restricted": false
     },
     "workbench.browser.showInTitleBar": {
-      "type": "boolean",
-      "default": false,
+      "type": [
+        "boolean",
+        "string"
+      ],
+      "enum": [
+        false,
+        true,
+        "whenOpen"
+      ],
+      "enumDescriptions": [
+        "The button is never shown in the title bar.",
+        "The button is always shown in the title bar.",
+        "The button is shown in the title bar when a browser editor is open."
+      ],
+      "default": "whenOpen",
       "experiment": {
         "mode": "startup"
       },
@@ -33379,7 +33525,7 @@
         "title": "Workbench",
         "order": 7
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": "whenOpen",
       "scope": 4,
       "restricted": false,
       "tags": [
@@ -33446,10 +33592,10 @@
             "[Abyss]": {
               "$ref": "#/$defs/_256"
             },
-            "[Default Dark Modern]": {
+            "[Dark Modern]": {
               "$ref": "#/$defs/_256"
             },
-            "[Default Dark+]": {
+            "[Dark+]": {
               "$ref": "#/$defs/_256"
             },
             "[Default High Contrast Light]": {
@@ -33458,19 +33604,13 @@
             "[Default High Contrast]": {
               "$ref": "#/$defs/_256"
             },
-            "[Default Light Modern]": {
-              "$ref": "#/$defs/_256"
-            },
-            "[Default Light+]": {
-              "$ref": "#/$defs/_256"
-            },
-            "[Experimental Dark]": {
-              "$ref": "#/$defs/_256"
-            },
-            "[Experimental Light]": {
-              "$ref": "#/$defs/_256"
-            },
             "[Kimbie Dark]": {
+              "$ref": "#/$defs/_256"
+            },
+            "[Light Modern]": {
+              "$ref": "#/$defs/_256"
+            },
+            "[Light+]": {
               "$ref": "#/$defs/_256"
             },
             "[Monokai Dimmed]": {
@@ -33499,6 +33639,12 @@
             },
             "[Visual Studio Light]": {
               "$ref": "#/$defs/_256"
+            },
+            "[VS Code Dark]": {
+              "$ref": "#/$defs/_256"
+            },
+            "[VS Code Light]": {
+              "$ref": "#/$defs/_256"
             }
           },
           "patternProperties": {
@@ -33525,21 +33671,19 @@
     "workbench.colorTheme": {
       "type": "string",
       "markdownDescription": "Specifies the color theme used in the workbench when `#window.autoDetectColorScheme#` is not enabled.",
-      "default": "Default Dark Modern",
+      "default": "VS Code Dark",
       "tags": [
         "colorThemeConfiguration"
       ],
       "enum": [
         "Abyss",
-        "Default Dark Modern",
-        "Default Dark+",
+        "Dark Modern",
+        "Dark+",
         "Default High Contrast",
         "Default High Contrast Light",
-        "Default Light Modern",
-        "Default Light+",
-        "Experimental Dark",
-        "Experimental Light",
         "Kimbie Dark",
+        "Light Modern",
+        "Light+",
         "Monokai",
         "Monokai Dimmed",
         "Quiet Light",
@@ -33548,7 +33692,9 @@
         "Solarized Light",
         "Tomorrow Night Blue",
         "Visual Studio Dark",
-        "Visual Studio Light"
+        "Visual Studio Light",
+        "VS Code Dark",
+        "VS Code Light"
       ],
       "enumDescriptions": [
         "",
@@ -33597,7 +33743,7 @@
         "id": "workbench",
         "order": 7.1
       },
-      "defaultDefaultValue": "Default Dark Modern",
+      "defaultDefaultValue": "VS Code Dark",
       "scope": 4,
       "restricted": false
     },
@@ -34301,6 +34447,21 @@
         "order": 7
       },
       "defaultDefaultValue": 10,
+      "scope": 4,
+      "restricted": false
+    },
+    "workbench.editor.modalMinWidth": {
+      "type": "number",
+      "description": "Controls the minimum width of modal editor overlays in pixels.",
+      "default": 400,
+      "minimum": 0,
+      "multipleOf": 1,
+      "section": {
+        "id": "workbench",
+        "title": "Workbench",
+        "order": 7
+      },
+      "defaultDefaultValue": 400,
       "scope": 4,
       "restricted": false
     },
@@ -35467,21 +35628,19 @@
     "workbench.preferredDarkColorTheme": {
       "type": "string",
       "markdownDescription": "Specifies the color theme when system color mode is dark and `#window.autoDetectColorScheme#` is enabled.",
-      "default": "Default Dark Modern",
+      "default": "VS Code Dark",
       "tags": [
         "colorThemeConfiguration"
       ],
       "enum": [
         "Abyss",
-        "Default Dark Modern",
-        "Default Dark+",
+        "Dark Modern",
+        "Dark+",
         "Default High Contrast",
         "Default High Contrast Light",
-        "Default Light Modern",
-        "Default Light+",
-        "Experimental Dark",
-        "Experimental Light",
         "Kimbie Dark",
+        "Light Modern",
+        "Light+",
         "Monokai",
         "Monokai Dimmed",
         "Quiet Light",
@@ -35490,7 +35649,9 @@
         "Solarized Light",
         "Tomorrow Night Blue",
         "Visual Studio Dark",
-        "Visual Studio Light"
+        "Visual Studio Light",
+        "VS Code Dark",
+        "VS Code Light"
       ],
       "enumDescriptions": [
         "",
@@ -35539,7 +35700,7 @@
         "id": "workbench",
         "order": 7.1
       },
-      "defaultDefaultValue": "Default Dark Modern",
+      "defaultDefaultValue": "VS Code Dark",
       "scope": 4,
       "restricted": false
     },
@@ -35552,15 +35713,13 @@
       ],
       "enum": [
         "Abyss",
-        "Default Dark Modern",
-        "Default Dark+",
+        "Dark Modern",
+        "Dark+",
         "Default High Contrast",
         "Default High Contrast Light",
-        "Default Light Modern",
-        "Default Light+",
-        "Experimental Dark",
-        "Experimental Light",
         "Kimbie Dark",
+        "Light Modern",
+        "Light+",
         "Monokai",
         "Monokai Dimmed",
         "Quiet Light",
@@ -35569,7 +35728,9 @@
         "Solarized Light",
         "Tomorrow Night Blue",
         "Visual Studio Dark",
-        "Visual Studio Light"
+        "Visual Studio Light",
+        "VS Code Dark",
+        "VS Code Light"
       ],
       "enumDescriptions": [
         "",
@@ -35631,15 +35792,13 @@
       ],
       "enum": [
         "Abyss",
-        "Default Dark Modern",
-        "Default Dark+",
+        "Dark Modern",
+        "Dark+",
         "Default High Contrast",
         "Default High Contrast Light",
-        "Default Light Modern",
-        "Default Light+",
-        "Experimental Dark",
-        "Experimental Light",
         "Kimbie Dark",
+        "Light Modern",
+        "Light+",
         "Monokai",
         "Monokai Dimmed",
         "Quiet Light",
@@ -35648,7 +35807,9 @@
         "Solarized Light",
         "Tomorrow Night Blue",
         "Visual Studio Dark",
-        "Visual Studio Light"
+        "Visual Studio Light",
+        "VS Code Dark",
+        "VS Code Light"
       ],
       "enumDescriptions": [
         "",
@@ -35704,21 +35865,19 @@
     "workbench.preferredLightColorTheme": {
       "type": "string",
       "markdownDescription": "Specifies the color theme when system color mode is light and `#window.autoDetectColorScheme#` is enabled.",
-      "default": "Default Light Modern",
+      "default": "VS Code Light",
       "tags": [
         "colorThemeConfiguration"
       ],
       "enum": [
         "Abyss",
-        "Default Dark Modern",
-        "Default Dark+",
+        "Dark Modern",
+        "Dark+",
         "Default High Contrast",
         "Default High Contrast Light",
-        "Default Light Modern",
-        "Default Light+",
-        "Experimental Dark",
-        "Experimental Light",
         "Kimbie Dark",
+        "Light Modern",
+        "Light+",
         "Monokai",
         "Monokai Dimmed",
         "Quiet Light",
@@ -35727,7 +35886,9 @@
         "Solarized Light",
         "Tomorrow Night Blue",
         "Visual Studio Dark",
-        "Visual Studio Light"
+        "Visual Studio Light",
+        "VS Code Dark",
+        "VS Code Light"
       ],
       "enumDescriptions": [
         "",
@@ -35776,7 +35937,7 @@
         "id": "workbench",
         "order": 7.1
       },
-      "defaultDefaultValue": "Default Light Modern",
+      "defaultDefaultValue": "VS Code Light",
       "scope": 4,
       "restricted": false
     },
@@ -36117,6 +36278,19 @@
         "order": 7
       },
       "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "workbench.shadows": {
+      "type": "boolean",
+      "default": true,
+      "description": "Controls whether shadow effects are shown around the side panels and other workbench elements.",
+      "section": {
+        "id": "workbench",
+        "title": "Workbench",
+        "order": 7
+      },
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -41773,6 +41947,7 @@
         "claude",
         "open-in-window",
         "new-session",
+        "terminal-secure",
         "dialog-error",
         "dialog-warning",
         "dialog-info",
@@ -42450,6 +42625,7 @@
         "$(claude)",
         "$(open-in-window)",
         "$(new-session)",
+        "$(terminal-secure)",
         "$(dialog-error)",
         "$(dialog-warning)",
         "$(dialog-info)",

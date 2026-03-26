@@ -8,13 +8,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#383a49}"
-            }
-          ]
+          "$ref": "#/$defs/_58"
         }
       ]
     },
@@ -36,7 +30,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_5"
+          "$ref": "#/$defs/_25"
         }
       ]
     },
@@ -47,7 +41,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_6"
+          "$ref": "#/$defs/_5"
         }
       ]
     },
@@ -58,7 +52,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_37"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -77,10 +71,10 @@
       "description": "Drag and drop feedback color for the activity bar items. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_86"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -88,10 +82,10 @@
       "description": "Activity bar item foreground color when it is active. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_86"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -102,13 +96,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#868686}"
-            }
-          ]
+          "$ref": "#/$defs/_4"
         }
       ]
     },
@@ -130,7 +118,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -152,7 +140,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_87"
+          "$ref": "#/$defs/_25"
         }
       ]
     },
@@ -174,7 +162,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_87"
+          "$ref": "#/$defs/_71"
         }
       ]
     },
@@ -185,7 +173,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_87"
+          "$ref": "#/$defs/_71"
         }
       ]
     },
@@ -200,7 +188,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#e7e7e799}"
+              "body": "${1:#424242bf}"
             }
           ]
         }
@@ -213,7 +201,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_14"
+          "$ref": "#/$defs/_3"
         }
       ]
     },
@@ -224,7 +212,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_13"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -239,7 +227,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#b27c00}"
+              "body": "${1:#f2c94c}"
             }
           ]
         }
@@ -249,10 +237,10 @@
       "description": "Foreground color of the warning activity badge",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -263,7 +251,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_36"
+          "$ref": "#/$defs/_53"
         }
       ]
     },
@@ -274,13 +262,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#ffffff4d}"
-            }
-          ]
+          "$ref": "#/$defs/_72"
         }
       ]
     },
@@ -291,7 +273,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_89"
+          "$ref": "#/$defs/_72"
         }
       ]
     },
@@ -302,7 +284,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_88"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -324,7 +306,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_10"
+          "$ref": "#/$defs/_5"
         }
       ]
     },
@@ -335,7 +317,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_11"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -346,7 +328,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_47"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#004a8f1a}"
+            }
+          ]
         }
       ]
     },
@@ -354,10 +342,10 @@
       "description": "Banner foreground color. The banner is shown under the title bar of the window.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -368,7 +356,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_25"
+          "$ref": "#/$defs/_21"
         }
       ]
     },
@@ -376,10 +364,10 @@
       "description": "Color of selected breadcrumb items.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_41"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -390,7 +378,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -398,10 +386,10 @@
       "description": "Color of focused breadcrumb items.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_41"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -412,13 +400,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#cccccccc}"
-            }
-          ]
+          "$ref": "#/$defs/_4"
         }
       ]
     },
@@ -429,7 +411,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_21"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -462,7 +444,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_63"
+          "$ref": "#/$defs/_51"
         }
       ]
     },
@@ -473,7 +455,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -484,7 +466,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_62"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#0063c1}"
+            }
+          ]
         }
       ]
     },
@@ -495,7 +483,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_8"
         }
       ]
     },
@@ -528,7 +516,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_9"
+          "$ref": "#/$defs/_52"
         }
       ]
     },
@@ -539,7 +527,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_61"
+          "$ref": "#/$defs/_50"
         }
       ]
     },
@@ -550,7 +538,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_17"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#00000099}"
+            }
+          ]
         }
       ]
     },
@@ -561,7 +555,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_18"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#00000033}"
+            }
+          ]
         }
       ]
     },
@@ -589,7 +589,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_25"
+          "$ref": "#/$defs/_35"
         }
       ]
     },
@@ -611,7 +611,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_45"
+          "$ref": "#/$defs/_37"
         }
       ]
     },
@@ -622,7 +622,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_2"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#20202066}"
+            }
+          ]
         }
       ]
     },
@@ -633,7 +639,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_44"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#d18616}"
+            }
+          ]
         }
       ]
     },
@@ -644,7 +656,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_46"
+          "$ref": "#/$defs/_38"
         }
       ]
     },
@@ -655,7 +667,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_14"
+          "$ref": "#/$defs/_3"
         }
       ]
     },
@@ -666,7 +678,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_24"
+          "$ref": "#/$defs/_36"
         }
       ]
     },
@@ -677,7 +689,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#f2f2f2}"
+            }
+          ]
         }
       ]
     },
@@ -699,7 +717,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_43"
         }
       ]
     },
@@ -710,7 +728,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_95"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#895503}"
+            }
+          ]
         }
       ]
     },
@@ -725,7 +749,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#54b054}"
+              "body": "${1:#107c10}"
             }
           ],
           "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
@@ -744,7 +768,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#fc6a6a}"
+              "body": "${1:#bc2f32}"
             }
           ],
           "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
@@ -763,7 +787,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#1f1f1f9e}"
+              "body": "${1:#ffffff9e}"
             }
           ]
         }
@@ -776,7 +800,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_63"
+          "$ref": "#/$defs/_77"
         }
       ]
     },
@@ -787,7 +811,15 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_73"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#eef4fb}"
+            }
+          ],
+          "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+          "patternErrorMessage": "This color must be transparent or it will obscure content"
         }
       ]
     },
@@ -802,7 +834,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#264f7899}"
+              "body": "${1:#e6edfa}"
             }
           ],
           "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
@@ -817,7 +849,15 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_79"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#0e639c40}"
+            }
+          ],
+          "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+          "patternErrorMessage": "This color must be transparent or it will obscure content"
         }
       ]
     },
@@ -832,7 +872,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#26477866}"
+              "body": "${1:#adceff7a}"
             }
           ]
         }
@@ -849,7 +889,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#85b6ff}"
+              "body": "${1:#26569e}"
             }
           ]
         }
@@ -866,7 +906,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#ffffff}"
+              "body": "${1:#999999}"
             }
           ],
           "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
@@ -892,7 +932,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_39"
+          "$ref": "#/$defs/_8"
         }
       ]
     },
@@ -903,7 +943,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_8"
+          "$ref": "#/$defs/_49"
         }
       ]
     },
@@ -918,7 +958,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#646464}"
+              "body": "${1:#bcbcbc}"
             }
           ]
         }
@@ -931,7 +971,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_59"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#8d8d8d}"
+            }
+          ]
         }
       ]
     },
@@ -939,10 +985,10 @@
       "description": "Foreground color of checkbox widget.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_0"
+          "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_4"
         }
       ]
     },
@@ -953,7 +999,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_21"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -961,10 +1007,10 @@
       "description": "Border color of checkbox widget when the element it's in is selected.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_0"
+          "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_4"
         }
       ]
     },
@@ -975,13 +1021,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#ffffff14}"
-            }
-          ]
+          "$ref": "#/$defs/_41"
         }
       ]
     },
@@ -992,7 +1032,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_89"
+          "$ref": "#/$defs/_49"
         }
       ]
     },
@@ -1014,7 +1054,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_88"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -1025,7 +1065,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_36"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#d8d8d8aa}"
+            }
+          ]
         }
       ]
     },
@@ -1040,7 +1086,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#0078d442}"
+              "body": "${1:#0069cc42}"
             }
           ],
           "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
@@ -1066,13 +1112,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#9d9d9d40}"
-            }
-          ]
+          "$ref": "#/$defs/_56"
         }
       ]
     },
@@ -1149,7 +1189,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_25"
+          "$ref": "#/$defs/_21"
         }
       ]
     },
@@ -1171,7 +1211,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_24"
+          "$ref": "#/$defs/_20"
         }
       ]
     },
@@ -1197,7 +1237,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#420b0d}"
+              "body": "${1:#f1dfde}"
             }
           ]
         }
@@ -1210,13 +1250,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#a31515}"
-            }
-          ]
+          "$ref": "#/$defs/_79"
         }
       ]
     },
@@ -1227,7 +1261,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_33"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#be8700}"
+            }
+          ]
         }
       ]
     },
@@ -1238,7 +1278,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_97"
+          "$ref": "#/$defs/_80"
         }
       ]
     },
@@ -1249,13 +1289,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#e51400}"
-            }
-          ]
+          "$ref": "#/$defs/_19"
         }
       ]
     },
@@ -1266,7 +1300,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_45"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#89d185}"
+            }
+          ]
         }
       ]
     },
@@ -1277,7 +1317,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_97"
+          "$ref": "#/$defs/_80"
         }
       ]
     },
@@ -1288,7 +1328,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_34"
+          "$ref": "#/$defs/_30"
         }
       ]
     },
@@ -1299,7 +1339,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_101"
+          "$ref": "#/$defs/_85"
         }
       ]
     },
@@ -1310,7 +1350,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_34"
+          "$ref": "#/$defs/_30"
         }
       ]
     },
@@ -1321,7 +1361,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_45"
+          "$ref": "#/$defs/_37"
         }
       ]
     },
@@ -1332,7 +1372,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_45"
+          "$ref": "#/$defs/_37"
         }
       ]
     },
@@ -1343,7 +1383,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_34"
+          "$ref": "#/$defs/_30"
         }
       ]
     },
@@ -1354,15 +1394,15 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_34"
+          "$ref": "#/$defs/_30"
         }
       ]
     },
     "debugIcon.stepOutForeground": {
-      "$ref": "#/$defs/_102"
+      "$ref": "#/$defs/_86"
     },
     "debugIcon.stepOverForeground": {
-      "$ref": "#/$defs/_102"
+      "$ref": "#/$defs/_86"
     },
     "debugIcon.stopForeground": {
       "description": "Debug toolbar icon for stop.",
@@ -1371,7 +1411,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_101"
+          "$ref": "#/$defs/_85"
         }
       ]
     },
@@ -1382,7 +1422,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_26"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#0000ff}"
+            }
+          ]
         }
       ]
     },
@@ -1393,7 +1439,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_101"
+          "$ref": "#/$defs/_19"
         }
       ]
     },
@@ -1408,7 +1454,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#c586c0}"
+              "body": "${1:#9b46b0}"
             }
           ]
         }
@@ -1425,7 +1471,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#b5cea8}"
+              "body": "${1:#098658}"
             }
           ]
         }
@@ -1438,13 +1484,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#ce9178}"
-            }
-          ]
+          "$ref": "#/$defs/_79"
         }
       ]
     },
@@ -1476,7 +1516,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#cccccc99}"
+              "body": "${1:#6c6c6ccc}"
             }
           ]
         }
@@ -1489,7 +1529,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_37"
+          "$ref": "#/$defs/_75"
         }
       ]
     },
@@ -1511,13 +1551,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#6c2022}"
-            }
-          ]
+          "$ref": "#/$defs/_79"
         }
       ]
     },
@@ -1525,10 +1559,10 @@
       "description": "Foreground color for a label shown in the CALL STACK view when the debugger breaks on an exception.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_0"
+          "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -1606,7 +1640,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_36"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#22222233}"
+            }
+          ]
         }
       ]
     },
@@ -1640,7 +1680,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#9ccc2c33}"
+              "body": "${1:#587c0c26}"
             }
           ],
           "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
@@ -1700,7 +1740,15 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_35"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#ff000033}"
+            }
+          ],
+          "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+          "patternErrorMessage": "This color must be transparent or it will obscure content"
         }
       ]
     },
@@ -1711,7 +1759,15 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_35"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#ad070726}"
+            }
+          ],
+          "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+          "patternErrorMessage": "This color must be transparent or it will obscure content"
         }
       ]
     },
@@ -1737,7 +1793,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#74747429}"
+              "body": "${1:#b8b8b829}"
             }
           ]
         }
@@ -1750,7 +1806,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_37"
+          "$ref": "#/$defs/_31"
         }
       ]
     },
@@ -1772,7 +1828,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_13"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#737373bf}"
+            }
+          ]
         }
       ]
     },
@@ -1838,7 +1900,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_39"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -1849,7 +1911,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_8"
+          "$ref": "#/$defs/_49"
         }
       ]
     },
@@ -1871,7 +1933,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -1882,7 +1944,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -1893,7 +1955,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_25"
         }
       ]
     },
@@ -1904,13 +1966,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#9e6a03}"
-            }
-          ]
+          "$ref": "#/$defs/_22"
         }
       ]
     },
@@ -1943,7 +1999,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_29"
+          "$ref": "#/$defs/_23"
         }
       ]
     },
@@ -1965,7 +2021,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_23"
+          "$ref": "#/$defs/_18"
         }
       ]
     },
@@ -1976,15 +2032,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#3a3d4166}"
-            }
-          ],
-          "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
-          "patternErrorMessage": "This color must be transparent or it will obscure content"
+          "$ref": "#/$defs/_26"
         }
       ]
     },
@@ -1995,7 +2043,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_23"
+          "$ref": "#/$defs/_18"
         }
       ]
     },
@@ -2010,7 +2058,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#7abd7a4d}"
+              "body": "${1:#cee7ce73}"
             }
           ]
         }
@@ -2023,7 +2071,15 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_73"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#0069cc13}"
+            }
+          ],
+          "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+          "patternErrorMessage": "This color must be transparent or it will obscure content"
         }
       ]
     },
@@ -2062,15 +2118,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#264f7840}"
-            }
-          ],
-          "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
-          "patternErrorMessage": "This color must be transparent or it will obscure content"
+          "$ref": "#/$defs/_26"
         }
       ]
     },
@@ -2081,7 +2129,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_6"
+          "$ref": "#/$defs/_55"
         }
       ]
     },
@@ -2092,15 +2140,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#3a3d41}"
-            }
-          ],
-          "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
-          "patternErrorMessage": "This color must be transparent or it will obscure content"
+          "$ref": "#/$defs/_23"
         }
       ]
     },
@@ -2128,7 +2168,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_80"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#00000080}"
+            }
+          ]
         }
       ]
     },
@@ -2139,7 +2185,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_6"
+          "$ref": "#/$defs/_55"
         }
       ]
     },
@@ -2150,13 +2196,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#282828}"
-            }
-          ]
+          "$ref": "#/$defs/_7"
         }
       ]
     },
@@ -2167,7 +2207,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_77"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#ff00004d}"
+            }
+          ]
         }
       ]
     },
@@ -2178,7 +2224,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_67"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -2189,15 +2235,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#ffffff0b}"
-            }
-          ],
-          "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
-          "patternErrorMessage": "This color must be transparent or it will obscure content"
+          "$ref": "#/$defs/_26"
         }
       ]
     },
@@ -2219,7 +2257,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_27"
+          "$ref": "#/$defs/_22"
         }
       ]
     },
@@ -2241,7 +2279,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_28"
+          "$ref": "#/$defs/_24"
         }
       ]
     },
@@ -2278,7 +2316,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#525252}"
+              "body": "${1:#0a326480}"
             }
           ]
         }
@@ -2295,7 +2333,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#7c7c7c4d}"
+              "body": "${1:#0a326433}"
             }
           ]
         }
@@ -2323,7 +2361,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#ffff0033}"
+              "body": "${1:#ffff6673}"
             }
           ]
         }
@@ -2336,7 +2374,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_29"
+          "$ref": "#/$defs/_23"
         }
       ]
     },
@@ -2358,7 +2396,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_78"
+          "$ref": "#/$defs/_67"
         }
       ]
     },
@@ -2380,7 +2418,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_79"
+          "$ref": "#/$defs/_67"
         }
       ]
     },
@@ -2402,7 +2440,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_78"
+          "$ref": "#/$defs/_67"
         }
       ]
     },
@@ -2424,7 +2462,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_21"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -2435,7 +2473,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_47"
+          "$ref": "#/$defs/_28"
         }
       ]
     },
@@ -2443,10 +2481,10 @@
       "description": "Action List foreground color for the focused item.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -2472,7 +2510,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#c6c6c6}"
+              "body": "${1:#0b216f}"
             }
           ],
           "deprecationMessage": "Id is deprecated. Use 'editorLineNumber.activeForeground' instead."
@@ -2490,7 +2528,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#ffd700}"
+              "body": "${1:#0431fa}"
             }
           ]
         }
@@ -2507,7 +2545,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#da70d6}"
+              "body": "${1:#319331}"
             }
           ]
         }
@@ -2524,7 +2562,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#179fff}"
+              "body": "${1:#7b3814}"
             }
           ]
         }
@@ -2537,7 +2575,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -2548,7 +2586,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -2559,7 +2597,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -2587,13 +2625,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#0064001a}"
-            }
-          ]
+          "$ref": "#/$defs/_22"
         }
       ]
     },
@@ -2604,13 +2636,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#888888}"
-            }
-          ]
+          "$ref": "#/$defs/_9"
         }
       ]
     },
@@ -2632,7 +2658,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -2643,7 +2669,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -2654,7 +2680,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -2665,7 +2691,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -2676,7 +2702,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -2687,7 +2713,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -2698,7 +2724,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -2709,7 +2735,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -2720,7 +2746,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -2731,7 +2757,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -2742,7 +2768,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -2753,7 +2779,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -2764,13 +2790,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#999999}"
-            }
-          ]
+          "$ref": "#/$defs/_4"
         }
       ]
     },
@@ -2781,7 +2801,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_93"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#e6edfa}"
+            }
+          ]
         }
       ]
     },
@@ -2792,7 +2818,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_93"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#eef4fb}"
+            }
+          ]
         }
       ]
     },
@@ -2803,7 +2835,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_69"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -2844,10 +2876,10 @@
       "description": "Color of the editor cursor.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_65"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -2858,7 +2890,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_23"
+          "$ref": "#/$defs/_18"
         }
       ]
     },
@@ -2880,7 +2912,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_14"
+          "$ref": "#/$defs/_19"
         }
       ]
     },
@@ -2913,7 +2945,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_67"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -2924,7 +2956,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_82"
+          "$ref": "#/$defs/_68"
         }
       ]
     },
@@ -2935,7 +2967,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_83"
+          "$ref": "#/$defs/_69"
         }
       ]
     },
@@ -2946,7 +2978,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_21"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -3012,7 +3044,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -3023,7 +3055,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_37"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -3045,7 +3077,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_90"
+          "$ref": "#/$defs/_73"
         }
       ]
     },
@@ -3060,7 +3092,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#175021}"
+              "body": "${1:#97d314}"
             }
           ]
         }
@@ -3073,7 +3105,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -3106,7 +3138,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_48"
+          "$ref": "#/$defs/_58"
         }
       ]
     },
@@ -3139,7 +3171,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_85"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#e10909}"
+            }
+          ]
         }
       ]
     },
@@ -3147,10 +3185,10 @@
       "description": "Color of the folding control in the editor gutter.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_0"
+          "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_4"
         }
       ]
     },
@@ -3161,7 +3199,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_48"
+          "$ref": "#/$defs/_58"
         }
       ]
     },
@@ -3183,7 +3221,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_5"
+          "$ref": "#/$defs/_39"
         }
       ]
     },
@@ -3198,7 +3236,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#003c6a}"
+              "body": "${1:#3aa0ff}"
             }
           ]
         }
@@ -3226,7 +3264,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#eeeeeeb3}"
+              "body": "${1:#6c6c6c}"
             }
           ]
         }
@@ -3239,7 +3277,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_21"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -3250,7 +3288,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_22"
+          "$ref": "#/$defs/_17"
         }
       ]
     },
@@ -3272,7 +3310,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_49"
+          "$ref": "#/$defs/_5"
         }
       ]
     },
@@ -3283,7 +3321,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_30"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#e8e8f6}"
+            }
+          ]
         }
       ]
     },
@@ -3298,7 +3342,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#e3e4e229}"
+              "body": "${1:#eeeeee}"
             }
           ],
           "deprecationMessage": "'editorIndentGuide.activeBackground' is deprecated. Use 'editorIndentGuide.activeBackground1' instead."
@@ -3316,7 +3360,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#707070}"
+              "body": "${1:#939393}"
             }
           ]
         }
@@ -3329,7 +3373,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -3340,7 +3384,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -3351,7 +3395,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -3362,7 +3406,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -3373,7 +3417,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -3388,7 +3432,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#e3e4e229}"
+              "body": "${1:#f7f7f740}"
             }
           ],
           "deprecationMessage": "'editorIndentGuide.background' is deprecated. Use 'editorIndentGuide.background1' instead."
@@ -3406,7 +3450,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#404040}"
+              "body": "${1:#d3d3d3}"
             }
           ]
         }
@@ -3419,7 +3463,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -3430,7 +3474,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -3441,7 +3485,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -3452,7 +3496,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -3463,7 +3507,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -3474,7 +3518,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_23"
+          "$ref": "#/$defs/_18"
         }
       ]
     },
@@ -3496,7 +3540,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_25"
+          "$ref": "#/$defs/_21"
         }
       ]
     },
@@ -3507,7 +3551,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_32"
+          "$ref": "#/$defs/_28"
         }
       ]
     },
@@ -3518,7 +3562,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_31"
+          "$ref": "#/$defs/_27"
         }
       ]
     },
@@ -3529,7 +3573,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_32"
+          "$ref": "#/$defs/_28"
         }
       ]
     },
@@ -3540,7 +3584,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_31"
+          "$ref": "#/$defs/_27"
         }
       ]
     },
@@ -3551,7 +3595,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_32"
+          "$ref": "#/$defs/_28"
         }
       ]
     },
@@ -3562,7 +3606,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_31"
+          "$ref": "#/$defs/_27"
         }
       ]
     },
@@ -3573,7 +3617,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_33"
+          "$ref": "#/$defs/_29"
         }
       ]
     },
@@ -3584,7 +3628,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_33"
+          "$ref": "#/$defs/_29"
         }
       ]
     },
@@ -3595,7 +3639,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_34"
+          "$ref": "#/$defs/_30"
         }
       ]
     },
@@ -3628,13 +3672,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#6e7681}"
-            }
-          ]
+          "$ref": "#/$defs/_4"
         }
       ]
     },
@@ -3645,7 +3683,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_26"
+          "$ref": "#/$defs/_5"
         }
       ]
     },
@@ -3656,7 +3694,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -3667,7 +3705,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_14"
+          "$ref": "#/$defs/_19"
         }
       ]
     },
@@ -3678,7 +3716,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_71"
+          "$ref": "#/$defs/_61"
         }
       ]
     },
@@ -3689,7 +3727,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_25"
+          "$ref": "#/$defs/_21"
         }
       ]
     },
@@ -3700,7 +3738,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_72"
+          "$ref": "#/$defs/_62"
         }
       ]
     },
@@ -3711,7 +3749,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_24"
+          "$ref": "#/$defs/_20"
         }
       ]
     },
@@ -3726,7 +3764,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#cca7001a}"
+              "body": "${1:#bf88031a}"
             }
           ]
         }
@@ -3739,7 +3777,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_94"
+          "$ref": "#/$defs/_76"
         }
       ]
     },
@@ -3758,10 +3796,10 @@
       "description": "Color of the primary editor cursor when multiple cursors are present.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_65"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -3780,10 +3818,10 @@
       "description": "Color of secondary editor cursors when multiple cursors are present.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_65"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -3794,13 +3832,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#2ea04399}"
-            }
-          ]
+          "$ref": "#/$defs/_73"
         }
       ]
     },
@@ -3822,7 +3854,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_66"
+          "$ref": "#/$defs/_9"
         }
       ]
     },
@@ -3850,7 +3882,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_48"
+          "$ref": "#/$defs/_58"
         }
       ]
     },
@@ -3861,7 +3893,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_48"
+          "$ref": "#/$defs/_58"
         }
       ]
     },
@@ -3872,7 +3904,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_48"
+          "$ref": "#/$defs/_58"
         }
       ]
     },
@@ -3917,13 +3949,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#f8514999}"
-            }
-          ]
+          "$ref": "#/$defs/_3"
         }
       ]
     },
@@ -3934,7 +3960,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_3"
         }
       ]
     },
@@ -3949,7 +3975,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#d186167e}"
+              "body": "${1:#0069cc99}"
             }
           ],
           "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
@@ -3981,7 +4007,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_25"
+          "$ref": "#/$defs/_21"
         }
       ]
     },
@@ -3992,7 +4018,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_94"
+          "$ref": "#/$defs/_76"
         }
       ]
     },
@@ -4007,7 +4033,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#ff00001f}"
+              "body": "${1:#ad07071e}"
             }
           ]
         }
@@ -4020,13 +4046,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#0078d499}"
-            }
-          ]
+          "$ref": "#/$defs/_5"
         }
       ]
     },
@@ -4056,7 +4076,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_42"
+          "$ref": "#/$defs/_33"
         }
       ]
     },
@@ -4067,7 +4087,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_24"
+          "$ref": "#/$defs/_36"
         }
       ]
     },
@@ -4078,7 +4098,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_42"
+          "$ref": "#/$defs/_33"
         }
       ]
     },
@@ -4108,7 +4128,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_42"
+          "$ref": "#/$defs/_33"
         }
       ]
     },
@@ -4119,7 +4139,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -4134,7 +4154,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#5a5a5a}"
+              "body": "${1:#f7f7f7}"
             }
           ]
         }
@@ -4147,7 +4167,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -4158,7 +4178,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_6"
+          "$ref": "#/$defs/_9"
         }
       ]
     },
@@ -4169,7 +4189,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_13"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -4180,7 +4200,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -4191,7 +4211,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_20"
+          "$ref": "#/$defs/_15"
         }
       ]
     },
@@ -4202,7 +4222,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_21"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -4213,7 +4233,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_22"
+          "$ref": "#/$defs/_17"
         }
       ]
     },
@@ -4224,7 +4244,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_49"
+          "$ref": "#/$defs/_5"
         }
       ]
     },
@@ -4246,7 +4266,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_49"
+          "$ref": "#/$defs/_5"
         }
       ]
     },
@@ -4257,7 +4277,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_47"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -4265,10 +4285,10 @@
       "description": "Foreground color of the selected entry in the suggest widget.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -4276,10 +4296,10 @@
       "description": "Icon foreground color of the selected entry in the suggest widget.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -4290,7 +4310,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_2"
+          "$ref": "#/$defs/_63"
         }
       ]
     },
@@ -4312,7 +4332,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_24"
+          "$ref": "#/$defs/_20"
         }
       ]
     },
@@ -4334,13 +4354,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#000000aa}"
-            }
-          ]
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -4351,7 +4365,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_23"
+          "$ref": "#/$defs/_18"
         }
       ]
     },
@@ -4373,7 +4387,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_24"
+          "$ref": "#/$defs/_20"
         }
       ]
     },
@@ -4384,13 +4398,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#e3e4e229}"
-            }
-          ]
+          "$ref": "#/$defs/_56"
         }
       ]
     },
@@ -4401,7 +4409,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_21"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -4412,7 +4420,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_22"
+          "$ref": "#/$defs/_17"
         }
       ]
     },
@@ -4467,7 +4475,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -4478,7 +4486,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_8"
         }
       ]
     },
@@ -4489,7 +4497,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_63"
+          "$ref": "#/$defs/_51"
         }
       ]
     },
@@ -4511,7 +4519,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_9"
+          "$ref": "#/$defs/_52"
         }
       ]
     },
@@ -4533,7 +4541,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -4544,7 +4552,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_62"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#0064cc}"
+            }
+          ]
         }
       ]
     },
@@ -4555,7 +4569,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_61"
+          "$ref": "#/$defs/_50"
         }
       ]
     },
@@ -4587,7 +4601,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#ffffff60}"
+              "body": "${1:#00000060}"
             }
           ]
         }
@@ -4604,7 +4618,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#d758b3}"
+              "body": "${1:#b51e78}"
             }
           ]
         }
@@ -4617,7 +4631,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_96"
+          "$ref": "#/$defs/_78"
         }
       ]
     },
@@ -4628,7 +4642,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_7"
+          "$ref": "#/$defs/_5"
         }
       ]
     },
@@ -4661,13 +4675,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#007acc4d}"
-            }
-          ]
+          "$ref": "#/$defs/_22"
         }
       ]
     },
@@ -4678,7 +4686,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_6"
+          "$ref": "#/$defs/_9"
         }
       ]
     },
@@ -4693,7 +4701,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#be11004d}"
+              "body": "${1:#ad070740}"
             }
           ]
         }
@@ -4706,7 +4714,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_52"
+          "$ref": "#/$defs/_3"
         }
       ]
     },
@@ -4717,7 +4725,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_60"
+          "$ref": "#/$defs/_5"
         }
       ]
     },
@@ -4732,7 +4740,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#b895004d}"
+              "body": "${1:#b6950040}"
             }
           ]
         }
@@ -4745,7 +4753,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_50"
+          "$ref": "#/$defs/_48"
         }
       ]
     },
@@ -4756,7 +4764,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_31"
+          "$ref": "#/$defs/_27"
         }
       ]
     },
@@ -4767,7 +4775,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_91"
+          "$ref": "#/$defs/_73"
         }
       ]
     },
@@ -4778,13 +4786,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#e4676b}"
-            }
-          ]
+          "$ref": "#/$defs/_3"
         }
       ]
     },
@@ -4795,7 +4797,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_92"
+          "$ref": "#/$defs/_3"
         }
       ]
     },
@@ -4806,7 +4808,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_53"
+          "$ref": "#/$defs/_42"
         }
       ]
     },
@@ -4817,7 +4819,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_95"
+          "$ref": "#/$defs/_36"
         }
       ]
     },
@@ -4828,7 +4830,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_98"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#007100}"
+            }
+          ]
         }
       ]
     },
@@ -4839,7 +4847,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_92"
+          "$ref": "#/$defs/_3"
         }
       ]
     },
@@ -4850,7 +4858,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_95"
+          "$ref": "#/$defs/_36"
         }
       ]
     },
@@ -4865,7 +4873,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#8db9e2}"
+              "body": "${1:#1258a7}"
             }
           ]
         }
@@ -4878,7 +4886,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_98"
+          "$ref": "#/$defs/_73"
         }
       ]
     },
@@ -4886,10 +4894,10 @@
       "description": "The default color for icons in the workbench.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_0"
+          "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_4"
         }
       ]
     },
@@ -4900,7 +4908,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_21"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -4911,7 +4919,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_22"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -4933,7 +4941,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_38"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -4948,7 +4956,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#9ccc2c1a}"
+              "body": "${1:#587c0c13}"
             }
           ]
         }
@@ -4965,7 +4973,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#ff00001a}"
+              "body": "${1:#ad070713}"
             }
           ]
         }
@@ -4978,7 +4986,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_39"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -4989,7 +4997,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_22"
+          "$ref": "#/$defs/_17"
         }
       ]
     },
@@ -5011,7 +5019,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_59"
+          "$ref": "#/$defs/_47"
         }
       ]
     },
@@ -5026,7 +5034,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#18181880}"
+              "body": "${1:#5f5f5f18}"
             }
           ]
         }
@@ -5043,7 +5051,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#0078d466}"
+              "body": "${1:#0069cc80}"
             }
           ]
         }
@@ -5067,7 +5075,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -5078,7 +5086,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_21"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -5089,7 +5097,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_22"
+          "$ref": "#/$defs/_17"
         }
       ]
     },
@@ -5133,7 +5141,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -5148,7 +5156,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#9ccc2c0f}"
+              "body": "${1:#587c0c0b}"
             }
           ],
           "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
@@ -5163,7 +5171,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_76"
+          "$ref": "#/$defs/_66"
         }
       ]
     },
@@ -5197,7 +5205,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#9ccc2c24}"
+              "body": "${1:#587c0c1b}"
             }
           ],
           "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
@@ -5216,7 +5224,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#ff00000a}"
+              "body": "${1:#ad070708}"
             }
           ],
           "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
@@ -5231,7 +5239,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_75"
+          "$ref": "#/$defs/_65"
         }
       ]
     },
@@ -5242,7 +5250,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_74"
+          "$ref": "#/$defs/_64"
         }
       ]
     },
@@ -5253,7 +5261,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_74"
+          "$ref": "#/$defs/_64"
         }
       ]
     },
@@ -5264,7 +5272,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_76"
+          "$ref": "#/$defs/_66"
         }
       ]
     },
@@ -5275,7 +5283,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_75"
+          "$ref": "#/$defs/_65"
         }
       ]
     },
@@ -5286,7 +5294,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_39"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -5297,7 +5305,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_8"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#d8d8d866}"
+            }
+          ]
         }
       ]
     },
@@ -5319,7 +5333,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_59"
+          "$ref": "#/$defs/_47"
         }
       ]
     },
@@ -5330,7 +5344,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_58"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -5341,7 +5355,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_56"
+          "$ref": "#/$defs/_9"
         }
       ]
     },
@@ -5349,10 +5363,10 @@
       "description": "Foreground color of activated options in input fields.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -5363,7 +5377,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_57"
+          "$ref": "#/$defs/_45"
         }
       ]
     },
@@ -5378,7 +5392,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#5a1d1d}"
+              "body": "${1:#fdeded}"
             }
           ]
         }
@@ -5391,7 +5405,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_52"
+          "$ref": "#/$defs/_3"
         }
       ]
     },
@@ -5399,10 +5413,10 @@
       "description": "Input validation foreground color for error severity.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_6"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -5417,7 +5431,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#063b49}"
+              "body": "${1:#e6f2fa}"
             }
           ]
         }
@@ -5430,7 +5444,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_60"
+          "$ref": "#/$defs/_5"
         }
       ]
     },
@@ -5438,10 +5452,10 @@
       "description": "Input validation foreground color for information severity.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_6"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -5456,7 +5470,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#352a05}"
+              "body": "${1:#fdf6e3}"
             }
           ]
         }
@@ -5469,7 +5483,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_50"
+          "$ref": "#/$defs/_48"
         }
       ]
     },
@@ -5477,10 +5491,10 @@
       "description": "Input validation foreground color for warning severity.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_6"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -5491,7 +5505,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_60"
+          "$ref": "#/$defs/_5"
         }
       ]
     },
@@ -5502,7 +5516,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_48"
+          "$ref": "#/$defs/_40"
         }
       ]
     },
@@ -5517,7 +5531,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#8080802b}"
+              "body": "${1:#dddddd66}"
             }
           ]
         }
@@ -5534,7 +5548,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#33333399}"
+              "body": "${1:#cccccc66}"
             }
           ]
         }
@@ -5551,7 +5565,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#44444499}"
+              "body": "${1:#bbbbbb66}"
             }
           ]
         }
@@ -5561,10 +5575,10 @@
       "description": "Keybinding label foreground color. The keybinding label is used to represent a keyboard shortcut.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_0"
+          "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_54"
         }
       ]
     },
@@ -5575,7 +5589,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_55"
+          "$ref": "#/$defs/_44"
         }
       ]
     },
@@ -5586,7 +5600,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_55"
+          "$ref": "#/$defs/_44"
         }
       ]
     },
@@ -5597,7 +5611,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_47"
+          "$ref": "#/$defs/_28"
         }
       ]
     },
@@ -5605,10 +5619,10 @@
       "description": "List/Tree foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -5619,7 +5633,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_25"
         }
       ]
     },
@@ -5630,7 +5644,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_53"
+          "$ref": "#/$defs/_42"
         }
       ]
     },
@@ -5645,7 +5659,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#383b3d}"
+              "body": "${1:#0069cc15}"
             }
           ]
         }
@@ -5655,10 +5669,10 @@
       "description": "List/Tree drag and drop border color when moving items between items when using the mouse.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_0"
+          "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_4"
         }
       ]
     },
@@ -5669,13 +5683,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#f88070}"
-            }
-          ]
+          "$ref": "#/$defs/_3"
         }
       ]
     },
@@ -5686,7 +5694,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_44"
+          "$ref": "#/$defs/_28"
         }
       ]
     },
@@ -5708,7 +5716,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_6"
+          "$ref": "#/$defs/_39"
         }
       ]
     },
@@ -5719,7 +5727,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_6"
+          "$ref": "#/$defs/_28"
         }
       ]
     },
@@ -5727,10 +5735,10 @@
       "description": "List/Tree foreground color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_6"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -5741,7 +5749,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_49"
+          "$ref": "#/$defs/_5"
         }
       ]
     },
@@ -5763,7 +5771,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_49"
+          "$ref": "#/$defs/_5"
         }
       ]
     },
@@ -5774,7 +5782,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_20"
+          "$ref": "#/$defs/_41"
         }
       ]
     },
@@ -5782,10 +5790,10 @@
       "description": "List/Tree foreground when hovering over items using the mouse.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_6"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -5818,7 +5826,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_48"
+          "$ref": "#/$defs/_40"
         }
       ]
     },
@@ -5826,10 +5834,10 @@
       "description": "List/Tree foreground color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_6"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -5851,7 +5859,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_50"
+          "$ref": "#/$defs/_2"
         }
       ]
     },
@@ -5862,7 +5870,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_24"
+          "$ref": "#/$defs/_36"
         }
       ]
     },
@@ -5873,7 +5881,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_21"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -5884,7 +5892,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_52"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#be1100}"
+            }
+          ]
         }
       ]
     },
@@ -5895,7 +5909,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_51"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -5906,7 +5920,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_38"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -5917,7 +5931,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_14"
+          "$ref": "#/$defs/_19"
         }
       ]
     },
@@ -5928,7 +5942,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_46"
+          "$ref": "#/$defs/_38"
         }
       ]
     },
@@ -5939,7 +5953,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_25"
+          "$ref": "#/$defs/_21"
         }
       ]
     },
@@ -5950,7 +5964,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_45"
+          "$ref": "#/$defs/_37"
         }
       ]
     },
@@ -5961,7 +5975,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_24"
+          "$ref": "#/$defs/_20"
         }
       ]
     },
@@ -5972,7 +5986,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_96"
+          "$ref": "#/$defs/_78"
         }
       ]
     },
@@ -5983,7 +5997,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -5994,7 +6008,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_22"
+          "$ref": "#/$defs/_17"
         }
       ]
     },
@@ -6016,7 +6030,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_5"
+          "$ref": "#/$defs/_28"
         }
       ]
     },
@@ -6035,10 +6049,10 @@
       "description": "Foreground color of the selected menu item in menus.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -6049,7 +6063,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_22"
+          "$ref": "#/$defs/_51"
         }
       ]
     },
@@ -6060,7 +6074,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_40"
+          "$ref": "#/$defs/_8"
         }
       ]
     },
@@ -6235,7 +6249,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_76"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#9ccc2c66}"
+            }
+          ]
         }
       ]
     },
@@ -6250,7 +6270,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#4b1818}"
+              "body": "${1:#ffcccc}"
             }
           ]
         }
@@ -6267,7 +6287,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#6f1313}"
+              "body": "${1:#ffa3a3}"
             }
           ]
         }
@@ -6382,13 +6402,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#ffa600}"
-            }
-          ]
+          "$ref": "#/$defs/_87"
         }
       ]
     },
@@ -6399,13 +6413,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#ffa6007a}"
-            }
-          ]
+          "$ref": "#/$defs/_87"
         }
       ]
     },
@@ -6448,7 +6456,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#1f1f1f99}"
+              "body": "${1:#ffffff99}"
             }
           ]
         }
@@ -6461,7 +6469,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_43"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#ff1212b3}"
+            }
+          ]
         }
       ]
     },
@@ -6472,7 +6486,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_29"
+          "$ref": "#/$defs/_23"
         }
       ]
     },
@@ -6483,7 +6497,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_13"
+          "$ref": "#/$defs/_25"
         }
       ]
     },
@@ -6494,7 +6508,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_25"
+          "$ref": "#/$defs/_21"
         }
       ]
     },
@@ -6505,15 +6519,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#264f78}"
-            }
-          ],
-          "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
-          "patternErrorMessage": "This color must be transparent or it will obscure content"
+          "$ref": "#/$defs/_34"
         }
       ]
     },
@@ -6524,7 +6530,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_28"
+          "$ref": "#/$defs/_24"
         }
       ]
     },
@@ -6535,7 +6541,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_24"
+          "$ref": "#/$defs/_20"
         }
       ]
     },
@@ -6546,7 +6552,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_90"
+          "$ref": "#/$defs/_73"
         }
       ]
     },
@@ -6568,7 +6574,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_5"
+          "$ref": "#/$defs/_39"
         }
       ]
     },
@@ -6579,7 +6585,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_18"
+          "$ref": "#/$defs/_14"
         }
       ]
     },
@@ -6590,13 +6596,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#79797933}"
-            }
-          ]
+          "$ref": "#/$defs/_12"
         }
       ]
     },
@@ -6607,13 +6607,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#64646459}"
-            }
-          ]
+          "$ref": "#/$defs/_13"
         }
       ]
     },
@@ -6624,7 +6618,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -6635,7 +6629,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_9"
+          "$ref": "#/$defs/_70"
         }
       ]
     },
@@ -6646,7 +6640,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_30"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -6657,7 +6651,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_48"
+          "$ref": "#/$defs/_68"
         }
       ]
     },
@@ -6668,7 +6662,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_37"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -6705,7 +6699,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#ffffff26}"
+              "body": "${1:#00000014}"
             }
           ]
         }
@@ -6735,7 +6729,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -6779,7 +6773,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_48"
+          "$ref": "#/$defs/_68"
         }
       ]
     },
@@ -6823,7 +6817,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_48"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#c8ddf150}"
+            }
+          ]
         }
       ]
     },
@@ -6834,7 +6834,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_48"
+          "$ref": "#/$defs/_68"
         }
       ]
     },
@@ -6849,7 +6849,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#ffffff0b}"
+              "body": "${1:#fdff0033}"
             }
           ]
         }
@@ -6862,7 +6862,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_45"
+          "$ref": "#/$defs/_37"
         }
       ]
     },
@@ -6873,7 +6873,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_17"
+          "$ref": "#/$defs/_14"
         }
       ]
     },
@@ -6884,7 +6884,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_15"
+          "$ref": "#/$defs/_12"
         }
       ]
     },
@@ -6895,7 +6895,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_16"
+          "$ref": "#/$defs/_13"
         }
       ]
     },
@@ -6928,7 +6928,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_45"
+          "$ref": "#/$defs/_37"
         }
       ]
     },
@@ -6939,7 +6939,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_39"
+          "$ref": "#/$defs/_9"
         }
       ]
     },
@@ -6950,7 +6950,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -6972,7 +6972,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_7"
+          "$ref": "#/$defs/_5"
         }
       ]
     },
@@ -6983,7 +6983,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -7016,7 +7016,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_14"
+          "$ref": "#/$defs/_3"
         }
       ]
     },
@@ -7027,7 +7027,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_25"
+          "$ref": "#/$defs/_5"
         }
       ]
     },
@@ -7038,7 +7038,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_24"
+          "$ref": "#/$defs/_48"
         }
       ]
     },
@@ -7049,7 +7049,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_39"
+          "$ref": "#/$defs/_9"
         }
       ]
     },
@@ -7082,7 +7082,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_37"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -7115,7 +7115,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_9"
+          "$ref": "#/$defs/_68"
         }
       ]
     },
@@ -7137,7 +7137,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_83"
+          "$ref": "#/$defs/_69"
         }
       ]
     },
@@ -7187,7 +7187,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_37"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -7209,7 +7209,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_13"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -7220,7 +7220,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_5"
+          "$ref": "#/$defs/_25"
         }
       ]
     },
@@ -7275,7 +7275,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -7286,7 +7286,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_25"
+          "$ref": "#/$defs/_5"
         }
       ]
     },
@@ -7297,7 +7297,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -7308,7 +7308,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_70"
+          "$ref": "#/$defs/_60"
         }
       ]
     },
@@ -7330,7 +7330,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -7341,7 +7341,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -7352,7 +7352,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -7363,7 +7363,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -7371,10 +7371,10 @@
       "description": "Foreground color for file nodes in the peek view result list.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -7385,13 +7385,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#bbbbbb}"
-            }
-          ]
+          "$ref": "#/$defs/_4"
         }
       ]
     },
@@ -7402,7 +7396,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_70"
+          "$ref": "#/$defs/_60"
         }
       ]
     },
@@ -7413,13 +7407,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#3399ff33}"
-            }
-          ]
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -7427,10 +7415,10 @@
       "description": "Foreground color of the selected entry in the peek view result list.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -7441,7 +7429,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_69"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -7452,13 +7440,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#ccccccb3}"
-            }
-          ]
+          "$ref": "#/$defs/_4"
         }
       ]
     },
@@ -7466,10 +7448,10 @@
       "description": "Color of the peek view title.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -7480,7 +7462,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_8"
+          "$ref": "#/$defs/_51"
         }
       ]
     },
@@ -7488,16 +7470,10 @@
       "description": "Quick picker color for grouping labels.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#3794ff}"
-            }
-          ]
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -7525,7 +7501,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_14"
+          "$ref": "#/$defs/_19"
         }
       ]
     },
@@ -7536,7 +7512,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_25"
+          "$ref": "#/$defs/_21"
         }
       ]
     },
@@ -7547,7 +7523,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_24"
+          "$ref": "#/$defs/_20"
         }
       ]
     },
@@ -7562,7 +7538,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#4d4d4d}"
+              "body": "${1:#c4c4c4}"
             }
           ]
         }
@@ -7575,7 +7551,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#333333}"
+            }
+          ]
         }
       ]
     },
@@ -7608,7 +7590,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_64"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -7648,7 +7630,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_47"
+          "$ref": "#/$defs/_28"
         }
       ]
     },
@@ -7656,10 +7638,10 @@
       "description": "Quick picker foreground color for the focused item.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -7667,10 +7649,10 @@
       "description": "Quick picker icon foreground color for the focused item.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -7681,13 +7663,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#ffffff1b}"
-            }
-          ]
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -7698,7 +7674,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_58"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -7709,7 +7685,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_56"
+          "$ref": "#/$defs/_9"
         }
       ]
     },
@@ -7717,10 +7693,10 @@
       "description": "Foreground color of active radio option.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -7742,13 +7718,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#ffffff33}"
-            }
-          ]
+          "$ref": "#/$defs/_53"
         }
       ]
     },
@@ -7770,7 +7740,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_57"
+          "$ref": "#/$defs/_45"
         }
       ]
     },
@@ -7894,7 +7864,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_91"
+          "$ref": "#/$defs/_73"
         }
       ]
     },
@@ -7905,7 +7875,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_10"
+          "$ref": "#/$defs/_5"
         }
       ]
     },
@@ -7927,7 +7897,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_92"
+          "$ref": "#/$defs/_3"
         }
       ]
     },
@@ -7938,7 +7908,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_37"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -7949,7 +7919,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_25"
+          "$ref": "#/$defs/_35"
         }
       ]
     },
@@ -7960,7 +7930,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_46"
+          "$ref": "#/$defs/_38"
         }
       ]
     },
@@ -7982,7 +7952,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_13"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -7993,7 +7963,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_17"
+          "$ref": "#/$defs/_14"
         }
       ]
     },
@@ -8004,7 +7974,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_15"
+          "$ref": "#/$defs/_12"
         }
       ]
     },
@@ -8015,7 +7985,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_16"
+          "$ref": "#/$defs/_13"
         }
       ]
     },
@@ -8023,16 +7993,10 @@
       "description": "Color of the text in the search viewlet's completion message.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#cccccca6}"
-            }
-          ]
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -8047,7 +8011,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#ea5c0038}"
+              "body": "${1:#0069cc11}"
             }
           ]
         }
@@ -8071,7 +8035,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_8"
+          "$ref": "#/$defs/_74"
         }
       ]
     },
@@ -8093,7 +8057,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_39"
+          "$ref": "#/$defs/_8"
         }
       ]
     },
@@ -8104,7 +8068,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_8"
+          "$ref": "#/$defs/_49"
         }
       ]
     },
@@ -8112,10 +8076,10 @@
       "description": "Settings editor checkbox foreground.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_0"
+          "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_4"
         }
       ]
     },
@@ -8126,7 +8090,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_39"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -8137,7 +8101,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_8"
+          "$ref": "#/$defs/_74"
         }
       ]
     },
@@ -8159,7 +8123,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_22"
+          "$ref": "#/$defs/_17"
         }
       ]
     },
@@ -8174,7 +8138,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#2a2d2e99}"
+              "body": "${1:#dadada2f}"
             }
           ]
         }
@@ -8209,7 +8173,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#1f1f1f}"
+            }
+          ]
         }
       ]
     },
@@ -8220,7 +8190,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_70"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#bb800966}"
+            }
+          ]
         }
       ]
     },
@@ -8231,7 +8207,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_39"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -8242,7 +8218,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_8"
+          "$ref": "#/$defs/_74"
         }
       ]
     },
@@ -8268,7 +8244,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#2a2d2e4d}"
+              "body": "${1:#dadada18}"
             }
           ]
         }
@@ -8296,7 +8272,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#ffffffb3}"
+              "body": "${1:#1f1f1fb3}"
             }
           ]
         }
@@ -8309,7 +8285,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_39"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -8320,7 +8296,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_8"
+          "$ref": "#/$defs/_74"
         }
       ]
     },
@@ -8342,7 +8318,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_37"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -8364,7 +8340,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_83"
+          "$ref": "#/$defs/_69"
         }
       ]
     },
@@ -8397,7 +8373,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_37"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -8430,7 +8406,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_37"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -8452,7 +8428,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_13"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -8463,7 +8439,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_37"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -8496,7 +8472,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_82"
+          "$ref": "#/$defs/_68"
         }
       ]
     },
@@ -8507,7 +8483,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_82"
+          "$ref": "#/$defs/_68"
         }
       ]
     },
@@ -8518,7 +8494,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_22"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#c8c8c8}"
+            }
+          ]
         }
       ]
     },
@@ -8529,7 +8511,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_37"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -8573,7 +8555,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -8592,10 +8574,10 @@
       "description": "Status bar foreground color when a workspace or folder is opened. The status bar is shown in the bottom of the window.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_0"
+          "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_4"
         }
       ]
     },
@@ -8606,7 +8588,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_15"
         }
       ]
     },
@@ -8625,10 +8607,10 @@
       "description": "Status bar foreground color when no folder is opened. The status bar is shown in the bottom of the window.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_0"
+          "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_4"
         }
       ]
     },
@@ -8639,13 +8621,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#ffffff2e}"
-            }
-          ]
+          "$ref": "#/$defs/_7"
         }
       ]
     },
@@ -8656,13 +8632,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#ffffff1f}"
-            }
-          ]
+          "$ref": "#/$defs/_70"
         }
       ]
     },
@@ -8673,7 +8643,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_85"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#c72e0f}"
+            }
+          ]
         }
       ]
     },
@@ -8684,7 +8660,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -8695,7 +8671,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_84"
+          "$ref": "#/$defs/_41"
         }
       ]
     },
@@ -8706,7 +8682,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_25"
         }
       ]
     },
@@ -8728,7 +8704,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_84"
+          "$ref": "#/$defs/_41"
         }
       ]
     },
@@ -8739,7 +8715,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_25"
         }
       ]
     },
@@ -8767,7 +8743,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -8778,7 +8754,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_84"
+          "$ref": "#/$defs/_41"
         }
       ]
     },
@@ -8789,7 +8765,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_25"
         }
       ]
     },
@@ -8804,7 +8780,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#6e768166}"
+              "body": "${1:#0069ccdd}"
             }
           ]
         }
@@ -8814,10 +8790,10 @@
       "description": "Status bar prominent items foreground color. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_0"
+          "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -8828,7 +8804,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_84"
+          "$ref": "#/$defs/_5"
         }
       ]
     },
@@ -8839,7 +8815,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -8850,7 +8826,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_5"
+          "$ref": "#/$defs/_39"
         }
       ]
     },
@@ -8861,7 +8837,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -8872,7 +8848,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_84"
+          "$ref": "#/$defs/_41"
         }
       ]
     },
@@ -8883,7 +8859,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_25"
         }
       ]
     },
@@ -8898,7 +8874,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#7a6400}"
+              "body": "${1:#725102}"
             }
           ]
         }
@@ -8911,7 +8887,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -8922,7 +8898,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_84"
+          "$ref": "#/$defs/_41"
         }
       ]
     },
@@ -8933,7 +8909,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_25"
         }
       ]
     },
@@ -8966,7 +8942,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_68"
+          "$ref": "#/$defs/_59"
         }
       ]
     },
@@ -8999,7 +8975,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_46"
+          "$ref": "#/$defs/_38"
         }
       ]
     },
@@ -9010,7 +8986,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_68"
+          "$ref": "#/$defs/_59"
         }
       ]
     },
@@ -9021,7 +8997,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_34"
+          "$ref": "#/$defs/_30"
         }
       ]
     },
@@ -9032,7 +9008,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_68"
+          "$ref": "#/$defs/_59"
         }
       ]
     },
@@ -9043,7 +9019,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_34"
+          "$ref": "#/$defs/_30"
         }
       ]
     },
@@ -9076,7 +9052,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_46"
+          "$ref": "#/$defs/_38"
         }
       ]
     },
@@ -9087,7 +9063,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_34"
+          "$ref": "#/$defs/_30"
         }
       ]
     },
@@ -9120,7 +9096,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_46"
+          "$ref": "#/$defs/_38"
         }
       ]
     },
@@ -9296,7 +9272,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_34"
+          "$ref": "#/$defs/_30"
         }
       ]
     },
@@ -9307,7 +9283,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -9318,7 +9294,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -9329,7 +9305,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_5"
+          "$ref": "#/$defs/_25"
         }
       ]
     },
@@ -9337,10 +9313,10 @@
       "description": "Active tab foreground color in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -9355,7 +9331,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#3399cc}"
+              "body": "${1:#33aaee}"
             }
           ]
         }
@@ -9376,10 +9352,10 @@
       "description": "Border between tabs to indicate that a tab can be inserted between two tabs. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -9390,7 +9366,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -9409,10 +9385,10 @@
       "description": "Tab foreground color when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_6"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -9423,7 +9399,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_37"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -9445,7 +9421,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_81"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#33aaee80}"
+            }
+          ]
         }
       ]
     },
@@ -9456,7 +9438,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_36"
+          "$ref": "#/$defs/_9"
         }
       ]
     },
@@ -9467,7 +9449,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_64"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#ffffffa5}"
+            }
+          ]
         }
       ]
     },
@@ -9482,7 +9470,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#6caddf}"
+              "body": "${1:#68a3da}"
             }
           ]
         }
@@ -9499,7 +9487,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#ffffffa0}"
+              "body": "${1:#333333b3}"
             }
           ]
         }
@@ -9512,7 +9500,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -9523,7 +9511,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_31"
         }
       ]
     },
@@ -9534,7 +9522,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_9"
+          "$ref": "#/$defs/_68"
         }
       ]
     },
@@ -9545,7 +9533,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_80"
+          "$ref": "#/$defs/_4"
         }
       ]
     },
@@ -9556,7 +9544,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_81"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#33aaeeb3}"
+            }
+          ]
         }
       ]
     },
@@ -9567,7 +9561,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_31"
         }
       ]
     },
@@ -9589,7 +9583,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_6"
+          "$ref": "#/$defs/_63"
         }
       ]
     },
@@ -9600,7 +9594,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_37"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -9611,13 +9605,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#9d9d9d80}"
-            }
-          ]
+          "$ref": "#/$defs/_2"
         }
       ]
     },
@@ -9632,7 +9620,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#3399cc40}"
+              "body": "${1:#33aaee40}"
             }
           ]
         }
@@ -9645,7 +9633,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_13"
+          "$ref": "#/$defs/_25"
         }
       ]
     },
@@ -9656,13 +9644,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#2472c8}"
-            }
-          ]
+          "$ref": "#/$defs/_89"
         }
       ]
     },
@@ -9690,13 +9672,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#3b8eea}"
-            }
-          ]
+          "$ref": "#/$defs/_89"
         }
       ]
     },
@@ -9707,13 +9683,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#29b8db}"
-            }
-          ]
+          "$ref": "#/$defs/_91"
         }
       ]
     },
@@ -9728,7 +9698,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#23d18b}"
+              "body": "${1:#14ce14}"
             }
           ]
         }
@@ -9741,13 +9711,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#d670d6}"
-            }
-          ]
+          "$ref": "#/$defs/_90"
         }
       ]
     },
@@ -9758,7 +9722,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_14"
+          "$ref": "#/$defs/_88"
         }
       ]
     },
@@ -9769,7 +9733,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_103"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#a5a5a5}"
+            }
+          ]
         }
       ]
     },
@@ -9784,7 +9754,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#f5f543}"
+              "body": "${1:#b5ba00}"
             }
           ]
         }
@@ -9797,13 +9767,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#11a8cd}"
-            }
-          ]
+          "$ref": "#/$defs/_91"
         }
       ]
     },
@@ -9818,7 +9782,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#0dbc79}"
+              "body": "${1:#107c10}"
             }
           ]
         }
@@ -9831,13 +9795,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#bc3fbc}"
-            }
-          ]
+          "$ref": "#/$defs/_90"
         }
       ]
     },
@@ -9848,13 +9806,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#cd3131}"
-            }
-          ]
+          "$ref": "#/$defs/_88"
         }
       ]
     },
@@ -9865,7 +9817,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_103"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#555555}"
+            }
+          ]
         }
       ]
     },
@@ -9880,7 +9838,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#e5e510}"
+              "body": "${1:#949800}"
             }
           ]
         }
@@ -9919,7 +9877,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#53595d80}"
+              "body": "${1:#2677cb2e}"
             }
           ],
           "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
@@ -9934,15 +9892,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#9e6a03}"
-            }
-          ],
-          "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
-          "patternErrorMessage": "This color must be transparent or it will obscure content"
+          "$ref": "#/$defs/_34"
         }
       ]
     },
@@ -9964,7 +9914,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_29"
+          "$ref": "#/$defs/_23"
         }
       ]
     },
@@ -9983,10 +9933,10 @@
       "description": "The foreground color of the terminal.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_0"
+          "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_54"
         }
       ]
     },
@@ -10001,7 +9951,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#264f7820}"
+              "body": "${1:#eaeaea80}"
             }
           ]
         }
@@ -10018,7 +9968,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#3a3d41}"
+              "body": "${1:#e5ebf1}"
             }
           ]
         }
@@ -10031,7 +9981,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_67"
+          "$ref": "#/$defs/_57"
         }
       ]
     },
@@ -10042,7 +9992,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_27"
+          "$ref": "#/$defs/_46"
         }
       ]
     },
@@ -10064,7 +10014,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_5"
+          "$ref": "#/$defs/_39"
         }
       ]
     },
@@ -10079,7 +10029,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#ffffff40}"
+              "body": "${1:#00000040}"
             }
           ]
         }
@@ -10092,7 +10042,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_14"
+          "$ref": "#/$defs/_19"
         }
       ]
     },
@@ -10107,7 +10057,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#1b81a8}"
+              "body": "${1:#2090d3}"
             }
           ]
         }
@@ -10120,7 +10070,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_48"
+          "$ref": "#/$defs/_40"
         }
       ]
     },
@@ -10131,7 +10081,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_6"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -10139,10 +10089,10 @@
       "description": "The foreground color of the terminal cursor.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_0"
         },
         {
-          "$ref": "#/$defs/_6"
+          "$ref": "#/$defs/_1"
         }
       ]
     },
@@ -10153,7 +10103,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_66"
+          "$ref": "#/$defs/_9"
         }
       ]
     },
@@ -10185,7 +10135,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#d186167e}"
+              "body": "${1:#0069cc99}"
             }
           ]
         }
@@ -10220,7 +10170,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_20"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#f0f0f0}"
+            }
+          ]
         }
       ]
     },
@@ -10231,7 +10187,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_46"
+          "$ref": "#/$defs/_38"
         }
       ]
     },
@@ -10242,7 +10198,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_34"
+          "$ref": "#/$defs/_30"
         }
       ]
     },
@@ -10286,7 +10242,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_68"
+          "$ref": "#/$defs/_59"
         }
       ]
     },
@@ -10319,7 +10275,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_46"
+          "$ref": "#/$defs/_38"
         }
       ]
     },
@@ -10330,7 +10286,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_68"
+          "$ref": "#/$defs/_59"
         }
       ]
     },
@@ -10341,7 +10297,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_34"
+          "$ref": "#/$defs/_30"
         }
       ]
     },
@@ -10440,7 +10396,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_10"
+          "$ref": "#/$defs/_5"
         }
       ]
     },
@@ -10451,7 +10407,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_11"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -10462,7 +10418,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_76"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#587c0c26}"
+            }
+          ]
         }
       ]
     },
@@ -10477,7 +10439,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#9ccc2c26}"
+              "body": "${1:#587c0c1d}"
             }
           ]
         }
@@ -10490,7 +10452,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_94"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#587c0c17}"
+            }
+          ]
         }
       ]
     },
@@ -10501,7 +10469,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_14"
+          "$ref": "#/$defs/_81"
         }
       ]
     },
@@ -10512,7 +10480,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_99"
+          "$ref": "#/$defs/_83"
         }
       ]
     },
@@ -10523,7 +10491,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_14"
+          "$ref": "#/$defs/_81"
         }
       ]
     },
@@ -10534,7 +10502,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_99"
+          "$ref": "#/$defs/_83"
         }
       ]
     },
@@ -10545,7 +10513,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_98"
+          "$ref": "#/$defs/_82"
         }
       ]
     },
@@ -10573,7 +10541,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_24"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#cca700}"
+            }
+          ]
         }
       ]
     },
@@ -10601,7 +10575,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_97"
+          "$ref": "#/$defs/_80"
         }
       ]
     },
@@ -10612,7 +10586,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_100"
+          "$ref": "#/$defs/_84"
         }
       ]
     },
@@ -10623,7 +10597,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_97"
+          "$ref": "#/$defs/_80"
         }
       ]
     },
@@ -10634,7 +10608,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_100"
+          "$ref": "#/$defs/_84"
         }
       ]
     },
@@ -10645,7 +10619,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_14"
+          "$ref": "#/$defs/_3"
         }
       ]
     },
@@ -10656,7 +10630,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_14"
+          "$ref": "#/$defs/_3"
         }
       ]
     },
@@ -10667,7 +10641,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_13"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -10689,7 +10663,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_2"
+          "$ref": "#/$defs/_63"
         }
       ]
     },
@@ -10711,7 +10685,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_25"
+          "$ref": "#/$defs/_21"
         }
       ]
     },
@@ -10722,7 +10696,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_72"
+          "$ref": "#/$defs/_62"
         }
       ]
     },
@@ -10733,7 +10707,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_14"
+          "$ref": "#/$defs/_19"
         }
       ]
     },
@@ -10744,7 +10718,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_71"
+          "$ref": "#/$defs/_61"
         }
       ]
     },
@@ -10755,7 +10729,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_98"
+          "$ref": "#/$defs/_82"
         }
       ]
     },
@@ -10766,7 +10740,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_75"
+          "$ref": "#/$defs/_65"
         }
       ]
     },
@@ -10781,7 +10755,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#ff000026}"
+              "body": "${1:#ad07071d}"
             }
           ]
         }
@@ -10798,7 +10772,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#781212}"
+              "body": "${1:#e6b5b5}"
             }
           ]
         }
@@ -10811,7 +10785,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_77"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#ad070739}"
+            }
+          ]
         }
       ]
     },
@@ -10822,7 +10802,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_9"
+          "$ref": "#/$defs/_8"
         }
       ]
     },
@@ -10833,7 +10813,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_10"
+          "$ref": "#/$defs/_9"
         }
       ]
     },
@@ -10844,7 +10824,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_9"
+          "$ref": "#/$defs/_8"
         }
       ]
     },
@@ -10855,7 +10835,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_7"
+          "$ref": "#/$defs/_5"
         }
       ]
     },
@@ -10866,7 +10846,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_7"
+          "$ref": "#/$defs/_5"
         }
       ]
     },
@@ -10877,7 +10857,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_8"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#ececec}"
+            }
+          ]
         }
       ]
     },
@@ -10899,13 +10885,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#d0d0d0}"
-            }
-          ]
+          "$ref": "#/$defs/_4"
         }
       ]
     },
@@ -10916,13 +10896,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#21262d}"
-            }
-          ]
+          "$ref": "#/$defs/_7"
         }
       ]
     },
@@ -10933,7 +10907,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_37"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -10941,10 +10915,10 @@
       "description": "Title bar foreground when the window is active.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_0"
+          "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_1"
+          "$ref": "#/$defs/_4"
         }
       ]
     },
@@ -10966,7 +10940,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_16"
         }
       ]
     },
@@ -10988,13 +10962,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#63666750}"
-            }
-          ]
+          "$ref": "#/$defs/_32"
         }
       ]
     },
@@ -11005,7 +10973,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_40"
+          "$ref": "#/$defs/_32"
         }
       ]
     },
@@ -11031,7 +10999,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#58585866}"
+              "body": "${1:#a9a9a966}"
             }
           ]
         }
@@ -11044,7 +11012,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_43"
         }
       ]
     },
@@ -11059,7 +11027,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#cccccc20}"
+              "body": "${1:#61616120}"
             }
           ]
         }
@@ -11072,7 +11040,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_55"
+          "$ref": "#/$defs/_44"
         }
       ]
     },
@@ -11087,7 +11055,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#00000066}"
+              "body": "${1:#f4f4f4}"
             }
           ]
         }
@@ -11100,7 +11068,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_25"
         }
       ]
     },
@@ -11122,7 +11090,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_39"
+          "$ref": "#/$defs/_10"
         }
       ]
     },
@@ -11144,7 +11112,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_9"
+          "$ref": "#/$defs/_75"
         }
       ]
     },
@@ -11155,7 +11123,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_63"
+          "$ref": "#/$defs/_77"
         }
       ]
     },
@@ -11166,7 +11134,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_30"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#d6d6ef}"
+            }
+          ]
         }
       ]
     },
@@ -11177,7 +11151,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_39"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#e2e2e5}"
+            }
+          ]
         }
       ]
     },
@@ -11188,7 +11168,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_38"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -11221,7 +11201,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#cccccc}"
+          "body": "${1:#202020}"
         }
       ]
     },
@@ -11235,7 +11215,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#cccccc80}"
+          "body": "${1:#bbbbbb}"
         }
       ]
     },
@@ -11244,7 +11224,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#f85149}"
+          "body": "${1:#ad0707}"
         }
       ]
     },
@@ -11253,7 +11233,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#9d9d9d}"
+          "body": "${1:#606060}"
         }
       ]
     },
@@ -11262,7 +11242,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#0078d4}"
+          "body": "${1:#0069cc}"
         }
       ]
     },
@@ -11280,7 +11260,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#4daafc}"
+          "body": "${1:#eeeeee}"
         }
       ]
     },
@@ -11289,7 +11269,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#3c3c3c}"
+          "body": "${1:#eaeaea}"
         }
       ]
     },
@@ -11298,7 +11278,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#2b2b2b}"
+          "body": "${1:#f0f1f2}"
         }
       ]
     },
@@ -11307,7 +11287,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#616161}"
+          "body": "${1:#ffffff}"
         }
       ]
     },
@@ -11316,7 +11296,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#f8f8f8}"
+          "body": "${1:#00000000}"
         }
       ]
     },
@@ -11325,7 +11305,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#ffffff}"
+          "body": "${1:#99999926}"
         }
       ]
     },
@@ -11334,7 +11314,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#000000}"
+          "body": "${1:#99999940}"
         }
       ]
     },
@@ -11343,7 +11323,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#f14c4c}"
+          "body": "${1:#99999955}"
         }
       ]
     },
@@ -11352,7 +11332,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#79797966}"
+          "body": "${1:#f0f0f3}"
         }
       ]
     },
@@ -11361,7 +11341,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#646464b3}"
+          "body": "${1:#fafafd}"
         }
       ]
     },
@@ -11370,56 +11350,11 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#bfbfbf66}"
+          "body": "${1:#e4e5e6}"
         }
       ]
     },
     "_18": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#bfbfbf33}"
-        }
-      ]
-    },
-    "_19": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#1f1f1f}"
-        }
-      ]
-    },
-    "_20": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#2a2d2e}"
-        }
-      ]
-    },
-    "_21": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#202020}"
-        }
-      ]
-    },
-    "_22": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#454545}"
-        }
-      ]
-    },
-    "_23": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -11430,21 +11365,70 @@
       "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
       "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
+    "_19": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#e51400}"
+        }
+      ]
+    },
+    "_20": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#bf8803}"
+        }
+      ]
+    },
+    "_21": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#0063d3}"
+        }
+      ]
+    },
+    "_22": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#0069cc40}"
+        }
+      ]
+    },
+    "_23": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#0069cc1a}"
+        }
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
+    },
     "_24": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#cca700}"
+          "body": "${1:#0069cc15}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "_25": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#59a4f9}"
+          "body": "${1:#000000}"
         }
       ]
     },
@@ -11453,51 +11437,13 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#4e94ce}"
+          "body": "${1:#eaeaea}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "_27": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#264f78}"
-        }
-      ]
-    },
-    "_28": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#add6ff26}"
-        }
-      ],
-      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
-      "patternErrorMessage": "This color must be transparent or it will obscure content"
-    },
-    "_29": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ea5c0055}"
-        }
-      ],
-      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
-      "patternErrorMessage": "This color must be transparent or it will obscure content"
-    },
-    "_30": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#262626}"
-        }
-      ]
-    },
-    "_31": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -11506,99 +11452,52 @@
         }
       ]
     },
+    "_28": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#0069cc1a}"
+        }
+      ]
+    },
+    "_29": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ddb100}"
+        }
+      ]
+    },
+    "_30": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#007acc}"
+        }
+      ]
+    },
+    "_31": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#f8f8f8}"
+        }
+      ]
+    },
     "_32": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#6161611a}"
+          "body": "${1:#00000010}"
         }
       ]
     },
     "_33": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ffcc00}"
-        }
-      ]
-    },
-    "_34": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#75beff}"
-        }
-      ]
-    },
-    "_35": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff000033}"
-        }
-      ],
-      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
-      "patternErrorMessage": "This color must be transparent or it will obscure content"
-    },
-    "_36": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#cccccc33}"
-        }
-      ]
-    },
-    "_37": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#181818}"
-        }
-      ]
-    },
-    "_38": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#0000005c}"
-        }
-      ]
-    },
-    "_39": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#313131}"
-        }
-      ]
-    },
-    "_40": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#5a5d5e50}"
-        }
-      ]
-    },
-    "_41": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#e0e0e0}"
-        }
-      ]
-    },
-    "_42": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -11609,12 +11508,95 @@
       "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
       "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
+    "_34": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#0069cc40}"
+        }
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
+    },
+    "_35": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#1a5cff}"
+        }
+      ]
+    },
+    "_36": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#667309}"
+        }
+      ]
+    },
+    "_37": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#388a34}"
+        }
+      ]
+    },
+    "_38": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#652d90}"
+        }
+      ]
+    },
+    "_39": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#005fb8}"
+        }
+      ]
+    },
+    "_40": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#dadada99}"
+        }
+      ]
+    },
+    "_41": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#dadada4f}"
+        }
+      ]
+    },
+    "_42": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#8e8e90}"
+        }
+      ]
+    },
     "_43": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#ff1212b3}"
+          "body": "${1:#a9a9a9}"
         }
       ]
     },
@@ -11623,7 +11605,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#ea5c0055}"
+          "body": "${1:#2020200a}"
         }
       ]
     },
@@ -11632,7 +11614,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#89d185}"
+          "body": "${1:#b8b8b850}"
         }
       ]
     },
@@ -11641,7 +11623,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#b180d7}"
+          "body": "${1:#0069cc26}"
         }
       ]
     },
@@ -11650,7 +11632,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#04395e}"
+          "body": "${1:#999999}"
         }
       ]
     },
@@ -11659,7 +11641,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#37373d}"
+          "body": "${1:#b69500}"
         }
       ]
     },
@@ -11668,7 +11650,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#2aaaff}"
+          "body": "${1:#d8d8d8}"
         }
       ]
     },
@@ -11677,7 +11659,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#b89500}"
+          "body": "${1:#ffffff66}"
         }
       ]
     },
@@ -11686,7 +11668,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#00000000}"
+          "body": "${1:#eeeef1}"
         }
       ]
     },
@@ -11695,7 +11677,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#be1100}"
+          "body": "${1:#f2f3f4}"
         }
       ]
     },
@@ -11704,7 +11686,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#8c8c8c}"
+          "body": "${1:#20202033}"
         }
       ]
     },
@@ -11713,7 +11695,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#585858}"
+          "body": "${1:#3b3b3b}"
         }
       ]
     },
@@ -11722,7 +11704,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#cccccc0a}"
+          "body": "${1:#eaeaea40}"
         }
       ]
     },
@@ -11731,7 +11713,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#2488db}"
+          "body": "${1:#60606040}"
         }
       ]
     },
@@ -11740,7 +11722,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#5a5d5e80}"
+          "body": "${1:#00000077}"
         }
       ]
     },
@@ -11749,7 +11731,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#2489db82}"
+          "body": "${1:#dddddd}"
         }
       ]
     },
@@ -11758,7 +11740,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#989898}"
+          "body": "${1:#d67e00}"
         }
       ]
     },
@@ -11767,7 +11749,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#007acc}"
+          "body": "${1:#0069cc33}"
         }
       ]
     },
@@ -11776,7 +11758,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#ffffff66}"
+          "body": "${1:#e514001a}"
         }
       ]
     },
@@ -11785,7 +11767,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#026ec1}"
+          "body": "${1:#0063d31a}"
         }
       ]
     },
@@ -11794,7 +11776,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#ffffff1a}"
+          "body": "${1:#20202080}"
         }
       ]
     },
@@ -11803,16 +11785,18 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#222222}"
+          "body": "${1:#ad07071e}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "_65": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#aeafad}"
+          "body": "${1:#ad070726}"
         }
       ]
     },
@@ -11821,7 +11805,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#010409}"
+          "body": "${1:#24320526}"
         }
       ]
     },
@@ -11830,16 +11814,18 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#ffffff56}"
+          "body": "${1:#0069cc26}"
         }
-      ]
+      ],
+      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+      "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
     "_68": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#ee9d28}"
+          "body": "${1:#e5e5e5}"
         }
       ]
     },
@@ -11848,7 +11834,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#252526}"
+          "body": "${1:#2677cb2e}"
         }
       ]
     },
@@ -11857,7 +11843,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#bb800966}"
+          "body": "${1:#cccccc}"
         }
       ]
     },
@@ -11866,7 +11852,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#f14c4c1a}"
+          "body": "${1:#424242}"
         }
       ]
     },
@@ -11875,7 +11861,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#59a4f91a}"
+          "body": "${1:#2020204d}"
         }
       ]
     },
@@ -11884,29 +11870,25 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#264f784d}"
+          "body": "${1:#587c0c}"
         }
-      ],
-      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
-      "patternErrorMessage": "This color must be transparent or it will obscure content"
+      ]
     },
     "_74": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#ff000029}"
+          "body": "${1:#cecece}"
         }
-      ],
-      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
-      "patternErrorMessage": "This color must be transparent or it will obscure content"
+      ]
     },
     "_75": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#ff000033}"
+          "body": "${1:#f3f3f3}"
         }
       ]
     },
@@ -11915,7 +11897,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#9ccc2c33}"
+          "body": "${1:#587c0c1e}"
         }
       ]
     },
@@ -11924,7 +11906,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#ff00004d}"
+          "body": "${1:#0000001a}"
         }
       ]
     },
@@ -11933,177 +11915,20 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#575757b8}"
+          "body": "${1:#df6100}"
         }
-      ],
-      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
-      "patternErrorMessage": "This color must be transparent or it will obscure content"
+      ]
     },
     "_79": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#004972b8}"
+          "body": "${1:#a31515}"
         }
-      ],
-      "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
-      "patternErrorMessage": "This color must be transparent or it will obscure content"
+      ]
     },
     "_80": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ffffff80}"
-        }
-      ]
-    },
-    "_81": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#3399cc80}"
-        }
-      ]
-    },
-    "_82": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ffffff17}"
-        }
-      ]
-    },
-    "_83": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#53595d80}"
-        }
-      ]
-    },
-    "_84": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#f1f1f133}"
-        }
-      ]
-    },
-    "_85": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#b91007}"
-        }
-      ]
-    },
-    "_86": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#d7d7d7}"
-        }
-      ]
-    },
-    "_87": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#e7e7e7}"
-        }
-      ]
-    },
-    "_88": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ffffff0d}"
-        }
-      ]
-    },
-    "_89": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#cccccc4d}"
-        }
-      ]
-    },
-    "_90": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#2ea043}"
-        }
-      ]
-    },
-    "_91": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#81b88b}"
-        }
-      ]
-    },
-    "_92": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#c74e39}"
-        }
-      ]
-    },
-    "_93": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#0078d41a}"
-        }
-      ]
-    },
-    "_94": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#9ccc2c1f}"
-        }
-      ]
-    },
-    "_95": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#e2c08d}"
-        }
-      ]
-    },
-    "_96": {
-      "type": "string",
-      "format": "color-hex",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff8e00}"
-        }
-      ]
-    },
-    "_97": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -12112,7 +11937,16 @@
         }
       ]
     },
-    "_98": {
+    "_81": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#f14c4c}"
+        }
+      ]
+    },
+    "_82": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -12121,7 +11955,7 @@
         }
       ]
     },
-    "_99": {
+    "_83": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -12130,7 +11964,7 @@
         }
       ]
     },
-    "_100": {
+    "_84": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -12139,32 +11973,68 @@
         }
       ]
     },
-    "_101": {
+    "_85": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#f48771}"
+          "body": "${1:#a1260d}"
         }
       ]
     },
-    "_102": {
+    "_86": {
       "description": "Debug toolbar icon for step over.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_34"
+          "$ref": "#/$defs/_30"
         },
         {
           "$ref": "#/$defs/_1"
         }
       ]
     },
-    "_103": {
+    "_87": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#e5e5e5}"
+          "body": "${1:#ffa600}"
+        }
+      ]
+    },
+    "_88": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#cd3131}"
+        }
+      ]
+    },
+    "_89": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#0451a5}"
+        }
+      ]
+    },
+    "_90": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#bc05bc}"
+        }
+      ]
+    },
+    "_91": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#0598bc}"
         }
       ]
     }
