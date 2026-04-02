@@ -545,6 +545,8 @@
                 "call-incoming",
                 "call-outgoing",
                 "case-sensitive",
+                "chat-export",
+                "chat-import",
                 "chat-sparkle",
                 "chat-sparkle-error",
                 "chat-sparkle-warning",
@@ -1223,6 +1225,8 @@
                 "$(call-incoming)",
                 "$(call-outgoing)",
                 "$(case-sensitive)",
+                "$(chat-export)",
+                "$(chat-import)",
                 "$(chat-sparkle)",
                 "$(chat-sparkle-error)",
                 "$(chat-sparkle-warning)",
@@ -4447,7 +4451,9 @@
             "thumbsup-filled",
             "git-fetch",
             "lightbulb-sparkle-autofix",
-            "debug-breakpoint-pending"
+            "debug-breakpoint-pending",
+            "chat-import",
+            "chat-export"
           ],
           "markdownEnumDescriptions": [
             "$(add)",
@@ -5125,7 +5131,9 @@
             "$(thumbsup-filled)",
             "$(git-fetch)",
             "$(lightbulb-sparkle-autofix)",
-            "$(debug-breakpoint-pending)"
+            "$(debug-breakpoint-pending)",
+            "$(chat-import)",
+            "$(chat-export)"
           ]
         },
         "color": {

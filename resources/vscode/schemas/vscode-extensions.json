@@ -415,7 +415,7 @@
           "description": "Contributes chatAgents for chat prompts.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/_21"
+            "$ref": "#/$defs/_26"
           }
         },
         "chatContext": {
@@ -425,14 +425,14 @@
             "type": "object",
             "properties": {
               "displayName": {
-                "$ref": "#/$defs/_32"
+                "$ref": "#/$defs/_33"
               },
               "icon": {
                 "description": "The icon associated with this chat context item.",
                 "type": "string"
               },
               "id": {
-                "$ref": "#/$defs/_31"
+                "$ref": "#/$defs/_32"
               }
             },
             "required": [
@@ -446,7 +446,7 @@
           "description": "Contributes chatInstructions for chat prompts.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/_21"
+            "$ref": "#/$defs/_26"
           }
         },
         "chatOutputRenderers": {
@@ -512,7 +512,7 @@
                   ],
                   "properties": {
                     "description": {
-                      "$ref": "#/$defs/_28"
+                      "$ref": "#/$defs/_11"
                     },
                     "disambiguation": {
                       "description": "Metadata to help with automatically routing user questions to this chat command.",
@@ -536,7 +536,7 @@
                         ],
                         "properties": {
                           "category": {
-                            "$ref": "#/$defs/_26"
+                            "$ref": "#/$defs/_31"
                           },
                           "description": {
                             "description": "A detailed description of the kinds of questions that are suitable for this chat command.",
@@ -550,17 +550,17 @@
                       }
                     },
                     "isSticky": {
-                      "$ref": "#/$defs/_25"
+                      "$ref": "#/$defs/_30"
                     },
                     "name": {
-                      "$ref": "#/$defs/_27"
+                      "$ref": "#/$defs/_10"
                     },
                     "sampleRequest": {
                       "description": "When the user clicks this command in `/help`, this text will be submitted to the participant.",
                       "type": "string"
                     },
                     "when": {
-                      "$ref": "#/$defs/_29"
+                      "$ref": "#/$defs/_12"
                     }
                   }
                 }
@@ -591,7 +591,7 @@
                   ],
                   "properties": {
                     "category": {
-                      "$ref": "#/$defs/_26"
+                      "$ref": "#/$defs/_31"
                     },
                     "description": {
                       "description": "A detailed description of the kinds of questions that are suitable for this chat participant.",
@@ -613,7 +613,7 @@
                 "type": "string"
               },
               "isSticky": {
-                "$ref": "#/$defs/_25"
+                "$ref": "#/$defs/_30"
               },
               "name": {
                 "description": "User-facing name for this chat participant. The user will use '@' with this name to invoke the participant. Name must not contain whitespace.",
@@ -631,11 +631,39 @@
             }
           }
         },
+        "chatPlugins": {
+          "description": "Contributes agent plugins for chat.",
+          "type": "array",
+          "items": {
+            "additionalProperties": false,
+            "type": "object",
+            "defaultSnippets": [
+              {
+                "body": {
+                  "path": "./relative/path/to/plugin/"
+                }
+              }
+            ],
+            "required": [
+              "path"
+            ],
+            "properties": {
+              "path": {
+                "description": "Path to the agent plugin root directory relative to the extension root.",
+                "type": "string"
+              },
+              "when": {
+                "description": "(Optional) A condition which must be true to enable this plugin.",
+                "type": "string"
+              }
+            }
+          }
+        },
         "chatPromptFiles": {
           "description": "Contributes chatPromptFiles for chat prompts.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/_21"
+            "$ref": "#/$defs/_26"
           }
         },
         "chatSessions": {
@@ -732,13 +760,13 @@
                   ],
                   "properties": {
                     "description": {
-                      "$ref": "#/$defs/_28"
+                      "$ref": "#/$defs/_11"
                     },
                     "name": {
-                      "$ref": "#/$defs/_27"
+                      "$ref": "#/$defs/_10"
                     },
                     "when": {
-                      "$ref": "#/$defs/_29"
+                      "$ref": "#/$defs/_12"
                     }
                   }
                 }
@@ -788,6 +816,11 @@
                 "description": "Unique identifier for the type of chat session.",
                 "type": "string"
               },
+              "useRequestToPopulateBuiltInPickers": {
+                "description": "Whether to use ChatRequestTurn2 to populate built-in pickers such as the Agent and Model pickers.",
+                "type": "boolean",
+                "default": false
+              },
               "welcomeMessage": {
                 "description": "Message text (supports markdown) to display in the chat welcome view for this session type.",
                 "type": "string"
@@ -801,7 +834,7 @@
                 "type": "string"
               },
               "when": {
-                "$ref": "#/$defs/_30"
+                "$ref": "#/$defs/_9"
               }
             },
             "required": [
@@ -830,17 +863,17 @@
             ],
             "properties": {
               "description": {
-                "$ref": "#/$defs/_23"
+                "$ref": "#/$defs/_28"
               },
               "name": {
-                "$ref": "#/$defs/_22"
+                "$ref": "#/$defs/_27"
               },
               "path": {
                 "description": "Path to the SKILL.md file relative to the extension root. The folder name must match the \"name\" property in SKILL.md.",
                 "type": "string"
               },
               "when": {
-                "$ref": "#/$defs/_24"
+                "$ref": "#/$defs/_29"
               }
             }
           }
@@ -957,12 +990,12 @@
           "description": "Contributes commands to the command palette.",
           "oneOf": [
             {
-              "$ref": "#/$defs/_9"
+              "$ref": "#/$defs/_13"
             },
             {
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_9"
+                "$ref": "#/$defs/_13"
               }
             }
           ]
@@ -971,12 +1004,12 @@
           "description": "Contributes configuration settings.",
           "oneOf": [
             {
-              "$ref": "#/$defs/_13"
+              "$ref": "#/$defs/_18"
             },
             {
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_13"
+                "$ref": "#/$defs/_18"
               }
             }
           ]
@@ -1011,7 +1044,7 @@
                 "type": "string"
               },
               "when": {
-                "$ref": "#/$defs/_30"
+                "$ref": "#/$defs/_9"
               }
             },
             "required": [
@@ -1076,7 +1109,7 @@
                 "description": "Human readable name of the custom editor. This is displayed to users when selecting which editor to use."
               },
               "priority": {
-                "$ref": "#/$defs/_20"
+                "$ref": "#/$defs/_25"
               },
               "selector": {
                 "type": "array",
@@ -2034,6 +2067,8 @@
                       "git-fetch",
                       "lightbulb-sparkle-autofix",
                       "debug-breakpoint-pending",
+                      "chat-import",
+                      "chat-export",
                       "widget-close",
                       "goto-previous-location",
                       "goto-next-location",
@@ -2233,27 +2268,7 @@
                       "terminal-command-history-output",
                       "terminal-command-history-fuzzy-search",
                       "terminal-command-history-open-file",
-                      "search-details",
-                      "search-see-more",
-                      "search-show-context",
-                      "search-hide-replace",
-                      "search-show-replace",
-                      "search-replace-all",
-                      "search-replace",
-                      "search-remove",
-                      "search-refresh",
-                      "search-collapse-results",
-                      "search-expand-results",
-                      "search-tree",
-                      "search-list",
-                      "search-clear-results",
-                      "search-view-icon",
-                      "search-new-editor",
-                      "search-open-in-file",
-                      "search-sparkle-filled",
-                      "search-sparkle-empty",
                       "find-filter",
-                      "search-editor-label-icon",
                       "extensions-editor-label-icon",
                       "runtime-extensions-editor-label-icon",
                       "agent-plugin-editor-icon",
@@ -2282,6 +2297,26 @@
                       "mcp-server-starred",
                       "mcp-server-license",
                       "chat-view-icon",
+                      "search-details",
+                      "search-see-more",
+                      "search-show-context",
+                      "search-hide-replace",
+                      "search-show-replace",
+                      "search-replace-all",
+                      "search-replace",
+                      "search-remove",
+                      "search-refresh",
+                      "search-collapse-results",
+                      "search-expand-results",
+                      "search-tree",
+                      "search-list",
+                      "search-clear-results",
+                      "search-view-icon",
+                      "search-new-editor",
+                      "search-open-in-file",
+                      "search-sparkle-filled",
+                      "search-sparkle-empty",
+                      "search-editor-label-icon",
                       "start-inline-chat",
                       "repl-editor-label-icon",
                       "test-view-icon",
@@ -3053,6 +3088,8 @@
                       "",
                       "",
                       "Icon for breakpoints waiting on another breakpoint.",
+                      "",
+                      "",
                       "Icon for the close action in widgets.",
                       "Icon for goto previous editor location.",
                       "Icon for goto next editor location.",
@@ -3252,27 +3289,7 @@
                       "Icon for viewing output of a terminal command.",
                       "Icon for toggling fuzzy search of command history.",
                       "Icon for opening a shell history file.",
-                      "Icon to make search details visible.",
-                      "Icon to view more context in the search view.",
-                      "Icon for toggle the context in the search editor.",
-                      "Icon to collapse the replace section in the search view.",
-                      "Icon to expand the replace section in the search view.",
-                      "Icon for replace all in the search view.",
-                      "Icon for replace in the search view.",
-                      "Icon to remove a search result.",
-                      "Icon for refresh in the search view.",
-                      "Icon for collapse results in the search view.",
-                      "Icon for expand results in the search view.",
-                      "Icon for viewing results as a tree in the search view.",
-                      "Icon for viewing results as a list in the search view.",
-                      "Icon for clear results in the search view.",
-                      "View icon of the search view.",
-                      "Icon for the action to open a new search editor.",
-                      "Icon for the action to go to the file of the current search result.",
-                      "Icon to show AI results in search.",
-                      "Icon to hide AI results in search.",
                       "Icon for Find Filter in find widget.",
-                      "Icon of the search editor label.",
                       "Icon of the extensions editor label.",
                       "Icon of the runtime extensions editor label.",
                       "Icon of the Agent Plugin editor.",
@@ -3301,6 +3318,26 @@
                       "Icon shown along with the starred status.",
                       "Icon shown along with the license status.",
                       "View icon of the chat view.",
+                      "Icon to make search details visible.",
+                      "Icon to view more context in the search view.",
+                      "Icon for toggle the context in the search editor.",
+                      "Icon to collapse the replace section in the search view.",
+                      "Icon to expand the replace section in the search view.",
+                      "Icon for replace all in the search view.",
+                      "Icon for replace in the search view.",
+                      "Icon to remove a search result.",
+                      "Icon for refresh in the search view.",
+                      "Icon for collapse results in the search view.",
+                      "Icon for expand results in the search view.",
+                      "Icon for viewing results as a tree in the search view.",
+                      "Icon for viewing results as a list in the search view.",
+                      "Icon for clear results in the search view.",
+                      "View icon of the search view.",
+                      "Icon for the action to open a new search editor.",
+                      "Icon for the action to go to the file of the current search result.",
+                      "Icon to show AI results in search.",
+                      "Icon to hide AI results in search.",
+                      "Icon of the search editor label.",
                       "Icon which spawns the inline chat from the editor toolbar.",
                       "Icon of the REPL editor label.",
                       "View icon of the test view.",
@@ -3540,12 +3577,12 @@
           "description": "Contributes keybindings.",
           "oneOf": [
             {
-              "$ref": "#/$defs/_18"
+              "$ref": "#/$defs/_23"
             },
             {
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_18"
+                "$ref": "#/$defs/_23"
               }
             }
           ]
@@ -3908,615 +3945,628 @@
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - The Chat Sessions menu.",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_10"
+                "$ref": "#/$defs/_14"
               }
             },
             "chat/contextUsage/actions": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatParticipantAdditions\"]` - Actions in the chat context usage details popup.",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
+              }
+            },
+            "chat/customizations/create": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionCustomizationProvider\"]` - The create button in the Chat Customizations management editor.",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/_14"
               }
             },
             "chat/editor/inlineGutter": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribChatEditorInlineGutterMenu\"]` - The inline gutter menu in the chat editor.",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_10"
+                "$ref": "#/$defs/_14"
               }
             },
             "chat/input/editing/sessionApplyActions": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - Submenu for apply actions in the Chat Editing session changes toolbar.",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
+              }
+            },
+            "chat/input/editing/sessionChangeToolbar": {
+              "$ref": "#/$defs/_17"
+            },
+            "chat/input/editing/sessionTitleToolbar": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - The Chat Editing widget toolbar menu for session title.",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/_15"
               }
             },
             "chat/input/editing/sessionToolbar": {
-              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - The Chat Editing widget toolbar menu for session changes.",
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/_11"
-              }
+              "$ref": "#/$defs/_17"
             },
             "chat/multiDiff/context": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - The Chat Multi-Diff context menu.",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_10"
+                "$ref": "#/$defs/_14"
               }
             },
             "chat/newSession": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - The Chat new session menu.",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "chatSessions/newSession": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - Menu for new chat sessions.",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_10"
+                "$ref": "#/$defs/_14"
               }
             },
             "commandPalette": {
               "markdownDescription": "The Command Palette",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_10"
+                "$ref": "#/$defs/_14"
               }
             },
             "comments/comment/context": {
               "markdownDescription": "The contributed comment context menu, rendered as buttons below the comment editor",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_10"
+                "$ref": "#/$defs/_14"
               }
             },
             "comments/comment/editorActions": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribCommentEditorActionsMenu\"]` - The contributed comment editor actions",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "comments/comment/title": {
               "markdownDescription": "The contributed comment title menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "comments/commentThread/additionalActions": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribCommentThreadAdditionalMenu\"]` - The contributed comment thread context menu, rendered as buttons below the comment editor",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "comments/commentThread/comment/context": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribCommentPeekContext\"]` - The contributed comment context menu, rendered as a right click menu on the an individual comment in the comment thread's peek view.",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "comments/commentThread/context": {
               "markdownDescription": "The contributed comment thread context menu, rendered as buttons below the comment editor",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_10"
+                "$ref": "#/$defs/_14"
               }
             },
             "comments/commentThread/title": {
               "markdownDescription": "The contributed comment thread title menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "comments/commentThread/title/context": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribCommentPeekContext\"]` - The contributed comment thread title's peek context menu, rendered as a right click menu on the comment thread's peek title.",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "commentsView/commentThread/context": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribCommentsViewThreadMenus\"]` - The contributed comment thread context menu in the comments view",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "debug/callstack/context": {
               "markdownDescription": "The debug callstack view context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "debug/createConfiguration": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribDebugCreateConfiguration\"]` - The debug create configuration menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "debug/toolBar": {
               "markdownDescription": "The debug toolbar menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "debug/variables/context": {
               "markdownDescription": "The debug variables view context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "debug/watch/context": {
               "markdownDescription": "The debug watch view context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "diffEditor/gutter/hunk": {
-              "$ref": "#/$defs/_12"
+              "$ref": "#/$defs/_16"
             },
             "diffEditor/gutter/selection": {
-              "$ref": "#/$defs/_12"
+              "$ref": "#/$defs/_16"
             },
             "editor/content": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribEditorContentMenu\"]` - The prominent button in an editor, overlays its content",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "editor/context": {
               "markdownDescription": "The editor context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "editor/context/chat": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatParticipantPrivate\"]` - The Chat submenu in the text editor context menu.",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_10"
+                "$ref": "#/$defs/_14"
               }
             },
             "editor/context/copy": {
               "markdownDescription": "'Copy as' submenu in the editor context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "editor/context/share": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribShareMenu\"]` - 'Share' submenu in the editor context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "editor/inlineCompletions/actions": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"inlineCompletionsAdditions\"]` - The actions shown when hovering on an inline completion",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_10"
+                "$ref": "#/$defs/_14"
               }
             },
             "editor/lineNumber/context": {
               "markdownDescription": "The contributed editor line number context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "editor/title": {
               "markdownDescription": "The editor title menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "editor/title/context": {
               "markdownDescription": "The editor tabs context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "editor/title/context/share": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribShareMenu\"]` - 'Share' submenu inside the editor title context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "editor/title/run": {
               "markdownDescription": "Run submenu inside the editor title menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "explorer/context": {
               "markdownDescription": "The file explorer context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "explorer/context/share": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribShareMenu\"]` - 'Share' submenu in the file explorer context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "extension/context": {
               "markdownDescription": "The extension context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "file/newFile": {
               "markdownDescription": "The 'New File...' quick pick, shown on welcome page and File menu.",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_10"
+                "$ref": "#/$defs/_14"
               }
             },
             "file/share": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribShareMenu\"]` - Share submenu shown in the top level File menu.",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "interactive/cell/title": {
               "markdownDescription": "The contributed interactive cell title menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "interactive/toolbar": {
               "markdownDescription": "The contributed interactive toolbar menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "issue/reporter": {
               "markdownDescription": "The contributed issue reporter menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "menuBar/edit/copy": {
               "markdownDescription": "'Copy as' submenu in the top level Edit menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "menuBar/home": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribMenuBarHome\"]` - The home indicator context menu (web only)",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_10"
+                "$ref": "#/$defs/_14"
               }
             },
             "mergeEditor/result/title": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribMergeEditorMenus\"]` - The result toolbar of the merge editor",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "modalEditor/editorTitle": {
               "markdownDescription": "The editor title menu in the modal editor",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "multiDiffEditor/content": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribEditorContentMenu\"]` - A prominent button overlaying the multi diff editor",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "multiDiffEditor/resource/title": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribMultiDiffEditorMenus\"]` - The resource toolbar in the multi diff editor",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "notebook/cell/execute": {
               "markdownDescription": "The contributed notebook cell execution menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "notebook/cell/title": {
               "markdownDescription": "The contributed notebook cell title menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "notebook/kernelSource": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"notebookKernelSource\"]` - The contributed notebook kernel sources menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "notebook/toolbar": {
               "markdownDescription": "The contributed notebook toolbar menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "notebook/variables/context": {
               "markdownDescription": "The notebook variables view context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "ports/item/context": {
               "markdownDescription": "The Ports view item context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "ports/item/origin/inline": {
               "markdownDescription": "The Ports view item origin inline menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "ports/item/port/inline": {
               "markdownDescription": "The Ports view item port inline menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "scm/artifact/context": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlArtifactMenu\"]` - The Source Control artifact context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "scm/artifactGroup/context": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlArtifactGroupMenu\"]` - The Source Control artifact group context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "scm/change/title": {
               "markdownDescription": "The Source Control inline change menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "scm/history/title": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlHistoryTitleMenu\"]` - The Source Control History title menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "scm/historyItem/context": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlHistoryItemMenu\"]` - The Source Control history item context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "scm/historyItemRef/context": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlHistoryItemMenu\"]` - The Source Control history item reference context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "scm/inputBox": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlInputBoxMenu\"]` - The Source Control input box menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "scm/repositories/title": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribSourceControlTitleMenu\"]` - The Source Control Repositories title menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "scm/repository": {
               "markdownDescription": "The Source Control repository menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "scm/resourceFolder/context": {
               "markdownDescription": "The Source Control resource folder context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "scm/resourceGroup/context": {
               "markdownDescription": "The Source Control resource group context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "scm/resourceState/context": {
               "markdownDescription": "The Source Control resource state context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "scm/sourceControl": {
               "markdownDescription": "The Source Control menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "scm/title": {
               "markdownDescription": "The Source Control title menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "searchPanel/aiResults/commands": {
               "markdownDescription": "The commands that will contribute to the menu rendered as buttons next to the AI search title",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "statusBar/remoteIndicator": {
               "markdownDescription": "The remote indicator menu in the status bar",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_10"
+                "$ref": "#/$defs/_14"
               }
             },
             "terminal/context": {
               "markdownDescription": "The terminal context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "terminal/title/context": {
               "markdownDescription": "The terminal tabs context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "testing/item/context": {
               "markdownDescription": "The contributed test item menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "testing/item/gutter": {
               "markdownDescription": "The menu for a gutter decoration for a test item",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "testing/item/result": {
               "markdownDescription": "The menu for an item in the Test Results view or peek.",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "testing/message/content": {
               "markdownDescription": "Context menu for the message in the results tree",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "testing/message/context": {
               "markdownDescription": "A prominent button overlaying editor content where the message is displayed",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "testing/profiles/context": {
               "markdownDescription": "The menu for configuring testing profiles.",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "timeline/item/context": {
               "markdownDescription": "The Timeline view item context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "timeline/title": {
               "markdownDescription": "The Timeline view title menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "touchBar": {
               "markdownDescription": "The touch bar (macOS only)",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_10"
+                "$ref": "#/$defs/_14"
               }
             },
             "view/item/context": {
               "markdownDescription": "The contributed view item context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "view/title": {
               "markdownDescription": "The contributed view title menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "viewContainer/title": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribViewContainerTitle\"]` - The contributed view container title menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             },
             "webview/context": {
               "markdownDescription": "The webview context menu",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_11"
+                "$ref": "#/$defs/_15"
               }
             }
           },
@@ -4524,7 +4574,7 @@
             "description": "Submenu",
             "type": "array",
             "items": {
-              "$ref": "#/$defs/_11"
+              "$ref": "#/$defs/_15"
             }
           }
         },
@@ -4560,7 +4610,7 @@
                 "description": "Paths to additional resources that should be allowed in the webview."
               },
               "type": {
-                "$ref": "#/$defs/_19"
+                "$ref": "#/$defs/_24"
               }
             }
           }
@@ -4725,7 +4775,7 @@
                 "description": "Human readable name of the notebook."
               },
               "priority": {
-                "$ref": "#/$defs/_20"
+                "$ref": "#/$defs/_25"
               },
               "selector": {
                 "type": "array",
@@ -4745,7 +4795,7 @@
                 }
               },
               "type": {
-                "$ref": "#/$defs/_19"
+                "$ref": "#/$defs/_24"
               }
             }
           }
@@ -4778,7 +4828,7 @@
                   "beginsPattern": {
                     "oneOf": [
                       {
-                        "$ref": "#/$defs/_49"
+                        "$ref": "#/$defs/_50"
                       },
                       {
                         "type": "string"
@@ -4789,7 +4839,7 @@
                   "endsPattern": {
                     "oneOf": [
                       {
-                        "$ref": "#/$defs/_49"
+                        "$ref": "#/$defs/_50"
                       },
                       {
                         "type": "string"
@@ -4806,13 +4856,13 @@
               "fileLocation": {
                 "oneOf": [
                   {
-                    "$ref": "#/$defs/_47"
+                    "$ref": "#/$defs/_48"
                   },
                   {
                     "type": "array",
                     "prefixItems": [
                       {
-                        "$ref": "#/$defs/_47"
+                        "$ref": "#/$defs/_48"
                       }
                     ],
                     "minItems": 1,
@@ -4860,10 +4910,10 @@
                         "type": "object",
                         "properties": {
                           "include": {
-                            "$ref": "#/$defs/_48"
+                            "$ref": "#/$defs/_49"
                           },
                           "exclude": {
-                            "$ref": "#/$defs/_48"
+                            "$ref": "#/$defs/_49"
                           }
                         },
                         "required": [
@@ -4912,12 +4962,12 @@
               "pattern": {
                 "anyOf": [
                   {
-                    "$ref": "#/$defs/_46"
+                    "$ref": "#/$defs/_47"
                   },
                   {
                     "type": "array",
                     "items": {
-                      "$ref": "#/$defs/_46"
+                      "$ref": "#/$defs/_47"
                     }
                   },
                   {
@@ -4953,7 +5003,7 @@
                   "beginsPattern": {
                     "oneOf": [
                       {
-                        "$ref": "#/$defs/_49"
+                        "$ref": "#/$defs/_50"
                       },
                       {
                         "type": "string"
@@ -4964,7 +5014,7 @@
                   "endsPattern": {
                     "oneOf": [
                       {
-                        "$ref": "#/$defs/_49"
+                        "$ref": "#/$defs/_50"
                       },
                       {
                         "type": "string"
@@ -4993,44 +5043,44 @@
                 "additionalProperties": false,
                 "properties": {
                   "code": {
-                    "$ref": "#/$defs/_43"
+                    "$ref": "#/$defs/_44"
                   },
                   "column": {
-                    "$ref": "#/$defs/_39"
-                  },
-                  "endColumn": {
-                    "$ref": "#/$defs/_41"
-                  },
-                  "endLine": {
                     "$ref": "#/$defs/_40"
                   },
+                  "endColumn": {
+                    "$ref": "#/$defs/_42"
+                  },
+                  "endLine": {
+                    "$ref": "#/$defs/_41"
+                  },
                   "file": {
-                    "$ref": "#/$defs/_36"
-                  },
-                  "kind": {
-                    "$ref": "#/$defs/_35"
-                  },
-                  "line": {
-                    "$ref": "#/$defs/_38"
-                  },
-                  "location": {
                     "$ref": "#/$defs/_37"
                   },
+                  "kind": {
+                    "$ref": "#/$defs/_36"
+                  },
+                  "line": {
+                    "$ref": "#/$defs/_39"
+                  },
+                  "location": {
+                    "$ref": "#/$defs/_38"
+                  },
                   "loop": {
-                    "$ref": "#/$defs/_45"
+                    "$ref": "#/$defs/_46"
                   },
                   "message": {
-                    "$ref": "#/$defs/_44"
+                    "$ref": "#/$defs/_45"
                   },
                   "name": {
                     "type": "string",
                     "description": "The name of the problem pattern."
                   },
                   "regexp": {
-                    "$ref": "#/$defs/_34"
+                    "$ref": "#/$defs/_35"
                   },
                   "severity": {
-                    "$ref": "#/$defs/_42"
+                    "$ref": "#/$defs/_43"
                   }
                 }
               },
@@ -5046,7 +5096,7 @@
                     "type": "array",
                     "description": "The actual patterns.",
                     "items": {
-                      "$ref": "#/$defs/_46"
+                      "$ref": "#/$defs/_47"
                     }
                   }
                 }
@@ -5103,17 +5153,17 @@
                 "type": "string"
               },
               "displayName": {
-                "$ref": "#/$defs/_32"
+                "$ref": "#/$defs/_33"
               },
               "followUpRegex": {
                 "description": "The last occurrence of pattern in an existing chat conversation is sent to the contributing extension to facilitate follow-up responses.",
                 "type": "string"
               },
               "id": {
-                "$ref": "#/$defs/_31"
+                "$ref": "#/$defs/_32"
               },
               "when": {
-                "$ref": "#/$defs/_30"
+                "$ref": "#/$defs/_9"
               }
             },
             "required": [
@@ -5523,7 +5573,7 @@
                 ]
               },
               "commandLineMatcher": {
-                "$ref": "#/$defs/_33"
+                "$ref": "#/$defs/_34"
               },
               "id": {
                 "description": "The ID of the quick fix provider",
@@ -5562,7 +5612,7 @@
                     "type": "number"
                   },
                   "lineMatcher": {
-                    "$ref": "#/$defs/_33"
+                    "$ref": "#/$defs/_34"
                   },
                   "offset": {
                     "description": "The number of lines vertically from the anchor in the buffer to start matching against",
@@ -5625,7 +5675,7 @@
               "description": "Contributes views to Debug container in the Activity bar",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_15"
+                "$ref": "#/$defs/_20"
               },
               "default": []
             },
@@ -5633,7 +5683,7 @@
               "description": "Contributes views to Explorer container in the Activity bar",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_15"
+                "$ref": "#/$defs/_20"
               },
               "default": []
             },
@@ -5656,7 +5706,7 @@
                     "type": "string"
                   },
                   "name": {
-                    "$ref": "#/$defs/_16"
+                    "$ref": "#/$defs/_21"
                   },
                   "remoteName": {
                     "description": "The name of the remote type associated with this view",
@@ -5669,7 +5719,7 @@
                     }
                   },
                   "when": {
-                    "$ref": "#/$defs/_17"
+                    "$ref": "#/$defs/_22"
                   }
                 }
               },
@@ -5679,7 +5729,7 @@
               "description": "Contributes views to SCM container in the Activity bar",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_15"
+                "$ref": "#/$defs/_20"
               },
               "default": []
             },
@@ -5687,7 +5737,7 @@
               "description": "Contributes views to Test container in the Activity bar",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_15"
+                "$ref": "#/$defs/_20"
               },
               "default": []
             }
@@ -5696,7 +5746,7 @@
             "description": "Contributes views to contributed views container",
             "type": "array",
             "items": {
-              "$ref": "#/$defs/_15"
+              "$ref": "#/$defs/_20"
             },
             "default": []
           }
@@ -5709,21 +5759,21 @@
               "description": "Contribute views containers to Activity Bar",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_14"
+                "$ref": "#/$defs/_19"
               }
             },
             "panel": {
               "description": "Contribute views containers to Panel",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_14"
+                "$ref": "#/$defs/_19"
               }
             },
             "secondarySidebar": {
               "description": "Contribute views containers to Secondary Side Bar",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_14"
+                "$ref": "#/$defs/_19"
               }
             }
           },
@@ -5930,7 +5980,7 @@
                           "additionalProperties": false,
                           "properties": {
                             "altText": {
-                              "$ref": "#/$defs/_51"
+                              "$ref": "#/$defs/_52"
                             },
                             "image": {
                               "description": "Path to an image - or object consisting of paths to light, dark, and hc images - relative to extension directory. Depending on context, the image will be displayed from 400px to 800px wide, with similar bounds on height. To support HIDPI displays, the image will be rendered at 1.5x scaling, for example a 900 physical pixels wide image will be displayed as 600 logical pixels wide.",
@@ -5968,7 +6018,7 @@
                               ]
                             },
                             "path": {
-                              "$ref": "#/$defs/_50"
+                              "$ref": "#/$defs/_51"
                             }
                           }
                         },
@@ -5983,7 +6033,7 @@
                               "type": "string"
                             },
                             "path": {
-                              "$ref": "#/$defs/_50"
+                              "$ref": "#/$defs/_51"
                             }
                           }
                         },
@@ -5995,7 +6045,7 @@
                           "additionalProperties": false,
                           "properties": {
                             "altText": {
-                              "$ref": "#/$defs/_51"
+                              "$ref": "#/$defs/_52"
                             },
                             "svg": {
                               "description": "Path to an svg, color tokens are supported in variables to support theming to match the workbench.",
@@ -6063,6 +6113,7 @@
           "chatProvider",
           "chatReferenceBinaryData",
           "chatReferenceDiagnostic",
+          "chatSessionCustomizationProvider",
           "chatSessionsProvider",
           "chatStatusItem",
           "chatTab",
@@ -6231,6 +6282,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatReferenceBinaryData.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatReferenceDiagnostic.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatSessionCustomizationProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatSessionsProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatStatusItem.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatTab.d.ts",
@@ -6398,7 +6450,7 @@
       "type": "array",
       "uniqueItems": true,
       "items": {
-        "$ref": "#/$defs/_52"
+        "$ref": "#/$defs/_53"
       }
     },
     "extensionDependencies": {
@@ -6406,7 +6458,7 @@
       "type": "array",
       "uniqueItems": true,
       "items": {
-        "$ref": "#/$defs/_52"
+        "$ref": "#/$defs/_53"
       }
     },
     "extensionKind": {
@@ -6464,7 +6516,7 @@
       "type": "array",
       "uniqueItems": true,
       "items": {
-        "$ref": "#/$defs/_52"
+        "$ref": "#/$defs/_53"
       }
     },
     "galleryBanner": {
@@ -8500,11 +8552,11 @@
                 "properties": {
                   "type": "object",
                   "additionalProperties": {
-                    "$ref": "#/$defs/_53"
+                    "$ref": "#/$defs/_54"
                   }
                 },
                 "additionalProperties": {
-                  "$ref": "#/$defs/_53"
+                  "$ref": "#/$defs/_54"
                 }
               }
             }
@@ -8545,6 +8597,22 @@
       "$ref": "http://json-schema.org/draft-07/schema#"
     },
     "_9": {
+      "description": "Condition which must be true to show this item.",
+      "type": "string"
+    },
+    "_10": {
+      "description": "A short name by which this command is referred to in the UI, e.g. `fix` or `explain` for commands that fix an issue or explain code. The name should be unique among the commands provided by this participant.",
+      "type": "string"
+    },
+    "_11": {
+      "description": "A description of this command.",
+      "type": "string"
+    },
+    "_12": {
+      "description": "A condition which must be true to enable this command.",
+      "type": "string"
+    },
+    "_13": {
       "type": "object",
       "required": [
         "command",
@@ -8584,7 +8652,7 @@
         }
       }
     },
-    "_10": {
+    "_14": {
       "type": "object",
       "required": [
         "command"
@@ -8599,17 +8667,17 @@
           "type": "string"
         },
         "when": {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_55"
         },
         "group": {
-          "$ref": "#/$defs/_55"
+          "$ref": "#/$defs/_56"
         }
       }
     },
-    "_11": {
+    "_15": {
       "oneOf": [
         {
-          "$ref": "#/$defs/_10"
+          "$ref": "#/$defs/_14"
         },
         {
           "type": "object",
@@ -8622,23 +8690,30 @@
               "type": "string"
             },
             "when": {
-              "$ref": "#/$defs/_54"
+              "$ref": "#/$defs/_55"
             },
             "group": {
-              "$ref": "#/$defs/_55"
+              "$ref": "#/$defs/_56"
             }
           }
         }
       ]
     },
-    "_12": {
+    "_16": {
       "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"contribDiffEditorGutterToolBarMenus\"]` - The gutter toolbar in the diff editor",
       "type": "array",
       "items": {
-        "$ref": "#/$defs/_11"
+        "$ref": "#/$defs/_15"
       }
     },
-    "_13": {
+    "_17": {
+      "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - The Chat Editing widget toolbar menu for session changes.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/_15"
+      }
+    },
+    "_18": {
       "type": "object",
       "defaultSnippets": [
         {
@@ -8785,7 +8860,7 @@
         }
       }
     },
-    "_14": {
+    "_19": {
       "type": "object",
       "properties": {
         "id": {
@@ -8808,7 +8883,7 @@
         "icon"
       ]
     },
-    "_15": {
+    "_20": {
       "type": "object",
       "required": [
         "id",
@@ -8842,10 +8917,10 @@
           "type": "string"
         },
         "name": {
-          "$ref": "#/$defs/_16"
+          "$ref": "#/$defs/_21"
         },
         "when": {
-          "$ref": "#/$defs/_17"
+          "$ref": "#/$defs/_22"
         },
         "icon": {
           "description": "Path to the view icon. View icons are displayed when the name of the view cannot be shown. It is recommended that icons be in SVG, though any image file type is accepted.",
@@ -8880,15 +8955,15 @@
         }
       }
     },
-    "_16": {
+    "_21": {
       "description": "The human-readable name of the view. Will be shown",
       "type": "string"
     },
-    "_17": {
+    "_22": {
       "description": "Condition which must be true to show this view",
       "type": "string"
     },
-    "_18": {
+    "_23": {
       "type": "object",
       "default": {
         "command": "",
@@ -8928,11 +9003,11 @@
         }
       }
     },
-    "_19": {
+    "_24": {
       "type": "string",
       "description": "Type of the notebook."
     },
-    "_20": {
+    "_25": {
       "type": "string",
       "markdownDeprecationMessage": "Controls if the custom editor is enabled automatically when the user opens a file. This may be overridden by users using the `workbench.editorAssociations` setting.",
       "enum": [
@@ -8945,7 +9020,7 @@
       ],
       "default": "default"
     },
-    "_21": {
+    "_26": {
       "additionalProperties": false,
       "type": "object",
       "defaultSnippets": [
@@ -8964,115 +9039,99 @@
           "type": "string"
         },
         "name": {
-          "$ref": "#/$defs/_22"
+          "$ref": "#/$defs/_27"
         },
         "description": {
-          "$ref": "#/$defs/_23"
+          "$ref": "#/$defs/_28"
         },
         "when": {
-          "$ref": "#/$defs/_24"
+          "$ref": "#/$defs/_29"
         }
       }
     },
-    "_22": {
+    "_27": {
       "description": "(Optional) Name for this entry.",
       "deprecationMessage": "Specify \"name\" in the prompt file itself instead.",
       "type": "string"
     },
-    "_23": {
+    "_28": {
       "description": "(Optional) Description of the entry.",
       "deprecationMessage": "Specify \"description\" in the prompt file itself instead.",
       "type": "string"
     },
-    "_24": {
+    "_29": {
       "description": "(Optional) A condition which must be true to enable this entry.",
       "type": "string"
     },
-    "_25": {
+    "_30": {
       "description": "Whether invoking the command puts the chat into a persistent mode, where the command is automatically added to the chat input for the next message.",
       "type": "boolean"
     },
-    "_26": {
+    "_31": {
       "markdownDescription": "A detailed name for this category, e.g. `workspace_questions` or `web_questions`.",
       "type": "string"
     },
-    "_27": {
-      "description": "A short name by which this command is referred to in the UI, e.g. `fix` or `explain` for commands that fix an issue or explain code. The name should be unique among the commands provided by this participant.",
-      "type": "string"
-    },
-    "_28": {
-      "description": "A description of this command.",
-      "type": "string"
-    },
-    "_29": {
-      "description": "A condition which must be true to enable this command.",
-      "type": "string"
-    },
-    "_30": {
-      "description": "Condition which must be true to show this item.",
-      "type": "string"
-    },
-    "_31": {
+    "_32": {
       "description": "A unique identifier for this item.",
       "type": "string"
     },
-    "_32": {
+    "_33": {
       "description": "A user-friendly name for this item which is used for display in menus.",
       "type": "string"
     },
-    "_33": {
+    "_34": {
       "description": "A regular expression or string to test the command line against",
       "type": "string"
     },
-    "_34": {
+    "_35": {
       "type": "string",
       "description": "The regular expression to find an error, warning or info in the output."
     },
-    "_35": {
+    "_36": {
       "type": "string",
       "description": "whether the pattern matches a location (file and line) or only a file."
     },
-    "_36": {
+    "_37": {
       "type": "integer",
       "description": "The match group index of the filename. If omitted 1 is used."
     },
-    "_37": {
+    "_38": {
       "type": "integer",
       "description": "The match group index of the problem's location. Valid location patterns are: (line), (line,column) and (startLine,startColumn,endLine,endColumn). If omitted (line,column) is assumed."
     },
-    "_38": {
+    "_39": {
       "type": "integer",
       "description": "The match group index of the problem's line. Defaults to 2"
     },
-    "_39": {
+    "_40": {
       "type": "integer",
       "description": "The match group index of the problem's line character. Defaults to 3"
     },
-    "_40": {
+    "_41": {
       "type": "integer",
       "description": "The match group index of the problem's end line. Defaults to undefined"
     },
-    "_41": {
+    "_42": {
       "type": "integer",
       "description": "The match group index of the problem's end line character. Defaults to undefined"
     },
-    "_42": {
+    "_43": {
       "type": "integer",
       "description": "The match group index of the problem's severity. Defaults to undefined"
     },
-    "_43": {
+    "_44": {
       "type": "integer",
       "description": "The match group index of the problem's code. Defaults to undefined"
     },
-    "_44": {
+    "_45": {
       "type": "integer",
       "description": "The match group index of the message. If omitted it defaults to 4 if location is specified. Otherwise it defaults to 5."
     },
-    "_45": {
+    "_46": {
       "type": "boolean",
       "description": "In a multi line matcher loop indicated whether this pattern is executed in a loop as long as it matches. Can only specified on a last pattern in a multi line pattern."
     },
-    "_46": {
+    "_47": {
       "default": {
         "regexp": "^([^\\\\s].*)\\\\((\\\\d+,\\\\d+)\\\\):\\\\s*(.*)$",
         "file": 1,
@@ -9083,44 +9142,44 @@
       "additionalProperties": false,
       "properties": {
         "regexp": {
-          "$ref": "#/$defs/_34"
-        },
-        "kind": {
           "$ref": "#/$defs/_35"
         },
-        "file": {
+        "kind": {
           "$ref": "#/$defs/_36"
         },
-        "location": {
+        "file": {
           "$ref": "#/$defs/_37"
         },
-        "line": {
+        "location": {
           "$ref": "#/$defs/_38"
         },
-        "column": {
+        "line": {
           "$ref": "#/$defs/_39"
         },
-        "endLine": {
+        "column": {
           "$ref": "#/$defs/_40"
         },
-        "endColumn": {
+        "endLine": {
           "$ref": "#/$defs/_41"
         },
-        "severity": {
+        "endColumn": {
           "$ref": "#/$defs/_42"
         },
-        "code": {
+        "severity": {
           "$ref": "#/$defs/_43"
         },
-        "message": {
+        "code": {
           "$ref": "#/$defs/_44"
         },
-        "loop": {
+        "message": {
           "$ref": "#/$defs/_45"
+        },
+        "loop": {
+          "$ref": "#/$defs/_46"
         }
       }
     },
-    "_47": {
+    "_48": {
       "type": "string",
       "enum": [
         "absolute",
@@ -9129,7 +9188,7 @@
         "search"
       ]
     },
-    "_48": {
+    "_49": {
       "oneOf": [
         {
           "type": "string"
@@ -9139,7 +9198,7 @@
         }
       ]
     },
-    "_49": {
+    "_50": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -9153,18 +9212,18 @@
         }
       }
     },
-    "_50": {
-      "deprecationMessage": "Deprecated. Please use `image` or `markdown` instead"
-    },
     "_51": {
-      "type": "string",
-      "description": "Alternate text to display when the image cannot be loaded or in screen readers."
+      "deprecationMessage": "Deprecated. Please use `image` or `markdown` instead"
     },
     "_52": {
       "type": "string",
-      "pattern": "^([a-z0-9A-Z][a-z0-9-A-Z]*)\\.([a-z0-9A-Z][a-z0-9-A-Z]*)$"
+      "description": "Alternate text to display when the image cannot be loaded or in screen readers."
     },
     "_53": {
+      "type": "string",
+      "pattern": "^([a-z0-9A-Z][a-z0-9-A-Z]*)\\.([a-z0-9A-Z][a-z0-9-A-Z]*)$"
+    },
+    "_54": {
       "$ref": "http://json-schema.org/draft-07/schema#",
       "properties": {
         "secret": {
@@ -9173,11 +9232,11 @@
         }
       }
     },
-    "_54": {
+    "_55": {
       "description": "Condition which must be true to show this item",
       "type": "string"
     },
-    "_55": {
+    "_56": {
       "description": "Group into which this item belongs",
       "type": "string"
     }

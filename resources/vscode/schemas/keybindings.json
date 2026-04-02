@@ -943,7 +943,6 @@
         "jsExcludedCallers.resetViewLocation",
         "json.clearCache",
         "json.sort",
-        "json.validate",
         "jumpToNextSnippetPlaceholder",
         "jumpToPrevSnippetPlaceholder",
         "keybindings.editor.acceptWhenExpression",
@@ -1595,7 +1594,6 @@
         "typescript.restartTsServer",
         "typescript.selectTypeScriptVersion",
         "typescript.sortImports",
-        "typescript.tsserverRequest",
         "undo",
         "update.check",
         "update.checkForUpdate",
@@ -1714,9 +1712,11 @@
         "workbench.action.chat.configureTools",
         "workbench.action.chat.copyAll",
         "workbench.action.chat.copyCodeBlock",
+        "workbench.action.chat.copyFinalResponse",
         "workbench.action.chat.copyItem",
         "workbench.action.chat.copyKatexMathSource",
         "workbench.action.chat.copyLink",
+        "workbench.action.chat.createPlugin",
         "workbench.action.chat.disableTips",
         "workbench.action.chat.discardCompareEdits",
         "workbench.action.chat.dismissTip",
@@ -1839,7 +1839,9 @@
         "workbench.action.chat.showContextUsage",
         "workbench.action.chat.showExtensionsUsingCopilot",
         "workbench.action.chat.showOutput",
+        "workbench.action.chat.signInIndicator",
         "workbench.action.chat.skipTool",
+        "workbench.action.chat.startOver",
         "workbench.action.chat.startParameterizedPrompt",
         "workbench.action.chat.startVoiceChat",
         "workbench.action.chat.steerWithMessage",
@@ -2234,7 +2236,6 @@
         "workbench.action.output.show.vscode.git.Git.log",
         "workbench.action.output.show.vscode.github-authentication.GitHub Authentication.log",
         "workbench.action.output.show.vscode.github.GitHub.log",
-        "workbench.action.output.show.vscode.json-language-features.JSON Language Server.log",
         "workbench.action.output.toggleOutput",
         "workbench.action.pauseSocketWriting",
         "workbench.action.pinEditor",
@@ -3981,8 +3982,8 @@
         "",
         "",
         "",
-        "Go to Project Configuration (jsconfig / tsconfig)",
-        "Reload Project",
+        "",
+        "",
         "",
         "",
         "Focus on Browser Options View",
@@ -3994,8 +3995,7 @@
         "Focus on Excluded Callers View",
         "Opens view Excluded Callers",
         "Reset Location",
-        "Clear Schema Cache",
-        "Sort Document",
+        "",
         "",
         "",
         "",
@@ -4637,16 +4637,15 @@
         "",
         "",
         "Type",
-        "Stop using TypeScript Go (Experimental)",
-        "Use TypeScript Go (Experimental)",
         "",
-        "Go to Project Configuration (tsconfig)",
         "",
-        "Open TS Server log",
-        "Reload Project",
         "",
-        "Restart TS Server",
-        "Select TypeScript Version...",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
         "",
         "",
         "",
@@ -4767,9 +4766,11 @@
         "Configure Tools...",
         "Copy All",
         "Copy",
+        "Copy Final Response",
         "Copy",
         "Copy Math Source",
         "Copy Link",
+        "Create Plugin",
         "Disable tips",
         "Discard Edits",
         "Dismiss this tip",
@@ -4892,7 +4893,9 @@
         "Show Context Window Usage",
         "Show Extensions using Copilot",
         "",
+        "Sign In",
         "Skip",
+        "Start Over",
         "",
         "Start Voice Chat",
         "Steer with Message",
@@ -5287,7 +5290,6 @@
         "Git",
         "GitHub Authentication",
         "GitHub",
-        "JSON Language Server",
         "Opens view Output",
         "Connection: Pause socket writing",
         "",
@@ -6122,7 +6124,7 @@
             "$ref": "#/$defs/_4"
           },
           "then": {
-            "$ref": "#/$defs/_5"
+            "$ref": "#/$defs/_23"
           }
         },
         {
@@ -6130,27 +6132,7 @@
             "$ref": "#/$defs/_4"
           },
           "then": {
-            "properties": {
-              "args": {
-                "required": [
-                  "kind"
-                ],
-                "properties": {
-                  "kind": {
-                    "anyOf": [
-                      {
-                        "enum": [
-                          "refactor.surround"
-                        ]
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  }
-                }
-              }
-            }
+            "$ref": "#/$defs/_5"
           }
         },
         {
@@ -6176,7 +6158,7 @@
                     "anyOf": [
                       {
                         "enum": [
-                          "source.sort.json"
+                          null
                         ]
                       },
                       {
@@ -6187,6 +6169,14 @@
                 }
               }
             }
+          }
+        },
+        {
+          "if": {
+            "$ref": "#/$defs/_7"
+          },
+          "then": {
+            "$ref": "#/$defs/_23"
           }
         },
         {
@@ -6195,36 +6185,6 @@
           },
           "then": {
             "$ref": "#/$defs/_5"
-          }
-        },
-        {
-          "if": {
-            "$ref": "#/$defs/_7"
-          },
-          "then": {
-            "properties": {
-              "args": {
-                "required": [
-                  "kind"
-                ],
-                "properties": {
-                  "kind": {
-                    "anyOf": [
-                      {
-                        "enum": [
-                          "quickfix",
-                          "refactor.surround",
-                          "source.sort.json"
-                        ]
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  }
-                }
-              }
-            }
           }
         },
         {
@@ -6241,7 +6201,7 @@
                     ],
                     "properties": {
                       "kind": {
-                        "$ref": "#/$defs/_23"
+                        "$ref": "#/$defs/_24"
                       }
                     }
                   },
@@ -6253,7 +6213,7 @@
                       "preferences": {
                         "type": "array",
                         "items": {
-                          "$ref": "#/$defs/_23"
+                          "$ref": "#/$defs/_24"
                         }
                       }
                     }
@@ -10578,7 +10538,6 @@
             "-jsExcludedCallers.resetViewLocation",
             "-json.clearCache",
             "-json.sort",
-            "-json.validate",
             "-jumpToNextSnippetPlaceholder",
             "-jumpToPrevSnippetPlaceholder",
             "-keybindings.editor.acceptWhenExpression",
@@ -11230,7 +11189,6 @@
             "-typescript.restartTsServer",
             "-typescript.selectTypeScriptVersion",
             "-typescript.sortImports",
-            "-typescript.tsserverRequest",
             "-undo",
             "-update.check",
             "-update.checkForUpdate",
@@ -11349,9 +11307,11 @@
             "-workbench.action.chat.configureTools",
             "-workbench.action.chat.copyAll",
             "-workbench.action.chat.copyCodeBlock",
+            "-workbench.action.chat.copyFinalResponse",
             "-workbench.action.chat.copyItem",
             "-workbench.action.chat.copyKatexMathSource",
             "-workbench.action.chat.copyLink",
+            "-workbench.action.chat.createPlugin",
             "-workbench.action.chat.disableTips",
             "-workbench.action.chat.discardCompareEdits",
             "-workbench.action.chat.dismissTip",
@@ -11474,7 +11434,9 @@
             "-workbench.action.chat.showContextUsage",
             "-workbench.action.chat.showExtensionsUsingCopilot",
             "-workbench.action.chat.showOutput",
+            "-workbench.action.chat.signInIndicator",
             "-workbench.action.chat.skipTool",
+            "-workbench.action.chat.startOver",
             "-workbench.action.chat.startParameterizedPrompt",
             "-workbench.action.chat.startVoiceChat",
             "-workbench.action.chat.steerWithMessage",
@@ -11869,7 +11831,6 @@
             "-workbench.action.output.show.vscode.git.Git.log",
             "-workbench.action.output.show.vscode.github-authentication.GitHub Authentication.log",
             "-workbench.action.output.show.vscode.github.GitHub.log",
-            "-workbench.action.output.show.vscode.json-language-features.JSON Language Server.log",
             "-workbench.action.output.toggleOutput",
             "-workbench.action.pauseSocketWriting",
             "-workbench.action.pinEditor",
@@ -13616,8 +13577,8 @@
             "",
             "",
             "",
-            "Go to Project Configuration (jsconfig / tsconfig)",
-            "Reload Project",
+            "",
+            "",
             "",
             "",
             "Focus on Browser Options View",
@@ -13629,8 +13590,7 @@
             "Focus on Excluded Callers View",
             "Opens view Excluded Callers",
             "Reset Location",
-            "Clear Schema Cache",
-            "Sort Document",
+            "",
             "",
             "",
             "",
@@ -14272,16 +14232,15 @@
             "",
             "",
             "Type",
-            "Stop using TypeScript Go (Experimental)",
-            "Use TypeScript Go (Experimental)",
             "",
-            "Go to Project Configuration (tsconfig)",
             "",
-            "Open TS Server log",
-            "Reload Project",
             "",
-            "Restart TS Server",
-            "Select TypeScript Version...",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "",
             "",
             "",
@@ -14402,9 +14361,11 @@
             "Configure Tools...",
             "Copy All",
             "Copy",
+            "Copy Final Response",
             "Copy",
             "Copy Math Source",
             "Copy Link",
+            "Create Plugin",
             "Disable tips",
             "Discard Edits",
             "Dismiss this tip",
@@ -14527,7 +14488,9 @@
             "Show Context Window Usage",
             "Show Extensions using Copilot",
             "",
+            "Sign In",
             "Skip",
+            "Start Over",
             "",
             "Start Voice Chat",
             "Steer with Message",
@@ -14922,7 +14885,6 @@
             "Git",
             "GitHub Authentication",
             "GitHub",
-            "JSON Language Server",
             "Opens view Output",
             "Connection: Pause socket writing",
             "",
@@ -15792,7 +15754,7 @@
       "command": {
         "anyOf": [
           {
-            "$ref": "#/$defs/_24"
+            "$ref": "#/$defs/_25"
           },
           {
             "if": {
@@ -15805,7 +15767,7 @@
               "errorMessage": "Incorrect type. Expected \"string\". The field 'command' does not support running multiple commands. Use command 'runCommands' to pass it multiple commands to run."
             },
             "else": {
-              "$ref": "#/$defs/_24"
+              "$ref": "#/$defs/_25"
             }
           }
         ]
@@ -16169,6 +16131,29 @@
       }
     },
     "_23": {
+      "properties": {
+        "args": {
+          "required": [
+            "kind"
+          ],
+          "properties": {
+            "kind": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "refactor.surround"
+                  ]
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "_24": {
       "anyOf": [
         {
           "enum": [
@@ -16187,7 +16172,7 @@
         }
       ]
     },
-    "_24": {
+    "_25": {
       "$ref": "#/definitions/commandType"
     }
   }
