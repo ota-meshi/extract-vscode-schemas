@@ -3077,10 +3077,56 @@
       "scope": 4,
       "restricted": false
     },
-    "chat.agent.sandbox": {
+    "chat.agent.sandbox.allowedNetworkDomains": {
+      "markdownDescription": "Note: this setting is applicable only when `#chat.agent.sandbox.enabled#` is enabled. Allowed domains for network access in sandbox. Supports wildcards like `*.example.com` and an empty list means no network access.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "tags": [
+        "preview"
+      ],
+      "restricted": true,
+      "section": {
+        "id": "terminal",
+        "title": "Integrated Terminal",
+        "order": 100
+      },
+      "defaultDefaultValue": [],
+      "scope": 4
+    },
+    "chat.agent.sandbox.deniedNetworkDomains": {
+      "markdownDescription": "Note: this setting is applicable only when `#chat.agent.sandbox.enabled#` is enabled. Array of denied domains for network access in sandbox (checked first, takes precedence over `#chat.agent.sandbox.allowedNetworkDomains#`).",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "tags": [
+        "preview"
+      ],
+      "restricted": true,
+      "section": {
+        "id": "terminal",
+        "title": "Integrated Terminal",
+        "order": 100
+      },
+      "defaultDefaultValue": [],
+      "scope": 4
+    },
+    "chat.agent.sandbox.enabled": {
       "markdownDescription": "Controls whether agent mode uses sandboxing to restrict what tools can do. When enabled, tools like the terminal are run in a sandboxed environment to limit access to the system.",
-      "type": "boolean",
-      "default": false,
+      "type": "string",
+      "enum": [
+        "off",
+        "on"
+      ],
+      "enumDescriptions": [
+        "Disable sandboxing for agent mode tools.",
+        "Enable sandboxing for agent mode tools."
+      ],
+      "default": "off",
       "tags": [
         "preview",
         "onExP"
@@ -3094,124 +3140,148 @@
         "title": "Integrated Terminal",
         "order": 100
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": "off",
+      "scope": 4
+    },
+    "chat.agent.sandbox.fileSystem.linux": {
+      "markdownDescription": "Note: this setting is applicable only when `#chat.agent.sandbox.enabled#` is enabled. Controls file system access in sandbox on Linux. Paths do not support glob patterns, only literal paths (ex: ./src/, ~/.ssh, .env). **bubblewrap** and **socat** should be installed for this setting to work.",
+      "type": "object",
+      "properties": {
+        "allowWrite": {
+          "$ref": "#/$defs/_301"
+        },
+        "denyRead": {
+          "$ref": "#/$defs/_300"
+        },
+        "denyWrite": {
+          "$ref": "#/$defs/_302"
+        }
+      },
+      "default": {
+        "allowWrite": [
+          "."
+        ],
+        "denyRead": [],
+        "denyWrite": []
+      },
+      "tags": [
+        "preview"
+      ],
+      "restricted": true,
+      "section": {
+        "id": "terminal",
+        "title": "Integrated Terminal",
+        "order": 100
+      },
+      "defaultDefaultValue": {
+        "allowWrite": [
+          "."
+        ],
+        "denyRead": [],
+        "denyWrite": []
+      },
+      "scope": 4
+    },
+    "chat.agent.sandbox.fileSystem.mac": {
+      "markdownDescription": "Note: this setting is applicable only when `#chat.agent.sandbox.enabled#` is enabled. Controls file system access in sandbox on macOS. Paths also support git-style glob patterns(ex: *.ts, ./src, ./src/**/*.ts, file?.txt).",
+      "type": "object",
+      "properties": {
+        "allowWrite": {
+          "$ref": "#/$defs/_301"
+        },
+        "denyRead": {
+          "$ref": "#/$defs/_300"
+        },
+        "denyWrite": {
+          "$ref": "#/$defs/_302"
+        }
+      },
+      "default": {
+        "allowWrite": [
+          "."
+        ],
+        "denyRead": [],
+        "denyWrite": []
+      },
+      "tags": [
+        "preview"
+      ],
+      "restricted": true,
+      "section": {
+        "id": "terminal",
+        "title": "Integrated Terminal",
+        "order": 100
+      },
+      "defaultDefaultValue": {
+        "allowWrite": [
+          "."
+        ],
+        "denyRead": [],
+        "denyWrite": []
+      },
       "scope": 4
     },
     "chat.agent.sandboxFileSystem.linux": {
-      "markdownDescription": "Note: this setting is applicable only when `#chat.agent.sandbox#` is enabled. Controls file system access in sandbox on Linux. Paths do not support glob patterns, only literal paths (ex: ./src/, ~/.ssh, .env). **bubblewrap** and **socat** should be installed for this setting to work.",
       "type": "object",
-      "properties": {
-        "allowWrite": {
-          "$ref": "#/$defs/_301"
-        },
-        "denyRead": {
-          "$ref": "#/$defs/_300"
-        },
-        "denyWrite": {
-          "$ref": "#/$defs/_302"
-        }
-      },
-      "default": {
-        "allowWrite": [
-          "."
-        ],
-        "denyRead": [],
-        "denyWrite": []
-      },
-      "tags": [
-        "preview"
-      ],
-      "restricted": true,
+      "deprecated": true,
+      "markdownDeprecationMessage": "Use `#chat.agent.sandbox.fileSystem.linux#` instead",
       "section": {
         "id": "terminal",
         "title": "Integrated Terminal",
         "order": 100
       },
-      "defaultDefaultValue": {
-        "allowWrite": [
-          "."
-        ],
-        "denyRead": [],
-        "denyWrite": []
-      },
-      "scope": 4
+      "default": {},
+      "scope": 4,
+      "restricted": false,
+      "deprecationMessage": "Use chat.agent.sandbox.fileSystem.linux instead"
     },
     "chat.agent.sandboxFileSystem.mac": {
-      "markdownDescription": "Note: this setting is applicable only when `#chat.agent.sandbox#` is enabled. Controls file system access in sandbox on macOS. Paths also support git-style glob patterns(ex: *.ts, ./src, ./src/**/*.ts, file?.txt).",
       "type": "object",
-      "properties": {
-        "allowWrite": {
-          "$ref": "#/$defs/_301"
-        },
-        "denyRead": {
-          "$ref": "#/$defs/_300"
-        },
-        "denyWrite": {
-          "$ref": "#/$defs/_302"
-        }
-      },
-      "default": {
-        "allowWrite": [
-          "."
-        ],
-        "denyRead": [],
-        "denyWrite": []
-      },
-      "tags": [
-        "preview"
-      ],
-      "restricted": true,
+      "deprecated": true,
+      "markdownDeprecationMessage": "Use `#chat.agent.sandbox.fileSystem.mac#` instead",
       "section": {
         "id": "terminal",
         "title": "Integrated Terminal",
         "order": 100
       },
-      "defaultDefaultValue": {
-        "allowWrite": [
-          "."
-        ],
-        "denyRead": [],
-        "denyWrite": []
-      },
-      "scope": 4
+      "default": {},
+      "scope": 4,
+      "restricted": false,
+      "deprecationMessage": "Use chat.agent.sandbox.fileSystem.mac instead"
     },
     "chat.agent.sandboxNetwork.allowedDomains": {
-      "markdownDescription": "Note: this setting is applicable only when `#chat.agent.sandbox#` is enabled. Allowed domains for network access in sandbox. Supports wildcards like `*.example.com` and an empty list means no network access.",
       "type": "array",
       "items": {
         "type": "string"
       },
-      "default": [],
-      "tags": [
-        "preview"
-      ],
-      "restricted": true,
+      "deprecated": true,
+      "markdownDeprecationMessage": "Use `#chat.agent.sandbox.allowedNetworkDomains#` instead",
       "section": {
         "id": "terminal",
         "title": "Integrated Terminal",
         "order": 100
       },
-      "defaultDefaultValue": [],
-      "scope": 4
+      "default": [],
+      "scope": 4,
+      "restricted": false,
+      "deprecationMessage": "Use chat.agent.sandbox.allowedNetworkDomains instead"
     },
     "chat.agent.sandboxNetwork.deniedDomains": {
-      "markdownDescription": "Note: this setting is applicable only when `#chat.agent.sandbox#` is enabled. Array of denied domains for network access in sandbox (checked first, takes precedence over `#chat.agent.sandboxNetwork.allowedDomains#`).",
       "type": "array",
       "items": {
         "type": "string"
       },
-      "default": [],
-      "tags": [
-        "preview"
-      ],
-      "restricted": true,
+      "deprecated": true,
+      "markdownDeprecationMessage": "Use `#chat.agent.sandbox.deniedNetworkDomains#` instead",
       "section": {
         "id": "terminal",
         "title": "Integrated Terminal",
         "order": 100
       },
-      "defaultDefaultValue": [],
-      "scope": 4
+      "default": [],
+      "scope": 4,
+      "restricted": false,
+      "deprecationMessage": "Use chat.agent.sandbox.deniedNetworkDomains instead"
     },
     "chat.agent.terminal.allowList": {
       "$ref": "#/$defs/_303"
@@ -3687,15 +3757,15 @@
     "chat.customizations.providerApi.enabled": {
       "type": "boolean",
       "description": "When enabled, the Customizations management UI reads items from the session type's customizations provider instead of built-in discovery.",
-      "default": false,
+      "default": true,
       "tags": [
-        "experimental"
+        "preview"
       ],
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -4064,6 +4134,26 @@
         "title": "Chat"
       },
       "defaultDefaultValue": 13,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.generalPurposeAgent.enabled": {
+      "type": "boolean",
+      "description": "Controls whether the built-in General Purpose agent is available as a subagent.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },
@@ -4533,6 +4623,18 @@
       },
       "scope": 4
     },
+    "chat.newSession.defaultMode": {
+      "type": "string",
+      "description": "The default mode for new chat sessions. When empty, the chat view's default mode is used.",
+      "default": "",
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "",
+      "scope": 4,
+      "restricted": false
+    },
     "chat.notifyWindowOnConfirmation": {
       "type": "string",
       "enum": [
@@ -4803,26 +4905,6 @@
       "scope": 4,
       "restricted": false
     },
-    "chat.statusWidget.anonymous": {
-      "type": "boolean",
-      "description": "Controls whether anonymous users see the status widget in new chat sessions when rate limited.",
-      "default": false,
-      "tags": [
-        "experimental",
-        "advanced",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "auto"
-      },
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
-    },
     "chat.subagents.allowInvocationsFromSubagents": {
       "type": "boolean",
       "description": "Allow subagents to invoke subagents.",
@@ -4851,6 +4933,21 @@
         "title": "Chat"
       },
       "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.tools.confirmationCarousel.enabled": {
+      "type": "boolean",
+      "description": "When enabled, multiple tool confirmations are batched into a carousel above the input.",
+      "default": false,
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },
@@ -4892,7 +4989,6 @@
       "propertyNames": {
         "enum": [
           "askQuestions",
-          "awaitTerminal",
           "createAndRunTask",
           "extensions",
           "getTaskOutput",
@@ -4905,13 +5001,13 @@
           "runSubagent",
           "runTask",
           "runTests",
+          "sendToTerminal",
           "terminalLastCommand",
           "terminalSelection",
           "todo"
         ],
         "enumDescriptions": [
           "askQuestions - Ask structured clarifying questions using single select, multi-select, or freeform inputs to collect task requirements before proceeding.",
-          "awaitTerminal - Await Terminal",
           "createAndRunTask - Create and run a task in the workspace",
           "extensions - Search for VS Code extensions",
           "getTaskOutput - Get Task Output",
@@ -4924,6 +5020,7 @@
           "runSubagent - Run a task within an isolated subagent context to enable efficient organization of tasks and context window management.",
           "runTask - Run tasks in the workspace",
           "runTests - Run unit tests (optionally with coverage)",
+          "sendToTerminal - Send to Terminal",
           "terminalLastCommand - Get Terminal Last Command",
           "terminalSelection - Get Terminal Selection",
           "todo - Manage and track todo items for task planning"
@@ -5327,6 +5424,22 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.tools.terminal.backgroundNotifications": {
+      "restricted": true,
+      "type": "boolean",
+      "default": false,
+      "tags": [
+        "experimental"
+      ],
+      "markdownDescription": "Whether to automatically notify the agent when a background terminal command completes or needs input. When enabled, a steering message is sent to the chat session with the exit code and terminal output, and the output monitor continues running to detect prompts for input.",
+      "section": {
+        "id": "terminal",
+        "title": "Integrated Terminal",
+        "order": 100
+      },
+      "defaultDefaultValue": false,
+      "scope": 4
+    },
     "chat.tools.terminal.blockDetectedFileWrites": {
       "type": "string",
       "enum": [
@@ -5468,96 +5581,6 @@
       "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
-    },
-    "chat.tools.terminal.sandbox.enabled": {
-      "type": "boolean",
-      "deprecated": true,
-      "markdownDeprecationMessage": "Use `#chat.agent.sandbox#` instead",
-      "section": {
-        "id": "terminal",
-        "title": "Integrated Terminal",
-        "order": 100
-      },
-      "default": false,
-      "scope": 4,
-      "restricted": false,
-      "deprecationMessage": "Use chat.agent.sandbox instead"
-    },
-    "chat.tools.terminal.sandbox.linuxFileSystem": {
-      "type": "object",
-      "deprecated": true,
-      "markdownDeprecationMessage": "Use `#chat.agent.sandboxFileSystem.linux#` instead",
-      "section": {
-        "id": "terminal",
-        "title": "Integrated Terminal",
-        "order": 100
-      },
-      "default": {},
-      "scope": 4,
-      "restricted": false,
-      "deprecationMessage": "Use chat.agent.sandboxFileSystem.linux instead"
-    },
-    "chat.tools.terminal.sandbox.macFileSystem": {
-      "type": "object",
-      "deprecated": true,
-      "markdownDeprecationMessage": "Use `#chat.agent.sandboxFileSystem.mac#` instead",
-      "section": {
-        "id": "terminal",
-        "title": "Integrated Terminal",
-        "order": 100
-      },
-      "default": {},
-      "scope": 4,
-      "restricted": false,
-      "deprecationMessage": "Use chat.agent.sandboxFileSystem.mac instead"
-    },
-    "chat.tools.terminal.sandbox.network": {
-      "type": "object",
-      "deprecated": true,
-      "markdownDeprecationMessage": "This setting has been split into `#chat.agent.sandboxNetwork.allowedDomains#` and `#chat.agent.sandboxNetwork.deniedDomains#`.",
-      "section": {
-        "id": "terminal",
-        "title": "Integrated Terminal",
-        "order": 100
-      },
-      "default": {},
-      "scope": 4,
-      "restricted": false,
-      "deprecationMessage": "This setting has been split into chat.agent.sandboxNetwork.allowedDomains and chat.agent.sandboxNetwork.deniedDomains."
-    },
-    "chat.tools.terminal.sandbox.network.allowedDomains": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "deprecated": true,
-      "markdownDeprecationMessage": "Use `#chat.agent.sandboxNetwork.allowedDomains#` instead",
-      "section": {
-        "id": "terminal",
-        "title": "Integrated Terminal",
-        "order": 100
-      },
-      "default": [],
-      "scope": 4,
-      "restricted": false,
-      "deprecationMessage": "Use chat.agent.sandboxNetwork.allowedDomains instead"
-    },
-    "chat.tools.terminal.sandbox.network.deniedDomains": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "deprecated": true,
-      "markdownDeprecationMessage": "Use `#chat.agent.sandboxNetwork.deniedDomains#` instead",
-      "section": {
-        "id": "terminal",
-        "title": "Integrated Terminal",
-        "order": 100
-      },
-      "default": [],
-      "scope": 4,
-      "restricted": false,
-      "deprecationMessage": "Use chat.agent.sandboxNetwork.deniedDomains instead"
     },
     "chat.tools.terminal.shellIntegrationTimeout": {
       "markdownDescription": "Configures the duration in milliseconds to wait for shell integration to be detected when the run in terminal tool launches a new terminal. Set to `0` to skip the wait entirely, the default value `-1` uses a variable wait time based on the value of `#terminal.integrated.shellIntegration.enabled#` and whether it's a remote window. A large value can be useful if your shell starts very slowly.",
@@ -12252,9 +12275,12 @@
         }
       },
       "default": {
-        "**/.git/objects/**": true,
-        "**/.git/subtree-cache/**": true,
-        "**/.hg/store/**": true
+        ".git/objects/**": true,
+        ".git/subtree-cache/**": true,
+        ".hg/store/**": true,
+        "*/.git/objects/**": true,
+        "*/.git/subtree-cache/**": true,
+        "*/.hg/store/**": true
       },
       "markdownDescription": "Configure paths or [glob patterns](https://aka.ms/vscode-glob-patterns) to exclude from file watching. Paths can either be relative to the watched folder or absolute. Glob patterns are matched relative from the watched folder. When you experience the file watcher process consuming a lot of CPU, make sure to exclude large folders that are of less interest (such as build output folders).",
       "scope": 5,
@@ -12264,9 +12290,12 @@
         "order": 9
       },
       "defaultDefaultValue": {
-        "**/.git/objects/**": true,
-        "**/.git/subtree-cache/**": true,
-        "**/.hg/store/**": true
+        ".git/objects/**": true,
+        ".git/subtree-cache/**": true,
+        ".hg/store/**": true,
+        "*/.git/objects/**": true,
+        "*/.git/subtree-cache/**": true,
+        "*/.hg/store/**": true
       },
       "restricted": false
     },
@@ -13185,7 +13214,7 @@
     "git.detectWorktrees": {
       "type": "boolean",
       "scope": 5,
-      "default": true,
+      "default": false,
       "description": "Controls whether to automatically detect Git worktrees.",
       "section": {
         "id": "vscode.git",
@@ -13199,7 +13228,7 @@
         "id": "vscode.git",
         "displayName": "Git"
       },
-      "defaultDefaultValue": true,
+      "defaultDefaultValue": false,
       "restricted": false
     },
     "git.detectWorktreesLimit": {
@@ -30352,6 +30381,19 @@
         "red": 0,
         "yellow": 60
       },
+      "scope": 4,
+      "restricted": false
+    },
+    "testing.coverageMinimapEnabled": {
+      "description": "Controls whether coverage indicators are shown in the minimap.",
+      "type": "boolean",
+      "default": true,
+      "section": {
+        "id": "testing",
+        "title": "Testing",
+        "order": 21
+      },
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },

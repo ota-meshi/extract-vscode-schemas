@@ -1417,10 +1417,10 @@
       ]
     },
     "debugIcon.stepOutForeground": {
-      "$ref": "#/$defs/_89"
+      "$ref": "#/$defs/_90"
     },
     "debugIcon.stepOverForeground": {
-      "$ref": "#/$defs/_89"
+      "$ref": "#/$defs/_90"
     },
     "debugIcon.stopForeground": {
       "description": "Debug toolbar icon for stop.",
@@ -9855,7 +9855,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_90"
+          "$ref": "#/$defs/_91"
         }
       ]
     },
@@ -9951,7 +9951,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_90"
+          "$ref": "#/$defs/_91"
         }
       ]
     },
@@ -10592,6 +10592,17 @@
         }
       ]
     },
+    "testing.coveredMinimapBackground": {
+      "description": "Minimap color of regions where code was covered.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_84"
+        }
+      ]
+    },
     "testing.iconErrored": {
       "description": "Color for the 'Errored' icon in the test explorer.",
       "oneOf": [
@@ -10610,7 +10621,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_87"
+          "$ref": "#/$defs/_88"
         }
       ]
     },
@@ -10632,7 +10643,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_87"
+          "$ref": "#/$defs/_88"
         }
       ]
     },
@@ -10710,7 +10721,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_88"
+          "$ref": "#/$defs/_89"
         }
       ]
     },
@@ -10732,7 +10743,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_88"
+          "$ref": "#/$defs/_89"
         }
       ]
     },
@@ -10915,13 +10926,18 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#f4706774}"
-            }
-          ]
+          "$ref": "#/$defs/_87"
+        }
+      ]
+    },
+    "testing.uncoveredMinimapBackground": {
+      "description": "Minimap color of regions where code was not covered.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_87"
         }
       ]
     },
@@ -12118,7 +12134,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#f48771b3}"
+          "body": "${1:#f4706774}"
         }
       ]
     },
@@ -12127,11 +12143,20 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#848484b3}"
+          "body": "${1:#f48771b3}"
         }
       ]
     },
     "_89": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#848484b3}"
+        }
+      ]
+    },
+    "_90": {
       "description": "Debug toolbar icon for step over.",
       "oneOf": [
         {
@@ -12142,7 +12167,7 @@
         }
       ]
     },
-    "_90": {
+    "_91": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
