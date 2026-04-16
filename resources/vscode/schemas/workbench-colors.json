@@ -307,7 +307,7 @@
       ]
     },
     "aiCustomizationManagement.sashBorder": {
-      "description": "The color of the Chat Customization Management editor splitview sash border.",
+      "description": "The color of the Agent Customizations editor splitview sash border.",
       "oneOf": [
         {
           "$ref": "#/$defs/_1"
@@ -917,17 +917,6 @@
           ],
           "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
           "patternErrorMessage": "This color must be transparent or it will obscure content"
-        }
-      ]
-    },
-    "chatManagement.sashBorder": {
-      "description": "The color of the Chat Management editor splitview sash border.",
-      "oneOf": [
-        {
-          "$ref": "#/$defs/_1"
-        },
-        {
-          "$ref": "#/$defs/_10"
         }
       ]
     },

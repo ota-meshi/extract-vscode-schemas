@@ -1868,9 +1868,9 @@
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
         },
-        "inSessions": {
+        "inAgents": {
           "type": "boolean",
-          "description": "Show this task in the Agent Sessions run action dropdown",
+          "description": "Show this task in the Agents run action dropdown",
           "default": false,
           "pattern": "^(?!.*\\$\\{(env|config|command)\\.)",
           "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
@@ -2237,7 +2237,7 @@
                   "identifier": {
                     "$ref": "#/$defs/_67"
                   },
-                  "inSessions": {
+                  "inAgents": {
                     "$ref": "#/$defs/_72"
                   },
                   "isBackground": {
@@ -2310,7 +2310,7 @@
                   "identifier": {
                     "$ref": "#/$defs/_67"
                   },
-                  "inSessions": {
+                  "inAgents": {
                     "$ref": "#/$defs/_72"
                   },
                   "isBackground": {
@@ -2371,7 +2371,7 @@
                   "identifier": {
                     "$ref": "#/$defs/_67"
                   },
-                  "inSessions": {
+                  "inAgents": {
                     "$ref": "#/$defs/_72"
                   },
                   "isBackground": {
@@ -2444,7 +2444,7 @@
                   "identifier": {
                     "$ref": "#/$defs/_67"
                   },
-                  "inSessions": {
+                  "inAgents": {
                     "$ref": "#/$defs/_72"
                   },
                   "isBackground": {
@@ -2513,7 +2513,7 @@
                   "identifier": {
                     "$ref": "#/$defs/_67"
                   },
-                  "inSessions": {
+                  "inAgents": {
                     "$ref": "#/$defs/_72"
                   },
                   "isBackground": {
@@ -2585,7 +2585,7 @@
                   "identifier": {
                     "$ref": "#/$defs/_67"
                   },
-                  "inSessions": {
+                  "inAgents": {
                     "$ref": "#/$defs/_72"
                   },
                   "isBackground": {
@@ -2684,7 +2684,7 @@
                   "identifier": {
                     "$ref": "#/$defs/_67"
                   },
-                  "inSessions": {
+                  "inAgents": {
                     "$ref": "#/$defs/_72"
                   },
                   "isBackground": {
@@ -5162,7 +5162,7 @@
     },
     "_72": {
       "type": "boolean",
-      "description": "Show this task in the Agent Sessions run action dropdown",
+      "description": "Show this task in the Agents run action dropdown",
       "default": false
     },
     "_73": {

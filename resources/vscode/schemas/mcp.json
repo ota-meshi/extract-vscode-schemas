@@ -399,6 +399,19 @@
                   "type": "string"
                 }
               },
+              "oauth": {
+                "type": "object",
+                "description": "OAuth configuration for authenticating with the server.",
+                "additionalProperties": false,
+                "minProperties": 1,
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "The OAuth client ID to use when authenticating with the server."
+                  }
+                }
+              },
               "dev": {
                 "type": "object",
                 "markdownDescription": "Enabled development mode for the server. When present, the server will be started eagerly and output will be included in its output. Properties inside the `dev` object can configure additional behavior.",
