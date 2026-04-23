@@ -425,14 +425,14 @@
             "type": "object",
             "properties": {
               "displayName": {
-                "$ref": "#/$defs/_33"
+                "$ref": "#/$defs/_34"
               },
               "icon": {
                 "description": "The icon associated with this chat context item.",
                 "type": "string"
               },
               "id": {
-                "$ref": "#/$defs/_32"
+                "$ref": "#/$defs/_33"
               }
             },
             "required": [
@@ -536,7 +536,7 @@
                         ],
                         "properties": {
                           "category": {
-                            "$ref": "#/$defs/_31"
+                            "$ref": "#/$defs/_32"
                           },
                           "description": {
                             "description": "A detailed description of the kinds of questions that are suitable for this chat command.",
@@ -550,7 +550,7 @@
                       }
                     },
                     "isSticky": {
-                      "$ref": "#/$defs/_30"
+                      "$ref": "#/$defs/_31"
                     },
                     "name": {
                       "$ref": "#/$defs/_10"
@@ -591,7 +591,7 @@
                   ],
                   "properties": {
                     "category": {
-                      "$ref": "#/$defs/_31"
+                      "$ref": "#/$defs/_32"
                     },
                     "description": {
                       "description": "A detailed description of the kinds of questions that are suitable for this chat participant.",
@@ -613,7 +613,7 @@
                 "type": "string"
               },
               "isSticky": {
-                "$ref": "#/$defs/_30"
+                "$ref": "#/$defs/_31"
               },
               "name": {
                 "description": "User-facing name for this chat participant. The user will use '@' with this name to invoke the participant. Name must not contain whitespace.",
@@ -871,6 +871,9 @@
               "path": {
                 "description": "Path to the SKILL.md file relative to the extension root. The folder name must match the \"name\" property in SKILL.md.",
                 "type": "string"
+              },
+              "sessionTypes": {
+                "$ref": "#/$defs/_30"
               },
               "when": {
                 "$ref": "#/$defs/_29"
@@ -4827,7 +4830,7 @@
                   "beginsPattern": {
                     "oneOf": [
                       {
-                        "$ref": "#/$defs/_50"
+                        "$ref": "#/$defs/_51"
                       },
                       {
                         "type": "string"
@@ -4838,7 +4841,7 @@
                   "endsPattern": {
                     "oneOf": [
                       {
-                        "$ref": "#/$defs/_50"
+                        "$ref": "#/$defs/_51"
                       },
                       {
                         "type": "string"
@@ -4855,13 +4858,13 @@
               "fileLocation": {
                 "oneOf": [
                   {
-                    "$ref": "#/$defs/_48"
+                    "$ref": "#/$defs/_49"
                   },
                   {
                     "type": "array",
                     "prefixItems": [
                       {
-                        "$ref": "#/$defs/_48"
+                        "$ref": "#/$defs/_49"
                       }
                     ],
                     "minItems": 1,
@@ -4909,10 +4912,10 @@
                         "type": "object",
                         "properties": {
                           "include": {
-                            "$ref": "#/$defs/_49"
+                            "$ref": "#/$defs/_50"
                           },
                           "exclude": {
-                            "$ref": "#/$defs/_49"
+                            "$ref": "#/$defs/_50"
                           }
                         },
                         "required": [
@@ -4961,12 +4964,12 @@
               "pattern": {
                 "anyOf": [
                   {
-                    "$ref": "#/$defs/_47"
+                    "$ref": "#/$defs/_48"
                   },
                   {
                     "type": "array",
                     "items": {
-                      "$ref": "#/$defs/_47"
+                      "$ref": "#/$defs/_48"
                     }
                   },
                   {
@@ -5002,7 +5005,7 @@
                   "beginsPattern": {
                     "oneOf": [
                       {
-                        "$ref": "#/$defs/_50"
+                        "$ref": "#/$defs/_51"
                       },
                       {
                         "type": "string"
@@ -5013,7 +5016,7 @@
                   "endsPattern": {
                     "oneOf": [
                       {
-                        "$ref": "#/$defs/_50"
+                        "$ref": "#/$defs/_51"
                       },
                       {
                         "type": "string"
@@ -5042,44 +5045,44 @@
                 "additionalProperties": false,
                 "properties": {
                   "code": {
-                    "$ref": "#/$defs/_44"
+                    "$ref": "#/$defs/_45"
                   },
                   "column": {
-                    "$ref": "#/$defs/_40"
-                  },
-                  "endColumn": {
-                    "$ref": "#/$defs/_42"
-                  },
-                  "endLine": {
                     "$ref": "#/$defs/_41"
                   },
+                  "endColumn": {
+                    "$ref": "#/$defs/_43"
+                  },
+                  "endLine": {
+                    "$ref": "#/$defs/_42"
+                  },
                   "file": {
-                    "$ref": "#/$defs/_37"
-                  },
-                  "kind": {
-                    "$ref": "#/$defs/_36"
-                  },
-                  "line": {
-                    "$ref": "#/$defs/_39"
-                  },
-                  "location": {
                     "$ref": "#/$defs/_38"
                   },
+                  "kind": {
+                    "$ref": "#/$defs/_37"
+                  },
+                  "line": {
+                    "$ref": "#/$defs/_40"
+                  },
+                  "location": {
+                    "$ref": "#/$defs/_39"
+                  },
                   "loop": {
-                    "$ref": "#/$defs/_46"
+                    "$ref": "#/$defs/_47"
                   },
                   "message": {
-                    "$ref": "#/$defs/_45"
+                    "$ref": "#/$defs/_46"
                   },
                   "name": {
                     "type": "string",
                     "description": "The name of the problem pattern."
                   },
                   "regexp": {
-                    "$ref": "#/$defs/_35"
+                    "$ref": "#/$defs/_36"
                   },
                   "severity": {
-                    "$ref": "#/$defs/_43"
+                    "$ref": "#/$defs/_44"
                   }
                 }
               },
@@ -5095,7 +5098,7 @@
                     "type": "array",
                     "description": "The actual patterns.",
                     "items": {
-                      "$ref": "#/$defs/_47"
+                      "$ref": "#/$defs/_48"
                     }
                   }
                 }
@@ -5152,14 +5155,14 @@
                 "type": "string"
               },
               "displayName": {
-                "$ref": "#/$defs/_33"
+                "$ref": "#/$defs/_34"
               },
               "followUpRegex": {
                 "description": "The last occurrence of pattern in an existing chat conversation is sent to the contributing extension to facilitate follow-up responses.",
                 "type": "string"
               },
               "id": {
-                "$ref": "#/$defs/_32"
+                "$ref": "#/$defs/_33"
               },
               "when": {
                 "$ref": "#/$defs/_9"
@@ -5449,7 +5452,11 @@
                 }
               },
               "required": {
-                "$ref": "#/$defs/_2"
+                "type": "array",
+                "markdownDescription": "The names of the properties from the `properties` object that must be provided for a task of this type to be considered a match. Used by VS Code to associate a `tasks.json` entry with a registered task provider.",
+                "items": {
+                  "type": "string"
+                }
               },
               "type": {
                 "type": "string",
@@ -5572,7 +5579,7 @@
                 ]
               },
               "commandLineMatcher": {
-                "$ref": "#/$defs/_34"
+                "$ref": "#/$defs/_35"
               },
               "id": {
                 "description": "The ID of the quick fix provider",
@@ -5611,7 +5618,7 @@
                     "type": "number"
                   },
                   "lineMatcher": {
-                    "$ref": "#/$defs/_34"
+                    "$ref": "#/$defs/_35"
                   },
                   "offset": {
                     "description": "The number of lines vertically from the anchor in the buffer to start matching against",
@@ -5979,7 +5986,7 @@
                           "additionalProperties": false,
                           "properties": {
                             "altText": {
-                              "$ref": "#/$defs/_52"
+                              "$ref": "#/$defs/_53"
                             },
                             "image": {
                               "description": "Path to an image - or object consisting of paths to light, dark, and hc images - relative to extension directory. Depending on context, the image will be displayed from 400px to 800px wide, with similar bounds on height. To support HIDPI displays, the image will be rendered at 1.5x scaling, for example a 900 physical pixels wide image will be displayed as 600 logical pixels wide.",
@@ -6017,7 +6024,7 @@
                               ]
                             },
                             "path": {
-                              "$ref": "#/$defs/_51"
+                              "$ref": "#/$defs/_52"
                             }
                           }
                         },
@@ -6032,7 +6039,7 @@
                               "type": "string"
                             },
                             "path": {
-                              "$ref": "#/$defs/_51"
+                              "$ref": "#/$defs/_52"
                             }
                           }
                         },
@@ -6044,7 +6051,7 @@
                           "additionalProperties": false,
                           "properties": {
                             "altText": {
-                              "$ref": "#/$defs/_52"
+                              "$ref": "#/$defs/_53"
                             },
                             "svg": {
                               "description": "Path to an svg, color tokens are supported in variables to support theming to match the workbench.",
@@ -6449,7 +6456,7 @@
       "type": "array",
       "uniqueItems": true,
       "items": {
-        "$ref": "#/$defs/_53"
+        "$ref": "#/$defs/_54"
       }
     },
     "extensionDependencies": {
@@ -6457,7 +6464,7 @@
       "type": "array",
       "uniqueItems": true,
       "items": {
-        "$ref": "#/$defs/_53"
+        "$ref": "#/$defs/_54"
       }
     },
     "extensionKind": {
@@ -6515,7 +6522,7 @@
       "type": "array",
       "uniqueItems": true,
       "items": {
-        "$ref": "#/$defs/_53"
+        "$ref": "#/$defs/_54"
       }
     },
     "galleryBanner": {
@@ -7277,6 +7284,27 @@
         "editorGutter.commentGlyphForeground",
         "editorGutter.commentUnresolvedGlyphForeground",
         "editorGutter.commentDraftGlyphForeground",
+        "agents.background",
+        "agentsPanel.background",
+        "agentsPanel.foreground",
+        "agentsPanel.border",
+        "agentsGradient.tintColor",
+        "agentFeedbackInputWidget.border",
+        "agentsUpdateButton.downloadingBackground",
+        "agentsUpdateButton.downloadedBackground",
+        "agentsChatInput.background",
+        "agentsChatInput.foreground",
+        "agentsChatInput.border",
+        "agentsChatInput.focusBorder",
+        "agentsChatInput.placeholderForeground",
+        "agentsNewSessionButton.background",
+        "agentsNewSessionButton.foreground",
+        "agentsNewSessionButton.border",
+        "agentsNewSessionButton.hoverBackground",
+        "agentsBadge.background",
+        "agentsBadge.foreground",
+        "agentsUnreadBadge.background",
+        "agentsUnreadBadge.foreground",
         "ports.iconRunningProcessForeground",
         "settings.headerForeground",
         "settings.settingsHeaderHoverForeground",
@@ -8193,6 +8221,27 @@
         "Editor gutter decoration color for commenting glyphs.",
         "Editor gutter decoration color for commenting glyphs for unresolved comment threads.",
         "Editor gutter decoration color for commenting glyphs for comment threads with draft comments.",
+        "Background color of the agent sessions window shell and gradient base.",
+        "Background color of the card panels (chat, files, terminal) in the agent sessions window.",
+        "Foreground color of the card panels (chat, files, terminal) in the agent sessions window.",
+        "Border color of the card panels (chat, files, terminal) in the agent sessions window.",
+        "Tint color used in the background gradient of the agent sessions window shell.",
+        "Border color of the agent feedback input widget shown in the editor.",
+        "Background color of the update button to show download progress in the agent sessions window.",
+        "Background color of the update button when download is complete in the agent sessions window.",
+        "Background color of the chat input field in the agent sessions window.",
+        "Foreground color of the chat input field in the agent sessions window.",
+        "Border color of the chat input field in the agent sessions window.",
+        "Border color of the chat input field when focused in the agent sessions window.",
+        "Placeholder text color in the chat input field in the agent sessions window.",
+        "Background color of the New Session button in the agent sessions sidebar.",
+        "Foreground color of the New Session button in the agent sessions sidebar.",
+        "Border color of the New Session button in the agent sessions sidebar.",
+        "Background color of the New Session button when hovered in the agent sessions sidebar.",
+        "Background color of badges in the agent sessions window.",
+        "Foreground color of badges in the agent sessions window.",
+        "Background color of the unread sessions count badge on the sidebar toggle.",
+        "Foreground color of the unread sessions count badge on the sidebar toggle.",
         "The color of the icon for a port that has an associated running process.",
         "The foreground color for a section header or active title.",
         "The foreground color for a section header or hovered title.",
@@ -8553,11 +8602,11 @@
                 "properties": {
                   "type": "object",
                   "additionalProperties": {
-                    "$ref": "#/$defs/_54"
+                    "$ref": "#/$defs/_55"
                   }
                 },
                 "additionalProperties": {
-                  "$ref": "#/$defs/_54"
+                  "$ref": "#/$defs/_55"
                 }
               }
             }
@@ -8668,10 +8717,10 @@
           "type": "string"
         },
         "when": {
-          "$ref": "#/$defs/_55"
+          "$ref": "#/$defs/_56"
         },
         "group": {
-          "$ref": "#/$defs/_56"
+          "$ref": "#/$defs/_57"
         }
       }
     },
@@ -8691,10 +8740,10 @@
               "type": "string"
             },
             "when": {
-              "$ref": "#/$defs/_55"
+              "$ref": "#/$defs/_56"
             },
             "group": {
-              "$ref": "#/$defs/_56"
+              "$ref": "#/$defs/_57"
             }
           }
         }
@@ -9047,6 +9096,9 @@
         },
         "when": {
           "$ref": "#/$defs/_29"
+        },
+        "sessionTypes": {
+          "$ref": "#/$defs/_30"
         }
       }
     },
@@ -9065,74 +9117,81 @@
       "type": "string"
     },
     "_30": {
+      "description": "(Optional) The chat session types where this entry should be offered.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "_31": {
       "description": "Whether invoking the command puts the chat into a persistent mode, where the command is automatically added to the chat input for the next message.",
       "type": "boolean"
     },
-    "_31": {
+    "_32": {
       "markdownDescription": "A detailed name for this category, e.g. `workspace_questions` or `web_questions`.",
       "type": "string"
     },
-    "_32": {
+    "_33": {
       "description": "A unique identifier for this item.",
       "type": "string"
     },
-    "_33": {
+    "_34": {
       "description": "A user-friendly name for this item which is used for display in menus.",
       "type": "string"
     },
-    "_34": {
+    "_35": {
       "description": "A regular expression or string to test the command line against",
       "type": "string"
     },
-    "_35": {
+    "_36": {
       "type": "string",
       "description": "The regular expression to find an error, warning or info in the output."
     },
-    "_36": {
+    "_37": {
       "type": "string",
       "description": "whether the pattern matches a location (file and line) or only a file."
     },
-    "_37": {
+    "_38": {
       "type": "integer",
       "description": "The match group index of the filename. If omitted 1 is used."
     },
-    "_38": {
+    "_39": {
       "type": "integer",
       "description": "The match group index of the problem's location. Valid location patterns are: (line), (line,column) and (startLine,startColumn,endLine,endColumn). If omitted (line,column) is assumed."
     },
-    "_39": {
+    "_40": {
       "type": "integer",
       "description": "The match group index of the problem's line. Defaults to 2"
     },
-    "_40": {
+    "_41": {
       "type": "integer",
       "description": "The match group index of the problem's line character. Defaults to 3"
     },
-    "_41": {
+    "_42": {
       "type": "integer",
       "description": "The match group index of the problem's end line. Defaults to undefined"
     },
-    "_42": {
+    "_43": {
       "type": "integer",
       "description": "The match group index of the problem's end line character. Defaults to undefined"
     },
-    "_43": {
+    "_44": {
       "type": "integer",
       "description": "The match group index of the problem's severity. Defaults to undefined"
     },
-    "_44": {
+    "_45": {
       "type": "integer",
       "description": "The match group index of the problem's code. Defaults to undefined"
     },
-    "_45": {
+    "_46": {
       "type": "integer",
       "description": "The match group index of the message. If omitted it defaults to 4 if location is specified. Otherwise it defaults to 5."
     },
-    "_46": {
+    "_47": {
       "type": "boolean",
       "description": "In a multi line matcher loop indicated whether this pattern is executed in a loop as long as it matches. Can only specified on a last pattern in a multi line pattern."
     },
-    "_47": {
+    "_48": {
       "default": {
         "regexp": "^([^\\\\s].*)\\\\((\\\\d+,\\\\d+)\\\\):\\\\s*(.*)$",
         "file": 1,
@@ -9143,44 +9202,44 @@
       "additionalProperties": false,
       "properties": {
         "regexp": {
-          "$ref": "#/$defs/_35"
-        },
-        "kind": {
           "$ref": "#/$defs/_36"
         },
-        "file": {
+        "kind": {
           "$ref": "#/$defs/_37"
         },
-        "location": {
+        "file": {
           "$ref": "#/$defs/_38"
         },
-        "line": {
+        "location": {
           "$ref": "#/$defs/_39"
         },
-        "column": {
+        "line": {
           "$ref": "#/$defs/_40"
         },
-        "endLine": {
+        "column": {
           "$ref": "#/$defs/_41"
         },
-        "endColumn": {
+        "endLine": {
           "$ref": "#/$defs/_42"
         },
-        "severity": {
+        "endColumn": {
           "$ref": "#/$defs/_43"
         },
-        "code": {
+        "severity": {
           "$ref": "#/$defs/_44"
         },
-        "message": {
+        "code": {
           "$ref": "#/$defs/_45"
         },
-        "loop": {
+        "message": {
           "$ref": "#/$defs/_46"
+        },
+        "loop": {
+          "$ref": "#/$defs/_47"
         }
       }
     },
-    "_48": {
+    "_49": {
       "type": "string",
       "enum": [
         "absolute",
@@ -9189,7 +9248,7 @@
         "search"
       ]
     },
-    "_49": {
+    "_50": {
       "oneOf": [
         {
           "type": "string"
@@ -9199,7 +9258,7 @@
         }
       ]
     },
-    "_50": {
+    "_51": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -9213,18 +9272,18 @@
         }
       }
     },
-    "_51": {
-      "deprecationMessage": "Deprecated. Please use `image` or `markdown` instead"
-    },
     "_52": {
-      "type": "string",
-      "description": "Alternate text to display when the image cannot be loaded or in screen readers."
+      "deprecationMessage": "Deprecated. Please use `image` or `markdown` instead"
     },
     "_53": {
       "type": "string",
-      "pattern": "^([a-z0-9A-Z][a-z0-9-A-Z]*)\\.([a-z0-9A-Z][a-z0-9-A-Z]*)$"
+      "description": "Alternate text to display when the image cannot be loaded or in screen readers."
     },
     "_54": {
+      "type": "string",
+      "pattern": "^([a-z0-9A-Z][a-z0-9-A-Z]*)\\.([a-z0-9A-Z][a-z0-9-A-Z]*)$"
+    },
+    "_55": {
       "$ref": "http://json-schema.org/draft-07/schema#",
       "properties": {
         "secret": {
@@ -9233,11 +9292,11 @@
         }
       }
     },
-    "_55": {
+    "_56": {
       "description": "Condition which must be true to show this item",
       "type": "string"
     },
-    "_56": {
+    "_57": {
       "description": "Group into which this item belongs",
       "type": "string"
     }

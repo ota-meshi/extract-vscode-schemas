@@ -3091,7 +3091,7 @@
       "restricted": false
     },
     "chat.agent.allowedNetworkDomains": {
-      "markdownDescription": "Allowed domains for network access by agent tools (fetch tool, integrated browser). Only takes effect when `#chat.agent.networkFilter#` is enabled. When `#chat.agent.sandbox.enabled#` is enabled, these also apply to the terminal sandbox. Supports wildcards like `*.example.com`. When both allowed and denied lists are empty, all domains are blocked. Denied domains (see `#chat.agent.deniedNetworkDomains#`) take precedence.",
+      "markdownDescription": "Allowed domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. When `#chat.agent.sandbox.enabled#` is enabled, this also configures terminal sandbox networking. Supports wildcards like `*.example.com`. When both allowed and denied lists are empty, all domains are blocked. Denied domains (see `#chat.agent.deniedNetworkDomains#`) take precedence.",
       "type": "array",
       "items": {
         "type": "string"
@@ -3105,7 +3105,7 @@
         "localization": {
           "description": {
             "key": "chat.agent.allowedNetworkDomains",
-            "value": "Allowed domains for network access by agent tools (fetch tool, integrated browser). Only takes effect when `#chat.agent.networkFilter#` is enabled. When `#chat.agent.sandbox.enabled#` is enabled, these also apply to the terminal sandbox. Supports wildcards like `*.example.com`. When both allowed and denied lists are empty, all domains are blocked. Denied domains (see `#chat.agent.deniedNetworkDomains#`) take precedence."
+            "value": "Allowed domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. When `#chat.agent.sandbox.enabled#` is enabled, this also configures terminal sandbox networking. Supports wildcards like `*.example.com`. When both allowed and denied lists are empty, all domains are blocked. Denied domains (see `#chat.agent.deniedNetworkDomains#`) take precedence."
           }
         }
       },
@@ -3132,7 +3132,7 @@
       "restricted": false
     },
     "chat.agent.deniedNetworkDomains": {
-      "markdownDescription": "Denied domains for network access by agent tools (fetch tool, integrated browser). Only takes effect when `#chat.agent.networkFilter#` is enabled. When `#chat.agent.sandbox.enabled#` is enabled, these also apply to the terminal sandbox. Takes precedence over `#chat.agent.allowedNetworkDomains#`. Supports wildcards like `*.example.com`.",
+      "markdownDescription": "Denied domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. When `#chat.agent.sandbox.enabled#` is enabled, this also configures terminal sandbox networking. Takes precedence over `#chat.agent.allowedNetworkDomains#`. Supports wildcards like `*.example.com`.",
       "type": "array",
       "items": {
         "type": "string"
@@ -3146,7 +3146,7 @@
         "localization": {
           "description": {
             "key": "chat.agent.deniedNetworkDomains",
-            "value": "Denied domains for network access by agent tools (fetch tool, integrated browser). Only takes effect when `#chat.agent.networkFilter#` is enabled. When `#chat.agent.sandbox.enabled#` is enabled, these also apply to the terminal sandbox. Takes precedence over `#chat.agent.allowedNetworkDomains#`. Supports wildcards like `*.example.com`."
+            "value": "Denied domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. When `#chat.agent.sandbox.enabled#` is enabled, this also configures terminal sandbox networking. Takes precedence over `#chat.agent.allowedNetworkDomains#`. Supports wildcards like `*.example.com`."
           }
         }
       },
@@ -3195,7 +3195,7 @@
       "restricted": false
     },
     "chat.agent.networkFilter": {
-      "markdownDescription": "When enabled, network access by agent tools (fetch tool, integrated browser) is restricted according to `#chat.agent.allowedNetworkDomains#` and `#chat.agent.deniedNetworkDomains#`. When disabled, no network filtering is applied.",
+      "markdownDescription": "When enabled, network access by agent tools (fetch tool, integrated browser) is restricted according to `#chat.agent.allowedNetworkDomains#` and `#chat.agent.deniedNetworkDomains#`. Domain filtering is also applied to those tools when `#chat.agent.sandbox.enabled#` is enabled.",
       "type": "boolean",
       "default": false,
       "restricted": true,
@@ -3206,7 +3206,7 @@
         "localization": {
           "description": {
             "key": "chat.agent.networkFilter",
-            "value": "When enabled, network access by agent tools (fetch tool, integrated browser) is restricted according to `#chat.agent.allowedNetworkDomains#` and `#chat.agent.deniedNetworkDomains#`. When disabled, no network filtering is applied."
+            "value": "When enabled, network access by agent tools (fetch tool, integrated browser) is restricted according to `#chat.agent.allowedNetworkDomains#` and `#chat.agent.deniedNetworkDomains#`. Domain filtering is also applied to those tools when `#chat.agent.sandbox.enabled#` is enabled."
           }
         }
       },
@@ -3829,24 +3829,6 @@
       "scope": 4,
       "restricted": false
     },
-    "chat.customAgentInSubagent.enabled": {
-      "type": "boolean",
-      "description": "Whether the runSubagent tool is able to use custom agents. When enabled, the tool can take the name of a custom agent, but it must be given the exact name of the agent.",
-      "default": true,
-      "experiment": {
-        "mode": "auto"
-      },
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": true,
-      "scope": 4,
-      "restricted": false,
-      "tags": [
-        "onExP"
-      ]
-    },
     "chat.customizations.harnessSelector.enabled": {
       "type": "boolean",
       "tags": [
@@ -3860,29 +3842,6 @@
       },
       "defaultDefaultValue": true,
       "scope": 4,
-      "restricted": false
-    },
-    "chat.customizations.welcomePageVariant": {
-      "type": "string",
-      "enum": [
-        "classic",
-        "promptLaunchers"
-      ],
-      "enumDescriptions": [
-        "Uses the original welcome page layout from the baseline implementation.",
-        "Uses the experimental welcome page with grouped command prompt launchers."
-      ],
-      "description": "Controls which welcome page implementation is shown in Agent Customizations.",
-      "default": "promptLaunchers",
-      "tags": [
-        "experimental"
-      ],
-      "scope": 1,
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": "promptLaunchers",
       "restricted": false
     },
     "chat.detectParticipant.enabled": {
@@ -4130,6 +4089,79 @@
         "title": "Chat"
       },
       "defaultDefaultValue": null,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.experimental.incrementalRendering.animationStyle": {
+      "type": "string",
+      "enum": [
+        "blur",
+        "fade",
+        "none",
+        "reveal",
+        "rise",
+        "scale",
+        "slide"
+      ],
+      "enumDescriptions": [
+        "Content fades in from a blurred state.",
+        "Simple opacity fade from 0 to 1.",
+        "No animation. Content appears instantly.",
+        "Content reveals top-to-bottom with a soft gradient edge.",
+        "Content fades in while rising upward.",
+        "Content scales up from slightly smaller.",
+        "Content slides in from the left."
+      ],
+      "description": "Controls the animation style for incremental rendering.",
+      "default": "fade",
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "fade",
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.experimental.incrementalRendering.buffering": {
+      "type": "string",
+      "enum": [
+        "off",
+        "paragraph",
+        "word"
+      ],
+      "enumDescriptions": [
+        "Renders content immediately as tokens arrive.",
+        "Buffers content until a paragraph break before rendering.",
+        "Reveals content word by word."
+      ],
+      "description": "Controls how content is buffered before rendering during incremental rendering. Lower buffering levels render faster but may show incomplete sentences or partially formed markdown.",
+      "default": "word",
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "word",
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.experimental.incrementalRendering.enabled": {
+      "type": "boolean",
+      "description": "Enables incremental rendering with optional block-level animation when streaming chat responses.",
+      "default": false,
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },
@@ -4804,6 +4836,48 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.permissions.default": {
+      "type": "string",
+      "enum": [
+        "autoApprove",
+        "autopilot",
+        "default"
+      ],
+      "enumItemLabels": [
+        "Default Approvals",
+        "Bypass Approvals",
+        "Autopilot (Preview)"
+      ],
+      "enumDescriptions": [
+        "Start new chat sessions in Bypass Approvals mode.",
+        "Start new chat sessions in Autopilot mode.",
+        "Start new chat sessions with Default Approvals."
+      ],
+      "description": "Controls the default permissions picker mode for new chat sessions. You can still change the permission mode per session, and each session remembers the permission mode that was used. If enterprise policy disables auto approval, new sessions use Default Approvals.",
+      "default": "default",
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "default",
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.persistentProgress.enabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show elapsed time and token usage in chat response progress.",
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.planAgent.defaultModel": {
       "type": "string",
       "description": "Select the default language model to use for the Plan agent from the available providers.",
@@ -5003,7 +5077,7 @@
     },
     "chat.sendElementsToChat.attachCSS": {
       "default": true,
-      "markdownDescription": "Controls whether CSS of the selected element will be added to the chat. `#chat.sendElementsToChat.enabled#` must be enabled.",
+      "markdownDescription": "Controls whether CSS of the selected element will be added to the chat.",
       "type": "boolean",
       "tags": [
         "preview"
@@ -5018,25 +5092,10 @@
     },
     "chat.sendElementsToChat.attachImages": {
       "default": true,
-      "markdownDescription": "Controls whether a screenshot of the selected element will be added to the chat. `#chat.sendElementsToChat.enabled#` must be enabled.",
+      "markdownDescription": "Controls whether a screenshot of the selected element will be added to the chat.",
       "type": "boolean",
       "tags": [
         "experimental"
-      ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": true,
-      "scope": 4,
-      "restricted": false
-    },
-    "chat.sendElementsToChat.enabled": {
-      "default": true,
-      "description": "Controls whether elements can be sent to chat from the Simple Browser.",
-      "type": "boolean",
-      "tags": [
-        "preview"
       ],
       "section": {
         "id": "chatSidebar",
@@ -5169,6 +5228,7 @@
           "new",
           "openBrowserPage",
           "renderMermaidDiagram",
+          "reviewPlan",
           "runInTerminal",
           "runSubagent",
           "runTask",
@@ -5176,6 +5236,7 @@
           "sendToTerminal",
           "terminalLastCommand",
           "terminalSelection",
+          "testFailure",
           "todo"
         ],
         "enumDescriptions": [
@@ -5188,6 +5249,7 @@
           "new - Scaffold a new workspace in VS Code",
           "openBrowserPage - Open a URL in the integrated browser",
           "renderMermaidDiagram - Render a Mermaid.js diagrams from markup.",
+          "reviewPlan - Ask the user to review and approve a plan before proceeding.",
           "runInTerminal - Run commands in the terminal",
           "runSubagent - Run a task within an isolated subagent context to enable efficient organization of tasks and context window management.",
           "runTask - Run tasks in the workspace",
@@ -5195,6 +5257,7 @@
           "sendToTerminal - Send to Terminal",
           "terminalLastCommand - Get Terminal Last Command",
           "terminalSelection - Get Terminal Selection",
+          "testFailure - Include test failure information",
           "todo - Manage and track todo items for task planning"
         ]
       },
@@ -12739,7 +12802,7 @@
         "Never add the AI co-author trailer."
       ],
       "scope": 5,
-      "default": "off",
+      "default": "all",
       "description": "Controls whether a 'Co-authored-by' trailer is automatically added to the commit message when AI-generated code is included in the commit.",
       "section": {
         "id": "vscode.git",
@@ -12753,7 +12816,7 @@
         "id": "vscode.git",
         "displayName": "Git"
       },
-      "defaultDefaultValue": "off",
+      "defaultDefaultValue": "all",
       "restricted": false
     },
     "git.allowForcePush": {
@@ -17754,7 +17817,7 @@
         "displayName": "JavaScript and TypeScript Language Features"
       },
       "default": [],
-      "restricted": false
+      "restricted": true
     },
     "js/ts.preferences.importModuleSpecifier": {
       "type": "string",
@@ -27266,6 +27329,28 @@
       "scope": 4,
       "restricted": false
     },
+    "telemetry.performance.inputLatencySamplingProbability": {
+      "type": "number",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 1,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "markdownDescription": "Probability (0 to 1) that input latency telemetry is reported for this session. Set to 0 to disable, 1 to always report.",
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "performance",
+        "title": "Performance",
+        "order": 101
+      },
+      "defaultDefaultValue": 0,
+      "scope": 4,
+      "restricted": false
+    },
     "telemetry.telemetryLevel": {
       "type": "string",
       "enum": [
@@ -27822,9 +27907,11 @@
       "default": null,
       "enum": [
         null,
+        "Agent Host (Local)",
         "bash",
         "bash (2)",
         "dash",
+        "JavaScript Debug Terminal",
         "pwsh",
         "pwsh (2)",
         "rbash",
@@ -27836,9 +27923,11 @@
       ],
       "markdownEnumDescriptions": [
         "Automatically detect the default",
+        "$(remote) Agent Host (Local)\n- extensionIdentifier: vscode.agent-host-terminal",
         "$(terminal-bash) bash\n- path: /usr/bin/bash",
         "$(terminal) bash (2)\n- path: /usr/bin/bash",
         "$(terminal) dash\n- path: /usr/bin/dash",
+        "$($(debug)) JavaScript Debug Terminal\n- extensionIdentifier: ms-vscode.js-debug",
         "$(terminal-powershell) pwsh\n- path: /usr/bin/pwsh",
         "$(terminal) pwsh (2)\n- path: /opt/microsoft/powershell/7/pwsh",
         "$(terminal) rbash\n- path: /bin/rbash",
@@ -28755,14 +28844,18 @@
       "defaultDefaultValue": true,
       "scope": 4
     },
-    "terminal.integrated.initialHint.copilotCli": {
+    "terminal.integrated.initialHintCopilotCli": {
       "restricted": true,
       "markdownDescription": "When enabled, the terminal initial hint will suggest using Copilot CLI by typing `copilot` instead of opening Copilot Chat.",
       "type": "boolean",
       "default": false,
       "tags": [
-        "experimental"
+        "experimental",
+        "onExP"
       ],
+      "experiment": {
+        "mode": "auto"
+      },
       "section": {
         "id": "terminal",
         "title": "Integrated Terminal",
@@ -29777,6 +29870,19 @@
       },
       "defaultDefaultValue": {},
       "scope": 4
+    },
+    "terminal.integrated.tabs.allowAgentCliTitle": {
+      "description": "Controls whether agentic CLIs (such as Claude Code, Codex, GitHub Copilot CLI, and Gemini CLI) are allowed to set the terminal tab title via escape sequences. When disabled, the configured tab title template is used instead.",
+      "type": "boolean",
+      "default": true,
+      "section": {
+        "id": "terminal",
+        "title": "Integrated Terminal",
+        "order": 100
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
     },
     "terminal.integrated.tabs.defaultColor": {
       "description": "A theme color ID to associate with terminal icons by default.",
@@ -36600,17 +36706,21 @@
     "workbench.welcomePage.experimentalOnboarding": {
       "scope": 1,
       "type": "boolean",
-      "default": true,
+      "default": false,
       "tags": [
-        "experimental"
+        "experimental",
+        "onExP"
       ],
       "description": "When enabled, show the new onboarding experience instead of the classic walkthrough on first launch.",
+      "experiment": {
+        "mode": "auto"
+      },
       "section": {
         "id": "workbench",
         "title": "Workbench",
         "order": 7
       },
-      "defaultDefaultValue": true,
+      "defaultDefaultValue": false,
       "restricted": false
     },
     "workbench.welcomePage.preferReducedMotion": {
@@ -43727,7 +43837,7 @@
         "displayName": "JavaScript and TypeScript Language Features"
       },
       "default": [],
-      "restricted": false,
+      "restricted": true,
       "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.autoImportSpecifierExcludeRegexes instead."
     },
     "_351": {
