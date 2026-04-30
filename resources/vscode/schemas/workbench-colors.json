@@ -981,6 +981,63 @@
         }
       ]
     },
+    "chat.inputWorkingBorderColor1": {
+      "description": "First color stop of the animated chat input border shown while a request is in flight.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#297aa0}"
+            }
+          ],
+          "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+          "patternErrorMessage": "This color must be transparent or it will obscure content"
+        }
+      ]
+    },
+    "chat.inputWorkingBorderColor2": {
+      "description": "Secondary accent color used by other animated chat input affordances. Not used by the in-flight chat input border.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#1c546f}"
+            }
+          ],
+          "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+          "patternErrorMessage": "This color must be transparent or it will obscure content"
+        }
+      ]
+    },
+    "chat.inputWorkingBorderColor3": {
+      "description": "Tertiary accent color used by other animated chat input affordances. Not used by the in-flight chat input border.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#5ba8cc}"
+            }
+          ],
+          "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+          "patternErrorMessage": "This color must be transparent or it will obscure content"
+        }
+      ]
+    },
     "chat.linesAddedForeground": {
       "description": "Foreground color of lines added in chat code block pill.",
       "oneOf": [
