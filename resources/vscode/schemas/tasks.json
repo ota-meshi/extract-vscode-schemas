@@ -1021,6 +1021,7 @@
                 "settings",
                 "settings-gear",
                 "share",
+                "share-window",
                 "shield",
                 "sign-in",
                 "sign-out",
@@ -1701,6 +1702,7 @@
                 "$(settings)",
                 "$(settings-gear)",
                 "$(share)",
+                "$(share-window)",
                 "$(shield)",
                 "$(sign-in)",
                 "$(sign-out)",
@@ -4424,6 +4426,9 @@
             "open-in-window",
             "new-session",
             "terminal-secure",
+            "chat-import",
+            "chat-export",
+            "share-window",
             "dialog-error",
             "dialog-warning",
             "dialog-info",
@@ -4451,9 +4456,7 @@
             "thumbsup-filled",
             "git-fetch",
             "lightbulb-sparkle-autofix",
-            "debug-breakpoint-pending",
-            "chat-import",
-            "chat-export"
+            "debug-breakpoint-pending"
           ],
           "markdownEnumDescriptions": [
             "$(add)",
@@ -5104,6 +5107,9 @@
             "$(open-in-window)",
             "$(new-session)",
             "$(terminal-secure)",
+            "$(chat-import)",
+            "$(chat-export)",
+            "$(share-window)",
             "$(dialog-error)",
             "$(dialog-warning)",
             "$(dialog-info)",
@@ -5131,9 +5137,7 @@
             "$(thumbsup-filled)",
             "$(git-fetch)",
             "$(lightbulb-sparkle-autofix)",
-            "$(debug-breakpoint-pending)",
-            "$(chat-import)",
-            "$(chat-export)"
+            "$(debug-breakpoint-pending)"
           ]
         },
         "color": {

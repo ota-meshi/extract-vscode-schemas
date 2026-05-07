@@ -3058,7 +3058,7 @@
       "restricted": false
     },
     "chat.agent.allowedNetworkDomains": {
-      "markdownDescription": "Allowed domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. When `#chat.agent.sandbox.enabled#` is enabled, this also configures terminal sandbox networking. Supports wildcards like `*.example.com`. When both allowed and denied lists are empty, all domains are blocked. Denied domains (see `#chat.agent.deniedNetworkDomains#`) take precedence.",
+      "markdownDescription": "Allowed domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. When `#chat.agent.sandbox.enabled#` is set to `allowNetwork`, all domains are allowed. Supports wildcards like `*.example.com`. When both allowed and denied lists are empty, all domains are blocked. Denied domains (see `#chat.agent.deniedNetworkDomains#`) take precedence.",
       "type": "array",
       "items": {
         "type": "string"
@@ -3072,7 +3072,7 @@
         "localization": {
           "description": {
             "key": "chat.agent.allowedNetworkDomains",
-            "value": "Allowed domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. When `#chat.agent.sandbox.enabled#` is enabled, this also configures terminal sandbox networking. Supports wildcards like `*.example.com`. When both allowed and denied lists are empty, all domains are blocked. Denied domains (see `#chat.agent.deniedNetworkDomains#`) take precedence."
+            "value": "Allowed domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. When `#chat.agent.sandbox.enabled#` is set to `allowNetwork`, all domains are allowed. Supports wildcards like `*.example.com`. When both allowed and denied lists are empty, all domains are blocked. Denied domains (see `#chat.agent.deniedNetworkDomains#`) take precedence."
           }
         }
       },
@@ -3099,7 +3099,7 @@
       "restricted": false
     },
     "chat.agent.deniedNetworkDomains": {
-      "markdownDescription": "Denied domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. When `#chat.agent.sandbox.enabled#` is enabled, this also configures terminal sandbox networking. Takes precedence over `#chat.agent.allowedNetworkDomains#`. Supports wildcards like `*.example.com`.",
+      "markdownDescription": "Denied domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. This does not apply when `#chat.agent.sandbox.enabled#` is set to `allowNetwork`. Takes precedence over `#chat.agent.allowedNetworkDomains#`. Supports wildcards like `*.example.com`.",
       "type": "array",
       "items": {
         "type": "string"
@@ -3113,7 +3113,7 @@
         "localization": {
           "description": {
             "key": "chat.agent.deniedNetworkDomains",
-            "value": "Denied domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. When `#chat.agent.sandbox.enabled#` is enabled, this also configures terminal sandbox networking. Takes precedence over `#chat.agent.allowedNetworkDomains#`. Supports wildcards like `*.example.com`."
+            "value": "Denied domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. This does not apply when `#chat.agent.sandbox.enabled#` is set to `allowNetwork`. Takes precedence over `#chat.agent.allowedNetworkDomains#`. Supports wildcards like `*.example.com`."
           }
         }
       },
@@ -3194,10 +3194,12 @@
       "markdownDescription": "Controls whether agent mode uses sandboxing to restrict what tools can do. When enabled, tools like the terminal are run in a sandboxed environment to limit access to the system.",
       "type": "string",
       "enum": [
+        "allowNetwork",
         "off",
         "on"
       ],
       "enumDescriptions": [
+        "Enable sandboxing for agent mode tools and allow all network domains.",
         "Disable sandboxing for agent mode tools.",
         "Enable sandboxing for agent mode tools."
       ],
@@ -3227,6 +3229,10 @@
             {
               "key": "agentSandbox.enabledSetting.onDescription",
               "value": "Enable sandboxing for agent mode tools."
+            },
+            {
+              "key": "agentSandbox.enabledSetting.allowNetworkDescription",
+              "value": "Enable sandboxing for agent mode tools and allow all network domains."
             }
           ]
         }
@@ -3258,9 +3264,7 @@
       },
       "default": {
         "allowRead": [],
-        "allowWrite": [
-          "."
-        ],
+        "allowWrite": [],
         "denyRead": [],
         "denyWrite": []
       },
@@ -3275,9 +3279,7 @@
       },
       "defaultDefaultValue": {
         "allowRead": [],
-        "allowWrite": [
-          "."
-        ],
+        "allowWrite": [],
         "denyRead": [],
         "denyWrite": []
       },
@@ -3302,9 +3304,7 @@
       },
       "default": {
         "allowRead": [],
-        "allowWrite": [
-          "."
-        ],
+        "allowWrite": [],
         "denyRead": [],
         "denyWrite": []
       },
@@ -3319,9 +3319,7 @@
       },
       "defaultDefaultValue": {
         "allowRead": [],
-        "allowWrite": [
-          "."
-        ],
+        "allowWrite": [],
         "denyRead": [],
         "denyWrite": []
       },
@@ -3802,6 +3800,26 @@
         "title": "Chat"
       },
       "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.customizations.useChatSessionCustomizationsForCustomAgents": {
+      "type": "boolean",
+      "description": "When enabled, custom agents shown in the chat mode picker are sourced from the customization harness service (scoped per session type) instead of the prompts service.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },
@@ -4838,13 +4856,13 @@
     },
     "chat.progressBorder.enabled": {
       "type": "boolean",
-      "default": false,
-      "markdownDescription": "Show an animated gradient border around the chat input while the agent is working or thinking. When enabled, this overrides `#chat.persistentProgress.enabled#` to be off.",
+      "default": true,
+      "markdownDescription": "Show an animated gradient border around the chat input while the agent is working or thinking. When enabled and reduced motion is not enabled, this overrides `#chat.persistentProgress.enabled#` to be off. Has no effect when reduced motion is enabled.",
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -4987,22 +5005,49 @@
       "scope": 4,
       "restricted": false
     },
-    "chat.signInTitleBar.enabled": {
-      "type": "boolean",
-      "description": "Controls whether to show a sign-in button in the title bar for users who are not signed in.",
+    "chat.sessionSync.enabled": {
       "default": false,
+      "markdownDescription": "Enable session sync to GitHub.com. When enabled, Copilot session data is synced to your GitHub account for cross-device access and richer insights. Requires local session tracking to also be enabled.",
+      "type": "boolean",
       "tags": [
         "experimental",
-        "onExP"
+        "advanced"
       ],
-      "experiment": {
-        "mode": "auto"
+      "policy": {
+        "name": "CopilotSessionSync",
+        "category": "InteractiveSession",
+        "minimumVersion": "1.119",
+        "localization": {
+          "description": {
+            "key": "chat.sessionSync.enabled.policy",
+            "value": "Enable session sync to GitHub.com for cross-device Copilot session history. When disabled by organization policy, session data is kept local only."
+          }
+        }
       },
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
       },
       "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.sessionSync.excludeRepositories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "markdownDescription": "Repository patterns to exclude from session sync. Use exact `owner/repo` names or glob patterns like `my-org/*`. Sessions from matching repositories will only be stored locally.",
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": [],
       "scope": 4,
       "restricted": false
     },
@@ -5175,6 +5220,45 @@
         "title": "Chat"
       },
       "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.tools.riskAssessment.enabled": {
+      "type": "boolean",
+      "description": "When enabled, terminal tool confirmations show an LLM-generated risk level (Safe / Caution / Review carefully) and a short explanation.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.tools.riskAssessment.model": {
+      "type": "string",
+      "description": "The language model id used to generate tool risk assessments. Should be a small, fast model.",
+      "default": "copilot-fast",
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "copilot-fast",
       "scope": 4,
       "restricted": false
     },
@@ -12211,7 +12295,7 @@
         "Never add the AI co-author trailer."
       ],
       "scope": 5,
-      "default": "chatAndAgent",
+      "default": "off",
       "description": "Controls whether a 'Co-authored-by' trailer is automatically added to the commit message when AI-generated code is included in the commit.",
       "section": {
         "id": "vscode.git",
@@ -12225,7 +12309,7 @@
         "id": "vscode.git",
         "displayName": "Git"
       },
-      "defaultDefaultValue": "chatAndAgent",
+      "defaultDefaultValue": "off",
       "restricted": false
     },
     "git.allowForcePush": {
@@ -15266,24 +15350,6 @@
         "order": 30
       },
       "defaultDefaultValue": "",
-      "scope": 4,
-      "restricted": false
-    },
-    "inlineChat.enableV2": {
-      "description": "Whether to use the next version of inline chat.",
-      "default": false,
-      "type": "boolean",
-      "tags": [
-        "preview",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "auto"
-      },
-      "section": {
-        "id": "editor"
-      },
-      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },
@@ -19095,7 +19161,7 @@
       "scope": 4,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
+        "title": "Language Features",
         "order": 20,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
@@ -19124,7 +19190,7 @@
       "scope": 4,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
+        "title": "Language Features",
         "order": 20,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
@@ -19153,7 +19219,7 @@
       "scope": 4,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
+        "title": "Language Features",
         "order": 20,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
@@ -19170,7 +19236,7 @@
     "markdown.editor.drop.enabled": {
       "type": "string",
       "scope": 5,
-      "markdownDescription": "Enable dropping files into a Markdown editor while holding Shift. Requires enabling `#editor.dropIntoEditor.enabled#`.",
+      "markdownDescription": "Controls whether dropping files into a Markdown editor while holding Shift inserts Markdown links. Requires enabling `#editor.dropIntoEditor.enabled#`.",
       "default": "smart",
       "enum": [
         "always",
@@ -19184,7 +19250,7 @@
       ],
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
+        "title": "Language Features",
         "order": 20,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
@@ -19205,7 +19271,7 @@
       "scope": 4,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
+        "title": "Language Features",
         "order": 20,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
@@ -19234,7 +19300,7 @@
       "scope": 4,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
+        "title": "Language Features",
         "order": 20,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
@@ -19251,7 +19317,7 @@
     "markdown.editor.filePaste.enabled": {
       "type": "string",
       "scope": 5,
-      "markdownDescription": "Enable pasting files into a Markdown editor to create Markdown links. Requires enabling `#editor.pasteAs.enabled#`.",
+      "markdownDescription": "Controls whether pasting files into a Markdown editor creates Markdown links. Requires enabling `#editor.pasteAs.enabled#`.",
       "default": "smart",
       "enum": [
         "always",
@@ -19265,7 +19331,7 @@
       ],
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
+        "title": "Language Features",
         "order": 20,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
@@ -19286,7 +19352,7 @@
       "scope": 4,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
+        "title": "Language Features",
         "order": 20,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
@@ -19319,7 +19385,7 @@
       ],
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
+        "title": "Language Features",
         "order": 20,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
@@ -19340,7 +19406,7 @@
       "default": true,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
+        "title": "Language Features",
         "order": 20,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
@@ -19369,7 +19435,7 @@
       ],
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
+        "title": "Language Features",
         "order": 20,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
@@ -19429,11 +19495,11 @@
     "markdown.occurrencesHighlight.enabled": {
       "type": "boolean",
       "default": false,
-      "description": "Enable highlighting link occurrences in the current document.",
+      "description": "Controls whether link occurrences in the current document are highlighted.",
       "scope": 5,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
+        "title": "Language Features",
         "order": 20,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
@@ -19464,7 +19530,7 @@
       "scope": 4,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
+        "title": "Language Features",
         "order": 20,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
@@ -19485,8 +19551,8 @@
       "scope": 5,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
-        "order": 20,
+        "title": "Preview",
+        "order": 23,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
           "displayName": "Markdown Language Features"
@@ -19506,8 +19572,8 @@
       "scope": 5,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
-        "order": 20,
+        "title": "Preview",
+        "order": 23,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
           "displayName": "Markdown Language Features"
@@ -19527,8 +19593,8 @@
       "scope": 5,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
-        "order": 20,
+        "title": "Preview",
+        "order": 23,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
           "displayName": "Markdown Language Features"
@@ -19548,8 +19614,8 @@
       "scope": 5,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
-        "order": 20,
+        "title": "Preview",
+        "order": 23,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
           "displayName": "Markdown Language Features"
@@ -19569,8 +19635,8 @@
       "scope": 5,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
-        "order": 20,
+        "title": "Preview",
+        "order": 23,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
           "displayName": "Markdown Language Features"
@@ -19590,8 +19656,8 @@
       "scope": 5,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
-        "order": 20,
+        "title": "Preview",
+        "order": 23,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
           "displayName": "Markdown Language Features"
@@ -19611,8 +19677,8 @@
       "scope": 5,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
-        "order": 20,
+        "title": "Preview",
+        "order": 23,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
           "displayName": "Markdown Language Features"
@@ -19640,8 +19706,8 @@
       ],
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
-        "order": 20,
+        "title": "Preview",
+        "order": 23,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
           "displayName": "Markdown Language Features"
@@ -19661,8 +19727,8 @@
       "scope": 5,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
-        "order": 20,
+        "title": "Preview",
+        "order": 23,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
           "displayName": "Markdown Language Features"
@@ -19682,8 +19748,8 @@
       "scope": 5,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
-        "order": 20,
+        "title": "Preview",
+        "order": 23,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
           "displayName": "Markdown Language Features"
@@ -19703,8 +19769,8 @@
       "scope": 5,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
-        "order": 20,
+        "title": "Preview",
+        "order": 23,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
           "displayName": "Markdown Language Features"
@@ -19729,8 +19795,8 @@
       "description": "Controls the logging level of the Markdown language server.",
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
-        "order": 20,
+        "title": "Advanced",
+        "order": 24,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
           "displayName": "Markdown Language Features"
@@ -19749,12 +19815,12 @@
         "type": "string"
       },
       "default": [],
-      "description": "A list of URLs or local paths to CSS style sheets to use from the Markdown preview. Relative paths are interpreted relative to the folder open in the Explorer. If there is no open folder, they are interpreted relative to the location of the Markdown file. All '\\' need to be written as '\\\\'.",
+      "markdownDescription": "A list of URLs or local paths to CSS style sheets to use from the Markdown preview. Relative paths are interpreted relative to the folder open in the Explorer. If there is no open folder, they are interpreted relative to the location of the Markdown file. All `\\` need to be written as `\\\\`.",
       "scope": 5,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
-        "order": 20,
+        "title": "Preview",
+        "order": 23,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
           "displayName": "Markdown Language Features"
@@ -19770,11 +19836,11 @@
     "markdown.suggest.paths.enabled": {
       "type": "boolean",
       "default": true,
-      "description": "Enable path suggestions while writing links in Markdown files.",
+      "description": "Controls whether path suggestions are shown while writing links in Markdown files.",
       "scope": 5,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
+        "title": "Language Features",
         "order": 20,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
@@ -19805,7 +19871,7 @@
       ],
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
+        "title": "Language Features",
         "order": 20,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
@@ -19831,8 +19897,8 @@
       "description": "Traces the communication between VS Code and the Markdown language server.",
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
-        "order": 20,
+        "title": "Advanced",
+        "order": 24,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
           "displayName": "Markdown Language Features"
@@ -19862,7 +19928,7 @@
       "scope": 4,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
+        "title": "Language Features",
         "order": 20,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
@@ -19883,7 +19949,7 @@
       "scope": 4,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
+        "title": "Language Features",
         "order": 20,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
@@ -19911,7 +19977,7 @@
       ],
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
+        "title": "Language Features",
         "order": 20,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
@@ -19940,8 +20006,8 @@
       ],
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
-        "order": 20,
+        "title": "Validation",
+        "order": 22,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
           "displayName": "Markdown Language Features"
@@ -19955,14 +20021,15 @@
       "restricted": false
     },
     "markdown.validate.enabled": {
+      "order": 0,
       "type": "boolean",
       "scope": 5,
-      "description": "Enable all error reporting in Markdown files.",
+      "description": "Controls whether error reporting is enabled in Markdown files.",
       "default": false,
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
-        "order": 20,
+        "title": "Validation",
+        "order": 22,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
           "displayName": "Markdown Language Features"
@@ -19978,7 +20045,7 @@
     "markdown.validate.fileLinks.enabled": {
       "type": "string",
       "scope": 5,
-      "markdownDescription": "Validate links to other files in Markdown files, for example `[link](/path/to/file.md)`. This checks that the target files exists. Requires enabling `#markdown.validate.enabled#`.",
+      "markdownDescription": "Controls whether links to other files in Markdown files are validated, for example `[link](/path/to/file.md)`. This checks that the target files exist. Requires enabling `#markdown.validate.enabled#`.",
       "default": "warning",
       "enum": [
         "error",
@@ -19987,8 +20054,8 @@
       ],
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
-        "order": 20,
+        "title": "Validation",
+        "order": 22,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
           "displayName": "Markdown Language Features"
@@ -20014,8 +20081,8 @@
       ],
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
-        "order": 20,
+        "title": "Validation",
+        "order": 22,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
           "displayName": "Markdown Language Features"
@@ -20031,7 +20098,7 @@
     "markdown.validate.fragmentLinks.enabled": {
       "type": "string",
       "scope": 5,
-      "markdownDescription": "Validate fragment links to headers in the current Markdown file, for example: `[link](#header)`. Requires enabling `#markdown.validate.enabled#`.",
+      "markdownDescription": "Controls whether fragment links to headers in the current Markdown file are validated, for example: `[link](#header)`. Requires enabling `#markdown.validate.enabled#`.",
       "default": "warning",
       "enum": [
         "error",
@@ -20040,8 +20107,8 @@
       ],
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
-        "order": 20,
+        "title": "Validation",
+        "order": 22,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
           "displayName": "Markdown Language Features"
@@ -20063,8 +20130,8 @@
       },
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
-        "order": 20,
+        "title": "Validation",
+        "order": 22,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
           "displayName": "Markdown Language Features"
@@ -20080,7 +20147,7 @@
     "markdown.validate.referenceLinks.enabled": {
       "type": "string",
       "scope": 5,
-      "markdownDescription": "Validate reference links in Markdown files, for example: `[link][ref]`. Requires enabling `#markdown.validate.enabled#`.",
+      "markdownDescription": "Controls whether reference links in Markdown files are validated, for example: `[link][ref]`. Requires enabling `#markdown.validate.enabled#`.",
       "default": "warning",
       "enum": [
         "error",
@@ -20089,8 +20156,8 @@
       ],
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
-        "order": 20,
+        "title": "Validation",
+        "order": 22,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
           "displayName": "Markdown Language Features"
@@ -20116,8 +20183,8 @@
       ],
       "section": {
         "id": "vscode.markdown-language-features",
-        "title": "Markdown",
-        "order": 20,
+        "title": "Validation",
+        "order": 22,
         "extensionInfo": {
           "id": "vscode.markdown-language-features",
           "displayName": "Markdown Language Features"
@@ -28830,6 +28897,7 @@
         "settings",
         "settings-gear",
         "share",
+        "share-window",
         "shield",
         "sign-in",
         "sign-out",
@@ -29510,6 +29578,7 @@
         "$(settings)",
         "$(settings-gear)",
         "$(share)",
+        "$(share-window)",
         "$(shield)",
         "$(sign-in)",
         "$(sign-out)",
@@ -32132,6 +32201,9 @@
       "type": "boolean",
       "description": "Controls the behavior of empty editor groups when the last tab in the group is closed. When enabled, empty groups will automatically close. When disabled, empty groups will remain part of the grid.",
       "default": true,
+      "keywords": [
+        "pane"
+      ],
       "section": {
         "id": "workbench",
         "title": "Workbench",
@@ -32806,6 +32878,9 @@
       "type": "boolean",
       "default": true,
       "description": "Controls if editor groups can be split from drag and drop operations by dropping an editor or file on the edges of the editor area.",
+      "keywords": [
+        "pane"
+      ],
       "section": {
         "id": "workbench",
         "title": "Workbench",
@@ -32829,6 +32904,9 @@
         "Splits the active editor group to equal parts."
       ],
       "description": "Controls the size of editor groups when splitting them.",
+      "keywords": [
+        "pane"
+      ],
       "section": {
         "id": "workbench",
         "title": "Workbench",
@@ -36513,6 +36591,11 @@
         "Hover is shown when holding `Control` or `Alt` (the opposite modifier of `#editor.multiCursorModifier#`)"
       ],
       "description": "Controls whether the hover is shown.",
+      "keywords": [
+        "hint",
+        "info",
+        "tooltip"
+      ],
       "section": {
         "id": "editor",
         "title": "Editor",
@@ -40092,6 +40175,9 @@
         "open-in-window",
         "new-session",
         "terminal-secure",
+        "chat-import",
+        "chat-export",
+        "share-window",
         "dialog-error",
         "dialog-warning",
         "dialog-info",
@@ -40119,9 +40205,7 @@
         "thumbsup-filled",
         "git-fetch",
         "lightbulb-sparkle-autofix",
-        "debug-breakpoint-pending",
-        "chat-import",
-        "chat-export"
+        "debug-breakpoint-pending"
       ],
       "markdownEnumDescriptions": [
         "$(add)",
@@ -40772,6 +40856,9 @@
         "$(open-in-window)",
         "$(new-session)",
         "$(terminal-secure)",
+        "$(chat-import)",
+        "$(chat-export)",
+        "$(share-window)",
         "$(dialog-error)",
         "$(dialog-warning)",
         "$(dialog-info)",
@@ -40799,9 +40886,7 @@
         "$(thumbsup-filled)",
         "$(git-fetch)",
         "$(lightbulb-sparkle-autofix)",
-        "$(debug-breakpoint-pending)",
-        "$(chat-import)",
-        "$(chat-export)"
+        "$(debug-breakpoint-pending)"
       ]
     },
     "_290": {
@@ -40997,13 +41082,11 @@
     },
     "_303": {
       "type": "array",
-      "description": "Array of paths to allow write access. Leave empty to disallow all writes.",
+      "description": "Array of additional paths to allow write access. Leave empty to disallow writes outside the workspace folders and sandbox temp directory.",
       "items": {
         "type": "string"
       },
-      "default": [
-        "."
-      ]
+      "default": []
     },
     "_304": {
       "type": "array",
