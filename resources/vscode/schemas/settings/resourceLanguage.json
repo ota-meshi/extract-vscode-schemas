@@ -486,6 +486,9 @@
       "type": "boolean",
       "default": false,
       "markdownDescription": "Controls whether the diff editor shows unchanged regions.",
+      "agentsWindow": {
+        "default": true
+      },
       "section": {
         "id": "editor",
         "title": "Editor",
@@ -566,6 +569,9 @@
       "type": "boolean",
       "default": true,
       "description": "When enabled, the diff editor shows a special gutter for revert and stage actions.",
+      "agentsWindow": {
+        "default": false
+      },
       "section": {
         "id": "editor",
         "title": "Editor",
@@ -579,6 +585,9 @@
       "type": "boolean",
       "default": true,
       "description": "Controls whether the diff editor shows +/- indicators for added/removed changes.",
+      "agentsWindow": {
+        "default": false
+      },
       "section": {
         "id": "editor",
         "title": "Editor",
@@ -592,6 +601,9 @@
       "type": "boolean",
       "default": true,
       "description": "When enabled, the diff editor shows arrows in its glyph margin to revert changes.",
+      "agentsWindow": {
+        "default": false
+      },
       "section": {
         "id": "editor",
         "title": "Editor",
@@ -605,6 +617,9 @@
       "type": "boolean",
       "default": true,
       "description": "Controls whether the diff editor shows the diff side by side or inline.",
+      "agentsWindow": {
+        "default": true
+      },
       "section": {
         "id": "editor",
         "title": "Editor",
@@ -631,6 +646,9 @@
       "type": "boolean",
       "default": true,
       "description": "If enabled and the editor width is too small, the inline view is used.",
+      "agentsWindow": {
+        "default": true
+      },
       "section": {
         "id": "editor",
         "title": "Editor",
@@ -6052,6 +6070,9 @@
       "default": "off",
       "markdownDescription": "Controls [auto save](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save) of editors that have unsaved changes.",
       "scope": 6,
+      "agentsWindow": {
+        "default": "afterDelay"
+      },
       "section": {
         "id": "files",
         "title": "Files",

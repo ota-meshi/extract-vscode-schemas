@@ -415,7 +415,7 @@
           "description": "Contributes chatAgents for chat prompts.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/_25"
+            "$ref": "#/$defs/_24"
           }
         },
         "chatContext": {
@@ -425,14 +425,14 @@
             "type": "object",
             "properties": {
               "displayName": {
-                "$ref": "#/$defs/_33"
+                "$ref": "#/$defs/_32"
               },
               "icon": {
                 "description": "The icon associated with this chat context item.",
                 "type": "string"
               },
               "id": {
-                "$ref": "#/$defs/_32"
+                "$ref": "#/$defs/_31"
               }
             },
             "required": [
@@ -446,7 +446,7 @@
           "description": "Contributes chatInstructions for chat prompts.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/_25"
+            "$ref": "#/$defs/_24"
           }
         },
         "chatOutputRenderers": {
@@ -536,7 +536,7 @@
                         ],
                         "properties": {
                           "category": {
-                            "$ref": "#/$defs/_31"
+                            "$ref": "#/$defs/_30"
                           },
                           "description": {
                             "description": "A detailed description of the kinds of questions that are suitable for this chat command.",
@@ -550,7 +550,7 @@
                       }
                     },
                     "isSticky": {
-                      "$ref": "#/$defs/_30"
+                      "$ref": "#/$defs/_29"
                     },
                     "name": {
                       "$ref": "#/$defs/_10"
@@ -591,7 +591,7 @@
                   ],
                   "properties": {
                     "category": {
-                      "$ref": "#/$defs/_31"
+                      "$ref": "#/$defs/_30"
                     },
                     "description": {
                       "description": "A detailed description of the kinds of questions that are suitable for this chat participant.",
@@ -613,7 +613,7 @@
                 "type": "string"
               },
               "isSticky": {
-                "$ref": "#/$defs/_30"
+                "$ref": "#/$defs/_29"
               },
               "name": {
                 "description": "User-facing name for this chat participant. The user will use '@' with this name to invoke the participant. Name must not contain whitespace.",
@@ -663,7 +663,7 @@
           "description": "Contributes chatPromptFiles for chat prompts.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/_25"
+            "$ref": "#/$defs/_24"
           }
         },
         "chatSessions": {
@@ -863,20 +863,20 @@
             ],
             "properties": {
               "description": {
-                "$ref": "#/$defs/_27"
+                "$ref": "#/$defs/_26"
               },
               "name": {
-                "$ref": "#/$defs/_26"
+                "$ref": "#/$defs/_25"
               },
               "path": {
                 "description": "Path to the SKILL.md file relative to the extension root. The folder name must match the \"name\" property in SKILL.md.",
                 "type": "string"
               },
               "sessionTypes": {
-                "$ref": "#/$defs/_29"
+                "$ref": "#/$defs/_28"
               },
               "when": {
-                "$ref": "#/$defs/_28"
+                "$ref": "#/$defs/_27"
               }
             }
           }
@@ -1007,12 +1007,12 @@
           "description": "Contributes configuration settings.",
           "oneOf": [
             {
-              "$ref": "#/$defs/_18"
+              "$ref": "#/$defs/_17"
             },
             {
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_18"
+                "$ref": "#/$defs/_17"
               }
             }
           ]
@@ -1107,9 +1107,33 @@
             ],
             "additionalProperties": false,
             "properties": {
+              "diffEditorPriority": {
+                "type": "string",
+                "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a diff. When not specified, the value of `priority` is used.",
+                "enum": [
+                  "default",
+                  "option"
+                ],
+                "markdownEnumDescriptions": [
+                  "The editor is automatically used when the user opens a diff, provided that no other default custom editors are registered for that resource.",
+                  "The editor is not automatically used when the user opens a diff, but a user can switch to the editor using the `Reopen With` command."
+                ]
+              },
               "displayName": {
                 "type": "string",
                 "description": "Human readable name of the custom editor. This is displayed to users when selecting which editor to use."
+              },
+              "mergeEditorPriority": {
+                "type": "string",
+                "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a merge editor. When not specified, the value of `priority` is used.",
+                "enum": [
+                  "default",
+                  "option"
+                ],
+                "markdownEnumDescriptions": [
+                  "The editor is automatically used when the user opens a merge editor, provided that no other default custom editors are registered for that resource.",
+                  "The editor is not automatically used when the user opens a merge editor, but a user can switch to the editor using the `Reopen With` command."
+                ]
               },
               "priority": {
                 "type": "string",
@@ -3591,12 +3615,12 @@
           "description": "Contributes keybindings.",
           "oneOf": [
             {
-              "$ref": "#/$defs/_23"
+              "$ref": "#/$defs/_22"
             },
             {
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_23"
+                "$ref": "#/$defs/_22"
               }
             }
           ]
@@ -3955,6 +3979,27 @@
           "description": "Contributes menu items to the editor",
           "type": "object",
           "properties": {
+            "agents/change/inline": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - The Changes view inline menu in the agents window.",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/_15"
+              }
+            },
+            "agents/changes/actions": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - The Changes view toolbar of the agents window.",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/_15"
+              }
+            },
+            "agents/changes/actions/primary": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - The Changes view toolbar primary action submenu in the agents window.",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/_15"
+              }
+            },
             "chat/chatSessions": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - The Chat Sessions menu.",
               "type": "array",
@@ -3990,16 +4035,6 @@
                 "$ref": "#/$defs/_14"
               }
             },
-            "chat/input/editing/sessionApplyActions": {
-              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - Submenu for apply actions in the Chat Editing session changes toolbar.",
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/_15"
-              }
-            },
-            "chat/input/editing/sessionChangeToolbar": {
-              "$ref": "#/$defs/_17"
-            },
             "chat/input/editing/sessionTitleToolbar": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - The Chat Editing widget toolbar menu for session title.",
               "type": "array",
@@ -4008,7 +4043,11 @@
               }
             },
             "chat/input/editing/sessionToolbar": {
-              "$ref": "#/$defs/_17"
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - The Chat Editing widget toolbar menu for session changes.",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/_15"
+              }
             },
             "chat/multiDiff/context": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - The Chat Multi-Diff context menu.",
@@ -4631,7 +4670,7 @@
                 "description": "Paths to additional resources that should be allowed in the webview."
               },
               "type": {
-                "$ref": "#/$defs/_24"
+                "$ref": "#/$defs/_23"
               }
             }
           }
@@ -4826,7 +4865,7 @@
                 }
               },
               "type": {
-                "$ref": "#/$defs/_24"
+                "$ref": "#/$defs/_23"
               }
             }
           }
@@ -4859,7 +4898,7 @@
                   "beginsPattern": {
                     "oneOf": [
                       {
-                        "$ref": "#/$defs/_50"
+                        "$ref": "#/$defs/_49"
                       },
                       {
                         "type": "string"
@@ -4870,7 +4909,7 @@
                   "endsPattern": {
                     "oneOf": [
                       {
-                        "$ref": "#/$defs/_50"
+                        "$ref": "#/$defs/_49"
                       },
                       {
                         "type": "string"
@@ -4887,13 +4926,13 @@
               "fileLocation": {
                 "oneOf": [
                   {
-                    "$ref": "#/$defs/_48"
+                    "$ref": "#/$defs/_47"
                   },
                   {
                     "type": "array",
                     "prefixItems": [
                       {
-                        "$ref": "#/$defs/_48"
+                        "$ref": "#/$defs/_47"
                       }
                     ],
                     "minItems": 1,
@@ -4941,10 +4980,10 @@
                         "type": "object",
                         "properties": {
                           "include": {
-                            "$ref": "#/$defs/_49"
+                            "$ref": "#/$defs/_48"
                           },
                           "exclude": {
-                            "$ref": "#/$defs/_49"
+                            "$ref": "#/$defs/_48"
                           }
                         },
                         "required": [
@@ -4993,12 +5032,12 @@
               "pattern": {
                 "anyOf": [
                   {
-                    "$ref": "#/$defs/_47"
+                    "$ref": "#/$defs/_46"
                   },
                   {
                     "type": "array",
                     "items": {
-                      "$ref": "#/$defs/_47"
+                      "$ref": "#/$defs/_46"
                     }
                   },
                   {
@@ -5034,7 +5073,7 @@
                   "beginsPattern": {
                     "oneOf": [
                       {
-                        "$ref": "#/$defs/_50"
+                        "$ref": "#/$defs/_49"
                       },
                       {
                         "type": "string"
@@ -5045,7 +5084,7 @@
                   "endsPattern": {
                     "oneOf": [
                       {
-                        "$ref": "#/$defs/_50"
+                        "$ref": "#/$defs/_49"
                       },
                       {
                         "type": "string"
@@ -5074,44 +5113,44 @@
                 "additionalProperties": false,
                 "properties": {
                   "code": {
-                    "$ref": "#/$defs/_44"
+                    "$ref": "#/$defs/_43"
                   },
                   "column": {
-                    "$ref": "#/$defs/_40"
-                  },
-                  "endColumn": {
-                    "$ref": "#/$defs/_42"
-                  },
-                  "endLine": {
-                    "$ref": "#/$defs/_41"
-                  },
-                  "file": {
-                    "$ref": "#/$defs/_37"
-                  },
-                  "kind": {
-                    "$ref": "#/$defs/_36"
-                  },
-                  "line": {
                     "$ref": "#/$defs/_39"
                   },
-                  "location": {
+                  "endColumn": {
+                    "$ref": "#/$defs/_41"
+                  },
+                  "endLine": {
+                    "$ref": "#/$defs/_40"
+                  },
+                  "file": {
+                    "$ref": "#/$defs/_36"
+                  },
+                  "kind": {
+                    "$ref": "#/$defs/_35"
+                  },
+                  "line": {
                     "$ref": "#/$defs/_38"
                   },
+                  "location": {
+                    "$ref": "#/$defs/_37"
+                  },
                   "loop": {
-                    "$ref": "#/$defs/_46"
+                    "$ref": "#/$defs/_45"
                   },
                   "message": {
-                    "$ref": "#/$defs/_45"
+                    "$ref": "#/$defs/_44"
                   },
                   "name": {
                     "type": "string",
                     "description": "The name of the problem pattern."
                   },
                   "regexp": {
-                    "$ref": "#/$defs/_35"
+                    "$ref": "#/$defs/_34"
                   },
                   "severity": {
-                    "$ref": "#/$defs/_43"
+                    "$ref": "#/$defs/_42"
                   }
                 }
               },
@@ -5127,7 +5166,7 @@
                     "type": "array",
                     "description": "The actual patterns.",
                     "items": {
-                      "$ref": "#/$defs/_47"
+                      "$ref": "#/$defs/_46"
                     }
                   }
                 }
@@ -5184,14 +5223,14 @@
                 "type": "string"
               },
               "displayName": {
-                "$ref": "#/$defs/_33"
+                "$ref": "#/$defs/_32"
               },
               "followUpRegex": {
                 "description": "The last occurrence of pattern in an existing chat conversation is sent to the contributing extension to facilitate follow-up responses.",
                 "type": "string"
               },
               "id": {
-                "$ref": "#/$defs/_32"
+                "$ref": "#/$defs/_31"
               },
               "when": {
                 "$ref": "#/$defs/_9"
@@ -5608,7 +5647,7 @@
                 ]
               },
               "commandLineMatcher": {
-                "$ref": "#/$defs/_34"
+                "$ref": "#/$defs/_33"
               },
               "id": {
                 "description": "The ID of the quick fix provider",
@@ -5647,7 +5686,7 @@
                     "type": "number"
                   },
                   "lineMatcher": {
-                    "$ref": "#/$defs/_34"
+                    "$ref": "#/$defs/_33"
                   },
                   "offset": {
                     "description": "The number of lines vertically from the anchor in the buffer to start matching against",
@@ -5710,7 +5749,7 @@
               "description": "Contributes views to Debug container in the Activity bar",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_20"
+                "$ref": "#/$defs/_19"
               },
               "default": []
             },
@@ -5718,7 +5757,7 @@
               "description": "Contributes views to Explorer container in the Activity bar",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_20"
+                "$ref": "#/$defs/_19"
               },
               "default": []
             },
@@ -5741,7 +5780,7 @@
                     "type": "string"
                   },
                   "name": {
-                    "$ref": "#/$defs/_21"
+                    "$ref": "#/$defs/_20"
                   },
                   "remoteName": {
                     "description": "The name of the remote type associated with this view",
@@ -5754,7 +5793,7 @@
                     }
                   },
                   "when": {
-                    "$ref": "#/$defs/_22"
+                    "$ref": "#/$defs/_21"
                   }
                 }
               },
@@ -5764,7 +5803,7 @@
               "description": "Contributes views to SCM container in the Activity bar",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_20"
+                "$ref": "#/$defs/_19"
               },
               "default": []
             },
@@ -5772,7 +5811,7 @@
               "description": "Contributes views to Test container in the Activity bar",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_20"
+                "$ref": "#/$defs/_19"
               },
               "default": []
             }
@@ -5781,7 +5820,7 @@
             "description": "Contributes views to contributed views container",
             "type": "array",
             "items": {
-              "$ref": "#/$defs/_20"
+              "$ref": "#/$defs/_19"
             },
             "default": []
           }
@@ -5794,21 +5833,21 @@
               "description": "Contribute views containers to Activity Bar",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_19"
+                "$ref": "#/$defs/_18"
               }
             },
             "panel": {
               "description": "Contribute views containers to Panel",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_19"
+                "$ref": "#/$defs/_18"
               }
             },
             "secondarySidebar": {
               "description": "Contribute views containers to Secondary Side Bar",
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_19"
+                "$ref": "#/$defs/_18"
               }
             }
           },
@@ -6015,7 +6054,7 @@
                           "additionalProperties": false,
                           "properties": {
                             "altText": {
-                              "$ref": "#/$defs/_52"
+                              "$ref": "#/$defs/_51"
                             },
                             "image": {
                               "description": "Path to an image - or object consisting of paths to light, dark, and hc images - relative to extension directory. Depending on context, the image will be displayed from 400px to 800px wide, with similar bounds on height. To support HIDPI displays, the image will be rendered at 1.5x scaling, for example a 900 physical pixels wide image will be displayed as 600 logical pixels wide.",
@@ -6053,7 +6092,7 @@
                               ]
                             },
                             "path": {
-                              "$ref": "#/$defs/_51"
+                              "$ref": "#/$defs/_50"
                             }
                           }
                         },
@@ -6068,7 +6107,7 @@
                               "type": "string"
                             },
                             "path": {
-                              "$ref": "#/$defs/_51"
+                              "$ref": "#/$defs/_50"
                             }
                           }
                         },
@@ -6080,7 +6119,7 @@
                           "additionalProperties": false,
                           "properties": {
                             "altText": {
-                              "$ref": "#/$defs/_52"
+                              "$ref": "#/$defs/_51"
                             },
                             "svg": {
                               "description": "Path to an svg, color tokens are supported in variables to support theming to match the workbench.",
@@ -6128,6 +6167,7 @@
         "enum": [
           "activeComment",
           "agentSessionsWorkspace",
+          "agentsWindowConfiguration",
           "aiRelatedInformation",
           "aiSettingsSearch",
           "aiTextSearchProvider",
@@ -6190,13 +6230,16 @@
           "contribViewsRemote",
           "contribViewsWelcome",
           "css",
+          "customEditorDiffs",
           "customEditorMove",
+          "customEditorPriority",
           "dataChannels",
           "debugVisualization",
           "defaultChatParticipant",
           "devDeviceId",
           "diffCommand",
           "diffContentOptions",
+          "documentDiff",
           "documentFiltersExclusive",
           "editorHoverVerbosityLevel",
           "editorInsets",
@@ -6299,6 +6342,7 @@
         "markdownEnumDescriptions": [
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.activeComment.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.agentSessionsWorkspace.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.agentsWindowConfiguration.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiRelatedInformation.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiSettingsSearch.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiTextSearchProvider.d.ts",
@@ -6361,13 +6405,16 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribViewsRemote.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.contribViewsWelcome.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.css.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.customEditorDiffs.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.customEditorMove.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.customEditorPriority.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.dataChannels.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.debugVisualization.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.defaultChatParticipant.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.devDeviceId.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.diffCommand.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.diffContentOptions.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.documentDiff.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.documentFiltersExclusive.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.editorHoverVerbosityLevel.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.editorInsets.d.ts",
@@ -6489,7 +6536,7 @@
       "type": "array",
       "uniqueItems": true,
       "items": {
-        "$ref": "#/$defs/_53"
+        "$ref": "#/$defs/_52"
       }
     },
     "extensionDependencies": {
@@ -6497,7 +6544,7 @@
       "type": "array",
       "uniqueItems": true,
       "items": {
-        "$ref": "#/$defs/_53"
+        "$ref": "#/$defs/_52"
       }
     },
     "extensionKind": {
@@ -6555,7 +6602,7 @@
       "type": "array",
       "uniqueItems": true,
       "items": {
-        "$ref": "#/$defs/_53"
+        "$ref": "#/$defs/_52"
       }
     },
     "galleryBanner": {
@@ -8631,11 +8678,11 @@
                 "properties": {
                   "type": "object",
                   "additionalProperties": {
-                    "$ref": "#/$defs/_54"
+                    "$ref": "#/$defs/_53"
                   }
                 },
                 "additionalProperties": {
-                  "$ref": "#/$defs/_54"
+                  "$ref": "#/$defs/_53"
                 }
               }
             }
@@ -8746,10 +8793,10 @@
           "type": "string"
         },
         "when": {
-          "$ref": "#/$defs/_55"
+          "$ref": "#/$defs/_54"
         },
         "group": {
-          "$ref": "#/$defs/_56"
+          "$ref": "#/$defs/_55"
         }
       }
     },
@@ -8769,10 +8816,10 @@
               "type": "string"
             },
             "when": {
-              "$ref": "#/$defs/_55"
+              "$ref": "#/$defs/_54"
             },
             "group": {
-              "$ref": "#/$defs/_56"
+              "$ref": "#/$defs/_55"
             }
           }
         }
@@ -8786,13 +8833,6 @@
       }
     },
     "_17": {
-      "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - The Chat Editing widget toolbar menu for session changes.",
-      "type": "array",
-      "items": {
-        "$ref": "#/$defs/_15"
-      }
-    },
-    "_18": {
       "type": "object",
       "defaultSnippets": [
         {
@@ -8931,6 +8971,21 @@
                     },
                     "additionalItems": true,
                     "markdownDescription": "A list of tags under which to place the setting. The tag can then be searched up in the Settings editor. For example, specifying the `experimental` tag allows one to find the setting by searching `@tag:experimental`."
+                  },
+                  "agentsWindow": {
+                    "type": "object",
+                    "markdownDescription": "Configuration overrides for the Agents window. Allows specifying a different default value and read-only behavior for this setting when running in the Agents window.\n\n**Note**: This is a proposed API. To use it, extensions must include `agentsWindowConfiguration` in their `enabledApiProposals`.",
+                    "properties": {
+                      "default": {
+                        "description": "The default value for this setting in the Agents window."
+                      },
+                      "readOnly": {
+                        "type": "boolean",
+                        "description": "When true, this setting cannot be changed by the user in the Agents window.",
+                        "default": false
+                      }
+                    },
+                    "additionalProperties": false
                   }
                 }
               }
@@ -8939,7 +8994,7 @@
         }
       }
     },
-    "_19": {
+    "_18": {
       "type": "object",
       "properties": {
         "id": {
@@ -8962,7 +9017,7 @@
         "icon"
       ]
     },
-    "_20": {
+    "_19": {
       "type": "object",
       "required": [
         "id",
@@ -8996,10 +9051,10 @@
           "type": "string"
         },
         "name": {
-          "$ref": "#/$defs/_21"
+          "$ref": "#/$defs/_20"
         },
         "when": {
-          "$ref": "#/$defs/_22"
+          "$ref": "#/$defs/_21"
         },
         "icon": {
           "description": "Path to the view icon. View icons are displayed when the name of the view cannot be shown. It is recommended that icons be in SVG, though any image file type is accepted.",
@@ -9034,15 +9089,15 @@
         }
       }
     },
-    "_21": {
+    "_20": {
       "description": "The human-readable name of the view. Will be shown",
       "type": "string"
     },
-    "_22": {
+    "_21": {
       "description": "Condition which must be true to show this view",
       "type": "string"
     },
-    "_23": {
+    "_22": {
       "type": "object",
       "default": {
         "command": "",
@@ -9082,11 +9137,11 @@
         }
       }
     },
-    "_24": {
+    "_23": {
       "type": "string",
       "description": "Type of the notebook."
     },
-    "_25": {
+    "_24": {
       "additionalProperties": false,
       "type": "object",
       "defaultSnippets": [
@@ -9105,109 +9160,109 @@
           "type": "string"
         },
         "name": {
-          "$ref": "#/$defs/_26"
+          "$ref": "#/$defs/_25"
         },
         "description": {
-          "$ref": "#/$defs/_27"
+          "$ref": "#/$defs/_26"
         },
         "when": {
-          "$ref": "#/$defs/_28"
+          "$ref": "#/$defs/_27"
         },
         "sessionTypes": {
-          "$ref": "#/$defs/_29"
+          "$ref": "#/$defs/_28"
         }
       }
     },
-    "_26": {
+    "_25": {
       "description": "(Optional) Name for this entry.",
       "deprecationMessage": "Specify \"name\" in the prompt file itself instead.",
       "type": "string"
     },
-    "_27": {
+    "_26": {
       "description": "(Optional) Description of the entry.",
       "deprecationMessage": "Specify \"description\" in the prompt file itself instead.",
       "type": "string"
     },
-    "_28": {
+    "_27": {
       "description": "(Optional) A condition which must be true to enable this entry.",
       "type": "string"
     },
-    "_29": {
+    "_28": {
       "description": "(Optional) The chat session types where this entry should be offered.",
       "type": "array",
       "items": {
         "type": "string"
       }
     },
-    "_30": {
+    "_29": {
       "description": "Whether invoking the command puts the chat into a persistent mode, where the command is automatically added to the chat input for the next message.",
       "type": "boolean"
     },
-    "_31": {
+    "_30": {
       "markdownDescription": "A detailed name for this category, e.g. `workspace_questions` or `web_questions`.",
       "type": "string"
     },
-    "_32": {
+    "_31": {
       "description": "A unique identifier for this item.",
       "type": "string"
     },
-    "_33": {
+    "_32": {
       "description": "A user-friendly name for this item which is used for display in menus.",
       "type": "string"
     },
-    "_34": {
+    "_33": {
       "description": "A regular expression or string to test the command line against",
       "type": "string"
     },
-    "_35": {
+    "_34": {
       "type": "string",
       "description": "The regular expression to find an error, warning or info in the output."
     },
-    "_36": {
+    "_35": {
       "type": "string",
       "description": "whether the pattern matches a location (file and line) or only a file."
     },
-    "_37": {
+    "_36": {
       "type": "integer",
       "description": "The match group index of the filename. If omitted 1 is used."
     },
-    "_38": {
+    "_37": {
       "type": "integer",
       "description": "The match group index of the problem's location. Valid location patterns are: (line), (line,column) and (startLine,startColumn,endLine,endColumn). If omitted (line,column) is assumed."
     },
-    "_39": {
+    "_38": {
       "type": "integer",
       "description": "The match group index of the problem's line. Defaults to 2"
     },
-    "_40": {
+    "_39": {
       "type": "integer",
       "description": "The match group index of the problem's line character. Defaults to 3"
     },
-    "_41": {
+    "_40": {
       "type": "integer",
       "description": "The match group index of the problem's end line. Defaults to undefined"
     },
-    "_42": {
+    "_41": {
       "type": "integer",
       "description": "The match group index of the problem's end line character. Defaults to undefined"
     },
-    "_43": {
+    "_42": {
       "type": "integer",
       "description": "The match group index of the problem's severity. Defaults to undefined"
     },
-    "_44": {
+    "_43": {
       "type": "integer",
       "description": "The match group index of the problem's code. Defaults to undefined"
     },
-    "_45": {
+    "_44": {
       "type": "integer",
       "description": "The match group index of the message. If omitted it defaults to 4 if location is specified. Otherwise it defaults to 5."
     },
-    "_46": {
+    "_45": {
       "type": "boolean",
       "description": "In a multi line matcher loop indicated whether this pattern is executed in a loop as long as it matches. Can only specified on a last pattern in a multi line pattern."
     },
-    "_47": {
+    "_46": {
       "default": {
         "regexp": "^([^\\\\s].*)\\\\((\\\\d+,\\\\d+)\\\\):\\\\s*(.*)$",
         "file": 1,
@@ -9218,44 +9273,44 @@
       "additionalProperties": false,
       "properties": {
         "regexp": {
-          "$ref": "#/$defs/_35"
+          "$ref": "#/$defs/_34"
         },
         "kind": {
-          "$ref": "#/$defs/_36"
+          "$ref": "#/$defs/_35"
         },
         "file": {
-          "$ref": "#/$defs/_37"
+          "$ref": "#/$defs/_36"
         },
         "location": {
-          "$ref": "#/$defs/_38"
+          "$ref": "#/$defs/_37"
         },
         "line": {
-          "$ref": "#/$defs/_39"
+          "$ref": "#/$defs/_38"
         },
         "column": {
-          "$ref": "#/$defs/_40"
+          "$ref": "#/$defs/_39"
         },
         "endLine": {
-          "$ref": "#/$defs/_41"
+          "$ref": "#/$defs/_40"
         },
         "endColumn": {
-          "$ref": "#/$defs/_42"
+          "$ref": "#/$defs/_41"
         },
         "severity": {
-          "$ref": "#/$defs/_43"
+          "$ref": "#/$defs/_42"
         },
         "code": {
-          "$ref": "#/$defs/_44"
+          "$ref": "#/$defs/_43"
         },
         "message": {
-          "$ref": "#/$defs/_45"
+          "$ref": "#/$defs/_44"
         },
         "loop": {
-          "$ref": "#/$defs/_46"
+          "$ref": "#/$defs/_45"
         }
       }
     },
-    "_48": {
+    "_47": {
       "type": "string",
       "enum": [
         "absolute",
@@ -9264,7 +9319,7 @@
         "search"
       ]
     },
-    "_49": {
+    "_48": {
       "oneOf": [
         {
           "type": "string"
@@ -9274,7 +9329,7 @@
         }
       ]
     },
-    "_50": {
+    "_49": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -9288,18 +9343,18 @@
         }
       }
     },
-    "_51": {
+    "_50": {
       "deprecationMessage": "Deprecated. Please use `image` or `markdown` instead"
     },
-    "_52": {
+    "_51": {
       "type": "string",
       "description": "Alternate text to display when the image cannot be loaded or in screen readers."
     },
-    "_53": {
+    "_52": {
       "type": "string",
       "pattern": "^([a-z0-9A-Z][a-z0-9-A-Z]*)\\.([a-z0-9A-Z][a-z0-9-A-Z]*)$"
     },
-    "_54": {
+    "_53": {
       "$ref": "http://json-schema.org/draft-07/schema#",
       "properties": {
         "secret": {
@@ -9308,11 +9363,11 @@
         }
       }
     },
-    "_55": {
+    "_54": {
       "description": "Condition which must be true to show this item",
       "type": "string"
     },
-    "_56": {
+    "_55": {
       "description": "Group into which this item belongs",
       "type": "string"
     }
