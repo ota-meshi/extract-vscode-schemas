@@ -450,19 +450,27 @@
           }
         },
         "chatOutputRenderers": {
-          "description": "Contributes a renderer for specific MIME types in chat outputs",
+          "description": "Contributes a renderer for specific MIME types and code block language identifiers in chat outputs",
           "type": "array",
           "items": {
             "type": "object",
             "additionalProperties": false,
             "required": [
-              "viewType",
-              "mimeTypes"
+              "viewType"
             ],
             "properties": {
+              "codeBlockLanguageIdentifiers": {
+                "type": "array",
+                "description": "Code block language identifiers that this renderer can handle",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string"
+                }
+              },
               "mimeTypes": {
                 "type": "array",
                 "description": "MIME types that this renderer can handle",
+                "uniqueItems": true,
                 "items": {
                   "type": "string"
                 }
@@ -1107,44 +1115,69 @@
             ],
             "additionalProperties": false,
             "properties": {
-              "diffEditorPriority": {
-                "type": "string",
-                "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a diff. When not specified, the value of `priority` is used.",
-                "enum": [
-                  "default",
-                  "option"
-                ],
-                "markdownEnumDescriptions": [
-                  "The editor is automatically used when the user opens a diff, provided that no other default custom editors are registered for that resource.",
-                  "The editor is not automatically used when the user opens a diff, but a user can switch to the editor using the `Reopen With` command."
-                ]
-              },
               "displayName": {
                 "type": "string",
                 "description": "Human readable name of the custom editor. This is displayed to users when selecting which editor to use."
               },
-              "mergeEditorPriority": {
-                "type": "string",
-                "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a merge editor. When not specified, the value of `priority` is used.",
-                "enum": [
-                  "default",
-                  "option"
-                ],
-                "markdownEnumDescriptions": [
-                  "The editor is automatically used when the user opens a merge editor, provided that no other default custom editors are registered for that resource.",
-                  "The editor is not automatically used when the user opens a merge editor, but a user can switch to the editor using the `Reopen With` command."
-                ]
-              },
               "priority": {
-                "type": "string",
-                "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a file. This may be overridden by users using the `workbench.editorAssociations` setting.",
-                "enum": [
-                  "default",
-                  "option"
-                ],
-                "markdownEnumDescriptions": [
-                  "The editor is automatically used when the user opens a resource, provided that no other default custom editors are registered for that resource.",
-                  "The editor is not automatically used when the user opens a resource, but a user can switch to the editor using the `Reopen With` command."
+                "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a file, diff, or merge editor. This may be overridden by users using the `workbench.editorAssociations` or `workbench.diffEditorAssociations` setting.",
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "editor"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "diff": {
+                        "type": "string",
+                        "enum": [
+                          "default",
+                          "option"
+                        ],
+                        "markdownEnumDescriptions": [
+                          "The editor is automatically used when the user opens a resource, provided that no other default custom editors are registered for that resource.",
+                          "The editor is not automatically used when the user opens a resource, but a user can switch to the editor using the `Reopen With` command."
+                        ],
+                        "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a diff. When not specified, the value of `editor` is used."
+                      },
+                      "editor": {
+                        "type": "string",
+                        "enum": [
+                          "default",
+                          "option"
+                        ],
+                        "markdownEnumDescriptions": [
+                          "The editor is automatically used when the user opens a resource, provided that no other default custom editors are registered for that resource.",
+                          "The editor is not automatically used when the user opens a resource, but a user can switch to the editor using the `Reopen With` command."
+                        ],
+                        "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a file."
+                      },
+                      "merge": {
+                        "type": "string",
+                        "enum": [
+                          "default",
+                          "option"
+                        ],
+                        "markdownEnumDescriptions": [
+                          "The editor is automatically used when the user opens a resource, provided that no other default custom editors are registered for that resource.",
+                          "The editor is not automatically used when the user opens a resource, but a user can switch to the editor using the `Reopen With` command."
+                        ],
+                        "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a merge editor. When not specified, the value of `editor` is used."
+                      }
+                    }
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "default",
+                      "option"
+                    ],
+                    "markdownEnumDescriptions": [
+                      "The editor is automatically used when the user opens a resource, provided that no other default custom editors are registered for that resource.",
+                      "The editor is not automatically used when the user opens a resource, but a user can switch to the editor using the `Reopen With` command."
+                    ]
+                  }
                 ],
                 "default": "default"
               },
@@ -2348,7 +2381,6 @@
                       "search-editor-label-icon",
                       "agent-plugin-editor-icon",
                       "extensions-editor-label-icon",
-                      "runtime-extensions-editor-label-icon",
                       "start-inline-chat",
                       "mcp-server",
                       "mcp-server-remote",
@@ -2451,7 +2483,8 @@
                       "notifications-collapse-up",
                       "notifications-configure",
                       "notifications-do-not-disturb",
-                      "notifications-position"
+                      "notifications-position",
+                      "runtime-extensions-editor-label-icon"
                     ],
                     "enumDescriptions": [
                       "",
@@ -3369,7 +3402,6 @@
                       "Icon of the search editor label.",
                       "Icon of the Agent Plugin editor.",
                       "Icon of the extensions editor label.",
-                      "Icon of the runtime extensions editor label.",
                       "Icon which spawns the inline chat from the editor toolbar.",
                       "Icon used for the MCP server.",
                       "Icon to indicate that an MCP server is for the remote user scope.",
@@ -3472,7 +3504,8 @@
                       "Icon for the collapse action in notifications when the notification center is at the top.",
                       "Icon for the configure action in notifications.",
                       "Icon for the mute all action in notifications.",
-                      "Icon for the position action in notifications."
+                      "Icon for the position action in notifications.",
+                      "Icon of the runtime extensions editor label."
                     ]
                   },
                   {

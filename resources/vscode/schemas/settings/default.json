@@ -5299,16 +5299,20 @@
     },
     "chat.sessionSync.enabled": {
       "default": false,
-      "markdownDescription": "Enable session sync to GitHub.com. When enabled, Copilot session data is synced to your GitHub account for cross-device access and richer insights. Requires local session tracking to also be enabled.",
+      "markdownDescription": "Enable session sync to GitHub.com. When enabled, Copilot session data is synced to your GitHub account for cross-device access and richer insights. Requires `#github.copilot.chat.localIndex.enabled#` to also be enabled.",
       "type": "boolean",
       "tags": [
         "experimental",
-        "advanced"
+        "advanced",
+        "onExP"
       ],
+      "experiment": {
+        "mode": "auto"
+      },
       "policy": {
         "name": "CopilotSessionSync",
         "category": "InteractiveSession",
-        "minimumVersion": "1.119",
+        "minimumVersion": "1.121",
         "localization": {
           "description": {
             "key": "chat.sessionSync.enabled.policy",
@@ -5501,7 +5505,7 @@
           "new - Scaffold a new workspace in VS Code",
           "openBrowserPage - Open a URL in the integrated browser",
           "rename - Rename a symbol across the workspace",
-          "renderMermaidDiagram - Render a Mermaid.js diagrams from markup.",
+          "renderMermaidDiagram - Render a Mermaid.js diagram from markup.",
           "reviewPlan - Ask the user to review and approve a plan before proceeding.",
           "runInTerminal - Run commands in the terminal",
           "runSubagent - Run a task within an isolated subagent context to enable efficient organization of tasks and context window management.",
@@ -5569,33 +5573,10 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "chat.tools.renameTool.enabled": {
-      "type": "boolean",
-      "default": true,
-      "markdownDescription": "Controls whether the rename tool is available for renaming code symbols across the workspace.",
-      "tags": [
-        "preview",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "auto"
-      },
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": true,
-      "scope": 4,
-      "restricted": false
-    },
     "chat.tools.riskAssessment.enabled": {
       "type": "boolean",
       "description": "When enabled, terminal tool confirmations show an LLM-generated risk level (Safe / Caution / Review carefully) and a short explanation.",
       "default": true,
-      "tags": [
-        "experimental",
-        "onExP"
-      ],
       "experiment": {
         "mode": "auto"
       },
@@ -5605,12 +5586,15 @@
       },
       "defaultDefaultValue": true,
       "scope": 4,
-      "restricted": false
+      "restricted": false,
+      "tags": [
+        "onExP"
+      ]
     },
     "chat.tools.riskAssessment.model": {
       "type": "string",
       "description": "The language model id used to generate tool risk assessments. Should be a small, fast model.",
-      "default": "copilot-fast",
+      "default": "copilot-utility-small",
       "tags": [
         "experimental",
         "advanced",
@@ -5623,7 +5607,7 @@
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": "copilot-fast",
+      "defaultDefaultValue": "copilot-utility-small",
       "scope": 4,
       "restricted": false
     },
@@ -6043,6 +6027,27 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.tools.terminal.idleSilenceTimeoutMs": {
+      "restricted": true,
+      "type": "number",
+      "default": 60000,
+      "minimum": 0,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "markdownDescription": "Number of milliseconds the run in terminal tool will wait for new output from a synchronous command before moving it to a background terminal and returning what was collected so far. The process is not killed — the tool returns the terminal ID so the model can poll, send input, or kill it. Set to `0` to disable.",
+      "section": {
+        "id": "terminal",
+        "title": "Integrated Terminal",
+        "order": 100
+      },
+      "defaultDefaultValue": 60000,
+      "scope": 4
+    },
     "chat.tools.terminal.ignoreDefaultAutoApproveRules": {
       "type": "boolean",
       "default": false,
@@ -6058,6 +6063,26 @@
       "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
+    },
+    "chat.tools.terminal.outputDeltas": {
+      "restricted": true,
+      "type": "boolean",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "markdownDescription": "When enabled, repeated get terminal output tool calls return only output added since the previous poll for the same terminal execution, or a short unchanged-output message when there is no new output.",
+      "section": {
+        "id": "terminal",
+        "title": "Integrated Terminal",
+        "order": 100
+      },
+      "defaultDefaultValue": false,
+      "scope": 4
     },
     "chat.tools.terminal.outputLocation": {
       "markdownDescription": "Where to show the output from the run in terminal tool.",
@@ -6273,25 +6298,6 @@
       "scope": 4,
       "restricted": false
     },
-    "chat.tools.usagesTool.enabled": {
-      "type": "boolean",
-      "default": true,
-      "markdownDescription": "Controls whether the usages tool is available for finding references, definitions, and implementations of code symbols.",
-      "tags": [
-        "preview",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "auto"
-      },
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": true,
-      "scope": 4,
-      "restricted": false
-    },
     "chat.undoRequests.restoreInput": {
       "default": true,
       "markdownDescription": "Controls whether the input of the chat should be restored when an undo request is made. The input will be filled with the text of the request that was restored.",
@@ -6496,6 +6502,48 @@
       },
       "defaultDefaultValue": false,
       "scope": 4
+    },
+    "chat.utilityModel": {
+      "type": "string",
+      "description": "Override the language model used by built-in utility flows (titles, summaries, fallback responses, etc.). Leave empty to use the default model.",
+      "default": "",
+      "enum": [
+        ""
+      ],
+      "enumItemLabels": [
+        "Default"
+      ],
+      "markdownEnumDescriptions": [
+        "Use the built-in default utility model"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "",
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.utilitySmallModel": {
+      "type": "string",
+      "description": "Override the language model used by built-in small/fast utility flows (commit messages, intent detection, inline-chat progress, etc.). A fast and inexpensive model is recommended. Leave empty to use the default model.",
+      "default": "",
+      "enum": [
+        ""
+      ],
+      "enumItemLabels": [
+        "Default"
+      ],
+      "markdownEnumDescriptions": [
+        "Use the built-in default utility model"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "",
+      "scope": 4,
+      "restricted": false
     },
     "chat.viewProgressBadge.enabled": {
       "type": "boolean",
@@ -9559,7 +9607,7 @@
         "vscode.markdown-math",
         "vscode.media-preview",
         "vscode.merge-conflict",
-        "vscode.mermaid-chat-features",
+        "vscode.mermaid-markdown-features",
         "vscode.microsoft-authentication",
         "vscode.npm",
         "vscode.php-language-features",
@@ -9596,7 +9644,7 @@
         "JavaScript Debugger Companion Extension",
         "Media Preview",
         "Merge Conflict",
-        "Mermaid Chat Features",
+        "Mermaid Markdown Features",
         "Microsoft Account",
         "NPM support for VS Code",
         "Reference Search View",
@@ -9631,7 +9679,7 @@
         "Adds math support to Markdown in notebooks.",
         "Provides VS Code's built-in previews for images, audio, and video",
         "Highlighting and commands for inline merge conflicts.",
-        "Adds Mermaid diagram support to built-in chats.",
+        "Adds Mermaid diagram support to built-in chats, Markdown previews, and notebooks.",
         "Microsoft authentication provider",
         "Extension to add task support for npm scripts.",
         "Provides rich language support for PHP files.",
@@ -9683,7 +9731,7 @@
         "vscode.markdown-math",
         "vscode.media-preview",
         "vscode.merge-conflict",
-        "vscode.mermaid-chat-features",
+        "vscode.mermaid-markdown-features",
         "vscode.microsoft-authentication",
         "vscode.npm",
         "vscode.php-language-features",
@@ -9720,7 +9768,7 @@
         "JavaScript Debugger Companion Extension",
         "Media Preview",
         "Merge Conflict",
-        "Mermaid Chat Features",
+        "Mermaid Markdown Features",
         "Microsoft Account",
         "NPM support for VS Code",
         "Reference Search View",
@@ -9755,7 +9803,7 @@
         "Adds math support to Markdown in notebooks.",
         "Provides VS Code's built-in previews for images, audio, and video",
         "Highlighting and commands for inline merge conflicts.",
-        "Adds Mermaid diagram support to built-in chats.",
+        "Adds Mermaid diagram support to built-in chats, Markdown previews, and notebooks.",
         "Microsoft authentication provider",
         "Extension to add task support for npm scripts.",
         "Provides rich language support for PHP files.",
@@ -14202,6 +14250,10 @@
       "scope": 5,
       "description": "Whether Git is enabled.",
       "default": true,
+      "agentsWindow": {
+        "default": true,
+        "readOnly": true
+      },
       "section": {
         "id": "vscode.git",
         "title": "Git",
@@ -18872,7 +18924,7 @@
     },
     "js/ts.tsdk.path": {
       "type": "string",
-      "markdownDescription": "Specifies the folder path to the tsserver and `lib*.d.ts` files under a TypeScript install to use for IntelliSense, for example: `./node_modules/typescript/lib`.\n\n- When specified as a user setting, the TypeScript version from `typescript.tsdk` automatically replaces the built-in TypeScript version.\n- When specified as a workspace setting, `typescript.tsdk` allows you to switch to use that workspace version of TypeScript for IntelliSense with the `TypeScript: Select TypeScript version` command.\n\nSee the [TypeScript documentation](https://code.visualstudio.com/docs/typescript/typescript-compiling#_using-newer-typescript-versions) for more detail about managing TypeScript versions.",
+      "markdownDescription": "Specifies the folder path to the tsserver and `lib*.d.ts` files under a TypeScript install to use for IntelliSense, for example: `./node_modules/typescript/lib`.\n\n- When specified as a user setting, the TypeScript version from `js/ts.tsdk.path` automatically replaces the built-in TypeScript version.\n- When specified as a workspace setting, `js/ts.tsdk.path` allows you to switch to use that workspace version of TypeScript for IntelliSense with the `TypeScript: Select TypeScript version` command.\n\nSee the [TypeScript documentation](https://code.visualstudio.com/docs/typescript/typescript-compiling#_using-newer-typescript-versions) for more detail about managing TypeScript versions.",
       "scope": 4,
       "order": 1,
       "keywords": [
@@ -20584,6 +20636,208 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
+    "markdown-mermaid.controls.show": {
+      "type": "string",
+      "description": "Controls showing UI controls on Mermaid diagrams.",
+      "enum": [
+        "always",
+        "never",
+        "onHoverOrFocus"
+      ],
+      "enumDescriptions": [
+        "Always show zoom controls.",
+        "Never show controls.",
+        "Show zoom controls when hovering over or focusing a diagram."
+      ],
+      "default": "onHoverOrFocus",
+      "scope": 4,
+      "section": {
+        "id": "vscode.mermaid-markdown-features",
+        "title": "Mermaid",
+        "extensionInfo": {
+          "id": "vscode.mermaid-markdown-features",
+          "displayName": "Mermaid Markdown Features"
+        }
+      },
+      "source": {
+        "id": "vscode.mermaid-markdown-features",
+        "displayName": "Mermaid Markdown Features"
+      },
+      "defaultDefaultValue": "onHoverOrFocus",
+      "restricted": false
+    },
+    "markdown-mermaid.darkModeTheme": {
+      "order": 1,
+      "type": "string",
+      "enum": [
+        "base",
+        "dark",
+        "default",
+        "forest",
+        "neutral"
+      ],
+      "default": "dark",
+      "description": "Default Mermaid theme for dark mode.",
+      "scope": 4,
+      "section": {
+        "id": "vscode.mermaid-markdown-features",
+        "title": "Mermaid",
+        "extensionInfo": {
+          "id": "vscode.mermaid-markdown-features",
+          "displayName": "Mermaid Markdown Features"
+        }
+      },
+      "source": {
+        "id": "vscode.mermaid-markdown-features",
+        "displayName": "Mermaid Markdown Features"
+      },
+      "defaultDefaultValue": "dark",
+      "restricted": false
+    },
+    "markdown-mermaid.languages": {
+      "order": 2,
+      "type": "array",
+      "default": [
+        "mermaid"
+      ],
+      "description": "Default languages in Markdown.",
+      "scope": 4,
+      "section": {
+        "id": "vscode.mermaid-markdown-features",
+        "title": "Mermaid",
+        "extensionInfo": {
+          "id": "vscode.mermaid-markdown-features",
+          "displayName": "Mermaid Markdown Features"
+        }
+      },
+      "source": {
+        "id": "vscode.mermaid-markdown-features",
+        "displayName": "Mermaid Markdown Features"
+      },
+      "defaultDefaultValue": [
+        "mermaid"
+      ],
+      "restricted": false
+    },
+    "markdown-mermaid.lightModeTheme": {
+      "order": 0,
+      "type": "string",
+      "enum": [
+        "base",
+        "dark",
+        "default",
+        "forest",
+        "neutral"
+      ],
+      "default": "default",
+      "description": "Default Mermaid theme for light mode.",
+      "scope": 4,
+      "section": {
+        "id": "vscode.mermaid-markdown-features",
+        "title": "Mermaid",
+        "extensionInfo": {
+          "id": "vscode.mermaid-markdown-features",
+          "displayName": "Mermaid Markdown Features"
+        }
+      },
+      "source": {
+        "id": "vscode.mermaid-markdown-features",
+        "displayName": "Mermaid Markdown Features"
+      },
+      "defaultDefaultValue": "default",
+      "restricted": false
+    },
+    "markdown-mermaid.maxHeight": {
+      "type": "string",
+      "default": "",
+      "markdownDescription": "Maximum height for diagrams. Must be a CSS value with units such as `80vh` or `400px`. Leave empty to try to automatically size diagrams based on their content.",
+      "scope": 4,
+      "section": {
+        "id": "vscode.mermaid-markdown-features",
+        "title": "Mermaid",
+        "extensionInfo": {
+          "id": "vscode.mermaid-markdown-features",
+          "displayName": "Mermaid Markdown Features"
+        }
+      },
+      "source": {
+        "id": "vscode.mermaid-markdown-features",
+        "displayName": "Mermaid Markdown Features"
+      },
+      "defaultDefaultValue": "",
+      "restricted": false
+    },
+    "markdown-mermaid.maxTextSize": {
+      "order": 3,
+      "type": "number",
+      "default": 50000,
+      "description": "The maximum allowed size of the user's text diagram.",
+      "scope": 4,
+      "section": {
+        "id": "vscode.mermaid-markdown-features",
+        "title": "Mermaid",
+        "extensionInfo": {
+          "id": "vscode.mermaid-markdown-features",
+          "displayName": "Mermaid Markdown Features"
+        }
+      },
+      "source": {
+        "id": "vscode.mermaid-markdown-features",
+        "displayName": "Mermaid Markdown Features"
+      },
+      "defaultDefaultValue": 50000,
+      "restricted": false
+    },
+    "markdown-mermaid.mouseNavigation.enabled": {
+      "type": "string",
+      "description": "Controls when mouse-based navigation is enabled on Mermaid diagrams.",
+      "enum": [
+        "alt",
+        "always",
+        "never"
+      ],
+      "default": "alt",
+      "markdownEnumDescriptions": [
+        "Only enable mouse navigation when holding down Alt (Option on macOS). Gestures such as pinch-to-zoom will still work without Alt.",
+        "Always enable mouse navigation on Mermaid diagrams.",
+        "Disable mouse navigation."
+      ],
+      "scope": 4,
+      "section": {
+        "id": "vscode.mermaid-markdown-features",
+        "title": "Mermaid",
+        "extensionInfo": {
+          "id": "vscode.mermaid-markdown-features",
+          "displayName": "Mermaid Markdown Features"
+        }
+      },
+      "source": {
+        "id": "vscode.mermaid-markdown-features",
+        "displayName": "Mermaid Markdown Features"
+      },
+      "defaultDefaultValue": "alt",
+      "restricted": false
+    },
+    "markdown-mermaid.resizable": {
+      "type": "boolean",
+      "default": true,
+      "description": "Allow diagrams to be resized vertically by dragging the bottom edge.",
+      "scope": 4,
+      "section": {
+        "id": "vscode.mermaid-markdown-features",
+        "title": "Mermaid",
+        "extensionInfo": {
+          "id": "vscode.mermaid-markdown-features",
+          "displayName": "Mermaid Markdown Features"
+        }
+      },
+      "source": {
+        "id": "vscode.mermaid-markdown-features",
+        "displayName": "Mermaid Markdown Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
     "markdown.copyFiles.destination": {
       "type": "object",
       "markdownDescription": "Configures the path and file name of files created by copy/paste or drag and drop. This is a map of globs that match against a Markdown document path to the destination path where the new file should be created.\n\nThe destination path may use the following variables:\n\n- `${documentDirName}` — Absolute parent directory path of the Markdown document, e.g. `/Users/me/myProject/docs`.\n- `${documentRelativeDirName}` — Relative parent directory path of the Markdown document, e.g. `docs`. This is the same as `${documentDirName}` if the file is not part of a workspace.\n- `${documentFileName}` — The full filename of the Markdown document, e.g. `README.md`.\n- `${documentBaseName}` — The basename of the Markdown document, e.g. `README`.\n- `${documentExtName}` — The extension of the Markdown document, e.g. `md`.\n- `${documentFilePath}` — Absolute path of the Markdown document, e.g. `/Users/me/myProject/docs/README.md`.\n- `${documentRelativeFilePath}` — Relative path of the Markdown document, e.g. `docs/README.md`. This is the same as `${documentFilePath}` if the file is not part of a workspace.\n- `${documentWorkspaceFolder}` — The workspace folder for the Markdown document, e.g. `/Users/me/myProject`. This is the same as `${documentDirName}` if the file is not part of a workspace.\n- `${fileName}` — The file name of the dropped file, e.g. `image.png`.\n- `${fileExtName}` — The extension of the dropped file, e.g. `png`.\n- `${unixTime}` — The current Unix timestamp in milliseconds.\n- `${isoTime}` — The current time in ISO 8601 format, e.g. '2025-06-06T08:40:32.123Z'.",
@@ -21058,6 +21312,37 @@
         "displayName": "Markdown Language Features"
       },
       "defaultDefaultValue": 14,
+      "restricted": false
+    },
+    "markdown.preview.frontMatter": {
+      "type": "string",
+      "default": "table",
+      "scope": 5,
+      "markdownDescription": "Controls how YAML frontmatter (delimited by `---`) at the start of a Markdown file is rendered in the preview.",
+      "enum": [
+        "codeBlock",
+        "hide",
+        "table"
+      ],
+      "enumDescriptions": [
+        "Render frontmatter as a code block.",
+        "Do not render frontmatter.",
+        "Render frontmatter as a table of keys and values."
+      ],
+      "section": {
+        "id": "vscode.markdown-language-features",
+        "title": "Preview",
+        "order": 23,
+        "extensionInfo": {
+          "id": "vscode.markdown-language-features",
+          "displayName": "Markdown Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.markdown-language-features",
+        "displayName": "Markdown Language Features"
+      },
+      "defaultDefaultValue": "table",
       "restricted": false
     },
     "markdown.preview.lineHeight": {
@@ -21784,26 +22069,6 @@
       "scope": 4,
       "restricted": false
     },
-    "mermaid-chat.enabled": {
-      "type": "boolean",
-      "default": true,
-      "description": "Enable a tool for Mermaid diagram rendering in chat responses.",
-      "scope": 1,
-      "section": {
-        "id": "vscode.mermaid-chat-features",
-        "title": "Mermaid Chat Features",
-        "extensionInfo": {
-          "id": "vscode.mermaid-chat-features",
-          "displayName": "Mermaid Chat Features"
-        }
-      },
-      "source": {
-        "id": "vscode.mermaid-chat-features",
-        "displayName": "Mermaid Chat Features"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
     "microsoft-authentication.implementation": {
       "type": "string",
       "default": "msal",
@@ -22205,7 +22470,7 @@
         "vscode.markdown-math",
         "vscode.media-preview",
         "vscode.merge-conflict",
-        "vscode.mermaid-chat-features",
+        "vscode.mermaid-markdown-features",
         "vscode.microsoft-authentication",
         "vscode.npm",
         "vscode.php-language-features",
@@ -22242,7 +22507,7 @@
         "JavaScript Debugger Companion Extension",
         "Media Preview",
         "Merge Conflict",
-        "Mermaid Chat Features",
+        "Mermaid Markdown Features",
         "Microsoft Account",
         "NPM support for VS Code",
         "Reference Search View",
@@ -22277,7 +22542,7 @@
         "Adds math support to Markdown in notebooks.",
         "Provides VS Code's built-in previews for images, audio, and video",
         "Highlighting and commands for inline merge conflicts.",
-        "Adds Mermaid diagram support to built-in chats.",
+        "Adds Mermaid diagram support to built-in chats, Markdown previews, and notebooks.",
         "Microsoft authentication provider",
         "Extension to add task support for npm scripts.",
         "Provides rich language support for PHP files.",
@@ -26652,6 +26917,22 @@
       "type": "boolean",
       "description": "Show notebook editor rich content results for closed notebooks. Please refresh your search results after changing this setting.",
       "default": false,
+      "section": {
+        "id": "search",
+        "title": "Search",
+        "order": 13
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "search.experimental.useIgnoreFilesInFindFiles": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "When enabled, the legacy `findFiles` extension API honors the user's `#search.useIgnoreFiles#` setting instead of always ignoring `.gitignore`. Extensions that explicitly pass `null` as the `exclude` argument still get unfiltered results. Telemetry is emitted regardless of this setting to help decide future defaults.",
+      "tags": [
+        "experimental"
+      ],
       "section": {
         "id": "search",
         "title": "Search",
@@ -32014,22 +32295,15 @@
     },
     "terminal.integrated.windowsUseConptyDll": {
       "restricted": true,
-      "markdownDescription": "Whether to use the experimental conpty.dll (v1.25.260303002) shipped with VS Code, instead of the one bundled with Windows.",
+      "markdownDescription": "Whether to use the conpty.dll (v1.25.260303002) shipped with VS Code, instead of the one bundled with Windows.",
       "type": "boolean",
-      "tags": [
-        "preview",
-        "onExP"
-      ],
-      "default": false,
-      "experiment": {
-        "mode": "auto"
-      },
+      "default": true,
       "section": {
         "id": "terminal",
         "title": "Integrated Terminal",
         "order": 100
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 4
     },
     "terminal.integrated.wordSeparators": {
@@ -33065,7 +33339,7 @@
     "typescript.tsdk": {
       "deprecationMessage": "This setting is deprecated. Use js/ts.tsdk.path instead.",
       "type": "string",
-      "markdownDescription": "Specifies the folder path to the tsserver and `lib*.d.ts` files under a TypeScript install to use for IntelliSense, for example: `./node_modules/typescript/lib`.\n\n- When specified as a user setting, the TypeScript version from `typescript.tsdk` automatically replaces the built-in TypeScript version.\n- When specified as a workspace setting, `typescript.tsdk` allows you to switch to use that workspace version of TypeScript for IntelliSense with the `TypeScript: Select TypeScript version` command.\n\nSee the [TypeScript documentation](https://code.visualstudio.com/docs/typescript/typescript-compiling#_using-newer-typescript-versions) for more detail about managing TypeScript versions.",
+      "markdownDescription": "Specifies the folder path to the tsserver and `lib*.d.ts` files under a TypeScript install to use for IntelliSense, for example: `./node_modules/typescript/lib`.\n\n- When specified as a user setting, the TypeScript version from `js/ts.tsdk.path` automatically replaces the built-in TypeScript version.\n- When specified as a workspace setting, `js/ts.tsdk.path` allows you to switch to use that workspace version of TypeScript for IntelliSense with the `TypeScript: Select TypeScript version` command.\n\nSee the [TypeScript documentation](https://code.visualstudio.com/docs/typescript/typescript-compiling#_using-newer-typescript-versions) for more detail about managing TypeScript versions.",
       "markdownDeprecationMessage": "This setting is deprecated. Use `#js/ts.tsdk.path#` instead.",
       "scope": 4,
       "order": 1,
@@ -35800,6 +36074,11 @@
       "patternProperties": {
         ".*": {
           "$ref": "#/$defs/_256"
+        }
+      },
+      "agentsWindow": {
+        "default": {
+          "*.md": "vscode.markdown.preview.editor"
         }
       },
       "section": {
@@ -40264,14 +40543,14 @@
                   "$ref": "#/$defs/_402"
                 }
               ],
-              "default": "on",
+              "default": "offWhenInlineCompletions",
               "description": "Enable quick suggestions outside of strings and comments."
             }
           }
         }
       ],
       "default": {
-        "other": "on",
+        "other": "offWhenInlineCompletions",
         "comments": "off",
         "strings": "off"
       },
@@ -40285,7 +40564,7 @@
         "order": 5
       },
       "defaultDefaultValue": {
-        "other": "on",
+        "other": "offWhenInlineCompletions",
         "comments": "off",
         "strings": "off"
       },
@@ -43792,7 +44071,7 @@
     },
     "_296": {
       "type": "array",
-      "description": "Array of additional paths to allow write access. Leave empty to disallow writes outside the workspace folders and sandbox temp directory.",
+      "description": "Array of additional paths to allow write access. Leave empty to disallow writes outside the workspace folders, workspace storage folder, and sandbox temp directory.",
       "items": {
         "type": "string"
       },
