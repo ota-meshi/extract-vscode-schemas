@@ -3188,6 +3188,27 @@
       "defaultDefaultValue": false,
       "scope": 4
     },
+    "chat.agent.sandbox.advanced.runtime": {
+      "markdownDescription": "Note: this setting is applicable only when `#chat.agent.sandbox.enabled#` is enabled. Key/value pairs are passed through to the root of the sandbox runtime configuration.",
+      "type": "object",
+      "default": {
+        "enableWeakerNestedSandbox": false
+      },
+      "additionalProperties": true,
+      "tags": [
+        "preview"
+      ],
+      "restricted": true,
+      "section": {
+        "id": "terminal",
+        "title": "Integrated Terminal",
+        "order": 100
+      },
+      "defaultDefaultValue": {
+        "enableWeakerNestedSandbox": false
+      },
+      "scope": 4
+    },
     "chat.agent.sandbox.allowAutoApprove": {
       "markdownDescription": "Controls whether agent mode terminal commands that run inside the sandbox are auto-approved. When disabled, the run in terminal tool uses the existing approval flow. This applies only when `#chat.agent.sandbox.enabled#` is enabled.",
       "type": "boolean",
@@ -3330,6 +3351,34 @@
       "defaultDefaultValue": "off",
       "scope": 4
     },
+    "chat.agent.sandbox.enabledWindows": {
+      "markdownDescription": "Controls whether agent mode uses sandboxing on Windows.",
+      "type": "string",
+      "enum": [
+        "allowNetwork",
+        "off"
+      ],
+      "enumDescriptions": [
+        "Enable sandboxing for agent mode tools on Windows and allow all network domains.",
+        "Disable sandboxing for agent mode tools on Windows."
+      ],
+      "default": "off",
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "restricted": true,
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "terminal",
+        "title": "Integrated Terminal",
+        "order": 100
+      },
+      "defaultDefaultValue": "off",
+      "scope": 4
+    },
     "chat.agent.sandbox.fileSystem.linux": {
       "markdownDescription": "Note: this setting is applicable only when `#chat.agent.sandbox.enabled#` is enabled. Controls file system access in sandbox on Linux. Paths do not support glob patterns, only literal paths (ex: ./src/, ~/.ssh, .env). **bubblewrap** and **socat** should be installed for this setting to work.",
       "type": "object",
@@ -3407,6 +3456,56 @@
         "allowWrite": [],
         "denyRead": [],
         "denyWrite": []
+      },
+      "scope": 4
+    },
+    "chat.agent.sandbox.fileSystem.windows": {
+      "markdownDescription": "Note: this setting is applicable only when `#chat.agent.sandbox.enabled#` is enabled. Controls file system access in sandbox on Windows. Paths do not support glob patterns, only literal paths (ex: C:\\src, C:\\Users\\me\\.ssh, .env).",
+      "type": "object",
+      "properties": {
+        "allowRead": {
+          "type": "array",
+          "description": "Array of additional paths to allow read-only access. Takes precedence over denyRead.",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "allowWrite": {
+          "type": "array",
+          "description": "Array of additional paths to allow read/write access. Leave empty to disallow writes outside the workspace folders and sandbox temp directory.",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "denyRead": {
+          "type": "array",
+          "description": "Array of paths to deny access. Leave empty to allow reading all paths.",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        }
+      },
+      "default": {
+        "allowRead": [],
+        "allowWrite": [],
+        "denyRead": []
+      },
+      "tags": [
+        "preview"
+      ],
+      "restricted": true,
+      "section": {
+        "id": "terminal",
+        "title": "Integrated Terminal",
+        "order": 100
+      },
+      "defaultDefaultValue": {
+        "allowRead": [],
+        "allowWrite": [],
+        "denyRead": []
       },
       "scope": 4
     },
@@ -3618,6 +3717,221 @@
       },
       "scope": 4
     },
+    "chat.agentHost.ahpJsonlLoggingEnabled": {
+      "type": "boolean",
+      "description": "When enabled, logs all AHP transport messages for agent host connections to JSONL files under the window's log directory.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.agentHost.clientTools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tool reference names to expose as client-provided tools in agent host sessions.",
+      "default": [
+        "runTask",
+        "getTaskOutput",
+        "problems",
+        "runTests",
+        "openBrowserPage",
+        "readPage",
+        "screenshotPage",
+        "navigatePage",
+        "clickElement",
+        "typeInPage",
+        "hoverElement",
+        "dragElement",
+        "handleDialog",
+        "runPlaywrightCode"
+      ],
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": [
+        "runTask",
+        "getTaskOutput",
+        "problems",
+        "runTests",
+        "openBrowserPage",
+        "readPage",
+        "screenshotPage",
+        "navigatePage",
+        "clickElement",
+        "typeInPage",
+        "hoverElement",
+        "dragElement",
+        "handleDialog",
+        "runPlaywrightCode"
+      ],
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.agentHost.customTerminalTool.enabled": {
+      "type": "boolean",
+      "description": "When enabled, Copilot SDK sessions use the Agent Host terminal tool override instead of the SDK's default terminal behavior.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.agentHost.enabled": {
+      "type": "boolean",
+      "description": "When enabled, some agents run in a separate agent host process.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.agentHost.ipcLoggingEnabled": {
+      "type": "boolean",
+      "description": "When enabled, logs all IPC traffic for each agent host to a dedicated output channel.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.agentHost.otel.captureContent": {
+      "type": "boolean",
+      "markdownDescription": "When enabled, includes prompt and response content in OTel span attributes. Sets `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT`. Privacy-sensitive: do not enable in environments that ship spans to shared sinks.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.agentHost.otel.dbSpanExporter.enabled": {
+      "type": "boolean",
+      "markdownDescription": "When enabled, the agent host persists every emitted OTel span to a local SQLite database. Spans can be inspected via the `Export Agent Host Traces Database` command. Compatible with external exporters: spans are written to SQLite *and* forwarded to the user-configured sink.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.agentHost.otel.enabled": {
+      "type": "boolean",
+      "markdownDescription": "When enabled, the agent host emits OpenTelemetry traces from the Copilot SDK. Requires `#chat.agentHost.enabled#`. Either configure `#chat.agentHost.otel.otlpEndpoint#` to ship traces to an external collector or enable `#chat.agentHost.otel.dbSpanExporter.enabled#` to capture them locally.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.agentHost.otel.exporterType": {
+      "type": "string",
+      "enum": [
+        "console",
+        "file",
+        "otlp-grpc",
+        "otlp-http"
+      ],
+      "markdownDescription": "Exporter backend used by the Copilot SDK when `#chat.agentHost.otel.enabled#` is on. `otlp-grpc` is downgraded to `otlp-http` transparently in the CLI runtime.",
+      "default": "otlp-http",
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "otlp-http",
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.agentHost.otel.otlpEndpoint": {
+      "type": "string",
+      "markdownDescription": "OTLP endpoint URL when exporter type is `otlp-http` or `otlp-grpc`. Sets `OTEL_EXPORTER_OTLP_ENDPOINT` inside the agent host process.",
+      "default": "",
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "",
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.agentHost.otel.outfile": {
+      "type": "string",
+      "markdownDescription": "Output path for span JSON lines when exporter type is `file`. Sets `COPILOT_OTEL_FILE_EXPORTER_PATH`.",
+      "default": "",
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "",
+      "scope": 4,
+      "restricted": false
+    },
     "chat.agentsControl.enabled": {
       "type": "string",
       "enum": [
@@ -3707,25 +4021,6 @@
         "~/.copilot/skills": true
       },
       "scope": 4
-    },
-    "chat.allowAnonymousAccess": {
-      "type": "boolean",
-      "description": "Controls whether anonymous access is allowed in chat.",
-      "default": false,
-      "tags": [
-        "experimental",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "auto"
-      },
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
     },
     "chat.artifacts.enabled": {
       "default": false,
@@ -3895,26 +4190,6 @@
       ],
       "description": "Controls whether the Chat Customizations editor shows a structured preview for markdown customization files (agents, skills, instructions, prompts). When disabled, the editor always opens the raw markdown in the embedded code editor.",
       "default": false,
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
-    },
-    "chat.customizations.useChatSessionCustomizationsForCustomAgents": {
-      "type": "boolean",
-      "description": "When enabled, custom agents shown in the chat mode picker are sourced from the customization harness service (scoped per session type) instead of the prompts service.",
-      "default": false,
-      "tags": [
-        "experimental",
-        "advanced",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "auto"
-      },
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
@@ -5314,11 +5589,13 @@
       "default": {
         "**/.git/**": false,
         "**/.vscode/*.json": false,
-        "**/{package.json,server.xml,build.rs,web.config,.gitattributes,.env}": false,
+        "**/{package.json,server.xml,build.rs,web.config,.gitattributes,.env,Cargo.toml}": false,
         "**/*": true,
         "**/*-lock.{yaml,json}": false,
-        "**/*.{code-workspace,csproj,fsproj,vbproj,vcxproj,proj,targets,props}": false,
-        "**/*.lock": false
+        "**/*.{code-workspace,csproj,fsproj,vbproj,vcxproj,proj,targets,props,gradle,gradle.kts}": false,
+        "**/*.lock": false,
+        "**/gradle.properties": false,
+        "**/ruby_lsp/*/addon": false
       },
       "markdownDescription": "Controls whether edits made by the agent are automatically approved. The default is to approve all edits except those made to certain files which have the potential to cause immediate unintended side-effects, such as `**/.vscode/*.json`.\n\nSet to `true` to automatically approve edits to matching files, `false` to always require explicit approval. The last pattern matching a given file will determine whether the edit is automatically approved.",
       "type": "object",
@@ -5332,11 +5609,13 @@
       "defaultDefaultValue": {
         "**/.git/**": false,
         "**/.vscode/*.json": false,
-        "**/{package.json,server.xml,build.rs,web.config,.gitattributes,.env}": false,
+        "**/{package.json,server.xml,build.rs,web.config,.gitattributes,.env,Cargo.toml}": false,
         "**/*": true,
         "**/*-lock.{yaml,json}": false,
-        "**/*.{code-workspace,csproj,fsproj,vbproj,vcxproj,proj,targets,props}": false,
-        "**/*.lock": false
+        "**/*.{code-workspace,csproj,fsproj,vbproj,vcxproj,proj,targets,props,gradle,gradle.kts}": false,
+        "**/*.lock": false,
+        "**/gradle.properties": false,
+        "**/ruby_lsp/*/addon": false
       },
       "scope": 4,
       "restricted": false
@@ -6353,7 +6632,7 @@
     },
     "chat.utilityModel": {
       "type": "string",
-      "description": "Override the language model used by built-in utility flows (titles, summaries, fallback responses, etc.). Leave empty to use the default model.",
+      "description": "Override the language model used by built-in utility flows. Leave empty to use the default model.",
       "default": "",
       "enum": [
         ""
@@ -6374,7 +6653,7 @@
     },
     "chat.utilitySmallModel": {
       "type": "string",
-      "description": "Override the language model used by built-in small/fast utility flows (commit messages, intent detection, inline-chat progress, etc.). A fast and inexpensive model is recommended. Leave empty to use the default model.",
+      "description": "Override the language model used by built-in small/fast utility flows. A fast and inexpensive model is recommended. Leave empty to use the default model.",
       "default": "",
       "enum": [
         ""
@@ -8954,11 +9233,15 @@
       "type": "string",
       "enum": [
         "advanced",
+        "advanced-external",
+        "advanced-wasm",
         "legacy"
       ],
       "default": "advanced",
       "markdownEnumDescriptions": [
         "Uses the advanced diffing algorithm.",
+        "Uses the advanced diffing algorithm from the external `@vscode/diff` package (pure JavaScript).",
+        "Uses the advanced diffing algorithm from the external `@vscode/diff` package (WebAssembly).",
         "Uses the legacy diffing algorithm."
       ],
       "section": {
@@ -10349,6 +10632,7 @@
               "chat.attach.image",
               "chat.attach.symbol",
               "chat.attach.text",
+              "chat.paste.html",
               "html",
               "text.plain",
               "uri.path.absolute",
@@ -16057,6 +16341,42 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
+    "issueReporter.wizard.enabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable the new issue reporter wizard instead of the classic issue reporter.",
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "issueReporter",
+        "title": "Issue Reporter"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false,
+      "tags": [
+        "onExP"
+      ]
+    },
+    "issueReporter.wizard.fullWorkspaceScan": {
+      "type": "boolean",
+      "default": true,
+      "description": "When auto-collecting performance diagnostics for the issue reporter wizard, walk the full workspace instead of stopping at the default 20,000-file cap. Set to false on very large workspaces if the scan slows the initial wizard render.",
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "issueReporter",
+        "title": "Issue Reporter"
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false,
+      "tags": [
+        "onExP"
+      ]
+    },
     "javascript.autoClosingTags": {
       "$ref": "#/$defs/_387"
     },
@@ -19882,9 +20202,18 @@
         "dark",
         "default",
         "forest",
-        "neutral"
+        "neutral",
+        "vscode"
       ],
-      "default": "dark",
+      "enumDescriptions": [
+        "Built-in Mermaid theme. The only Mermaid theme that can be customized with theme variables.",
+        "Built-in Mermaid theme for dark backgrounds.",
+        "The default built-in Mermaid theme. Works well with light backgrounds.",
+        "Built-in Mermaid theme using shades of green.",
+        "Built-in Mermaid theme using a neutral grayscale palette. Suitable for black and white prints.",
+        "Mermaid theme derived from the current VS Code color theme."
+      ],
+      "default": "vscode",
       "description": "Default Mermaid theme for dark mode.",
       "scope": 4,
       "section": {
@@ -19899,7 +20228,7 @@
         "id": "vscode.mermaid-markdown-features",
         "displayName": "Mermaid Markdown Features"
       },
-      "defaultDefaultValue": "dark",
+      "defaultDefaultValue": "vscode",
       "restricted": false
     },
     "markdown-mermaid.languages": {
@@ -19935,9 +20264,18 @@
         "dark",
         "default",
         "forest",
-        "neutral"
+        "neutral",
+        "vscode"
       ],
-      "default": "default",
+      "enumDescriptions": [
+        "Built-in Mermaid theme. The only Mermaid theme that can be customized with theme variables.",
+        "Built-in Mermaid theme for dark backgrounds.",
+        "The default built-in Mermaid theme. Works well with light backgrounds.",
+        "Built-in Mermaid theme using shades of green.",
+        "Built-in Mermaid theme using a neutral grayscale palette. Suitable for black and white prints.",
+        "Mermaid theme derived from the current VS Code color theme."
+      ],
+      "default": "vscode",
       "description": "Default Mermaid theme for light mode.",
       "scope": 4,
       "section": {
@@ -19952,7 +20290,7 @@
         "id": "vscode.mermaid-markdown-features",
         "displayName": "Mermaid Markdown Features"
       },
-      "defaultDefaultValue": "default",
+      "defaultDefaultValue": "vscode",
       "restricted": false
     },
     "markdown-mermaid.maxHeight": {
@@ -21256,11 +21594,15 @@
       "type": "string",
       "enum": [
         "advanced",
+        "advanced-external",
+        "advanced-wasm",
         "legacy"
       ],
       "default": "advanced",
       "markdownEnumDescriptions": [
         "Uses the advanced diffing algorithm.",
+        "Uses the advanced diffing algorithm from the external `@vscode/diff` package (pure JavaScript).",
+        "Uses the advanced diffing algorithm from the external `@vscode/diff` package (WebAssembly).",
         "Uses the legacy diffing algorithm."
       ],
       "section": {},
@@ -29108,6 +29450,8 @@
         "clear",
         "cls",
         "clear-host",
+        "agent",
+        "agy",
         "copilot",
         "claude",
         "codex",
@@ -29122,6 +29466,8 @@
         "clear",
         "cls",
         "clear-host",
+        "agent",
+        "agy",
         "copilot",
         "claude",
         "codex",
@@ -29438,6 +29784,7 @@
         "account",
         "activate-breakpoints",
         "add",
+        "add-compact",
         "add-small",
         "agent",
         "alert",
@@ -29459,9 +29806,11 @@
         "arrow-up",
         "ask",
         "attach",
+        "attach-compact",
         "azure",
         "azure-devops",
         "beaker",
+        "beaker-compact",
         "beaker-stop",
         "bell",
         "bell-dot",
@@ -29490,11 +29839,17 @@
         "chat-sparkle-warning",
         "check",
         "check-all",
+        "check-compact",
         "checklist",
+        "checklist-compact",
         "chevron-down",
+        "chevron-down-compact",
         "chevron-left",
+        "chevron-left-compact",
         "chevron-right",
+        "chevron-right-compact",
         "chevron-up",
+        "chevron-up-compact",
         "chip",
         "chrome-close",
         "chrome-maximize",
@@ -29502,13 +29857,16 @@
         "chrome-restore",
         "circle",
         "circle-filled",
+        "circle-filled-compact",
         "circle-large",
         "circle-large-filled",
         "circle-large-outline",
         "circle-outline",
         "circle-slash",
+        "circle-slash-compact",
         "circle-small",
         "circle-small-filled",
+        "circle-small-filled-compact",
         "circuit-board",
         "claude",
         "clear-all",
@@ -29518,6 +29876,7 @@
         "clone",
         "close",
         "close-all",
+        "close-compact",
         "close-dirty",
         "cloud",
         "cloud-download",
@@ -29528,17 +29887,20 @@
         "code-review",
         "coffee",
         "collapse-all",
+        "collapse-all-compact",
         "collection",
         "collection-small",
         "color-mode",
         "combine",
         "comment",
         "comment-add",
+        "comment-compact",
         "comment-discussion",
         "comment-discussion-quote",
         "comment-discussion-sparkle",
         "comment-draft",
         "comment-unresolved",
+        "comment-unresolved-compact",
         "compare-changes",
         "compass",
         "compass-active",
@@ -29546,6 +29908,7 @@
         "console",
         "copilot",
         "copilot-blocked",
+        "copilot-compact",
         "copilot-error",
         "copilot-in-progress",
         "copilot-large",
@@ -29584,11 +29947,13 @@
         "debug-breakpoint-unsupported",
         "debug-breakpoint-unverified",
         "debug-connected",
+        "debug-connected-compact",
         "debug-console",
         "debug-continue",
         "debug-continue-small",
         "debug-coverage",
         "debug-disconnect",
+        "debug-disconnect-compact",
         "debug-hint",
         "debug-line-by-line",
         "debug-pause",
@@ -29629,6 +29994,7 @@
         "drop-down-button",
         "edit",
         "edit-code",
+        "edit-compact",
         "edit-session",
         "edit-sparkle",
         "editor-layout",
@@ -29636,6 +30002,7 @@
         "empty-window",
         "eraser",
         "error",
+        "error-compact",
         "error-small",
         "exclude",
         "expand-all",
@@ -29655,6 +30022,7 @@
         "file-directory",
         "file-directory-create",
         "file-media",
+        "file-media-compact",
         "file-pdf",
         "file-submodule",
         "file-symlink-directory",
@@ -29675,12 +30043,15 @@
         "fold-vertical-filled",
         "folder",
         "folder-active",
+        "folder-compact",
         "folder-library",
         "folder-opened",
+        "folder-opened-compact",
         "forward",
         "game",
         "gather",
         "gear",
+        "gear-compact",
         "gift",
         "gist",
         "gist-fork",
@@ -29689,6 +30060,7 @@
         "gist-secret",
         "git-branch",
         "git-branch-changes",
+        "git-branch-compact",
         "git-branch-conflicts",
         "git-branch-create",
         "git-branch-delete",
@@ -29735,6 +30107,8 @@
         "home",
         "horizontal-rule",
         "hubot",
+        "important",
+        "important-compact",
         "inbox",
         "indent",
         "index-zero",
@@ -29780,9 +30154,11 @@
         "layout-sidebar-right-off",
         "layout-statusbar",
         "library",
+        "library-compact",
         "light-bulb",
         "lightbulb",
         "lightbulb-autofix",
+        "lightbulb-compact",
         "lightbulb-empty",
         "lightbulb-sparkle",
         "lightbulb-sparkle-autofix",
@@ -29796,6 +30172,7 @@
         "list-unordered",
         "live-share",
         "loading",
+        "loading-compact",
         "location",
         "lock",
         "lock-small",
@@ -29858,7 +30235,9 @@
         "package",
         "paintcan",
         "pass",
+        "pass-compact",
         "pass-filled",
+        "pass-filled-compact",
         "pencil",
         "percentage",
         "person",
@@ -29880,6 +30259,7 @@
         "primitive-dot",
         "primitive-square",
         "project",
+        "project-compact",
         "pulse",
         "python",
         "question",
@@ -29890,12 +30270,15 @@
         "reactions",
         "record",
         "record-keys",
+        "record-keys-compact",
         "record-small",
         "redo",
         "references",
         "refresh",
+        "refresh-compact",
         "regex",
         "remote",
+        "remote-compact",
         "remote-explorer",
         "remove",
         "remove-close",
@@ -29907,11 +30290,13 @@
         "reply",
         "repo",
         "repo-clone",
+        "repo-compact",
         "repo-create",
         "repo-delete",
         "repo-fetch",
         "repo-force-push",
         "repo-forked",
+        "repo-forked-compact",
         "repo-pinned",
         "repo-pull",
         "repo-push",
@@ -29921,6 +30306,7 @@
         "request-changes",
         "robot",
         "rocket",
+        "rocket-compact",
         "root-folder",
         "root-folder-opened",
         "rss",
@@ -29944,6 +30330,7 @@
         "scrollbar-button-right",
         "scrollbar-button-up",
         "search",
+        "search-compact",
         "search-fuzzy",
         "search-large",
         "search-save",
@@ -29956,11 +30343,13 @@
         "server-environment",
         "server-process",
         "session-in-progress",
+        "session-in-progress-compact",
         "settings",
         "settings-gear",
         "share",
         "share-window",
         "shield",
+        "shield-compact",
         "sign-in",
         "sign-out",
         "skip",
@@ -29970,6 +30359,7 @@
         "sort-precedence",
         "source-control",
         "sparkle",
+        "sparkle-compact",
         "sparkle-filled",
         "split-horizontal",
         "split-vertical",
@@ -29988,6 +30378,7 @@
         "symbol-boolean",
         "symbol-class",
         "symbol-color",
+        "symbol-color-compact",
         "symbol-constant",
         "symbol-constructor",
         "symbol-customcolor",
@@ -30026,6 +30417,7 @@
         "symbol-value",
         "symbol-variable",
         "sync",
+        "sync-compact",
         "sync-ignored",
         "table",
         "tag",
@@ -30037,6 +30429,7 @@
         "terminal",
         "terminal-bash",
         "terminal-cmd",
+        "terminal-compact",
         "terminal-debian",
         "terminal-decoration-error",
         "terminal-decoration-incomplete",
@@ -30079,6 +30472,7 @@
         "ungroup-by-ref-type",
         "unlock",
         "unmute",
+        "unpin",
         "unverified",
         "variable",
         "variable-group",
@@ -30089,6 +30483,7 @@
         "vm-active",
         "vm-connect",
         "vm-outline",
+        "vm-pending",
         "vm-running",
         "vm-small",
         "vr",
@@ -30096,17 +30491,20 @@
         "vscode-insiders",
         "wand",
         "warning",
+        "warning-compact",
         "watch",
         "whitespace",
         "whole-word",
         "window",
         "window-active",
+        "window-compact",
         "word-wrap",
         "workspace-trusted",
         "workspace-unknown",
         "workspace-unspecified",
         "workspace-untrusted",
         "worktree",
+        "worktree-compact",
         "worktree-small",
         "wrench",
         "wrench-subaction",
@@ -30119,6 +30517,7 @@
         "$(account)",
         "$(activate-breakpoints)",
         "$(add)",
+        "$(add-compact)",
         "$(add-small)",
         "$(agent)",
         "$(alert)",
@@ -30140,9 +30539,11 @@
         "$(arrow-up)",
         "$(ask)",
         "$(attach)",
+        "$(attach-compact)",
         "$(azure)",
         "$(azure-devops)",
         "$(beaker)",
+        "$(beaker-compact)",
         "$(beaker-stop)",
         "$(bell)",
         "$(bell-dot)",
@@ -30171,11 +30572,17 @@
         "$(chat-sparkle-warning)",
         "$(check)",
         "$(check-all)",
+        "$(check-compact)",
         "$(checklist)",
+        "$(checklist-compact)",
         "$(chevron-down)",
+        "$(chevron-down-compact)",
         "$(chevron-left)",
+        "$(chevron-left-compact)",
         "$(chevron-right)",
+        "$(chevron-right-compact)",
         "$(chevron-up)",
+        "$(chevron-up-compact)",
         "$(chip)",
         "$(chrome-close)",
         "$(chrome-maximize)",
@@ -30183,13 +30590,16 @@
         "$(chrome-restore)",
         "$(circle)",
         "$(circle-filled)",
+        "$(circle-filled-compact)",
         "$(circle-large)",
         "$(circle-large-filled)",
         "$(circle-large-outline)",
         "$(circle-outline)",
         "$(circle-slash)",
+        "$(circle-slash-compact)",
         "$(circle-small)",
         "$(circle-small-filled)",
+        "$(circle-small-filled-compact)",
         "$(circuit-board)",
         "$(claude)",
         "$(clear-all)",
@@ -30199,6 +30609,7 @@
         "$(clone)",
         "$(close)",
         "$(close-all)",
+        "$(close-compact)",
         "$(close-dirty)",
         "$(cloud)",
         "$(cloud-download)",
@@ -30209,17 +30620,20 @@
         "$(code-review)",
         "$(coffee)",
         "$(collapse-all)",
+        "$(collapse-all-compact)",
         "$(collection)",
         "$(collection-small)",
         "$(color-mode)",
         "$(combine)",
         "$(comment)",
         "$(comment-add)",
+        "$(comment-compact)",
         "$(comment-discussion)",
         "$(comment-discussion-quote)",
         "$(comment-discussion-sparkle)",
         "$(comment-draft)",
         "$(comment-unresolved)",
+        "$(comment-unresolved-compact)",
         "$(compare-changes)",
         "$(compass)",
         "$(compass-active)",
@@ -30227,6 +30641,7 @@
         "$(console)",
         "$(copilot)",
         "$(copilot-blocked)",
+        "$(copilot-compact)",
         "$(copilot-error)",
         "$(copilot-in-progress)",
         "$(copilot-large)",
@@ -30265,11 +30680,13 @@
         "$(debug-breakpoint-unsupported)",
         "$(debug-breakpoint-unverified)",
         "$(debug-connected)",
+        "$(debug-connected-compact)",
         "$(debug-console)",
         "$(debug-continue)",
         "$(debug-continue-small)",
         "$(debug-coverage)",
         "$(debug-disconnect)",
+        "$(debug-disconnect-compact)",
         "$(debug-hint)",
         "$(debug-line-by-line)",
         "$(debug-pause)",
@@ -30310,6 +30727,7 @@
         "$(drop-down-button)",
         "$(edit)",
         "$(edit-code)",
+        "$(edit-compact)",
         "$(edit-session)",
         "$(edit-sparkle)",
         "$(editor-layout)",
@@ -30317,6 +30735,7 @@
         "$(empty-window)",
         "$(eraser)",
         "$(error)",
+        "$(error-compact)",
         "$(error-small)",
         "$(exclude)",
         "$(expand-all)",
@@ -30336,6 +30755,7 @@
         "$(file-directory)",
         "$(file-directory-create)",
         "$(file-media)",
+        "$(file-media-compact)",
         "$(file-pdf)",
         "$(file-submodule)",
         "$(file-symlink-directory)",
@@ -30356,12 +30776,15 @@
         "$(fold-vertical-filled)",
         "$(folder)",
         "$(folder-active)",
+        "$(folder-compact)",
         "$(folder-library)",
         "$(folder-opened)",
+        "$(folder-opened-compact)",
         "$(forward)",
         "$(game)",
         "$(gather)",
         "$(gear)",
+        "$(gear-compact)",
         "$(gift)",
         "$(gist)",
         "$(gist-fork)",
@@ -30370,6 +30793,7 @@
         "$(gist-secret)",
         "$(git-branch)",
         "$(git-branch-changes)",
+        "$(git-branch-compact)",
         "$(git-branch-conflicts)",
         "$(git-branch-create)",
         "$(git-branch-delete)",
@@ -30416,6 +30840,8 @@
         "$(home)",
         "$(horizontal-rule)",
         "$(hubot)",
+        "$(important)",
+        "$(important-compact)",
         "$(inbox)",
         "$(indent)",
         "$(index-zero)",
@@ -30461,9 +30887,11 @@
         "$(layout-sidebar-right-off)",
         "$(layout-statusbar)",
         "$(library)",
+        "$(library-compact)",
         "$(light-bulb)",
         "$(lightbulb)",
         "$(lightbulb-autofix)",
+        "$(lightbulb-compact)",
         "$(lightbulb-empty)",
         "$(lightbulb-sparkle)",
         "$(lightbulb-sparkle-autofix)",
@@ -30477,6 +30905,7 @@
         "$(list-unordered)",
         "$(live-share)",
         "$(loading)",
+        "$(loading-compact)",
         "$(location)",
         "$(lock)",
         "$(lock-small)",
@@ -30539,7 +30968,9 @@
         "$(package)",
         "$(paintcan)",
         "$(pass)",
+        "$(pass-compact)",
         "$(pass-filled)",
+        "$(pass-filled-compact)",
         "$(pencil)",
         "$(percentage)",
         "$(person)",
@@ -30561,6 +30992,7 @@
         "$(primitive-dot)",
         "$(primitive-square)",
         "$(project)",
+        "$(project-compact)",
         "$(pulse)",
         "$(python)",
         "$(question)",
@@ -30571,12 +31003,15 @@
         "$(reactions)",
         "$(record)",
         "$(record-keys)",
+        "$(record-keys-compact)",
         "$(record-small)",
         "$(redo)",
         "$(references)",
         "$(refresh)",
+        "$(refresh-compact)",
         "$(regex)",
         "$(remote)",
+        "$(remote-compact)",
         "$(remote-explorer)",
         "$(remove)",
         "$(remove-close)",
@@ -30588,11 +31023,13 @@
         "$(reply)",
         "$(repo)",
         "$(repo-clone)",
+        "$(repo-compact)",
         "$(repo-create)",
         "$(repo-delete)",
         "$(repo-fetch)",
         "$(repo-force-push)",
         "$(repo-forked)",
+        "$(repo-forked-compact)",
         "$(repo-pinned)",
         "$(repo-pull)",
         "$(repo-push)",
@@ -30602,6 +31039,7 @@
         "$(request-changes)",
         "$(robot)",
         "$(rocket)",
+        "$(rocket-compact)",
         "$(root-folder)",
         "$(root-folder-opened)",
         "$(rss)",
@@ -30625,6 +31063,7 @@
         "$(scrollbar-button-right)",
         "$(scrollbar-button-up)",
         "$(search)",
+        "$(search-compact)",
         "$(search-fuzzy)",
         "$(search-large)",
         "$(search-save)",
@@ -30637,11 +31076,13 @@
         "$(server-environment)",
         "$(server-process)",
         "$(session-in-progress)",
+        "$(session-in-progress-compact)",
         "$(settings)",
         "$(settings-gear)",
         "$(share)",
         "$(share-window)",
         "$(shield)",
+        "$(shield-compact)",
         "$(sign-in)",
         "$(sign-out)",
         "$(skip)",
@@ -30651,6 +31092,7 @@
         "$(sort-precedence)",
         "$(source-control)",
         "$(sparkle)",
+        "$(sparkle-compact)",
         "$(sparkle-filled)",
         "$(split-horizontal)",
         "$(split-vertical)",
@@ -30669,6 +31111,7 @@
         "$(symbol-boolean)",
         "$(symbol-class)",
         "$(symbol-color)",
+        "$(symbol-color-compact)",
         "$(symbol-constant)",
         "$(symbol-constructor)",
         "$(symbol-customcolor)",
@@ -30707,6 +31150,7 @@
         "$(symbol-value)",
         "$(symbol-variable)",
         "$(sync)",
+        "$(sync-compact)",
         "$(sync-ignored)",
         "$(table)",
         "$(tag)",
@@ -30718,6 +31162,7 @@
         "$(terminal)",
         "$(terminal-bash)",
         "$(terminal-cmd)",
+        "$(terminal-compact)",
         "$(terminal-debian)",
         "$(terminal-decoration-error)",
         "$(terminal-decoration-incomplete)",
@@ -30760,6 +31205,7 @@
         "$(ungroup-by-ref-type)",
         "$(unlock)",
         "$(unmute)",
+        "$(unpin)",
         "$(unverified)",
         "$(variable)",
         "$(variable-group)",
@@ -30770,6 +31216,7 @@
         "$(vm-active)",
         "$(vm-connect)",
         "$(vm-outline)",
+        "$(vm-pending)",
         "$(vm-running)",
         "$(vm-small)",
         "$(vr)",
@@ -30777,17 +31224,20 @@
         "$(vscode-insiders)",
         "$(wand)",
         "$(warning)",
+        "$(warning-compact)",
         "$(watch)",
         "$(whitespace)",
         "$(whole-word)",
         "$(window)",
         "$(window-active)",
+        "$(window-compact)",
         "$(word-wrap)",
         "$(workspace-trusted)",
         "$(workspace-unknown)",
         "$(workspace-unspecified)",
         "$(workspace-untrusted)",
         "$(worktree)",
+        "$(worktree-compact)",
         "$(worktree-small)",
         "$(wrench)",
         "$(wrench-subaction)",
@@ -41456,6 +41906,59 @@
         "chat-import",
         "chat-export",
         "share-window",
+        "circle-slash-compact",
+        "copilot-compact",
+        "folder-opened-compact",
+        "folder-compact",
+        "gear-compact",
+        "git-branch-compact",
+        "library-compact",
+        "record-keys-compact",
+        "remote-compact",
+        "repo-forked-compact",
+        "repo-compact",
+        "shield-compact",
+        "sparkle-compact",
+        "symbol-color-compact",
+        "window-compact",
+        "error-compact",
+        "warning-compact",
+        "pass-compact",
+        "important",
+        "important-compact",
+        "rocket-compact",
+        "unpin",
+        "add-compact",
+        "attach-compact",
+        "beaker-compact",
+        "check-compact",
+        "checklist-compact",
+        "chevron-down-compact",
+        "chevron-left-compact",
+        "chevron-right-compact",
+        "chevron-up-compact",
+        "circle-filled-compact",
+        "circle-small-filled-compact",
+        "close-compact",
+        "collapse-all-compact",
+        "comment-compact",
+        "comment-unresolved-compact",
+        "debug-connected-compact",
+        "debug-disconnect-compact",
+        "edit-compact",
+        "file-media-compact",
+        "git-fetch",
+        "lightbulb-compact",
+        "loading-compact",
+        "pass-filled-compact",
+        "project-compact",
+        "refresh-compact",
+        "search-compact",
+        "session-in-progress-compact",
+        "sync-compact",
+        "terminal-compact",
+        "vm-pending",
+        "worktree-compact",
         "dialog-error",
         "dialog-warning",
         "dialog-info",
@@ -41481,7 +41984,6 @@
         "newline",
         "thumbsdown-filled",
         "thumbsup-filled",
-        "git-fetch",
         "lightbulb-sparkle-autofix",
         "debug-breakpoint-pending"
       ],
@@ -42137,6 +42639,59 @@
         "$(chat-import)",
         "$(chat-export)",
         "$(share-window)",
+        "$(circle-slash-compact)",
+        "$(copilot-compact)",
+        "$(folder-opened-compact)",
+        "$(folder-compact)",
+        "$(gear-compact)",
+        "$(git-branch-compact)",
+        "$(library-compact)",
+        "$(record-keys-compact)",
+        "$(remote-compact)",
+        "$(repo-forked-compact)",
+        "$(repo-compact)",
+        "$(shield-compact)",
+        "$(sparkle-compact)",
+        "$(symbol-color-compact)",
+        "$(window-compact)",
+        "$(error-compact)",
+        "$(warning-compact)",
+        "$(pass-compact)",
+        "$(important)",
+        "$(important-compact)",
+        "$(rocket-compact)",
+        "$(unpin)",
+        "$(add-compact)",
+        "$(attach-compact)",
+        "$(beaker-compact)",
+        "$(check-compact)",
+        "$(checklist-compact)",
+        "$(chevron-down-compact)",
+        "$(chevron-left-compact)",
+        "$(chevron-right-compact)",
+        "$(chevron-up-compact)",
+        "$(circle-filled-compact)",
+        "$(circle-small-filled-compact)",
+        "$(close-compact)",
+        "$(collapse-all-compact)",
+        "$(comment-compact)",
+        "$(comment-unresolved-compact)",
+        "$(debug-connected-compact)",
+        "$(debug-disconnect-compact)",
+        "$(edit-compact)",
+        "$(file-media-compact)",
+        "$(git-fetch)",
+        "$(lightbulb-compact)",
+        "$(loading-compact)",
+        "$(pass-filled-compact)",
+        "$(project-compact)",
+        "$(refresh-compact)",
+        "$(search-compact)",
+        "$(session-in-progress-compact)",
+        "$(sync-compact)",
+        "$(terminal-compact)",
+        "$(vm-pending)",
+        "$(worktree-compact)",
         "$(dialog-error)",
         "$(dialog-warning)",
         "$(dialog-info)",
@@ -42162,7 +42717,6 @@
         "$(newline)",
         "$(thumbsdown-filled)",
         "$(thumbsup-filled)",
-        "$(git-fetch)",
         "$(lightbulb-sparkle-autofix)",
         "$(debug-breakpoint-pending)"
       ]
@@ -42360,7 +42914,7 @@
     },
     "_305": {
       "type": "array",
-      "description": "Array of additional paths to allow write access. Leave empty to disallow writes outside the workspace folders, workspace storage folder, and sandbox temp directory.",
+      "description": "Array of additional paths to allow write access. Leave empty to disallow writes outside the workspace folders and sandbox temp directory.",
       "items": {
         "type": "string"
       },

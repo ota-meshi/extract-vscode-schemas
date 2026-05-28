@@ -413,11 +413,15 @@
       "type": "string",
       "enum": [
         "advanced",
+        "advanced-external",
+        "advanced-wasm",
         "legacy"
       ],
       "default": "advanced",
       "markdownEnumDescriptions": [
         "Uses the advanced diffing algorithm.",
+        "Uses the advanced diffing algorithm from the external `@vscode/diff` package (pure JavaScript).",
+        "Uses the advanced diffing algorithm from the external `@vscode/diff` package (WebAssembly).",
         "Uses the legacy diffing algorithm."
       ],
       "section": {
@@ -4119,6 +4123,7 @@
               "chat.attach.image",
               "chat.attach.symbol",
               "chat.attach.text",
+              "chat.paste.html",
               "html",
               "text.plain",
               "uri.path.absolute",

@@ -408,7 +408,7 @@
                   "clientId": {
                     "type": "string",
                     "minLength": 1,
-                    "description": "The OAuth client ID to use when authenticating with the server."
+                    "markdownDescription": "The OAuth client ID to use when authenticating with the server. To set the matching client secret securely, use the *Set Client Secret* code lens above this field — secrets are stored in the OS secret store, not in this file."
                   }
                 }
               },
