@@ -3475,7 +3475,7 @@
         },
         "allowWrite": {
           "type": "array",
-          "description": "Array of additional paths to allow read/write access. Leave empty to disallow writes outside the workspace folders and sandbox temp directory.",
+          "description": "Array of additional paths to allow read/write access. Leave empty to disallow writes outside the workspace folders, workspace storage folder, and sandbox temp directory.",
           "items": {
             "type": "string"
           },
@@ -3509,6 +3509,22 @@
         "allowWrite": [],
         "denyRead": []
       },
+      "scope": 4
+    },
+    "chat.agent.sandbox.retryWithAllowNetworkRequests": {
+      "markdownDescription": "Controls whether agent mode terminal commands can retry in the sandbox with unrestricted network access after user confirmation. This applies only when `#chat.agent.sandbox.enabled#` is set to `on` and preserves file system sandboxing while relaxing network restrictions for an approved command.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "preview"
+      ],
+      "restricted": true,
+      "section": {
+        "id": "terminal",
+        "title": "Integrated Terminal",
+        "order": 100
+      },
+      "defaultDefaultValue": true,
       "scope": 4
     },
     "chat.agent.sandboxFileSystem.linux": {
@@ -3809,8 +3825,8 @@
         "advanced"
       ],
       "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
+        "id": "chatAgentHost",
+        "title": "Chat Agent Host"
       },
       "defaultDefaultValue": false,
       "scope": 4,
@@ -3841,8 +3857,8 @@
         "advanced"
       ],
       "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
       },
       "defaultDefaultValue": false,
       "scope": 4,
@@ -3857,8 +3873,8 @@
         "advanced"
       ],
       "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
       },
       "defaultDefaultValue": false,
       "scope": 4,
@@ -3873,8 +3889,8 @@
         "advanced"
       ],
       "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
       },
       "defaultDefaultValue": false,
       "scope": 4,
@@ -3895,8 +3911,8 @@
         "advanced"
       ],
       "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
       },
       "defaultDefaultValue": "otlp-http",
       "scope": 4,
@@ -3911,8 +3927,8 @@
         "advanced"
       ],
       "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
       },
       "defaultDefaultValue": "",
       "scope": 4,
@@ -3927,8 +3943,8 @@
         "advanced"
       ],
       "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
       },
       "defaultDefaultValue": "",
       "scope": 4,
@@ -3971,6 +3987,35 @@
         "title": "Chat"
       },
       "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.agentsHandoffTip.mode": {
+      "type": "string",
+      "enum": [
+        "custom",
+        "default",
+        "hidden"
+      ],
+      "enumDescriptions": [
+        "Show the handoff tip with an alternate description.",
+        "Show the handoff tip with the default description.",
+        "Never show the handoff tip."
+      ],
+      "default": "hidden",
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "description": "Controls the tip shown above the chat input offering to continue eligible agent sessions in the Agents Window.",
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "hidden",
       "scope": 4,
       "restricted": false
     },
@@ -4116,21 +4161,6 @@
           "onlyShowGroup": true
         }
       },
-      "scope": 4,
-      "restricted": false
-    },
-    "chat.autopilot.enabled": {
-      "type": "boolean",
-      "markdownDescription": "Controls whether the Autopilot mode is available in the permissions picker. When enabled, Autopilot auto-approves all tool calls and continues until the task is done.",
-      "default": true,
-      "tags": [
-        "experimental"
-      ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -5160,9 +5190,6 @@
       ],
       "description": "Controls the default permissions picker mode for new chat sessions. You can still change the permission mode per session, and each session remembers the permission mode that was used. If enterprise policy disables auto approval, new sessions use Default Approvals.",
       "default": "default",
-      "tags": [
-        "experimental"
-      ],
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
@@ -5384,7 +5411,6 @@
       "type": "boolean",
       "tags": [
         "experimental",
-        "advanced",
         "onExP"
       ],
       "experiment": {
@@ -5447,6 +5473,18 @@
         "onExP"
       ]
     },
+    "chat.titleBar.openInAgentsWindow.enabled": {
+      "type": "boolean",
+      "description": "Controls whether the Open in Agents Window button is shown in the title bar.",
+      "default": true,
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.titleBar.signIn.enabled": {
       "type": "boolean",
       "description": "Controls whether the Copilot Sign In button is shown in the title bar when signed out. When disabled, the Sign In affordance falls back to the status bar.",
@@ -5493,15 +5531,12 @@
     "chat.tools.confirmationCarousel.enabled": {
       "type": "boolean",
       "description": "When enabled, multiple tool confirmations are batched into a carousel above the input.",
-      "default": false,
-      "tags": [
-        "experimental"
-      ],
+      "default": true,
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -27368,7 +27403,6 @@
         "bash",
         "bash (2)",
         "dash",
-        "JavaScript Debug Terminal",
         "pwsh",
         "pwsh (2)",
         "rbash",
@@ -27383,7 +27417,6 @@
         "$(terminal-bash) bash\n- path: /usr/bin/bash",
         "$(terminal) bash (2)\n- path: /usr/bin/bash",
         "$(terminal) dash\n- path: /usr/bin/dash",
-        "$($(debug)) JavaScript Debug Terminal\n- extensionIdentifier: ms-vscode.js-debug",
         "$(terminal-powershell) pwsh\n- path: /usr/bin/pwsh",
         "$(terminal) pwsh (2)\n- path: /opt/microsoft/powershell/7/pwsh",
         "$(terminal) rbash\n- path: /bin/rbash",
@@ -29436,6 +29469,7 @@
         "close-compact",
         "close-dirty",
         "cloud",
+        "cloud-compact",
         "cloud-download",
         "cloud-small",
         "cloud-upload",
@@ -29529,6 +29563,7 @@
         "debug-step-over",
         "debug-stop",
         "desktop-download",
+        "developer-tools",
         "device-camera",
         "device-camera-video",
         "device-desktop",
@@ -30169,6 +30204,7 @@
         "$(close-compact)",
         "$(close-dirty)",
         "$(cloud)",
+        "$(cloud-compact)",
         "$(cloud-download)",
         "$(cloud-small)",
         "$(cloud-upload)",
@@ -30262,6 +30298,7 @@
         "$(debug-step-over)",
         "$(debug-stop)",
         "$(desktop-download)",
+        "$(developer-tools)",
         "$(device-camera)",
         "$(device-camera-video)",
         "$(device-desktop)",
@@ -32701,6 +32738,26 @@
       "agentsWindow": {
         "default": true
       },
+      "section": {
+        "id": "workbench",
+        "title": "Workbench",
+        "order": 7
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "workbench.browser.experimentalUserTools.enabled": {
+      "type": "boolean",
+      "default": false,
+      "experiment": {
+        "mode": "startup"
+      },
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "markdownDescription": "When enabled, experimental user-facing tools are available in the Integrated Browser's Add to Chat menu.",
       "section": {
         "id": "workbench",
         "title": "Workbench",
@@ -41397,6 +41454,8 @@
         "terminal-compact",
         "vm-pending",
         "worktree-compact",
+        "developer-tools",
+        "cloud-compact",
         "dialog-error",
         "dialog-warning",
         "dialog-info",
@@ -42130,6 +42189,8 @@
         "$(terminal-compact)",
         "$(vm-pending)",
         "$(worktree-compact)",
+        "$(developer-tools)",
+        "$(cloud-compact)",
         "$(dialog-error)",
         "$(dialog-warning)",
         "$(dialog-info)",

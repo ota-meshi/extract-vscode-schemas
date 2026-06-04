@@ -18,6 +18,28 @@
         }
       ]
     },
+    "activeSessionView.background": {
+      "description": "Background color of an active session view in the agent sessions window.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_34"
+        }
+      ]
+    },
+    "activeSessionView.foreground": {
+      "description": "Foreground color of an active session view in the agent sessions window.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_0"
+        },
+        {
+          "$ref": "#/$defs/_1"
+        }
+      ]
+    },
     "activityBar.activeBackground": {
       "description": "Activity bar background color for the active item. The activity bar is showing on the far left or right and allows to switch between views of the side bar.",
       "oneOf": [
@@ -540,17 +562,6 @@
         },
         {
           "$ref": "#/$defs/_69"
-        }
-      ]
-    },
-    "aiCustomizationManagement.sashBorder": {
-      "description": "The color of the Agent Customizations editor splitview sash border.",
-      "oneOf": [
-        {
-          "$ref": "#/$defs/_1"
-        },
-        {
-          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -5146,6 +5157,28 @@
         },
         {
           "$ref": "#/$defs/_5"
+        }
+      ]
+    },
+    "inactiveSessionView.background": {
+      "description": "Background color of an inactive session view in the agent sessions window.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_21"
+        }
+      ]
+    },
+    "inactiveSessionView.foreground": {
+      "description": "Foreground color of an inactive session view in the agent sessions window.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_0"
+        },
+        {
+          "$ref": "#/$defs/_1"
         }
       ]
     },

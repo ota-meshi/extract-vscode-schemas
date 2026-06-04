@@ -2170,6 +2170,8 @@
                       "terminal-compact",
                       "vm-pending",
                       "worktree-compact",
+                      "developer-tools",
+                      "cloud-compact",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -3042,6 +3044,8 @@
                       "",
                       "",
                       "Icon for a terminal decoration of a command that errored.",
+                      "",
+                      "",
                       "",
                       "",
                       "",
@@ -4200,6 +4204,13 @@
               "type": "array",
               "items": {
                 "$ref": "#/$defs/_15"
+              }
+            },
+            "chatSessions/item/context": {
+              "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - The context menu for items in the Sessions window's session list.",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/_14"
               }
             },
             "chatSessions/newSession": {
@@ -6315,6 +6326,7 @@
           "authLearnMore",
           "authProviderSpecific",
           "authSession",
+          "authSessionAudience",
           "browser",
           "canonicalUriProvider",
           "chatContextProvider",
@@ -6490,6 +6502,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authLearnMore.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authProviderSpecific.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authSession.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authSessionAudience.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.browser.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.canonicalUriProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatContextProvider.d.ts",
@@ -7526,6 +7539,10 @@
         "agentsBadge.foreground",
         "agentsUnreadBadge.background",
         "agentsUnreadBadge.foreground",
+        "activeSessionView.background",
+        "inactiveSessionView.background",
+        "activeSessionView.foreground",
+        "inactiveSessionView.foreground",
         "ports.iconRunningProcessForeground",
         "settings.headerForeground",
         "settings.settingsHeaderHoverForeground",
@@ -7636,7 +7653,6 @@
         "multiDiffEditor.background",
         "multiDiffEditor.border",
         "minimap.chatEditHighlight",
-        "aiCustomizationManagement.sashBorder",
         "mcpIcon.starForeground",
         "interactive.activeCodeBorder",
         "interactive.inactiveCodeBorder",
@@ -8461,6 +8477,10 @@
         "Foreground color of badges in the agent sessions window.",
         "Background color of the unread sessions count badge on the sidebar toggle.",
         "Foreground color of the unread sessions count badge on the sidebar toggle.",
+        "Background color of an active session view in the agent sessions window.",
+        "Background color of an inactive session view in the agent sessions window.",
+        "Foreground color of an active session view in the agent sessions window.",
+        "Foreground color of an inactive session view in the agent sessions window.",
         "The color of the icon for a port that has an associated running process.",
         "The foreground color for a section header or active title.",
         "The foreground color for a section header or hovered title.",
@@ -8571,7 +8591,6 @@
         "The background color of the multi file diff editor",
         "The border color of the multi file diff editor",
         "Color of pending edit regions in the minimap",
-        "The color of the Agent Customizations editor splitview sash border.",
         "The icon color for mcp starred.",
         "The border color for the current interactive code cell when the editor has focus.",
         "The border color for the current interactive code cell when the editor does not have focus.",
