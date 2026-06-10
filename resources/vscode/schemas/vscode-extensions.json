@@ -4192,6 +4192,13 @@
                 "$ref": "#/$defs/_15"
               }
             },
+            "chat/input/status": {
+              "markdownDescription": "The status indicator area at the rightmost end of the toolbar shown beneath the chat input",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/_14"
+              }
+            },
             "chat/multiDiff/context": {
               "markdownDescription": "Proposed API, requires `enabledApiProposal: [\"chatSessionsProvider\"]` - The Chat Multi-Diff context menu.",
               "type": "array",
