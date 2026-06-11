@@ -3816,6 +3816,25 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.agentHost.defaultChatProvider": {
+      "type": "boolean",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "markdownDescription": "When enabled, the local agent host is used as the default provider in the VS Code chat session-target picker. Requires `#chat.agentHost.enabled#`.",
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.agentHost.enabled": {
       "type": "boolean",
       "description": "When enabled, some agents run in a separate agent host process.",
@@ -3827,22 +3846,6 @@
       "section": {
         "id": "chatAgentHost",
         "title": "Chat Agent Host"
-      },
-      "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
-    },
-    "chat.agentHost.ipcLoggingEnabled": {
-      "type": "boolean",
-      "description": "When enabled, logs all IPC traffic for each agent host to a dedicated output channel.",
-      "default": false,
-      "tags": [
-        "experimental",
-        "advanced"
-      ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
       },
       "defaultDefaultValue": false,
       "scope": 4,
@@ -4161,6 +4164,21 @@
           "onlyShowGroup": true
         }
       },
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.autopilot.advanced.enabled": {
+      "type": "boolean",
+      "markdownDescription": "Enables **Advanced Autopilot**, a single switch that turns on all advanced Autopilot behaviors that delegate more of the loop to the agent. Currently, after each Autopilot turn a small, fast model evaluates whether your original request is complete; if not, Autopilot keeps working using that evaluation as guidance for the next turn, instead of relying on the agent to signal completion itself.",
+      "default": false,
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },
@@ -5582,48 +5600,66 @@
       "propertyNames": {
         "enum": [
           "askQuestions",
+          "clickElement",
           "createAndRunTask",
+          "dragElement",
           "extensions",
           "getTaskOutput",
           "getTerminalOutput",
+          "handleDialog",
+          "hoverElement",
           "killTerminal",
+          "navigatePage",
           "new",
           "openBrowserPage",
+          "readPage",
           "rename",
           "renderMermaidDiagram",
           "reviewPlan",
           "runInTerminal",
+          "runPlaywrightCode",
           "runSubagent",
           "runTask",
           "runTests",
+          "screenshotPage",
           "sendToTerminal",
           "terminalLastCommand",
           "terminalSelection",
           "testFailure",
           "todo",
+          "typeInPage",
           "usages"
         ],
         "enumDescriptions": [
           "askQuestions - Ask structured clarifying questions using single select, multi-select, or freeform inputs to collect task requirements before proceeding.",
+          "clickElement - Click an element in a browser page",
           "createAndRunTask - Create and run a task in the workspace",
+          "dragElement - Drag an element over another element",
           "extensions - Search for VS Code extensions",
           "getTaskOutput - Get Task Output",
           "getTerminalOutput - Get Terminal Output",
+          "handleDialog - Respond to a dialog in a browser page",
+          "hoverElement - Hover over an element in a browser page",
           "killTerminal - Kill Terminal",
+          "navigatePage - Navigate or reload a browser page",
           "new - Scaffold a new workspace in VS Code",
           "openBrowserPage - Open a URL in the integrated browser",
+          "readPage - Read the content of a browser page",
           "rename - Rename a symbol across the workspace",
           "renderMermaidDiagram - Render a Mermaid.js diagram from markup.",
           "reviewPlan - Ask the user to review and approve a plan before proceeding.",
           "runInTerminal - Run commands in the terminal",
+          "runPlaywrightCode - Run a Playwright code snippet against a browser page",
           "runSubagent - Run a task within an isolated subagent context to enable efficient organization of tasks and context window management.",
           "runTask - Run tasks in the workspace",
           "runTests - Run unit tests (optionally with coverage)",
+          "screenshotPage - Capture a screenshot of a browser page",
           "sendToTerminal - Send to Terminal",
           "terminalLastCommand - Get Terminal Last Command",
           "terminalSelection - Get Terminal Selection",
           "testFailure - Include test failure information",
           "todo - Manage and track todo items for task planning",
+          "typeInPage - Type text or press keys in a browser page",
           "usages - Find references, definitions, and implementations of a symbol"
         ]
       },
@@ -18958,8 +18994,14 @@
     },
     "jsts-chat-features.skills.enabled": {
       "type": "boolean",
+      "tags": [
+        "onExp"
+      ],
       "default": false,
       "description": "These skills provide helpful prompts and features to enhance your experience when using Copilot to work with JavaScript and TypeScript.",
+      "experiment": {
+        "mode": "startup"
+      },
       "scope": 4,
       "section": {
         "id": "TypeScriptTeam.jsts-chat-features",
@@ -23442,6 +23484,7 @@
         "node",
         "npm",
         "pnpm",
+        "vp",
         "yarn"
       ],
       "enumDescriptions": [
@@ -23450,6 +23493,7 @@
         "Use Node.js as the script runner.",
         "Use npm as the script runner.",
         "Use pnpm as the script runner.",
+        "Use Vite+ (vp) as the script runner.",
         "Use yarn as the script runner."
       ],
       "default": "auto",
@@ -29377,6 +29421,7 @@
         "add-compact",
         "add-small",
         "agent",
+        "agent-compact",
         "alert",
         "archive",
         "array",
@@ -29395,6 +29440,7 @@
         "arrow-swap",
         "arrow-up",
         "ask",
+        "ask-compact",
         "attach",
         "attach-compact",
         "azure",
@@ -29937,6 +29983,7 @@
         "session-in-progress",
         "session-in-progress-compact",
         "settings",
+        "settings-compact",
         "settings-gear",
         "share",
         "share-window",
@@ -30073,6 +30120,7 @@
         "versions",
         "vm",
         "vm-active",
+        "vm-compact",
         "vm-connect",
         "vm-outline",
         "vm-pending",
@@ -30112,6 +30160,7 @@
         "$(add-compact)",
         "$(add-small)",
         "$(agent)",
+        "$(agent-compact)",
         "$(alert)",
         "$(archive)",
         "$(array)",
@@ -30130,6 +30179,7 @@
         "$(arrow-swap)",
         "$(arrow-up)",
         "$(ask)",
+        "$(ask-compact)",
         "$(attach)",
         "$(attach-compact)",
         "$(azure)",
@@ -30672,6 +30722,7 @@
         "$(session-in-progress)",
         "$(session-in-progress-compact)",
         "$(settings)",
+        "$(settings-compact)",
         "$(settings-gear)",
         "$(share)",
         "$(share-window)",
@@ -30808,6 +30859,7 @@
         "$(versions)",
         "$(vm)",
         "$(vm-active)",
+        "$(vm-compact)",
         "$(vm-connect)",
         "$(vm-outline)",
         "$(vm-pending)",
@@ -32715,7 +32767,7 @@
     },
     "workbench.browser.enableChatTools": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "experiment": {
         "mode": "startup"
       },
@@ -32743,7 +32795,7 @@
         "title": "Workbench",
         "order": 7
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -41456,6 +41508,10 @@
         "worktree-compact",
         "developer-tools",
         "cloud-compact",
+        "agent-compact",
+        "ask-compact",
+        "settings-compact",
+        "vm-compact",
         "dialog-error",
         "dialog-warning",
         "dialog-info",
@@ -42191,6 +42247,10 @@
         "$(worktree-compact)",
         "$(developer-tools)",
         "$(cloud-compact)",
+        "$(agent-compact)",
+        "$(ask-compact)",
+        "$(settings-compact)",
+        "$(vm-compact)",
         "$(dialog-error)",
         "$(dialog-warning)",
         "$(dialog-info)",

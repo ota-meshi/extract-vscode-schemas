@@ -225,12 +225,46 @@
           "description": "Language specific folding markers such as '#region' and '#endregion'. The start and end regexes will be tested against the contents of all lines and must be designed efficiently",
           "properties": {
             "end": {
-              "type": "string",
-              "description": "The RegExp pattern for the end marker. The regexp must start with '^'."
+              "type": [
+                "string",
+                "object"
+              ],
+              "description": "The RegExp pattern for the end marker. The regexp must start with '^'.",
+              "properties": {
+                "flags": {
+                  "type": "string",
+                  "description": "The RegExp flags for the end marker.",
+                  "default": "",
+                  "pattern": "^([gimuy]+)$",
+                  "patternErrorMessage": "Must match the pattern `/^([gimuy]+)$/`."
+                },
+                "pattern": {
+                  "type": "string",
+                  "description": "The RegExp pattern for the end marker.",
+                  "default": ""
+                }
+              }
             },
             "start": {
-              "type": "string",
-              "description": "The RegExp pattern for the start marker. The regexp must start with '^'."
+              "type": [
+                "string",
+                "object"
+              ],
+              "description": "The RegExp pattern for the start marker. The regexp must start with '^'.",
+              "properties": {
+                "flags": {
+                  "type": "string",
+                  "description": "The RegExp flags for the start marker.",
+                  "default": "",
+                  "pattern": "^([gimuy]+)$",
+                  "patternErrorMessage": "Must match the pattern `/^([gimuy]+)$/`."
+                },
+                "pattern": {
+                  "type": "string",
+                  "description": "The RegExp pattern for the start marker.",
+                  "default": ""
+                }
+              }
             }
           }
         },

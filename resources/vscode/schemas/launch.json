@@ -6975,10 +6975,12 @@
             "action": {
               "type": "string",
               "enum": [
-                "openExternally"
+                "openExternally",
+                "openIntegratedBrowser"
               ],
               "enumDescriptions": [
-                "Open URI externally with the default application."
+                "Open URI externally with the default application.",
+                "Open URI in the integrated browser."
               ],
               "markdownDescription": "What to do with the URI when the server is ready.",
               "default": "openExternally"
