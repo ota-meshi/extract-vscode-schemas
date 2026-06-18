@@ -56,6 +56,10 @@
         "agentSessionSection.unarchive",
         "agentSessionsViewer.find",
         "agentSessionsViewer.refresh",
+        "agentsVoice.pushToTalk",
+        "agentsVoice.resetOnboarding",
+        "agentsVoice.showTranscripts",
+        "agentsVoice.toggleWindow",
         "aiCustomization.generateDebugReport",
         "aiCustomization.openManagementEditor",
         "aiCustomization.openMarketplace",
@@ -102,7 +106,6 @@
         "chat.installRecommendation.github.copilot-chat.cli",
         "chat.installRecommendation.github.copilot-chat.cloud",
         "chat.installRecommendation.openai.chatgpt.codex",
-        "chat.internal.codeReview.run",
         "chat.internal.explain",
         "chat.internal.fix",
         "chat.internal.review",
@@ -1627,6 +1630,10 @@
         "views.moveViewLeft",
         "views.moveViewRight",
         "views.moveViewUp",
+        "voiceTranscripts.archiveAll",
+        "voiceTranscripts.deleteAll",
+        "voiceTranscripts.focus",
+        "voiceTranscripts.refresh",
         "vscode.changes",
         "vscode.diff",
         "vscode.getEditorLayout",
@@ -1814,6 +1821,7 @@
         "workbench.action.chat.openAgentDebugPanel",
         "workbench.action.chat.openAgentDebugPanelForSession",
         "workbench.action.chat.openAgentHostAutoApprovePicker",
+        "workbench.action.chat.openAgentHostFolderPicker",
         "workbench.action.chat.openAgentHostModePicker",
         "workbench.action.chat.openAgentHostPermissionModePicker",
         "workbench.action.chat.openask",
@@ -2830,6 +2838,7 @@
         "workbench.files.action.showActiveFileInExplorer",
         "workbench.getCodeExchangeProxyEndpoints",
         "workbench.mcp.addConfiguration",
+        "workbench.mcp.agentHostServerOptions",
         "workbench.mcp.browseResources",
         "workbench.mcp.browseServers",
         "workbench.mcp.configureSamplingModels",
@@ -3000,6 +3009,10 @@
         "workbench.view.testing.focus",
         "workbench.view.testing.open",
         "workbench.view.testing.resetViewLocation",
+        "workbench.view.voiceTranscripts.focus",
+        "workbench.view.voiceTranscripts.resetViewLocation",
+        "workbench.view.voiceTranscriptsContainer",
+        "workbench.view.voiceTranscriptsContainer.resetViewContainerLocation",
         "workbench.views.agentPlugins.default.marketplace.focus",
         "workbench.views.agentPlugins.default.marketplace.open",
         "workbench.views.agentPlugins.default.marketplace.resetViewLocation",
@@ -3167,6 +3180,10 @@
         "Unarchive All",
         "Find Agent Session",
         "Refresh Agent Sessions",
+        "Voice Mode: Push to Talk",
+        "Voice: Reset Onboarding",
+        "Show Voice Transcripts",
+        "Voice Mode",
         "Generate Customization Debug Report",
         "Open Customizations",
         "Open Marketplace",
@@ -3213,7 +3230,6 @@
         "New Background Agent",
         "New Cloud Agent",
         "New Codex Agent",
-        "",
         "",
         "",
         "",
@@ -4738,6 +4754,10 @@
         "Move View Left",
         "Move View Right",
         "Move View Up",
+        "Archive All",
+        "Delete All",
+        "Opens view Voice Transcripts",
+        "Refresh",
         "Opens a list of resources in the changes editor to compare their contents.",
         "Opens the provided resources in the diff editor to compare their contents.",
         "Get Editor Layout",
@@ -4925,6 +4945,7 @@
         "Open Agent Debug Logs",
         "Show Agent Debug Logs",
         "Auto-Approve",
+        "Folder",
         "Agent Mode",
         "Approvals",
         "Open Chat (Ask)",
@@ -5865,13 +5886,13 @@
         "Debug Extension Host In Dev Tools",
         "Disable All Installed Extensions",
         "Disable All Installed Extensions for this Workspace",
-        "Disable Auto Update for All Extensions",
+        "Disable Auto Update for Extensions",
         "Download VSIX",
         "Download Pre-Release VSIX",
         "Download Specific Version VSIX...",
         "Enable All Extensions",
         "Enable All Extensions for this Workspace",
-        "Enable Auto Update for All Extensions",
+        "Enable Auto Update for Extensions",
         "Start Extension Host Profile",
         "Show Extension Updates",
         "Focus on Extensions View",
@@ -5941,6 +5962,7 @@
         "Reveals and selects the active file within the explorer view.",
         "",
         "Installs a new Model Context protocol to the mcp.json settings",
+        "Agent Host Server Options",
         "Browse Resources...",
         "MCP Servers",
         "Configure SamplingModel",
@@ -6110,6 +6132,10 @@
         "Reset Location",
         "Focus on Test Explorer View",
         "Opens view Test Explorer",
+        "Reset Location",
+        "Focus on Voice Transcripts View",
+        "Reset Location",
+        "Show Voice Transcripts",
         "Reset Location",
         "Focus on Agent Plugins View",
         "Opens view Agent Plugins",
@@ -7492,6 +7518,21 @@
             ],
             "properties": {
               "command": {
+                "const": "voiceTranscripts.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_19"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
                 "const": "vscode.openIssueReporter"
               }
             }
@@ -8535,6 +8576,21 @@
           },
           "then": {
             "$ref": "#/$defs/_19"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.view.voiceTranscripts.focus"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
           }
         },
         {
@@ -9765,6 +9821,10 @@
             "-agentSessionSection.unarchive",
             "-agentSessionsViewer.find",
             "-agentSessionsViewer.refresh",
+            "-agentsVoice.pushToTalk",
+            "-agentsVoice.resetOnboarding",
+            "-agentsVoice.showTranscripts",
+            "-agentsVoice.toggleWindow",
             "-aiCustomization.generateDebugReport",
             "-aiCustomization.openManagementEditor",
             "-aiCustomization.openMarketplace",
@@ -9811,7 +9871,6 @@
             "-chat.installRecommendation.github.copilot-chat.cli",
             "-chat.installRecommendation.github.copilot-chat.cloud",
             "-chat.installRecommendation.openai.chatgpt.codex",
-            "-chat.internal.codeReview.run",
             "-chat.internal.explain",
             "-chat.internal.fix",
             "-chat.internal.review",
@@ -11336,6 +11395,10 @@
             "-views.moveViewLeft",
             "-views.moveViewRight",
             "-views.moveViewUp",
+            "-voiceTranscripts.archiveAll",
+            "-voiceTranscripts.deleteAll",
+            "-voiceTranscripts.focus",
+            "-voiceTranscripts.refresh",
             "-vscode.changes",
             "-vscode.diff",
             "-vscode.getEditorLayout",
@@ -11523,6 +11586,7 @@
             "-workbench.action.chat.openAgentDebugPanel",
             "-workbench.action.chat.openAgentDebugPanelForSession",
             "-workbench.action.chat.openAgentHostAutoApprovePicker",
+            "-workbench.action.chat.openAgentHostFolderPicker",
             "-workbench.action.chat.openAgentHostModePicker",
             "-workbench.action.chat.openAgentHostPermissionModePicker",
             "-workbench.action.chat.openask",
@@ -12539,6 +12603,7 @@
             "-workbench.files.action.showActiveFileInExplorer",
             "-workbench.getCodeExchangeProxyEndpoints",
             "-workbench.mcp.addConfiguration",
+            "-workbench.mcp.agentHostServerOptions",
             "-workbench.mcp.browseResources",
             "-workbench.mcp.browseServers",
             "-workbench.mcp.configureSamplingModels",
@@ -12709,6 +12774,10 @@
             "-workbench.view.testing.focus",
             "-workbench.view.testing.open",
             "-workbench.view.testing.resetViewLocation",
+            "-workbench.view.voiceTranscripts.focus",
+            "-workbench.view.voiceTranscripts.resetViewLocation",
+            "-workbench.view.voiceTranscriptsContainer",
+            "-workbench.view.voiceTranscriptsContainer.resetViewContainerLocation",
             "-workbench.views.agentPlugins.default.marketplace.focus",
             "-workbench.views.agentPlugins.default.marketplace.open",
             "-workbench.views.agentPlugins.default.marketplace.resetViewLocation",
@@ -12876,6 +12945,10 @@
             "Unarchive All",
             "Find Agent Session",
             "Refresh Agent Sessions",
+            "Voice Mode: Push to Talk",
+            "Voice: Reset Onboarding",
+            "Show Voice Transcripts",
+            "Voice Mode",
             "Generate Customization Debug Report",
             "Open Customizations",
             "Open Marketplace",
@@ -12922,7 +12995,6 @@
             "New Background Agent",
             "New Cloud Agent",
             "New Codex Agent",
-            "",
             "",
             "",
             "",
@@ -14447,6 +14519,10 @@
             "Move View Left",
             "Move View Right",
             "Move View Up",
+            "Archive All",
+            "Delete All",
+            "Opens view Voice Transcripts",
+            "Refresh",
             "Opens a list of resources in the changes editor to compare their contents.",
             "Opens the provided resources in the diff editor to compare their contents.",
             "Get Editor Layout",
@@ -14634,6 +14710,7 @@
             "Open Agent Debug Logs",
             "Show Agent Debug Logs",
             "Auto-Approve",
+            "Folder",
             "Agent Mode",
             "Approvals",
             "Open Chat (Ask)",
@@ -15574,13 +15651,13 @@
             "Debug Extension Host In Dev Tools",
             "Disable All Installed Extensions",
             "Disable All Installed Extensions for this Workspace",
-            "Disable Auto Update for All Extensions",
+            "Disable Auto Update for Extensions",
             "Download VSIX",
             "Download Pre-Release VSIX",
             "Download Specific Version VSIX...",
             "Enable All Extensions",
             "Enable All Extensions for this Workspace",
-            "Enable Auto Update for All Extensions",
+            "Enable Auto Update for Extensions",
             "Start Extension Host Profile",
             "Show Extension Updates",
             "Focus on Extensions View",
@@ -15650,6 +15727,7 @@
             "Reveals and selects the active file within the explorer view.",
             "",
             "Installs a new Model Context protocol to the mcp.json settings",
+            "Agent Host Server Options",
             "Browse Resources...",
             "MCP Servers",
             "Configure SamplingModel",
@@ -15819,6 +15897,10 @@
             "Reset Location",
             "Focus on Test Explorer View",
             "Opens view Test Explorer",
+            "Reset Location",
+            "Focus on Voice Transcripts View",
+            "Reset Location",
+            "Show Voice Transcripts",
             "Reset Location",
             "Focus on Agent Plugins View",
             "Opens view Agent Plugins",

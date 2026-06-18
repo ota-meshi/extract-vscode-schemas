@@ -577,6 +577,40 @@
         }
       ]
     },
+    "agentsVoice.speakingBackground": {
+      "description": "Background color for the speaking voice state row highlight",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#a371f714}"
+            }
+          ]
+        }
+      ]
+    },
+    "agentsVoice.speakingForeground": {
+      "description": "Color for the speaking/active voice state indicator",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#a371f7}"
+            }
+          ]
+        }
+      ]
+    },
     "badge.background": {
       "description": "Badge background color. Badges are small information labels, e.g. for search results count.",
       "oneOf": [

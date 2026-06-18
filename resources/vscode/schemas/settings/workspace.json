@@ -3749,6 +3749,22 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.agentHost.claudeAgent.enabled": {
+      "type": "boolean",
+      "description": "When enabled, the agent host registers the Claude provider (subject to the Claude SDK being reachable). Independent of `#chat.agents.claude.preferAgentHost#` and `#chat.editor.claude.preferAgentHost#`, which choose which integration surfaces Claude. Requires `#chat.agentHost.enabled#`. The agent host process must be restarted for changes to take effect.",
+      "default": true,
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.agentHost.clientTools": {
       "type": "array",
       "items": {
@@ -3760,6 +3776,10 @@
         "getTaskOutput",
         "problems",
         "runTests",
+        "addComment",
+        "listComments",
+        "deleteComments",
+        "resolveComments",
         "openBrowserPage",
         "readPage",
         "screenshotPage",
@@ -3784,6 +3804,10 @@
         "getTaskOutput",
         "problems",
         "runTests",
+        "addComment",
+        "listComments",
+        "deleteComments",
+        "resolveComments",
         "openBrowserPage",
         "readPage",
         "screenshotPage",
@@ -3798,6 +3822,22 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.agentHost.codexAgent.enabled": {
+      "type": "boolean",
+      "description": "When enabled, the agent host registers the Codex provider (subject to the Codex SDK being reachable). Requires `#chat.agentHost.enabled#`. The agent host process must be restarted for changes to take effect.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.agentHost.customTerminalTool.enabled": {
       "type": "boolean",
       "description": "When enabled, Copilot SDK sessions use the Agent Host terminal tool override instead of the SDK's default terminal behavior.",
@@ -3806,25 +3846,6 @@
         "experimental",
         "advanced"
       ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
-    },
-    "chat.agentHost.defaultChatProvider": {
-      "type": "boolean",
-      "default": false,
-      "tags": [
-        "experimental",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "startup"
-      },
-      "markdownDescription": "When enabled, the local agent host is used as the default provider in the VS Code chat session-target picker. Requires `#chat.agentHost.enabled#`.",
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
@@ -3950,6 +3971,74 @@
       },
       "defaultDefaultValue": "",
       "scope": 4
+    },
+    "chat.agentHost.sdkSandbox.enabled": {
+      "type": "string",
+      "enum": [
+        "allowNetwork",
+        "off",
+        "on"
+      ],
+      "enumDescriptions": [
+        "The SDK's built-in shell tool runs inside a sandbox with unrestricted outbound network access.",
+        "No sandbox policy is forwarded for the SDK's built-in shell tool — commands run unsandboxed.",
+        "The SDK's built-in shell tool runs inside a sandbox using the configured filesystem policy and host-list-restricted network."
+      ],
+      "markdownDescription": "Sandbox mode for the Copilot SDK's built-in shell tool. Only takes effect when `#chat.agentHost.customTerminalTool.enabled#` is `false`; when the Agent Host's own terminal tool is enabled, the engine sandbox is controlled by `#chat.agent.sandbox.enabled#`.",
+      "default": "off",
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "off",
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.agents.claude.preferAgentHost": {
+      "type": "boolean",
+      "description": "When enabled, Claude sessions opened from the Agents Window run inside the agent host process instead of the GitHub Copilot Chat extension. Only one Claude implementation surfaces per window.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.agents.copilotCli.hideExtensionHost": {
+      "type": "boolean",
+      "description": "When enabled, hides the Extension Host Copilot CLI entry from the Agents window picker.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "section": {
+        "id": "chatAgentHost",
+        "title": "Chat Agent Host"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
     },
     "chat.agentsControl.enabled": {
       "type": "string",
@@ -4303,6 +4392,18 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.editing.openChangedFileInDiffEditor": {
+      "type": "boolean",
+      "markdownDescription": "Controls whether selecting a file in the changed files list of a chat response opens it in a diff editor showing the changes made by chat, or in a regular editor. Holding `kbstyle(Alt)` while selecting the file opens it with the opposite behavior.",
+      "default": true,
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.editing.revealNextChangeOnResolve": {
       "type": "boolean",
       "markdownDescription": "Controls whether the editor automatically reveals the next change after keeping or undoing a chat edit.",
@@ -4342,6 +4443,73 @@
         "title": "Chat"
       },
       "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.editor.claude.preferAgentHost": {
+      "type": "boolean",
+      "description": "When enabled, Claude sessions opened from the regular workbench (sidebar chat) run inside the agent host process instead of the GitHub Copilot Chat extension. Only one Claude implementation surfaces per window.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.editor.copilotCli.hideExtensionHost": {
+      "type": "boolean",
+      "description": "When enabled, hides the Extension Host Copilot CLI entry from the editor window chat picker.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "section": {
+        "id": "chatAgentHost",
+        "title": "Chat Agent Host"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.editor.defaultProvider": {
+      "type": "string",
+      "enum": [
+        "copilotAh",
+        "copilotEh",
+        "local"
+      ],
+      "enumDescriptions": [
+        "Use the Agent Host Copilot CLI",
+        "Use the Extension Host Copilot CLI",
+        "Use the built-in VS Code local chat harness"
+      ],
+      "description": "Controls which provider is used as the default for new editor chat sessions.",
+      "default": "local",
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "section": {
+        "id": "chatAgentHost",
+        "title": "Chat Agent Host"
+      },
+      "defaultDefaultValue": "local",
       "scope": 4,
       "restricted": false
     },
@@ -5756,7 +5924,7 @@
     },
     "chat.tools.riskAssessment.enabled": {
       "type": "boolean",
-      "description": "When enabled, terminal tool confirmations show an LLM-generated risk level (Safe / Caution / Review carefully) and a short explanation.",
+      "description": "When enabled, tool confirmations show an LLM-generated risk level (Safe / Caution / Review carefully) and a short explanation.",
       "default": true,
       "experiment": {
         "mode": "auto"
@@ -6211,7 +6379,7 @@
     "chat.tools.terminal.idleSilenceTimeoutMs": {
       "restricted": true,
       "type": "number",
-      "default": 60000,
+      "default": 300000,
       "minimum": 0,
       "tags": [
         "experimental",
@@ -6226,7 +6394,7 @@
         "title": "Integrated Terminal",
         "order": 100
       },
-      "defaultDefaultValue": 60000,
+      "defaultDefaultValue": 300000,
       "scope": 4
     },
     "chat.tools.terminal.ignoreDefaultAutoApproveRules": {
@@ -27683,7 +27851,6 @@
         "bash",
         "bash (2)",
         "dash",
-        "JavaScript Debug Terminal",
         "pwsh",
         "pwsh (2)",
         "rbash",
@@ -27698,7 +27865,6 @@
         "$(terminal-bash) bash\n- path: /usr/bin/bash",
         "$(terminal) bash (2)\n- path: /usr/bin/bash",
         "$(terminal) dash\n- path: /usr/bin/dash",
-        "$($(debug)) JavaScript Debug Terminal\n- extensionIdentifier: ms-vscode.js-debug",
         "$(terminal-powershell) pwsh\n- path: /usr/bin/pwsh",
         "$(terminal) pwsh (2)\n- path: /opt/microsoft/powershell/7/pwsh",
         "$(terminal) rbash\n- path: /bin/rbash",
@@ -30192,6 +30358,7 @@
         "run-all",
         "run-all-coverage",
         "run-below",
+        "run-compact",
         "run-coverage",
         "run-errors",
         "run-with-deps",
@@ -30931,6 +31098,7 @@
         "$(run-all)",
         "$(run-all-coverage)",
         "$(run-below)",
+        "$(run-compact)",
         "$(run-coverage)",
         "$(run-errors)",
         "$(run-with-deps)",
@@ -32982,17 +33150,19 @@
     "workbench.browser.dataStorage": {
       "type": "string",
       "enum": [
+        "default",
         "ephemeral",
         "global",
         "workspace"
       ],
       "markdownEnumDescriptions": [
+        "`global` for local workspaces, `workspace` for remote workspaces.",
         "Each browser view has its own session that is cleaned up when closed.",
-        "All browser views share a single persistent session across all workspaces.",
+        "All browser views share a single persistent session across all workspaces. Incompatible with remote sessions.",
         "Browser views within the same workspace share a persistent session. If no workspace is opened, `ephemeral` storage is used."
       ],
       "restricted": true,
-      "default": "global",
+      "default": "default",
       "markdownDescription": "Controls how browser data (cookies, cache, storage) is shared between browser views.\n\n**Note**: In untrusted workspaces, this setting is ignored and `ephemeral` storage is always used.",
       "scope": 4,
       "order": 100,
@@ -33001,7 +33171,7 @@
         "title": "Workbench",
         "order": 7
       },
-      "defaultDefaultValue": "global"
+      "defaultDefaultValue": "default"
     },
     "workbench.browser.enableChatTools": {
       "type": "boolean",
@@ -33035,6 +33205,26 @@
       },
       "defaultDefaultValue": true,
       "scope": 4,
+      "restricted": false
+    },
+    "workbench.browser.enableRemoteProxy": {
+      "type": "boolean",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "scope": 4,
+      "experiment": {
+        "mode": "startup"
+      },
+      "markdownDescription": "When enabled, browser requests in remote workspaces are proxied through the remote connection. This allows web pages to access resources available on the remote host.",
+      "section": {
+        "id": "workbench",
+        "title": "Workbench",
+        "order": 7
+      },
+      "defaultDefaultValue": false,
       "restricted": false
     },
     "workbench.browser.experimentalUserTools.enabled": {
@@ -33529,6 +33719,11 @@
           "default": false,
           "description": "Audio Preview"
         },
+        "vscode.markdown.editor": {
+          "type": "boolean",
+          "default": false,
+          "description": "Markdown Editor (Experimental)"
+        },
         "vscode.videoPreview": {
           "type": "boolean",
           "default": false,
@@ -33585,6 +33780,7 @@
         "repl": false,
         "terminalEditor": true,
         "vscode.audioPreview": false,
+        "vscode.markdown.editor": false,
         "vscode.videoPreview": false,
         "workbench.editor.browser": false,
         "workbench.editor.chatDebug": false,
@@ -33615,6 +33811,7 @@
         "repl": false,
         "terminalEditor": true,
         "vscode.audioPreview": false,
+        "vscode.markdown.editor": false,
         "vscode.videoPreview": false,
         "workbench.editor.browser": false,
         "workbench.editor.chatDebug": false,
@@ -33758,6 +33955,7 @@
         "notebookOutputEditor",
         "repl",
         "vscode.audioPreview",
+        "vscode.markdown.editor",
         "vscode.markdown.preview.editor",
         "vscode.videoPreview",
         "workbench.editor.chatSession",
@@ -36327,6 +36525,7 @@
         "workbench.editors.gettingStartedInput",
         "jupyter-notebook",
         "vscode.markdown.preview.editor",
+        "vscode.markdown.editor",
         "imagePreview.previewEditor",
         "vscode.audioPreview",
         "vscode.videoPreview",
@@ -41753,6 +41952,7 @@
         "ask-compact",
         "settings-compact",
         "vm-compact",
+        "run-compact",
         "dialog-error",
         "dialog-warning",
         "dialog-info",
@@ -42492,6 +42692,7 @@
         "$(ask-compact)",
         "$(settings-compact)",
         "$(vm-compact)",
+        "$(run-compact)",
         "$(dialog-error)",
         "$(dialog-warning)",
         "$(dialog-info)",
@@ -42714,7 +42915,7 @@
     },
     "_304": {
       "type": "array",
-      "description": "Array of additional paths to allow write access. Leave empty to disallow writes outside the workspace folders and sandbox temp directory.",
+      "description": "Array of additional paths to allow write access. Leave empty to disallow writes outside the workspace folders, workspace storage folder, and sandbox temp directory.",
       "items": {
         "type": "string"
       },
