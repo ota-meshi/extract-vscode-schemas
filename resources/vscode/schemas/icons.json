@@ -1371,6 +1371,9 @@
     "git-pull-request-closed": {
       "$ref": "#/$defs/_0"
     },
+    "git-pull-request-comment": {
+      "$ref": "#/$defs/_0"
+    },
     "git-pull-request-create": {
       "$ref": "#/$defs/_0"
     },
@@ -1378,6 +1381,9 @@
       "$ref": "#/$defs/_0"
     },
     "git-pull-request-draft": {
+      "$ref": "#/$defs/_0"
+    },
+    "git-pull-request-error": {
       "$ref": "#/$defs/_0"
     },
     "git-pull-request-go-to-changes": {
@@ -2550,6 +2556,12 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon to collapse a review comment.: $(review-comment-collapse)"
     },
+    "right-panel-hide": {
+      "$ref": "#/$defs/_0"
+    },
+    "right-panel-show": {
+      "$ref": "#/$defs/_0"
+    },
     "robot": {
       "$ref": "#/$defs/_0"
     },
@@ -2902,6 +2914,10 @@
     },
     "surround-with": {
       "$ref": "#/$defs/_0"
+    },
+    "survey": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for the survey editor.: $(survey)"
     },
     "symbol-array": {
       "$ref": "#/$defs/_0"
@@ -3531,6 +3547,9 @@
     "vm-small": {
       "$ref": "#/$defs/_0"
     },
+    "voice-mode": {
+      "$ref": "#/$defs/_0"
+    },
     "voice-transcripts-view-icon": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "View icon of the Voice Transcripts view.: $(voice-transcripts-view-icon)"
@@ -3542,6 +3561,12 @@
       "$ref": "#/$defs/_0"
     },
     "vscode-insiders": {
+      "$ref": "#/$defs/_0"
+    },
+    "vscode-insiders-outline": {
+      "$ref": "#/$defs/_0"
+    },
+    "vscode-outline": {
       "$ref": "#/$defs/_0"
     },
     "wand": {

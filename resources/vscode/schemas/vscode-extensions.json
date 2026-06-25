@@ -1130,11 +1130,11 @@
                   {
                     "type": "object",
                     "required": [
-                      "editor"
+                      "textEditor"
                     ],
                     "additionalProperties": false,
                     "properties": {
-                      "diff": {
+                      "diffEditor": {
                         "type": "string",
                         "enum": [
                           "default",
@@ -1144,9 +1144,9 @@
                           "The editor is automatically used when the user opens a resource, provided that no other default custom editors are registered for that resource.",
                           "The editor is not automatically used when the user opens a resource, but a user can switch to the editor using the `Reopen With` command."
                         ],
-                        "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a diff. When not specified, the value of `editor` is used."
+                        "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a diff. When not specified, the value of `textEditor` is used."
                       },
-                      "editor": {
+                      "mergeEditor": {
                         "type": "string",
                         "enum": [
                           "default",
@@ -1156,9 +1156,9 @@
                           "The editor is automatically used when the user opens a resource, provided that no other default custom editors are registered for that resource.",
                           "The editor is not automatically used when the user opens a resource, but a user can switch to the editor using the `Reopen With` command."
                         ],
-                        "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a file."
+                        "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a merge editor. When not specified, the value of `textEditor` is used."
                       },
-                      "merge": {
+                      "textEditor": {
                         "type": "string",
                         "enum": [
                           "default",
@@ -1168,7 +1168,7 @@
                           "The editor is automatically used when the user opens a resource, provided that no other default custom editors are registered for that resource.",
                           "The editor is not automatically used when the user opens a resource, but a user can switch to the editor using the `Reopen With` command."
                         ],
-                        "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a merge editor. When not specified, the value of `editor` is used."
+                        "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a file. This is the base value: when `diffEditor` or `mergeEditor` are not specified, they fall back to this value."
                       }
                     }
                   },
@@ -2182,6 +2182,13 @@
                       "settings-compact",
                       "vm-compact",
                       "run-compact",
+                      "git-pull-request-comment",
+                      "git-pull-request-error",
+                      "right-panel-hide",
+                      "right-panel-show",
+                      "vscode-insiders-outline",
+                      "vscode-outline",
+                      "voice-mode",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -2422,7 +2429,6 @@
                       "ai-customization-plugin",
                       "ai-customization-builtin",
                       "ai-customization-mcp-server",
-                      "voice-transcripts-view-icon",
                       "chat-view-icon",
                       "search-details",
                       "search-see-more",
@@ -2447,6 +2453,7 @@
                       "agent-plugin-editor-icon",
                       "extensions-editor-label-icon",
                       "start-inline-chat",
+                      "voice-transcripts-view-icon",
                       "mcp-server",
                       "mcp-server-remote",
                       "mcp-server-workspace",
@@ -2551,7 +2558,8 @@
                       "notifications-do-not-disturb",
                       "notifications-position",
                       "runtime-extensions-editor-label-icon",
-                      "issue-reporter"
+                      "issue-reporter",
+                      "survey"
                     ],
                     "enumDescriptions": [
                       "",
@@ -3287,6 +3295,13 @@
                       "",
                       "",
                       "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
                       "Icon for breakpoints waiting on another breakpoint.",
                       "Icon for the close action in widgets.",
                       "Icon for goto previous editor location.",
@@ -3505,7 +3520,6 @@
                       "Icon for plugin-contributed items.",
                       "Icon for built-in items.",
                       "Icon for MCP servers.",
-                      "View icon of the Voice Transcripts view.",
                       "View icon of the chat view.",
                       "Icon to make search details visible.",
                       "Icon to view more context in the search view.",
@@ -3530,6 +3544,7 @@
                       "Icon of the Agent Plugin editor.",
                       "Icon of the extensions editor label.",
                       "Icon which spawns the inline chat from the editor toolbar.",
+                      "View icon of the Voice Transcripts view.",
                       "Icon used for the MCP server.",
                       "Icon to indicate that an MCP server is for the remote user scope.",
                       "Icon to indicate that an MCP server is for the workspace scope.",
@@ -3634,7 +3649,8 @@
                       "Icon for the mute all action in notifications.",
                       "Icon for the position action in notifications.",
                       "Icon of the runtime extensions editor label.",
-                      "Icon for the issue reporter editor."
+                      "Icon for the issue reporter editor.",
+                      "Icon for the survey editor."
                     ]
                   },
                   {
@@ -6418,6 +6434,7 @@
           "diffContentOptions",
           "documentDiff",
           "documentFiltersExclusive",
+          "documentSyntaxHighlighting",
           "editorHoverVerbosityLevel",
           "editorInsets",
           "editSessionIdentityProvider",
@@ -6594,6 +6611,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.diffContentOptions.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.documentDiff.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.documentFiltersExclusive.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.documentSyntaxHighlighting.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.editorHoverVerbosityLevel.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.editorInsets.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.editSessionIdentityProvider.d.ts",
@@ -7641,6 +7659,8 @@
         "editorMinimap.inlineChatInserted",
         "inlineChatDiff.removed",
         "editorOverviewRuler.inlineChatRemoved",
+        "agentsVoice.speakingForeground",
+        "agentsVoice.speakingBackground",
         "extensionIcon.verifiedForeground",
         "agentStatusIndicator.background",
         "chat.requestBorder",
@@ -7678,8 +7698,6 @@
         "multiDiffEditor.headerBackground",
         "multiDiffEditor.background",
         "multiDiffEditor.border",
-        "agentsVoice.speakingForeground",
-        "agentsVoice.speakingBackground",
         "minimap.chatEditHighlight",
         "mcpIcon.starForeground",
         "interactive.activeCodeBorder",
@@ -8581,6 +8599,8 @@
         "Minimap marker color for inline chat inserted content.",
         "Background color of removed text in the interactive editor input",
         "Overview ruler marker color for inline chat removed content.",
+        "Color for the speaking/active voice state indicator",
+        "Background color for the speaking voice state row highlight",
         "The icon color for extension verified publisher.",
         "Background color of the agent status indicator in the titlebar.",
         "The border color of a chat request.",
@@ -8618,8 +8638,6 @@
         "The background color of the diff editor's header",
         "The background color of the multi file diff editor",
         "The border color of the multi file diff editor",
-        "Color for the speaking/active voice state indicator",
-        "Background color for the speaking voice state row highlight",
         "Color of pending edit regions in the minimap",
         "The icon color for mcp starred.",
         "The border color for the current interactive code cell when the editor has focus.",

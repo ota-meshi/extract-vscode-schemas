@@ -2566,6 +2566,21 @@
       "scope": 5,
       "restricted": false
     },
+    "accessibility.verbosity.survey": {
+      "description": "Provide information about how to navigate and interact with the survey editor pane.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "section": {
+        "id": "accessibility",
+        "title": "Accessibility"
+      },
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
     "accessibility.verbosity.terminal": {
       "description": "Provide information about how to access the terminal accessibility help menu when the terminal is focused.",
       "type": "boolean",
@@ -3287,7 +3302,7 @@
       "scope": 4
     },
     "chat.agent.sandbox.allowedNetworkDomains": {
-      "$ref": "#/$defs/_273"
+      "$ref": "#/$defs/_274"
     },
     "chat.agent.sandbox.allowUnsandboxedCommands": {
       "markdownDescription": "Controls whether agent mode terminal commands can run outside the sandbox after user confirmation when a sandboxed command fails or when sandbox restrictions would block the command. This applies only when `#chat.agent.sandbox.enabled#` is enabled.",
@@ -3316,35 +3331,8 @@
       "defaultDefaultValue": true,
       "scope": 4
     },
-    "chat.agent.sandbox.autoApproveUnsandboxedCommands": {
-      "markdownDescription": "Controls whether agent mode terminal commands that run outside the sandbox are auto-approved. This applies only when both `#chat.agent.sandbox.enabled#` and `#chat.agent.sandbox.allowUnsandboxedCommands#` are enabled.",
-      "type": "boolean",
-      "default": false,
-      "tags": [
-        "preview"
-      ],
-      "restricted": true,
-      "policy": {
-        "name": "ChatAgentSandboxAutoApproveUnsandboxedCommands",
-        "category": "IntegratedTerminal",
-        "minimumVersion": "1.116",
-        "localization": {
-          "description": {
-            "key": "agentSandbox.autoApproveUnsandboxedCommands",
-            "value": "Controls whether agent mode terminal commands that run outside the sandbox are auto-approved. This applies only when both `#chat.agent.sandbox.enabled#` and `#chat.agent.sandbox.allowUnsandboxedCommands#` are enabled."
-          }
-        }
-      },
-      "section": {
-        "id": "terminal",
-        "title": "Integrated Terminal",
-        "order": 100
-      },
-      "defaultDefaultValue": false,
-      "scope": 4
-    },
     "chat.agent.sandbox.deniedNetworkDomains": {
-      "$ref": "#/$defs/_274"
+      "$ref": "#/$defs/_275"
     },
     "chat.agent.sandbox.enabled": {
       "markdownDescription": "Controls whether agent mode uses sandboxing to restrict what tools can do. When enabled, tools like the terminal are run in a sandboxed environment to limit access to the system.",
@@ -3434,16 +3422,16 @@
       "type": "object",
       "properties": {
         "allowRead": {
-          "$ref": "#/$defs/_295"
-        },
-        "allowWrite": {
           "$ref": "#/$defs/_296"
         },
+        "allowWrite": {
+          "$ref": "#/$defs/_297"
+        },
         "denyRead": {
-          "$ref": "#/$defs/_294"
+          "$ref": "#/$defs/_295"
         },
         "denyWrite": {
-          "$ref": "#/$defs/_297"
+          "$ref": "#/$defs/_298"
         }
       },
       "default": {
@@ -3474,16 +3462,16 @@
       "type": "object",
       "properties": {
         "allowRead": {
-          "$ref": "#/$defs/_295"
-        },
-        "allowWrite": {
           "$ref": "#/$defs/_296"
         },
+        "allowWrite": {
+          "$ref": "#/$defs/_297"
+        },
         "denyRead": {
-          "$ref": "#/$defs/_294"
+          "$ref": "#/$defs/_295"
         },
         "denyWrite": {
-          "$ref": "#/$defs/_297"
+          "$ref": "#/$defs/_298"
         }
       },
       "default": {
@@ -3604,19 +3592,19 @@
       "restricted": false
     },
     "chat.agent.sandboxNetwork.allowedDomains": {
-      "$ref": "#/$defs/_273"
-    },
-    "chat.agent.sandboxNetwork.deniedDomains": {
       "$ref": "#/$defs/_274"
     },
+    "chat.agent.sandboxNetwork.deniedDomains": {
+      "$ref": "#/$defs/_275"
+    },
     "chat.agent.terminal.allowList": {
-      "$ref": "#/$defs/_298"
+      "$ref": "#/$defs/_299"
     },
     "chat.agent.terminal.autoApprove": {
-      "$ref": "#/$defs/_298"
+      "$ref": "#/$defs/_299"
     },
     "chat.agent.terminal.denyList": {
-      "$ref": "#/$defs/_298"
+      "$ref": "#/$defs/_299"
     },
     "chat.agent.thinking.collapsedTools": {
       "type": "string",
@@ -3752,7 +3740,7 @@
         "type": "boolean"
       },
       "propertyNames": {
-        "$ref": "#/$defs/_276"
+        "$ref": "#/$defs/_277"
       },
       "restricted": true,
       "tags": [
@@ -3807,6 +3795,9 @@
         "experimental",
         "advanced"
       ],
+      "policyReference": {
+        "name": "Claude3PIntegration"
+      },
       "section": {
         "id": "chatAgentHostStarter",
         "title": "Chat Agent Host Starter"
@@ -3826,10 +3817,6 @@
         "getTaskOutput",
         "problems",
         "runTests",
-        "addComment",
-        "listComments",
-        "deleteComments",
-        "resolveComments",
         "openBrowserPage",
         "readPage",
         "screenshotPage",
@@ -3841,6 +3828,22 @@
         "handleDialog",
         "runPlaywrightCode"
       ],
+      "agentsWindow": {
+        "default": [
+          "runTask",
+          "getTaskOutput",
+          "openBrowserPage",
+          "readPage",
+          "screenshotPage",
+          "navigatePage",
+          "clickElement",
+          "typeInPage",
+          "hoverElement",
+          "dragElement",
+          "handleDialog",
+          "runPlaywrightCode"
+        ]
+      },
       "tags": [
         "experimental",
         "advanced"
@@ -3854,10 +3857,6 @@
         "getTaskOutput",
         "problems",
         "runTests",
-        "addComment",
-        "listComments",
-        "deleteComments",
-        "resolveComments",
         "openBrowserPage",
         "readPage",
         "screenshotPage",
@@ -3880,6 +3879,17 @@
         "experimental",
         "advanced"
       ],
+      "policy": {
+        "name": "Codex3PIntegration",
+        "category": "InteractiveSession",
+        "minimumVersion": "1.126",
+        "localization": {
+          "description": {
+            "key": "chat.agentHost.codexAgent.enabled.policy",
+            "value": "Enable Codex Agent sessions in VS Code. Start and resume agentic coding sessions powered by OpenAI Codex SDK. Uses your existing Copilot subscription."
+          }
+        }
+      },
       "section": {
         "id": "chatAgentHostStarter",
         "title": "Chat Agent Host Starter"
@@ -3913,8 +3923,34 @@
         "advanced"
       ],
       "section": {
-        "id": "chatAgentHost",
-        "title": "Chat Agent Host"
+        "id": "chatAgentHost"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false,
+      "policy": {
+        "name": "ChatAgentHostEnabled",
+        "category": "InteractiveSession",
+        "minimumVersion": "1.126",
+        "localization": {
+          "description": {
+            "key": "chat.agentHost.enabled",
+            "value": "When enabled, some agents run in a separate agent host process."
+          }
+        }
+      }
+    },
+    "chat.agentHost.opus48Prompt.enabled": {
+      "type": "boolean",
+      "description": "When enabled, Copilot SDK sessions running a Claude Opus 4.8 model apply Opus 4.8-tuned system-prompt section overrides on top of the default system message.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
       },
       "defaultDefaultValue": false,
       "scope": 4,
@@ -3922,9 +3958,9 @@
     },
     "chat.agentHost.otel.captureContent": {
       "type": "boolean",
-      "markdownDescription": "When enabled, includes prompt and response content in OTel span attributes. Sets `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT`. Privacy-sensitive: do not enable in environments that ship spans to shared sinks.",
+      "markdownDescription": "When enabled, includes prompt and response content in OTel span attributes. Configurable in user settings only. Sets `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT`. Privacy-sensitive: do not enable in environments that ship spans to shared sinks.",
       "default": false,
-      "restricted": true,
+      "scope": 1,
       "tags": [
         "experimental",
         "advanced"
@@ -3934,13 +3970,13 @@
         "title": "Chat Agent Host Starter"
       },
       "defaultDefaultValue": false,
-      "scope": 4
+      "restricted": false
     },
     "chat.agentHost.otel.dbSpanExporter.enabled": {
       "type": "boolean",
-      "markdownDescription": "When enabled, the agent host persists every emitted OTel span to a local SQLite database. Spans can be inspected via the `Export Agent Host Traces Database` command. Compatible with external exporters: spans are written to SQLite *and* forwarded to the user-configured sink.",
+      "markdownDescription": "When enabled, the agent host persists every emitted OTel span to a local SQLite database. Configurable in user settings only. Spans can be inspected via the `Export Agent Host Traces Database` command. Compatible with external exporters: spans are written to SQLite *and* forwarded to the user-configured sink.",
       "default": false,
-      "restricted": true,
+      "scope": 1,
       "tags": [
         "experimental",
         "advanced"
@@ -3950,13 +3986,13 @@
         "title": "Chat Agent Host Starter"
       },
       "defaultDefaultValue": false,
-      "scope": 4
+      "restricted": false
     },
     "chat.agentHost.otel.enabled": {
       "type": "boolean",
-      "markdownDescription": "When enabled, the agent host emits OpenTelemetry traces from the Copilot SDK. Requires `#chat.agentHost.enabled#`. Either configure `#chat.agentHost.otel.otlpEndpoint#` to ship traces to an external collector or enable `#chat.agentHost.otel.dbSpanExporter.enabled#` to capture them locally.",
+      "markdownDescription": "When enabled, the agent host emits OpenTelemetry traces from the Copilot SDK. Configurable in user settings only. Requires `#chat.agentHost.enabled#`. Either configure `#chat.agentHost.otel.otlpEndpoint#` to ship traces to an external collector or enable `#chat.agentHost.otel.dbSpanExporter.enabled#` to capture them locally.",
       "default": false,
-      "restricted": true,
+      "scope": 1,
       "tags": [
         "experimental",
         "advanced"
@@ -3966,7 +4002,7 @@
         "title": "Chat Agent Host Starter"
       },
       "defaultDefaultValue": false,
-      "scope": 4
+      "restricted": false
     },
     "chat.agentHost.otel.exporterType": {
       "type": "string",
@@ -3976,9 +4012,9 @@
         "otlp-grpc",
         "otlp-http"
       ],
-      "markdownDescription": "Exporter backend used by the Copilot SDK when `#chat.agentHost.otel.enabled#` is on. `otlp-grpc` is downgraded to `otlp-http` transparently in the CLI runtime.",
+      "markdownDescription": "Exporter backend used by the Copilot SDK when `#chat.agentHost.otel.enabled#` is on. Configurable in user settings only. `otlp-grpc` is downgraded to `otlp-http` transparently in the CLI runtime.",
       "default": "otlp-http",
-      "restricted": true,
+      "scope": 1,
       "tags": [
         "experimental",
         "advanced"
@@ -3988,13 +4024,13 @@
         "title": "Chat Agent Host Starter"
       },
       "defaultDefaultValue": "otlp-http",
-      "scope": 4
+      "restricted": false
     },
     "chat.agentHost.otel.otlpEndpoint": {
       "type": "string",
-      "markdownDescription": "OTLP endpoint URL when exporter type is `otlp-http` or `otlp-grpc`. Sets `OTEL_EXPORTER_OTLP_ENDPOINT` inside the agent host process.",
+      "markdownDescription": "OTLP endpoint URL when exporter type is `otlp-http` or `otlp-grpc`. Configurable in user settings only. Sets `OTEL_EXPORTER_OTLP_ENDPOINT` inside the agent host process.",
       "default": "",
-      "restricted": true,
+      "scope": 1,
       "tags": [
         "experimental",
         "advanced"
@@ -4004,13 +4040,13 @@
         "title": "Chat Agent Host Starter"
       },
       "defaultDefaultValue": "",
-      "scope": 4
+      "restricted": false
     },
     "chat.agentHost.otel.outfile": {
       "type": "string",
-      "markdownDescription": "Output path for span JSON lines when exporter type is `file`. Sets `COPILOT_OTEL_FILE_EXPORTER_PATH`.",
+      "markdownDescription": "Output path for span JSON lines when exporter type is `file`. Configurable in user settings only. Sets `COPILOT_OTEL_FILE_EXPORTER_PATH`.",
       "default": "",
-      "restricted": true,
+      "scope": 1,
       "tags": [
         "experimental",
         "advanced"
@@ -4020,7 +4056,7 @@
         "title": "Chat Agent Host Starter"
       },
       "defaultDefaultValue": "",
-      "scope": 4
+      "restricted": false
     },
     "chat.agentHost.sdkSandbox.enabled": {
       "type": "string",
@@ -4175,7 +4211,7 @@
         "type": "boolean"
       },
       "propertyNames": {
-        "$ref": "#/$defs/_276"
+        "$ref": "#/$defs/_277"
       },
       "restricted": true,
       "tags": [
@@ -4401,6 +4437,55 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.defaultConfiguration": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "approvals": {
+          "type": "string",
+          "enum": [
+            "autoApprove",
+            "default"
+          ],
+          "enumDescriptions": [
+            "Bypass Approvals — all tool calls are auto-approved.",
+            "Default Approvals — Copilot uses your configured settings."
+          ],
+          "default": "default",
+          "description": "The starting approval behavior for new agent sessions. If enterprise policy disables auto approval, new sessions use Default Approvals."
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "autopilot",
+            "interactive",
+            "plan"
+          ],
+          "enumDescriptions": [
+            "Autopilot — autonomously iterate from start to finish.",
+            "Interactive — step-by-step collaboration.",
+            "Plan — plan first, execute when ready."
+          ],
+          "default": "interactive",
+          "description": "The starting mode for new agent sessions."
+        }
+      },
+      "default": {
+        "approvals": "default",
+        "mode": "interactive"
+      },
+      "markdownDescription": "Controls the default configuration (mode and approval behavior) for new agent sessions (such as Copilot CLI). You can still change the mode and approval level per session, and each session remembers what was used.",
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": {
+        "approvals": "default",
+        "mode": "interactive"
+      },
+      "scope": 4,
+      "restricted": false
+    },
     "chat.detectParticipant.enabled": {
       "type": "boolean",
       "description": "Enables chat participant autodetection for panel chat.",
@@ -4498,36 +4583,6 @@
       "type": "boolean",
       "markdownDescription": "Controls whether the editor automatically reveals the next change after keeping or undoing a chat edit.",
       "default": true,
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": true,
-      "scope": 4,
-      "restricted": false
-    },
-    "chat.editMode.hidden": {
-      "type": "boolean",
-      "description": "When enabled, hides the Edit mode from the chat mode picker.",
-      "default": true,
-      "tags": [
-        "experimental",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "auto"
-      },
-      "policy": {
-        "name": "DeprecatedEditModeHidden",
-        "category": "InteractiveSession",
-        "minimumVersion": "1.112",
-        "localization": {
-          "description": {
-            "key": "chat.editMode.hidden",
-            "value": "When enabled, hides the Edit mode from the chat mode picker."
-          }
-        }
-      },
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
@@ -4651,6 +4706,25 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.editor.localAgent.enabled": {
+      "type": "boolean",
+      "description": "When enabled, shows the VS Code local chat harness in the chat picker.",
+      "default": true,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "section": {
+        "id": "chatAgentHost",
+        "title": "Chat Agent Host"
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.editor.wordWrap": {
       "type": "string",
       "description": "Controls whether lines should wrap in chat codeblocks.",
@@ -4706,6 +4780,21 @@
       "default": false,
       "tags": [
         "preview"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.experimental.collectInstructionsInExtension": {
+      "type": "boolean",
+      "description": "When enabled, automatic instruction collection (.instructions.md, agent instructions, customizations index) is performed by the GitHub Copilot Chat extension instead of the core workbench.",
+      "default": false,
+      "tags": [
+        "experimental"
       ],
       "section": {
         "id": "chatSidebar",
@@ -4987,7 +5076,7 @@
         "type": "boolean"
       },
       "propertyNames": {
-        "$ref": "#/$defs/_276"
+        "$ref": "#/$defs/_277"
       },
       "restricted": true,
       "tags": [
@@ -5156,7 +5245,7 @@
         "type": "boolean"
       },
       "propertyNames": {
-        "$ref": "#/$defs/_275"
+        "$ref": "#/$defs/_276"
       },
       "restricted": true,
       "tags": [
@@ -5527,7 +5616,7 @@
         "Start new chat sessions in Autopilot mode.",
         "Start new chat sessions with Default Approvals."
       ],
-      "description": "Controls the default permissions picker mode for new chat sessions. You can still change the permission mode per session, and each session remembers the permission mode that was used. If enterprise policy disables auto approval, new sessions use Default Approvals.",
+      "description": "Controls the default permissions picker mode for new local chat sessions. You can still change the permission mode per session, and each session remembers the permission mode that was used. If enterprise policy disables auto approval, new sessions use Default Approvals.",
       "default": "default",
       "section": {
         "id": "chatSidebar",
@@ -5603,9 +5692,6 @@
       "type": "boolean",
       "description": "Enable agent plugin integration in chat.",
       "default": true,
-      "tags": [
-        "preview"
-      ],
       "policy": {
         "name": "ChatPluginsEnabled",
         "category": "InteractiveSession",
@@ -5630,11 +5716,8 @@
       "additionalProperties": {
         "type": "boolean"
       },
-      "markdownDescription": "Enterprise-managed plugin enablement. Keys are plugin IDs in `<plugin>@<marketplace>` form (resolved to Copilot CLI install paths); values enable (`true`) or disable (`false`) the plugin. Discovered alongside the path-keyed entries in `#chat.pluginLocations#`. When set by policy, also restricts which marketplace-discovered plugins are allowed to load (only IDs mapped to `true` here pass the gate).",
+      "markdownDescription": "Controls which [agent plugins](https://aka.ms/vscode-agent-plugins) are enabled or disabled. Keys are plugin IDs in `<plugin>@<marketplace>` form (where marketplace is defined in `#chat.plugins.marketplaces#`); values enable (`true`) or disable (`false`) the plugin. Discovered alongside the path-keyed entries in `#chat.pluginLocations#`. When set by policy, only plugins mapped to `true` here are allowed to load.",
       "scope": 1,
-      "tags": [
-        "experimental"
-      ],
       "policy": {
         "name": "ChatEnabledPlugins",
         "category": "InteractiveSession",
@@ -5647,7 +5730,7 @@
         "localization": {
           "description": {
             "key": "chat.plugins.enabledPlugins.policy",
-            "value": "Plugin enablement. Keys are plugin IDs in `<plugin>@<marketplace>` form; values enable or disable the plugin."
+            "value": "Plugin enablement. Keys are plugin IDs in `{plugin}@{marketplace}` form; values enable or disable the plugin."
           }
         }
       },
@@ -5683,9 +5766,57 @@
       "restricted": false
     },
     "chat.plugins.strictMarketplaces": {
-      "type": "boolean",
-      "markdownDescription": "When enabled, only marketplaces supplied via enterprise policy are trusted. Plugins from any other marketplace will not load.",
-      "default": false,
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "headers": {
+            "$ref": "#/$defs/_273"
+          },
+          "hostPattern": {
+            "type": "string"
+          },
+          "package": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "pathPattern": {
+            "type": "string"
+          },
+          "ref": {
+            "type": "string"
+          },
+          "repo": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "directory",
+              "file",
+              "git",
+              "github",
+              "hostPattern",
+              "npm",
+              "pathPattern",
+              "url"
+            ]
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "source"
+        ]
+      },
+      "markdownDescription": "Enterprise-managed allowlist of plugin marketplace sources. When set, only marketplaces matching one of these entries can be installed; an empty array blocks all marketplaces. This does not retroactively disable already-installed plugins. Each entry is an object with a `source` discriminator (`github`, `git`, `url`, `npm`, `file`, `directory`, `hostPattern`, or `pathPattern`) and the corresponding fields. Typically delivered via enterprise policy.",
+      "default": null,
       "restricted": true,
       "scope": 1,
       "tags": [
@@ -5697,13 +5828,13 @@
         "minimumVersion": "1.122",
         "managedSettings": {
           "strictKnownMarketplaces": {
-            "type": "boolean"
+            "type": "string"
           }
         },
         "localization": {
           "description": {
             "key": "chat.plugins.strictMarketplaces.policy",
-            "value": "Only trust marketplaces supplied via enterprise policy; plugins from any other marketplace will not load."
+            "value": "Allowlist of plugin marketplace sources. When set, only marketplaces matching an entry are trusted; an empty array blocks all marketplaces."
           }
         }
       },
@@ -5711,7 +5842,7 @@
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": false
+      "defaultDefaultValue": null
     },
     "chat.progressBorder.enabled": {
       "type": "boolean",
@@ -5739,7 +5870,7 @@
         "type": "boolean"
       },
       "propertyNames": {
-        "$ref": "#/$defs/_275"
+        "$ref": "#/$defs/_276"
       },
       "restricted": true,
       "tags": [
@@ -6204,13 +6335,13 @@
       "additionalProperties": {
         "anyOf": [
           {
-            "$ref": "#/$defs/_292"
+            "$ref": "#/$defs/_293"
           },
           {
             "type": "object",
             "properties": {
               "approve": {
-                "$ref": "#/$defs/_292"
+                "$ref": "#/$defs/_293"
               },
               "matchCommandLine": {
                 "type": "boolean",
@@ -6754,7 +6885,7 @@
       "default": null,
       "anyOf": [
         {
-          "$ref": "#/$defs/_293"
+          "$ref": "#/$defs/_294"
         },
         {
           "type": "null"
@@ -6785,7 +6916,7 @@
       "default": null,
       "anyOf": [
         {
-          "$ref": "#/$defs/_293"
+          "$ref": "#/$defs/_294"
         },
         {
           "type": "null"
@@ -6816,7 +6947,7 @@
       "default": null,
       "anyOf": [
         {
-          "$ref": "#/$defs/_293"
+          "$ref": "#/$defs/_294"
         },
         {
           "type": "null"
@@ -10054,7 +10185,7 @@
     "editor.codeActionsOnSave": {
       "oneOf": [
         {
-          "$ref": "#/$defs/_304"
+          "$ref": "#/$defs/_273"
         },
         {
           "$ref": "#/$defs/_305"
@@ -12253,7 +12384,7 @@
       "additionalProperties": {
         "anyOf": [
           {
-            "$ref": "#/$defs/_279"
+            "$ref": "#/$defs/_280"
           },
           {
             "type": "object",
@@ -13025,7 +13156,7 @@
       "markdownDescription": "Override the Agents window support of an extension. Extensions using `true` will be enabled in the Agents window even when they would otherwise be disabled.",
       "patternProperties": {
         "([a-z0-9A-Z][a-z0-9-A-Z]*)\\.([a-z0-9A-Z][a-z0-9-A-Z]*)$": {
-          "$ref": "#/$defs/_277"
+          "$ref": "#/$defs/_278"
         }
       },
       "additionalProperties": false,
@@ -13103,7 +13234,7 @@
       "markdownDescription": "Override the virtual workspaces support of an extension.",
       "patternProperties": {
         "([a-z0-9A-Z][a-z0-9-A-Z]*)\\.([a-z0-9A-Z][a-z0-9-A-Z]*)$": {
-          "$ref": "#/$defs/_277"
+          "$ref": "#/$defs/_278"
         }
       },
       "additionalProperties": false,
@@ -13574,7 +13705,7 @@
             "description": "The glob pattern to match file paths against. Set to true or false to enable or disable the pattern."
           },
           {
-            "$ref": "#/$defs/_278"
+            "$ref": "#/$defs/_279"
           }
         ]
       },
@@ -16289,10 +16420,10 @@
       "restricted": false
     },
     "github.copilot.chat.agent.terminal.allowList": {
-      "$ref": "#/$defs/_298"
+      "$ref": "#/$defs/_299"
     },
     "github.copilot.chat.agent.terminal.denyList": {
-      "$ref": "#/$defs/_298"
+      "$ref": "#/$defs/_299"
     },
     "github.gitAuthentication": {
       "type": "boolean",
@@ -23046,7 +23177,7 @@
     "notebook.codeActionsOnSave": {
       "oneOf": [
         {
-          "$ref": "#/$defs/_304"
+          "$ref": "#/$defs/_273"
         },
         {
           "$ref": "#/$defs/_305"
@@ -25812,12 +25943,12 @@
         "([a-z0-9A-Z][a-z0-9-A-Z]*)\\.([a-z0-9A-Z][a-z0-9-A-Z]*)$": {
           "oneOf": [
             {
-              "$ref": "#/$defs/_299"
+              "$ref": "#/$defs/_300"
             },
             {
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_299"
+                "$ref": "#/$defs/_300"
               }
             }
           ],
@@ -25875,10 +26006,10 @@
       "type": "object",
       "properties": {
         "elevateIfNeeded": {
-          "$ref": "#/$defs/_300"
+          "$ref": "#/$defs/_301"
         },
         "label": {
-          "$ref": "#/$defs/_301"
+          "$ref": "#/$defs/_302"
         },
         "onAutoForward": {
           "type": "string",
@@ -25900,10 +26031,10 @@
           "default": "notify"
         },
         "protocol": {
-          "$ref": "#/$defs/_303"
+          "$ref": "#/$defs/_304"
         },
         "requireLocalPort": {
-          "$ref": "#/$defs/_302"
+          "$ref": "#/$defs/_303"
         }
       },
       "defaultSnippets": [
@@ -25931,10 +26062,10 @@
           "description": "A port, range of ports (ex. \"40000-55000\"), host and port (ex. \"db:1234\"), or regular expression (ex. \".+\\\\/server.js\").  For a port number or range, the attributes will apply to that port number or range of port numbers. Attributes which use a regular expression will apply to ports whose associated process command line matches the expression.",
           "properties": {
             "elevateIfNeeded": {
-              "$ref": "#/$defs/_300"
+              "$ref": "#/$defs/_301"
             },
             "label": {
-              "$ref": "#/$defs/_301"
+              "$ref": "#/$defs/_302"
             },
             "onAutoForward": {
               "type": "string",
@@ -25958,10 +26089,10 @@
               "default": "notify"
             },
             "protocol": {
-              "$ref": "#/$defs/_303"
+              "$ref": "#/$defs/_304"
             },
             "requireLocalPort": {
-              "$ref": "#/$defs/_302"
+              "$ref": "#/$defs/_303"
             }
           },
           "default": {
@@ -27595,10 +27726,10 @@
       "additionalProperties": {
         "anyOf": [
           {
-            "$ref": "#/$defs/_279"
+            "$ref": "#/$defs/_280"
           },
           {
-            "$ref": "#/$defs/_278"
+            "$ref": "#/$defs/_279"
           }
         ]
       },
@@ -28205,7 +28336,7 @@
     },
     "security.workspace.trust.startupPrompt": {
       "type": "string",
-      "default": "once",
+      "default": "never",
       "description": "Controls when the startup prompt to trust a workspace is shown.",
       "tags": [
         "workspaceTrust"
@@ -28226,7 +28357,7 @@
         "title": "Security",
         "order": 7
       },
-      "defaultDefaultValue": "once",
+      "defaultDefaultValue": "never",
       "restricted": false
     },
     "security.workspace.trust.untrustedFiles": {
@@ -28866,7 +28997,7 @@
       "default": null,
       "anyOf": [
         {
-          "$ref": "#/$defs/_280"
+          "$ref": "#/$defs/_281"
         },
         {
           "type": "null"
@@ -28902,7 +29033,7 @@
       "default": null,
       "anyOf": [
         {
-          "$ref": "#/$defs/_280"
+          "$ref": "#/$defs/_281"
         },
         {
           "type": "null"
@@ -28938,7 +29069,7 @@
       "default": null,
       "anyOf": [
         {
-          "$ref": "#/$defs/_280"
+          "$ref": "#/$defs/_281"
         },
         {
           "type": "null"
@@ -29055,7 +29186,7 @@
       "default": null,
       "anyOf": [
         {
-          "$ref": "#/$defs/_280"
+          "$ref": "#/$defs/_281"
         },
         {
           "type": "null"
@@ -29087,7 +29218,7 @@
       "default": null,
       "anyOf": [
         {
-          "$ref": "#/$defs/_280"
+          "$ref": "#/$defs/_281"
         },
         {
           "type": "null"
@@ -29119,7 +29250,7 @@
       "default": null,
       "anyOf": [
         {
-          "$ref": "#/$defs/_280"
+          "$ref": "#/$defs/_281"
         },
         {
           "type": "null"
@@ -30143,13 +30274,13 @@
     "terminal.integrated.fontWeight": {
       "anyOf": [
         {
-          "$ref": "#/$defs/_289"
-        },
-        {
           "$ref": "#/$defs/_290"
         },
         {
           "$ref": "#/$defs/_291"
+        },
+        {
+          "$ref": "#/$defs/_292"
         }
       ],
       "description": "The font weight to use within the terminal for non-bold text. Accepts \"normal\" and \"bold\" keywords or numbers between 1 and 1000.",
@@ -30166,13 +30297,13 @@
     "terminal.integrated.fontWeightBold": {
       "anyOf": [
         {
-          "$ref": "#/$defs/_289"
-        },
-        {
           "$ref": "#/$defs/_290"
         },
         {
           "$ref": "#/$defs/_291"
+        },
+        {
+          "$ref": "#/$defs/_292"
         }
       ],
       "description": "The font weight to use within the terminal for bold text. Accepts \"normal\" and \"bold\" keywords or numbers between 1 and 1000.",
@@ -30262,7 +30393,7 @@
       "markdownDescription": "A set of process names to ignore when using the `#terminal.integrated.confirmOnKill#` setting.",
       "type": "array",
       "items": {
-        "$ref": "#/$defs/_288"
+        "$ref": "#/$defs/_289"
       },
       "default": [
         "starship",
@@ -30389,7 +30520,7 @@
       "description": "Local echo will be disabled when any of these program names are found in the terminal title.",
       "type": "array",
       "items": {
-        "$ref": "#/$defs/_288"
+        "$ref": "#/$defs/_289"
       },
       "default": [
         "vim",
@@ -30612,7 +30743,7 @@
         }
       },
       "additionalProperties": {
-        "$ref": "#/$defs/_287"
+        "$ref": "#/$defs/_288"
       },
       "section": {
         "id": "terminal",
@@ -30675,7 +30806,7 @@
         }
       },
       "additionalProperties": {
-        "$ref": "#/$defs/_287"
+        "$ref": "#/$defs/_288"
       },
       "section": {
         "id": "terminal",
@@ -30751,27 +30882,27 @@
                 ]
               },
               "args": {
-                "$ref": "#/$defs/_281"
-              },
-              "icon": {
                 "$ref": "#/$defs/_282"
               },
-              "color": {
+              "icon": {
                 "$ref": "#/$defs/_283"
               },
-              "env": {
+              "color": {
                 "$ref": "#/$defs/_284"
+              },
+              "env": {
+                "$ref": "#/$defs/_285"
               }
             }
           },
           {
-            "$ref": "#/$defs/_285"
+            "$ref": "#/$defs/_286"
           },
           {
             "type": "null"
           },
           {
-            "$ref": "#/$defs/_286"
+            "$ref": "#/$defs/_287"
           }
         ]
       },
@@ -31684,9 +31815,11 @@
         "git-pull-request-abandoned",
         "git-pull-request-assignee",
         "git-pull-request-closed",
+        "git-pull-request-comment",
         "git-pull-request-create",
         "git-pull-request-done",
         "git-pull-request-draft",
+        "git-pull-request-error",
         "git-pull-request-go-to-changes",
         "git-pull-request-label",
         "git-pull-request-milestone",
@@ -31914,6 +32047,8 @@
         "repo-sync",
         "report",
         "request-changes",
+        "right-panel-hide",
+        "right-panel-show",
         "robot",
         "rocket",
         "rocket-compact",
@@ -32099,9 +32234,12 @@
         "vm-pending",
         "vm-running",
         "vm-small",
+        "voice-mode",
         "vr",
         "vscode",
         "vscode-insiders",
+        "vscode-insiders-outline",
+        "vscode-outline",
         "wand",
         "warning",
         "warning-compact",
@@ -32424,9 +32562,11 @@
         "$(git-pull-request-abandoned)",
         "$(git-pull-request-assignee)",
         "$(git-pull-request-closed)",
+        "$(git-pull-request-comment)",
         "$(git-pull-request-create)",
         "$(git-pull-request-done)",
         "$(git-pull-request-draft)",
+        "$(git-pull-request-error)",
         "$(git-pull-request-go-to-changes)",
         "$(git-pull-request-label)",
         "$(git-pull-request-milestone)",
@@ -32654,6 +32794,8 @@
         "$(repo-sync)",
         "$(report)",
         "$(request-changes)",
+        "$(right-panel-hide)",
+        "$(right-panel-show)",
         "$(robot)",
         "$(rocket)",
         "$(rocket-compact)",
@@ -32839,9 +32981,12 @@
         "$(vm-pending)",
         "$(vm-running)",
         "$(vm-small)",
+        "$(voice-mode)",
         "$(vr)",
         "$(vscode)",
         "$(vscode-insiders)",
+        "$(vscode-insiders-outline)",
+        "$(vscode-outline)",
         "$(wand)",
         "$(warning)",
         "$(warning-compact)",
@@ -37086,6 +37231,22 @@
       "scope": 4,
       "restricted": false
     },
+    "workbench.experimental.modernUI": {
+      "type": "boolean",
+      "default": false,
+      "tags": [
+        "experimental"
+      ],
+      "description": "Controls whether the experimental Modern UI Update is enabled. When on, the side bars and bottom panel are shown as floating cards with rounded corners and gaps, and a set of refreshed workbench styles is applied, matching the Agents window design.",
+      "section": {
+        "id": "workbench",
+        "title": "Workbench",
+        "order": 7
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "workbench.experimental.share.enabled": {
       "type": "boolean",
       "default": false,
@@ -40043,13 +40204,13 @@
     "_68": {
       "anyOf": [
         {
-          "$ref": "#/$defs/_289"
-        },
-        {
           "$ref": "#/$defs/_290"
         },
         {
           "$ref": "#/$defs/_291"
+        },
+        {
+          "$ref": "#/$defs/_292"
         }
       ],
       "default": "normal",
@@ -43343,6 +43504,12 @@
       ]
     },
     "_273": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "_274": {
       "deprecationMessage": "Use chat.agent.allowedNetworkDomains instead",
       "type": "array",
       "items": {
@@ -43358,7 +43525,7 @@
       "scope": 4,
       "restricted": false
     },
-    "_274": {
+    "_275": {
       "deprecationMessage": "Use chat.agent.deniedNetworkDomains instead",
       "type": "array",
       "items": {
@@ -43374,19 +43541,19 @@
       "scope": 4,
       "restricted": false
     },
-    "_275": {
+    "_276": {
       "pattern": "^(?![A-Za-z]:[\\\\/])(?!/)(?!~(?!/))(?!.*\\\\)(?!.*[*?\\[\\]{}]).*\\S.*$",
       "patternErrorMessage": "Paths must be relative or start with '~/'. Absolute paths and '\\' separators are not supported. Glob patterns are deprecated and will be removed in future versions."
     },
-    "_276": {
+    "_277": {
       "pattern": "^(?![A-Za-z]:[\\\\/])(?!/)(?!~(?!/))(?!.*\\\\)(?!.*[*?\\[\\]{}]).*\\S.*$",
       "patternErrorMessage": "Paths must be relative or start with '~/'. Absolute paths and '\\' separators are not supported."
     },
-    "_277": {
+    "_278": {
       "type": "boolean",
       "default": false
     },
-    "_278": {
+    "_279": {
       "type": "object",
       "properties": {
         "when": {
@@ -43397,11 +43564,11 @@
         }
       }
     },
-    "_279": {
+    "_280": {
       "type": "boolean",
       "description": "The glob pattern to match file paths against. Set to true or false to enable or disable the pattern."
     },
-    "_280": {
+    "_281": {
       "type": "object",
       "required": [
         "path"
@@ -43417,27 +43584,27 @@
           }
         },
         "args": {
-          "$ref": "#/$defs/_281"
-        },
-        "icon": {
           "$ref": "#/$defs/_282"
         },
-        "color": {
+        "icon": {
           "$ref": "#/$defs/_283"
         },
-        "env": {
+        "color": {
           "$ref": "#/$defs/_284"
+        },
+        "env": {
+          "$ref": "#/$defs/_285"
         }
       }
     },
-    "_281": {
+    "_282": {
       "description": "An optional set of arguments to run the shell executable with.",
       "type": "array",
       "items": {
         "type": "string"
       }
     },
-    "_282": {
+    "_283": {
       "description": "A codicon ID to associate with the terminal icon.",
       "type": "string",
       "enum": [
@@ -44152,6 +44319,13 @@
         "settings-compact",
         "vm-compact",
         "run-compact",
+        "git-pull-request-comment",
+        "git-pull-request-error",
+        "right-panel-hide",
+        "right-panel-show",
+        "vscode-insiders-outline",
+        "vscode-outline",
+        "voice-mode",
         "dialog-error",
         "dialog-warning",
         "dialog-info",
@@ -44892,6 +45066,13 @@
         "$(settings-compact)",
         "$(vm-compact)",
         "$(run-compact)",
+        "$(git-pull-request-comment)",
+        "$(git-pull-request-error)",
+        "$(right-panel-hide)",
+        "$(right-panel-show)",
+        "$(vscode-insiders-outline)",
+        "$(vscode-outline)",
+        "$(voice-mode)",
         "$(dialog-error)",
         "$(dialog-warning)",
         "$(dialog-info)",
@@ -44921,7 +45102,7 @@
         "$(debug-breakpoint-pending)"
       ]
     },
-    "_283": {
+    "_284": {
       "description": "A theme color ID to associate with the terminal icon.",
       "type": [
         "string",
@@ -44939,7 +45120,7 @@
       ],
       "default": null
     },
-    "_284": {
+    "_285": {
       "markdownDescription": "An object with environment variables that will be added to the terminal profile process. Set to `null` to delete environment variables from the base environment.",
       "type": "object",
       "additionalProperties": {
@@ -44950,7 +45131,7 @@
       },
       "default": {}
     },
-    "_285": {
+    "_286": {
       "type": "object",
       "required": [
         "extensionIdentifier",
@@ -44971,20 +45152,20 @@
           "type": "string"
         },
         "args": {
-          "$ref": "#/$defs/_281"
-        },
-        "icon": {
           "$ref": "#/$defs/_282"
         },
-        "color": {
+        "icon": {
           "$ref": "#/$defs/_283"
         },
-        "env": {
+        "color": {
           "$ref": "#/$defs/_284"
+        },
+        "env": {
+          "$ref": "#/$defs/_285"
         }
       }
     },
-    "_286": {
+    "_287": {
       "type": "object",
       "required": [
         "path"
@@ -45005,47 +45186,47 @@
           "type": "boolean"
         },
         "args": {
-          "$ref": "#/$defs/_281"
-        },
-        "icon": {
           "$ref": "#/$defs/_282"
         },
-        "color": {
+        "icon": {
           "$ref": "#/$defs/_283"
         },
-        "env": {
+        "color": {
           "$ref": "#/$defs/_284"
+        },
+        "env": {
+          "$ref": "#/$defs/_285"
         }
       }
     },
-    "_287": {
+    "_288": {
       "anyOf": [
         {
-          "$ref": "#/$defs/_285"
+          "$ref": "#/$defs/_286"
         },
         {
           "type": "null"
         },
         {
-          "$ref": "#/$defs/_286"
+          "$ref": "#/$defs/_287"
         }
       ]
     },
-    "_288": {
+    "_289": {
       "type": "string",
       "uniqueItems": true
     },
-    "_289": {
+    "_290": {
       "type": "number",
       "minimum": 1,
       "maximum": 1000,
       "errorMessage": "Only \"normal\" and \"bold\" keywords or numbers between 1 and 1000 are allowed."
     },
-    "_290": {
+    "_291": {
       "type": "string",
       "pattern": "^(normal|bold|1000|[1-9][0-9]{0,2})$"
     },
-    "_291": {
+    "_292": {
       "enum": [
         "normal",
         "bold",
@@ -45060,7 +45241,7 @@
         "900"
       ]
     },
-    "_292": {
+    "_293": {
       "type": "boolean",
       "enum": [
         true,
@@ -45072,7 +45253,7 @@
       ],
       "description": "The start of a command to match against. A regular expression can be provided by wrapping the string in `/` characters."
     },
-    "_293": {
+    "_294": {
       "type": "object",
       "required": [
         "path"
@@ -45083,20 +45264,20 @@
           "type": "string"
         },
         "args": {
-          "$ref": "#/$defs/_281"
-        },
-        "icon": {
           "$ref": "#/$defs/_282"
         },
-        "color": {
+        "icon": {
           "$ref": "#/$defs/_283"
         },
-        "env": {
+        "color": {
           "$ref": "#/$defs/_284"
+        },
+        "env": {
+          "$ref": "#/$defs/_285"
         }
       }
     },
-    "_294": {
+    "_295": {
       "type": "array",
       "description": "Array of paths to deny read access. Leave empty to allow reading all paths.",
       "items": {
@@ -45104,7 +45285,7 @@
       },
       "default": []
     },
-    "_295": {
+    "_296": {
       "type": "array",
       "description": "Array of paths to re-allow read access within denied regions. Takes precedence over denyRead.",
       "items": {
@@ -45112,7 +45293,7 @@
       },
       "default": []
     },
-    "_296": {
+    "_297": {
       "type": "array",
       "description": "Array of additional paths to allow write access. Leave empty to disallow writes outside the workspace folders, workspace storage folder, and sandbox temp directory.",
       "items": {
@@ -45120,7 +45301,7 @@
       },
       "default": []
     },
-    "_297": {
+    "_298": {
       "type": "array",
       "description": "Array of paths to deny write access within allowed paths (takes precedence over allowWrite).",
       "items": {
@@ -45128,7 +45309,7 @@
       },
       "default": []
     },
-    "_298": {
+    "_299": {
       "deprecationMessage": "Use chat.tools.terminal.autoApprove instead",
       "deprecated": true,
       "markdownDeprecationMessage": "Use `#chat.tools.terminal.autoApprove#` instead",
@@ -45141,7 +45322,7 @@
       "scope": 4,
       "restricted": false
     },
-    "_299": {
+    "_300": {
       "type": "string",
       "enum": [
         "ui",
@@ -45152,34 +45333,28 @@
         "Workspace extension kind. In a remote window, such extensions are enabled only when available on the remote."
       ]
     },
-    "_300": {
+    "_301": {
       "type": "boolean",
       "description": "Automatically prompt for elevation (if needed) when this port is forwarded. Elevate is required if the local port is a privileged port.",
       "default": false
     },
-    "_301": {
+    "_302": {
       "type": "string",
       "description": "Label that will be shown in the UI for this port.",
       "default": "Application"
     },
-    "_302": {
+    "_303": {
       "type": "boolean",
       "markdownDescription": "When true, a modal dialog will show if the chosen local port isn't used for forwarding.",
       "default": false
     },
-    "_303": {
+    "_304": {
       "type": "string",
       "enum": [
         "http",
         "https"
       ],
       "description": "The protocol to use when forwarding this port."
-    },
-    "_304": {
-      "type": "object",
-      "additionalProperties": {
-        "type": "string"
-      }
     },
     "_305": {
       "type": "array",
@@ -45519,7 +45694,7 @@
     "_332": {
       "type": "array",
       "items": {
-        "$ref": "#/$defs/_288"
+        "$ref": "#/$defs/_289"
       },
       "default": [],
       "description": "A list of debug sessions which, when this debug session is terminated, will also be stopped."
