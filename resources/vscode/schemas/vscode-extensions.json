@@ -815,6 +815,11 @@
                 "description": "Order in which this item should be displayed.",
                 "type": "integer"
               },
+              "requiresCopilotSignIn": {
+                "description": "Whether the chat session relies on a GitHub Copilot account and so cannot be used until the user signs in. Defaults to false.",
+                "type": "boolean",
+                "default": false
+              },
               "requiresCustomModels": {
                 "description": "When set, the chat session will show a filtered model picker that prefers custom models. This enables the use of standard model picker with contributed sessions.",
                 "type": "boolean",
@@ -2189,6 +2194,7 @@
                       "vscode-insiders-outline",
                       "vscode-outline",
                       "voice-mode",
+                      "voice-mode-compact",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -2427,6 +2433,7 @@
                       "ai-customization-user",
                       "ai-customization-extension",
                       "ai-customization-plugin",
+                      "ai-customization-tools",
                       "ai-customization-builtin",
                       "ai-customization-mcp-server",
                       "chat-view-icon",
@@ -3302,6 +3309,7 @@
                       "",
                       "",
                       "",
+                      "",
                       "Icon for breakpoints waiting on another breakpoint.",
                       "Icon for the close action in widgets.",
                       "Icon for goto previous editor location.",
@@ -3518,6 +3526,7 @@
                       "Icon for user items.",
                       "Icon for extension-contributed items.",
                       "Icon for plugin-contributed items.",
+                      "Icon for the Tools section.",
                       "Icon for built-in items.",
                       "Icon for MCP servers.",
                       "View icon of the chat view.",
@@ -7567,6 +7576,8 @@
         "agentsPanel.foreground",
         "agentsPanel.border",
         "agentsGradient.tintColor",
+        "agentFeedbackEditorWidget.background",
+        "agentFeedbackEditorWidget.border",
         "agentFeedbackInputWidget.border",
         "agentsUpdateButton.downloadingBackground",
         "agentsUpdateButton.downloadedBackground",
@@ -8507,6 +8518,8 @@
         "Foreground color of the card panels (chat, files, terminal) in the agent sessions window.",
         "Border color of the card panels (chat, files, terminal) in the agent sessions window.",
         "Tint color used in the background gradient of the agent sessions window shell.",
+        "Background color of the agent feedback widget shown in the editor.",
+        "Border color of the agent feedback widget shown in the editor.",
         "Border color of the agent feedback input widget shown in the editor.",
         "Background color of the update button to show download progress in the agent sessions window.",
         "Background color of the update button when download is complete in the agent sessions window.",
@@ -8899,6 +8912,16 @@
           "description": "A command to manage the language model chat provider, e.g. 'Manage Copilot models'. This is used in the chat model picker. If not provided, a gear icon is not rendered during vendor selection.",
           "deprecated": true,
           "deprecationMessage": "The managementCommand property is deprecated and will be removed in a future release. Use the new configuration property instead."
+        },
+        "deprecation": {
+          "type": "object",
+          "description": "Marks this language model chat provider as deprecated. When set, the Manage Models view renders the provider with a link pointing to a replacement.",
+          "properties": {
+            "link": {
+              "type": "string",
+              "description": "A URL opened when the user clicks the deprecation link shown next to the provider name. Use a 'vscode:extension/<publisher>.<name>' URI to open a replacement extension in the Extensions view."
+            }
+          }
         },
         "when": {
           "type": "string",

@@ -272,6 +272,40 @@
         }
       ]
     },
+    "agentFeedbackEditorWidget.background": {
+      "description": "Background color of the agent feedback widget shown in the editor.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#222325}"
+            }
+          ]
+        }
+      ]
+    },
+    "agentFeedbackEditorWidget.border": {
+      "description": "Border color of the agent feedback widget shown in the editor.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#bfbfbf59}"
+            }
+          ]
+        }
+      ]
+    },
     "agentFeedbackInputWidget.border": {
       "description": "Border color of the agent feedback input widget shown in the editor.",
       "oneOf": [

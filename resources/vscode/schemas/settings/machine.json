@@ -3074,7 +3074,7 @@
       "restricted": false
     },
     "chat.agent.allowedNetworkDomains": {
-      "markdownDescription": "Allowed domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. When `#chat.agent.sandbox.enabled#` is set to `allowNetwork`, all domains are allowed. Supports wildcards like `*.example.com`. When both allowed and denied lists are empty, all domains are blocked. Denied domains (see `#chat.agent.deniedNetworkDomains#`) take precedence.",
+      "markdownDescription": "Allowed domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. When `#chat.agent.sandbox.allowNetwork#` is enabled, all domains are allowed. Supports wildcards like `*.example.com`. When both allowed and denied lists are empty, all domains are blocked. Denied domains (see `#chat.agent.deniedNetworkDomains#`) take precedence.",
       "type": "array",
       "items": {
         "type": "string"
@@ -3088,7 +3088,7 @@
         "localization": {
           "description": {
             "key": "chat.agent.allowedNetworkDomains",
-            "value": "Allowed domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. When `#chat.agent.sandbox.enabled#` is set to `allowNetwork`, all domains are allowed. Supports wildcards like `*.example.com`. When both allowed and denied lists are empty, all domains are blocked. Denied domains (see `#chat.agent.deniedNetworkDomains#`) take precedence."
+            "value": "Allowed domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. When `#chat.agent.sandbox.allowNetwork#` is enabled, all domains are allowed. Supports wildcards like `*.example.com`. When both allowed and denied lists are empty, all domains are blocked. Denied domains (see `#chat.agent.deniedNetworkDomains#`) take precedence."
           }
         }
       },
@@ -3115,7 +3115,7 @@
       "restricted": false
     },
     "chat.agent.deniedNetworkDomains": {
-      "markdownDescription": "Denied domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. This does not apply when `#chat.agent.sandbox.enabled#` is set to `allowNetwork`. Takes precedence over `#chat.agent.allowedNetworkDomains#`. Supports wildcards like `*.example.com`.",
+      "markdownDescription": "Denied domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. This does not apply when `#chat.agent.sandbox.allowNetwork#` is enabled. Takes precedence over `#chat.agent.allowedNetworkDomains#`. Supports wildcards like `*.example.com`.",
       "type": "array",
       "items": {
         "type": "string"
@@ -3129,7 +3129,7 @@
         "localization": {
           "description": {
             "key": "chat.agent.deniedNetworkDomains",
-            "value": "Denied domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. This does not apply when `#chat.agent.sandbox.enabled#` is set to `allowNetwork`. Takes precedence over `#chat.agent.allowedNetworkDomains#`. Supports wildcards like `*.example.com`."
+            "value": "Denied domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. This does not apply when `#chat.agent.sandbox.allowNetwork#` is enabled. Takes precedence over `#chat.agent.allowedNetworkDomains#`. Supports wildcards like `*.example.com`."
           }
         }
       },
@@ -3254,6 +3254,33 @@
     "chat.agent.sandbox.allowedNetworkDomains": {
       "$ref": "#/$defs/_284"
     },
+    "chat.agent.sandbox.allowNetwork": {
+      "markdownDescription": "When `#chat.agent.sandbox.enabled#` is enabled, controls whether to allow all network domains in the sandbox. When enabled, the sandbox preserves file system restrictions while relaxing all network restrictions.",
+      "type": "boolean",
+      "default": false,
+      "tags": [
+        "preview"
+      ],
+      "restricted": true,
+      "policy": {
+        "name": "ChatAgentSandboxAllowNetwork",
+        "category": "IntegratedTerminal",
+        "minimumVersion": "1.127",
+        "localization": {
+          "description": {
+            "key": "agentSandbox.allowNetwork",
+            "value": "When `#chat.agent.sandbox.enabled#` is enabled, controls whether to allow all network domains in the sandbox. When enabled, the sandbox preserves file system restrictions while relaxing all network restrictions."
+          }
+        }
+      },
+      "section": {
+        "id": "terminal",
+        "title": "Integrated Terminal",
+        "order": 100
+      },
+      "defaultDefaultValue": false,
+      "scope": 4
+    },
     "chat.agent.sandbox.allowUnsandboxedCommands": {
       "markdownDescription": "Controls whether agent mode terminal commands can run outside the sandbox after user confirmation when a sandboxed command fails or when sandbox restrictions would block the command. This applies only when `#chat.agent.sandbox.enabled#` is enabled.",
       "type": "boolean",
@@ -3285,15 +3312,13 @@
       "$ref": "#/$defs/_285"
     },
     "chat.agent.sandbox.enabled": {
-      "markdownDescription": "Controls whether agent mode uses sandboxing to restrict what tools can do. When enabled, tools like the terminal are run in a sandboxed environment to limit access to the system.",
+      "markdownDescription": "Controls whether agent mode uses sandboxing to restrict what tools can do. When enabled, tools like the terminal are run in a sandboxed environment to limit access to the system. Use `#chat.agent.sandbox.allowNetwork#` to allow all network domains.",
       "type": "string",
       "enum": [
-        "allowNetwork",
         "off",
         "on"
       ],
       "enumDescriptions": [
-        "Enable sandboxing for agent mode tools and allow all network domains.",
         "Disable sandboxing for agent mode tools.",
         "Enable sandboxing for agent mode tools."
       ],
@@ -3313,7 +3338,7 @@
         "localization": {
           "description": {
             "key": "agentSandbox.enabledSetting",
-            "value": "Controls whether agent mode uses sandboxing to restrict what tools can do. When enabled, tools like the terminal are run in a sandboxed environment to limit access to the system."
+            "value": "Controls whether agent mode uses sandboxing to restrict what tools can do. When enabled, tools like the terminal are run in a sandboxed environment to limit access to the system. Use `#chat.agent.sandbox.allowNetwork#` to allow all network domains."
           },
           "enumDescriptions": [
             {
@@ -3323,10 +3348,6 @@
             {
               "key": "agentSandbox.enabledSetting.onDescription",
               "value": "Enable sandboxing for agent mode tools."
-            },
-            {
-              "key": "agentSandbox.enabledSetting.allowNetworkDescription",
-              "value": "Enable sandboxing for agent mode tools and allow all network domains."
             }
           ]
         }
@@ -3340,15 +3361,15 @@
       "scope": 4
     },
     "chat.agent.sandbox.enabledWindows": {
-      "markdownDescription": "Controls whether agent mode uses sandboxing on Windows.",
+      "markdownDescription": "Controls whether agent mode uses sandboxing on Windows. Use `#chat.agent.sandbox.allowNetwork#` to allow all network domains.",
       "type": "string",
       "enum": [
-        "allowNetwork",
-        "off"
+        "off",
+        "on"
       ],
       "enumDescriptions": [
-        "Enable sandboxing for agent mode tools on Windows and allow all network domains.",
-        "Disable sandboxing for agent mode tools on Windows."
+        "Disable sandboxing for agent mode tools on Windows.",
+        "Enable sandboxing for agent mode tools on Windows."
       ],
       "default": "off",
       "tags": [
@@ -3498,7 +3519,7 @@
       "scope": 4
     },
     "chat.agent.sandbox.retryWithAllowNetworkRequests": {
-      "markdownDescription": "Controls whether agent mode terminal commands can retry in the sandbox with unrestricted network access after user confirmation. This applies only when `#chat.agent.sandbox.enabled#` is set to `on` and preserves file system sandboxing while relaxing network restrictions for an approved command.",
+      "markdownDescription": "Controls whether agent mode terminal commands can retry in the sandbox with unrestricted network access after user confirmation. This applies only when `#chat.agent.sandbox.enabled#` is enabled and preserves file system sandboxing while relaxing network restrictions for an approved command.",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -3745,8 +3766,16 @@
         "experimental",
         "advanced"
       ],
-      "policyReference": {
-        "name": "Claude3PIntegration"
+      "policy": {
+        "name": "Claude3PIntegration",
+        "category": "InteractiveSession",
+        "minimumVersion": "1.113",
+        "localization": {
+          "description": {
+            "key": "chat.agentHost.claudeAgent.enabled.policy",
+            "value": "Enable Claude Agent sessions in VS Code. Start and resume agentic coding sessions powered by Anthropic Claude Agent SDK directly in the editor. Uses your existing Copilot subscription."
+          }
+        }
       },
       "section": {
         "id": "chatAgentHostStarter",
@@ -3756,79 +3785,18 @@
       "scope": 4,
       "restricted": false
     },
-    "chat.agentHost.clientTools": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "description": "Tool reference names to expose as client-provided tools in agent host sessions.",
-      "default": [
-        "runTask",
-        "getTaskOutput",
-        "problems",
-        "runTests",
-        "openBrowserPage",
-        "readPage",
-        "screenshotPage",
-        "navigatePage",
-        "clickElement",
-        "typeInPage",
-        "hoverElement",
-        "dragElement",
-        "handleDialog",
-        "runPlaywrightCode"
-      ],
-      "agentsWindow": {
-        "default": [
-          "runTask",
-          "getTaskOutput",
-          "openBrowserPage",
-          "readPage",
-          "screenshotPage",
-          "navigatePage",
-          "clickElement",
-          "typeInPage",
-          "hoverElement",
-          "dragElement",
-          "handleDialog",
-          "runPlaywrightCode"
-        ]
-      },
-      "tags": [
-        "experimental",
-        "advanced"
-      ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": [
-        "runTask",
-        "getTaskOutput",
-        "problems",
-        "runTests",
-        "openBrowserPage",
-        "readPage",
-        "screenshotPage",
-        "navigatePage",
-        "clickElement",
-        "typeInPage",
-        "hoverElement",
-        "dragElement",
-        "handleDialog",
-        "runPlaywrightCode"
-      ],
-      "scope": 4,
-      "restricted": false
-    },
     "chat.agentHost.codexAgent.enabled": {
       "type": "boolean",
       "description": "When enabled, the agent host registers the Codex provider (subject to the Codex SDK being reachable). Requires `#chat.agentHost.enabled#`. The agent host process must be restarted for changes to take effect.",
       "default": false,
       "tags": [
         "experimental",
-        "advanced"
+        "advanced",
+        "onExP"
       ],
+      "experiment": {
+        "mode": "startup"
+      },
       "policy": {
         "name": "Codex3PIntegration",
         "category": "InteractiveSession",
@@ -3870,8 +3838,12 @@
       "default": false,
       "tags": [
         "experimental",
-        "advanced"
+        "advanced",
+        "onExP"
       ],
+      "experiment": {
+        "mode": "startup"
+      },
       "section": {
         "id": "chatAgentHost"
       },
@@ -3918,7 +3890,7 @@
         "No sandbox policy is forwarded for the SDK's built-in shell tool — commands run unsandboxed.",
         "The SDK's built-in shell tool runs inside a sandbox using the configured filesystem policy and host-list-restricted network."
       ],
-      "markdownDescription": "Sandbox mode for the Copilot SDK's built-in shell tool. Only takes effect when `#chat.agentHost.customTerminalTool.enabled#` is `false`; when the Agent Host's own terminal tool is enabled, the engine sandbox is controlled by `#chat.agent.sandbox.enabled#`.",
+      "markdownDescription": "Sandbox mode for the Copilot SDK's built-in shell tool. Only takes effect when `#chat.agentHost.customTerminalTool.enabled#` is `false`; when the Agent Host's own terminal tool is enabled, the engine sandbox is controlled by `#chat.agent.sandbox.enabled#`. The sandbox applies only to requests that run with default approvals — not when approvals are bypassed — and is not supported on Windows yet.",
       "default": "off",
       "tags": [
         "experimental",
@@ -3938,7 +3910,7 @@
     },
     "chat.agents.claude.preferAgentHost": {
       "type": "boolean",
-      "description": "When enabled, Claude sessions opened from the Agents Window run inside the agent host process instead of the GitHub Copilot Chat extension. Only one Claude implementation surfaces per window.",
+      "markdownDescription": "When enabled, Claude sessions opened from the Agents Window run inside the agent host process instead of the GitHub Copilot Chat extension. Only one Claude implementation surfaces per window. Requires `#chat.agentHost.enabled#`.",
       "default": false,
       "tags": [
         "experimental",
@@ -3957,7 +3929,7 @@
     },
     "chat.agents.copilotCli.hideExtensionHost": {
       "type": "boolean",
-      "description": "When enabled, hides the Extension Host Copilot CLI entry from the Agents window picker.",
+      "markdownDescription": "When enabled, hides the Extension Host Copilot CLI entry from the Agents window picker. Requires `#chat.agentHost.enabled#`.",
       "default": false,
       "tags": [
         "experimental",
@@ -4255,21 +4227,6 @@
       "scope": 4,
       "restricted": false
     },
-    "chat.customizations.harnessSelector.enabled": {
-      "type": "boolean",
-      "tags": [
-        "preview"
-      ],
-      "description": "Controls whether the harness selector is shown in the Chat Customizations editor sidebar. When disabled, the editor always shows all customizations without filtering.",
-      "default": true,
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": true,
-      "scope": 4,
-      "restricted": false
-    },
     "chat.customizations.structuredPreview.enabled": {
       "type": "boolean",
       "tags": [
@@ -4322,7 +4279,7 @@
         "approvals": "default",
         "mode": "interactive"
       },
-      "markdownDescription": "Controls the default configuration (mode and approval behavior) for new agent sessions (such as Copilot CLI). You can still change the mode and approval level per session, and each session remembers what was used.",
+      "markdownDescription": "Controls the default configuration for new agent sessions (such as Copilot CLI). You can still change the mode and approval behavior per session, and each session remembers what was used.",
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
@@ -4331,6 +4288,34 @@
         "approvals": "default",
         "mode": "interactive"
       },
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.defaultModel": {
+      "type": "string",
+      "default": "",
+      "markdownDescription": "The default model for new chat conversations. Use \"auto\" to let Copilot pick a model, a model family name (such as \"opus\" or \"gemini\") to use the latest available model in that family, or a full model id. You can still switch the model within a conversation; each new conversation starts at this model.",
+      "policy": {
+        "name": "ChatDefaultModel",
+        "category": "InteractiveSession",
+        "minimumVersion": "1.127",
+        "managedSettings": {
+          "model": {
+            "type": "string"
+          }
+        },
+        "localization": {
+          "description": {
+            "key": "chat.defaultModel.policy",
+            "value": "Sets the default chat model for new conversations. Accepts \"auto\", a model family name (such as \"opus\" or \"gemini\"), or a full model id. Users can still switch the model within a conversation."
+          }
+        }
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "",
       "scope": 4,
       "restricted": false
     },
@@ -4706,6 +4691,25 @@
       "tags": [
         "experimental"
       ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.experimental.permissionsSandboxToggle.enabled": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "Controls whether the permissions picker shows an inline \"Sandboxing for terminal\" toggle on the Default Approvals option. The toggle reflects and updates `#chat.agent.sandbox.enabled#`.",
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
@@ -24157,6 +24161,39 @@
       "defaultDefaultValue": "auto",
       "restricted": false
     },
+    "onboarding.developerMode": {
+      "type": "object",
+      "default": {},
+      "properties": {},
+      "additionalProperties": {
+        "type": "boolean"
+      },
+      "tags": [
+        "experimental"
+      ],
+      "description": "Map of onboarding scenario/tour id to whether developer mode is enabled for it. When enabled for a scenario, that onboarding tour ignores usage-based eligibility checks (such as how many sessions you have started) and previously persisted shown state. The tour is still shown at most once per window session, so reload the window to show it again.",
+      "section": {
+        "id": "workbench",
+        "title": "Workbench",
+        "order": 7
+      },
+      "defaultDefaultValue": {},
+      "scope": 4,
+      "restricted": false
+    },
+    "onboarding.enabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "When enabled, onboarding tours and hints may appear automatically to highlight features. Disabling this does not affect tours you start manually.",
+      "section": {
+        "id": "workbench",
+        "title": "Workbench",
+        "order": 7
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "outline.collapseItems": {
       "description": "Controls whether Outline items are collapsed or expanded.",
       "type": "string",
@@ -27890,7 +27927,7 @@
       "restricted": false
     },
     "terminal.integrated.commandsToSkipShell": {
-      "markdownDescription": "A set of command IDs whose keybindings will not be sent to the shell but instead always be handled by VS Code. This allows keybindings that would normally be consumed by the shell to act instead the same as when the terminal is not focused, for example `Ctrl+P` to launch Quick Open.\n\n&nbsp;\n\nMany commands are skipped by default. To override a default and pass that command's keybinding to the shell instead, add the command prefixed with the `-` character. For example add `-workbench.action.quickOpen` to allow `Ctrl+P` to reach the shell.\n\n&nbsp;\n\nThe following list of default skipped commands is truncated when viewed in Settings Editor. To see the full list, [open the default settings JSON](command:workbench.action.openRawDefaultSettings 'Open Default Settings (JSON)') and search for the first command from the list below.\n\n&nbsp;\n\nDefault Skipped Commands:\n\n- editor.action.accessibilityHelp\n- editor.action.toggleTabFocusMode\n- notification.acceptPrimaryAction\n- notifications.hideList\n- notifications.hideToasts\n- runCommands\n- workbench.action.closeQuickOpen\n- workbench.action.debug.continue\n- workbench.action.debug.disconnect\n- workbench.action.debug.pause\n- workbench.action.debug.restart\n- workbench.action.debug.run\n- workbench.action.debug.start\n- workbench.action.debug.stepInto\n- workbench.action.debug.stepOut\n- workbench.action.debug.stepOver\n- workbench.action.debug.stop\n- workbench.action.firstEditorInGroup\n- workbench.action.focusActiveEditorGroup\n- workbench.action.focusEighthEditorGroup\n- workbench.action.focusFifthEditorGroup\n- workbench.action.focusFirstEditorGroup\n- workbench.action.focusFourthEditorGroup\n- workbench.action.focusLastEditorGroup\n- workbench.action.focusNextPart\n- workbench.action.focusPreviousPart\n- workbench.action.focusSecondEditorGroup\n- workbench.action.focusSeventhEditorGroup\n- workbench.action.focusSixthEditorGroup\n- workbench.action.focusThirdEditorGroup\n- workbench.action.lastEditorInGroup\n- workbench.action.navigateDown\n- workbench.action.navigateLeft\n- workbench.action.navigateRight\n- workbench.action.navigateUp\n- workbench.action.nextEditor\n- workbench.action.nextEditorInGroup\n- workbench.action.nextPanelView\n- workbench.action.nextSideBarView\n- workbench.action.openNextRecentlyUsedEditor\n- workbench.action.openNextRecentlyUsedEditorInGroup\n- workbench.action.openPreviousRecentlyUsedEditor\n- workbench.action.openPreviousRecentlyUsedEditorInGroup\n- workbench.action.previousEditor\n- workbench.action.previousEditorInGroup\n- workbench.action.previousPanelView\n- workbench.action.previousSideBarView\n- workbench.action.quickOpen\n- workbench.action.quickOpenLeastRecentlyUsedEditor\n- workbench.action.quickOpenLeastRecentlyUsedEditorInGroup\n- workbench.action.quickOpenPreviousEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup\n- workbench.action.quickOpenView\n- workbench.action.showCommands\n- workbench.action.tasks.build\n- workbench.action.tasks.reRunTask\n- workbench.action.tasks.rerunForActiveTerminal\n- workbench.action.tasks.restartTask\n- workbench.action.tasks.runTask\n- workbench.action.tasks.showLog\n- workbench.action.tasks.showTasks\n- workbench.action.tasks.terminate\n- workbench.action.tasks.test\n- workbench.action.terminal.acceptSelectedSuggestion\n- workbench.action.terminal.acceptSelectedSuggestionEnter\n- workbench.action.terminal.chat.cancel\n- workbench.action.terminal.chat.close\n- workbench.action.terminal.chat.discard\n- workbench.action.terminal.chat.feedbackHelpful\n- workbench.action.terminal.chat.feedbackReportIssue\n- workbench.action.terminal.chat.feedbackUnhelpful\n- workbench.action.terminal.chat.insertCommand\n- workbench.action.terminal.chat.makeRequest\n- workbench.action.terminal.chat.runCommand\n- workbench.action.terminal.chat.start\n- workbench.action.terminal.chat.viewInChat\n- workbench.action.terminal.clear\n- workbench.action.terminal.clearSelection\n- workbench.action.terminal.copyAndClearSelection\n- workbench.action.terminal.copyLastCommand\n- workbench.action.terminal.copyLastCommandAndLastCommandOutput\n- workbench.action.terminal.copyLastCommandOutput\n- workbench.action.terminal.copySelection\n- workbench.action.terminal.copySelectionAsHtml\n- workbench.action.terminal.deleteToLineStart\n- workbench.action.terminal.deleteWordLeft\n- workbench.action.terminal.deleteWordRight\n- workbench.action.terminal.findNext\n- workbench.action.terminal.findPrevious\n- workbench.action.terminal.focus\n- workbench.action.terminal.focusAccessibleBuffer\n- workbench.action.terminal.focusAtIndex1\n- workbench.action.terminal.focusAtIndex2\n- workbench.action.terminal.focusAtIndex3\n- workbench.action.terminal.focusAtIndex4\n- workbench.action.terminal.focusAtIndex5\n- workbench.action.terminal.focusAtIndex6\n- workbench.action.terminal.focusAtIndex7\n- workbench.action.terminal.focusAtIndex8\n- workbench.action.terminal.focusAtIndex9\n- workbench.action.terminal.focusFind\n- workbench.action.terminal.focusHover\n- workbench.action.terminal.focusNext\n- workbench.action.terminal.focusNextPane\n- workbench.action.terminal.focusPrevious\n- workbench.action.terminal.focusPreviousPane\n- workbench.action.terminal.goToRecentDirectory\n- workbench.action.terminal.hideFind\n- workbench.action.terminal.hideSuggestWidget\n- workbench.action.terminal.kill\n- workbench.action.terminal.killEditor\n- workbench.action.terminal.moveToEditor\n- workbench.action.terminal.moveToLineEnd\n- workbench.action.terminal.moveToLineStart\n- workbench.action.terminal.moveToTerminalPanel\n- workbench.action.terminal.new\n- workbench.action.terminal.newInActiveWorkspace\n- workbench.action.terminal.newInNewWindow\n- workbench.action.terminal.paste\n- workbench.action.terminal.pastePwsh\n- workbench.action.terminal.pasteSelection\n- workbench.action.terminal.resizePaneDown\n- workbench.action.terminal.resizePaneLeft\n- workbench.action.terminal.resizePaneRight\n- workbench.action.terminal.resizePaneUp\n- workbench.action.terminal.runActiveFile\n- workbench.action.terminal.runRecentCommand\n- workbench.action.terminal.runSelectedText\n- workbench.action.terminal.scrollDown\n- workbench.action.terminal.scrollDownPage\n- workbench.action.terminal.scrollToBottom\n- workbench.action.terminal.scrollToNextCommand\n- workbench.action.terminal.scrollToPreviousCommand\n- workbench.action.terminal.scrollToTop\n- workbench.action.terminal.scrollUp\n- workbench.action.terminal.scrollUpPage\n- workbench.action.terminal.searchWorkspace\n- workbench.action.terminal.selectAll\n- workbench.action.terminal.selectNextPageSuggestion\n- workbench.action.terminal.selectNextSuggestion\n- workbench.action.terminal.selectPrevPageSuggestion\n- workbench.action.terminal.selectPrevSuggestion\n- workbench.action.terminal.selectToNextCommand\n- workbench.action.terminal.selectToNextLine\n- workbench.action.terminal.selectToPreviousCommand\n- workbench.action.terminal.selectToPreviousLine\n- workbench.action.terminal.sendSequence\n- workbench.action.terminal.sendSignal\n- workbench.action.terminal.sizeToContentWidth\n- workbench.action.terminal.split\n- workbench.action.terminal.splitInActiveWorkspace\n- workbench.action.terminal.stopVoice\n- workbench.action.terminal.suggestToggleDetails\n- workbench.action.terminal.suggestToggleDetailsFocus\n- workbench.action.terminal.toggleFindCaseSensitive\n- workbench.action.terminal.toggleFindRegex\n- workbench.action.terminal.toggleFindWholeWord\n- workbench.action.terminal.toggleTerminal\n- workbench.action.terminal.triggerSuggest\n- workbench.action.toggleFullScreen\n- workbench.action.toggleMaximizedPanel\n- workbench.action.togglePanel\n- workbench.action.zoomIn\n- workbench.action.zoomOut\n- workbench.action.zoomReset",
+      "markdownDescription": "A set of command IDs whose keybindings will not be sent to the shell but instead always be handled by VS Code. This allows keybindings that would normally be consumed by the shell to act instead the same as when the terminal is not focused, for example `Ctrl+P` to launch Quick Open.\n\n&nbsp;\n\nMany commands are skipped by default. To override a default and pass that command's keybinding to the shell instead, add the command prefixed with the `-` character. For example add `-workbench.action.quickOpen` to allow `Ctrl+P` to reach the shell.\n\n&nbsp;\n\nThe following list of default skipped commands is truncated when viewed in Settings Editor. To see the full list, [open the default settings JSON](command:workbench.action.openRawDefaultSettings 'Open Default Settings (JSON)') and search for the first command from the list below.\n\n&nbsp;\n\nDefault Skipped Commands:\n\n- editor.action.accessibilityHelp\n- editor.action.toggleTabFocusMode\n- notification.acceptPrimaryAction\n- notifications.hideList\n- notifications.hideToasts\n- runCommands\n- sessions.focusActiveSession\n- sessions.focusSessionInGrid1\n- sessions.focusSessionInGrid2\n- sessions.focusSessionInGrid3\n- sessions.focusSessionInGrid4\n- sessions.focusSessionInGrid5\n- sessions.focusSessionInGrid6\n- sessions.focusSessionInGrid7\n- sessions.focusSessionInGrid8\n- sessions.focusSessionInGrid9\n- sessions.goBack\n- sessions.goForward\n- sessionsViewPane.navigateNextSession\n- sessionsViewPane.navigatePreviousSession\n- workbench.action.closeQuickOpen\n- workbench.action.debug.continue\n- workbench.action.debug.disconnect\n- workbench.action.debug.pause\n- workbench.action.debug.restart\n- workbench.action.debug.run\n- workbench.action.debug.start\n- workbench.action.debug.stepInto\n- workbench.action.debug.stepOut\n- workbench.action.debug.stepOver\n- workbench.action.debug.stop\n- workbench.action.firstEditorInGroup\n- workbench.action.focusActiveEditorGroup\n- workbench.action.focusEighthEditorGroup\n- workbench.action.focusFifthEditorGroup\n- workbench.action.focusFirstEditorGroup\n- workbench.action.focusFourthEditorGroup\n- workbench.action.focusLastEditorGroup\n- workbench.action.focusNextPart\n- workbench.action.focusPreviousPart\n- workbench.action.focusSecondEditorGroup\n- workbench.action.focusSeventhEditorGroup\n- workbench.action.focusSixthEditorGroup\n- workbench.action.focusThirdEditorGroup\n- workbench.action.lastEditorInGroup\n- workbench.action.navigateDown\n- workbench.action.navigateLeft\n- workbench.action.navigateRight\n- workbench.action.navigateUp\n- workbench.action.nextEditor\n- workbench.action.nextEditorInGroup\n- workbench.action.nextPanelView\n- workbench.action.nextSideBarView\n- workbench.action.openNextRecentlyUsedEditor\n- workbench.action.openNextRecentlyUsedEditorInGroup\n- workbench.action.openPreviousRecentlyUsedEditor\n- workbench.action.openPreviousRecentlyUsedEditorInGroup\n- workbench.action.previousEditor\n- workbench.action.previousEditorInGroup\n- workbench.action.previousPanelView\n- workbench.action.previousSideBarView\n- workbench.action.quickOpen\n- workbench.action.quickOpenLeastRecentlyUsedEditor\n- workbench.action.quickOpenLeastRecentlyUsedEditorInGroup\n- workbench.action.quickOpenPreviousEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup\n- workbench.action.quickOpenView\n- workbench.action.showCommands\n- workbench.action.tasks.build\n- workbench.action.tasks.reRunTask\n- workbench.action.tasks.rerunForActiveTerminal\n- workbench.action.tasks.restartTask\n- workbench.action.tasks.runTask\n- workbench.action.tasks.showLog\n- workbench.action.tasks.showTasks\n- workbench.action.tasks.terminate\n- workbench.action.tasks.test\n- workbench.action.terminal.acceptSelectedSuggestion\n- workbench.action.terminal.acceptSelectedSuggestionEnter\n- workbench.action.terminal.chat.cancel\n- workbench.action.terminal.chat.close\n- workbench.action.terminal.chat.discard\n- workbench.action.terminal.chat.feedbackHelpful\n- workbench.action.terminal.chat.feedbackReportIssue\n- workbench.action.terminal.chat.feedbackUnhelpful\n- workbench.action.terminal.chat.insertCommand\n- workbench.action.terminal.chat.makeRequest\n- workbench.action.terminal.chat.runCommand\n- workbench.action.terminal.chat.start\n- workbench.action.terminal.chat.viewInChat\n- workbench.action.terminal.clear\n- workbench.action.terminal.clearSelection\n- workbench.action.terminal.copyAndClearSelection\n- workbench.action.terminal.copyLastCommand\n- workbench.action.terminal.copyLastCommandAndLastCommandOutput\n- workbench.action.terminal.copyLastCommandOutput\n- workbench.action.terminal.copySelection\n- workbench.action.terminal.copySelectionAsHtml\n- workbench.action.terminal.deleteToLineStart\n- workbench.action.terminal.deleteWordLeft\n- workbench.action.terminal.deleteWordRight\n- workbench.action.terminal.findNext\n- workbench.action.terminal.findPrevious\n- workbench.action.terminal.focus\n- workbench.action.terminal.focusAccessibleBuffer\n- workbench.action.terminal.focusAtIndex1\n- workbench.action.terminal.focusAtIndex2\n- workbench.action.terminal.focusAtIndex3\n- workbench.action.terminal.focusAtIndex4\n- workbench.action.terminal.focusAtIndex5\n- workbench.action.terminal.focusAtIndex6\n- workbench.action.terminal.focusAtIndex7\n- workbench.action.terminal.focusAtIndex8\n- workbench.action.terminal.focusAtIndex9\n- workbench.action.terminal.focusFind\n- workbench.action.terminal.focusHover\n- workbench.action.terminal.focusNext\n- workbench.action.terminal.focusNextPane\n- workbench.action.terminal.focusPrevious\n- workbench.action.terminal.focusPreviousPane\n- workbench.action.terminal.goToRecentDirectory\n- workbench.action.terminal.hideFind\n- workbench.action.terminal.hideSuggestWidget\n- workbench.action.terminal.kill\n- workbench.action.terminal.killEditor\n- workbench.action.terminal.moveToEditor\n- workbench.action.terminal.moveToLineEnd\n- workbench.action.terminal.moveToLineStart\n- workbench.action.terminal.moveToTerminalPanel\n- workbench.action.terminal.new\n- workbench.action.terminal.newInActiveWorkspace\n- workbench.action.terminal.newInNewWindow\n- workbench.action.terminal.paste\n- workbench.action.terminal.pastePwsh\n- workbench.action.terminal.pasteSelection\n- workbench.action.terminal.resizePaneDown\n- workbench.action.terminal.resizePaneLeft\n- workbench.action.terminal.resizePaneRight\n- workbench.action.terminal.resizePaneUp\n- workbench.action.terminal.runActiveFile\n- workbench.action.terminal.runRecentCommand\n- workbench.action.terminal.runSelectedText\n- workbench.action.terminal.scrollDown\n- workbench.action.terminal.scrollDownPage\n- workbench.action.terminal.scrollToBottom\n- workbench.action.terminal.scrollToNextCommand\n- workbench.action.terminal.scrollToPreviousCommand\n- workbench.action.terminal.scrollToTop\n- workbench.action.terminal.scrollUp\n- workbench.action.terminal.scrollUpPage\n- workbench.action.terminal.searchWorkspace\n- workbench.action.terminal.selectAll\n- workbench.action.terminal.selectNextPageSuggestion\n- workbench.action.terminal.selectNextSuggestion\n- workbench.action.terminal.selectPrevPageSuggestion\n- workbench.action.terminal.selectPrevSuggestion\n- workbench.action.terminal.selectToNextCommand\n- workbench.action.terminal.selectToNextLine\n- workbench.action.terminal.selectToPreviousCommand\n- workbench.action.terminal.selectToPreviousLine\n- workbench.action.terminal.sendSequence\n- workbench.action.terminal.sendSignal\n- workbench.action.terminal.sizeToContentWidth\n- workbench.action.terminal.split\n- workbench.action.terminal.splitInActiveWorkspace\n- workbench.action.terminal.stopVoice\n- workbench.action.terminal.suggestToggleDetails\n- workbench.action.terminal.suggestToggleDetailsFocus\n- workbench.action.terminal.toggleFindCaseSensitive\n- workbench.action.terminal.toggleFindRegex\n- workbench.action.terminal.toggleFindWholeWord\n- workbench.action.terminal.toggleTerminal\n- workbench.action.terminal.triggerSuggest\n- workbench.action.toggleFullScreen\n- workbench.action.toggleMaximizedPanel\n- workbench.action.togglePanel\n- workbench.action.zoomIn\n- workbench.action.zoomOut\n- workbench.action.zoomReset",
       "type": "array",
       "items": {
         "type": "string"
@@ -30776,6 +30813,7 @@
         "vm-running",
         "vm-small",
         "voice-mode",
+        "voice-mode-compact",
         "vr",
         "vscode",
         "vscode-insiders",
@@ -31523,6 +31561,7 @@
         "$(vm-running)",
         "$(vm-small)",
         "$(voice-mode)",
+        "$(voice-mode-compact)",
         "$(vr)",
         "$(vscode)",
         "$(vscode-insiders)",
@@ -33447,6 +33486,27 @@
       "scope": 4,
       "restricted": false
     },
+    "workbench.browser.agentHostChatToolsEnabled": {
+      "type": "boolean",
+      "markdownDescription": "When enabled, integrated browser tools are exposed as client-provided tools to agent host sessions in the Sessions window. Requires `#chat.agentHost.enabled#` and `#workbench.browser.enableChatTools#`.",
+      "default": false,
+      "experiment": {
+        "mode": "startup"
+      },
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "section": {
+        "id": "workbench",
+        "title": "Workbench",
+        "order": 7
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "workbench.browser.dataStorage": {
       "type": "string",
       "enum": [
@@ -33476,13 +33536,6 @@
     "workbench.browser.enableChatTools": {
       "type": "boolean",
       "default": true,
-      "experiment": {
-        "mode": "startup"
-      },
-      "tags": [
-        "experimental",
-        "onExP"
-      ],
       "markdownDescription": "When enabled, chat agents can use browser tools to open and interact with pages in the Integrated Browser.",
       "policy": {
         "name": "BrowserChatTools",
@@ -34605,6 +34658,26 @@
         "order": 7
       },
       "defaultDefaultValue": 10,
+      "scope": 4,
+      "restricted": false
+    },
+    "workbench.editor.markdownDefaultEditorInAgentsWindow": {
+      "type": "boolean",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "markdownDescription": "Controls whether the Markdown editor is used as the default editor for Markdown files in the Agents window.",
+      "section": {
+        "id": "workbench",
+        "title": "Workbench",
+        "order": 7
+      },
+      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },
@@ -42346,6 +42419,7 @@
         "vscode-insiders-outline",
         "vscode-outline",
         "voice-mode",
+        "voice-mode-compact",
         "dialog-error",
         "dialog-warning",
         "dialog-info",
@@ -43093,6 +43167,7 @@
         "$(vscode-insiders-outline)",
         "$(vscode-outline)",
         "$(voice-mode)",
+        "$(voice-mode-compact)",
         "$(dialog-error)",
         "$(dialog-warning)",
         "$(dialog-info)",
