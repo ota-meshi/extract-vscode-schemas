@@ -13,6 +13,7 @@
               "type": "string",
               "enum": [
                 "activeComment",
+                "agentEditorComments",
                 "agentSessionsWorkspace",
                 "agentsWindowConfiguration",
                 "aiRelatedInformation",
@@ -190,6 +191,7 @@
               ],
               "markdownEnumDescriptions": [
                 "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.activeComment.d.ts",
+                "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.agentEditorComments.d.ts",
                 "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.agentSessionsWorkspace.d.ts",
                 "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.agentsWindowConfiguration.d.ts",
                 "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiRelatedInformation.d.ts",

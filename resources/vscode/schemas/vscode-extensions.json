@@ -2427,6 +2427,7 @@
                       "ai-customization-instructions",
                       "ai-customization-prompt",
                       "ai-customization-hook",
+                      "ai-customization-automation",
                       "ai-customization-add",
                       "ai-customization-run",
                       "ai-customization-workspace",
@@ -3520,6 +3521,7 @@
                       "Icon for instruction files.",
                       "Icon for prompt files.",
                       "Icon for hooks.",
+                      "Icon for scheduled automations.",
                       "Icon for adding new items.",
                       "Icon for running a prompt or agent.",
                       "Icon for workspace items.",
@@ -6367,6 +6369,7 @@
         "type": "string",
         "enum": [
           "activeComment",
+          "agentEditorComments",
           "agentSessionsWorkspace",
           "agentsWindowConfiguration",
           "aiRelatedInformation",
@@ -6544,6 +6547,7 @@
         ],
         "markdownEnumDescriptions": [
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.activeComment.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.agentEditorComments.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.agentSessionsWorkspace.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.agentsWindowConfiguration.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiRelatedInformation.d.ts",

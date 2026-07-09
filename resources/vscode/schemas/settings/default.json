@@ -2311,6 +2311,21 @@
       "scope": 5,
       "restricted": false
     },
+    "accessibility.verbosity.automations": {
+      "description": "Provide information about how to use the Automations section of the Agent Customizations editor, including keyboard navigation and how to inspect scheduled runs.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "section": {
+        "id": "accessibility",
+        "title": "Accessibility"
+      },
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
     "accessibility.verbosity.chatQuestionCarousel": {
       "description": "Provide information about how to navigate and interact with the chat question carousel, including how to focus the terminal when applicable.",
       "type": "boolean",
@@ -2523,6 +2538,21 @@
     },
     "accessibility.verbosity.replEditor": {
       "description": "Provide information about how to access the REPL editor accessibility help menu when the REPL editor is focused.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "section": {
+        "id": "accessibility",
+        "title": "Accessibility"
+      },
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
+    "accessibility.verbosity.sessionsChanges": {
+      "description": "Provide information about how to access the Changes view accessibility help menu when the Changes view is focused.",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -3808,6 +3838,22 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.agentHost.byokModels.enabled": {
+      "type": "boolean",
+      "description": "When enabled, the agent host wires up the BYOK ('bring your own key') language-model bridge so extension-provided BYOK models can run in agent-host sessions. Requires `#chat.agentHost.enabled#`. The agent host process must be restarted for changes to take effect.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.agentHost.claudeAgent.enabled": {
       "type": "boolean",
       "description": "When enabled, the agent host registers the Claude provider (subject to the Claude SDK being reachable). Independent of `#chat.agents.claude.preferAgentHost#` and `#chat.editor.claude.preferAgentHost#`, which choose which integration surfaces Claude. Requires `#chat.agentHost.enabled#`. The agent host process must be restarted for changes to take effect.",
@@ -4445,6 +4491,33 @@
         "title": "Chat"
       },
       "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "chat.byokUtilityModelDefault": {
+      "type": "string",
+      "markdownDescription": "Controls the default model used by built-in utility flows when the selected main agent model is a bring your own key (BYOK) model. This setting has no effect when the selected main agent model is provided by GitHub Copilot. A specific model configured in `#chat.utilityModel#` or `#chat.utilitySmallModel#` takes precedence.",
+      "enum": [
+        "copilot",
+        "mainAgent",
+        "none"
+      ],
+      "enumItemLabels": [
+        "None",
+        "Main Agent Model",
+        "GitHub Copilot"
+      ],
+      "markdownEnumDescriptions": [
+        "Use the default GitHub Copilot utility models.",
+        "Use the selected BYOK main agent model.",
+        "Do not use a default utility model."
+      ],
+      "default": "none",
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "none",
+      "scope": 4,
       "restricted": false
     },
     "chat.checkpoints.enabled": {
@@ -5264,6 +5337,24 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.implicitContext.includeActiveEditor": {
+      "type": "boolean",
+      "markdownDescription": "When enabled, the active editor is automatically forwarded as context, even when it would otherwise only be suggested. Selections and explicitly attached files are always included regardless of this setting.\n\nNote: this setting currently only applies to Agent Host sessions (such as the Copilot CLI).",
+      "default": true,
+      "tags": [
+        "experimental"
+      ],
+      "agentsWindow": {
+        "default": false
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.implicitContext.suggestedContext": {
       "type": "boolean",
       "markdownDescription": "Controls whether the new implicit context flow is shown. In Ask and Edit modes, the context will automatically be included. When using an agent, context will be suggested as an attachment. Selections are always included as context.",
@@ -6070,21 +6161,6 @@
         "title": "Chat"
       },
       "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
-    },
-    "chat.sendElementsToChat.attachImages": {
-      "default": true,
-      "markdownDescription": "Controls whether a screenshot of the selected element will be added to the chat.",
-      "type": "boolean",
-      "tags": [
-        "experimental"
-      ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -7124,6 +7200,37 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.turnStatusPills": {
+      "type": "object",
+      "markdownDescription": "Controls which agent turn status pills are shown above the chat input while a turn is in progress and inside the completed response. Only applies to agent sessions.",
+      "properties": {
+        "changes": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show a pill summarizing the files changed and the lines added and removed in the turn."
+        },
+        "preview": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show a pill to preview a Markdown or HTML file created or edited in the turn."
+        }
+      },
+      "default": {
+        "changes": false,
+        "preview": false
+      },
+      "additionalProperties": false,
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": {
+        "changes": false,
+        "preview": false
+      },
+      "scope": 4,
+      "restricted": false
+    },
     "chat.undoRequests.restoreInput": {
       "default": true,
       "markdownDescription": "Controls whether the input of the chat should be restored when an undo request is made. The input will be filled with the text of the request that was restored.",
@@ -7331,7 +7438,7 @@
     },
     "chat.utilityModel": {
       "type": "string",
-      "description": "Override the language model used by built-in utility flows. Leave empty to use the default model.",
+      "description": "Override the language model used by built-in utility flows. Leave empty to use the configured default behavior.",
       "default": "",
       "enum": [
         ""
@@ -7340,7 +7447,7 @@
         "Default"
       ],
       "markdownEnumDescriptions": [
-        "Use the built-in default utility model"
+        "Use the default behavior for utility models"
       ],
       "section": {
         "id": "chatSidebar",
@@ -7352,7 +7459,7 @@
     },
     "chat.utilitySmallModel": {
       "type": "string",
-      "description": "Override the language model used by built-in small/fast utility flows. A fast and inexpensive model is recommended. Leave empty to use the default model.",
+      "description": "Override the language model used by built-in small/fast utility flows. A fast and inexpensive model is recommended. Leave empty to use the configured default behavior.",
       "default": "",
       "enum": [
         ""
@@ -7361,7 +7468,7 @@
         "Default"
       ],
       "markdownEnumDescriptions": [
-        "Use the built-in default utility model"
+        "Use the default behavior for utility models"
       ],
       "section": {
         "id": "chatSidebar",
@@ -17438,9 +17545,6 @@
       "type": "boolean",
       "default": true,
       "description": "Controls whether clicking an image attachment in chat opens the Images Preview viewer.",
-      "tags": [
-        "experimental"
-      ],
       "section": {
         "id": "imageCarousel",
         "title": "Images Preview"
@@ -25332,7 +25436,7 @@
       "tags": [
         "experimental"
       ],
-      "description": "Map of onboarding scenario/tour id to whether developer mode is enabled for it. When enabled for a scenario, that onboarding tour ignores usage-based eligibility checks (such as how many sessions you have started) and previously persisted shown state. The tour is still shown at most once per window session, so reload the window to show it again.",
+      "description": "Map of onboarding scenario/tour id to whether developer mode is enabled for it. When enabled for a scenario, that onboarding tour ignores usage-based eligibility checks (such as how many sessions you have started), previously persisted shown state, and any linked experiment (so it is shown even if the experiment is not running or you are in the control group). It does not override the `#onboarding.enabled#` setting. The tour is still shown at most once per window session, so reload the window to show it again.",
       "section": {
         "id": "workbench",
         "title": "Workbench",
@@ -25344,14 +25448,14 @@
     },
     "onboarding.enabled": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "description": "When enabled, onboarding tours and hints may appear automatically to highlight features. Disabling this does not affect tours you start manually.",
       "section": {
         "id": "workbench",
         "title": "Workbench",
         "order": 7
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -34834,7 +34938,7 @@
       "type": "string",
       "default": "default",
       "scope": 1,
-      "description": "Configure whether you receive automatic updates. Requires a restart after change. The updates are fetched from a Microsoft online service.",
+      "description": "Configure whether you receive automatic updates. The updates are fetched from a Microsoft online service.",
       "section": {
         "id": "update",
         "title": "Update",
@@ -34853,7 +34957,7 @@
       ],
       "default": "default",
       "scope": 1,
-      "description": "Configure whether you receive automatic updates. Requires a restart after change. The updates are fetched from a Microsoft online service.",
+      "description": "Configure whether you receive automatic updates. The updates are fetched from a Microsoft online service.",
       "tags": [
         "usesOnlineServices"
       ],
@@ -34870,7 +34974,7 @@
         "localization": {
           "description": {
             "key": "updateMode",
-            "value": "Configure whether you receive automatic updates. Requires a restart after change. The updates are fetched from a Microsoft online service."
+            "value": "Configure whether you receive automatic updates. The updates are fetched from a Microsoft online service."
           },
           "enumDescriptions": [
             {
@@ -35556,27 +35660,6 @@
       "scope": 4,
       "restricted": false
     },
-    "workbench.browser.agentHostChatToolsEnabled": {
-      "type": "boolean",
-      "markdownDescription": "When enabled, integrated browser tools are exposed as client-provided tools to agent host sessions in the Sessions window. Requires `#chat.agentHost.enabled#` and `#workbench.browser.enableChatTools#`.",
-      "default": false,
-      "experiment": {
-        "mode": "startup"
-      },
-      "tags": [
-        "experimental",
-        "advanced",
-        "onExP"
-      ],
-      "section": {
-        "id": "workbench",
-        "title": "Workbench",
-        "order": 7
-      },
-      "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
-    },
     "workbench.browser.dataStorage": {
       "type": "string",
       "enum": [
@@ -35686,6 +35769,29 @@
       "defaultDefaultValue": 200,
       "restricted": false
     },
+    "workbench.browser.newTabPlacement": {
+      "type": "string",
+      "enum": [
+        "activeGroup",
+        "sideGroup",
+        "window"
+      ],
+      "enumDescriptions": [
+        "New browser tabs open in the currently active editor group.",
+        "New browser tabs open in a dedicated editor group to the side that is reused for subsequent tabs. The group is locked so other editors are not opened into it.",
+        "New browser tabs open in a dedicated window that is reused for subsequent tabs. The window is locked so other editors are not opened into it."
+      ],
+      "default": "activeGroup",
+      "markdownDescription": "Controls where new Integrated Browser tabs are opened.",
+      "scope": 4,
+      "section": {
+        "id": "workbench",
+        "title": "Workbench",
+        "order": 7
+      },
+      "defaultDefaultValue": "activeGroup",
+      "restricted": false
+    },
     "workbench.browser.openLocalhostLinks": {
       "type": "boolean",
       "default": false,
@@ -35778,9 +35884,6 @@
         "DuckDuckGo"
       ],
       "default": "bing",
-      "experiment": {
-        "mode": "startup"
-      },
       "markdownDescription": "Controls the search engine used to search the web from the address bar of the integrated browser. Select 'None' to disable search.",
       "scope": 1,
       "order": 110,
@@ -35790,10 +35893,20 @@
         "order": 7
       },
       "defaultDefaultValue": "bing",
-      "restricted": false,
-      "tags": [
-        "onExP"
-      ]
+      "restricted": false
+    },
+    "workbench.browser.sendElementsToChat.attachImages": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "Controls whether a screenshot of the selected element will be added to the chat.",
+      "section": {
+        "id": "workbench",
+        "title": "Workbench",
+        "order": 7
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
     },
     "workbench.browser.showInTitleBar": {
       "type": [
