@@ -339,6 +339,26 @@
     "chat-import": {
       "$ref": "#/$defs/_0"
     },
+    "chat-model-provider-claude": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for Claude models.: $(chat-model-provider-claude)"
+    },
+    "chat-model-provider-copilot": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for Copilot models.: $(chat-model-provider-copilot)"
+    },
+    "chat-model-provider-gemini": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for Gemini models.: $(chat-model-provider-gemini)"
+    },
+    "chat-model-provider-generic": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for other model providers.: $(chat-model-provider-generic)"
+    },
+    "chat-model-provider-openai": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for OpenAI models.: $(chat-model-provider-openai)"
+    },
     "chat-sparkle": {
       "$ref": "#/$defs/_0"
     },

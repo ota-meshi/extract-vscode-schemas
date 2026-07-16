@@ -3192,6 +3192,29 @@
       "scope": 6,
       "restricted": false
     },
+    "editor.inlineSuggest.edits.longDistanceHintContextLineCount": {
+      "type": "number",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Controls how many lines of surrounding context are shown above and below the target line in the long distance inline suggestion preview. Set to 0 to only show the target line.",
+      "tags": [
+        "nextEditSuggestions",
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "editor",
+        "title": "Editor",
+        "order": 5
+      },
+      "defaultDefaultValue": 0,
+      "scope": 6,
+      "restricted": false
+    },
     "editor.inlineSuggest.edits.renderSideBySide": {
       "type": "string",
       "default": "auto",

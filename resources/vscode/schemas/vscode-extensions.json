@@ -1130,7 +1130,7 @@
                 "description": "Human readable name of the custom editor. This is displayed to users when selecting which editor to use."
               },
               "priority": {
-                "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a file, diff, or merge editor. This may be overridden by users using the `workbench.editorAssociations` or `workbench.diffEditorAssociations` setting.",
+                "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a file, diff, or merge editor. This may be overridden by users using the `workbench.editorAssociations` or `workbench.diffEditorAssociations` setting. When omitted, the custom editor defaults to `default` for the normal editor and `never` for diff and merge editors, so it is not used for diffs or merges unless it opts in.",
                 "anyOf": [
                   {
                     "type": "object",
@@ -1143,37 +1143,43 @@
                         "type": "string",
                         "enum": [
                           "default",
+                          "never",
                           "option"
                         ],
                         "markdownEnumDescriptions": [
                           "The editor is automatically used when the user opens a resource, provided that no other default custom editors are registered for that resource.",
+                          "The editor is never automatically used, and it is also skipped when the user points a `workbench.editorAssociations` entry at it. It can still be opened via the `Reopen With` command or the specialized `workbench.diffEditorAssociations` setting.",
                           "The editor is not automatically used when the user opens a resource, but a user can switch to the editor using the `Reopen With` command."
                         ],
-                        "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a diff. When not specified, the value of `textEditor` is used."
+                        "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a diff. When not specified this defaults to `never`, so the custom editor is not used for diffs unless it opts in."
                       },
                       "mergeEditor": {
                         "type": "string",
                         "enum": [
                           "default",
+                          "never",
                           "option"
                         ],
                         "markdownEnumDescriptions": [
                           "The editor is automatically used when the user opens a resource, provided that no other default custom editors are registered for that resource.",
+                          "The editor is never automatically used, and it is also skipped when the user points a `workbench.editorAssociations` entry at it. It can still be opened via the `Reopen With` command or the specialized `workbench.diffEditorAssociations` setting.",
                           "The editor is not automatically used when the user opens a resource, but a user can switch to the editor using the `Reopen With` command."
                         ],
-                        "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a merge editor. When not specified, the value of `textEditor` is used."
+                        "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a merge editor. When not specified this defaults to `never`, so the custom editor is not used for merges unless it opts in."
                       },
                       "textEditor": {
                         "type": "string",
                         "enum": [
                           "default",
+                          "never",
                           "option"
                         ],
                         "markdownEnumDescriptions": [
                           "The editor is automatically used when the user opens a resource, provided that no other default custom editors are registered for that resource.",
+                          "The editor is never automatically used, and it is also skipped when the user points a `workbench.editorAssociations` entry at it. It can still be opened via the `Reopen With` command or the specialized `workbench.diffEditorAssociations` setting.",
                           "The editor is not automatically used when the user opens a resource, but a user can switch to the editor using the `Reopen With` command."
                         ],
-                        "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a file. This is the base value: when `diffEditor` or `mergeEditor` are not specified, they fall back to this value."
+                        "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a file. `diffEditor` and `mergeEditor` do not inherit this value; when they are not specified they default to `never`."
                       }
                     }
                   },
@@ -1181,10 +1187,12 @@
                     "type": "string",
                     "enum": [
                       "default",
+                      "never",
                       "option"
                     ],
                     "markdownEnumDescriptions": [
                       "The editor is automatically used when the user opens a resource, provided that no other default custom editors are registered for that resource.",
+                      "The editor is never automatically used, and it is also skipped when the user points a `workbench.editorAssociations` entry at it. It can still be opened via the `Reopen With` command or the specialized `workbench.diffEditorAssociations` setting.",
                       "The editor is not automatically used when the user opens a resource, but a user can switch to the editor using the `Reopen With` command."
                     ]
                   }
@@ -2406,6 +2414,11 @@
                       "debug-console-evaluation-input",
                       "debug-console-evaluation-prompt",
                       "debug-inspect-memory",
+                      "chat-model-provider-copilot",
+                      "chat-model-provider-openai",
+                      "chat-model-provider-claude",
+                      "chat-model-provider-gemini",
+                      "chat-model-provider-generic",
                       "extension-default-icon",
                       "extensions-verified-publisher",
                       "terminal-view-icon",
@@ -2526,6 +2539,17 @@
                       "terminal-symbol-symbolic-link-file",
                       "terminal-symbol-symbolic-link-folder",
                       "terminal-symbol-symbol-text",
+                      "notifications-clear",
+                      "notifications-clear-all",
+                      "notifications-hide",
+                      "notifications-hide-up",
+                      "notifications-expand",
+                      "notifications-expand-down",
+                      "notifications-collapse",
+                      "notifications-collapse-up",
+                      "notifications-configure",
+                      "notifications-do-not-disturb",
+                      "notifications-position",
                       "tasks-list-configure",
                       "tasks-remove",
                       "getting-started-setup",
@@ -2554,17 +2578,6 @@
                       "workspace-trust-editor-edit-folder",
                       "workspace-trust-editor-remove-folder",
                       "workspace-trust-editor-label-icon",
-                      "notifications-clear",
-                      "notifications-clear-all",
-                      "notifications-hide",
-                      "notifications-hide-up",
-                      "notifications-expand",
-                      "notifications-expand-down",
-                      "notifications-collapse",
-                      "notifications-collapse-up",
-                      "notifications-configure",
-                      "notifications-do-not-disturb",
-                      "notifications-position",
                       "runtime-extensions-editor-label-icon",
                       "issue-reporter",
                       "survey"
@@ -3500,6 +3513,11 @@
                       "Icon for the debug evaluation input marker.",
                       "Icon for the debug evaluation prompt.",
                       "Icon for the inspect memory action.",
+                      "Icon for Copilot models.",
+                      "Icon for OpenAI models.",
+                      "Icon for Claude models.",
+                      "Icon for Gemini models.",
+                      "Icon for other model providers.",
                       "Icon used for the default extension in the extensions view and editor.",
                       "Icon used for the verified extension publisher in the extensions view and editor.",
                       "View icon of the terminal view.",
@@ -3620,6 +3638,17 @@
                       "Icon for symbolic link files in the terminal suggest widget.",
                       "Icon for symbolic link folders in the terminal suggest widget.",
                       "Icon for plain text suggestions in the terminal suggest widget.",
+                      "Icon for the clear action in notifications.",
+                      "Icon for the clear all action in notifications.",
+                      "Icon for the hide action in notifications.",
+                      "Icon for the hide action in notifications when positioned at the top.",
+                      "Icon for the expand action in notifications.",
+                      "Icon for the expand action in notifications when the notification center is at the top.",
+                      "Icon for the collapse action in notifications.",
+                      "Icon for the collapse action in notifications when the notification center is at the top.",
+                      "Icon for the configure action in notifications.",
+                      "Icon for the mute all action in notifications.",
+                      "Icon for the position action in notifications.",
                       "Configuration icon in the tasks selection list.",
                       "Icon for remove in the tasks selection list.",
                       "Icon used for the setup category of welcome page",
@@ -3648,17 +3677,6 @@
                       "Icon for the edit folder icon in the workspace trust editor.",
                       "Icon for the remove folder icon in the workspace trust editor.",
                       "Icon of the workspace trust editor label.",
-                      "Icon for the clear action in notifications.",
-                      "Icon for the clear all action in notifications.",
-                      "Icon for the hide action in notifications.",
-                      "Icon for the hide action in notifications when positioned at the top.",
-                      "Icon for the expand action in notifications.",
-                      "Icon for the expand action in notifications when the notification center is at the top.",
-                      "Icon for the collapse action in notifications.",
-                      "Icon for the collapse action in notifications when the notification center is at the top.",
-                      "Icon for the configure action in notifications.",
-                      "Icon for the mute all action in notifications.",
-                      "Icon for the position action in notifications.",
                       "Icon of the runtime extensions editor label.",
                       "Icon for the issue reporter editor.",
                       "Icon for the survey editor."
