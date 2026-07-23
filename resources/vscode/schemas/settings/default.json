@@ -2207,6 +2207,122 @@
       "scope": 5,
       "restricted": false
     },
+    "accessibility.signals.voiceModeStarted": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "announcement": "auto",
+        "sound": "on"
+      },
+      "description": "Plays a signal - sound (audio cue) and/or announcement (alert) - when voice mode has started.",
+      "properties": {
+        "announcement": {
+          "description": "Announces when voice mode has started.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable announcement, will only play when in screen reader optimized mode.",
+            "Disable announcement."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound when voice mode has started.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "section": {
+        "id": "accessibility",
+        "title": "Accessibility"
+      },
+      "defaultDefaultValue": {
+        "announcement": "auto",
+        "sound": "on"
+      },
+      "scope": 5,
+      "restricted": false
+    },
+    "accessibility.signals.voiceModeStopped": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "announcement": "auto",
+        "sound": "on"
+      },
+      "description": "Plays a signal - sound (audio cue) and/or announcement (alert) - when voice mode has stopped.",
+      "properties": {
+        "announcement": {
+          "description": "Announces when voice mode has stopped.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable announcement, will only play when in screen reader optimized mode.",
+            "Disable announcement."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        },
+        "sound": {
+          "description": "Plays a sound when voice mode has stopped.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "section": {
+        "id": "accessibility",
+        "title": "Accessibility"
+      },
+      "defaultDefaultValue": {
+        "announcement": "auto",
+        "sound": "on"
+      },
+      "scope": 5,
+      "restricted": false
+    },
     "accessibility.signals.voiceRecordingStarted": {
       "type": "object",
       "tags": [
@@ -2254,7 +2370,7 @@
       ],
       "additionalProperties": false,
       "default": {
-        "sound": "auto"
+        "sound": "on"
       },
       "description": "Plays a sound / audio cue when the voice recording has stopped.",
       "properties": {
@@ -2266,7 +2382,7 @@
             "off",
             "on"
           ],
-          "default": "off",
+          "default": "auto",
           "enumDescriptions": [
             "Enable sound when a screen reader is attached.",
             "Disable sound.",
@@ -2282,7 +2398,7 @@
         "title": "Accessibility"
       },
       "defaultDefaultValue": {
-        "sound": "auto"
+        "sound": "on"
       },
       "scope": 5,
       "restricted": false
@@ -2668,16 +2784,84 @@
       "scope": 5,
       "restricted": false
     },
+    "agents.voice.enabled": {
+      "type": "boolean",
+      "description": "Enable the Voice Mode panel in the chat view for voice-driven coding conversations.",
+      "default": false,
+      "experiment": {
+        "mode": "auto"
+      },
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "scope": 1,
+      "restricted": true,
+      "section": {
+        "id": "agentsVoice",
+        "title": "Voice Mode"
+      },
+      "defaultDefaultValue": false
+    },
     "agents.voice.handsFree": {
       "type": "boolean",
       "markdownDescription": "When enabled, voice mode automatically re-enters listening after the assistant finishes speaking, so you can hold a hands-free back-and-forth conversation. When disabled, you start each turn manually. This controls only the auto-listen loop; how a turn ends is controlled by `#agents.voice.turn.silenceMs#` and `#agents.voice.turn.stopPhrases#`.",
-      "default": true,
+      "default": false,
       "scope": 1,
       "section": {
         "id": "agentsVoice",
         "title": "Voice Mode"
       },
-      "defaultDefaultValue": true,
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "agents.voice.language": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "de",
+        "en",
+        "es",
+        "fr",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ],
+      "enumItemLabels": [
+        "Automatic",
+        "English",
+        "German",
+        "Spanish",
+        "French",
+        "Italian",
+        "Portuguese",
+        "Japanese",
+        "Korean",
+        "Chinese"
+      ],
+      "markdownDescription": "The language used for speech recognition and spoken responses. The selectable languages support native voice output. Automatic follows the system or browser locale for speech recognition and uses English voice output when the detected language does not support native voice output. Changing this while voice mode is connected takes effect immediately.",
+      "default": "auto",
+      "scope": 1,
+      "section": {
+        "id": "agentsVoice",
+        "title": "Voice Mode"
+      },
+      "defaultDefaultValue": "auto",
+      "restricted": false
+    },
+    "agents.voice.liveTranscript": {
+      "type": "boolean",
+      "markdownDescription": "Show your speech as a live, word-by-word transcript while you are speaking. When disabled, your transcript appears only once you finish speaking. Requires `#agents.voice.showTranscript#` to be enabled to be visible.",
+      "default": false,
+      "scope": 1,
+      "section": {
+        "id": "agentsVoice",
+        "title": "Voice Mode"
+      },
+      "defaultDefaultValue": false,
       "restricted": false
     },
     "agents.voice.showTranscript": {
@@ -4077,6 +4261,30 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.agentHost.copilotSdk.logLevel": {
+      "type": "string",
+      "enum": [
+        "info",
+        "trace"
+      ],
+      "enumDescriptions": [
+        "Log informational messages. Running VS Code with trace logging still enables all Copilot SDK runtime diagnostics.",
+        "Log all Copilot SDK runtime diagnostics."
+      ],
+      "markdownDescription": "Controls the log level for the Copilot SDK runtime used by the local agent host. Changing this setting restarts the Copilot SDK client; active sessions are reloaded when next used.",
+      "default": "info",
+      "scope": 1,
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "info",
+      "restricted": false
+    },
     "chat.agentHost.customTerminalTool.enabled": {
       "type": "boolean",
       "description": "When enabled, Copilot SDK sessions use the Agent Host terminal tool override instead of the SDK's default terminal behavior.",
@@ -4416,6 +4624,26 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.agentHost.systemProxy.enabled": {
+      "type": "boolean",
+      "description": "When enabled, Copilot sessions automatically discover and use the operating system's proxy configuration when no proxy environment variable is set.",
+      "default": true,
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "section": {
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.agents.claude.preferAgentHost": {
       "type": "boolean",
       "markdownDescription": "When enabled, Claude sessions opened from the Agents Window run inside the agent host process instead of the GitHub Copilot Chat extension. Only one Claude implementation surfaces per window. Requires `#chat.agentHost.enabled#`.",
@@ -4668,6 +4896,25 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.assistedPermissions.enabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Controls whether Assisted permissions is shown in Agent Host approval pickers.",
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.autopilot.advanced.enabled": {
       "type": "boolean",
       "markdownDescription": "Enables **Advanced Autopilot**, a single switch that turns on all advanced Autopilot behaviors that delegate more of the loop to the agent. Currently, after each Autopilot turn a small, fast model evaluates whether your original request is complete; if not, Autopilot keeps working using that evaluation as guidance for the next turn, instead of relying on the agent to signal completion itself.",
@@ -4717,12 +4964,12 @@
         "Use the selected BYOK main agent model.",
         "Do not use a default utility model."
       ],
-      "default": "none",
+      "default": "copilot",
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": "none",
+      "defaultDefaultValue": "copilot",
       "scope": 4,
       "restricted": false
     },
@@ -4799,15 +5046,17 @@
         "approvals": {
           "type": "string",
           "enum": [
-            "autoApprove",
+            "allowAll",
+            "assisted",
             "default"
           ],
           "enumDescriptions": [
-            "Bypass Approvals — all tool calls are auto-approved.",
-            "Default Approvals — Copilot uses your configured settings."
+            "Allow All — runs tool calls without asking.",
+            "Assisted permissions — evaluates risk before running tools.",
+            "Ask When Needed — asks when approval settings don't apply."
           ],
           "default": "default",
-          "description": "The starting approval behavior for new agent sessions. If enterprise policy disables auto approval, new sessions use Default Approvals."
+          "description": "The starting approval behavior for new agent sessions. If enterprise policy disables auto approval, new sessions use Ask When Needed."
         },
         "mode": {
           "type": "string",
@@ -4866,6 +5115,25 @@
         "title": "Chat"
       },
       "defaultDefaultValue": "",
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.defaultToCopilotHarness": {
+      "type": "boolean",
+      "markdownDescription": "When enabled, new editor and panel chat sessions default to the Agent Host Copilot CLI instead of the local harness. Requires `#chat.agentHost.enabled#`.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "section": {
+        "id": "chatAgentHost",
+        "title": "Chat Agent Host"
+      },
+      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },
@@ -4993,6 +5261,25 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.editor.codex.preferAgentHost": {
+      "type": "boolean",
+      "markdownDescription": "When enabled, Codex sessions opened from the regular workbench (sidebar chat) run inside the agent host process using the Codex App Server instead of the OpenAI extension. Only one Codex implementation surfaces per window. Requires `#chat.agentHost.enabled#` and `#chat.agentHost.codexAgent.enabled#`.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.editor.copilotCli.hideExtensionHost": {
       "type": "boolean",
       "description": "When enabled, hides the Extension Host Copilot CLI entry from the editor window chat picker.",
@@ -5009,35 +5296,6 @@
         "title": "Chat Agent Host"
       },
       "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
-    },
-    "chat.editor.defaultProvider": {
-      "type": "string",
-      "enum": [
-        "copilotAh",
-        "copilotEh",
-        "local"
-      ],
-      "enumDescriptions": [
-        "Use the Agent Host Copilot CLI",
-        "Use the Extension Host Copilot CLI",
-        "Use the built-in VS Code local chat harness"
-      ],
-      "description": "Controls which provider is used as the default for new editor chat sessions.",
-      "default": "local",
-      "tags": [
-        "experimental",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "startup"
-      },
-      "section": {
-        "id": "chatAgentHost",
-        "title": "Chat Agent Host"
-      },
-      "defaultDefaultValue": "local",
       "scope": 4,
       "restricted": false
     },
@@ -5091,7 +5349,7 @@
     },
     "chat.editor.localAgent.enabled": {
       "type": "boolean",
-      "description": "When enabled, shows the VS Code local chat harness in the chat picker.",
+      "description": "When enabled, shows the VS Code local chat harness in the chat picker. This setting is ignored in virtual workspaces, where the local chat harness is always available.",
       "default": true,
       "tags": [
         "experimental",
@@ -5105,6 +5363,25 @@
         "title": "Chat Agent Host"
       },
       "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.editor.preferCopilotHarness": {
+      "type": "boolean",
+      "description": "When enabled, prefers the Agent Host Copilot CLI for new editor chat sessions. If the local harness is selected, it is replaced with Copilot once.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "section": {
+        "id": "chatAgentHost",
+        "title": "Chat Agent Host"
+      },
+      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },
@@ -6414,6 +6691,79 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.speechToText.enabled": {
+      "type": "boolean",
+      "markdownDescription": "Enables dictating into the chat input using on-device speech-to-text. When enabled on a supported platform, a microphone button appears in the chat input; the transcription model is downloaded on first use and runs locally.",
+      "default": false,
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.speechToText.mode": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "pushToTalk",
+        "toggle"
+      ],
+      "enumDescriptions": [
+        "Tap the dictation shortcut to start and stop, or press and hold it to dictate only while held (push-to-talk).",
+        "Press and hold the dictation shortcut to dictate; dictation stops as soon as the shortcut is released.",
+        "Tap the dictation shortcut to start dictating and tap again to stop."
+      ],
+      "markdownDescription": "Controls how the chat dictation shortcut (`Cmd/Ctrl+I`) behaves.",
+      "default": "auto",
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "auto",
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.speechToText.model": {
+      "type": "string",
+      "enum": [
+        "onnx-community/nemotron-3.5-asr-streaming-0.6b-onnx-int4",
+        "onnx-community/whisper-base",
+        "onnx-community/whisper-small",
+        "onnx-community/whisper-tiny"
+      ],
+      "enumItemLabels": [
+        "Tiny",
+        "Base",
+        "Small",
+        "Nemotron (Multilingual)"
+      ],
+      "markdownEnumDescriptions": [
+        "NVIDIA Nemotron RNN-T: multilingual (35+ languages, auto-detected), high accuracy, matches the GitHub Copilot app (~800MB download).",
+        "Balanced speed and accuracy (~145MB download).",
+        "Most accurate; slower and larger (~465MB download).",
+        "Smallest and fastest; lowest accuracy (~75MB download)."
+      ],
+      "markdownDescription": "The on-device model used for chat dictation. The model is downloaded on first use and cached on disk. Larger models are more accurate but slower and take longer to download.",
+      "default": "onnx-community/nemotron-3.5-asr-streaming-0.6b-onnx-int4",
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "onnx-community/nemotron-3.5-asr-streaming-0.6b-onnx-int4",
+      "scope": 4,
+      "restricted": false
+    },
     "chat.subagents.allowInvocationsFromSubagents": {
       "type": "boolean",
       "description": "Allow subagents to invoke subagents.",
@@ -7165,6 +7515,26 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.tools.terminal.outputCompaction": {
+      "restricted": true,
+      "type": "boolean",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "markdownDescription": "When enabled, the output of commands run by the run in terminal tool is compacted before being returned to the model, reducing the number of tokens spent on noisy output (for example progress bars or repeated log lines) while preserving the important information.",
+      "section": {
+        "id": "terminal",
+        "title": "Integrated Terminal",
+        "order": 100
+      },
+      "defaultDefaultValue": false,
+      "scope": 4
+    },
     "chat.tools.terminal.outputDeltas": {
       "restricted": true,
       "type": "boolean",
@@ -7400,40 +7770,40 @@
       "restricted": false
     },
     "chat.turnStatusPills": {
-      "type": "object",
-      "markdownDescription": "Controls which agent turn status pills are shown above the chat input while a turn is in progress and inside the completed response. Only applies to agent sessions.",
-      "properties": {
-        "browser": {
-          "type": "boolean",
-          "default": false,
-          "description": "Show a \"Live Browser\" pill to open the integrated browser at the last URL a browser tool opened in the turn."
+      "anyOf": [
+        {
+          "type": "boolean"
         },
-        "changes": {
-          "type": "boolean",
-          "default": false,
-          "description": "Show a pill summarizing the files changed and the lines added and removed in the turn."
-        },
-        "preview": {
-          "type": "boolean",
-          "default": false,
-          "description": "Show a pill to preview a Markdown or HTML file created or edited in the turn."
+        {
+          "type": "object",
+          "properties": {
+            "browser": {
+              "type": "boolean",
+              "default": false,
+              "description": "Show a pill for browser activity in the turn."
+            },
+            "changes": {
+              "type": "boolean",
+              "default": false,
+              "description": "Show a pill summarizing the files changed and the lines added and removed in the turn."
+            },
+            "preview": {
+              "type": "boolean",
+              "default": false,
+              "description": "Show a pill to preview a Markdown or HTML file created or edited in the turn."
+            }
+          },
+          "additionalProperties": false,
+          "deprecationMessage": "The per-pill object form is deprecated. Use a boolean value instead."
         }
-      },
-      "default": {
-        "browser": false,
-        "changes": false,
-        "preview": false
-      },
-      "additionalProperties": false,
+      ],
+      "markdownDescription": "Controls whether agent status pills are shown above the chat input while a turn is in progress and inside the completed response. Only applies to agent sessions.",
+      "default": false,
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": {
-        "browser": false,
-        "changes": false,
-        "preview": false
-      },
+      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },
@@ -7681,6 +8051,18 @@
         "title": "Chat"
       },
       "defaultDefaultValue": "",
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.verbose": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show request and completion timestamps. Hover over a completion timestamp to show the elapsed response time.",
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -11975,18 +12357,6 @@
     },
     "editor.suggest.matchOnWordStartOnly": {
       "$ref": "#/$defs/_195"
-    },
-    "editor.suggest.maxVisibleSuggestions": {
-      "deprecationMessage": "This setting is deprecated. The suggest widget can now be resized.",
-      "type": "number",
-      "section": {
-        "id": "editor",
-        "title": "Editor",
-        "order": 5
-      },
-      "default": 0,
-      "scope": 6,
-      "restricted": false
     },
     "editor.suggest.preview": {
       "$ref": "#/$defs/_189"
@@ -19427,7 +19797,7 @@
         "displayName": "JavaScript and TypeScript Language Features"
       },
       "default": [],
-      "restricted": true
+      "restricted": false
     },
     "js/ts.preferences.importModuleSpecifier": {
       "type": "string",
@@ -20163,7 +20533,7 @@
         "displayName": "JavaScript and TypeScript Language Features"
       },
       "default": "",
-      "restricted": true
+      "restricted": false
     },
     "js/ts.tsdk.promptToUseWorkspaceVersion": {
       "type": "boolean",
@@ -20257,7 +20627,7 @@
         "displayName": "JavaScript and TypeScript Language Features"
       },
       "default": "",
-      "restricted": true
+      "restricted": false
     },
     "js/ts.tsserver.experimental.enableProjectDiagnostics": {
       "type": "boolean",
@@ -20328,7 +20698,7 @@
       "defaultDefaultValue": {
         "enabled": false
       },
-      "restricted": true
+      "restricted": false
     },
     "js/ts.tsserver.heapSnapshot": {
       "type": "number",
@@ -20429,7 +20799,7 @@
         "displayName": "JavaScript and TypeScript Language Features"
       },
       "default": "",
-      "restricted": true
+      "restricted": false
     },
     "js/ts.tsserver.npm.path": {
       "type": "string",
@@ -20451,7 +20821,7 @@
         "displayName": "JavaScript and TypeScript Language Features"
       },
       "default": "",
-      "restricted": true
+      "restricted": false
     },
     "js/ts.tsserver.pluginPaths": {
       "type": "array",
@@ -20477,7 +20847,7 @@
         "displayName": "JavaScript and TypeScript Language Features"
       },
       "defaultDefaultValue": [],
-      "restricted": true
+      "restricted": false
     },
     "js/ts.tsserver.tracing.enabled": {
       "type": "boolean",
@@ -24539,18 +24909,6 @@
             "editor.suggest.matchOnWordStartOnly": {
               "$ref": "#/$defs/_195"
             },
-            "editor.suggest.maxVisibleSuggestions": {
-              "type": "number",
-              "deprecationMessage": "This setting is deprecated. The suggest widget can now be resized.",
-              "section": {
-                "id": "editor",
-                "title": "Editor",
-                "order": 5
-              },
-              "default": 0,
-              "scope": 6,
-              "restricted": false
-            },
             "editor.suggest.preview": {
               "$ref": "#/$defs/_189"
             },
@@ -28253,38 +28611,6 @@
       "scope": 4,
       "restricted": false
     },
-    "search.location": {
-      "deprecationMessage": "This setting is deprecated. You can drag the search icon to a new location instead.",
-      "type": "string",
-      "enum": [
-        "panel",
-        "sidebar"
-      ],
-      "default": "sidebar",
-      "description": "Controls whether the search will be shown as a view in the sidebar or as a panel in the panel area for more horizontal space.",
-      "section": {
-        "id": "search",
-        "title": "Search",
-        "order": 13
-      },
-      "defaultDefaultValue": "sidebar",
-      "scope": 4,
-      "restricted": false
-    },
-    "search.maintainFileSearchCache": {
-      "deprecationMessage": "The search cache is kept in the extension host which never shuts down, so this setting is no longer needed.",
-      "type": "boolean",
-      "description": "When enabled, the searchService process will be kept alive instead of being shut down after an hour of inactivity. This will keep the file search cache in memory.",
-      "default": false,
-      "section": {
-        "id": "search",
-        "title": "Search",
-        "order": 13
-      },
-      "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
-    },
     "search.maxResults": {
       "type": [
         "number",
@@ -28674,38 +29000,10 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "search.usePCRE2": {
-      "deprecationMessage": "Deprecated. PCRE2 will be used automatically when using regex features that are only supported by PCRE2.",
-      "type": "boolean",
-      "default": false,
-      "description": "Whether to use the PCRE2 regex engine in text search. This enables using some advanced regex features like lookahead and backreferences. However, not all PCRE2 features are supported - only features that are also supported by JavaScript.",
-      "section": {
-        "id": "search",
-        "title": "Search",
-        "order": 13
-      },
-      "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
-    },
     "search.useReplacePreview": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether to open Replace Preview when selecting or replacing a match.",
-      "section": {
-        "id": "search",
-        "title": "Search",
-        "order": 13
-      },
-      "defaultDefaultValue": true,
-      "scope": 4,
-      "restricted": false
-    },
-    "search.useRipgrep": {
-      "deprecationMessage": "Deprecated. Consider \"search.usePCRE2\" for advanced regex feature support.",
-      "type": "boolean",
-      "description": "This setting is deprecated and now falls back on \"search.usePCRE2\".",
-      "default": true,
       "section": {
         "id": "search",
         "title": "Search",
@@ -30909,26 +31207,6 @@
       "defaultDefaultValue": true,
       "scope": 4
     },
-    "terminal.integrated.initialHintCopilotCli": {
-      "restricted": true,
-      "markdownDescription": "When enabled, the terminal initial hint will suggest using Copilot CLI by typing `copilot` instead of opening Copilot Chat.",
-      "type": "boolean",
-      "default": false,
-      "tags": [
-        "experimental",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "auto"
-      },
-      "section": {
-        "id": "terminal",
-        "title": "Integrated Terminal",
-        "order": 100
-      },
-      "defaultDefaultValue": false,
-      "scope": 4
-    },
     "terminal.integrated.letterSpacing": {
       "description": "Controls the letter spacing of the terminal. This is an integer value which represents the number of additional pixels to add between characters.",
       "type": "number",
@@ -31941,7 +32219,7 @@
       "scope": 4
     },
     "terminal.integrated.tabs.allowAgentCliTitle": {
-      "description": "Controls whether agentic CLIs (such as Claude Code, Codex, GitHub Copilot CLI, and Gemini CLI) are allowed to set the terminal tab title via escape sequences. When disabled, the configured tab title template is used instead.",
+      "description": "Controls whether agentic CLIs (such as Claude Code, Codex, Command Code, GitHub Copilot CLI, and Gemini CLI) are allowed to set the terminal tab title via escape sequences. When disabled, the configured tab title template is used instead.",
       "type": "boolean",
       "default": true,
       "section": {
@@ -34470,7 +34748,7 @@
         "displayName": "JavaScript and TypeScript Language Features"
       },
       "default": "",
-      "restricted": true
+      "restricted": false
     },
     "typescript.preferences.autoImportFileExcludePatterns": {
       "$ref": "#/$defs/_350"
@@ -34792,7 +35070,7 @@
         "displayName": "JavaScript and TypeScript Language Features"
       },
       "default": "",
-      "restricted": true
+      "restricted": false
     },
     "typescript.tsserver.enableTracing": {
       "deprecationMessage": "This setting is deprecated. Use js/ts.tsserver.tracing.enabled instead.",
@@ -34911,7 +35189,7 @@
         "displayName": "JavaScript and TypeScript Language Features"
       },
       "default": "",
-      "restricted": true
+      "restricted": false
     },
     "typescript.tsserver.pluginPaths": {
       "deprecationMessage": "This setting is deprecated. Use js/ts.tsserver.pluginPaths instead.",
@@ -34936,7 +35214,7 @@
         "displayName": "JavaScript and TypeScript Language Features"
       },
       "defaultDefaultValue": [],
-      "restricted": true
+      "restricted": false
     },
     "typescript.tsserver.useSyntaxServer": {
       "deprecationMessage": "This setting is deprecated. Use js/ts.tsserver.useSyntaxServer instead.",
@@ -37108,7 +37386,7 @@
     },
     "workbench.editor.markdownDefaultEditorInAgentsWindow": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "tags": [
         "experimental",
         "onExP"
@@ -37122,7 +37400,7 @@
         "title": "Workbench",
         "order": 7
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -37667,7 +37945,7 @@
       },
       "agentsWindow": {
         "default": {
-          "*.md": "vscode.markdown.preview.editor"
+          "*.md": "vscode.markdown.editor"
         }
       },
       "section": {
@@ -46515,7 +46793,7 @@
         "displayName": "JavaScript and TypeScript Language Features"
       },
       "default": [],
-      "restricted": true
+      "restricted": false
     },
     "_352": {
       "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.useAliasesForRenames instead.",

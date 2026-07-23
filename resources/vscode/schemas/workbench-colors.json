@@ -135,7 +135,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_12"
         }
       ]
     },
@@ -335,7 +335,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_12"
         }
       ]
     },
@@ -568,7 +568,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_12"
         }
       ]
     },
@@ -4670,6 +4670,17 @@
         }
       ]
     },
+    "editorSuggestWidget.focusOutline": {
+      "description": "Outline color of the focused (keyboard-navigated) entry in the suggest widget.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_6"
+        }
+      ]
+    },
     "editorSuggestWidget.foreground": {
       "description": "Foreground color of the suggest widget.",
       "oneOf": [
@@ -4898,7 +4909,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_12"
         }
       ]
     },
@@ -7627,7 +7638,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_54"
+          "$ref": "#/$defs/_12"
         }
       ]
     },
@@ -9862,7 +9873,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#222222}"
+              "body": "${1:#37373d}"
             }
           ]
         }
@@ -9892,13 +9903,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#ffffffa0}"
-            }
-          ]
+          "$ref": "#/$defs/_2"
         }
       ]
     },
@@ -11762,7 +11767,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#3994bcf0}"
+          "body": "${1:#307e9f}"
         }
       ]
     },
@@ -11941,7 +11946,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#3994bc18}"
+          "body": "${1:#307e9f1a}"
         }
       ]
     },
