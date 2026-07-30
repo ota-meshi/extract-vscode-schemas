@@ -2203,6 +2203,33 @@
                       "vscode-outline",
                       "voice-mode",
                       "voice-mode-compact",
+                      "mic-download",
+                      "mic-download-compact",
+                      "voice-mode-download",
+                      "voice-mode-download-compact",
+                      "google-gemini",
+                      "kimi",
+                      "microsoft",
+                      "fish1-happy",
+                      "fish1-neutral",
+                      "fish1-sad",
+                      "fish1-very-sad",
+                      "fish2-happy",
+                      "fish2-neutral",
+                      "fish2-sad",
+                      "fish2-very-sad",
+                      "fish3-happy",
+                      "fish3-neutral",
+                      "fish3-sad",
+                      "fish3-very-sad",
+                      "fish4-happy",
+                      "fish4-neutral",
+                      "fish4-sad",
+                      "fish4-very-sad",
+                      "person-voice",
+                      "person-voice-compact",
+                      "person-voice-filled",
+                      "person-voice-filled-compact",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -2418,6 +2445,8 @@
                       "chat-model-provider-openai",
                       "chat-model-provider-claude",
                       "chat-model-provider-gemini",
+                      "chat-model-provider-kimi",
+                      "chat-model-provider-microsoft",
                       "chat-model-provider-generic",
                       "extension-default-icon",
                       "extensions-verified-publisher",
@@ -3324,6 +3353,33 @@
                       "",
                       "",
                       "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
                       "Icon for breakpoints waiting on another breakpoint.",
                       "Icon for the close action in widgets.",
                       "Icon for goto previous editor location.",
@@ -3517,6 +3573,8 @@
                       "Icon for OpenAI models.",
                       "Icon for Claude models.",
                       "Icon for Gemini models.",
+                      "Icon for Kimi models.",
+                      "Icon for Microsoft models.",
                       "Icon for other model providers.",
                       "Icon used for the default extension in the extensions view and editor.",
                       "Icon used for the verified extension publisher in the extensions view and editor.",
@@ -3813,6 +3871,35 @@
               },
               "url": {
                 "description": "A schema URL ('http:', 'https:') or relative path to the extension folder ('./').",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "jsonValidationRegistry": {
+          "description": "Contributes a JSON validation registry. The registry can be a dynamic resource from a filesystem provider and allows associations to change at runtime.",
+          "type": "array",
+          "defaultSnippets": [
+            {
+              "body": [
+                {
+                  "url": "${1:url}"
+                }
+              ]
+            }
+          ],
+          "items": {
+            "type": "object",
+            "defaultSnippets": [
+              {
+                "body": {
+                  "url": "${1:url}"
+                }
+              }
+            ],
+            "properties": {
+              "url": {
+                "description": "A registry URI or relative path to the extension folder ('./').",
                 "type": "string"
               }
             }
@@ -7499,6 +7586,9 @@
         "sideBarStickyScroll.background",
         "sideBarStickyScroll.border",
         "sideBarStickyScroll.shadow",
+        "surface.background",
+        "surface.foreground",
+        "surface.border",
         "titleBar.activeForeground",
         "titleBar.inactiveForeground",
         "titleBar.activeBackground",
@@ -7594,6 +7684,8 @@
         "editorGutter.commentGlyphForeground",
         "editorGutter.commentUnresolvedGlyphForeground",
         "editorGutter.commentDraftGlyphForeground",
+        "agentsVoice.speakingForeground",
+        "agentsVoice.speakingBackground",
         "agents.background",
         "agentsPanel.background",
         "agentsPanel.foreground",
@@ -7730,8 +7822,6 @@
         "multiDiffEditor.headerBackground",
         "multiDiffEditor.background",
         "multiDiffEditor.border",
-        "agentsVoice.speakingForeground",
-        "agentsVoice.speakingBackground",
         "minimap.chatEditHighlight",
         "mcpIcon.starForeground",
         "interactive.activeCodeBorder",
@@ -8442,6 +8532,9 @@
         "Background color of sticky scroll in the side bar.",
         "Border color of sticky scroll in the side bar.",
         "Shadow color of sticky scroll in the side bar.",
+        "Background color of framed container surfaces (\"cards\"), such as the floating workbench panels in the modern layout.",
+        "Foreground color of framed container surfaces (\"cards\"), such as the floating workbench panels in the modern layout.",
+        "Border color of framed container surfaces (\"cards\"), such as the floating workbench panels in the modern layout.",
         "Title bar foreground when the window is active.",
         "Title bar foreground when the window is inactive.",
         "Title bar background when the window is active.",
@@ -8537,6 +8630,8 @@
         "Editor gutter decoration color for commenting glyphs.",
         "Editor gutter decoration color for commenting glyphs for unresolved comment threads.",
         "Editor gutter decoration color for commenting glyphs for comment threads with draft comments.",
+        "Color for the speaking/active voice state indicator",
+        "Background color for the speaking voice state row highlight",
         "Background color of the agent sessions window shell and gradient base.",
         "Background color of the card panels (chat, files, terminal) in the agent sessions window.",
         "Foreground color of the card panels (chat, files, terminal) in the agent sessions window.",
@@ -8673,8 +8768,6 @@
         "The background color of the diff editor's header",
         "The background color of the multi file diff editor",
         "The border color of the multi file diff editor",
-        "Color for the speaking/active voice state indicator",
-        "Background color for the speaking voice state row highlight",
         "Color of pending edit regions in the minimap",
         "The icon color for mcp starred.",
         "The border color for the current interactive code cell when the editor has focus.",

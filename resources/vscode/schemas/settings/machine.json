@@ -3863,7 +3863,7 @@
     "chat.agentFilesLocations": {
       "type": "object",
       "title": "Agent File Locations",
-      "markdownDescription": "Specify location(s) of custom agent files (`*.agent.md`). [Learn More](https://aka.ms/vscode-ghcp-custom-chat-modes).\n\nRelative paths are resolved from the root folder(s) of your workspace.",
+      "markdownDescription": "Specify location(s) of custom agent files (`*.agent.md`). [Learn More](https://aka.ms/vscode-ghcp-custom-chat-modes).\n\nRelative paths are resolved from the root folder(s) of your workspace.\n\nThis setting is only used by the Local agent harness.",
       "default": {
         ".claude/agents": true,
         ".github/agents": true,
@@ -3964,16 +3964,20 @@
     "chat.agentHost.byokModels.enabled": {
       "type": "boolean",
       "description": "When enabled, the agent host wires up the BYOK ('bring your own key') language-model bridge so extension-provided BYOK models can run in agent-host sessions. Requires `#chat.agentHost.enabled#`. The agent host process must be restarted for changes to take effect.",
-      "default": true,
+      "default": false,
       "tags": [
         "experimental",
-        "advanced"
+        "advanced",
+        "onExP"
       ],
+      "experiment": {
+        "mode": "startup"
+      },
       "section": {
         "id": "chatAgentHostStarter",
         "title": "Chat Agent Host Starter"
       },
-      "defaultDefaultValue": true,
+      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },
@@ -4023,13 +4027,29 @@
         "localization": {
           "description": {
             "key": "chat.agentHost.codexAgent.enabled.policy",
-            "value": "Enable Codex Agent sessions in VS Code. Start and resume agentic coding sessions powered by OpenAI Codex SDK. Uses your existing Copilot subscription."
+            "value": "Enable Codex Agent sessions in VS Code. Start and resume agentic coding sessions powered by OpenAI Codex. Usage can be routed through GitHub Copilot or authenticated directly with an OpenAI account."
           }
         }
       },
       "section": {
         "id": "chatAgentHostStarter",
         "title": "Chat Agent Host Starter"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.agentHost.copilot.toolSearch.enabled": {
+      "type": "boolean",
+      "description": "When enabled, Copilot SDK sessions defer MCP and non-core VS Code tools behind a tool-search tool so the model discovers them on demand instead of loading every tool definition up front.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
       },
       "defaultDefaultValue": false,
       "scope": 4,
@@ -4298,7 +4318,7 @@
     "chat.agentSkillsLocations": {
       "type": "object",
       "title": "Agent Skills Locations",
-      "markdownDescription": "Specify location(s) of agent skills (`SKILL.md`) that can be used in Chat Sessions. [Learn More](https://aka.ms/vscode-agent-skills).\n\nEach path should contain skill subfolders with SKILL.md files (e.g., add `my-skills` if you have `my-skills/skillA/SKILL.md`). Relative paths are resolved from the root folder(s) of your workspace.",
+      "markdownDescription": "Specify location(s) of agent skills (`SKILL.md`) that can be used in Chat Sessions. [Learn More](https://aka.ms/vscode-agent-skills).\n\nEach path should contain skill subfolders with SKILL.md files (e.g., add `my-skills` if you have `my-skills/skillA/SKILL.md`). Relative paths are resolved from the root folder(s) of your workspace.\n\nThis setting is only used by the Local agent harness.",
       "default": {
         ".agents/skills": true,
         ".claude/skills": true,
@@ -4638,6 +4658,9 @@
       "type": "string",
       "default": "",
       "markdownDescription": "The default model for new chat conversations. Use \"auto\" to let Copilot pick a model, a model family name (such as \"opus\" or \"gemini\") to use the latest available model in that family, or a full model id. You can still switch the model within a conversation; each new conversation starts at this model.",
+      "experiment": {
+        "mode": "auto"
+      },
       "policy": {
         "name": "ChatDefaultModel",
         "category": "InteractiveSession",
@@ -4660,7 +4683,10 @@
       },
       "defaultDefaultValue": "",
       "scope": 4,
-      "restricted": false
+      "restricted": false,
+      "tags": [
+        "onExP"
+      ]
     },
     "chat.defaultToCopilotHarness": {
       "type": "boolean",
@@ -5089,10 +5115,37 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.experimental.sessionArchiveActionWording": {
+      "type": "string",
+      "enum": [
+        "archive",
+        "done"
+      ],
+      "enumDescriptions": [
+        "Use Archive, Archive All, Unarchive, and Unarchive All.",
+        "Use Mark as Done, Mark All as Done, Restore, and Restore All."
+      ],
+      "default": "archive",
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "description": "Controls the wording and icons used by actions that archive and unarchive chat sessions.",
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "archive",
+      "scope": 4,
+      "restricted": false
+    },
     "chat.experimental.useSkillAdherencePrompt": {
       "type": "boolean",
       "title": "Use Skill Adherence Prompt",
-      "markdownDescription": "Controls whether a stronger skill adherence prompt is used that encourages the model to immediately invoke skills when relevant rather than just announcing them.",
+      "markdownDescription": "Controls whether a stronger skill adherence prompt is used that encourages the model to immediately invoke skills when relevant rather than just announcing them. This setting is only used by the Local agent harness.",
       "default": false,
       "restricted": true,
       "disallowConfigurationDefault": true,
@@ -5243,7 +5296,7 @@
     "chat.hookFilesLocations": {
       "type": "object",
       "title": "Hook File Locations",
-      "markdownDescription": "Specify paths to hook configuration files that define custom shell commands to execute at strategic points in an agent's workflow. [Learn More](https://aka.ms/vscode-chat-hooks).\n\nRelative paths are resolved from the root folder(s) of your workspace. Supports Copilot hooks (`*.json`) and Claude Code hooks (`settings.json`, `settings.local.json`).",
+      "markdownDescription": "Specify paths to hook configuration files that define custom shell commands to execute at strategic points in an agent's workflow. [Learn More](https://aka.ms/vscode-chat-hooks).\n\nRelative paths are resolved from the root folder(s) of your workspace. Supports Copilot hooks (`*.json`) and Claude Code hooks (`settings.json`, `settings.local.json`).\n\nThis setting is only used by the Local agent harness.",
       "default": {
         ".claude/settings.json": true,
         ".claude/settings.local.json": true,
@@ -5371,7 +5424,7 @@
     "chat.includeApplyingInstructions": {
       "type": "boolean",
       "title": "Include Applying Instructions",
-      "markdownDescription": "Controls whether instructions with a matching 'applyTo' attribute are automatically included in chat requests.",
+      "markdownDescription": "Controls whether instructions with a matching 'applyTo' attribute are automatically included in chat requests. This setting is only used by the Local agent harness.",
       "default": true,
       "restricted": true,
       "disallowConfigurationDefault": true,
@@ -5391,7 +5444,7 @@
     "chat.includeReferencedInstructions": {
       "type": "boolean",
       "title": "Include Referenced Instructions",
-      "markdownDescription": "Controls whether referenced instructions are automatically included in chat requests.",
+      "markdownDescription": "Controls whether referenced instructions are automatically included in chat requests. This setting is only used by the Local agent harness.",
       "default": false,
       "restricted": true,
       "disallowConfigurationDefault": true,
@@ -5431,7 +5484,7 @@
     "chat.instructionsFilesLocations": {
       "type": "object",
       "title": "Instructions File Locations",
-      "markdownDescription": "Specify location(s) of instructions files (`*.instructions.md`) that can be attached in Chat sessions. [Learn More](https://aka.ms/vscode-ghcp-custom-instructions).\n\nRelative paths are resolved from the root folder(s) of your workspace.",
+      "markdownDescription": "Specify location(s) of instructions files (`*.instructions.md`) that can be attached in Chat sessions. [Learn More](https://aka.ms/vscode-ghcp-custom-instructions).\n\nRelative paths are resolved from the root folder(s) of your workspace.\n\nThis setting is only used by the Local agent harness.",
       "default": {
         ".claude/rules": true,
         ".github/instructions": true,
@@ -5703,7 +5756,7 @@
     "chat.modeFilesLocations": {
       "type": "object",
       "title": "Mode File Locations",
-      "markdownDescription": "Specify location(s) of custom chat mode files (`*.chatmode.md`). [Learn More](https://aka.ms/vscode-ghcp-custom-chat-modes).\n\nRelative paths are resolved from the root folder(s) of your workspace.",
+      "markdownDescription": "Specify location(s) of custom chat mode files (`*.chatmode.md`). [Learn More](https://aka.ms/vscode-ghcp-custom-chat-modes).\n\nRelative paths are resolved from the root folder(s) of your workspace.\n\nThis setting is only used by the Local agent harness.",
       "default": {
         ".github/chatmodes": true
       },
@@ -5823,18 +5876,6 @@
       "scope": 4,
       "restricted": false
     },
-    "chat.persistentProgress.enabled": {
-      "type": "boolean",
-      "default": false,
-      "description": "Always show progress in chat.",
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
-    },
     "chat.planAgent.defaultModel": {
       "type": "string",
       "description": "Select the default language model to use for the Plan agent from the available providers.",
@@ -5911,7 +5952,7 @@
     "chat.progressBorder.enabled": {
       "type": "boolean",
       "default": true,
-      "markdownDescription": "Show an animated gradient border around the chat input while the agent is working or thinking. When enabled and reduced motion is not enabled, this overrides `#chat.persistentProgress.enabled#` to be off. Has no effect when reduced motion is enabled.",
+      "markdownDescription": "Show an animated gradient border around the chat input while the agent is working or thinking. Has no effect when reduced motion is enabled.",
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
@@ -5923,7 +5964,7 @@
     "chat.promptFilesLocations": {
       "type": "object",
       "title": "Prompt File Locations",
-      "markdownDescription": "Specify location(s) of reusable prompt files (`*.prompt.md`) that can be run in Chat sessions. [Learn More](https://aka.ms/vscode-ghcp-prompt-snippets).\n\nRelative paths are resolved from the root folder(s) of your workspace.",
+      "markdownDescription": "Specify location(s) of reusable prompt files (`*.prompt.md`) that can be run in Chat sessions. [Learn More](https://aka.ms/vscode-ghcp-prompt-snippets).\n\nRelative paths are resolved from the root folder(s) of your workspace.\n\nThis setting is only used by the Local agent harness.",
       "default": {
         ".github/prompts": true
       },
@@ -6075,79 +6116,6 @@
         "title": "Chat"
       },
       "defaultDefaultValue": [],
-      "scope": 4,
-      "restricted": false
-    },
-    "chat.speechToText.enabled": {
-      "type": "boolean",
-      "markdownDescription": "Enables dictating into the chat input using on-device speech-to-text. When enabled on a supported platform, a microphone button appears in the chat input; the transcription model is downloaded on first use and runs locally.",
-      "default": false,
-      "tags": [
-        "experimental"
-      ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
-    },
-    "chat.speechToText.mode": {
-      "type": "string",
-      "enum": [
-        "auto",
-        "pushToTalk",
-        "toggle"
-      ],
-      "enumDescriptions": [
-        "Tap the dictation shortcut to start and stop, or press and hold it to dictate only while held (push-to-talk).",
-        "Press and hold the dictation shortcut to dictate; dictation stops as soon as the shortcut is released.",
-        "Tap the dictation shortcut to start dictating and tap again to stop."
-      ],
-      "markdownDescription": "Controls how the chat dictation shortcut (`Cmd/Ctrl+I`) behaves.",
-      "default": "auto",
-      "tags": [
-        "experimental"
-      ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": "auto",
-      "scope": 4,
-      "restricted": false
-    },
-    "chat.speechToText.model": {
-      "type": "string",
-      "enum": [
-        "onnx-community/nemotron-3.5-asr-streaming-0.6b-onnx-int4",
-        "onnx-community/whisper-base",
-        "onnx-community/whisper-small",
-        "onnx-community/whisper-tiny"
-      ],
-      "enumItemLabels": [
-        "Tiny",
-        "Base",
-        "Small",
-        "Nemotron (Multilingual)"
-      ],
-      "markdownEnumDescriptions": [
-        "NVIDIA Nemotron RNN-T: multilingual (35+ languages, auto-detected), high accuracy, matches the GitHub Copilot app (~800MB download).",
-        "Balanced speed and accuracy (~145MB download).",
-        "Most accurate; slower and larger (~465MB download).",
-        "Smallest and fastest; lowest accuracy (~75MB download)."
-      ],
-      "markdownDescription": "The on-device model used for chat dictation. The model is downloaded on first use and cached on disk. Larger models are more accurate but slower and take longer to download.",
-      "default": "onnx-community/nemotron-3.5-asr-streaming-0.6b-onnx-int4",
-      "tags": [
-        "experimental"
-      ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": "onnx-community/nemotron-3.5-asr-streaming-0.6b-onnx-int4",
       "scope": 4,
       "restricted": false
     },
@@ -7238,7 +7206,7 @@
     "chat.useAgentSkills": {
       "type": "boolean",
       "title": "Use Agent skills",
-      "markdownDescription": "Controls whether skills are provided as specialized capabilities to the chat requests. Skills are loaded from the folders configured in `#chat.agentSkillsLocations#`. The language model can load these skills on-demand if the `read` tool is available. Learn more about [Agent Skills](https://aka.ms/vscode-agent-skills).",
+      "markdownDescription": "Controls whether skills are provided as specialized capabilities to the chat requests. Skills are loaded from the folders configured in `#chat.agentSkillsLocations#`. The language model can load these skills on-demand if the `read` tool is available. Learn more about [Agent Skills](https://aka.ms/vscode-agent-skills). This setting is only used by the Local agent harness.",
       "default": true,
       "restricted": true,
       "disallowConfigurationDefault": true,
@@ -7258,7 +7226,7 @@
     "chat.useAgentsMdFile": {
       "type": "boolean",
       "title": "Use AGENTS.md file",
-      "markdownDescription": "Controls whether instructions from `AGENTS.md` file found in a workspace roots are attached to all chat requests.",
+      "markdownDescription": "Controls whether instructions from `AGENTS.md` file found in a workspace roots are attached to all chat requests. This setting is only used by the Local agent harness.",
       "default": true,
       "restricted": true,
       "disallowConfigurationDefault": true,
@@ -7278,7 +7246,7 @@
     "chat.useClaudeHooks": {
       "type": "boolean",
       "title": "Use Claude Hooks",
-      "markdownDescription": "Controls whether hooks from Claude configuration files can execute. When disabled, only Copilot-format hooks are used. Hooks are loaded from the files configured in `#chat.hookFilesLocations#`.",
+      "markdownDescription": "Controls whether hooks from Claude configuration files can execute. When disabled, only Copilot-format hooks are used. Hooks are loaded from the files configured in `#chat.hookFilesLocations#`. This setting is only used by the Local agent harness.",
       "default": false,
       "restricted": true,
       "disallowConfigurationDefault": true,
@@ -7298,7 +7266,7 @@
     "chat.useClaudeMdFile": {
       "type": "boolean",
       "title": "Use CLAUDE.md file",
-      "markdownDescription": "Controls whether instructions from `CLAUDE.md` file found in workspace roots, .claude and ~/.claude folder are attached to all chat requests.",
+      "markdownDescription": "Controls whether instructions from `CLAUDE.md` file found in workspace roots, .claude and ~/.claude folder are attached to all chat requests. This setting is only used by the Local agent harness.",
       "default": true,
       "restricted": true,
       "disallowConfigurationDefault": true,
@@ -7318,7 +7286,7 @@
     "chat.useCustomizationsInParentRepositories": {
       "type": "boolean",
       "title": "Use Customizations in Parent Repositories",
-      "markdownDescription": "Controls whether to use chat customization files in parent repositories.",
+      "markdownDescription": "Controls whether to use chat customization files in parent repositories. This setting is only used by the Local agent harness.",
       "default": false,
       "restricted": true,
       "disallowConfigurationDefault": true,
@@ -7338,7 +7306,7 @@
     "chat.useHooks": {
       "type": "boolean",
       "title": "Use Chat Hooks",
-      "markdownDescription": "Controls whether chat hooks are executed at strategic points during an agent's workflow. Hooks are loaded from the files configured in `#chat.hookFilesLocations#`.",
+      "markdownDescription": "Controls whether chat hooks are executed at strategic points during an agent's workflow. Hooks are loaded from the files configured in `#chat.hookFilesLocations#`. This setting is only used by the Local agent harness.",
       "default": true,
       "restricted": true,
       "disallowConfigurationDefault": true,
@@ -7355,7 +7323,7 @@
         "localization": {
           "description": {
             "key": "chat.useHooks.description",
-            "value": "Controls whether chat hooks are executed at strategic points during an agent's workflow. Hooks are loaded from the files configured in `#chat.hookFilesLocations#`."
+            "value": "Controls whether chat hooks are executed at strategic points during an agent's workflow. Hooks are loaded from the files configured in `#chat.hookFilesLocations#`. This setting is only used by the Local agent harness."
           }
         }
       },
@@ -7369,7 +7337,7 @@
     "chat.useNestedAgentsMdFiles": {
       "type": "boolean",
       "title": "Use nested AGENTS.md files",
-      "markdownDescription": "Controls whether instructions from nested `AGENTS.md` files found in the workspace are listed in all chat requests. The language model can load these skills on-demand if the `read` tool is available.",
+      "markdownDescription": "Controls whether instructions from nested `AGENTS.md` files found in the workspace are listed in all chat requests. The language model can load these skills on-demand if the `read` tool is available. This setting is only used by the Local agent harness.",
       "default": false,
       "restricted": true,
       "disallowConfigurationDefault": true,
@@ -9982,6 +9950,74 @@
         "order": 20
       },
       "defaultDefaultValue": "floating",
+      "scope": 4,
+      "restricted": false
+    },
+    "dictation.enabled": {
+      "type": "boolean",
+      "markdownDescription": "Enables dictation across the product (chat input, editor, and terminal). When enabled on a supported platform, a microphone button appears in the chat input and the dictation shortcut becomes available; the on-device transcription model is downloaded on first use and runs locally.",
+      "default": true,
+      "tags": [
+        "experimental"
+      ],
+      "policy": {
+        "name": "DictationEnabled",
+        "category": "InteractiveSession",
+        "minimumVersion": "1.131",
+        "localization": {
+          "description": {
+            "key": "dictation.enabled.policy",
+            "value": "Controls whether dictation is available across the product (chat input, editor, and terminal)."
+          }
+        }
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
+    "dictation.experimental.llmCleanup": {
+      "type": "boolean",
+      "markdownDescription": "Experimental: periodically refine finalized text while dictating, then pass the final transcript through a small language model to restore punctuation, capitalization, paragraphs, and lists. Requires Copilot to be enabled; the transcript is sent to the language model for cleanup. Falls back to the raw transcript when no model is available.",
+      "default": true,
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
+    "dictation.model": {
+      "type": "string",
+      "enum": [
+        "mai",
+        "nemotron-speech-streaming-en-0.6b"
+      ],
+      "enumItemLabels": [
+        "Nemotron Streaming (English) — On-Device",
+        "MAI — Cloud"
+      ],
+      "markdownEnumDescriptions": [
+        "Cloud transcription through the same Microsoft AI voice service used by Voice Mode. Requires a network connection and GitHub sign-in; audio is streamed to the service.",
+        "NVIDIA Nemotron streaming RNN-T (English), run on-device through Microsoft Foundry Local. Works offline; no audio leaves the device. Downloaded on first use and cached on disk."
+      ],
+      "markdownDescription": "The model used for dictation. On-device models download on first use and run locally through Microsoft Foundry Local; the cloud option streams audio to the Microsoft AI voice service.",
+      "default": "nemotron-speech-streaming-en-0.6b",
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "nemotron-speech-streaming-en-0.6b",
       "scope": 4,
       "restricted": false
     },
@@ -28023,8 +28059,21 @@
       "restricted": false
     },
     "terminal.integrated.accessibleViewPreserveCursorPosition": {
-      "markdownDescription": "Preserve the cursor position on reopen of the terminal's accessible view rather than setting it to the bottom of the buffer.",
-      "type": "boolean",
+      "markdownDescription": "Controls whether the cursor position is preserved in the terminal's accessible view.",
+      "type": [
+        "boolean",
+        "string"
+      ],
+      "enum": [
+        "always",
+        false,
+        true
+      ],
+      "enumDescriptions": [
+        "Always preserve the cursor position, including when new terminal content arrives.",
+        "Always position the cursor at the bottom of the buffer.",
+        "Preserve the cursor position on reopen until new terminal content arrives."
+      ],
       "default": false,
       "section": {
         "id": "terminal",
@@ -28560,7 +28609,6 @@
         "bash",
         "bash (2)",
         "dash",
-        "JavaScript Debug Terminal",
         "pwsh",
         "pwsh (2)",
         "rbash",
@@ -28575,7 +28623,6 @@
         "$(terminal-bash) bash\n- path: /usr/bin/bash",
         "$(terminal) bash (2)\n- path: /usr/bin/bash",
         "$(terminal) dash\n- path: /usr/bin/dash",
-        "$($(debug)) JavaScript Debug Terminal\n- extensionIdentifier: ms-vscode.js-debug",
         "$(terminal-powershell) pwsh\n- path: /usr/bin/pwsh",
         "$(terminal) pwsh (2)\n- path: /opt/microsoft/powershell/7/pwsh",
         "$(terminal) rbash\n- path: /bin/rbash",
@@ -29949,6 +29996,19 @@
       "scope": 4,
       "restricted": false
     },
+    "terminal.integrated.resizeDimensionsOverlay.enabled": {
+      "markdownDescription": "Whether to show a visual overlay with the terminal's columns and rows when it is resized.",
+      "type": "boolean",
+      "default": true,
+      "section": {
+        "id": "terminal",
+        "title": "Integrated Terminal",
+        "order": 100
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
     "terminal.integrated.rightClickBehavior": {
       "type": "string",
       "enum": [
@@ -30765,6 +30825,22 @@
         "files",
         "filter",
         "filter-filled",
+        "fish1-happy",
+        "fish1-neutral",
+        "fish1-sad",
+        "fish1-very-sad",
+        "fish2-happy",
+        "fish2-neutral",
+        "fish2-sad",
+        "fish2-very-sad",
+        "fish3-happy",
+        "fish3-neutral",
+        "fish3-sad",
+        "fish3-very-sad",
+        "fish4-happy",
+        "fish4-neutral",
+        "fish4-sad",
+        "fish4-very-sad",
         "flag",
         "flame",
         "fold",
@@ -30829,6 +30905,7 @@
         "go-to-editing-session",
         "go-to-file",
         "go-to-search",
+        "google-gemini",
         "grabber",
         "graph",
         "graph-left",
@@ -30865,6 +30942,7 @@
         "keyboard-tab",
         "keyboard-tab-above",
         "keyboard-tab-below",
+        "kimi",
         "law",
         "layers",
         "layers-active",
@@ -30936,8 +31014,11 @@
         "merge",
         "merge-into",
         "mic",
+        "mic-download",
+        "mic-download-compact",
         "mic-filled",
         "microscope",
+        "microsoft",
         "milestone",
         "mirror",
         "mirror-private",
@@ -30980,6 +31061,10 @@
         "person-filled",
         "person-follow",
         "person-outline",
+        "person-voice",
+        "person-voice-compact",
+        "person-voice-filled",
+        "person-voice-filled-compact",
         "piano",
         "pie-chart",
         "pin",
@@ -31228,6 +31313,8 @@
         "vm-small",
         "voice-mode",
         "voice-mode-compact",
+        "voice-mode-download",
+        "voice-mode-download-compact",
         "vr",
         "vscode",
         "vscode-insiders",
@@ -31513,6 +31600,22 @@
         "$(files)",
         "$(filter)",
         "$(filter-filled)",
+        "$(fish1-happy)",
+        "$(fish1-neutral)",
+        "$(fish1-sad)",
+        "$(fish1-very-sad)",
+        "$(fish2-happy)",
+        "$(fish2-neutral)",
+        "$(fish2-sad)",
+        "$(fish2-very-sad)",
+        "$(fish3-happy)",
+        "$(fish3-neutral)",
+        "$(fish3-sad)",
+        "$(fish3-very-sad)",
+        "$(fish4-happy)",
+        "$(fish4-neutral)",
+        "$(fish4-sad)",
+        "$(fish4-very-sad)",
         "$(flag)",
         "$(flame)",
         "$(fold)",
@@ -31577,6 +31680,7 @@
         "$(go-to-editing-session)",
         "$(go-to-file)",
         "$(go-to-search)",
+        "$(google-gemini)",
         "$(grabber)",
         "$(graph)",
         "$(graph-left)",
@@ -31613,6 +31717,7 @@
         "$(keyboard-tab)",
         "$(keyboard-tab-above)",
         "$(keyboard-tab-below)",
+        "$(kimi)",
         "$(law)",
         "$(layers)",
         "$(layers-active)",
@@ -31684,8 +31789,11 @@
         "$(merge)",
         "$(merge-into)",
         "$(mic)",
+        "$(mic-download)",
+        "$(mic-download-compact)",
         "$(mic-filled)",
         "$(microscope)",
+        "$(microsoft)",
         "$(milestone)",
         "$(mirror)",
         "$(mirror-private)",
@@ -31728,6 +31836,10 @@
         "$(person-filled)",
         "$(person-follow)",
         "$(person-outline)",
+        "$(person-voice)",
+        "$(person-voice-compact)",
+        "$(person-voice-filled)",
+        "$(person-voice-filled-compact)",
         "$(piano)",
         "$(pie-chart)",
         "$(pin)",
@@ -31976,6 +32088,8 @@
         "$(vm-small)",
         "$(voice-mode)",
         "$(voice-mode-compact)",
+        "$(voice-mode-download)",
+        "$(voice-mode-download-compact)",
         "$(vr)",
         "$(vscode)",
         "$(vscode-insiders)",
@@ -42870,6 +42984,33 @@
         "vscode-outline",
         "voice-mode",
         "voice-mode-compact",
+        "mic-download",
+        "mic-download-compact",
+        "voice-mode-download",
+        "voice-mode-download-compact",
+        "google-gemini",
+        "kimi",
+        "microsoft",
+        "fish1-happy",
+        "fish1-neutral",
+        "fish1-sad",
+        "fish1-very-sad",
+        "fish2-happy",
+        "fish2-neutral",
+        "fish2-sad",
+        "fish2-very-sad",
+        "fish3-happy",
+        "fish3-neutral",
+        "fish3-sad",
+        "fish3-very-sad",
+        "fish4-happy",
+        "fish4-neutral",
+        "fish4-sad",
+        "fish4-very-sad",
+        "person-voice",
+        "person-voice-compact",
+        "person-voice-filled",
+        "person-voice-filled-compact",
         "dialog-error",
         "dialog-warning",
         "dialog-info",
@@ -43618,6 +43759,33 @@
         "$(vscode-outline)",
         "$(voice-mode)",
         "$(voice-mode-compact)",
+        "$(mic-download)",
+        "$(mic-download-compact)",
+        "$(voice-mode-download)",
+        "$(voice-mode-download-compact)",
+        "$(google-gemini)",
+        "$(kimi)",
+        "$(microsoft)",
+        "$(fish1-happy)",
+        "$(fish1-neutral)",
+        "$(fish1-sad)",
+        "$(fish1-very-sad)",
+        "$(fish2-happy)",
+        "$(fish2-neutral)",
+        "$(fish2-sad)",
+        "$(fish2-very-sad)",
+        "$(fish3-happy)",
+        "$(fish3-neutral)",
+        "$(fish3-sad)",
+        "$(fish3-very-sad)",
+        "$(fish4-happy)",
+        "$(fish4-neutral)",
+        "$(fish4-sad)",
+        "$(fish4-very-sad)",
+        "$(person-voice)",
+        "$(person-voice-compact)",
+        "$(person-voice-filled)",
+        "$(person-voice-filled-compact)",
         "$(dialog-error)",
         "$(dialog-warning)",
         "$(dialog-info)",

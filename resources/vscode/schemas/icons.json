@@ -355,6 +355,14 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for other model providers.: $(chat-model-provider-generic)"
     },
+    "chat-model-provider-kimi": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for Kimi models.: $(chat-model-provider-kimi)"
+    },
+    "chat-model-provider-microsoft": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for Microsoft models.: $(chat-model-provider-microsoft)"
+    },
     "chat-model-provider-openai": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for OpenAI models.: $(chat-model-provider-openai)"
@@ -1237,6 +1245,54 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for 'Find in Selection' in the editor find widget.: $(find-selection)"
     },
+    "fish1-happy": {
+      "$ref": "#/$defs/_0"
+    },
+    "fish1-neutral": {
+      "$ref": "#/$defs/_0"
+    },
+    "fish1-sad": {
+      "$ref": "#/$defs/_0"
+    },
+    "fish1-very-sad": {
+      "$ref": "#/$defs/_0"
+    },
+    "fish2-happy": {
+      "$ref": "#/$defs/_0"
+    },
+    "fish2-neutral": {
+      "$ref": "#/$defs/_0"
+    },
+    "fish2-sad": {
+      "$ref": "#/$defs/_0"
+    },
+    "fish2-very-sad": {
+      "$ref": "#/$defs/_0"
+    },
+    "fish3-happy": {
+      "$ref": "#/$defs/_0"
+    },
+    "fish3-neutral": {
+      "$ref": "#/$defs/_0"
+    },
+    "fish3-sad": {
+      "$ref": "#/$defs/_0"
+    },
+    "fish3-very-sad": {
+      "$ref": "#/$defs/_0"
+    },
+    "fish4-happy": {
+      "$ref": "#/$defs/_0"
+    },
+    "fish4-neutral": {
+      "$ref": "#/$defs/_0"
+    },
+    "fish4-sad": {
+      "$ref": "#/$defs/_0"
+    },
+    "fish4-very-sad": {
+      "$ref": "#/$defs/_0"
+    },
     "flag": {
       "$ref": "#/$defs/_0"
     },
@@ -1465,6 +1521,9 @@
     "go-to-search": {
       "$ref": "#/$defs/_0"
     },
+    "google-gemini": {
+      "$ref": "#/$defs/_0"
+    },
     "goto-next-location": {
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for goto next editor location.: $(goto-next-location)"
@@ -1643,6 +1702,9 @@
       "$ref": "#/$defs/_0"
     },
     "keyboard-tab-below": {
+      "$ref": "#/$defs/_0"
+    },
+    "kimi": {
       "$ref": "#/$defs/_0"
     },
     "language-models-open-settings": {
@@ -1922,10 +1984,19 @@
     "mic": {
       "$ref": "#/$defs/_0"
     },
+    "mic-download": {
+      "$ref": "#/$defs/_0"
+    },
+    "mic-download-compact": {
+      "$ref": "#/$defs/_0"
+    },
     "mic-filled": {
       "$ref": "#/$defs/_0"
     },
     "microscope": {
+      "$ref": "#/$defs/_0"
+    },
+    "microsoft": {
       "$ref": "#/$defs/_0"
     },
     "milestone": {
@@ -2285,6 +2356,18 @@
       "$ref": "#/$defs/_0"
     },
     "person-outline": {
+      "$ref": "#/$defs/_0"
+    },
+    "person-voice": {
+      "$ref": "#/$defs/_0"
+    },
+    "person-voice-compact": {
+      "$ref": "#/$defs/_0"
+    },
+    "person-voice-filled": {
+      "$ref": "#/$defs/_0"
+    },
+    "person-voice-filled-compact": {
       "$ref": "#/$defs/_0"
     },
     "piano": {
@@ -3579,6 +3662,12 @@
       "$ref": "#/$defs/_0"
     },
     "voice-mode-compact": {
+      "$ref": "#/$defs/_0"
+    },
+    "voice-mode-download": {
+      "$ref": "#/$defs/_0"
+    },
+    "voice-mode-download-compact": {
       "$ref": "#/$defs/_0"
     },
     "voice-transcripts-view-icon": {

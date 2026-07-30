@@ -9339,6 +9339,39 @@
         }
       ]
     },
+    "surface.background": {
+      "description": "Background color of framed container surfaces (\"cards\"), such as the floating workbench panels in the modern layout.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_34"
+        }
+      ]
+    },
+    "surface.border": {
+      "description": "Border color of framed container surfaces (\"cards\"), such as the floating workbench panels in the modern layout.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_11"
+        }
+      ]
+    },
+    "surface.foreground": {
+      "description": "Foreground color of framed container surfaces (\"cards\"), such as the floating workbench panels in the modern layout.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_0"
+        },
+        {
+          "$ref": "#/$defs/_1"
+        }
+      ]
+    },
     "symbolIcon.arrayForeground": {
       "description": "The foreground color for array symbols. These symbols appear in the outline, breadcrumb, and suggest widget.",
       "oneOf": [
