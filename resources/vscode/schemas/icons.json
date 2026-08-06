@@ -178,6 +178,9 @@
     "arrow-up": {
       "$ref": "#/$defs/_0"
     },
+    "arrow-up-compact": {
+      "$ref": "#/$defs/_0"
+    },
     "ask": {
       "$ref": "#/$defs/_0"
     },
@@ -367,6 +370,10 @@
       "$ref": "#/definitions/icons",
       "markdownDescription": "Icon for OpenAI models.: $(chat-model-provider-openai)"
     },
+    "chat-model-provider-xai": {
+      "$ref": "#/definitions/icons",
+      "markdownDescription": "Icon for xAI models.: $(chat-model-provider-xai)"
+    },
     "chat-sparkle": {
       "$ref": "#/$defs/_0"
     },
@@ -512,10 +519,16 @@
     "cloud-download": {
       "$ref": "#/$defs/_0"
     },
+    "cloud-download-compact": {
+      "$ref": "#/$defs/_0"
+    },
     "cloud-small": {
       "$ref": "#/$defs/_0"
     },
     "cloud-upload": {
+      "$ref": "#/$defs/_0"
+    },
+    "cloud-upload-compact": {
       "$ref": "#/$defs/_0"
     },
     "code": {
@@ -1982,6 +1995,9 @@
       "$ref": "#/$defs/_0"
     },
     "mic": {
+      "$ref": "#/$defs/_0"
+    },
+    "mic-compact": {
       "$ref": "#/$defs/_0"
     },
     "mic-download": {
@@ -3803,6 +3819,9 @@
       "$ref": "#/$defs/_0"
     },
     "x": {
+      "$ref": "#/$defs/_0"
+    },
+    "xai": {
       "$ref": "#/$defs/_0"
     },
     "zap": {

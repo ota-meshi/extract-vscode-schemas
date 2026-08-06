@@ -1055,6 +1055,17 @@
         }
       ]
     },
+    "chat.dictationActiveMicGlow": {
+      "description": "Accent color of the glow shown on the microphone while dictation is listening.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_6"
+        }
+      ]
+    },
     "chat.editedFileForeground": {
       "description": "The foreground color of a chat edited file in the edited file list.",
       "oneOf": [
@@ -1302,6 +1313,47 @@
           ],
           "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
           "patternErrorMessage": "This color must be transparent or it will obscure content"
+        }
+      ]
+    },
+    "chat.voiceGlowBaseColor": {
+      "description": "Base accent the Voice Mode ambient glow is derived from. The listening and speaking glows are hue-shifted from this color.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#3994bcb3}"
+            }
+          ],
+          "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+          "patternErrorMessage": "This color must be transparent or it will obscure content"
+        }
+      ]
+    },
+    "chat.voiceListeningGlow": {
+      "description": "Accent color of the Voice Mode glow while listening. Derived from chat.voiceGlowBaseColor when unset.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_22"
+        }
+      ]
+    },
+    "chat.voiceSpeakingGlow": {
+      "description": "Accent color of the Voice Mode glow while the agent is speaking. Derived from chat.voiceGlowBaseColor when unset.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_22"
         }
       ]
     },

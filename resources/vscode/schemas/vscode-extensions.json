@@ -1130,7 +1130,7 @@
                 "description": "Human readable name of the custom editor. This is displayed to users when selecting which editor to use."
               },
               "priority": {
-                "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a file, diff, or merge editor. This may be overridden by users using the `workbench.editorAssociations` or `workbench.diffEditorAssociations` setting. When omitted, the custom editor defaults to `default` for the normal editor and `never` for diff and merge editors, so it is not used for diffs or merges unless it opts in.",
+                "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a file or diff editor. This may be overridden by users using the `workbench.editorAssociations` or `workbench.diffEditorAssociations` setting. When omitted, the custom editor defaults to `default` for the normal editor and `explicit` for diff editors, so it is not used for diffs unless it opts in.",
                 "anyOf": [
                   {
                     "type": "object",
@@ -1143,43 +1143,29 @@
                         "type": "string",
                         "enum": [
                           "default",
-                          "never",
+                          "explicit",
                           "option"
                         ],
                         "markdownEnumDescriptions": [
                           "The editor is automatically used when the user opens a resource, provided that no other default custom editors are registered for that resource.",
-                          "The editor is never automatically used, and it is also skipped when the user points a `workbench.editorAssociations` entry at it. It can still be opened via the `Reopen With` command or the specialized `workbench.diffEditorAssociations` setting.",
+                          "The editor is not automatically used or opted into by an association from another editor mode. It can still be opened using the `Reopen With` command or an association configured specifically for this editor mode.",
                           "The editor is not automatically used when the user opens a resource, but a user can switch to the editor using the `Reopen With` command."
                         ],
-                        "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a diff. When not specified this defaults to `never`, so the custom editor is not used for diffs unless it opts in."
-                      },
-                      "mergeEditor": {
-                        "type": "string",
-                        "enum": [
-                          "default",
-                          "never",
-                          "option"
-                        ],
-                        "markdownEnumDescriptions": [
-                          "The editor is automatically used when the user opens a resource, provided that no other default custom editors are registered for that resource.",
-                          "The editor is never automatically used, and it is also skipped when the user points a `workbench.editorAssociations` entry at it. It can still be opened via the `Reopen With` command or the specialized `workbench.diffEditorAssociations` setting.",
-                          "The editor is not automatically used when the user opens a resource, but a user can switch to the editor using the `Reopen With` command."
-                        ],
-                        "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a merge editor. When not specified this defaults to `never`, so the custom editor is not used for merges unless it opts in."
+                        "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a diff. When not specified this defaults to `explicit`, so the custom editor is not used for diffs unless it opts in."
                       },
                       "textEditor": {
                         "type": "string",
                         "enum": [
                           "default",
-                          "never",
+                          "explicit",
                           "option"
                         ],
                         "markdownEnumDescriptions": [
                           "The editor is automatically used when the user opens a resource, provided that no other default custom editors are registered for that resource.",
-                          "The editor is never automatically used, and it is also skipped when the user points a `workbench.editorAssociations` entry at it. It can still be opened via the `Reopen With` command or the specialized `workbench.diffEditorAssociations` setting.",
+                          "The editor is not automatically used or opted into by an association from another editor mode. It can still be opened using the `Reopen With` command or an association configured specifically for this editor mode.",
                           "The editor is not automatically used when the user opens a resource, but a user can switch to the editor using the `Reopen With` command."
                         ],
-                        "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a file. `diffEditor` and `mergeEditor` do not inherit this value; when they are not specified they default to `never`."
+                        "markdownDescription": "Controls if the custom editor is enabled automatically when the user opens a file. `diffEditor` does not inherit this value; when it is not specified it defaults to `explicit`."
                       }
                     }
                   },
@@ -1187,12 +1173,12 @@
                     "type": "string",
                     "enum": [
                       "default",
-                      "never",
+                      "explicit",
                       "option"
                     ],
                     "markdownEnumDescriptions": [
                       "The editor is automatically used when the user opens a resource, provided that no other default custom editors are registered for that resource.",
-                      "The editor is never automatically used, and it is also skipped when the user points a `workbench.editorAssociations` entry at it. It can still be opened via the `Reopen With` command or the specialized `workbench.diffEditorAssociations` setting.",
+                      "The editor is not automatically used or opted into by an association from another editor mode. It can still be opened using the `Reopen With` command or an association configured specifically for this editor mode.",
                       "The editor is not automatically used when the user opens a resource, but a user can switch to the editor using the `Reopen With` command."
                     ]
                   }
@@ -2230,6 +2216,11 @@
                       "person-voice-compact",
                       "person-voice-filled",
                       "person-voice-filled-compact",
+                      "cloud-download-compact",
+                      "cloud-upload-compact",
+                      "mic-compact",
+                      "arrow-up-compact",
+                      "xai",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -2447,6 +2438,7 @@
                       "chat-model-provider-gemini",
                       "chat-model-provider-kimi",
                       "chat-model-provider-microsoft",
+                      "chat-model-provider-xai",
                       "chat-model-provider-generic",
                       "extension-default-icon",
                       "extensions-verified-publisher",
@@ -3380,6 +3372,11 @@
                       "",
                       "",
                       "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
                       "Icon for breakpoints waiting on another breakpoint.",
                       "Icon for the close action in widgets.",
                       "Icon for goto previous editor location.",
@@ -3575,6 +3572,7 @@
                       "Icon for Gemini models.",
                       "Icon for Kimi models.",
                       "Icon for Microsoft models.",
+                      "Icon for xAI models.",
                       "Icon for other model providers.",
                       "Icon used for the default extension in the extensions view and editor.",
                       "Icon used for the verified extension publisher in the extensions view and editor.",
@@ -7785,7 +7783,6 @@
         "editorMinimap.inlineChatInserted",
         "inlineChatDiff.removed",
         "editorOverviewRuler.inlineChatRemoved",
-        "extensionIcon.verifiedForeground",
         "agentStatusIndicator.background",
         "chat.requestBorder",
         "chat.requestBackground",
@@ -7804,6 +7801,11 @@
         "chat.inputWorkingBorderColor1",
         "chat.inputWorkingBorderColor2",
         "chat.inputWorkingBorderColor3",
+        "chat.voiceGlowBaseColor",
+        "chat.voiceListeningGlow",
+        "chat.voiceSpeakingGlow",
+        "chat.dictationActiveMicGlow",
+        "extensionIcon.verifiedForeground",
         "extensionIcon.starForeground",
         "extensionIcon.preReleaseForeground",
         "extensionIcon.sponsorForeground",
@@ -8731,7 +8733,6 @@
         "Minimap marker color for inline chat inserted content.",
         "Background color of removed text in the interactive editor input",
         "Overview ruler marker color for inline chat removed content.",
-        "The icon color for extension verified publisher.",
         "Background color of the agent status indicator in the titlebar.",
         "The border color of a chat request.",
         "The background color of a chat request.",
@@ -8750,6 +8751,11 @@
         "First color stop of the animated chat input border shown while a request is in flight.",
         "Secondary accent color used by other animated chat input affordances. Not used by the in-flight chat input border.",
         "Tertiary accent color used by other animated chat input affordances. Not used by the in-flight chat input border.",
+        "Base accent the Voice Mode ambient glow is derived from. The listening and speaking glows are hue-shifted from this color.",
+        "Accent color of the Voice Mode glow while listening. Derived from chat.voiceGlowBaseColor when unset.",
+        "Accent color of the Voice Mode glow while the agent is speaking. Derived from chat.voiceGlowBaseColor when unset.",
+        "Accent color of the glow shown on the microphone while dictation is listening.",
+        "The icon color for extension verified publisher.",
         "The icon color for extension ratings.",
         "The icon color for pre-release extension.",
         "The icon color for extension sponsor.",
