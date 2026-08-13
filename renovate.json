@@ -1,12 +1,13 @@
 {
-  "extends": [
-    "config:base",
-    ":preserveSemverRanges",
-    ":disableDependencyDashboard"
-  ],
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", ":preserveSemverRanges"],
   "packageRules": [
     {
-      "depTypeList": ["devDependencies"],
+      "matchDepTypes": ["devDependencies"],
+      "automerge": true
+    },
+    {
+      "matchManagers": ["github-actions", "devcontainer"],
       "automerge": true
     }
   ]
