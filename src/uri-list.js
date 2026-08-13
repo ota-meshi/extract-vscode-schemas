@@ -1,4 +1,4 @@
-const URI_LIST = [
+export const URI_LIST = [
   "vscode://schemas/argv",
   "vscode://schemas/color-theme",
   "vscode://schemas/extensions",
@@ -28,4 +28,3 @@ const URI_LIST = [
   "vscode://schemas/workbench-colors",
   "vscode://schemas/workspaceConfig",
 ];
-export { URI_LIST };

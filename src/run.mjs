@@ -10,9 +10,7 @@ import { updateMetadata } from "./meta.js";
 
 const currentDir = path.dirname(fileURLToPath(import.meta.url));
 
-export { run };
-
-async function run() {
+export async function run() {
   // Wait for VSCode initialization to stabilize.
   await new Promise((resolve) => setTimeout(resolve, 120000));
   const processedUri = new Set();
