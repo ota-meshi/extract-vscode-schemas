@@ -264,6 +264,10 @@
     "showLanguageModeIcons": {
       "type": "boolean",
       "description": "Configures whether the default language icons should be used if the theme does not define an icon for a language."
+    },
+    "usesCurrentColor": {
+      "type": "boolean",
+      "description": "Whether image icons use their alpha channel as a mask filled with the current text color. When enabled, only the shape of an image icon is used, so any colors defined in the icon (including light and high contrast variants) are ignored."
     }
   },
   "$defs": {

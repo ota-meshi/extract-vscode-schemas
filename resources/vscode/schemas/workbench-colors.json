@@ -47,7 +47,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_7"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#313233}"
+            }
+          ]
         }
       ]
     },
@@ -551,13 +557,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#ffffff0d}"
-            }
-          ]
+          "$ref": "#/$defs/_34"
         }
       ]
     },
