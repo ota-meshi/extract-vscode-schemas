@@ -1,14 +1,15 @@
-"use strict";
+import { runTests, downloadAndUnzipVSCode } from "@vscode/test-electron";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const { runTests, downloadAndUnzipVSCode } = require("@vscode/test-electron");
-const path = require("node:path");
+const currentDir = path.dirname(fileURLToPath(import.meta.url));
 
 main();
 
 async function main() {
   try {
-    const extensionDevelopmentPath = path.resolve(__dirname, ".");
-    const extensionTestsPath = path.resolve(__dirname, "./run.js");
+    const extensionDevelopmentPath = path.resolve(currentDir, ".");
+    const extensionTestsPath = path.resolve(currentDir, "./run.mjs");
     const vscodeExecutablePath = await downloadAndUnzipVSCode("stable");
 
     await runTests({

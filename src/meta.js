@@ -1,14 +1,12 @@
-"use strict";
-
-const path = require("node:path");
-const fs = require("node:fs");
-const {
+import fs from "node:fs";
+import path from "node:path";
+import {
   META_FILEPATH,
   RESOURCES_PATH_ROOT,
   OLD_META_FILEPATH,
-} = require("./const");
+} from "./const.js";
 
-module.exports = { getMeta, getOldMeta, updateMetadata };
+export { getMeta, getOldMeta, updateMetadata };
 
 function getMeta() {
   return fs.existsSync(META_FILEPATH)

@@ -1,5 +1,3 @@
-"use strict";
-
 const URI_LIST = [
   "vscode://schemas/argv",
   "vscode://schemas/color-theme",
@@ -30,4 +28,4 @@ const URI_LIST = [
   "vscode://schemas/workbench-colors",
   "vscode://schemas/workspaceConfig",
 ];
-module.exports = { URI_LIST };
+export { URI_LIST };

@@ -1,15 +1,16 @@
-"use strict";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+// eslint-disable-next-line n/no-missing-import -- provided by VS Code
+import * as vscode from "vscode";
+import { normalizeSchema } from "./normalize-schema.js";
+import { URI_LIST } from "./uri-list.js";
+import { RESOURCES_PATH_ROOT } from "./const.js";
+import { updateMetadata } from "./meta.js";
 
-const fs = require("node:fs");
-const path = require("node:path");
-// eslint-disable-next-line n/no-missing-require -- only type
-const vscode = require("vscode");
-const { normalizeSchema } = require("./normalize-schema");
-const { URI_LIST } = require("./uri-list");
-const { RESOURCES_PATH_ROOT } = require("./const");
-const { updateMetadata } = require("./meta");
+const currentDir = path.dirname(fileURLToPath(import.meta.url));
 
-module.exports = { run };
+export { run };
 
 async function run() {
   // Wait for VSCode initialization to stabilize.
@@ -75,7 +76,7 @@ function normalizeJson(json, uri) {
 }
 
 function updateREADME(processedUri) {
-  const readmePath = path.join(__dirname, "..", "README.md");
+  const readmePath = path.join(currentDir, "..", "README.md");
   const readme = fs.readFileSync(readmePath, "utf8");
 
   fs.writeFileSync(

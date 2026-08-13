@@ -1,6 +1,4 @@
-"use strict";
-
-module.exports = { normalizeSchema };
+export { normalizeSchema };
 
 function normalizeSchema(schema) {
   if (!schema) {

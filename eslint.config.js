@@ -1,8 +1,6 @@
-"use strict";
+import otaMeshi from "@ota-meshi/eslint-plugin";
 
-const otaMeshi = require("@ota-meshi/eslint-plugin");
-
-module.exports = [
+export default [
   {
     ignores: [
       "**/.*",
@@ -17,10 +15,10 @@ module.exports = [
     json: true,
   }),
   {
-    files: ["**/*.js"],
+    files: ["**/*.{js,mjs}"],
     languageOptions: {
       ecmaVersion: "latest",
-      sourceType: "commonjs",
+      sourceType: "module",
     },
     rules: {
       "jsdoc/require-jsdoc": "off",
