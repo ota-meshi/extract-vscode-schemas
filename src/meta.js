@@ -1,28 +1,24 @@
-"use strict";
-
-const path = require("node:path");
-const fs = require("node:fs");
-const {
+import fs from "node:fs";
+import path from "node:path";
+import {
   META_FILEPATH,
   RESOURCES_PATH_ROOT,
   OLD_META_FILEPATH,
-} = require("./const");
+} from "./const.js";
 
-module.exports = { getMeta, getOldMeta, updateMetadata };
-
-function getMeta() {
+export function getMeta() {
   return fs.existsSync(META_FILEPATH)
     ? JSON.parse(fs.readFileSync(META_FILEPATH, "utf8"))
     : {};
 }
 
-function getOldMeta() {
+export function getOldMeta() {
   return fs.existsSync(OLD_META_FILEPATH)
     ? JSON.parse(fs.readFileSync(OLD_META_FILEPATH, "utf8"))
     : {};
 }
 
-function updateMetadata(vscodeVersion) {
+export function updateMetadata(vscodeVersion) {
   const meta = fs.existsSync(META_FILEPATH)
     ? JSON.parse(fs.readFileSync(META_FILEPATH, "utf8"))
     : {};

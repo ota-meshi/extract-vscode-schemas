@@ -1,13 +1,11 @@
-"use strict";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const path = require("node:path");
-
-const RESOURCES_PATH_ROOT = path.join(__dirname, "..", "resources");
-const META_FILEPATH = path.join(__dirname, "..", "meta-data.json");
-const OLD_META_FILEPATH = path.join(__dirname, "..", "old-meta-data.json");
-
-module.exports = {
-  RESOURCES_PATH_ROOT,
-  META_FILEPATH,
-  OLD_META_FILEPATH,
-};
+const currentDir = path.dirname(fileURLToPath(import.meta.url));
+export const RESOURCES_PATH_ROOT = path.join(currentDir, "..", "resources");
+export const META_FILEPATH = path.join(currentDir, "..", "meta-data.json");
+export const OLD_META_FILEPATH = path.join(
+  currentDir,
+  "..",
+  "old-meta-data.json",
+);

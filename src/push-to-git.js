@@ -1,7 +1,5 @@
-"use strict";
-
-const { spawn } = require("node:child_process");
-const { getMeta, getOldMeta } = require("./meta");
+import { spawn } from "node:child_process";
+import { getMeta, getOldMeta } from "./meta.js";
 
 main();
 
