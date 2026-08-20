@@ -4039,6 +4039,22 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.agentHost.copilot.mapLegacySettingsToManagedSettings": {
+      "type": "boolean",
+      "markdownDescription": "When enabled, maps supported legacy VS Code settings to equivalent Copilot SDK managed settings for local Agent Host sessions. This compatibility bridge is temporary and is not used for new settings.",
+      "default": false,
+      "scope": 3,
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
     "chat.agentHost.copilot.reasoningEffortOverride": {
       "type": "string",
       "markdownDescription": "Overrides the reasoning effort for Copilot SDK agent sessions regardless of the per-model picker value. Set it to a level the selected model supports (for example `low`, `medium`, `high`, or `xhigh`) — choosing a level the model does not support may be rejected by the model. A value that isn't a recognized effort level is ignored and the session falls back to the picker value. Applied when a session is created and when its model changes. Only affects Copilot CLI agent sessions.\n\n**Note**: This is an advanced setting for experimentation.",
@@ -4052,6 +4068,26 @@
         "title": "Chat"
       },
       "defaultDefaultValue": "",
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.agentHost.copilot.reasoningSummary.enabled": {
+      "type": "boolean",
+      "markdownDescription": "When enabled, requests concise reasoning summaries for supported Copilot SDK agent sessions.",
+      "default": false,
+      "experiment": {
+        "mode": "startup"
+      },
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },
@@ -4104,31 +4140,6 @@
       "scope": 4,
       "restricted": false
     },
-    "chat.agentHost.modelCapabilityOverrides": {
-      "type": "object",
-      "markdownDescription": "Per-model capability overrides for Copilot SDK agent sessions, keyed by model id, intended for evaluating preview models against an existing model's profile. For each model id, declare an aliased `family` (for example `claude-opus-4-8`) to route the model to that family's tuned system prompt without a code change; the model id sent to the runtime is unaffected. Only affects Copilot CLI agent sessions.\n\n**Note**: This is an advanced setting for experimentation.",
-      "additionalProperties": {
-        "type": "object",
-        "properties": {
-          "family": {
-            "type": "string",
-            "description": "Alias the model's family for prompt/capability routing (e.g. `claude-opus-4-8`)."
-          }
-        }
-      },
-      "default": {},
-      "tags": [
-        "experimental",
-        "advanced"
-      ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": {},
-      "scope": 4,
-      "restricted": false
-    },
     "chat.agentHost.opus48Prompt.enabled": {
       "type": "boolean",
       "description": "When enabled, Copilot SDK sessions running a Claude Opus 4.8 model apply Opus 4.8-tuned system-prompt section overrides on top of the default system message.",
@@ -4148,16 +4159,42 @@
     "chat.agentHost.sdkSandbox.enabled": {
       "type": "string",
       "enum": [
-        "allowNetwork",
         "off",
         "on"
       ],
       "enumDescriptions": [
-        "The SDK's built-in shell tool runs inside a sandbox with unrestricted outbound network access.",
         "No sandbox policy is forwarded for the SDK's built-in shell tool — commands run unsandboxed.",
-        "The SDK's built-in shell tool runs inside a sandbox using the configured filesystem policy and host-list-restricted network."
+        "The SDK's built-in shell tool runs inside a sandbox using the configured filesystem policy with outbound network blocked."
       ],
-      "markdownDescription": "Sandbox mode for the Copilot SDK's built-in shell tool. Only takes effect when `#chat.agentHost.customTerminalTool.enabled#` is `false`; when the Agent Host's own terminal tool is enabled, the engine sandbox is controlled by `#chat.agent.sandbox.enabled#`. The sandbox applies only to requests that run with default permissions — not when approvals are bypassed — and is not supported on Windows yet.",
+      "markdownDescription": "Sandbox mode for the Copilot SDK's built-in shell tool on macOS and Linux. Only takes effect when `#chat.agentHost.customTerminalTool.enabled#` is `false`; when the Agent Host's own terminal tool is enabled, the engine sandbox is controlled by `#chat.agent.sandbox.enabled#`. The sandbox applies only to requests that run with manual permissions — not when approvals are bypassed. Unrestricted network is controlled by `#chat.agent.sandbox.allowNetwork#`. Use `#chat.agentHost.sdkSandbox.enabledWindows#` on Windows.",
+      "default": "off",
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "off",
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.agentHost.sdkSandbox.enabledWindows": {
+      "type": "string",
+      "enum": [
+        "off",
+        "on"
+      ],
+      "enumDescriptions": [
+        "No sandbox policy is forwarded for the SDK's built-in shell tool on Windows — commands run unsandboxed.",
+        "The SDK's built-in shell tool runs inside the Windows sandbox using the configured filesystem policy."
+      ],
+      "markdownDescription": "Sandbox mode for the Copilot SDK's built-in shell tool on Windows. Only takes effect when `#chat.agentHost.customTerminalTool.enabled#` is `false`. This setting is independent of `#chat.agentHost.sdkSandbox.enabled#` so Windows sandbox support can be enabled separately. Unrestricted network is controlled by `#chat.agent.sandbox.allowNetwork#`.",
       "default": "off",
       "tags": [
         "experimental",
@@ -4257,6 +4294,35 @@
         "title": "Chat"
       },
       "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.agentSessions.showExternal": {
+      "type": "string",
+      "enum": [
+        "all",
+        "last24Hours",
+        "last7Days",
+        "none",
+        "recent"
+      ],
+      "enumDescriptions": [
+        "Shows all sessions discovered from supported external agent applications.",
+        "Shows external sessions updated in the last 24 hours.",
+        "Shows external sessions updated in the last 7 days.",
+        "Only shows sessions created by the Agent Host.",
+        "Shows the 2 most recently updated external sessions from the last 7 days."
+      ],
+      "default": "none",
+      "markdownDescription": "Controls which external agent sessions, created outside VS Code's Agent Host, are shown.",
+      "agentHost": {
+        "key": "showExternalSessions"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "none",
       "scope": 4,
       "restricted": false
     },
@@ -4555,7 +4621,7 @@
       "tags": [
         "experimental"
       ],
-      "description": "Controls whether the Chat Customizations editor shows the prompt file migration affordances for agent-host harnesses. When disabled, the migration card and sidebar shortcut are hidden.",
+      "description": "Controls whether the Chat Customizations editor offers to convert prompt files into skills for agent-host harnesses, which ignore prompt files. When disabled, the migration card and sidebar shortcut are hidden.",
       "default": false,
       "section": {
         "id": "chatSidebar",
@@ -4580,6 +4646,21 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.customizations.userDataMigration.enabled": {
+      "type": "boolean",
+      "tags": [
+        "experimental"
+      ],
+      "description": "Controls whether the Chat Customizations editor offers to move agents and instructions stored in user data to the active agent-host harness, which ignores the user data location. When disabled, the migration card and sidebar shortcut are hidden.",
+      "default": false,
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.defaultConfiguration": {
       "type": "object",
       "additionalProperties": false,
@@ -4589,15 +4670,15 @@
           "enum": [
             "allowAll",
             "assisted",
-            "default"
+            "manual"
           ],
           "enumDescriptions": [
             "Allow All — runs tool calls without asking.",
             "Assisted permissions — evaluates risk before running tools.",
-            "Ask When Needed — asks when approval settings don't apply."
+            "Manual permissions — asks when approval settings don't apply."
           ],
-          "default": "default",
-          "description": "The starting approval behavior for new agent sessions. If enterprise policy disables auto approval, new sessions use Ask When Needed."
+          "default": "manual",
+          "description": "The starting approval behavior for new agent sessions. If enterprise policy disables auto approval, new sessions use Manual permissions."
         },
         "mode": {
           "type": "string",
@@ -4616,16 +4697,16 @@
         }
       },
       "default": {
-        "approvals": "default",
+        "approvals": "manual",
         "mode": "interactive"
       },
-      "markdownDescription": "Controls the default configuration for new agent sessions (such as Copilot CLI). You can still change the mode and approval behavior per session, and each session remembers what was used.",
+      "markdownDescription": "Controls the default configuration for new agent sessions (such as Copilot). You can still change the mode and approval behavior per session, and each session remembers what was used.",
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
       },
       "defaultDefaultValue": {
-        "approvals": "default",
+        "approvals": "manual",
         "mode": "interactive"
       },
       "scope": 4,
@@ -4644,6 +4725,9 @@
         "minimumVersion": "1.127",
         "managedSettings": {
           "permissions.model": {
+            "type": "string"
+          },
+          "model": {
             "type": "string"
           }
         },
@@ -4667,7 +4751,7 @@
     },
     "chat.defaultToCopilotHarness": {
       "type": "boolean",
-      "description": "When enabled, new editor and panel chat sessions default to the Agent Host Copilot CLI instead of the local harness.",
+      "description": "When enabled, new editor and panel chat sessions default to the Agent Host Copilot SDK instead of the local harness.",
       "default": false,
       "tags": [
         "experimental",
@@ -4853,7 +4937,7 @@
     },
     "chat.editor.preferCopilotHarness": {
       "type": "boolean",
-      "description": "When enabled, prefers the Agent Host Copilot CLI for new editor chat sessions. If the local harness is selected, it is replaced with Copilot once.",
+      "description": "When enabled, uses the Agent Host Copilot SDK whenever the local harness would otherwise be selected for a new editor chat session. Claude and Codex selections are unaffected.",
       "default": false,
       "tags": [
         "experimental",
@@ -4861,6 +4945,17 @@
       ],
       "experiment": {
         "mode": "startup"
+      },
+      "policy": {
+        "name": "ChatEditorPreferCopilotHarness",
+        "category": "InteractiveSession",
+        "minimumVersion": "1.134",
+        "localization": {
+          "description": {
+            "key": "chat.editor.preferCopilotHarness.policy",
+            "value": "Configure whether VS Code uses the Agent Host Copilot SDK instead of the local harness for new editor chat sessions."
+          }
+        }
       },
       "section": {
         "id": "chatAgentHost",
@@ -5038,7 +5133,26 @@
     "chat.experimental.permissionsSandboxToggle.enabled": {
       "type": "boolean",
       "default": false,
-      "markdownDescription": "Controls whether the permissions picker shows an inline \"Sandboxing for terminal\" toggle on the Default Permissions option. The toggle reflects and updates `#chat.agent.sandbox.enabled#`.",
+      "markdownDescription": "Controls whether the permissions picker shows an inline \"Sandboxing for terminal\" toggle on the Manual permissions option. For Copilot SDK sessions using the built-in shell tool, the toggle reflects and updates `#chat.agentHost.sdkSandbox.enabled#` or `#chat.agentHost.sdkSandbox.enabledWindows#`.",
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.experimental.richLinks.enabled": {
+      "type": "boolean",
+      "description": "Controls whether supported links in chat are rendered as rich links with live metadata. Enabling this may make authenticated requests to services such as GitHub.",
+      "default": false,
       "tags": [
         "experimental",
         "onExP"
@@ -5329,7 +5443,7 @@
     },
     "chat.implicitContext.includeActiveEditor": {
       "type": "boolean",
-      "markdownDescription": "When enabled, the active editor is automatically forwarded as context, even when it would otherwise only be suggested. Selections and explicitly attached files are always included regardless of this setting.\n\nNote: this setting currently only applies to Agent Host sessions (such as the Copilot CLI).",
+      "markdownDescription": "When enabled, the active editor is automatically forwarded as context, even when it would otherwise only be suggested. Selections and explicitly attached files are always included regardless of this setting.\n\nNote: this setting currently only applies to Agent Host sessions (such as Copilot).",
       "default": true,
       "tags": [
         "experimental"
@@ -6012,6 +6126,18 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.saveBeforeSend": {
+      "type": "boolean",
+      "description": "Controls whether all dirty editors except untitled editors are saved before sending a chat message.",
+      "default": true,
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.sessionSync.enabled": {
       "default": false,
       "markdownDescription": "Enable session sync to GitHub.com. When enabled, Copilot session data is synced to your GitHub account for cross-device access and richer insights. Requires `#github.copilot.chat.localIndex.enabled#` to also be enabled.",
@@ -6179,43 +6305,6 @@
       "scope": 4,
       "restricted": false
     },
-    "chat.tools.edits.autoApprove": {
-      "default": {
-        "**/.git/**": false,
-        "**/.vscode/*.json": false,
-        "**/{.npmrc,.yarnrc,.yarnrc.yml,.pnpmfile.js,.pnpmfile.cjs,.pnpmfile.mjs,pnpm-workspace.yaml}": false,
-        "**/{package.json,server.xml,build.rs,web.config,.gitattributes,.env,Cargo.toml}": false,
-        "**/*": true,
-        "**/*-lock.{yaml,json}": false,
-        "**/*.{code-workspace,csproj,fsproj,vbproj,vcxproj,proj,targets,props,gradle,gradle.kts}": false,
-        "**/*.lock": false,
-        "**/gradle.properties": false,
-        "**/ruby_lsp/*/addon": false
-      },
-      "markdownDescription": "Controls whether edits made by the agent are automatically approved. The default is to approve all edits except those made to certain files which have the potential to cause immediate unintended side-effects, such as `**/.vscode/*.json`.\n\nSet to `true` to automatically approve edits to matching files, `false` to always require explicit approval. The last pattern matching a given file will determine whether the edit is automatically approved.",
-      "type": "object",
-      "additionalProperties": {
-        "type": "boolean"
-      },
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": {
-        "**/.git/**": false,
-        "**/.vscode/*.json": false,
-        "**/{.npmrc,.yarnrc,.yarnrc.yml,.pnpmfile.js,.pnpmfile.cjs,.pnpmfile.mjs,pnpm-workspace.yaml}": false,
-        "**/{package.json,server.xml,build.rs,web.config,.gitattributes,.env,Cargo.toml}": false,
-        "**/*": true,
-        "**/*-lock.{yaml,json}": false,
-        "**/*.{code-workspace,csproj,fsproj,vbproj,vcxproj,proj,targets,props,gradle,gradle.kts}": false,
-        "**/*.lock": false,
-        "**/gradle.properties": false,
-        "**/ruby_lsp/*/addon": false
-      },
-      "scope": 4,
-      "restricted": false
-    },
     "chat.tools.eligibleForAutoApproval": {
       "default": {},
       "markdownDescription": "Controls which tools are eligible for automatic approval. Tools set to 'false' will always present a confirmation and will never offer the option to auto-approve. The default behavior (or setting a tool to 'true') may result in the tool offering auto-approval options.",
@@ -6237,6 +6326,7 @@
           "openBrowserPage",
           "readPage",
           "rename",
+          "renderMermaidDiagram",
           "reviewPlan",
           "runInTerminal",
           "runPlaywrightCode",
@@ -6268,6 +6358,7 @@
           "openBrowserPage - Open a URL in the integrated browser",
           "readPage - Read the content of a browser page",
           "rename - Rename a symbol across the workspace",
+          "renderMermaidDiagram - Render a Mermaid.js diagram from markup.",
           "reviewPlan - Ask the user to review and approve a plan before proceeding.",
           "runInTerminal - Run commands in the terminal",
           "runPlaywrightCode - Run a Playwright code snippet against a browser page",
@@ -21485,6 +21576,34 @@
       "defaultDefaultValue": true,
       "restricted": false
     },
+    "markdown.experimental.richLinks.enabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Controls whether supported links in the Markdown editor are rendered as rich links with live metadata. Enabling this may make authenticated requests to services such as GitHub.",
+      "scope": 4,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "section": {
+        "id": "vscode.markdown-language-features",
+        "title": "Language Features",
+        "order": 20,
+        "extensionInfo": {
+          "id": "vscode.markdown-language-features",
+          "displayName": "Markdown Language Features"
+        }
+      },
+      "source": {
+        "id": "vscode.markdown-language-features",
+        "displayName": "Markdown Language Features"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
     "markdown.links.openLocation": {
       "type": "string",
       "default": "currentGroup",
@@ -27729,7 +27848,7 @@
         "Do not show the prompt timeline.",
         "Show an overview ruler beside the transcript scrollbar that fans into prompt pills on engagement."
       ],
-      "default": "off",
+      "default": "gutter",
       "description": "Controls how the prompt timeline is displayed next to the chat transcript in the Agents window.",
       "tags": [
         "experimental",
@@ -27741,7 +27860,7 @@
       "section": {
         "id": "sessions"
       },
-      "defaultDefaultValue": "off",
+      "defaultDefaultValue": "gutter",
       "scope": 4,
       "restricted": false
     },
@@ -30751,6 +30870,7 @@
         "close-all",
         "close-compact",
         "close-dirty",
+        "close-small",
         "cloud",
         "cloud-compact",
         "cloud-download",
@@ -31532,6 +31652,7 @@
         "$(close-all)",
         "$(close-compact)",
         "$(close-dirty)",
+        "$(close-small)",
         "$(cloud)",
         "$(cloud-compact)",
         "$(cloud-download)",
@@ -34018,6 +34139,19 @@
       "scope": 4,
       "restricted": false
     },
+    "workbench.accounts.showAvatar": {
+      "type": "boolean",
+      "default": true,
+      "description": "Controls whether signed-in account profile images (avatars) are shown in account-related UI, such as the Accounts item in the Activity Bar.",
+      "section": {
+        "id": "workbench",
+        "title": "Workbench",
+        "order": 7
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
     "workbench.activityBar.autoHide": {
       "type": "boolean",
       "default": false,
@@ -35017,6 +35151,7 @@
         "vscode.markdown.editor",
         "vscode.markdown.preview.editor",
         "vscode.videoPreview",
+        "workbench.editor.browser",
         "workbench.editor.chatSession",
         "workbench.editorinputs.searchEditorInput",
         "workbench.editors.gettingStartedInput"
@@ -35164,6 +35299,27 @@
         "order": 7
       },
       "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
+    "workbench.editor.hiddenEditorTypes": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "markdownDescription": "Configure editor types that are hidden from the editor type picker. The active editor type remains visible.",
+      "agentsWindow": {
+        "default": [
+          "vscode.markdown.preview.editor"
+        ]
+      },
+      "section": {
+        "id": "workbench",
+        "title": "Workbench",
+        "order": 7
+      },
+      "defaultDefaultValue": [],
       "scope": 4,
       "restricted": false
     },
@@ -35691,6 +35847,19 @@
       "scope": 4,
       "restricted": false
     },
+    "workbench.editor.tabActionReserveSpace": {
+      "type": "boolean",
+      "default": true,
+      "description": "Controls whether Modern UI editor tabs always reserve space for tab action buttons. When disabled, clean tabs stay compact; tabs with persistent dirty or pinned indicators reserve space regardless.",
+      "section": {
+        "id": "workbench",
+        "title": "Workbench",
+        "order": 7
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
     "workbench.editor.tabActionUnpinVisibility": {
       "type": "boolean",
       "default": true,
@@ -35946,14 +36115,29 @@
     "workbench.experimental.modernUI": {
       "type": "boolean",
       "default": false,
-      "tags": [
-        "experimental",
-        "onExP"
-      ],
-      "description": "Controls whether the experimental Modern UI Update is enabled. When on, the side bars and bottom panel are shown as floating cards with rounded corners and gaps, and a set of refreshed workbench styles is applied, matching the Agents window design.",
+      "description": "Controls whether the Modern UI Update is enabled. When on, the side bars and bottom panel are shown as floating cards with rounded corners and gaps, and a set of refreshed workbench styles is applied, matching the Agents window design.",
       "experiment": {
         "mode": "auto"
       },
+      "section": {
+        "id": "workbench",
+        "title": "Workbench",
+        "order": 7
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false,
+      "tags": [
+        "onExP"
+      ]
+    },
+    "workbench.experimental.modernUIUppercaseViewHeaders": {
+      "type": "boolean",
+      "default": false,
+      "tags": [
+        "experimental"
+      ],
+      "markdownDescription": "Controls whether view headers, side bar titles, and panel tabs use uppercase text when `#workbench.experimental.modernUI#` is enabled.",
       "section": {
         "id": "workbench",
         "title": "Workbench",
@@ -37645,6 +37829,7 @@
         "workbench.editor.chatSession",
         "workbench.editorinputs.searchEditorInput",
         "agentSessionsWelcomePage",
+        "workbench.editor.browser",
         "notebookOutputEditor",
         "repl",
         "workbench.editors.gettingStartedInput",
@@ -43098,6 +43283,7 @@
         "arrow-up-compact",
         "xai",
         "arrow-circle-up-sparkle",
+        "close-small",
         "dialog-error",
         "dialog-warning",
         "dialog-info",
@@ -43879,6 +44065,7 @@
         "$(arrow-up-compact)",
         "$(xai)",
         "$(arrow-circle-up-sparkle)",
+        "$(close-small)",
         "$(dialog-error)",
         "$(dialog-warning)",
         "$(dialog-info)",
