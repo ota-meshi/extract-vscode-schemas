@@ -73,23 +73,6 @@
       "description": "Workspace launch configurations",
       "$ref": "vscode://schemas/launch"
     },
-    "mcp": {
-      "type": "object",
-      "default": {
-        "inputs": [],
-        "servers": {
-          "mcp-server-time": {
-            "command": "uvx",
-            "args": [
-              "mcp_server_time",
-              "--local-timezone=America/Los_Angeles"
-            ]
-          }
-        }
-      },
-      "description": "Model Context Protocol server configurations",
-      "$ref": "vscode://schemas/mcp"
-    },
     "remoteAuthority": {
       "type": "string",
       "doNotSuggest": true,
@@ -99,7 +82,32 @@
       "type": "object",
       "default": {},
       "description": "Workspace settings",
-      "$ref": "vscode://schemas/settings/workspace"
+      "allOf": [
+        {
+          "$ref": "vscode://schemas/settings/workspace"
+        },
+        {
+          "properties": {
+            "mcp": {
+              "type": "object",
+              "default": {
+                "inputs": [],
+                "servers": {
+                  "mcp-server-time": {
+                    "command": "uvx",
+                    "args": [
+                      "mcp_server_time",
+                      "--local-timezone=America/Los_Angeles"
+                    ]
+                  }
+                }
+              },
+              "description": "Model Context Protocol server configurations",
+              "$ref": "vscode://schemas/mcp"
+            }
+          }
+        }
+      ]
     },
     "tasks": {
       "type": "object",

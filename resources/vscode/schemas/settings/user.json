@@ -2457,6 +2457,21 @@
       "scope": 5,
       "restricted": false
     },
+    "accessibility.verbosity.chatPetAchievements": {
+      "description": "Provide information about how to access chat pet achievements accessibility help when the Achievements modal is focused.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "section": {
+        "id": "accessibility",
+        "title": "Accessibility"
+      },
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
     "accessibility.verbosity.chatQuestionCarousel": {
       "description": "Provide information about how to navigate and interact with the chat question carousel, including how to focus the terminal when applicable.",
       "type": "boolean",
@@ -4197,144 +4212,6 @@
       "scope": 4,
       "restricted": false
     },
-    "chat.agentHost.agentMerge.addressReviews": {
-      "type": "boolean",
-      "description": "Controls whether enabled Agent Merge sessions address unresolved review threads, changes-requested reviews, and new pull request comments from repository maintainers or the Copilot pull request reviewer.",
-      "default": true,
-      "scope": 1,
-      "tags": [
-        "experimental"
-      ],
-      "agentHost": {
-        "key": "agentMerge.addressReviews"
-      },
-      "section": {
-        "id": "chatAgentHostStarter",
-        "title": "Chat Agent Host Starter"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "chat.agentHost.agentMerge.enabled": {
-      "type": "boolean",
-      "description": "Enables the experimental Agent Merge controller and its commands. Agent Merge can monitor an agent session's pull request, ask the agent to address selected blockers, and optionally merge the pull request when it is ready.",
-      "default": false,
-      "scope": 1,
-      "tags": [
-        "experimental"
-      ],
-      "agentHost": {
-        "key": "agentMerge.enabled"
-      },
-      "section": {
-        "id": "chatAgentHostStarter",
-        "title": "Chat Agent Host Starter"
-      },
-      "defaultDefaultValue": false,
-      "restricted": false
-    },
-    "chat.agentHost.agentMerge.fixCI": {
-      "type": "boolean",
-      "description": "Controls whether enabled Agent Merge sessions ask the agent to fix failed required CI checks.",
-      "default": true,
-      "scope": 1,
-      "tags": [
-        "experimental"
-      ],
-      "agentHost": {
-        "key": "agentMerge.fixCI"
-      },
-      "section": {
-        "id": "chatAgentHostStarter",
-        "title": "Chat Agent Host Starter"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "chat.agentHost.agentMerge.mergeMethod": {
-      "type": "string",
-      "enum": [
-        "auto",
-        "merge",
-        "rebase",
-        "squash"
-      ],
-      "enumDescriptions": [
-        "Uses the first repository-compatible method in this order: squash, merge commit, rebase.",
-        "Uses a merge commit when the repository permits it.",
-        "Uses rebase merge when the repository permits it.",
-        "Uses squash merge when the repository permits it."
-      ],
-      "description": "Controls the native merge method used by Agent Merge.",
-      "default": "auto",
-      "scope": 1,
-      "tags": [
-        "experimental"
-      ],
-      "agentHost": {
-        "key": "agentMerge.mergeMethod"
-      },
-      "section": {
-        "id": "chatAgentHostStarter",
-        "title": "Chat Agent Host Starter"
-      },
-      "defaultDefaultValue": "auto",
-      "restricted": false
-    },
-    "chat.agentHost.agentMerge.mergePullRequest": {
-      "type": "boolean",
-      "description": "Controls whether the Agent Host automatically merges or enqueues pull requests for enabled Agent Merge sessions after all selected maintenance work is complete.",
-      "default": false,
-      "scope": 1,
-      "tags": [
-        "experimental"
-      ],
-      "agentHost": {
-        "key": "agentMerge.mergePullRequest"
-      },
-      "section": {
-        "id": "chatAgentHostStarter",
-        "title": "Chat Agent Host Starter"
-      },
-      "defaultDefaultValue": false,
-      "restricted": false
-    },
-    "chat.agentHost.agentMerge.replyAttribution": {
-      "type": "boolean",
-      "description": "Controls whether review-thread replies posted by Agent Merge include an automated-reply attribution note.",
-      "default": true,
-      "scope": 1,
-      "tags": [
-        "experimental"
-      ],
-      "agentHost": {
-        "key": "agentMerge.replyAttribution"
-      },
-      "section": {
-        "id": "chatAgentHostStarter",
-        "title": "Chat Agent Host Starter"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "chat.agentHost.agentMerge.resolveConflicts": {
-      "type": "boolean",
-      "description": "Controls whether enabled Agent Merge sessions ask the agent to update branches that are behind or resolve merge conflicts.",
-      "default": true,
-      "scope": 1,
-      "tags": [
-        "experimental"
-      ],
-      "agentHost": {
-        "key": "agentMerge.resolveConflicts"
-      },
-      "section": {
-        "id": "chatAgentHostStarter",
-        "title": "Chat Agent Host Starter"
-      },
-      "defaultDefaultValue": true,
-      "restricted": false
-    },
     "chat.agentHost.ahpJsonlLoggingEnabled": {
       "type": "boolean",
       "description": "When enabled, logs all AHP transport messages for agent host connections to JSONL files under the window's log directory.",
@@ -4373,7 +4250,7 @@
     },
     "chat.agentHost.byokModels.enabled": {
       "type": "boolean",
-      "description": "When enabled, the agent host wires up the BYOK ('bring your own key') language-model bridge so extension-provided BYOK models can run in agent-host sessions. The agent host process must be restarted for changes to take effect.",
+      "description": "When enabled, extension-provided BYOK ('bring your own key') models can run in agent-host sessions. Changes are synchronized to the running agent host and do not require a restart.",
       "default": false,
       "tags": [
         "experimental",
@@ -4382,6 +4259,10 @@
       ],
       "experiment": {
         "mode": "startup"
+      },
+      "agentHost": {
+        "key": "byokModelsEnabled",
+        "scope": "local"
       },
       "section": {
         "id": "chatAgentHostStarter",
@@ -4454,7 +4335,7 @@
     },
     "chat.agentHost.copilot.mapLegacySettingsToManagedSettings": {
       "type": "boolean",
-      "markdownDescription": "When enabled, maps supported legacy VS Code settings to equivalent Copilot SDK managed settings for local Agent Host sessions. This compatibility bridge is temporary and is not used for new settings.",
+      "markdownDescription": "When enabled, maps supported legacy VS Code settings to equivalent Copilot SDK managed settings for local Agent Host sessions. Only restrictions are mapped, and only from globally-scoped values — workspace and folder values are ignored. Applies to local sessions using the Copilot agent; remote hosts and other agents are unaffected. This compatibility bridge is temporary and is not used for new settings.",
       "default": false,
       "scope": 3,
       "tags": [
@@ -4524,6 +4405,26 @@
         "title": "Chat"
       },
       "defaultDefaultValue": {},
+      "restricted": false
+    },
+    "chat.agentHost.copilot.multiTurnContextRouting.enabled": {
+      "type": "boolean",
+      "markdownDescription": "When enabled, Auto model selection in Copilot SDK agent sessions routes on the conversation so far, sending prior user messages to the router instead of scoring the latest message alone.",
+      "default": false,
+      "experiment": {
+        "mode": "startup"
+      },
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
       "restricted": false
     },
     "chat.agentHost.copilot.reasoningEffortOverride": {
@@ -4679,6 +4580,29 @@
         "title": "Chat Agent Host Starter"
       },
       "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "chat.agentHost.githubMcpServer.enabled": {
+      "type": "boolean",
+      "description": "When enabled, agent-host sessions include the GitHub MCP server.",
+      "default": true,
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "agentHost": {
+        "key": "githubMcpServerEnabled"
+      },
+      "section": {
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
       "restricted": false
     },
     "chat.agentHost.opus48Prompt.enabled": {
@@ -4913,7 +4837,7 @@
         "No sandbox policy is forwarded for the SDK's built-in shell tool — commands run unsandboxed.",
         "The SDK's built-in shell tool runs inside a sandbox using the configured filesystem policy with outbound network blocked."
       ],
-      "markdownDescription": "Sandbox mode for the Copilot SDK's built-in shell tool on macOS and Linux. Only takes effect when `#chat.agentHost.customTerminalTool.enabled#` is `false`; when the Agent Host's own terminal tool is enabled, the engine sandbox is controlled by `#chat.agent.sandbox.enabled#`. The sandbox applies only to requests that run with manual permissions — not when approvals are bypassed. Unrestricted network is controlled by `#chat.agent.sandbox.allowNetwork#`. Use `#chat.agentHost.sdkSandbox.enabledWindows#` on Windows.",
+      "markdownDescription": "Sandbox mode for the Copilot SDK's built-in shell tool on macOS and Linux. Only takes effect when `#chat.agentHost.customTerminalTool.enabled#` is `false`; when the Agent Host's own terminal tool is enabled, the engine sandbox is controlled by `#chat.agent.sandbox.enabled#`. The sandbox applies to every permission mode. Unrestricted network is controlled by `#chat.agent.sandbox.allowNetwork#`. Use `#chat.agentHost.sdkSandbox.enabledWindows#` on Windows.",
       "default": "off",
       "tags": [
         "experimental",
@@ -4982,6 +4906,144 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.agentMerge.addressReviews": {
+      "type": "boolean",
+      "description": "Controls whether enabled Agent Merge sessions address unresolved review threads, changes-requested reviews, and new pull request comments from repository maintainers or the Copilot pull request reviewer.",
+      "default": true,
+      "scope": 1,
+      "tags": [
+        "experimental"
+      ],
+      "agentHost": {
+        "key": "agentMerge.addressReviews"
+      },
+      "section": {
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "chat.agentMerge.enabled": {
+      "type": "boolean",
+      "description": "Enables the experimental Agent Merge controller and its commands. Agent Merge can monitor an agent session's pull request, ask the agent to address selected blockers, and optionally merge the pull request when it is ready.",
+      "default": false,
+      "scope": 1,
+      "tags": [
+        "experimental"
+      ],
+      "agentHost": {
+        "key": "agentMerge.enabled"
+      },
+      "section": {
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "chat.agentMerge.fixCI": {
+      "type": "boolean",
+      "description": "Controls whether enabled Agent Merge sessions ask the agent to fix failed required CI checks.",
+      "default": true,
+      "scope": 1,
+      "tags": [
+        "experimental"
+      ],
+      "agentHost": {
+        "key": "agentMerge.fixCI"
+      },
+      "section": {
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "chat.agentMerge.mergeMethod": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "merge",
+        "rebase",
+        "squash"
+      ],
+      "enumDescriptions": [
+        "Uses the first repository-compatible method in this order: squash, merge commit, rebase.",
+        "Uses a merge commit when the repository permits it.",
+        "Uses rebase merge when the repository permits it.",
+        "Uses squash merge when the repository permits it."
+      ],
+      "description": "Controls the native merge method used by Agent Merge.",
+      "default": "auto",
+      "scope": 1,
+      "tags": [
+        "experimental"
+      ],
+      "agentHost": {
+        "key": "agentMerge.mergeMethod"
+      },
+      "section": {
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
+      },
+      "defaultDefaultValue": "auto",
+      "restricted": false
+    },
+    "chat.agentMerge.mergePullRequest": {
+      "type": "boolean",
+      "description": "Controls whether the Agent Host automatically merges or enqueues pull requests for enabled Agent Merge sessions after all selected maintenance work is complete.",
+      "default": false,
+      "scope": 1,
+      "tags": [
+        "experimental"
+      ],
+      "agentHost": {
+        "key": "agentMerge.mergePullRequest"
+      },
+      "section": {
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "chat.agentMerge.replyAttribution": {
+      "type": "boolean",
+      "description": "Controls whether review-thread replies posted by Agent Merge include an automated-reply attribution note.",
+      "default": true,
+      "scope": 1,
+      "tags": [
+        "experimental"
+      ],
+      "agentHost": {
+        "key": "agentMerge.replyAttribution"
+      },
+      "section": {
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "chat.agentMerge.resolveConflicts": {
+      "type": "boolean",
+      "description": "Controls whether enabled Agent Merge sessions ask the agent to update branches that are behind or resolve merge conflicts.",
+      "default": true,
+      "scope": 1,
+      "tags": [
+        "experimental"
+      ],
+      "agentHost": {
+        "key": "agentMerge.resolveConflicts"
+      },
+      "section": {
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
     "chat.agentsControl.enabled": {
       "type": "string",
       "enum": [
@@ -5047,21 +5109,28 @@
     "chat.agentSessions.showExternal": {
       "type": "string",
       "enum": [
-        "all",
         "last24Hours",
+        "last30Days",
         "last7Days",
         "none",
         "recent"
       ],
       "enumDescriptions": [
-        "Shows all sessions discovered from supported external agent applications.",
         "Shows external sessions updated in the last 24 hours.",
+        "Shows external sessions updated in the last 30 days.",
         "Shows external sessions updated in the last 7 days.",
         "Only shows sessions created by the Agent Host.",
-        "Shows the 2 most recently updated external sessions from the last 7 days."
+        "Shows up to the 2 most recently updated external sessions from the last 7 days, hiding any that you have started 2 newer sessions after."
       ],
-      "default": "none",
+      "default": "recent",
       "markdownDescription": "Controls which external agent sessions, created outside VS Code's Agent Host, are shown.",
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
       "agentHost": {
         "key": "showExternalSessions"
       },
@@ -5069,7 +5138,7 @@
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": "none",
+      "defaultDefaultValue": "recent",
       "scope": 4,
       "restricted": false
     },
@@ -5247,6 +5316,29 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.artifactTools.enabled": {
+      "type": "boolean",
+      "description": "When enabled, agents can record artifacts — pull requests, issues, commits, websites, files and other resources — which are surfaced above the chat input.",
+      "default": false,
+      "scope": 1,
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "agentHost": {
+        "key": "artifactTools"
+      },
+      "section": {
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
     "chat.assistedPermissions.enabled": {
       "type": "boolean",
       "default": false,
@@ -5363,18 +5455,54 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.copilot.semanticSearch.enabled": {
+      "type": "boolean",
+      "description": "Controls whether Copilot Agent Host sessions can use VS Code's semantic workspace search. When disabled, semantic search is unavailable.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.copilot.subagentModelGuidance.enabled": {
+      "type": "boolean",
+      "markdownDescription": "When enabled, Copilot SDK agent sessions instruct the model to keep subagents on their default model, setting the task tool's `model` parameter only when you explicitly name the model a subagent should run on. Applied when a session launches or resumes.",
+      "default": false,
+      "experiment": {
+        "mode": "startup"
+      },
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.customizations.promptMigration.enabled": {
       "type": "boolean",
       "tags": [
         "experimental"
       ],
       "description": "Controls whether the Chat Customizations editor offers to convert prompt files into skills for agent-host harnesses, which ignore prompt files. When disabled, the migration card and sidebar shortcut are hidden.",
-      "default": false,
+      "default": true,
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -5904,7 +6032,7 @@
     "chat.experimental.permissionsSandboxToggle.enabled": {
       "type": "boolean",
       "default": false,
-      "markdownDescription": "Controls whether the permissions picker shows an inline \"Sandboxing for terminal\" toggle on the Manual permissions option. For Copilot SDK sessions using the built-in shell tool, the toggle reflects and updates `#chat.agentHost.sdkSandbox.enabled#` or `#chat.agentHost.sdkSandbox.enabledWindows#`.",
+      "markdownDescription": "Controls whether the permissions picker shows a \"Sandboxing for terminal\" toggle. Local sessions show it on the Default permissions option; Copilot Agent Host sessions show it as a separate setting that applies to every permission mode. For Copilot SDK sessions using the built-in shell tool, the toggle reflects and updates `#chat.agentHost.sdkSandbox.enabled#` or `#chat.agentHost.sdkSandbox.enabledWindows#`.",
       "tags": [
         "experimental",
         "onExP"
@@ -5963,6 +6091,21 @@
         "title": "Chat"
       },
       "defaultDefaultValue": "archive",
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.experimental.stickyScroll.enabled": {
+      "type": "boolean",
+      "description": "Controls whether chat requests use experimental tree-based sticky scroll instead of the sticky prompt header.",
+      "default": false,
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },
@@ -6284,6 +6427,25 @@
       },
       "defaultDefaultValue": false,
       "scope": 4
+    },
+    "chat.inlineChat.agentHost.enabled": {
+      "type": "boolean",
+      "description": "Controls whether editor inline chat is backed by the Agent Host instead of the extension host. Applied on startup.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
     },
     "chat.inlineReferences.style": {
       "type": "string",
@@ -6673,18 +6835,16 @@
       "scope": 4,
       "restricted": false
     },
-    "chat.omni.enabled": {
-      "type": "boolean",
-      "markdownDescription": "Enables the floating chat input window and its entry points. Requests submitted from the window are scored against existing agent sessions and routed with an advisory badge.",
-      "default": false,
-      "tags": [
-        "experimental"
-      ],
+    "chat.pasteAsAttachmentThreshold": {
+      "markdownDescription": "The number of characters a paste must exceed before it is added to the chat input as an attachment instead of being inserted inline. A paste must also span several lines, so a long single-line paste is always inserted inline. Set this to a very large number to always paste inline.",
+      "type": "number",
+      "minimum": 0,
+      "default": 10000,
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": 10000,
       "scope": 4,
       "restricted": false
     },
@@ -7139,6 +7299,25 @@
         "title": "Chat"
       },
       "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.terminal.agentHost.enabled": {
+      "type": "boolean",
+      "description": "Controls whether Terminal Chat is backed by the Agent Host instead of the extension host. Applied on startup.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },
@@ -11042,6 +11221,26 @@
       "scope": 4,
       "restricted": false
     },
+    "dictation.experimental.llmCleanupModel": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "copilot-utility-small",
+        "gpt-5.6-luna"
+      ],
+      "markdownDescription": "Controls the language model used for experimental dictation cleanup. `auto` follows the active experiment treatment.",
+      "default": "auto",
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "auto",
+      "scope": 4,
+      "restricted": false
+    },
     "dictation.model": {
       "type": "string",
       "enum": [
@@ -14257,7 +14456,7 @@
     },
     "extensions.autoUpdateDelay": {
       "type": "number",
-      "default": 2,
+      "default": 12,
       "minimum": 0,
       "markdownDescription": "Controls the delay in hours after an extension update is published before it is automatically installed. Only applies when `#extensions.autoUpdate#` is set to `on`. This delay helps avoid installing potentially problematic updates immediately after release.",
       "scope": 1,
@@ -14277,7 +14476,7 @@
         "title": "Extensions",
         "order": 30
       },
-      "defaultDefaultValue": 2,
+      "defaultDefaultValue": 12,
       "restricted": false
     },
     "extensions.closeExtensionDetailsOnViewChange": {
@@ -18446,6 +18645,10 @@
       },
       "markdownDescription": "Specifies domain names for which proxy settings should be ignored for HTTP/HTTPS requests. When during [remote development](https://aka.ms/vscode-remote) the `#http.useLocalProxyConfiguration#` setting is disabled this setting can be configured in the local and the remote settings separately.",
       "restricted": true,
+      "agentHost": {
+        "key": "http.noProxy",
+        "scope": "ambient"
+      },
       "section": {
         "id": "http",
         "title": "HTTP",
@@ -18459,6 +18662,10 @@
       "pattern": "^(https?|socks|socks4a?|socks5h?)://([^:]*(:[^@]*)?@)?([^:]+|\\[[:0-9a-fA-F]+\\])(:\\d+)?/?$|^$",
       "markdownDescription": "The proxy setting to use. If not set, will be inherited from the `http_proxy` and `https_proxy` environment variables. When during [remote development](https://aka.ms/vscode-remote) the `#http.useLocalProxyConfiguration#` setting is disabled this setting can be configured in the local and the remote settings separately.",
       "restricted": true,
+      "agentHost": {
+        "key": "http.proxy",
+        "scope": "ambient"
+      },
       "section": {
         "id": "http",
         "title": "HTTP",
@@ -18487,6 +18694,10 @@
       "type": "string",
       "markdownDescription": "Overrides the principal service name for Kerberos authentication with the HTTP proxy. A default based on the proxy hostname is used when this is not set. When during [remote development](https://aka.ms/vscode-remote) the `#http.useLocalProxyConfiguration#` setting is disabled this setting can be configured in the local and the remote settings separately.",
       "restricted": true,
+      "agentHost": {
+        "key": "http.proxyKerberosServicePrincipal",
+        "scope": "ambient"
+      },
       "section": {
         "id": "http",
         "title": "HTTP",
@@ -32863,6 +33074,7 @@
         "blank",
         "bold",
         "book",
+        "book-compact",
         "bookmark",
         "bracket",
         "bracket-dot",
@@ -33274,6 +33486,8 @@
         "mic-download",
         "mic-download-compact",
         "mic-filled",
+        "mic-off",
+        "mic-off-compact",
         "microscope",
         "microsoft",
         "milestone",
@@ -33645,6 +33859,7 @@
         "$(blank)",
         "$(bold)",
         "$(book)",
+        "$(book-compact)",
         "$(bookmark)",
         "$(bracket)",
         "$(bracket-dot)",
@@ -34056,6 +34271,8 @@
         "$(mic-download)",
         "$(mic-download-compact)",
         "$(mic-filled)",
+        "$(mic-off)",
+        "$(mic-off-compact)",
         "$(microscope)",
         "$(microsoft)",
         "$(milestone)",
@@ -38598,9 +38815,6 @@
       ],
       "description": "Controls whether editors open in a modal overlay.",
       "default": "some",
-      "agentsWindow": {
-        "default": "all"
-      },
       "experiment": {
         "mode": "startup"
       },
@@ -43556,7 +43770,7 @@
       "restricted": false
     },
     "_169": {
-      "description": "Controls how many characters can be in the selection before similiar matches are not highlighted. Set to zero for unlimited.",
+      "description": "Controls how many characters can be in the selection before similar matches are not highlighted. Set to zero for unlimited.",
       "type": "integer",
       "default": 200,
       "minimum": 0,
@@ -45872,6 +46086,9 @@
         "xai",
         "arrow-circle-up-sparkle",
         "close-small",
+        "book-compact",
+        "mic-off",
+        "mic-off-compact",
         "dialog-error",
         "dialog-warning",
         "dialog-info",
@@ -46654,6 +46871,9 @@
         "$(xai)",
         "$(arrow-circle-up-sparkle)",
         "$(close-small)",
+        "$(book-compact)",
+        "$(mic-off)",
+        "$(mic-off-compact)",
         "$(dialog-error)",
         "$(dialog-warning)",
         "$(dialog-info)",

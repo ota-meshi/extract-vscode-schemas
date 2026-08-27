@@ -7122,6 +7122,17 @@
         }
       ]
     },
+    "modernActivityBar.background": {
+      "description": "Background color of the Activity bar in the default side position when the modern UI is enabled.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_48"
+        }
+      ]
+    },
     "modernActivityBar.hoverBackground": {
       "description": "Background color of Activity bar items in the default side position when hovering and the modern UI is enabled.",
       "oneOf": [
@@ -7147,6 +7158,17 @@
         },
         {
           "$ref": "#/$defs/_1"
+        }
+      ]
+    },
+    "modernActivityBar.inactiveBackground": {
+      "description": "Background color of the Activity bar in an inactive window when it is in the default side position and the modern UI is enabled.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_48"
         }
       ]
     },

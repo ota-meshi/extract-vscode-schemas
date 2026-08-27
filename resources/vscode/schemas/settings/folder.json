@@ -2423,6 +2423,21 @@
       "scope": 5,
       "restricted": false
     },
+    "accessibility.verbosity.chatPetAchievements": {
+      "description": "Provide information about how to access chat pet achievements accessibility help when the Achievements modal is focused.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "section": {
+        "id": "accessibility",
+        "title": "Accessibility"
+      },
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
     "accessibility.verbosity.chatQuestionCarousel": {
       "description": "Provide information about how to navigate and interact with the chat question carousel, including how to focus the terminal when applicable.",
       "type": "boolean",
@@ -3960,7 +3975,7 @@
     },
     "chat.agentHost.byokModels.enabled": {
       "type": "boolean",
-      "description": "When enabled, the agent host wires up the BYOK ('bring your own key') language-model bridge so extension-provided BYOK models can run in agent-host sessions. The agent host process must be restarted for changes to take effect.",
+      "description": "When enabled, extension-provided BYOK ('bring your own key') models can run in agent-host sessions. Changes are synchronized to the running agent host and do not require a restart.",
       "default": false,
       "tags": [
         "experimental",
@@ -3969,6 +3984,10 @@
       ],
       "experiment": {
         "mode": "startup"
+      },
+      "agentHost": {
+        "key": "byokModelsEnabled",
+        "scope": "local"
       },
       "section": {
         "id": "chatAgentHostStarter",
@@ -4034,6 +4053,26 @@
       "section": {
         "id": "chatAgentHostStarter",
         "title": "Chat Agent Host Starter"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.agentHost.copilot.multiTurnContextRouting.enabled": {
+      "type": "boolean",
+      "markdownDescription": "When enabled, Auto model selection in Copilot SDK agent sessions routes on the conversation so far, sending prior user messages to the router instead of scoring the latest message alone.",
+      "default": false,
+      "experiment": {
+        "mode": "startup"
+      },
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
       },
       "defaultDefaultValue": false,
       "scope": 4,
@@ -4124,6 +4163,29 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.agentHost.githubMcpServer.enabled": {
+      "type": "boolean",
+      "description": "When enabled, agent-host sessions include the GitHub MCP server.",
+      "default": true,
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "agentHost": {
+        "key": "githubMcpServerEnabled"
+      },
+      "section": {
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.agentHost.opus48Prompt.enabled": {
       "type": "boolean",
       "description": "When enabled, Copilot SDK sessions running a Claude Opus 4.8 model apply Opus 4.8-tuned system-prompt section overrides on top of the default system message.",
@@ -4150,7 +4212,7 @@
         "No sandbox policy is forwarded for the SDK's built-in shell tool — commands run unsandboxed.",
         "The SDK's built-in shell tool runs inside a sandbox using the configured filesystem policy with outbound network blocked."
       ],
-      "markdownDescription": "Sandbox mode for the Copilot SDK's built-in shell tool on macOS and Linux. Only takes effect when `#chat.agentHost.customTerminalTool.enabled#` is `false`; when the Agent Host's own terminal tool is enabled, the engine sandbox is controlled by `#chat.agent.sandbox.enabled#`. The sandbox applies only to requests that run with manual permissions — not when approvals are bypassed. Unrestricted network is controlled by `#chat.agent.sandbox.allowNetwork#`. Use `#chat.agentHost.sdkSandbox.enabledWindows#` on Windows.",
+      "markdownDescription": "Sandbox mode for the Copilot SDK's built-in shell tool on macOS and Linux. Only takes effect when `#chat.agentHost.customTerminalTool.enabled#` is `false`; when the Agent Host's own terminal tool is enabled, the engine sandbox is controlled by `#chat.agent.sandbox.enabled#`. The sandbox applies to every permission mode. Unrestricted network is controlled by `#chat.agent.sandbox.allowNetwork#`. Use `#chat.agentHost.sdkSandbox.enabledWindows#` on Windows.",
       "default": "off",
       "tags": [
         "experimental",
@@ -4284,21 +4346,28 @@
     "chat.agentSessions.showExternal": {
       "type": "string",
       "enum": [
-        "all",
         "last24Hours",
+        "last30Days",
         "last7Days",
         "none",
         "recent"
       ],
       "enumDescriptions": [
-        "Shows all sessions discovered from supported external agent applications.",
         "Shows external sessions updated in the last 24 hours.",
+        "Shows external sessions updated in the last 30 days.",
         "Shows external sessions updated in the last 7 days.",
         "Only shows sessions created by the Agent Host.",
-        "Shows the 2 most recently updated external sessions from the last 7 days."
+        "Shows up to the 2 most recently updated external sessions from the last 7 days, hiding any that you have started 2 newer sessions after."
       ],
-      "default": "none",
+      "default": "recent",
       "markdownDescription": "Controls which external agent sessions, created outside VS Code's Agent Host, are shown.",
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
       "agentHost": {
         "key": "showExternalSessions"
       },
@@ -4306,7 +4375,7 @@
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": "none",
+      "defaultDefaultValue": "recent",
       "scope": 4,
       "restricted": false
     },
@@ -4581,18 +4650,54 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.copilot.semanticSearch.enabled": {
+      "type": "boolean",
+      "description": "Controls whether Copilot Agent Host sessions can use VS Code's semantic workspace search. When disabled, semantic search is unavailable.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.copilot.subagentModelGuidance.enabled": {
+      "type": "boolean",
+      "markdownDescription": "When enabled, Copilot SDK agent sessions instruct the model to keep subagents on their default model, setting the task tool's `model` parameter only when you explicitly name the model a subagent should run on. Applied when a session launches or resumes.",
+      "default": false,
+      "experiment": {
+        "mode": "startup"
+      },
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.customizations.promptMigration.enabled": {
       "type": "boolean",
       "tags": [
         "experimental"
       ],
       "description": "Controls whether the Chat Customizations editor offers to convert prompt files into skills for agent-host harnesses, which ignore prompt files. When disabled, the migration card and sidebar shortcut are hidden.",
-      "default": false,
+      "default": true,
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -5098,7 +5203,7 @@
     "chat.experimental.permissionsSandboxToggle.enabled": {
       "type": "boolean",
       "default": false,
-      "markdownDescription": "Controls whether the permissions picker shows an inline \"Sandboxing for terminal\" toggle on the Manual permissions option. For Copilot SDK sessions using the built-in shell tool, the toggle reflects and updates `#chat.agentHost.sdkSandbox.enabled#` or `#chat.agentHost.sdkSandbox.enabledWindows#`.",
+      "markdownDescription": "Controls whether the permissions picker shows a \"Sandboxing for terminal\" toggle. Local sessions show it on the Default permissions option; Copilot Agent Host sessions show it as a separate setting that applies to every permission mode. For Copilot SDK sessions using the built-in shell tool, the toggle reflects and updates `#chat.agentHost.sdkSandbox.enabled#` or `#chat.agentHost.sdkSandbox.enabledWindows#`.",
       "tags": [
         "experimental",
         "onExP"
@@ -5157,6 +5262,21 @@
         "title": "Chat"
       },
       "defaultDefaultValue": "archive",
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.experimental.stickyScroll.enabled": {
+      "type": "boolean",
+      "description": "Controls whether chat requests use experimental tree-based sticky scroll instead of the sticky prompt header.",
+      "default": false,
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },
@@ -5478,6 +5598,25 @@
       },
       "defaultDefaultValue": false,
       "scope": 4
+    },
+    "chat.inlineChat.agentHost.enabled": {
+      "type": "boolean",
+      "description": "Controls whether editor inline chat is backed by the Agent Host instead of the extension host. Applied on startup.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
     },
     "chat.inlineReferences.style": {
       "type": "string",
@@ -5867,18 +6006,16 @@
       "scope": 4,
       "restricted": false
     },
-    "chat.omni.enabled": {
-      "type": "boolean",
-      "markdownDescription": "Enables the floating chat input window and its entry points. Requests submitted from the window are scored against existing agent sessions and routed with an advisory badge.",
-      "default": false,
-      "tags": [
-        "experimental"
-      ],
+    "chat.pasteAsAttachmentThreshold": {
+      "markdownDescription": "The number of characters a paste must exceed before it is added to the chat input as an attachment instead of being inserted inline. A paste must also span several lines, so a long single-line paste is always inserted inline. Set this to a very large number to always paste inline.",
+      "type": "number",
+      "minimum": 0,
+      "default": 10000,
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": 10000,
       "scope": 4,
       "restricted": false
     },
@@ -6183,6 +6320,25 @@
         "title": "Chat"
       },
       "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.terminal.agentHost.enabled": {
+      "type": "boolean",
+      "description": "Controls whether Terminal Chat is backed by the Agent Host instead of the extension host. Applied on startup.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },
@@ -9987,6 +10143,26 @@
         "title": "Chat"
       },
       "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
+    "dictation.experimental.llmCleanupModel": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "copilot-utility-small",
+        "gpt-5.6-luna"
+      ],
+      "markdownDescription": "Controls the language model used for experimental dictation cleanup. `auto` follows the active experiment treatment.",
+      "default": "auto",
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "auto",
       "scope": 4,
       "restricted": false
     },
@@ -30533,6 +30709,7 @@
         "blank",
         "bold",
         "book",
+        "book-compact",
         "bookmark",
         "bracket",
         "bracket-dot",
@@ -30944,6 +31121,8 @@
         "mic-download",
         "mic-download-compact",
         "mic-filled",
+        "mic-off",
+        "mic-off-compact",
         "microscope",
         "microsoft",
         "milestone",
@@ -31315,6 +31494,7 @@
         "$(blank)",
         "$(bold)",
         "$(book)",
+        "$(book-compact)",
         "$(bookmark)",
         "$(bracket)",
         "$(bracket-dot)",
@@ -31726,6 +31906,8 @@
         "$(mic-download)",
         "$(mic-download-compact)",
         "$(mic-filled)",
+        "$(mic-off)",
+        "$(mic-off-compact)",
         "$(microscope)",
         "$(microsoft)",
         "$(milestone)",
@@ -35626,9 +35808,6 @@
       ],
       "description": "Controls whether editors open in a modal overlay.",
       "default": "some",
-      "agentsWindow": {
-        "default": "all"
-      },
       "experiment": {
         "mode": "startup"
       },
@@ -40669,7 +40848,7 @@
       "restricted": false
     },
     "_190": {
-      "description": "Controls how many characters can be in the selection before similiar matches are not highlighted. Set to zero for unlimited.",
+      "description": "Controls how many characters can be in the selection before similar matches are not highlighted. Set to zero for unlimited.",
       "type": "integer",
       "default": 200,
       "minimum": 0,
@@ -42868,6 +43047,9 @@
         "xai",
         "arrow-circle-up-sparkle",
         "close-small",
+        "book-compact",
+        "mic-off",
+        "mic-off-compact",
         "dialog-error",
         "dialog-warning",
         "dialog-info",
@@ -43650,6 +43832,9 @@
         "$(xai)",
         "$(arrow-circle-up-sparkle)",
         "$(close-small)",
+        "$(book-compact)",
+        "$(mic-off)",
+        "$(mic-off-compact)",
         "$(dialog-error)",
         "$(dialog-warning)",
         "$(dialog-info)",
