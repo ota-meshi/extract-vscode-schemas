@@ -2226,6 +2226,8 @@
                       "book-compact",
                       "mic-off",
                       "mic-off-compact",
+                      "copilot-dot",
+                      "copilot-dot-compact",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -2445,6 +2447,7 @@
                       "chat-model-provider-microsoft",
                       "chat-model-provider-xai",
                       "chat-model-provider-generic",
+                      "chat-model-provider-generic-compact",
                       "extension-default-icon",
                       "extensions-verified-publisher",
                       "terminal-view-icon",
@@ -2464,7 +2467,6 @@
                       "ai-customization-instructions",
                       "ai-customization-prompt",
                       "ai-customization-hook",
-                      "ai-customization-automation",
                       "ai-customization-add",
                       "ai-customization-run",
                       "ai-customization-workspace",
@@ -3387,6 +3389,8 @@
                       "",
                       "",
                       "",
+                      "",
+                      "",
                       "Icon for breakpoints waiting on another breakpoint.",
                       "Icon for the close action in widgets.",
                       "Icon for goto previous editor location.",
@@ -3584,6 +3588,7 @@
                       "Icon for Microsoft models.",
                       "Icon for xAI models.",
                       "Icon for other model providers.",
+                      "Compact icon for other model providers.",
                       "Icon used for the default extension in the extensions view and editor.",
                       "Icon used for the verified extension publisher in the extensions view and editor.",
                       "View icon of the terminal view.",
@@ -3603,7 +3608,6 @@
                       "Icon for instruction files.",
                       "Icon for prompt files.",
                       "Icon for hooks.",
-                      "Icon for scheduled automations.",
                       "Icon for adding new items.",
                       "Icon for running a prompt or agent.",
                       "Icon for workspace items.",
@@ -4168,7 +4172,7 @@
             "required": [
               "id",
               "uriPattern",
-              "initialKind"
+              "kind"
             ],
             "properties": {
               "enablement": {
@@ -4179,7 +4183,7 @@
                 "type": "string",
                 "description": "Unique identifier used to register this link presentation provider."
               },
-              "initialKind": {
+              "kind": {
                 "type": "string",
                 "enum": [
                   "branch",
@@ -4193,7 +4197,7 @@
                   "resource",
                   "session"
                 ],
-                "description": "The initial semantic kind shown while the provider resolves its first presentation."
+                "description": "The semantic kind produced by this provider."
               },
               "uriPattern": {
                 "type": "string",
@@ -7665,6 +7669,11 @@
         "modernActivityBar.activeForeground",
         "modernActivityBar.hoverBackground",
         "modernActivityBar.hoverForeground",
+        "modernActivityBarItem.activeBackground",
+        "modernActivityBarItem.activeForeground",
+        "modernActivityBarItem.hoverBackground",
+        "modernActivityBarItem.hoverForeground",
+        "modernActivityBar.border",
         "titleBar.activeForeground",
         "titleBar.inactiveForeground",
         "titleBar.activeBackground",
@@ -8640,6 +8649,11 @@
         "Foreground color of active Activity bar items in the default side position when the modern UI is enabled.",
         "Background color of Activity bar items in the default side position when hovering and the modern UI is enabled.",
         "Foreground color of Activity bar items in the default side position when hovering and the modern UI is enabled.",
+        "Background color of active Activity bar items in the default side position when the modern UI is enabled.",
+        "Foreground color of active Activity bar items in the default side position when the modern UI is enabled.",
+        "Background color of Activity bar items in the default side position when hovering and the modern UI is enabled.",
+        "Foreground color of Activity bar items in the default side position when hovering and the modern UI is enabled.",
+        "Border color of the Activity bar in the default side position when the modern UI is enabled.",
         "Title bar foreground when the window is active.",
         "Title bar foreground when the window is inactive.",
         "Title bar background when the window is active.",

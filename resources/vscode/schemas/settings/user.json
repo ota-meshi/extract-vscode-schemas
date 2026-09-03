@@ -3564,12 +3564,12 @@
     "chat.agent.collapseCompletedResponses": {
       "type": "boolean",
       "description": "Controls whether completed chat responses collapse intermediate work while keeping the final response visible.",
-      "default": false,
+      "default": true,
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -4912,7 +4912,8 @@
       "default": true,
       "scope": 1,
       "tags": [
-        "experimental"
+        "experimental",
+        "agentMerge"
       ],
       "agentHost": {
         "key": "agentMerge.addressReviews"
@@ -4930,7 +4931,8 @@
       "default": false,
       "scope": 1,
       "tags": [
-        "experimental"
+        "experimental",
+        "agentMerge"
       ],
       "agentHost": {
         "key": "agentMerge.enabled"
@@ -4948,7 +4950,8 @@
       "default": true,
       "scope": 1,
       "tags": [
-        "experimental"
+        "experimental",
+        "agentMerge"
       ],
       "agentHost": {
         "key": "agentMerge.fixCI"
@@ -4978,7 +4981,8 @@
       "default": "auto",
       "scope": 1,
       "tags": [
-        "experimental"
+        "experimental",
+        "agentMerge"
       ],
       "agentHost": {
         "key": "agentMerge.mergeMethod"
@@ -4991,12 +4995,23 @@
       "restricted": false
     },
     "chat.agentMerge.mergePullRequest": {
-      "type": "boolean",
+      "type": "string",
+      "enum": [
+        "always",
+        "ifUnchanged",
+        "never"
+      ],
+      "enumDescriptions": [
+        "Merges the pull request whenever it is ready, including after Agent Merge has fixed CI failures or addressed review feedback.",
+        "Merges the pull request only while Agent Merge has not changed it. Once a repair turn lands a commit, automatic merging turns itself off for that session so the changes can be reviewed.",
+        "Never merges the pull request automatically."
+      ],
       "description": "Controls whether the Agent Host automatically merges or enqueues pull requests for enabled Agent Merge sessions after all selected maintenance work is complete.",
-      "default": false,
+      "default": "never",
       "scope": 1,
       "tags": [
-        "experimental"
+        "experimental",
+        "agentMerge"
       ],
       "agentHost": {
         "key": "agentMerge.mergePullRequest"
@@ -5005,7 +5020,7 @@
         "id": "chatAgentHostStarter",
         "title": "Chat Agent Host Starter"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": "never",
       "restricted": false
     },
     "chat.agentMerge.replyAttribution": {
@@ -5014,7 +5029,8 @@
       "default": true,
       "scope": 1,
       "tags": [
-        "experimental"
+        "experimental",
+        "agentMerge"
       ],
       "agentHost": {
         "key": "agentMerge.replyAttribution"
@@ -5032,7 +5048,8 @@
       "default": true,
       "scope": 1,
       "tags": [
-        "experimental"
+        "experimental",
+        "agentMerge"
       ],
       "agentHost": {
         "key": "agentMerge.resolveConflicts"
@@ -5086,12 +5103,13 @@
     },
     "chat.agentSessions.migrateLegacyCopilotCli": {
       "type": "boolean",
-      "markdownDescription": "Controls whether legacy extension host Copilot CLI chat sessions are migrated in place to the Agent host when opened, so their history becomes editable. When disabled, legacy sessions open as before.",
+      "markdownDescription": "Controls whether legacy extension host Copilot CLI chat sessions are migrated in place to the Agent host when opened, so their history becomes editable. When disabled, legacy sessions open as before.\n\nChanging this setting requires a restart to take effect.",
       "default": false,
       "tags": [
         "experimental",
         "onExP"
       ],
+      "scope": 1,
       "experiment": {
         "mode": "startup"
       },
@@ -5103,7 +5121,6 @@
         "title": "Chat"
       },
       "defaultDefaultValue": false,
-      "scope": 4,
       "restricted": false
     },
     "chat.agentSessions.showExternal": {
@@ -5116,11 +5133,11 @@
         "recent"
       ],
       "enumDescriptions": [
-        "Shows external sessions updated in the last 24 hours.",
-        "Shows external sessions updated in the last 30 days.",
-        "Shows external sessions updated in the last 7 days.",
-        "Only shows sessions created by the Agent Host.",
-        "Shows up to the 2 most recently updated external sessions from the last 7 days, hiding any that you have started 2 newer sessions after."
+        "Show external sessions updated in the last 24 hours.",
+        "Show external sessions updated in the last 30 days.",
+        "Show external sessions updated in the last 7 days.",
+        "Do not show external sessions.",
+        "Show up to the 2 most recent external sessions updated in the last 7 days. At startup, external sessions older than the second-most-recently updated local session are hidden."
       ],
       "default": "recent",
       "markdownDescription": "Controls which external agent sessions, created outside VS Code's Agent Host, are shown.",
@@ -5488,6 +5505,35 @@
         "title": "Chat"
       },
       "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.customizations.migrationHint": {
+      "type": "string",
+      "enum": [
+        "always",
+        "never",
+        "once"
+      ],
+      "enumDescriptions": [
+        "Show a customization migration hint for every chat request.",
+        "Never show customization migration hints in chat.",
+        "Show a customization migration hint once per chat session."
+      ],
+      "description": "Controls whether chat shows information about customizations that are not used by the active Agent Host harness and how often it shows them.",
+      "default": "never",
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "never",
       "scope": 4,
       "restricted": false
     },
@@ -6031,7 +6077,7 @@
     },
     "chat.experimental.permissionsSandboxToggle.enabled": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "markdownDescription": "Controls whether the permissions picker shows a \"Sandboxing for terminal\" toggle. Local sessions show it on the Default permissions option; Copilot Agent Host sessions show it as a separate setting that applies to every permission mode. For Copilot SDK sessions using the built-in shell tool, the toggle reflects and updates `#chat.agentHost.sdkSandbox.enabled#` or `#chat.agentHost.sdkSandbox.enabledWindows#`.",
       "tags": [
         "experimental",
@@ -6044,7 +6090,7 @@
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -6097,7 +6143,7 @@
     "chat.experimental.stickyScroll.enabled": {
       "type": "boolean",
       "description": "Controls whether chat requests use experimental tree-based sticky scroll instead of the sticky prompt header.",
-      "default": false,
+      "default": true,
       "tags": [
         "experimental"
       ],
@@ -6105,7 +6151,7 @@
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -6737,6 +6783,26 @@
         "title": "Chat"
       },
       "default": {},
+      "restricted": false
+    },
+    "chat.microsoftAuthentication.enabled": {
+      "type": "boolean",
+      "markdownDescription": "When enabled, sign-in dialogs offer \"Continue with Microsoft\". Signing in with Microsoft exchanges your Microsoft account for the GitHub access your organization has linked to it. The resulting GitHub sign-in lasts for the current window session only and is not saved.",
+      "default": false,
+      "scope": 1,
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
       "restricted": false
     },
     "chat.modeFilesLocations": {
@@ -7408,6 +7474,8 @@
         "**/.git/**": false,
         "**/.github/agents/**": false,
         "**/.github/hooks/**": false,
+        "**/.mcp.json": false,
+        "**/.npmrc": false,
         "**/.vscode/*.json": false,
         "**/{.npmrc,.yarnrc,.yarnrc.yml,.pnpmfile.js,.pnpmfile.cjs,.pnpmfile.mjs,pnpm-workspace.yaml}": false,
         "**/{package.json,server.xml,build.rs,web.config,.gitattributes,.env,Cargo.toml}": false,
@@ -7438,6 +7506,8 @@
         "**/.git/**": false,
         "**/.github/agents/**": false,
         "**/.github/hooks/**": false,
+        "**/.mcp.json": false,
+        "**/.npmrc": false,
         "**/.vscode/*.json": false,
         "**/{.npmrc,.yarnrc,.yarnrc.yml,.pnpmfile.js,.pnpmfile.cjs,.pnpmfile.mjs,pnpm-workspace.yaml}": false,
         "**/{package.json,server.xml,build.rs,web.config,.gitattributes,.env,Cargo.toml}": false,
@@ -11213,6 +11283,17 @@
       "tags": [
         "experimental"
       ],
+      "policy": {
+        "name": "DictationLLMCleanup",
+        "category": "InteractiveSession",
+        "minimumVersion": "1.136",
+        "localization": {
+          "description": {
+            "key": "dictation.experimental.llmCleanup.policy",
+            "value": "Controls whether final dictation transcripts are sent to a language model for cleanup."
+          }
+        }
+      },
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
@@ -11226,6 +11307,7 @@
       "enum": [
         "auto",
         "copilot-utility-small",
+        "gpt-5.4-nano",
         "gpt-5.6-luna"
       ],
       "markdownDescription": "Controls the language model used for experimental dictation cleanup. `auto` follows the active experiment treatment.",
@@ -11263,6 +11345,27 @@
       ],
       "experiment": {
         "mode": "auto"
+      },
+      "policy": {
+        "name": "DictationModel",
+        "category": "InteractiveSession",
+        "minimumVersion": "1.136",
+        "localization": {
+          "description": {
+            "key": "dictation.model.policy",
+            "value": "Controls the transcription model used for dictation."
+          },
+          "enumDescriptions": [
+            {
+              "key": "dictation.model.nemotronMultilingual.policy",
+              "value": "Use the on-device transcription model. Audio does not leave the device."
+            },
+            {
+              "key": "dictation.model.mai.policy",
+              "value": "Use the cloud transcription service. Audio is streamed to the service."
+            }
+          ]
+        }
       },
       "section": {
         "id": "chatSidebar",
@@ -18763,7 +18866,7 @@
         "experimental",
         "onExP"
       ],
-      "default": false,
+      "default": true,
       "markdownDescription": "Controls whether system certificates should be loaded using Node.js built-in support. Reload the window after changing this setting. When during [remote development](https://aka.ms/vscode-remote) the `#http.useLocalProxyConfiguration#` setting is disabled this setting can be configured in the local and the remote settings separately.",
       "restricted": true,
       "experiment": {
@@ -18774,7 +18877,7 @@
         "title": "HTTP",
         "order": 15
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 1
     },
     "http.useLocalProxyConfiguration": {
@@ -23405,7 +23508,7 @@
     },
     "markdown.experimental.richLinks.enabled": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "description": "Controls whether supported links in the Markdown editor are rendered as rich links with live metadata. Enabling this may make authenticated requests to services such as GitHub.",
       "scope": 4,
       "tags": [
@@ -23428,7 +23531,7 @@
         "id": "vscode.markdown-language-features",
         "displayName": "Markdown Language Features"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "restricted": false
     },
     "markdown.links.openLocation": {
@@ -33169,6 +33272,8 @@
         "copilot",
         "copilot-blocked",
         "copilot-compact",
+        "copilot-dot",
+        "copilot-dot-compact",
         "copilot-error",
         "copilot-in-progress",
         "copilot-large",
@@ -33954,6 +34059,8 @@
         "$(copilot)",
         "$(copilot-blocked)",
         "$(copilot-compact)",
+        "$(copilot-dot)",
+        "$(copilot-dot-compact)",
         "$(copilot-error)",
         "$(copilot-in-progress)",
         "$(copilot-large)",
@@ -36557,6 +36664,27 @@
       ],
       "default": "default",
       "markdownDescription": "Controls the height of editor tabs. Also applies to the title control bar when `#workbench.editor.showTabs#` is not set to `multiple`.",
+      "section": {
+        "id": "workbench",
+        "title": "Workbench",
+        "order": 7
+      },
+      "defaultDefaultValue": "default",
+      "scope": 4,
+      "restricted": false
+    },
+    "window.density.layout": {
+      "type": "string",
+      "enum": [
+        "compact",
+        "default"
+      ],
+      "enumDescriptions": [
+        "Removes the gaps between workbench parts and reduces their internal spacing to provide more room for content.",
+        "Uses the standard spacing between workbench parts."
+      ],
+      "default": "default",
+      "markdownDescription": "Controls the spacing density of the workbench layout. Only applies when `#workbench.experimental.modernUI#` is enabled.",
       "section": {
         "id": "workbench",
         "title": "Workbench",
@@ -46111,6 +46239,8 @@
         "book-compact",
         "mic-off",
         "mic-off-compact",
+        "copilot-dot",
+        "copilot-dot-compact",
         "dialog-error",
         "dialog-warning",
         "dialog-info",
@@ -46896,6 +47026,8 @@
         "$(book-compact)",
         "$(mic-off)",
         "$(mic-off-compact)",
+        "$(copilot-dot)",
+        "$(copilot-dot-compact)",
         "$(dialog-error)",
         "$(dialog-warning)",
         "$(dialog-info)",
