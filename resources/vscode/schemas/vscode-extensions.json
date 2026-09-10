@@ -214,6 +214,26 @@
       "description": "Declare the set of supported capabilities by the extension.",
       "type": "object",
       "properties": {
+        "agentsWindow": {
+          "description": "Declares whether the extension should be enabled in the Agents window. Requires the `agentsWindowActivation` API proposal and the experimental Agents window capability setting.",
+          "type": "object",
+          "required": [
+            "supported"
+          ],
+          "defaultSnippets": [
+            {
+              "body": {
+                "supported": true
+              }
+            }
+          ],
+          "properties": {
+            "supported": {
+              "markdownDescription": "Declares whether the extension supports running in the Agents window. The extension must enable the `agentsWindowActivation` API proposal and the `extensions.experimental.enableAgentsWindowCapability` setting for this property to take effect.",
+              "type": "boolean"
+            }
+          }
+        },
         "untrustedWorkspaces": {
           "description": "Declares how the extension should be handled in untrusted workspaces.",
           "type": "object",
@@ -2228,6 +2248,8 @@
                       "mic-off-compact",
                       "copilot-dot",
                       "copilot-dot-compact",
+                      "layout-density-compact",
+                      "layout-density-default",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -2320,6 +2342,8 @@
                       "panel-align-justify",
                       "quickInputAlignmentTop",
                       "quickInputAlignmentCenter",
+                      "layout-density-default-icon",
+                      "layout-density-compact-icon",
                       "fullscreen",
                       "centerLayoutIcon",
                       "zenMode",
@@ -3391,6 +3415,8 @@
                       "",
                       "",
                       "",
+                      "",
+                      "",
                       "Icon for breakpoints waiting on another breakpoint.",
                       "Icon for the close action in widgets.",
                       "Icon for goto previous editor location.",
@@ -3461,6 +3487,8 @@
                       "Represents the bottom panel alignment set to justified",
                       "Represents quick input alignment set to the top",
                       "Represents quick input alignment set to the center",
+                      "Represents the default layout density",
+                      "Represents the compact layout density",
                       "Represents full screen",
                       "Represents centered layout mode",
                       "Represents zen mode",
@@ -6531,6 +6559,7 @@
           "activeComment",
           "agentEditorComments",
           "agentSessionsWorkspace",
+          "agentsWindowActivation",
           "agentsWindowConfiguration",
           "aiRelatedInformation",
           "aiSettingsSearch",
@@ -6711,6 +6740,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.activeComment.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.agentEditorComments.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.agentSessionsWorkspace.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.agentsWindowActivation.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.agentsWindowConfiguration.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiRelatedInformation.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiSettingsSearch.d.ts",
@@ -7875,6 +7905,7 @@
         "agentStatusIndicator.background",
         "chat.requestBorder",
         "chat.requestBackground",
+        "chat.statusBackground",
         "chat.slashCommandBackground",
         "chat.slashCommandForeground",
         "chat.avatarBackground",
@@ -8855,6 +8886,7 @@
         "Background color of the agent status indicator in the titlebar.",
         "The border color of a chat request.",
         "The background color of a chat request.",
+        "The background color of status elements in chat.",
         "The background color of a chat slash command.",
         "The foreground color of a chat slash command.",
         "The background color of a chat avatar.",
@@ -9393,6 +9425,19 @@
                   "markdownDeprecationMessage": {
                     "type": "string",
                     "description": "If set, the property is marked as deprecated and the given message is shown as an explanation in the markdown format."
+                  },
+                  "deprecationMessageSeverity": {
+                    "type": "string",
+                    "enum": [
+                      "warning",
+                      "info"
+                    ],
+                    "enumDescriptions": [
+                      "Shows the deprecation message using the standard warning treatment.",
+                      "Shows the deprecation message using an informational treatment."
+                    ],
+                    "default": "warning",
+                    "description": "Controls the severity used to display the deprecation message."
                   },
                   "editPresentation": {
                     "type": "string",

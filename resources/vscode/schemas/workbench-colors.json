@@ -1343,6 +1343,23 @@
         }
       ]
     },
+    "chat.statusBackground": {
+      "description": "The background color of status elements in chat.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#bfbfbf14}"
+            }
+          ]
+        }
+      ]
+    },
     "chat.thinkingShimmer": {
       "description": "Shimmer highlight for thinking/working labels.",
       "oneOf": [

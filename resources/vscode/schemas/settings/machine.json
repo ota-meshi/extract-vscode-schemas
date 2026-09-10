@@ -3265,32 +3265,6 @@
       "defaultDefaultValue": "position",
       "restricted": false
     },
-    "chat.agent.allowedNetworkDomains": {
-      "markdownDescription": "Allowed domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. When `#chat.agent.sandbox.allowNetwork#` is enabled, all domains are allowed. Supports wildcards like `*.example.com`. When both allowed and denied lists are empty, all domains are blocked. Denied domains (see `#chat.agent.deniedNetworkDomains#`) take precedence.",
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "default": [],
-      "restricted": true,
-      "policy": {
-        "name": "ChatAgentAllowedNetworkDomains",
-        "category": "InteractiveSession",
-        "minimumVersion": "1.116",
-        "localization": {
-          "description": {
-            "key": "chat.agent.allowedNetworkDomains",
-            "value": "Allowed domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. When `#chat.agent.sandbox.allowNetwork#` is enabled, all domains are allowed. Supports wildcards like `*.example.com`. When both allowed and denied lists are empty, all domains are blocked. Denied domains (see `#chat.agent.deniedNetworkDomains#`) take precedence."
-          }
-        }
-      },
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": [],
-      "scope": 4
-    },
     "chat.agent.codeBlockProgress": {
       "type": "boolean",
       "description": "When applying edits, show a progress animation in the code block pill. If disabled, shows the progress percentage instead.",
@@ -3317,32 +3291,6 @@
       "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
-    },
-    "chat.agent.deniedNetworkDomains": {
-      "markdownDescription": "Denied domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. This does not apply when `#chat.agent.sandbox.allowNetwork#` is enabled. Takes precedence over `#chat.agent.allowedNetworkDomains#`. Supports wildcards like `*.example.com`.",
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "default": [],
-      "restricted": true,
-      "policy": {
-        "name": "ChatAgentDeniedNetworkDomains",
-        "category": "InteractiveSession",
-        "minimumVersion": "1.116",
-        "localization": {
-          "description": {
-            "key": "chat.agent.deniedNetworkDomains",
-            "value": "Denied domains for network access by agent tools (fetch tool, integrated browser). Applies when `#chat.agent.networkFilter#` or `#chat.agent.sandbox.enabled#` is enabled. This does not apply when `#chat.agent.sandbox.allowNetwork#` is enabled. Takes precedence over `#chat.agent.allowedNetworkDomains#`. Supports wildcards like `*.example.com`."
-          }
-        }
-      },
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": [],
-      "scope": 4
     },
     "chat.agent.enabled": {
       "type": "boolean",
@@ -3383,29 +3331,6 @@
       "defaultDefaultValue": 50,
       "scope": 4,
       "restricted": false
-    },
-    "chat.agent.networkFilter": {
-      "markdownDescription": "When enabled, network access by agent tools (fetch tool, integrated browser) is restricted according to `#chat.agent.allowedNetworkDomains#` and `#chat.agent.deniedNetworkDomains#`. Domain filtering is also applied to those tools when `#chat.agent.sandbox.enabled#` is enabled.",
-      "type": "boolean",
-      "default": false,
-      "restricted": true,
-      "policy": {
-        "name": "ChatAgentNetworkFilter",
-        "category": "InteractiveSession",
-        "minimumVersion": "1.116",
-        "localization": {
-          "description": {
-            "key": "chat.agent.networkFilter",
-            "value": "When enabled, network access by agent tools (fetch tool, integrated browser) is restricted according to `#chat.agent.allowedNetworkDomains#` and `#chat.agent.deniedNetworkDomains#`. Domain filtering is also applied to those tools when `#chat.agent.sandbox.enabled#` is enabled."
-          }
-        }
-      },
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": false,
-      "scope": 4
     },
     "chat.agent.sandbox.advanced.runtime": {
       "markdownDescription": "Note: this setting is applicable only when `#chat.agent.sandbox.enabled#` is enabled. Key/value pairs are passed through to the root of the sandbox runtime configuration.",
@@ -3458,7 +3383,7 @@
     "chat.agent.sandbox.allowNetwork": {
       "markdownDescription": "When `#chat.agent.sandbox.enabled#` is enabled, controls whether to allow all network domains in the sandbox. When enabled, the sandbox preserves file system restrictions while relaxing all network restrictions.",
       "type": "boolean",
-      "default": false,
+      "default": true,
       "tags": [
         "preview"
       ],
@@ -3479,7 +3404,7 @@
         "title": "Integrated Terminal",
         "order": 100
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 4
     },
     "chat.agent.sandbox.allowUnsandboxedCommands": {
@@ -3881,6 +3806,8 @@
         ".github/agents": true,
         "~/.copilot/agents": true
       },
+      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use [Migrate Location Settings](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%252C%2522migrationCategory%2522%253A%2522configuredLocations%2522%257D%255D \"Open Migrate Location Settings\") in the Agent Customizations editor to move agents into supported locations.",
+      "deprecationMessageSeverity": "info",
       "additionalProperties": {
         "type": "boolean"
       },
@@ -3914,7 +3841,8 @@
         ".github/agents": true,
         "~/.copilot/agents": true
       },
-      "scope": 4
+      "scope": 4,
+      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use Migrate Location Settings in the Agent Customizations editor to move agents into supported locations."
     },
     "chat.agentHost.agentDebugLog.enabled": {
       "type": "boolean",
@@ -4058,6 +3986,27 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.agentHost.copilot.autoModeTiers.enabled": {
+      "type": "boolean",
+      "markdownDescription": "When enabled, the Auto model in Copilot SDK agent sessions offers an \"Optimize for\" picker that biases routing toward efficiency, balance, or intelligence. The profile applies when a session is created and stays fixed for that session.",
+      "default": false,
+      "experiment": {
+        "mode": "startup",
+        "name": "copilotchat.autoModeTiersEnabled"
+      },
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.agentHost.copilot.mapLegacySettingsToManagedSettings": {
       "type": "boolean",
       "markdownDescription": "When enabled, maps supported legacy VS Code settings to equivalent Copilot SDK managed settings for local Agent Host sessions. Only restrictions are mapped, and only from globally-scoped values — workspace and folder values are ignored. Applies to local sessions using the Copilot agent; remote hosts and other agents are unaffected. This compatibility bridge is temporary and is not used for new settings.",
@@ -4171,6 +4120,17 @@
         "experimental",
         "advanced"
       ],
+      "policy": {
+        "name": "ChatAgentHostCustomTerminalTool",
+        "category": "InteractiveSession",
+        "minimumVersion": "1.137",
+        "localization": {
+          "description": {
+            "key": "chat.agentHost.customTerminalTool.enabled.policy",
+            "value": "Enable the Agent Host custom terminal tool override for Copilot SDK sessions."
+          }
+        }
+      },
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
@@ -4414,6 +4374,8 @@
         "~/.claude/skills": true,
         "~/.copilot/skills": true
       },
+      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use [Migrate Location Settings](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%252C%2522migrationCategory%2522%253A%2522configuredLocations%2522%257D%255D \"Open Migrate Location Settings\") in the Agent Customizations editor to move skills into supported locations.",
+      "deprecationMessageSeverity": "info",
       "additionalProperties": {
         "type": "boolean"
       },
@@ -4450,7 +4412,8 @@
         "~/.claude/skills": true,
         "~/.copilot/skills": true
       },
-      "scope": 4
+      "scope": 4,
+      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use Migrate Location Settings in the Agent Customizations editor to move skills into supported locations."
     },
     "chat.artifacts.enabled": {
       "default": false,
@@ -4699,6 +4662,21 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.customizations.locationsMigration.enabled": {
+      "type": "boolean",
+      "tags": [
+        "experimental"
+      ],
+      "description": "Controls whether the Chat Customizations editor offers to move agents, instructions, and skills from configured locations that are not supported by the active agent-host harness. When disabled, the migration card and sidebar shortcut are hidden.",
+      "default": false,
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.customizations.migrationHint": {
       "type": "string",
       "enum": [
@@ -4711,7 +4689,7 @@
         "Never show customization migration hints in chat.",
         "Show a customization migration hint once per chat session."
       ],
-      "description": "Controls whether chat shows information about customizations that are not used by the active Agent Host harness and how often it shows them.",
+      "description": "Controls whether chat shows information about customizations that are not used by the active Agent Host harness.",
       "default": "never",
       "tags": [
         "experimental",
@@ -5242,6 +5220,25 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.experimental.openInAgentsWindow.revealCurrentSession": {
+      "type": "boolean",
+      "description": "Controls whether Open in Agents Window reveals the current local Agent Host session instead of opening a new session.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.experimental.permissionsSandboxToggle.enabled": {
       "type": "boolean",
       "default": true,
@@ -5307,6 +5304,21 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.experimental.sessionStateIndicator.enabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable state indicators around chat editor sessions.",
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.experimental.stickyScroll.enabled": {
       "type": "boolean",
       "description": "Controls whether chat requests use experimental tree-based sticky scroll instead of the sticky prompt header.",
@@ -5346,6 +5358,21 @@
       },
       "defaultDefaultValue": false,
       "scope": 4
+    },
+    "chat.experimentalModelPicker": {
+      "type": "boolean",
+      "description": "When enabled, the model picker uses a tab per model provider and configures thinking effort and context from a detail card next to each model, instead of a separate configuration button.",
+      "default": false,
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
     },
     "chat.experimentalSessionsWindowOverride": {
       "type": "boolean",
@@ -5690,6 +5717,8 @@
         "~/.claude/rules": true,
         "~/.copilot/instructions": true
       },
+      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use [Migrate Location Settings](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%252C%2522migrationCategory%2522%253A%2522configuredLocations%2522%257D%255D \"Open Migrate Location Settings\") in the Agent Customizations editor to move instructions into supported locations.",
+      "deprecationMessageSeverity": "info",
       "additionalProperties": {
         "type": "boolean"
       },
@@ -5722,7 +5751,8 @@
         "~/.claude/rules": true,
         "~/.copilot/instructions": true
       },
-      "scope": 4
+      "scope": 4,
+      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use Migrate Location Settings in the Agent Customizations editor to move instructions into supported locations."
     },
     "chat.math.enabled": {
       "type": "boolean",
@@ -5869,6 +5899,10 @@
           "type": "boolean",
           "description": "Claude Desktop configuration (`claude_desktop_config.json`)"
         },
+        "copilot": {
+          "type": "boolean",
+          "description": "GitHub Copilot CLI configuration (`mcp-config.json` in `COPILOT_HOME`, or `~/.copilot/mcp-config.json` when unset)"
+        },
         "cursor-global": {
           "type": "boolean",
           "description": "Cursor global configuration (`~/.cursor/mcp.json`)"
@@ -5885,6 +5919,7 @@
       "additionalProperties": false,
       "default": {
         "claude-desktop": false,
+        "copilot": false,
         "cursor-global": false,
         "cursor-workspace": false,
         "windsurf": false
@@ -5896,6 +5931,7 @@
       },
       "defaultDefaultValue": {
         "claude-desktop": false,
+        "copilot": false,
         "cursor-global": false,
         "cursor-workspace": false,
         "windsurf": false
@@ -5959,7 +5995,8 @@
       "default": {
         ".github/chatmodes": true
       },
-      "deprecationMessage": "This setting is deprecated and will be removed in future releases. Chat modes are now called custom agents and are located in `.github/agents`",
+      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Chat modes are now called custom agents and are located in `.github/agents`. Use [Migrate Location Settings](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%252C%2522migrationCategory%2522%253A%2522configuredLocations%2522%257D%255D \"Open Migrate Location Settings\") in the Agent Customizations editor to move them into supported locations.",
+      "deprecationMessageSeverity": "info",
       "additionalProperties": {
         "type": "boolean"
       },
@@ -5990,7 +6027,8 @@
       "defaultDefaultValue": {
         ".github/chatmodes": true
       },
-      "scope": 4
+      "scope": 4,
+      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Chat modes are now called custom agents and are located in .github/agents. Use Migrate Location Settings in the Agent Customizations editor to move them into supported locations."
     },
     "chat.newSession.defaultMode": {
       "type": "string",
@@ -6168,6 +6206,8 @@
       "default": {
         ".github/prompts": true
       },
+      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use [Migrate Prompt Files](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%252C%2522migrationCategory%2522%253A%2522promptFiles%2522%257D%255D \"Open Migrate Prompt Files\") in the Agent Customizations editor to convert prompt files into skills.",
+      "deprecationMessageSeverity": "info",
       "additionalProperties": {
         "type": "boolean"
       },
@@ -6200,7 +6240,8 @@
       "defaultDefaultValue": {
         ".github/prompts": true
       },
-      "scope": 4
+      "scope": 4,
+      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use Migrate Prompt Files in the Agent Customizations editor to convert prompt files into skills."
     },
     "chat.promptFilesRecommendations": {
       "type": "object",
@@ -6369,6 +6410,37 @@
       "tags": [
         "onExP"
       ]
+    },
+    "chat.subagents.defaultToAuto": {
+      "type": "boolean",
+      "markdownDescription": "Controls whether local subagents use the Auto model when neither the tool call nor the selected agent specifies a model. Explicit tool and agent model selections take precedence. Subagents of a BYOK main model continue to use that model. Auto routing is not constrained by the main model's fixed cost tier.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.subagents.showCreditUsage": {
+      "type": "boolean",
+      "description": "Controls whether AI credit usage is shown next to the duration for subagents.",
+      "default": false,
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
     },
     "chat.subagents.useRichRendering": {
       "type": "boolean",
@@ -7385,7 +7457,7 @@
           "deprecationMessage": "The per-pill object form is deprecated. Use a boolean value instead."
         }
       ],
-      "markdownDescription": "Controls whether agent status pills are shown above the chat input while a turn is in progress and inside the completed response. Only applies to agent sessions.",
+      "markdownDescription": "Controls whether agent status pills are shown above the chat input and inside completed responses. Only applies to agent sessions.",
       "default": true,
       "section": {
         "id": "chatSidebar",
@@ -10255,14 +10327,17 @@
       "enum": [
         "auto",
         "copilot-utility-small",
-        "gpt-5.4-nano",
         "gpt-5.6-luna"
       ],
-      "markdownDescription": "Controls the language model used for experimental dictation cleanup. `auto` follows the active experiment treatment.",
+      "markdownDescription": "Controls the language model used for experimental dictation cleanup. `auto` follows the experiment-provided default.",
       "default": "auto",
       "tags": [
-        "experimental"
+        "experimental",
+        "onExP"
       ],
+      "experiment": {
+        "mode": "auto"
+      },
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
@@ -17087,28 +17162,6 @@
         "displayName": "HTML Language Features"
       },
       "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "html.mirrorCursorOnMatchingTag": {
-      "type": "boolean",
-      "scope": 5,
-      "default": false,
-      "description": "Enable/disable mirroring cursor on matching HTML tag.",
-      "deprecationMessage": "Deprecated in favor of `editor.linkedEditing`",
-      "section": {
-        "id": "html",
-        "title": "HTML",
-        "order": 20,
-        "extensionInfo": {
-          "id": "vscode.html-language-features",
-          "displayName": "HTML Language Features"
-        }
-      },
-      "source": {
-        "id": "vscode.html-language-features",
-        "displayName": "HTML Language Features"
-      },
-      "defaultDefaultValue": false,
       "restricted": false
     },
     "html.suggest.hideEndTagSuggestions": {
@@ -24821,27 +24874,6 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
-    "npm.enableScriptExplorer": {
-      "type": "boolean",
-      "default": false,
-      "scope": 5,
-      "deprecationMessage": "The NPM Script Explorer is now available in 'Views' menu in the Explorer in all folders.",
-      "markdownDescription": "Enable an explorer view for npm scripts when there is no top-level `package.json` file.",
-      "section": {
-        "id": "npm",
-        "title": "Npm",
-        "extensionInfo": {
-          "id": "vscode.npm",
-          "displayName": "NPM support for VS Code"
-        }
-      },
-      "source": {
-        "id": "vscode.npm",
-        "displayName": "NPM support for VS Code"
-      },
-      "defaultDefaultValue": false,
-      "restricted": false
-    },
     "npm.exclude": {
       "type": [
         "string",
@@ -31374,6 +31406,8 @@
         "layout-activitybar-left",
         "layout-activitybar-right",
         "layout-centered",
+        "layout-density-compact",
+        "layout-density-default",
         "layout-menubar",
         "layout-panel",
         "layout-panel-center",
@@ -32161,6 +32195,8 @@
         "$(layout-activitybar-left)",
         "$(layout-activitybar-right)",
         "$(layout-centered)",
+        "$(layout-density-compact)",
+        "$(layout-density-default)",
         "$(layout-menubar)",
         "$(layout-panel)",
         "$(layout-panel-center)",
@@ -34503,12 +34539,14 @@
     "workbench.browser.dataStorage": {
       "type": "string",
       "enum": [
+        "agent",
         "default",
         "ephemeral",
         "global",
         "workspace"
       ],
       "markdownEnumDescriptions": [
+        "Browser views share one in-memory session that is cleaned up when the application is closed. This session is shared with agent-opened browser pages, so **all data including local storage and cookies will be accessible by agents.** When agent network filtering is enabled, requests from this session are restricted by the configured network domain policy.",
         "`global` for local workspaces, `workspace` for remote workspaces.",
         "Each browser view has its own session that is cleaned up when closed.",
         "All browser views share a single persistent session across all workspaces. Incompatible with remote sessions.",
@@ -43511,6 +43549,8 @@
         "mic-off-compact",
         "copilot-dot",
         "copilot-dot-compact",
+        "layout-density-compact",
+        "layout-density-default",
         "dialog-error",
         "dialog-warning",
         "dialog-info",
@@ -44298,6 +44338,8 @@
         "$(mic-off-compact)",
         "$(copilot-dot)",
         "$(copilot-dot-compact)",
+        "$(layout-density-compact)",
+        "$(layout-density-default)",
         "$(dialog-error)",
         "$(dialog-warning)",
         "$(dialog-info)",
