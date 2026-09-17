@@ -2557,6 +2557,27 @@
       "scope": 6,
       "restricted": false
     },
+    "editor.fullwidthCharacterWidth": {
+      "enumDescriptions": [
+        "Render full-width characters using the width defined by the font.",
+        "Render full-width characters centered in exactly two character cells. Only applies to monospace fonts. Does not apply to multi codepoint full-width characters or to GPU rendering. This has a performance impact on line rendering."
+      ],
+      "description": "Controls the width used to render full-width characters.",
+      "type": "string",
+      "enum": [
+        "font",
+        "twoCells"
+      ],
+      "default": "font",
+      "section": {
+        "id": "editor",
+        "title": "Editor",
+        "order": 5
+      },
+      "defaultDefaultValue": "font",
+      "scope": 6,
+      "restricted": false
+    },
     "editor.glyphMargin": {
       "description": "Controls whether the editor should render the vertical glyph margin. Glyph margin is mostly used for debugging.",
       "type": "boolean",
