@@ -1,46 +1,46 @@
 {
   "properties": {
     "[bat]": {
-      "$ref": "#/$defs/_310"
-    },
-    "[bibtex]": {
-      "$ref": "#/$defs/_310"
-    },
-    "[c]": {
-      "$ref": "#/$defs/_310"
-    },
-    "[chatagent]": {
-      "$ref": "#/$defs/_317"
-    },
-    "[clojure]": {
       "$ref": "#/$defs/_311"
     },
-    "[code-text-binary]": {
-      "$ref": "#/$defs/_310"
+    "[bibtex]": {
+      "$ref": "#/$defs/_311"
     },
-    "[coffeescript]": {
+    "[c]": {
+      "$ref": "#/$defs/_311"
+    },
+    "[chatagent]": {
+      "$ref": "#/$defs/_318"
+    },
+    "[clojure]": {
       "$ref": "#/$defs/_312"
     },
+    "[code-text-binary]": {
+      "$ref": "#/$defs/_311"
+    },
+    "[coffeescript]": {
+      "$ref": "#/$defs/_313"
+    },
     "[cpp_embedded_latex]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[cpp]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[csharp]": {
-      "$ref": "#/$defs/_314"
-    },
-    "[css]": {
       "$ref": "#/$defs/_315"
     },
+    "[css]": {
+      "$ref": "#/$defs/_316"
+    },
     "[cuda-cpp]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[dart]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[diff]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[dockercompose]": {
       "type": "object",
@@ -67,10 +67,10 @@
       "defaultValueSource": {}
     },
     "[dotenv]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[fsharp]": {
-      "$ref": "#/$defs/_311"
+      "$ref": "#/$defs/_312"
     },
     "[git-commit]": {
       "type": "object",
@@ -101,79 +101,79 @@
       "$ref": "#/$defs/_0"
     },
     "[groovy]": {
-      "$ref": "#/$defs/_310"
-    },
-    "[handlebars]": {
-      "$ref": "#/$defs/_315"
-    },
-    "[hlsl]": {
-      "$ref": "#/$defs/_310"
-    },
-    "[html]": {
-      "$ref": "#/$defs/_315"
-    },
-    "[ignore]": {
-      "$ref": "#/$defs/_310"
-    },
-    "[ini]": {
-      "$ref": "#/$defs/_310"
-    },
-    "[instructions]": {
-      "$ref": "#/$defs/_317"
-    },
-    "[jade]": {
       "$ref": "#/$defs/_311"
     },
-    "[java]": {
-      "$ref": "#/$defs/_310"
-    },
-    "[javascript]": {
-      "$ref": "#/$defs/_314"
-    },
-    "[javascriptreact]": {
-      "$ref": "#/$defs/_310"
-    },
-    "[json]": {
-      "$ref": "#/$defs/_313"
-    },
-    "[jsonc]": {
-      "$ref": "#/$defs/_313"
-    },
-    "[jsonl]": {
-      "$ref": "#/$defs/_310"
-    },
-    "[jsx-tags]": {
-      "$ref": "#/$defs/_310"
-    },
-    "[julia]": {
+    "[handlebars]": {
       "$ref": "#/$defs/_316"
     },
-    "[juliamarkdown]": {
-      "$ref": "#/$defs/_310"
+    "[hlsl]": {
+      "$ref": "#/$defs/_311"
     },
-    "[latex]": {
-      "$ref": "#/$defs/_310"
+    "[html]": {
+      "$ref": "#/$defs/_316"
     },
-    "[less]": {
+    "[ignore]": {
+      "$ref": "#/$defs/_311"
+    },
+    "[ini]": {
+      "$ref": "#/$defs/_311"
+    },
+    "[instructions]": {
+      "$ref": "#/$defs/_318"
+    },
+    "[jade]": {
+      "$ref": "#/$defs/_312"
+    },
+    "[java]": {
+      "$ref": "#/$defs/_311"
+    },
+    "[javascript]": {
       "$ref": "#/$defs/_315"
     },
+    "[javascriptreact]": {
+      "$ref": "#/$defs/_311"
+    },
+    "[json]": {
+      "$ref": "#/$defs/_314"
+    },
+    "[jsonc]": {
+      "$ref": "#/$defs/_314"
+    },
+    "[jsonl]": {
+      "$ref": "#/$defs/_311"
+    },
+    "[jsx-tags]": {
+      "$ref": "#/$defs/_311"
+    },
+    "[julia]": {
+      "$ref": "#/$defs/_317"
+    },
+    "[juliamarkdown]": {
+      "$ref": "#/$defs/_311"
+    },
+    "[latex]": {
+      "$ref": "#/$defs/_311"
+    },
+    "[less]": {
+      "$ref": "#/$defs/_316"
+    },
     "[log]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[Log]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[lua]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[makefile]": {
       "$ref": "#/$defs/_0"
     },
     "[markdown_latex_combined]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[markdown-math]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[markdown]": {
       "type": "object",
@@ -194,16 +194,16 @@
       "defaultValueSource": {}
     },
     "[objective-c]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[objective-cpp]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[perl]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[php]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[plaintext]": {
       "type": "object",
@@ -217,40 +217,40 @@
       "defaultValueSource": {}
     },
     "[powershell]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[prompt]": {
-      "$ref": "#/$defs/_317"
+      "$ref": "#/$defs/_318"
     },
     "[properties]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[python]": {
-      "$ref": "#/$defs/_312"
+      "$ref": "#/$defs/_313"
     },
     "[r]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[raku]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[razor]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[restructuredtext]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[ruby]": {
-      "$ref": "#/$defs/_316"
+      "$ref": "#/$defs/_317"
     },
     "[rust]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[scminput]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[scss]": {
-      "$ref": "#/$defs/_315"
+      "$ref": "#/$defs/_316"
     },
     "[search-result]": {
       "type": "object",
@@ -263,7 +263,7 @@
       "defaultValueSource": {}
     },
     "[shaderlab]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[shellscript]": {
       "type": "object",
@@ -277,37 +277,37 @@
       "defaultValueSource": {}
     },
     "[skill]": {
-      "$ref": "#/$defs/_317"
+      "$ref": "#/$defs/_318"
     },
     "[snippets]": {
-      "$ref": "#/$defs/_313"
+      "$ref": "#/$defs/_314"
     },
     "[sql]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[swift]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[tex]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[typescript]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[typescriptreact]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[vb]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[wat]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[xml]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[xsl]": {
-      "$ref": "#/$defs/_310"
+      "$ref": "#/$defs/_311"
     },
     "[yaml]": {
       "type": "object",
@@ -1437,7 +1437,7 @@
           ]
         },
         "sound": {
-          "$ref": "#/$defs/_308"
+          "$ref": "#/$defs/_309"
         }
       },
       "section": {
@@ -1742,10 +1742,10 @@
       "restricted": false
     },
     "accessibility.signals.positionHasError": {
-      "$ref": "#/$defs/_309"
+      "$ref": "#/$defs/_310"
     },
     "accessibility.signals.positionHasWarning": {
-      "$ref": "#/$defs/_309"
+      "$ref": "#/$defs/_310"
     },
     "accessibility.signals.progress": {
       "type": "object",
@@ -2489,6 +2489,21 @@
     },
     "accessibility.verbosity.comments": {
       "description": "Provide information about actions that can be taken in the comment widget or in a file which contains comments.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "section": {
+        "id": "accessibility",
+        "title": "Accessibility"
+      },
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
+    "accessibility.verbosity.connectionDiagnostics": {
+      "description": "Provide information about how to access connection diagnostics accessibility help when the report is focused.",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -3872,16 +3887,16 @@
       "type": "object",
       "properties": {
         "allowRead": {
-          "$ref": "#/$defs/_298"
-        },
-        "allowWrite": {
           "$ref": "#/$defs/_299"
         },
+        "allowWrite": {
+          "$ref": "#/$defs/_300"
+        },
         "denyRead": {
-          "$ref": "#/$defs/_297"
+          "$ref": "#/$defs/_298"
         },
         "denyWrite": {
-          "$ref": "#/$defs/_300"
+          "$ref": "#/$defs/_301"
         }
       },
       "default": {
@@ -3912,16 +3927,16 @@
       "type": "object",
       "properties": {
         "allowRead": {
-          "$ref": "#/$defs/_298"
-        },
-        "allowWrite": {
           "$ref": "#/$defs/_299"
         },
+        "allowWrite": {
+          "$ref": "#/$defs/_300"
+        },
         "denyRead": {
-          "$ref": "#/$defs/_297"
+          "$ref": "#/$defs/_298"
         },
         "denyWrite": {
-          "$ref": "#/$defs/_300"
+          "$ref": "#/$defs/_301"
         }
       },
       "default": {
@@ -4014,7 +4029,7 @@
       "scope": 4
     },
     "chat.agent.terminal.allowList": {
-      "$ref": "#/$defs/_301"
+      "$ref": "#/$defs/_302"
     },
     "chat.agent.terminal.autoApprove": {
       "restricted": true,
@@ -4030,7 +4045,7 @@
       "deprecationMessage": "Use chat.tools.terminal.autoApprove instead"
     },
     "chat.agent.terminal.denyList": {
-      "$ref": "#/$defs/_301"
+      "$ref": "#/$defs/_302"
     },
     "chat.agent.thinking.collapsedTools": {
       "type": "string",
@@ -4168,7 +4183,7 @@
         "type": "boolean"
       },
       "propertyNames": {
-        "$ref": "#/$defs/_279"
+        "$ref": "#/$defs/_280"
       },
       "restricted": true,
       "tags": [
@@ -4334,7 +4349,6 @@
       "default": false,
       "tags": [
         "experimental",
-        "advanced",
         "onExP"
       ],
       "experiment": {
@@ -4460,26 +4474,6 @@
       "scope": 4,
       "restricted": false
     },
-    "chat.agentHost.copilot.reasoningSummary.enabled": {
-      "type": "boolean",
-      "markdownDescription": "When enabled, requests concise reasoning summaries for supported Copilot SDK agent sessions.",
-      "default": false,
-      "experiment": {
-        "mode": "startup"
-      },
-      "tags": [
-        "experimental",
-        "advanced",
-        "onExP"
-      ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
-    },
     "chat.agentHost.copilot.toolSearch.deferThreshold": {
       "type": "number",
       "description": "Minimum number of tools before MCP and external tools are deferred behind tool search. Set to 0 to always defer external tools. Only effective when tool search is enabled.",
@@ -4564,9 +4558,27 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.agentHost.debugLogs.defaultExportLocation": {
+      "type": "string",
+      "pattern": "^((\\/|\\\\\\\\|[a-zA-Z]:\\\\).*)?$",
+      "patternErrorMessage": "The default Agent Host debug-log export location must be an absolute path (for example, C:\\\\myFolder or /myFolder).",
+      "description": "The default folder for archives and folders created by the Developer: Export Agent Host Debug Logs command. When empty or unavailable, the default file-dialog location is used.",
+      "default": "",
+      "scope": 1,
+      "ignoreSync": true,
+      "tags": [
+        "advanced"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "",
+      "restricted": false
+    },
     "chat.agentHost.experimental.activeAgentTitleGeneration": {
       "type": "boolean",
-      "description": "When enabled, the active agent names new sessions and chats using rename tools. When disabled, a utility model generates titles. Changes apply to sessions and chats created afterward.",
+      "description": "When enabled, the active agent names new sessions and chats using rename tools. When disabled, a utility model generates titles immediately. Deferred title generation takes precedence. Changes apply to new sessions; existing sessions and their chats retain their strategy.",
       "default": false,
       "scope": 1,
       "tags": [
@@ -4608,6 +4620,25 @@
         "title": "Chat Agent Host Starter"
       },
       "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "chat.agentHost.experimental.deferredTitleGeneration": {
+      "type": "boolean",
+      "description": "Seed titles immediately and refine them in the background if the first response turn completes successfully, without asking the active agent to name chats. Explicit rename tools remain available. Overrides active agent title generation for new sessions; existing sessions and their chats retain their strategy.",
+      "default": false,
+      "scope": 1,
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "agentHost": {
+        "key": "deferredTitleGeneration"
+      },
+      "section": {
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
+      },
+      "defaultDefaultValue": false,
       "restricted": false
     },
     "chat.agentHost.experimental.markdownPlanRichLinks": {
@@ -4884,27 +4915,21 @@
         "off",
         "on"
       ],
-      "enumDescriptions": [
-        "No sandbox policy is forwarded for the SDK's built-in shell tool — commands run unsandboxed.",
-        "The SDK's built-in shell tool runs inside a sandbox using the configured filesystem policy with outbound network blocked."
-      ],
-      "markdownDescription": "Sandbox mode for the Copilot SDK's built-in shell tool on macOS and Linux. Only takes effect when `#chat.agentHost.customTerminalTool.enabled#` is `false`; when the Agent Host's own terminal tool is enabled, the engine sandbox is controlled by `#chat.agent.sandbox.enabled#`. The sandbox applies to every permission mode. Unrestricted network is controlled by `#chat.agent.sandbox.allowNetwork#`. Use `#chat.agentHost.sdkSandbox.enabledWindows#` on Windows.",
+      "markdownDescription": "Deprecated sandbox mode for the Copilot SDK's built-in shell tool on macOS and Linux.",
+      "markdownDeprecationMessage": "This setting no longer has any effect. Use `#chat.agent.sandbox.enabled#` for both the SDK's built-in shell tool and the Agent Host's custom terminal tool.",
       "default": "off",
       "tags": [
         "experimental",
-        "advanced",
-        "onExP"
+        "advanced"
       ],
-      "experiment": {
-        "mode": "auto"
-      },
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
       },
       "defaultDefaultValue": "off",
       "scope": 4,
-      "restricted": false
+      "restricted": false,
+      "deprecationMessage": "This setting no longer has any effect. Use chat.agent.sandbox.enabled for both the SDK's built-in shell tool and the Agent Host's custom terminal tool."
     },
     "chat.agentHost.sdkSandbox.enabledWindows": {
       "type": "string",
@@ -4912,26 +4937,43 @@
         "off",
         "on"
       ],
-      "enumDescriptions": [
-        "No sandbox policy is forwarded for the SDK's built-in shell tool on Windows — commands run unsandboxed.",
-        "The SDK's built-in shell tool runs inside the Windows sandbox using the configured filesystem policy."
-      ],
-      "markdownDescription": "Sandbox mode for the Copilot SDK's built-in shell tool on Windows. Only takes effect when `#chat.agentHost.customTerminalTool.enabled#` is `false`. This setting is independent of `#chat.agentHost.sdkSandbox.enabled#` so Windows sandbox support can be enabled separately. Unrestricted network is controlled by `#chat.agent.sandbox.allowNetwork#`.",
+      "markdownDescription": "Deprecated sandbox mode for the Copilot SDK's built-in shell tool on Windows.",
+      "markdownDeprecationMessage": "This setting no longer has any effect. Use `#chat.agent.sandbox.enabledWindows#` for both the SDK's built-in shell tool and the Agent Host's custom terminal tool.",
       "default": "off",
       "tags": [
         "experimental",
-        "advanced",
-        "onExP"
+        "advanced"
       ],
-      "experiment": {
-        "mode": "auto"
-      },
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
       },
       "defaultDefaultValue": "off",
       "scope": 4,
+      "restricted": false,
+      "deprecationMessage": "This setting no longer has any effect. Use chat.agent.sandbox.enabledWindows for both the SDK's built-in shell tool and the Agent Host's custom terminal tool."
+    },
+    "chat.agentHost.sessionCatalog.enabled": {
+      "type": "boolean",
+      "markdownDescription": "Controls whether the agent session list is served from the Agent host's session catalog. When disabled, sessions are listed from provider metadata and per-session storage instead, which is slower.\n\nChanging this setting requires a restart to take effect.",
+      "default": true,
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "scope": 1,
+      "experiment": {
+        "mode": "startup"
+      },
+      "agentHost": {
+        "key": "sessionCatalogEnabled"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": true,
       "restricted": false
     },
     "chat.agentHost.shellTool.initScript.enabled": {
@@ -5172,7 +5214,7 @@
       "scope": 4,
       "restricted": false
     },
-    "chat.agentSessions.autoArchiveMergedSessionsAfterDays": {
+    "chat.agentSessions.autoDeleteMarkedAsDoneMergedSessionsAfterDays": {
       "type": "integer",
       "minimum": 0,
       "default": 0,
@@ -5181,9 +5223,9 @@
         "preview",
         "agentSessionCleanup"
       ],
-      "markdownDescription": "Controls the number of inactive days before agent sessions with a merged pull request are automatically archived. Archiving safely removes eligible worktrees. Permanent deletion is controlled separately by `#chat.agentSessions.autoDeleteArchivedMergedSessionsAfterDays#`. Set to 0 to disable automatic archival. The recommended value is 15.",
+      "markdownDescription": "Controls the number of days after being automatically marked as done before agent sessions with a merged pull request are permanently deleted. Retained eligible worktrees are safely removed before deletion. Automatically marking sessions as done is controlled separately by `#chat.agentSessions.autoMarkAsDoneMergedSessionsAfterDays#`. Set to 0 to disable permanent deletion. The recommended value is 15.",
       "agentHost": {
-        "key": "autoArchiveMergedSessionsAfterDays"
+        "key": "autoDeleteArchivedMergedSessionsAfterDays"
       },
       "section": {
         "id": "chat"
@@ -5191,7 +5233,7 @@
       "defaultDefaultValue": 0,
       "restricted": false
     },
-    "chat.agentSessions.autoDeleteArchivedMergedSessionsAfterDays": {
+    "chat.agentSessions.autoMarkAsDoneMergedSessionsAfterDays": {
       "type": "integer",
       "minimum": 0,
       "default": 0,
@@ -5200,9 +5242,9 @@
         "preview",
         "agentSessionCleanup"
       ],
-      "markdownDescription": "Controls the number of days after automatic archival before agent sessions with a merged pull request are permanently deleted. Retained eligible worktrees are safely removed before deletion. Automatic archival is controlled separately by `#chat.agentSessions.autoArchiveMergedSessionsAfterDays#`. Set to 0 to disable permanent deletion. The recommended value is 15.",
+      "markdownDescription": "Controls the number of inactive days before agent sessions with a merged pull request are automatically marked as done. Marking a session as done safely removes its eligible worktree. Permanent deletion is controlled separately by `#chat.agentSessions.autoDeleteMarkedAsDoneMergedSessionsAfterDays#`. Set to 0 to disable automatically marking sessions as done. The recommended value is 15.",
       "agentHost": {
-        "key": "autoDeleteArchivedMergedSessionsAfterDays"
+        "key": "autoArchiveMergedSessionsAfterDays"
       },
       "section": {
         "id": "chat"
@@ -5268,6 +5310,27 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.agentsHandoffTip.delaySeconds": {
+      "type": "number",
+      "minimum": 0,
+      "default": 5,
+      "markdownDescription": "Controls the delay, in seconds, after the latest user message before offering to continue an in-progress session in the Agents Window. Requires `#chat.agentsHandoffTip.mode#` to be `default` or `custom`.",
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": 5,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.agentsHandoffTip.mode": {
       "type": "string",
       "enum": [
@@ -5315,7 +5378,7 @@
         "type": "boolean"
       },
       "propertyNames": {
-        "$ref": "#/$defs/_279"
+        "$ref": "#/$defs/_280"
       },
       "restricted": true,
       "tags": [
@@ -5350,6 +5413,25 @@
       "scope": 4,
       "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use Migrate Location Settings in the Agent Customizations editor to move skills into supported locations."
     },
+    "chat.agentsParallelWorkBanner.enabled": {
+      "type": "boolean",
+      "description": "Show an invitation to work in parallel in the Agents Window when starting a new Agent Host chat while another Agent Host session is running.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.artifacts.enabled": {
       "default": false,
       "description": "Controls whether the artifacts view is available in chat.",
@@ -5374,7 +5456,7 @@
       "description": "Rules for extracting artifacts from written files by file path pattern. Maps glob patterns to group configuration.",
       "type": "object",
       "additionalProperties": {
-        "$ref": "#/$defs/_276"
+        "$ref": "#/$defs/_277"
       },
       "tags": [
         "experimental"
@@ -5400,7 +5482,7 @@
       "description": "Rules for extracting artifacts from memory tool calls by memory file path pattern. Maps glob patterns to group configuration.",
       "type": "object",
       "additionalProperties": {
-        "$ref": "#/$defs/_276"
+        "$ref": "#/$defs/_277"
       },
       "tags": [
         "experimental"
@@ -5427,7 +5509,7 @@
       "description": "Rules for extracting artifacts from tool results by MIME type. Maps MIME type patterns (e.g. 'image/*') to group configuration.",
       "type": "object",
       "additionalProperties": {
-        "$ref": "#/$defs/_276"
+        "$ref": "#/$defs/_277"
       },
       "tags": [
         "experimental"
@@ -5443,6 +5525,29 @@
         }
       },
       "scope": 4,
+      "restricted": false
+    },
+    "chat.artifactTools.compactPrompts": {
+      "type": "boolean",
+      "description": "Uses compact artifact tool guidance instead of the original wording. Does not change tool availability or deferral. Start a new chat to compare prompt formats.",
+      "default": false,
+      "scope": 1,
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "agentHost": {
+        "key": "artifactToolsCompactPrompts"
+      },
+      "section": {
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
+      },
+      "defaultDefaultValue": false,
       "restricted": false
     },
     "chat.artifactTools.enabled": {
@@ -5466,25 +5571,6 @@
         "title": "Chat Agent Host Starter"
       },
       "defaultDefaultValue": false,
-      "restricted": false
-    },
-    "chat.assistedPermissions.enabled": {
-      "type": "boolean",
-      "default": false,
-      "description": "Controls whether Assisted permissions is shown in Agent Host approval pickers.",
-      "tags": [
-        "experimental",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "auto"
-      },
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": false,
-      "scope": 4,
       "restricted": false
     },
     "chat.autopilot.advanced.enabled": {
@@ -5600,6 +5686,27 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
+    "chat.copilot.hydraFusion.enabled": {
+      "type": "boolean",
+      "markdownDescription": "When enabled, makes the experimental HydraFusion model available to local Copilot Agent Host sessions. Changing this setting restarts the local Copilot runtime.",
+      "default": false,
+      "experiment": {
+        "mode": "startup"
+      },
+      "scope": 3,
+      "tags": [
+        "preview",
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
     "chat.copilot.semanticSearch.enabled": {
       "type": "boolean",
       "description": "Controls whether Copilot Agent Host sessions can use VS Code's semantic workspace search. When disabled, semantic search is unavailable.",
@@ -5618,6 +5725,31 @@
       },
       "defaultDefaultValue": false,
       "scope": 4,
+      "restricted": false
+    },
+    "chat.copilot.skillCharBudget": {
+      "type": "number",
+      "description": "Maximum number of characters available for skill descriptions in the Copilot SDK system message.",
+      "default": 15000,
+      "minimum": 1,
+      "experiment": {
+        "mode": "startup"
+      },
+      "scope": 1,
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "agentHost": {
+        "key": "skillCharBudget",
+        "scope": "local"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": 15000,
       "restricted": false
     },
     "chat.copilot.subagentModelGuidance.enabled": {
@@ -6256,10 +6388,29 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.experimental.openInAgentsWindow.transferDraft": {
+      "type": "boolean",
+      "description": "Copy the prompt and attachments from a new chat when opening the Agents Window. Existing drafts in the Agents Window are preserved.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.experimental.permissionsSandboxToggle.enabled": {
       "type": "boolean",
       "default": true,
-      "markdownDescription": "Controls whether the permissions picker shows a \"Sandboxing for terminal\" toggle. Local sessions show it on the Default permissions option. Copilot Agent Host sessions show it as a session-specific setting that applies to every permission mode; changing it saves the choice only for that session. New Copilot Agent Host sessions initially follow `#chat.agentHost.sdkSandbox.enabled#` or `#chat.agentHost.sdkSandbox.enabledWindows#` when using the SDK's built-in shell tool, and `#chat.agent.sandbox.enabled#` or `#chat.agent.sandbox.enabledWindows#` when using the Agent Host terminal tool.",
+      "markdownDescription": "Controls whether the permissions picker shows a \"Sandboxing for terminal\" toggle. Local sessions show it on the Default permissions option. Copilot Agent Host sessions show it as a session-specific setting that applies to every permission mode; changing it saves the choice only for that session. New Copilot Agent Host sessions initially follow `#chat.agent.sandbox.enabled#` or `#chat.agent.sandbox.enabledWindows#` for both the SDK's built-in shell tool and the Agent Host terminal tool.",
       "tags": [
         "experimental",
         "onExP"
@@ -6272,6 +6423,49 @@
         "title": "Chat"
       },
       "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.experimental.persistentProgress": {
+      "type": "string",
+      "default": "off",
+      "enum": [
+        "accordion",
+        "dial",
+        "draw",
+        "off",
+        "orbit",
+        "weave"
+      ],
+      "enumItemLabels": [
+        "Off",
+        "Weave",
+        "Draw",
+        "Orbit and Lock",
+        "Accordion",
+        "Dial Rotation"
+      ],
+      "enumDescriptions": [
+        "Compress the logo pieces toward the center, then open them back up.",
+        "Rotate the logo in three steps, then pause upright.",
+        "Draw the right-slanting ribbon, right edge, and left-slanting ribbon in sequence, then erase them in the same counterclockwise direction and order.",
+        "Keep the original thinking, tool, and working progress rendering without a persistent indicator or VS Code logo.",
+        "Loop the diagonal ribbons around the moving right edge, then lock the logo back together.",
+        "Move the three logo pieces in quick beats, then reset them together."
+      ],
+      "markdownDescription": "Keep a working progress indicator with an animated VS Code logo at the bottom until the response finishes. Selecting an animation shows tool calls in expanded, headerless chains without an internal scrolling limit. Reasoning is separated into collapsible previews that break the tool chain, and standalone tools retain their icons. Completed responses still follow the `#chat.agent.collapseCompletedResponses#` setting. This replaces inner working progress; terminal activity animations and rich subagent pills are unchanged. Off preserves the original thinking, tool, and progress rendering. Changes apply immediately; reduced motion keeps the indicator visible without animation.",
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "off",
       "scope": 4,
       "restricted": false
     },
@@ -6551,7 +6745,7 @@
         "type": "boolean"
       },
       "propertyNames": {
-        "$ref": "#/$defs/_279"
+        "$ref": "#/$defs/_280"
       },
       "restricted": true,
       "tags": [
@@ -6759,7 +6953,7 @@
         "type": "boolean"
       },
       "propertyNames": {
-        "$ref": "#/$defs/_278"
+        "$ref": "#/$defs/_279"
       },
       "restricted": true,
       "tags": [
@@ -7024,6 +7218,21 @@
       "default": {},
       "restricted": false
     },
+    "chat.mcp.workspaceRootConfig.enabled": {
+      "type": "boolean",
+      "default": false,
+      "scope": 4,
+      "tags": [
+        "experimental"
+      ],
+      "markdownDescription": "Offer the workspace root `.mcp.json` file when adding MCP servers manually. When `.vscode/mcp.json` exists, choose which file to add to. Marketplace installations continue to use `.vscode/mcp.json`. Existing `.mcp.json` files can be opened and read independently of this setting.",
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
     "chat.microsoftAuthentication.enabled": {
       "type": "boolean",
       "markdownDescription": "When enabled, sign-in dialogs offer \"Continue with Microsoft\". Signing in with Microsoft exchanges your Microsoft account for the GitHub access your organization has linked to it. The resulting GitHub sign-in lasts for the current window session only and is not saved.",
@@ -7280,7 +7489,6 @@
       },
       "markdownDescription": "Plugin marketplaces to query. Entries may be GitHub shorthand (`owner/repo` or `owner/repo#ref`), direct Git repository URIs (`https://...git`, `ssh://...git`, or `git@host:path.git`, each optionally suffixed with `#ref`), or local repository URIs (`file:///...`). Equivalent GitHub shorthand and URI entries are deduplicated.",
       "default": [
-        "github/copilot-plugins",
         "github/awesome-copilot#marketplace"
       ],
       "scope": 1,
@@ -7292,7 +7500,6 @@
         "title": "Chat"
       },
       "defaultDefaultValue": [
-        "github/copilot-plugins",
         "github/awesome-copilot#marketplace"
       ],
       "restricted": false
@@ -7306,7 +7513,7 @@
         "type": "object",
         "properties": {
           "headers": {
-            "$ref": "#/$defs/_277"
+            "$ref": "#/$defs/_278"
           },
           "hostPattern": {
             "type": "string"
@@ -7404,7 +7611,7 @@
         "type": "boolean"
       },
       "propertyNames": {
-        "$ref": "#/$defs/_278"
+        "$ref": "#/$defs/_279"
       },
       "restricted": true,
       "tags": [
@@ -7731,7 +7938,7 @@
     },
     "chat.tools.confirmationCarousel.enabled": {
       "type": "boolean",
-      "description": "When enabled, multiple tool confirmations are batched into a carousel above the input.",
+      "description": "When enabled, tool confirmations are shown in a carousel above the input, including confirmations from subagents and earlier responses.",
       "default": true,
       "section": {
         "id": "chatSidebar",
@@ -7978,13 +8185,13 @@
       "additionalProperties": {
         "anyOf": [
           {
-            "$ref": "#/$defs/_295"
+            "$ref": "#/$defs/_296"
           },
           {
             "type": "object",
             "properties": {
               "approve": {
-                "$ref": "#/$defs/_295"
+                "$ref": "#/$defs/_296"
               },
               "matchCommandLine": {
                 "type": "boolean",
@@ -8016,25 +8223,29 @@
         "/^docker\\s+(ps|images|info|version|inspect|logs|top|stats|port|diff|search|events)\\b/": true,
         "/^docker\\s+compose\\s+(ps|ls|top|logs|images|config|version|port|events)\\b/": true,
         "/^find\\b.*\\s-(delete|exec|execdir|fprint|fprintf|fls|ok|okdir)\\b/": false,
-        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+branch\\b.*\\s-(d|D|m|M|-delete|-force)\\b/": false,
-        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+branch\\b/": true,
-        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+diff\\b/": true,
-        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+grep\\b/": true,
-        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+log\\b.*\\s--output(=|\\s|$)/": false,
-        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+log\\b/": true,
-        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+ls-files\\b/": true,
-        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+show\\b.*\\s--output(=|\\s|$)/": false,
-        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+show\\b/": true,
-        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+status\\b/": true,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+branch\\b.*\\s-(d|D|m|M|-delete|-force)\\b/": false,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+branch\\b/": true,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+diff\\b/": true,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+grep\\b.*\\s(?-i:--[^\\w\\s]*o[^\\w\\s]*p\\S*)(\\s|$)/": false,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+grep\\b.*\\s(?-i:-[aIivwhHEGPFnlLqzco]*[^\\w\\s]*O\\S*)(\\s|$)/": false,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+grep\\b/": true,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+log\\b.*\\s--output(=|\\s|$)/": false,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+log\\b/": true,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+ls-files\\b/": true,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+show\\b.*\\s--output(=|\\s|$)/": false,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+show\\b/": true,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+status\\b/": true,
         "/^npm\\s+(ls|list|outdated|view|info|show|explain|why|root|prefix|bin|search|doctor|fund|repo|bugs|docs|home|help(-search)?)\\b/": true,
         "/^npm\\s+audit$/": true,
         "/^npm\\s+cache\\s+verify\\b/": true,
+        "/^npm\\s+ci\\s+\\S/": false,
         "/^npm\\s+config\\s+(list|get)\\b/": true,
         "/^npm\\s+pkg\\s+get\\b/": true,
         "/^pnpm\\s+(ls|list|outdated|why|root|bin|doctor)\\b/": true,
         "/^pnpm\\s+audit\\b(?!.*\\bfix\\b)/": true,
         "/^pnpm\\s+config\\s+(list|get)\\b/": true,
         "/^pnpm\\s+install\\s+--frozen-lockfile\\b/": true,
+        "/^pnpm\\s+install\\s+--frozen-lockfile\\s+\\S/": false,
         "/^pnpm\\s+licenses\\b/": true,
         "/^rg\\b.*\\s(--pre|--hostname-bin)\\b/": false,
         "/^sed\\b.*\\s(-[a-zA-Z]*(e|f)[a-zA-Z]*|--expression|--file)\\b/": false,
@@ -8053,6 +8264,7 @@
         "/^yarn\\s+cache\\s+dir\\b/": true,
         "/^yarn\\s+config\\s+(list|get)\\b/": true,
         "/^yarn\\s+install\\s+--frozen-lockfile\\b/": true,
+        "/^yarn\\s+install\\s+--frozen-lockfile\\s+\\S/": false,
         "/^yarn\\s+licenses\\b/": true,
         "basename": true,
         "cat": true,
@@ -8151,25 +8363,29 @@
         "/^docker\\s+(ps|images|info|version|inspect|logs|top|stats|port|diff|search|events)\\b/": true,
         "/^docker\\s+compose\\s+(ps|ls|top|logs|images|config|version|port|events)\\b/": true,
         "/^find\\b.*\\s-(delete|exec|execdir|fprint|fprintf|fls|ok|okdir)\\b/": false,
-        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+branch\\b.*\\s-(d|D|m|M|-delete|-force)\\b/": false,
-        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+branch\\b/": true,
-        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+diff\\b/": true,
-        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+grep\\b/": true,
-        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+log\\b.*\\s--output(=|\\s|$)/": false,
-        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+log\\b/": true,
-        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+ls-files\\b/": true,
-        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+show\\b.*\\s--output(=|\\s|$)/": false,
-        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+show\\b/": true,
-        "/^git(\\s+(-C\\s+\\S+|--no-pager))*\\s+status\\b/": true,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+branch\\b.*\\s-(d|D|m|M|-delete|-force)\\b/": false,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+branch\\b/": true,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+diff\\b/": true,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+grep\\b.*\\s(?-i:--[^\\w\\s]*o[^\\w\\s]*p\\S*)(\\s|$)/": false,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+grep\\b.*\\s(?-i:-[aIivwhHEGPFnlLqzco]*[^\\w\\s]*O\\S*)(\\s|$)/": false,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+grep\\b/": true,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+log\\b.*\\s--output(=|\\s|$)/": false,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+log\\b/": true,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+ls-files\\b/": true,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+show\\b.*\\s--output(=|\\s|$)/": false,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+show\\b/": true,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+status\\b/": true,
         "/^npm\\s+(ls|list|outdated|view|info|show|explain|why|root|prefix|bin|search|doctor|fund|repo|bugs|docs|home|help(-search)?)\\b/": true,
         "/^npm\\s+audit$/": true,
         "/^npm\\s+cache\\s+verify\\b/": true,
+        "/^npm\\s+ci\\s+\\S/": false,
         "/^npm\\s+config\\s+(list|get)\\b/": true,
         "/^npm\\s+pkg\\s+get\\b/": true,
         "/^pnpm\\s+(ls|list|outdated|why|root|bin|doctor)\\b/": true,
         "/^pnpm\\s+audit\\b(?!.*\\bfix\\b)/": true,
         "/^pnpm\\s+config\\s+(list|get)\\b/": true,
         "/^pnpm\\s+install\\s+--frozen-lockfile\\b/": true,
+        "/^pnpm\\s+install\\s+--frozen-lockfile\\s+\\S/": false,
         "/^pnpm\\s+licenses\\b/": true,
         "/^rg\\b.*\\s(--pre|--hostname-bin)\\b/": false,
         "/^sed\\b.*\\s(-[a-zA-Z]*(e|f)[a-zA-Z]*|--expression|--file)\\b/": false,
@@ -8188,6 +8404,7 @@
         "/^yarn\\s+cache\\s+dir\\b/": true,
         "/^yarn\\s+config\\s+(list|get)\\b/": true,
         "/^yarn\\s+install\\s+--frozen-lockfile\\b/": true,
+        "/^yarn\\s+install\\s+--frozen-lockfile\\s+\\S/": false,
         "/^yarn\\s+licenses\\b/": true,
         "basename": true,
         "cat": true,
@@ -8559,7 +8776,7 @@
       "default": null,
       "anyOf": [
         {
-          "$ref": "#/$defs/_296"
+          "$ref": "#/$defs/_297"
         },
         {
           "type": "null"
@@ -8590,7 +8807,7 @@
       "default": null,
       "anyOf": [
         {
-          "$ref": "#/$defs/_296"
+          "$ref": "#/$defs/_297"
         },
         {
           "type": "null"
@@ -8621,7 +8838,7 @@
       "default": null,
       "anyOf": [
         {
-          "$ref": "#/$defs/_296"
+          "$ref": "#/$defs/_297"
         },
         {
           "type": "null"
@@ -8993,6 +9210,25 @@
         "title": "Chat"
       },
       "defaultDefaultValue": "sideBySide",
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.welcomePage.signIn.enabled": {
+      "type": "boolean",
+      "description": "Controls whether the Welcome page shows a GitHub sign-in button instead of the Agents window button when signed out.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },
@@ -10422,7 +10658,7 @@
       "description": "Options used when debugging open links clicked from inside the JavaScript Debug Terminal. Can be set to \"off\" to disable this behavior, or \"always\" to enable debugging in all terminals.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_345"
+          "$ref": "#/$defs/_346"
         },
         {
           "type": "object",
@@ -10444,7 +10680,7 @@
               ]
             },
             "cascadeTerminateToConfigurations": {
-              "$ref": "#/$defs/_334"
+              "$ref": "#/$defs/_335"
             },
             "cleanUp": {
               "type": "string",
@@ -10456,10 +10692,10 @@
               "default": "wholeBrowser"
             },
             "customDescriptionGenerator": {
-              "$ref": "#/$defs/_332"
+              "$ref": "#/$defs/_333"
             },
             "customPropertiesGenerator": {
-              "$ref": "#/$defs/_333"
+              "$ref": "#/$defs/_334"
             },
             "cwd": {
               "type": "string",
@@ -10472,13 +10708,13 @@
               "default": true
             },
             "enableContentValidation": {
-              "$ref": "#/$defs/_331"
+              "$ref": "#/$defs/_332"
             },
             "enabled": {
-              "$ref": "#/$defs/_345"
+              "$ref": "#/$defs/_346"
             },
             "enableDWARF": {
-              "$ref": "#/$defs/_335"
+              "$ref": "#/$defs/_336"
             },
             "env": {
               "type": "object",
@@ -10522,10 +10758,10 @@
               "markdownDescription": "Configures how browser processes are killed when stopping the session with `cleanUp: wholeBrowser`. Can be:\n\n- forceful (default): forcefully tears down the process tree. Sends SIGKILL on posix, or `taskkill.exe /F` on Windows.\n- polite: gracefully tears down the process tree. It's possible that misbehaving processes continue to run after shutdown in this way. Sends SIGTERM on posix, or `taskkill.exe` with no `/F` (force) flag on Windows.\n- none: no termination will happen."
             },
             "outFiles": {
-              "$ref": "#/$defs/_319"
+              "$ref": "#/$defs/_320"
             },
             "outputCapture": {
-              "$ref": "#/$defs/_330"
+              "$ref": "#/$defs/_331"
             },
             "pathMapping": {
               "type": "object",
@@ -10533,7 +10769,7 @@
               "default": {}
             },
             "pauseForSourceMap": {
-              "$ref": "#/$defs/_320"
+              "$ref": "#/$defs/_321"
             },
             "perScriptSourcemaps": {
               "type": "string",
@@ -10609,7 +10845,7 @@
                     "attachSimplePort": {
                       "oneOf": [
                         {
-                          "$ref": "#/$defs/_347"
+                          "$ref": "#/$defs/_348"
                         },
                         {
                           "type": "integer"
@@ -10619,10 +10855,10 @@
                       "default": 9229
                     },
                     "autoAttachChildProcesses": {
-                      "$ref": "#/$defs/_339"
+                      "$ref": "#/$defs/_340"
                     },
                     "cascadeTerminateToConfigurations": {
-                      "$ref": "#/$defs/_334"
+                      "$ref": "#/$defs/_335"
                     },
                     "console": {
                       "type": "string",
@@ -10640,10 +10876,10 @@
                       "default": "internalConsole"
                     },
                     "customDescriptionGenerator": {
-                      "$ref": "#/$defs/_332"
+                      "$ref": "#/$defs/_333"
                     },
                     "customPropertiesGenerator": {
-                      "$ref": "#/$defs/_333"
+                      "$ref": "#/$defs/_334"
                     },
                     "cwd": {
                       "type": "string",
@@ -10654,16 +10890,16 @@
                       ]
                     },
                     "enableContentValidation": {
-                      "$ref": "#/$defs/_331"
+                      "$ref": "#/$defs/_332"
                     },
                     "enableDWARF": {
-                      "$ref": "#/$defs/_335"
+                      "$ref": "#/$defs/_336"
                     },
                     "env": {
-                      "$ref": "#/$defs/_340"
+                      "$ref": "#/$defs/_341"
                     },
                     "envFile": {
-                      "$ref": "#/$defs/_341"
+                      "$ref": "#/$defs/_342"
                     },
                     "experimentalNetworking": {
                       "type": "string",
@@ -10686,19 +10922,19 @@
                       "markdownDescription": "Configures how debug processes are killed when stopping the session. Can be:\n\n- forceful (default): forcefully tears down the process tree. Sends SIGKILL on posix, or `taskkill.exe /F` on Windows.\n- polite: gracefully tears down the process tree. It's possible that misbehaving processes continue to run after shutdown in this way. Sends SIGTERM on posix, or `taskkill.exe` with no `/F` (force) flag on Windows.\n- none: no termination will happen."
                     },
                     "localRoot": {
-                      "$ref": "#/$defs/_337"
+                      "$ref": "#/$defs/_338"
                     },
                     "nodeVersionHint": {
-                      "$ref": "#/$defs/_343"
+                      "$ref": "#/$defs/_344"
                     },
                     "outFiles": {
-                      "$ref": "#/$defs/_319"
+                      "$ref": "#/$defs/_320"
                     },
                     "outputCapture": {
-                      "$ref": "#/$defs/_330"
+                      "$ref": "#/$defs/_331"
                     },
                     "pauseForSourceMap": {
-                      "$ref": "#/$defs/_320"
+                      "$ref": "#/$defs/_321"
                     },
                     "profileStartup": {
                       "type": "boolean",
@@ -10714,13 +10950,13 @@
                       ]
                     },
                     "remoteRoot": {
-                      "$ref": "#/$defs/_338"
+                      "$ref": "#/$defs/_339"
                     },
                     "resolveSourceMapLocations": {
-                      "$ref": "#/$defs/_318"
+                      "$ref": "#/$defs/_319"
                     },
                     "restart": {
-                      "$ref": "#/$defs/_346"
+                      "$ref": "#/$defs/_347"
                     },
                     "runtimeArgs": {
                       "type": "array",
@@ -10742,7 +10978,7 @@
                       "default": "node"
                     },
                     "runtimeSourcemapPausePatterns": {
-                      "$ref": "#/$defs/_342"
+                      "$ref": "#/$defs/_343"
                     },
                     "runtimeVersion": {
                       "type": "string",
@@ -10750,22 +10986,22 @@
                       "default": "default"
                     },
                     "showAsyncStacks": {
-                      "$ref": "#/$defs/_321"
-                    },
-                    "skipFiles": {
                       "$ref": "#/$defs/_322"
                     },
-                    "smartStep": {
+                    "skipFiles": {
                       "$ref": "#/$defs/_323"
                     },
+                    "smartStep": {
+                      "$ref": "#/$defs/_324"
+                    },
                     "sourceMapPathOverrides": {
-                      "$ref": "#/$defs/_326"
+                      "$ref": "#/$defs/_327"
                     },
                     "sourceMapRenames": {
-                      "$ref": "#/$defs/_325"
+                      "$ref": "#/$defs/_326"
                     },
                     "sourceMaps": {
-                      "$ref": "#/$defs/_324"
+                      "$ref": "#/$defs/_325"
                     },
                     "stopOnEntry": {
                       "type": [
@@ -10776,13 +11012,13 @@
                       "default": true
                     },
                     "timeout": {
-                      "$ref": "#/$defs/_327"
-                    },
-                    "timeouts": {
                       "$ref": "#/$defs/_328"
                     },
-                    "trace": {
+                    "timeouts": {
                       "$ref": "#/$defs/_329"
+                    },
+                    "trace": {
+                      "$ref": "#/$defs/_330"
                     }
                   }
                 },
@@ -10795,116 +11031,116 @@
                   },
                   "properties": {
                     "autoAttachChildProcesses": {
-                      "$ref": "#/$defs/_339"
-                    },
-                    "cascadeTerminateToConfigurations": {
-                      "$ref": "#/$defs/_334"
-                    },
-                    "command": {
-                      "$ref": "#/$defs/_344"
-                    },
-                    "customDescriptionGenerator": {
-                      "$ref": "#/$defs/_332"
-                    },
-                    "customPropertiesGenerator": {
-                      "$ref": "#/$defs/_333"
-                    },
-                    "cwd": {
-                      "$ref": "#/$defs/_336"
-                    },
-                    "enableContentValidation": {
-                      "$ref": "#/$defs/_331"
-                    },
-                    "enableDWARF": {
-                      "$ref": "#/$defs/_335"
-                    },
-                    "env": {
                       "$ref": "#/$defs/_340"
                     },
-                    "envFile": {
-                      "$ref": "#/$defs/_341"
+                    "cascadeTerminateToConfigurations": {
+                      "$ref": "#/$defs/_335"
                     },
-                    "localRoot": {
+                    "command": {
+                      "$ref": "#/$defs/_345"
+                    },
+                    "customDescriptionGenerator": {
+                      "$ref": "#/$defs/_333"
+                    },
+                    "customPropertiesGenerator": {
+                      "$ref": "#/$defs/_334"
+                    },
+                    "cwd": {
                       "$ref": "#/$defs/_337"
                     },
-                    "nodeVersionHint": {
-                      "$ref": "#/$defs/_343"
+                    "enableContentValidation": {
+                      "$ref": "#/$defs/_332"
                     },
-                    "outFiles": {
-                      "$ref": "#/$defs/_319"
+                    "enableDWARF": {
+                      "$ref": "#/$defs/_336"
                     },
-                    "outputCapture": {
-                      "$ref": "#/$defs/_330"
+                    "env": {
+                      "$ref": "#/$defs/_341"
                     },
-                    "pauseForSourceMap": {
-                      "$ref": "#/$defs/_320"
-                    },
-                    "remoteRoot": {
-                      "$ref": "#/$defs/_338"
-                    },
-                    "resolveSourceMapLocations": {
-                      "$ref": "#/$defs/_318"
-                    },
-                    "runtimeSourcemapPausePatterns": {
+                    "envFile": {
                       "$ref": "#/$defs/_342"
                     },
-                    "showAsyncStacks": {
+                    "localRoot": {
+                      "$ref": "#/$defs/_338"
+                    },
+                    "nodeVersionHint": {
+                      "$ref": "#/$defs/_344"
+                    },
+                    "outFiles": {
+                      "$ref": "#/$defs/_320"
+                    },
+                    "outputCapture": {
+                      "$ref": "#/$defs/_331"
+                    },
+                    "pauseForSourceMap": {
                       "$ref": "#/$defs/_321"
                     },
-                    "skipFiles": {
+                    "remoteRoot": {
+                      "$ref": "#/$defs/_339"
+                    },
+                    "resolveSourceMapLocations": {
+                      "$ref": "#/$defs/_319"
+                    },
+                    "runtimeSourcemapPausePatterns": {
+                      "$ref": "#/$defs/_343"
+                    },
+                    "showAsyncStacks": {
                       "$ref": "#/$defs/_322"
                     },
-                    "smartStep": {
+                    "skipFiles": {
                       "$ref": "#/$defs/_323"
                     },
-                    "sourceMapPathOverrides": {
-                      "$ref": "#/$defs/_326"
-                    },
-                    "sourceMapRenames": {
-                      "$ref": "#/$defs/_325"
-                    },
-                    "sourceMaps": {
+                    "smartStep": {
                       "$ref": "#/$defs/_324"
                     },
-                    "timeout": {
+                    "sourceMapPathOverrides": {
                       "$ref": "#/$defs/_327"
                     },
-                    "timeouts": {
+                    "sourceMapRenames": {
+                      "$ref": "#/$defs/_326"
+                    },
+                    "sourceMaps": {
+                      "$ref": "#/$defs/_325"
+                    },
+                    "timeout": {
                       "$ref": "#/$defs/_328"
                     },
-                    "trace": {
+                    "timeouts": {
                       "$ref": "#/$defs/_329"
+                    },
+                    "trace": {
+                      "$ref": "#/$defs/_330"
                     }
                   }
                 }
               ]
             },
             "showAsyncStacks": {
-              "$ref": "#/$defs/_321"
-            },
-            "skipFiles": {
               "$ref": "#/$defs/_322"
             },
-            "smartStep": {
+            "skipFiles": {
               "$ref": "#/$defs/_323"
             },
-            "sourceMapPathOverrides": {
-              "$ref": "#/$defs/_326"
-            },
-            "sourceMapRenames": {
-              "$ref": "#/$defs/_325"
-            },
-            "sourceMaps": {
+            "smartStep": {
               "$ref": "#/$defs/_324"
             },
-            "timeout": {
+            "sourceMapPathOverrides": {
               "$ref": "#/$defs/_327"
             },
-            "timeouts": {
+            "sourceMapRenames": {
+              "$ref": "#/$defs/_326"
+            },
+            "sourceMaps": {
+              "$ref": "#/$defs/_325"
+            },
+            "timeout": {
               "$ref": "#/$defs/_328"
             },
-            "trace": {
+            "timeouts": {
               "$ref": "#/$defs/_329"
+            },
+            "trace": {
+              "$ref": "#/$defs/_330"
             },
             "url": {
               "type": "string",
@@ -11032,10 +11268,10 @@
           "default": false
         },
         "autoAttachChildProcesses": {
-          "$ref": "#/$defs/_339"
+          "$ref": "#/$defs/_340"
         },
         "cascadeTerminateToConfigurations": {
-          "$ref": "#/$defs/_334"
+          "$ref": "#/$defs/_335"
         },
         "continueOnAttach": {
           "type": "boolean",
@@ -11043,47 +11279,47 @@
           "default": true
         },
         "customDescriptionGenerator": {
-          "$ref": "#/$defs/_332"
-        },
-        "customPropertiesGenerator": {
           "$ref": "#/$defs/_333"
         },
+        "customPropertiesGenerator": {
+          "$ref": "#/$defs/_334"
+        },
         "cwd": {
-          "$ref": "#/$defs/_336"
-        },
-        "enableContentValidation": {
-          "$ref": "#/$defs/_331"
-        },
-        "enableDWARF": {
-          "$ref": "#/$defs/_335"
-        },
-        "env": {
-          "$ref": "#/$defs/_340"
-        },
-        "envFile": {
-          "$ref": "#/$defs/_341"
-        },
-        "localRoot": {
           "$ref": "#/$defs/_337"
         },
+        "enableContentValidation": {
+          "$ref": "#/$defs/_332"
+        },
+        "enableDWARF": {
+          "$ref": "#/$defs/_336"
+        },
+        "env": {
+          "$ref": "#/$defs/_341"
+        },
+        "envFile": {
+          "$ref": "#/$defs/_342"
+        },
+        "localRoot": {
+          "$ref": "#/$defs/_338"
+        },
         "nodeVersionHint": {
-          "$ref": "#/$defs/_343"
+          "$ref": "#/$defs/_344"
         },
         "outFiles": {
-          "$ref": "#/$defs/_319"
+          "$ref": "#/$defs/_320"
         },
         "outputCapture": {
-          "$ref": "#/$defs/_330"
+          "$ref": "#/$defs/_331"
         },
         "pauseForSourceMap": {
-          "$ref": "#/$defs/_320"
+          "$ref": "#/$defs/_321"
         },
         "port": {
           "description": "Debug port to attach to. Default is 9229.",
           "default": 9229,
           "oneOf": [
             {
-              "$ref": "#/$defs/_347"
+              "$ref": "#/$defs/_348"
             },
             {
               "type": "integer"
@@ -11103,43 +11339,43 @@
           "description": "Explicit Host header to use when connecting to the websocket of inspector. If unspecified, the host header will be set to 'localhost'. This is useful when the inspector is running behind a proxy that only accept particular Host header."
         },
         "remoteRoot": {
-          "$ref": "#/$defs/_338"
+          "$ref": "#/$defs/_339"
         },
         "resolveSourceMapLocations": {
-          "$ref": "#/$defs/_318"
+          "$ref": "#/$defs/_319"
         },
         "restart": {
-          "$ref": "#/$defs/_346"
+          "$ref": "#/$defs/_347"
         },
         "runtimeSourcemapPausePatterns": {
-          "$ref": "#/$defs/_342"
+          "$ref": "#/$defs/_343"
         },
         "showAsyncStacks": {
-          "$ref": "#/$defs/_321"
-        },
-        "skipFiles": {
           "$ref": "#/$defs/_322"
         },
-        "smartStep": {
+        "skipFiles": {
           "$ref": "#/$defs/_323"
         },
-        "sourceMapPathOverrides": {
-          "$ref": "#/$defs/_326"
-        },
-        "sourceMapRenames": {
-          "$ref": "#/$defs/_325"
-        },
-        "sourceMaps": {
+        "smartStep": {
           "$ref": "#/$defs/_324"
         },
-        "timeout": {
+        "sourceMapPathOverrides": {
           "$ref": "#/$defs/_327"
         },
-        "timeouts": {
+        "sourceMapRenames": {
+          "$ref": "#/$defs/_326"
+        },
+        "sourceMaps": {
+          "$ref": "#/$defs/_325"
+        },
+        "timeout": {
           "$ref": "#/$defs/_328"
         },
-        "trace": {
+        "timeouts": {
           "$ref": "#/$defs/_329"
+        },
+        "trace": {
+          "$ref": "#/$defs/_330"
         },
         "websocketAddress": {
           "type": "string",
@@ -11188,85 +11424,85 @@
       "default": {},
       "properties": {
         "autoAttachChildProcesses": {
-          "$ref": "#/$defs/_339"
-        },
-        "cascadeTerminateToConfigurations": {
-          "$ref": "#/$defs/_334"
-        },
-        "command": {
-          "$ref": "#/$defs/_344"
-        },
-        "customDescriptionGenerator": {
-          "$ref": "#/$defs/_332"
-        },
-        "customPropertiesGenerator": {
-          "$ref": "#/$defs/_333"
-        },
-        "cwd": {
-          "$ref": "#/$defs/_336"
-        },
-        "enableContentValidation": {
-          "$ref": "#/$defs/_331"
-        },
-        "enableDWARF": {
-          "$ref": "#/$defs/_335"
-        },
-        "env": {
           "$ref": "#/$defs/_340"
         },
-        "envFile": {
-          "$ref": "#/$defs/_341"
+        "cascadeTerminateToConfigurations": {
+          "$ref": "#/$defs/_335"
         },
-        "localRoot": {
+        "command": {
+          "$ref": "#/$defs/_345"
+        },
+        "customDescriptionGenerator": {
+          "$ref": "#/$defs/_333"
+        },
+        "customPropertiesGenerator": {
+          "$ref": "#/$defs/_334"
+        },
+        "cwd": {
           "$ref": "#/$defs/_337"
         },
-        "nodeVersionHint": {
-          "$ref": "#/$defs/_343"
+        "enableContentValidation": {
+          "$ref": "#/$defs/_332"
         },
-        "outFiles": {
-          "$ref": "#/$defs/_319"
+        "enableDWARF": {
+          "$ref": "#/$defs/_336"
         },
-        "outputCapture": {
-          "$ref": "#/$defs/_330"
+        "env": {
+          "$ref": "#/$defs/_341"
         },
-        "pauseForSourceMap": {
-          "$ref": "#/$defs/_320"
-        },
-        "remoteRoot": {
-          "$ref": "#/$defs/_338"
-        },
-        "resolveSourceMapLocations": {
-          "$ref": "#/$defs/_318"
-        },
-        "runtimeSourcemapPausePatterns": {
+        "envFile": {
           "$ref": "#/$defs/_342"
         },
-        "showAsyncStacks": {
+        "localRoot": {
+          "$ref": "#/$defs/_338"
+        },
+        "nodeVersionHint": {
+          "$ref": "#/$defs/_344"
+        },
+        "outFiles": {
+          "$ref": "#/$defs/_320"
+        },
+        "outputCapture": {
+          "$ref": "#/$defs/_331"
+        },
+        "pauseForSourceMap": {
           "$ref": "#/$defs/_321"
         },
-        "skipFiles": {
+        "remoteRoot": {
+          "$ref": "#/$defs/_339"
+        },
+        "resolveSourceMapLocations": {
+          "$ref": "#/$defs/_319"
+        },
+        "runtimeSourcemapPausePatterns": {
+          "$ref": "#/$defs/_343"
+        },
+        "showAsyncStacks": {
           "$ref": "#/$defs/_322"
         },
-        "smartStep": {
+        "skipFiles": {
           "$ref": "#/$defs/_323"
         },
-        "sourceMapPathOverrides": {
-          "$ref": "#/$defs/_326"
-        },
-        "sourceMapRenames": {
-          "$ref": "#/$defs/_325"
-        },
-        "sourceMaps": {
+        "smartStep": {
           "$ref": "#/$defs/_324"
         },
-        "timeout": {
+        "sourceMapPathOverrides": {
           "$ref": "#/$defs/_327"
         },
-        "timeouts": {
+        "sourceMapRenames": {
+          "$ref": "#/$defs/_326"
+        },
+        "sourceMaps": {
+          "$ref": "#/$defs/_325"
+        },
+        "timeout": {
           "$ref": "#/$defs/_328"
         },
-        "trace": {
+        "timeouts": {
           "$ref": "#/$defs/_329"
+        },
+        "trace": {
+          "$ref": "#/$defs/_330"
         }
       },
       "scope": 4,
@@ -11727,6 +11963,22 @@
       "scope": 6,
       "restricted": false
     },
+    "diffEditor.hideOriginalLineNumbers": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "default": null,
+      "description": "Controls whether original line numbers are hidden in inline diffs. When set to null, uses the editor's default: hidden in compact multi diff editors and visible in other diff editors.",
+      "section": {
+        "id": "editor",
+        "title": "Editor",
+        "order": 5
+      },
+      "defaultDefaultValue": null,
+      "scope": 6,
+      "restricted": false
+    },
     "diffEditor.hideUnchangedRegions.contextLineCount": {
       "type": "integer",
       "default": 3,
@@ -12029,10 +12281,10 @@
     "editor.codeActionsOnSave": {
       "oneOf": [
         {
-          "$ref": "#/$defs/_277"
+          "$ref": "#/$defs/_278"
         },
         {
-          "$ref": "#/$defs/_307"
+          "$ref": "#/$defs/_308"
         }
       ],
       "markdownDescription": "Run Code Actions for the editor on save. Code Actions must be specified and the editor must not be shutting down. When `#files.autoSave#` is set to `afterDelay`, Code Actions will only be run when the file is saved explicitly. Example: `\"source.organizeImports\": \"explicit\" `",
@@ -12100,7 +12352,7 @@
       "$ref": "#/$defs/_29"
     },
     "editor.colorDecoratorsActivatedOn": {
-      "$ref": "#/$defs/_255"
+      "$ref": "#/$defs/_256"
     },
     "editor.colorDecoratorsLimit": {
       "$ref": "#/$defs/_30"
@@ -12139,7 +12391,7 @@
       "$ref": "#/$defs/_40"
     },
     "editor.defaultColorDecorators": {
-      "$ref": "#/$defs/_254"
+      "$ref": "#/$defs/_255"
     },
     "editor.defaultFoldingRangeProvider": {
       "description": "Defines a default folding range provider that takes precedence over all other folding range providers. Must be the identifier of an extension contributing a folding range provider.",
@@ -12406,7 +12658,7 @@
       "restricted": false
     },
     "editor.doubleClickSelectsBlock": {
-      "$ref": "#/$defs/_258"
+      "$ref": "#/$defs/_259"
     },
     "editor.dragAndDrop": {
       "$ref": "#/$defs/_42"
@@ -12704,7 +12956,7 @@
       "$ref": "#/$defs/_71"
     },
     "editor.fullwidthCharacterWidth": {
-      "$ref": "#/$defs/_259"
+      "$ref": "#/$defs/_260"
     },
     "editor.glyphMargin": {
       "$ref": "#/$defs/_72"
@@ -12821,7 +13073,7 @@
       "$ref": "#/$defs/_250"
     },
     "editor.inlineCompletionsAccessibilityVerbose": {
-      "$ref": "#/$defs/_256"
+      "$ref": "#/$defs/_257"
     },
     "editor.inlineSuggest.edits.allowCodeShifting": {
       "$ref": "#/$defs/_102"
@@ -13171,7 +13423,7 @@
       "$ref": "#/$defs/_165"
     },
     "editor.scrollOnMiddleClick": {
-      "$ref": "#/$defs/_257"
+      "$ref": "#/$defs/_258"
     },
     "editor.scrollPredominantAxis": {
       "$ref": "#/$defs/_166"
@@ -13217,66 +13469,66 @@
         {
           "properties": {
             "[Abyss]": {
-              "$ref": "#/$defs/_274"
+              "$ref": "#/$defs/_275"
             },
             "[Dark 2026]": {
-              "$ref": "#/$defs/_274"
+              "$ref": "#/$defs/_275"
             },
             "[Dark Modern]": {
-              "$ref": "#/$defs/_274"
+              "$ref": "#/$defs/_275"
             },
             "[Dark+]": {
-              "$ref": "#/$defs/_274"
+              "$ref": "#/$defs/_275"
             },
             "[Default High Contrast Light]": {
-              "$ref": "#/$defs/_274"
+              "$ref": "#/$defs/_275"
             },
             "[Default High Contrast]": {
-              "$ref": "#/$defs/_274"
+              "$ref": "#/$defs/_275"
             },
             "[Kimbie Dark]": {
-              "$ref": "#/$defs/_274"
+              "$ref": "#/$defs/_275"
             },
             "[Light 2026]": {
-              "$ref": "#/$defs/_274"
+              "$ref": "#/$defs/_275"
             },
             "[Light Modern]": {
-              "$ref": "#/$defs/_274"
+              "$ref": "#/$defs/_275"
             },
             "[Light+]": {
-              "$ref": "#/$defs/_274"
+              "$ref": "#/$defs/_275"
             },
             "[Monokai Dimmed]": {
-              "$ref": "#/$defs/_274"
+              "$ref": "#/$defs/_275"
             },
             "[Monokai]": {
-              "$ref": "#/$defs/_274"
+              "$ref": "#/$defs/_275"
             },
             "[Quiet Light]": {
-              "$ref": "#/$defs/_274"
+              "$ref": "#/$defs/_275"
             },
             "[Red]": {
-              "$ref": "#/$defs/_274"
+              "$ref": "#/$defs/_275"
             },
             "[Solarized Dark]": {
-              "$ref": "#/$defs/_274"
+              "$ref": "#/$defs/_275"
             },
             "[Solarized Light]": {
-              "$ref": "#/$defs/_274"
+              "$ref": "#/$defs/_275"
             },
             "[Tomorrow Night Blue]": {
-              "$ref": "#/$defs/_274"
+              "$ref": "#/$defs/_275"
             },
             "[Visual Studio Dark]": {
-              "$ref": "#/$defs/_274"
+              "$ref": "#/$defs/_275"
             },
             "[Visual Studio Light]": {
-              "$ref": "#/$defs/_274"
+              "$ref": "#/$defs/_275"
             }
           },
           "patternProperties": {
             "^\\[[^\\]]*(\\]\\s*\\[[^\\]]*)*\\]$": {
-              "$ref": "#/$defs/_274"
+              "$ref": "#/$defs/_275"
             }
           }
         },
@@ -13284,10 +13536,10 @@
           "type": "object",
           "properties": {
             "enabled": {
-              "$ref": "#/$defs/_272"
+              "$ref": "#/$defs/_273"
             },
             "rules": {
-              "$ref": "#/$defs/_273"
+              "$ref": "#/$defs/_274"
             }
           },
           "additionalProperties": false,
@@ -13505,7 +13757,7 @@
       "$ref": "#/$defs/_227"
     },
     "editor.tabFocusMode": {
-      "$ref": "#/$defs/_253"
+      "$ref": "#/$defs/_254"
     },
     "editor.tabSize": {
       "type": "number",
@@ -13529,66 +13781,66 @@
         {
           "properties": {
             "[Abyss]": {
-              "$ref": "#/$defs/_271"
+              "$ref": "#/$defs/_272"
             },
             "[Dark 2026]": {
-              "$ref": "#/$defs/_271"
+              "$ref": "#/$defs/_272"
             },
             "[Dark Modern]": {
-              "$ref": "#/$defs/_271"
+              "$ref": "#/$defs/_272"
             },
             "[Dark+]": {
-              "$ref": "#/$defs/_271"
+              "$ref": "#/$defs/_272"
             },
             "[Default High Contrast Light]": {
-              "$ref": "#/$defs/_271"
+              "$ref": "#/$defs/_272"
             },
             "[Default High Contrast]": {
-              "$ref": "#/$defs/_271"
+              "$ref": "#/$defs/_272"
             },
             "[Kimbie Dark]": {
-              "$ref": "#/$defs/_271"
+              "$ref": "#/$defs/_272"
             },
             "[Light 2026]": {
-              "$ref": "#/$defs/_271"
+              "$ref": "#/$defs/_272"
             },
             "[Light Modern]": {
-              "$ref": "#/$defs/_271"
+              "$ref": "#/$defs/_272"
             },
             "[Light+]": {
-              "$ref": "#/$defs/_271"
+              "$ref": "#/$defs/_272"
             },
             "[Monokai Dimmed]": {
-              "$ref": "#/$defs/_271"
+              "$ref": "#/$defs/_272"
             },
             "[Monokai]": {
-              "$ref": "#/$defs/_271"
+              "$ref": "#/$defs/_272"
             },
             "[Quiet Light]": {
-              "$ref": "#/$defs/_271"
+              "$ref": "#/$defs/_272"
             },
             "[Red]": {
-              "$ref": "#/$defs/_271"
+              "$ref": "#/$defs/_272"
             },
             "[Solarized Dark]": {
-              "$ref": "#/$defs/_271"
+              "$ref": "#/$defs/_272"
             },
             "[Solarized Light]": {
-              "$ref": "#/$defs/_271"
+              "$ref": "#/$defs/_272"
             },
             "[Tomorrow Night Blue]": {
-              "$ref": "#/$defs/_271"
+              "$ref": "#/$defs/_272"
             },
             "[Visual Studio Dark]": {
-              "$ref": "#/$defs/_271"
+              "$ref": "#/$defs/_272"
             },
             "[Visual Studio Light]": {
-              "$ref": "#/$defs/_271"
+              "$ref": "#/$defs/_272"
             }
           },
           "patternProperties": {
             "^\\[[^\\]]*(\\]\\s*\\[[^\\]]*)*\\]$": {
-              "$ref": "#/$defs/_271"
+              "$ref": "#/$defs/_272"
             }
           }
         },
@@ -13596,31 +13848,31 @@
           "type": "object",
           "properties": {
             "comments": {
-              "$ref": "#/$defs/_262"
-            },
-            "functions": {
-              "$ref": "#/$defs/_267"
-            },
-            "keywords": {
-              "$ref": "#/$defs/_264"
-            },
-            "numbers": {
-              "$ref": "#/$defs/_265"
-            },
-            "semanticHighlighting": {
-              "$ref": "#/$defs/_270"
-            },
-            "strings": {
               "$ref": "#/$defs/_263"
             },
-            "textMateRules": {
-              "$ref": "#/$defs/_269"
+            "functions": {
+              "$ref": "#/$defs/_268"
             },
-            "types": {
+            "keywords": {
+              "$ref": "#/$defs/_265"
+            },
+            "numbers": {
               "$ref": "#/$defs/_266"
             },
+            "semanticHighlighting": {
+              "$ref": "#/$defs/_271"
+            },
+            "strings": {
+              "$ref": "#/$defs/_264"
+            },
+            "textMateRules": {
+              "$ref": "#/$defs/_270"
+            },
+            "types": {
+              "$ref": "#/$defs/_267"
+            },
             "variables": {
-              "$ref": "#/$defs/_268"
+              "$ref": "#/$defs/_269"
             }
           },
           "additionalProperties": false,
@@ -13729,6 +13981,9 @@
     },
     "editor.wordWrapColumn": {
       "$ref": "#/$defs/_242"
+    },
+    "editor.wordWrapIndicator": {
+      "$ref": "#/$defs/_253"
     },
     "editor.wrapOnEscapedLineFeeds": {
       "$ref": "#/$defs/_252"
@@ -14201,7 +14456,7 @@
       "additionalProperties": {
         "anyOf": [
           {
-            "$ref": "#/$defs/_282"
+            "$ref": "#/$defs/_283"
           },
           {
             "type": "object",
@@ -14969,7 +15224,7 @@
       "markdownDescription": "Override the Agents window support of an extension. Extensions using `true` will be enabled in the Agents window even when they would otherwise be disabled.",
       "patternProperties": {
         "([a-z0-9A-Z][a-z0-9-A-Z]*)\\.([a-z0-9A-Z][a-z0-9-A-Z]*)$": {
-          "$ref": "#/$defs/_280"
+          "$ref": "#/$defs/_281"
         }
       },
       "additionalProperties": false,
@@ -15047,7 +15302,7 @@
       "markdownDescription": "Override the virtual workspaces support of an extension.",
       "patternProperties": {
         "([a-z0-9A-Z][a-z0-9-A-Z]*)\\.([a-z0-9A-Z][a-z0-9-A-Z]*)$": {
-          "$ref": "#/$defs/_280"
+          "$ref": "#/$defs/_281"
         }
       },
       "additionalProperties": false,
@@ -15499,6 +15754,7 @@
         "**/.DS_Store": true,
         "**/.git": true,
         "**/.hg": true,
+        "**/.jj": true,
         "**/.svn": true,
         "**/Thumbs.db": true
       },
@@ -15518,7 +15774,7 @@
             "description": "The glob pattern to match file paths against. Set to true or false to enable or disable the pattern."
           },
           {
-            "$ref": "#/$defs/_281"
+            "$ref": "#/$defs/_282"
           }
         ]
       },
@@ -15531,6 +15787,7 @@
         "**/.DS_Store": true,
         "**/.git": true,
         "**/.hg": true,
+        "**/.jj": true,
         "**/.svn": true,
         "**/Thumbs.db": true
       },
@@ -18233,38 +18490,17 @@
       "restricted": false
     },
     "github.copilot.chat.agent.terminal.allowList": {
-      "$ref": "#/$defs/_301"
+      "$ref": "#/$defs/_302"
     },
     "github.copilot.chat.agent.terminal.denyList": {
-      "$ref": "#/$defs/_301"
-    },
-    "github.copilot.chat.autoMode.tiers.enabled": {
-      "type": "boolean",
-      "markdownDescription": "Show the Auto model's \"Optimize for\" picker with Efficiency, Balance, and Intelligence options in Copilot Chat and Copilot SDK sessions. When disabled, the service chooses how to route unless an override is configured.",
-      "default": false,
-      "experiment": {
-        "mode": "startup",
-        "name": "copilotchat.autoModeTiersEnabled"
-      },
-      "tags": [
-        "experimental",
-        "advanced",
-        "onExP"
-      ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
+      "$ref": "#/$defs/_302"
     },
     "github.copilot.chat.autoModeTierOverride": {
       "type": [
         "string",
         "null"
       ],
-      "markdownDescription": "Override Auto's \"Optimize for\" preference for evals and debugging, even when the picker is disabled. Accepts `efficiency`, `balance`, or `intelligence` in both Copilot Chat and Copilot SDK sessions; `fast` is extension-only. Set to `null` to clear.",
+      "markdownDescription": "Override Auto's \"Optimize for\" preference for evals and debugging. Accepts `efficiency`, `balance`, or `intelligence` in both Copilot Chat and Copilot SDK sessions; `fast` is extension-only. Set to `null` to clear.",
       "default": null,
       "tags": [
         "advanced"
@@ -19474,7 +19710,7 @@
       "restricted": false
     },
     "javascript.autoClosingTags": {
-      "$ref": "#/$defs/_380"
+      "$ref": "#/$defs/_381"
     },
     "javascript.format.enable": {
       "type": "boolean",
@@ -19499,88 +19735,88 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.enabled instead."
     },
     "javascript.format.indentSwitchCase": {
-      "$ref": "#/$defs/_378"
+      "$ref": "#/$defs/_379"
     },
     "javascript.format.insertSpaceAfterCommaDelimiter": {
-      "$ref": "#/$defs/_362"
-    },
-    "javascript.format.insertSpaceAfterConstructor": {
       "$ref": "#/$defs/_363"
     },
-    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": {
-      "$ref": "#/$defs/_367"
-    },
-    "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": {
-      "$ref": "#/$defs/_366"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": {
-      "$ref": "#/$defs/_372"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": {
-      "$ref": "#/$defs/_374"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": {
-      "$ref": "#/$defs/_371"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": {
-      "$ref": "#/$defs/_370"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": {
-      "$ref": "#/$defs/_369"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": {
-      "$ref": "#/$defs/_373"
-    },
-    "javascript.format.insertSpaceAfterSemicolonInForStatements": {
+    "javascript.format.insertSpaceAfterConstructor": {
       "$ref": "#/$defs/_364"
     },
-    "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": {
-      "$ref": "#/$defs/_365"
-    },
-    "javascript.format.insertSpaceBeforeFunctionParenthesis": {
+    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": {
       "$ref": "#/$defs/_368"
     },
-    "javascript.format.placeOpenBraceOnNewLineForControlBlocks": {
-      "$ref": "#/$defs/_376"
+    "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": {
+      "$ref": "#/$defs/_367"
     },
-    "javascript.format.placeOpenBraceOnNewLineForFunctions": {
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": {
+      "$ref": "#/$defs/_373"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": {
       "$ref": "#/$defs/_375"
     },
-    "javascript.format.semicolons": {
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": {
+      "$ref": "#/$defs/_372"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": {
+      "$ref": "#/$defs/_371"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": {
+      "$ref": "#/$defs/_370"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": {
+      "$ref": "#/$defs/_374"
+    },
+    "javascript.format.insertSpaceAfterSemicolonInForStatements": {
+      "$ref": "#/$defs/_365"
+    },
+    "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": {
+      "$ref": "#/$defs/_366"
+    },
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": {
+      "$ref": "#/$defs/_369"
+    },
+    "javascript.format.placeOpenBraceOnNewLineForControlBlocks": {
       "$ref": "#/$defs/_377"
     },
+    "javascript.format.placeOpenBraceOnNewLineForFunctions": {
+      "$ref": "#/$defs/_376"
+    },
+    "javascript.format.semicolons": {
+      "$ref": "#/$defs/_378"
+    },
     "javascript.inlayHints.functionLikeReturnTypes.enabled": {
-      "$ref": "#/$defs/_400"
+      "$ref": "#/$defs/_401"
     },
     "javascript.inlayHints.parameterNames.enabled": {
-      "$ref": "#/$defs/_394"
-    },
-    "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": {
       "$ref": "#/$defs/_395"
     },
-    "javascript.inlayHints.parameterTypes.enabled": {
+    "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": {
       "$ref": "#/$defs/_396"
     },
-    "javascript.inlayHints.propertyDeclarationTypes.enabled": {
-      "$ref": "#/$defs/_399"
-    },
-    "javascript.inlayHints.variableTypes.enabled": {
+    "javascript.inlayHints.parameterTypes.enabled": {
       "$ref": "#/$defs/_397"
     },
-    "javascript.inlayHints.variableTypes.suppressWhenTypeMatchesName": {
+    "javascript.inlayHints.propertyDeclarationTypes.enabled": {
+      "$ref": "#/$defs/_400"
+    },
+    "javascript.inlayHints.variableTypes.enabled": {
       "$ref": "#/$defs/_398"
     },
-    "javascript.preferences.autoImportFileExcludePatterns": {
-      "$ref": "#/$defs/_351"
+    "javascript.inlayHints.variableTypes.suppressWhenTypeMatchesName": {
+      "$ref": "#/$defs/_399"
     },
-    "javascript.preferences.autoImportSpecifierExcludeRegexes": {
+    "javascript.preferences.autoImportFileExcludePatterns": {
       "$ref": "#/$defs/_352"
     },
+    "javascript.preferences.autoImportSpecifierExcludeRegexes": {
+      "$ref": "#/$defs/_353"
+    },
     "javascript.preferences.importModuleSpecifier": {
-      "$ref": "#/$defs/_349"
+      "$ref": "#/$defs/_350"
     },
     "javascript.preferences.importModuleSpecifierEnding": {
-      "$ref": "#/$defs/_350"
+      "$ref": "#/$defs/_351"
     },
     "javascript.preferences.jsxAttributeCompletionStyle": {
       "type": "string",
@@ -19620,25 +19856,25 @@
       "markdownDeprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.organizeImports#` instead.",
       "properties": {
         "accentCollation": {
-          "$ref": "#/$defs/_360"
-        },
-        "caseFirst": {
           "$ref": "#/$defs/_361"
         },
+        "caseFirst": {
+          "$ref": "#/$defs/_362"
+        },
         "caseSensitivity": {
-          "$ref": "#/$defs/_355"
-        },
-        "locale": {
-          "$ref": "#/$defs/_358"
-        },
-        "numericCollation": {
-          "$ref": "#/$defs/_359"
-        },
-        "typeOrder": {
           "$ref": "#/$defs/_356"
         },
-        "unicodeCollation": {
+        "locale": {
+          "$ref": "#/$defs/_359"
+        },
+        "numericCollation": {
+          "$ref": "#/$defs/_360"
+        },
+        "typeOrder": {
           "$ref": "#/$defs/_357"
+        },
+        "unicodeCollation": {
+          "$ref": "#/$defs/_358"
         }
       },
       "scope": 4,
@@ -19659,46 +19895,46 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.organizeImports instead."
     },
     "javascript.preferences.quoteStyle": {
-      "$ref": "#/$defs/_348"
+      "$ref": "#/$defs/_349"
     },
     "javascript.preferences.renameMatchingJsxTags": {
-      "$ref": "#/$defs/_354"
+      "$ref": "#/$defs/_355"
     },
     "javascript.preferences.useAliasesForRenames": {
-      "$ref": "#/$defs/_353"
+      "$ref": "#/$defs/_354"
     },
     "javascript.preferGoToSourceDefinition": {
-      "$ref": "#/$defs/_381"
+      "$ref": "#/$defs/_382"
     },
     "javascript.referencesCodeLens.enabled": {
-      "$ref": "#/$defs/_392"
-    },
-    "javascript.referencesCodeLens.showOnAllFunctions": {
       "$ref": "#/$defs/_393"
     },
+    "javascript.referencesCodeLens.showOnAllFunctions": {
+      "$ref": "#/$defs/_394"
+    },
     "javascript.suggest.autoImports": {
-      "$ref": "#/$defs/_384"
-    },
-    "javascript.suggest.classMemberSnippets.enabled": {
-      "$ref": "#/$defs/_391"
-    },
-    "javascript.suggest.completeFunctionCalls": {
       "$ref": "#/$defs/_385"
     },
+    "javascript.suggest.classMemberSnippets.enabled": {
+      "$ref": "#/$defs/_392"
+    },
+    "javascript.suggest.completeFunctionCalls": {
+      "$ref": "#/$defs/_386"
+    },
     "javascript.suggest.completeJSDocs": {
-      "$ref": "#/$defs/_387"
+      "$ref": "#/$defs/_388"
     },
     "javascript.suggest.enabled": {
-      "$ref": "#/$defs/_383"
+      "$ref": "#/$defs/_384"
     },
     "javascript.suggest.includeAutomaticOptionalChainCompletions": {
-      "$ref": "#/$defs/_389"
-    },
-    "javascript.suggest.includeCompletionsForImportStatements": {
       "$ref": "#/$defs/_390"
     },
+    "javascript.suggest.includeCompletionsForImportStatements": {
+      "$ref": "#/$defs/_391"
+    },
     "javascript.suggest.jsdoc.generateReturns": {
-      "$ref": "#/$defs/_388"
+      "$ref": "#/$defs/_389"
     },
     "javascript.suggest.names": {
       "type": "boolean",
@@ -19723,7 +19959,7 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.names instead."
     },
     "javascript.suggest.paths": {
-      "$ref": "#/$defs/_386"
+      "$ref": "#/$defs/_387"
     },
     "javascript.suggestionActions.enabled": {
       "type": "boolean",
@@ -19748,10 +19984,10 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggestionActions.enabled instead."
     },
     "javascript.updateImportsOnFileMove.enabled": {
-      "$ref": "#/$defs/_379"
+      "$ref": "#/$defs/_380"
     },
     "javascript.updateImportsOnPaste.enabled": {
-      "$ref": "#/$defs/_382"
+      "$ref": "#/$defs/_383"
     },
     "javascript.validate.enable": {
       "type": "boolean",
@@ -21001,25 +21237,25 @@
       "markdownDescription": "Advanced preferences that control how imports are ordered.",
       "properties": {
         "accentCollation": {
-          "$ref": "#/$defs/_360"
-        },
-        "caseFirst": {
           "$ref": "#/$defs/_361"
         },
+        "caseFirst": {
+          "$ref": "#/$defs/_362"
+        },
         "caseSensitivity": {
-          "$ref": "#/$defs/_355"
-        },
-        "locale": {
-          "$ref": "#/$defs/_358"
-        },
-        "numericCollation": {
-          "$ref": "#/$defs/_359"
-        },
-        "typeOrder": {
           "$ref": "#/$defs/_356"
         },
-        "unicodeCollation": {
+        "locale": {
+          "$ref": "#/$defs/_359"
+        },
+        "numericCollation": {
+          "$ref": "#/$defs/_360"
+        },
+        "typeOrder": {
           "$ref": "#/$defs/_357"
+        },
+        "unicodeCollation": {
+          "$ref": "#/$defs/_358"
         }
       },
       "keywords": [
@@ -21878,7 +22114,7 @@
     "js/ts.tsserver.pluginPaths": {
       "type": "array",
       "items": {
-        "$ref": "#/$defs/_403"
+        "$ref": "#/$defs/_404"
       },
       "default": [],
       "description": "Additional paths to discover TypeScript Language Service plugins.",
@@ -21963,10 +22199,10 @@
       "default": "vscode",
       "oneOf": [
         {
-          "$ref": "#/$defs/_401"
+          "$ref": "#/$defs/_402"
         },
         {
-          "$ref": "#/$defs/_402"
+          "$ref": "#/$defs/_403"
         }
       ],
       "keywords": [
@@ -22310,6 +22546,7 @@
         "https://raw.githubusercontent.com/devcontainers/spec/": true,
         "https://raw.githubusercontent.com/microsoft/vscode/": true,
         "https://schemastore.azurewebsites.net/": true,
+        "https://spec.openapis.org/": true,
         "https://www.schemastore.org/": true
       },
       "additionalProperties": {
@@ -22340,6 +22577,7 @@
         "https://raw.githubusercontent.com/devcontainers/spec/": true,
         "https://raw.githubusercontent.com/microsoft/vscode/": true,
         "https://schemastore.azurewebsites.net/": true,
+        "https://spec.openapis.org/": true,
         "https://www.schemastore.org/": true
       },
       "restricted": false
@@ -24884,6 +25122,33 @@
       "default": "",
       "restricted": true
     },
+    "multiDiffEditor.experimental.variant": {
+      "type": "string",
+      "enum": [
+        "cards",
+        "noCards"
+      ],
+      "enumDescriptions": [
+        "Use the compact card-based variant.",
+        "Use the compact variant without cards."
+      ],
+      "default": "noCards",
+      "description": "Controls the experimental variant of the multi diff editor.",
+      "scope": 4,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "multiDiffEditor",
+        "title": "Multi Diff Editor"
+      },
+      "defaultDefaultValue": "noCards",
+      "restricted": false
+    },
     "network.meteredConnection": {
       "type": "string",
       "enum": [
@@ -25044,10 +25309,10 @@
     "notebook.codeActionsOnSave": {
       "oneOf": [
         {
-          "$ref": "#/$defs/_277"
+          "$ref": "#/$defs/_278"
         },
         {
-          "$ref": "#/$defs/_307"
+          "$ref": "#/$defs/_308"
         }
       ],
       "markdownDescription": "Run a series of Code Actions for a notebook on save. Code Actions must be specified and the editor must not be shutting down. When `#files.autoSave#` is set to `afterDelay`, Code Actions will only be run when the file is saved explicitly. Example: `\"notebook.source.organizeImports\": \"explicit\"`",
@@ -25433,7 +25698,7 @@
               "$ref": "#/$defs/_29"
             },
             "editor.colorDecoratorsActivatedOn": {
-              "$ref": "#/$defs/_255"
+              "$ref": "#/$defs/_256"
             },
             "editor.colorDecoratorsLimit": {
               "$ref": "#/$defs/_30"
@@ -25472,13 +25737,13 @@
               "$ref": "#/$defs/_40"
             },
             "editor.defaultColorDecorators": {
-              "$ref": "#/$defs/_254"
+              "$ref": "#/$defs/_255"
             },
             "editor.definitionLinkOpensInPeek": {
               "$ref": "#/$defs/_146"
             },
             "editor.doubleClickSelectsBlock": {
-              "$ref": "#/$defs/_258"
+              "$ref": "#/$defs/_259"
             },
             "editor.dragAndDrop": {
               "$ref": "#/$defs/_42"
@@ -25582,7 +25847,7 @@
               "$ref": "#/$defs/_71"
             },
             "editor.fullwidthCharacterWidth": {
-              "$ref": "#/$defs/_259"
+              "$ref": "#/$defs/_260"
             },
             "editor.glyphMargin": {
               "$ref": "#/$defs/_72"
@@ -25675,7 +25940,7 @@
               "$ref": "#/$defs/_250"
             },
             "editor.inlineCompletionsAccessibilityVerbose": {
-              "$ref": "#/$defs/_256"
+              "$ref": "#/$defs/_257"
             },
             "editor.inlineSuggest.edits.allowCodeShifting": {
               "$ref": "#/$defs/_102"
@@ -25903,7 +26168,7 @@
               "$ref": "#/$defs/_165"
             },
             "editor.scrollOnMiddleClick": {
-              "$ref": "#/$defs/_257"
+              "$ref": "#/$defs/_258"
             },
             "editor.scrollPredominantAxis": {
               "$ref": "#/$defs/_166"
@@ -26095,7 +26360,7 @@
               "$ref": "#/$defs/_227"
             },
             "editor.tabFocusMode": {
-              "$ref": "#/$defs/_253"
+              "$ref": "#/$defs/_254"
             },
             "editor.trimWhitespaceOnDelete": {
               "$ref": "#/$defs/_228"
@@ -26144,6 +26409,9 @@
             },
             "editor.wordWrapColumn": {
               "$ref": "#/$defs/_242"
+            },
+            "editor.wordWrapIndicator": {
+              "$ref": "#/$defs/_253"
             },
             "editor.wrapOnEscapedLineFeeds": {
               "$ref": "#/$defs/_252"
@@ -26203,16 +26471,16 @@
       "type": "object",
       "properties": {
         "codeOutput": {
-          "$ref": "#/$defs/_275"
+          "$ref": "#/$defs/_276"
         },
         "codeSource": {
-          "$ref": "#/$defs/_275"
+          "$ref": "#/$defs/_276"
         },
         "markupPreview": {
-          "$ref": "#/$defs/_275"
+          "$ref": "#/$defs/_276"
         },
         "markupSource": {
-          "$ref": "#/$defs/_275"
+          "$ref": "#/$defs/_276"
         }
       },
       "default": {
@@ -27815,12 +28083,12 @@
         "([a-z0-9A-Z][a-z0-9-A-Z]*)\\.([a-z0-9A-Z][a-z0-9-A-Z]*)$": {
           "oneOf": [
             {
-              "$ref": "#/$defs/_302"
+              "$ref": "#/$defs/_303"
             },
             {
               "type": "array",
               "items": {
-                "$ref": "#/$defs/_302"
+                "$ref": "#/$defs/_303"
               }
             }
           ],
@@ -27878,10 +28146,10 @@
       "type": "object",
       "properties": {
         "elevateIfNeeded": {
-          "$ref": "#/$defs/_303"
+          "$ref": "#/$defs/_304"
         },
         "label": {
-          "$ref": "#/$defs/_304"
+          "$ref": "#/$defs/_305"
         },
         "onAutoForward": {
           "type": "string",
@@ -27903,10 +28171,10 @@
           "default": "notify"
         },
         "protocol": {
-          "$ref": "#/$defs/_306"
+          "$ref": "#/$defs/_307"
         },
         "requireLocalPort": {
-          "$ref": "#/$defs/_305"
+          "$ref": "#/$defs/_306"
         }
       },
       "defaultSnippets": [
@@ -27934,10 +28202,10 @@
           "description": "A port, range of ports (ex. \"40000-55000\"), host and port (ex. \"db:1234\"), or regular expression (ex. \".+\\\\/server.js\").  For a port number or range, the attributes will apply to that port number or range of port numbers. Attributes which use a regular expression will apply to ports whose associated process command line matches the expression.",
           "properties": {
             "elevateIfNeeded": {
-              "$ref": "#/$defs/_303"
+              "$ref": "#/$defs/_304"
             },
             "label": {
-              "$ref": "#/$defs/_304"
+              "$ref": "#/$defs/_305"
             },
             "onAutoForward": {
               "type": "string",
@@ -27961,10 +28229,10 @@
               "default": "notify"
             },
             "protocol": {
-              "$ref": "#/$defs/_306"
+              "$ref": "#/$defs/_307"
             },
             "requireLocalPort": {
-              "$ref": "#/$defs/_305"
+              "$ref": "#/$defs/_306"
             }
           },
           "default": {
@@ -29598,10 +29866,10 @@
       "additionalProperties": {
         "anyOf": [
           {
-            "$ref": "#/$defs/_282"
+            "$ref": "#/$defs/_283"
           },
           {
-            "$ref": "#/$defs/_281"
+            "$ref": "#/$defs/_282"
           }
         ]
       },
@@ -30871,7 +31139,7 @@
       "default": null,
       "anyOf": [
         {
-          "$ref": "#/$defs/_283"
+          "$ref": "#/$defs/_284"
         },
         {
           "type": "null"
@@ -30907,7 +31175,7 @@
       "default": null,
       "anyOf": [
         {
-          "$ref": "#/$defs/_283"
+          "$ref": "#/$defs/_284"
         },
         {
           "type": "null"
@@ -30943,7 +31211,7 @@
       "default": null,
       "anyOf": [
         {
-          "$ref": "#/$defs/_283"
+          "$ref": "#/$defs/_284"
         },
         {
           "type": "null"
@@ -31060,7 +31328,7 @@
       "default": null,
       "anyOf": [
         {
-          "$ref": "#/$defs/_283"
+          "$ref": "#/$defs/_284"
         },
         {
           "type": "null"
@@ -31092,7 +31360,7 @@
       "default": null,
       "anyOf": [
         {
-          "$ref": "#/$defs/_283"
+          "$ref": "#/$defs/_284"
         },
         {
           "type": "null"
@@ -31124,7 +31392,7 @@
       "default": null,
       "anyOf": [
         {
-          "$ref": "#/$defs/_283"
+          "$ref": "#/$defs/_284"
         },
         {
           "type": "null"
@@ -32152,13 +32420,13 @@
     "terminal.integrated.fontWeight": {
       "anyOf": [
         {
-          "$ref": "#/$defs/_292"
-        },
-        {
           "$ref": "#/$defs/_293"
         },
         {
           "$ref": "#/$defs/_294"
+        },
+        {
+          "$ref": "#/$defs/_295"
         }
       ],
       "description": "The font weight to use within the terminal for non-bold text. Accepts \"normal\" and \"bold\" keywords or numbers between 1 and 1000.",
@@ -32175,13 +32443,13 @@
     "terminal.integrated.fontWeightBold": {
       "anyOf": [
         {
-          "$ref": "#/$defs/_292"
-        },
-        {
           "$ref": "#/$defs/_293"
         },
         {
           "$ref": "#/$defs/_294"
+        },
+        {
+          "$ref": "#/$defs/_295"
         }
       ],
       "description": "The font weight to use within the terminal for bold text. Accepts \"normal\" and \"bold\" keywords or numbers between 1 and 1000.",
@@ -32271,7 +32539,7 @@
       "markdownDescription": "A set of process names to ignore when using the `#terminal.integrated.confirmOnKill#` setting.",
       "type": "array",
       "items": {
-        "$ref": "#/$defs/_291"
+        "$ref": "#/$defs/_292"
       },
       "default": [
         "starship",
@@ -32378,7 +32646,7 @@
       "description": "Local echo will be disabled when any of these program names are found in the terminal title.",
       "type": "array",
       "items": {
-        "$ref": "#/$defs/_291"
+        "$ref": "#/$defs/_292"
       },
       "default": [
         "vim",
@@ -32601,7 +32869,7 @@
         }
       },
       "additionalProperties": {
-        "$ref": "#/$defs/_290"
+        "$ref": "#/$defs/_291"
       },
       "section": {
         "id": "terminal",
@@ -32664,7 +32932,7 @@
         }
       },
       "additionalProperties": {
-        "$ref": "#/$defs/_290"
+        "$ref": "#/$defs/_291"
       },
       "section": {
         "id": "terminal",
@@ -32740,27 +33008,27 @@
                 ]
               },
               "args": {
-                "$ref": "#/$defs/_284"
-              },
-              "icon": {
                 "$ref": "#/$defs/_285"
               },
-              "color": {
+              "icon": {
                 "$ref": "#/$defs/_286"
               },
-              "env": {
+              "color": {
                 "$ref": "#/$defs/_287"
+              },
+              "env": {
+                "$ref": "#/$defs/_288"
               }
             }
           },
           {
-            "$ref": "#/$defs/_288"
+            "$ref": "#/$defs/_289"
           },
           {
             "type": "null"
           },
           {
-            "$ref": "#/$defs/_289"
+            "$ref": "#/$defs/_290"
           }
         ]
       },
@@ -33739,6 +34007,7 @@
         "graph-line",
         "graph-scatter",
         "gripper",
+        "gripper-corner",
         "group-by-ref-type",
         "heart",
         "heart-filled",
@@ -33842,6 +34111,7 @@
         "menubar-more",
         "merge",
         "merge-into",
+        "metered-connection",
         "mic",
         "mic-compact",
         "mic-download",
@@ -34528,6 +34798,7 @@
         "$(graph-line)",
         "$(graph-scatter)",
         "$(gripper)",
+        "$(gripper-corner)",
         "$(group-by-ref-type)",
         "$(heart)",
         "$(heart-filled)",
@@ -34631,6 +34902,7 @@
         "$(menubar-more)",
         "$(merge)",
         "$(merge-into)",
+        "$(metered-connection)",
         "$(mic)",
         "$(mic-compact)",
         "$(mic-download)",
@@ -35589,7 +35861,7 @@
       "restricted": false
     },
     "typescript.autoClosingTags": {
-      "$ref": "#/$defs/_380"
+      "$ref": "#/$defs/_381"
     },
     "typescript.check.npmIsInstalled": {
       "type": "boolean",
@@ -35709,40 +35981,40 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.enabled instead."
     },
     "typescript.format.indentSwitchCase": {
-      "$ref": "#/$defs/_378"
+      "$ref": "#/$defs/_379"
     },
     "typescript.format.insertSpaceAfterCommaDelimiter": {
-      "$ref": "#/$defs/_362"
-    },
-    "typescript.format.insertSpaceAfterConstructor": {
       "$ref": "#/$defs/_363"
     },
+    "typescript.format.insertSpaceAfterConstructor": {
+      "$ref": "#/$defs/_364"
+    },
     "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": {
-      "$ref": "#/$defs/_367"
+      "$ref": "#/$defs/_368"
     },
     "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": {
-      "$ref": "#/$defs/_366"
+      "$ref": "#/$defs/_367"
     },
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": {
-      "$ref": "#/$defs/_372"
-    },
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": {
-      "$ref": "#/$defs/_374"
-    },
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": {
-      "$ref": "#/$defs/_371"
-    },
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": {
-      "$ref": "#/$defs/_370"
-    },
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": {
-      "$ref": "#/$defs/_369"
-    },
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": {
       "$ref": "#/$defs/_373"
     },
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": {
+      "$ref": "#/$defs/_375"
+    },
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": {
+      "$ref": "#/$defs/_372"
+    },
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": {
+      "$ref": "#/$defs/_371"
+    },
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": {
+      "$ref": "#/$defs/_370"
+    },
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": {
+      "$ref": "#/$defs/_374"
+    },
     "typescript.format.insertSpaceAfterSemicolonInForStatements": {
-      "$ref": "#/$defs/_364"
+      "$ref": "#/$defs/_365"
     },
     "typescript.format.insertSpaceAfterTypeAssertion": {
       "type": "boolean",
@@ -35767,19 +36039,19 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterTypeAssertion instead."
     },
     "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": {
-      "$ref": "#/$defs/_365"
+      "$ref": "#/$defs/_366"
     },
     "typescript.format.insertSpaceBeforeFunctionParenthesis": {
-      "$ref": "#/$defs/_368"
+      "$ref": "#/$defs/_369"
     },
     "typescript.format.placeOpenBraceOnNewLineForControlBlocks": {
-      "$ref": "#/$defs/_376"
+      "$ref": "#/$defs/_377"
     },
     "typescript.format.placeOpenBraceOnNewLineForFunctions": {
-      "$ref": "#/$defs/_375"
+      "$ref": "#/$defs/_376"
     },
     "typescript.format.semicolons": {
-      "$ref": "#/$defs/_377"
+      "$ref": "#/$defs/_378"
     },
     "typescript.implementationsCodeLens.enabled": {
       "type": "boolean",
@@ -35870,25 +36142,25 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.inlayHints.enumMemberValues.enabled instead."
     },
     "typescript.inlayHints.functionLikeReturnTypes.enabled": {
-      "$ref": "#/$defs/_400"
+      "$ref": "#/$defs/_401"
     },
     "typescript.inlayHints.parameterNames.enabled": {
-      "$ref": "#/$defs/_394"
-    },
-    "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": {
       "$ref": "#/$defs/_395"
     },
-    "typescript.inlayHints.parameterTypes.enabled": {
+    "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": {
       "$ref": "#/$defs/_396"
     },
-    "typescript.inlayHints.propertyDeclarationTypes.enabled": {
-      "$ref": "#/$defs/_399"
-    },
-    "typescript.inlayHints.variableTypes.enabled": {
+    "typescript.inlayHints.parameterTypes.enabled": {
       "$ref": "#/$defs/_397"
     },
-    "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": {
+    "typescript.inlayHints.propertyDeclarationTypes.enabled": {
+      "$ref": "#/$defs/_400"
+    },
+    "typescript.inlayHints.variableTypes.enabled": {
       "$ref": "#/$defs/_398"
+    },
+    "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": {
+      "$ref": "#/$defs/_399"
     },
     "typescript.locale": {
       "type": "string",
@@ -35961,16 +36233,16 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.tsserver.npm.path instead."
     },
     "typescript.preferences.autoImportFileExcludePatterns": {
-      "$ref": "#/$defs/_351"
-    },
-    "typescript.preferences.autoImportSpecifierExcludeRegexes": {
       "$ref": "#/$defs/_352"
     },
+    "typescript.preferences.autoImportSpecifierExcludeRegexes": {
+      "$ref": "#/$defs/_353"
+    },
     "typescript.preferences.importModuleSpecifier": {
-      "$ref": "#/$defs/_349"
+      "$ref": "#/$defs/_350"
     },
     "typescript.preferences.importModuleSpecifierEnding": {
-      "$ref": "#/$defs/_350"
+      "$ref": "#/$defs/_351"
     },
     "typescript.preferences.includePackageJsonAutoImports": {
       "type": "string",
@@ -36042,10 +36314,10 @@
       "markdownDeprecationMessage": "This setting is deprecated. Use `#js/ts.preferences.organizeImports#` instead.",
       "properties": {
         "accentCollation": {
-          "$ref": "#/$defs/_360"
+          "$ref": "#/$defs/_361"
         },
         "caseFirst": {
-          "$ref": "#/$defs/_361"
+          "$ref": "#/$defs/_362"
         },
         "caseSensitivity": {
           "type": "string",
@@ -36063,16 +36335,16 @@
           "default": "auto"
         },
         "locale": {
-          "$ref": "#/$defs/_358"
-        },
-        "numericCollation": {
           "$ref": "#/$defs/_359"
         },
+        "numericCollation": {
+          "$ref": "#/$defs/_360"
+        },
         "typeOrder": {
-          "$ref": "#/$defs/_356"
+          "$ref": "#/$defs/_357"
         },
         "unicodeCollation": {
-          "$ref": "#/$defs/_357"
+          "$ref": "#/$defs/_358"
         }
       },
       "scope": 4,
@@ -36115,22 +36387,22 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.preferTypeOnlyAutoImports instead."
     },
     "typescript.preferences.quoteStyle": {
-      "$ref": "#/$defs/_348"
+      "$ref": "#/$defs/_349"
     },
     "typescript.preferences.renameMatchingJsxTags": {
-      "$ref": "#/$defs/_354"
+      "$ref": "#/$defs/_355"
     },
     "typescript.preferences.useAliasesForRenames": {
-      "$ref": "#/$defs/_353"
+      "$ref": "#/$defs/_354"
     },
     "typescript.preferGoToSourceDefinition": {
-      "$ref": "#/$defs/_381"
+      "$ref": "#/$defs/_382"
     },
     "typescript.referencesCodeLens.enabled": {
-      "$ref": "#/$defs/_392"
+      "$ref": "#/$defs/_393"
     },
     "typescript.referencesCodeLens.showOnAllFunctions": {
-      "$ref": "#/$defs/_393"
+      "$ref": "#/$defs/_394"
     },
     "typescript.reportStyleChecksAsWarnings": {
       "type": "boolean",
@@ -36155,28 +36427,28 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.reportStyleChecksAsWarnings instead."
     },
     "typescript.suggest.autoImports": {
-      "$ref": "#/$defs/_384"
-    },
-    "typescript.suggest.classMemberSnippets.enabled": {
-      "$ref": "#/$defs/_391"
-    },
-    "typescript.suggest.completeFunctionCalls": {
       "$ref": "#/$defs/_385"
     },
+    "typescript.suggest.classMemberSnippets.enabled": {
+      "$ref": "#/$defs/_392"
+    },
+    "typescript.suggest.completeFunctionCalls": {
+      "$ref": "#/$defs/_386"
+    },
     "typescript.suggest.completeJSDocs": {
-      "$ref": "#/$defs/_387"
+      "$ref": "#/$defs/_388"
     },
     "typescript.suggest.enabled": {
-      "$ref": "#/$defs/_383"
+      "$ref": "#/$defs/_384"
     },
     "typescript.suggest.includeAutomaticOptionalChainCompletions": {
-      "$ref": "#/$defs/_389"
-    },
-    "typescript.suggest.includeCompletionsForImportStatements": {
       "$ref": "#/$defs/_390"
     },
+    "typescript.suggest.includeCompletionsForImportStatements": {
+      "$ref": "#/$defs/_391"
+    },
     "typescript.suggest.jsdoc.generateReturns": {
-      "$ref": "#/$defs/_388"
+      "$ref": "#/$defs/_389"
     },
     "typescript.suggest.objectLiteralMethodSnippets.enabled": {
       "type": "boolean",
@@ -36201,7 +36473,7 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.objectLiteralMethodSnippets.enabled instead."
     },
     "typescript.suggest.paths": {
-      "$ref": "#/$defs/_386"
+      "$ref": "#/$defs/_387"
     },
     "typescript.suggestionActions.enabled": {
       "type": "boolean",
@@ -36404,7 +36676,7 @@
     "typescript.tsserver.pluginPaths": {
       "type": "array",
       "items": {
-        "$ref": "#/$defs/_403"
+        "$ref": "#/$defs/_404"
       },
       "default": [],
       "description": "Additional paths to discover TypeScript Language Service plugins.",
@@ -36465,10 +36737,10 @@
       "markdownDeprecationMessage": "This setting is deprecated. Use `#js/ts.tsserver.watchOptions#` instead.",
       "oneOf": [
         {
-          "$ref": "#/$defs/_401"
+          "$ref": "#/$defs/_402"
         },
         {
-          "$ref": "#/$defs/_402"
+          "$ref": "#/$defs/_403"
         }
       ],
       "section": {
@@ -36554,10 +36826,10 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.tsserver.web.typeAcquisition.enabled instead."
     },
     "typescript.updateImportsOnFileMove.enabled": {
-      "$ref": "#/$defs/_379"
+      "$ref": "#/$defs/_380"
     },
     "typescript.updateImportsOnPaste.enabled": {
-      "$ref": "#/$defs/_382"
+      "$ref": "#/$defs/_383"
     },
     "typescript.validate.enable": {
       "type": "boolean",
@@ -37747,66 +38019,66 @@
         {
           "properties": {
             "[Abyss]": {
-              "$ref": "#/$defs/_261"
+              "$ref": "#/$defs/_262"
             },
             "[Dark 2026]": {
-              "$ref": "#/$defs/_261"
+              "$ref": "#/$defs/_262"
             },
             "[Dark Modern]": {
-              "$ref": "#/$defs/_261"
+              "$ref": "#/$defs/_262"
             },
             "[Dark+]": {
-              "$ref": "#/$defs/_261"
+              "$ref": "#/$defs/_262"
             },
             "[Default High Contrast Light]": {
-              "$ref": "#/$defs/_261"
+              "$ref": "#/$defs/_262"
             },
             "[Default High Contrast]": {
-              "$ref": "#/$defs/_261"
+              "$ref": "#/$defs/_262"
             },
             "[Kimbie Dark]": {
-              "$ref": "#/$defs/_261"
+              "$ref": "#/$defs/_262"
             },
             "[Light 2026]": {
-              "$ref": "#/$defs/_261"
+              "$ref": "#/$defs/_262"
             },
             "[Light Modern]": {
-              "$ref": "#/$defs/_261"
+              "$ref": "#/$defs/_262"
             },
             "[Light+]": {
-              "$ref": "#/$defs/_261"
+              "$ref": "#/$defs/_262"
             },
             "[Monokai Dimmed]": {
-              "$ref": "#/$defs/_261"
+              "$ref": "#/$defs/_262"
             },
             "[Monokai]": {
-              "$ref": "#/$defs/_261"
+              "$ref": "#/$defs/_262"
             },
             "[Quiet Light]": {
-              "$ref": "#/$defs/_261"
+              "$ref": "#/$defs/_262"
             },
             "[Red]": {
-              "$ref": "#/$defs/_261"
+              "$ref": "#/$defs/_262"
             },
             "[Solarized Dark]": {
-              "$ref": "#/$defs/_261"
+              "$ref": "#/$defs/_262"
             },
             "[Solarized Light]": {
-              "$ref": "#/$defs/_261"
+              "$ref": "#/$defs/_262"
             },
             "[Tomorrow Night Blue]": {
-              "$ref": "#/$defs/_261"
+              "$ref": "#/$defs/_262"
             },
             "[Visual Studio Dark]": {
-              "$ref": "#/$defs/_261"
+              "$ref": "#/$defs/_262"
             },
             "[Visual Studio Light]": {
-              "$ref": "#/$defs/_261"
+              "$ref": "#/$defs/_262"
             }
           },
           "patternProperties": {
             "^\\[[^\\]]*(\\]\\s*\\[[^\\]]*)*\\]$": {
-              "$ref": "#/$defs/_261"
+              "$ref": "#/$defs/_262"
             }
           }
         }
@@ -38008,7 +38280,7 @@
       "markdownDescription": "Configure [glob patterns](https://aka.ms/vscode-glob-patterns) to editors for diff views (for example `\"*.md\": \"vscode.markdown.preview.editor\"`). These override `workbench.editorAssociations` for diffs.",
       "patternProperties": {
         ".*": {
-          "$ref": "#/$defs/_260"
+          "$ref": "#/$defs/_261"
         }
       },
       "agentsWindow": {
@@ -39236,11 +39508,12 @@
       "markdownDescription": "Configure [glob patterns](https://aka.ms/vscode-glob-patterns) to editors (for example `\"*.hex\": \"hexEditor.hexedit\"`). These have precedence over the default behavior.",
       "patternProperties": {
         ".*": {
-          "$ref": "#/$defs/_260"
+          "$ref": "#/$defs/_261"
         }
       },
       "agentsWindow": {
         "default": {
+          "*.html": "workbench.editor.browser",
           "*.md": "vscode.markdown.editor"
         }
       },
@@ -39327,7 +39600,7 @@
     },
     "workbench.experimental.modernUI": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "description": "Controls whether the Modern UI Update is enabled. When on, the side bars and bottom panel are shown as floating cards with rounded corners and gaps, and a set of refreshed workbench styles is applied, matching the Agents window design.",
       "experiment": {
         "mode": "auto"
@@ -39337,12 +39610,40 @@
         "title": "Workbench",
         "order": 7
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false,
       "tags": [
         "onExP"
       ]
+    },
+    "workbench.experimental.modernUIEditorTabStyle": {
+      "type": "string",
+      "enum": [
+        "connected",
+        "pill"
+      ],
+      "enumDescriptions": [
+        "Connect the active tab to the editor surface with an outside border and curved shoulders.",
+        "Show editor tabs as separate rounded pills."
+      ],
+      "default": "connected",
+      "tags": [
+        "experimental"
+      ],
+      "markdownDescription": "Controls the editor tab style when `#workbench.experimental.modernUI#` is enabled. High contrast themes retain explicit selection and focus borders.",
+      "agentsWindow": {
+        "default": "pill",
+        "readOnly": true
+      },
+      "section": {
+        "id": "workbench",
+        "title": "Workbench",
+        "order": 7
+      },
+      "defaultDefaultValue": "connected",
+      "scope": 4,
+      "restricted": false
     },
     "workbench.experimental.modernUIUppercaseViewHeaders": {
       "type": "boolean",
@@ -42320,13 +42621,13 @@
     "_68": {
       "anyOf": [
         {
-          "$ref": "#/$defs/_292"
-        },
-        {
           "$ref": "#/$defs/_293"
         },
         {
           "$ref": "#/$defs/_294"
+        },
+        {
+          "$ref": "#/$defs/_295"
         }
       ],
       "default": "normal",
@@ -43740,7 +44041,7 @@
                   "type": "boolean"
                 },
                 {
-                  "$ref": "#/$defs/_404"
+                  "$ref": "#/$defs/_405"
                 }
               ],
               "default": "off",
@@ -43752,7 +44053,7 @@
                   "type": "boolean"
                 },
                 {
-                  "$ref": "#/$defs/_404"
+                  "$ref": "#/$defs/_405"
                 }
               ],
               "default": "off",
@@ -43764,7 +44065,7 @@
                   "type": "boolean"
                 },
                 {
-                  "$ref": "#/$defs/_404"
+                  "$ref": "#/$defs/_405"
                 }
               ],
               "default": "offWhenInlineCompletions",
@@ -43961,7 +44262,7 @@
       "items": {
         "anyOf": [
           {
-            "$ref": "#/$defs/_405"
+            "$ref": "#/$defs/_406"
           },
           {
             "type": [
@@ -43969,7 +44270,7 @@
             ],
             "properties": {
               "column": {
-                "$ref": "#/$defs/_405"
+                "$ref": "#/$defs/_406"
               },
               "color": {
                 "type": "string",
@@ -45201,7 +45502,7 @@
           "type": "string"
         },
         {
-          "$ref": "#/$defs/_307"
+          "$ref": "#/$defs/_308"
         }
       ],
       "description": "Locales to be used for word segmentation when doing word related navigations or operations. Specify the BCP 47 language tag of the word you wish to recognize (e.g., ja, zh-CN, zh-Hant-TW, etc.).",
@@ -45435,7 +45736,7 @@
       "restricted": false
     },
     "_253": {
-      "markdownDescription": "Controls whether the editor receives tabs or defers them to the workbench for navigation.",
+      "markdownDescription": "Controls whether an indicator is rendered at the wrapping column of lines that wrap. Only has an effect when `#editor.wordWrap#` is enabled.",
       "type": "boolean",
       "default": false,
       "section": {
@@ -45448,6 +45749,19 @@
       "restricted": false
     },
     "_254": {
+      "markdownDescription": "Controls whether the editor receives tabs or defers them to the workbench for navigation.",
+      "type": "boolean",
+      "default": false,
+      "section": {
+        "id": "editor",
+        "title": "Editor",
+        "order": 5
+      },
+      "defaultDefaultValue": false,
+      "scope": 6,
+      "restricted": false
+    },
+    "_255": {
       "enumDescriptions": [
         "Show default color decorators only when no extension provides colors decorators.",
         "Always show default color decorators.",
@@ -45470,7 +45784,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_255": {
+    "_256": {
       "enumDescriptions": [
         "Make the color picker appear both on click and hover of the color decorator",
         "Make the color picker appear on hover of the color decorator",
@@ -45493,7 +45807,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_256": {
+    "_257": {
       "description": "Controls whether the accessibility hint should be provided to screen reader users when an inline completion is shown.",
       "type": "boolean",
       "default": false,
@@ -45506,7 +45820,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_257": {
+    "_258": {
       "description": "Controls whether the editor will scroll when the middle button is pressed.",
       "type": "boolean",
       "default": false,
@@ -45519,7 +45833,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_258": {
+    "_259": {
       "description": "Controls whether double-clicking next to a bracket or quote selects the content inside.",
       "type": "boolean",
       "default": true,
@@ -45532,7 +45846,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_259": {
+    "_260": {
       "enumDescriptions": [
         "Render full-width characters using the width defined by the font.",
         "Render full-width characters centered in exactly two character cells. Only applies to monospace fonts. Does not apply to multi codepoint full-width characters or to GPU rendering. This has a performance impact on line rendering."
@@ -45553,7 +45867,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_260": {
+    "_261": {
       "type": "string",
       "enum": [
         "default",
@@ -45575,107 +45889,107 @@
         "jsProfileVisualizer.heapsnapshot.table"
       ]
     },
-    "_261": {
+    "_262": {
       "$ref": "vscode://schemas/workbench-colors",
       "additionalProperties": false
     },
-    "_262": {
+    "_263": {
       "description": "Sets the colors and styles for comments",
       "$ref": "vscode://schemas/textmate-colors#/definitions/colorGroup"
     },
-    "_263": {
+    "_264": {
       "description": "Sets the colors and styles for strings literals.",
       "$ref": "vscode://schemas/textmate-colors#/definitions/colorGroup"
     },
-    "_264": {
+    "_265": {
       "description": "Sets the colors and styles for keywords.",
       "$ref": "vscode://schemas/textmate-colors#/definitions/colorGroup"
     },
-    "_265": {
+    "_266": {
       "description": "Sets the colors and styles for number literals.",
       "$ref": "vscode://schemas/textmate-colors#/definitions/colorGroup"
     },
-    "_266": {
+    "_267": {
       "description": "Sets the colors and styles for type declarations and references.",
       "$ref": "vscode://schemas/textmate-colors#/definitions/colorGroup"
     },
-    "_267": {
+    "_268": {
       "description": "Sets the colors and styles for functions declarations and references.",
       "$ref": "vscode://schemas/textmate-colors#/definitions/colorGroup"
     },
-    "_268": {
+    "_269": {
       "description": "Sets the colors and styles for variables declarations and references.",
       "$ref": "vscode://schemas/textmate-colors#/definitions/colorGroup"
     },
-    "_269": {
+    "_270": {
       "description": "Sets colors and styles using textmate theming rules (advanced).",
       "$ref": "vscode://schemas/textmate-colors"
     },
-    "_270": {
+    "_271": {
       "description": "Whether semantic highlighting should be enabled for this theme.",
       "deprecationMessage": "Use `enabled` in `editor.semanticTokenColorCustomizations` setting instead.",
       "markdownDeprecationMessage": "Use `enabled` in `#editor.semanticTokenColorCustomizations#` setting instead.",
       "type": "boolean"
     },
-    "_271": {
+    "_272": {
       "properties": {
         "comments": {
-          "$ref": "#/$defs/_262"
-        },
-        "strings": {
           "$ref": "#/$defs/_263"
         },
-        "keywords": {
+        "strings": {
           "$ref": "#/$defs/_264"
         },
-        "numbers": {
+        "keywords": {
           "$ref": "#/$defs/_265"
         },
-        "types": {
+        "numbers": {
           "$ref": "#/$defs/_266"
         },
-        "functions": {
+        "types": {
           "$ref": "#/$defs/_267"
         },
-        "variables": {
+        "functions": {
           "$ref": "#/$defs/_268"
         },
-        "textMateRules": {
+        "variables": {
           "$ref": "#/$defs/_269"
         },
-        "semanticHighlighting": {
+        "textMateRules": {
           "$ref": "#/$defs/_270"
+        },
+        "semanticHighlighting": {
+          "$ref": "#/$defs/_271"
         }
       },
       "additionalProperties": false
     },
-    "_272": {
+    "_273": {
       "type": "boolean",
       "description": "Whether semantic highlighting is enabled or disabled for this theme",
       "suggestSortText": "0_enabled"
     },
-    "_273": {
+    "_274": {
       "$ref": "vscode://schemas/token-styling",
       "description": "Semantic token styling rules for this theme.",
       "suggestSortText": "0_rules"
     },
-    "_274": {
+    "_275": {
       "type": "object",
       "properties": {
         "enabled": {
-          "$ref": "#/$defs/_272"
+          "$ref": "#/$defs/_273"
         },
         "rules": {
-          "$ref": "#/$defs/_273"
+          "$ref": "#/$defs/_274"
         }
       },
       "additionalProperties": false
     },
-    "_275": {
+    "_276": {
       "type": "boolean",
       "default": true
     },
-    "_276": {
+    "_277": {
       "type": "object",
       "properties": {
         "groupName": {
@@ -45691,25 +46005,25 @@
         "groupName"
       ]
     },
-    "_277": {
+    "_278": {
       "type": "object",
       "additionalProperties": {
         "type": "string"
       }
     },
-    "_278": {
+    "_279": {
       "pattern": "^(?![A-Za-z]:[\\\\/])(?!/)(?!~(?!/))(?!.*\\\\)(?!.*[*?\\[\\]{}]).*\\S.*$",
       "patternErrorMessage": "Paths must be relative or start with '~/'. Absolute paths and '\\' separators are not supported. Glob patterns are deprecated and will be removed in future versions."
     },
-    "_279": {
+    "_280": {
       "pattern": "^(?![A-Za-z]:[\\\\/])(?!/)(?!~(?!/))(?!.*\\\\)(?!.*[*?\\[\\]{}]).*\\S.*$",
       "patternErrorMessage": "Paths must be relative or start with '~/'. Absolute paths and '\\' separators are not supported."
     },
-    "_280": {
+    "_281": {
       "type": "boolean",
       "default": false
     },
-    "_281": {
+    "_282": {
       "type": "object",
       "properties": {
         "when": {
@@ -45720,11 +46034,11 @@
         }
       }
     },
-    "_282": {
+    "_283": {
       "type": "boolean",
       "description": "The glob pattern to match file paths against. Set to true or false to enable or disable the pattern."
     },
-    "_283": {
+    "_284": {
       "type": "object",
       "required": [
         "path"
@@ -45740,27 +46054,27 @@
           }
         },
         "args": {
-          "$ref": "#/$defs/_284"
-        },
-        "icon": {
           "$ref": "#/$defs/_285"
         },
-        "color": {
+        "icon": {
           "$ref": "#/$defs/_286"
         },
-        "env": {
+        "color": {
           "$ref": "#/$defs/_287"
+        },
+        "env": {
+          "$ref": "#/$defs/_288"
         }
       }
     },
-    "_284": {
+    "_285": {
       "description": "An optional set of arguments to run the shell executable with.",
       "type": "array",
       "items": {
         "type": "string"
       }
     },
-    "_285": {
+    "_286": {
       "description": "A codicon ID to associate with the terminal icon.",
       "type": "string",
       "enum": [
@@ -46524,6 +46838,8 @@
         "copilot-dot-compact",
         "layout-density-compact",
         "layout-density-default",
+        "gripper-corner",
+        "metered-connection",
         "dialog-error",
         "dialog-warning",
         "dialog-info",
@@ -47313,6 +47629,8 @@
         "$(copilot-dot-compact)",
         "$(layout-density-compact)",
         "$(layout-density-default)",
+        "$(gripper-corner)",
+        "$(metered-connection)",
         "$(dialog-error)",
         "$(dialog-warning)",
         "$(dialog-info)",
@@ -47342,7 +47660,7 @@
         "$(debug-breakpoint-pending)"
       ]
     },
-    "_286": {
+    "_287": {
       "description": "A theme color ID to associate with the terminal icon.",
       "type": [
         "string",
@@ -47360,7 +47678,7 @@
       ],
       "default": null
     },
-    "_287": {
+    "_288": {
       "markdownDescription": "An object with environment variables that will be added to the terminal profile process. Set to `null` to delete environment variables from the base environment.",
       "type": "object",
       "additionalProperties": {
@@ -47371,7 +47689,7 @@
       },
       "default": {}
     },
-    "_288": {
+    "_289": {
       "type": "object",
       "required": [
         "extensionIdentifier",
@@ -47392,20 +47710,20 @@
           "type": "string"
         },
         "args": {
-          "$ref": "#/$defs/_284"
-        },
-        "icon": {
           "$ref": "#/$defs/_285"
         },
-        "color": {
+        "icon": {
           "$ref": "#/$defs/_286"
         },
-        "env": {
+        "color": {
           "$ref": "#/$defs/_287"
+        },
+        "env": {
+          "$ref": "#/$defs/_288"
         }
       }
     },
-    "_289": {
+    "_290": {
       "type": "object",
       "required": [
         "path"
@@ -47426,47 +47744,47 @@
           "type": "boolean"
         },
         "args": {
-          "$ref": "#/$defs/_284"
-        },
-        "icon": {
           "$ref": "#/$defs/_285"
         },
-        "color": {
+        "icon": {
           "$ref": "#/$defs/_286"
         },
-        "env": {
+        "color": {
           "$ref": "#/$defs/_287"
+        },
+        "env": {
+          "$ref": "#/$defs/_288"
         }
       }
     },
-    "_290": {
+    "_291": {
       "anyOf": [
         {
-          "$ref": "#/$defs/_288"
+          "$ref": "#/$defs/_289"
         },
         {
           "type": "null"
         },
         {
-          "$ref": "#/$defs/_289"
+          "$ref": "#/$defs/_290"
         }
       ]
     },
-    "_291": {
+    "_292": {
       "type": "string",
       "uniqueItems": true
     },
-    "_292": {
+    "_293": {
       "type": "number",
       "minimum": 1,
       "maximum": 1000,
       "errorMessage": "Only \"normal\" and \"bold\" keywords or numbers between 1 and 1000 are allowed."
     },
-    "_293": {
+    "_294": {
       "type": "string",
       "pattern": "^(normal|bold|1000|[1-9][0-9]{0,2})$"
     },
-    "_294": {
+    "_295": {
       "enum": [
         "normal",
         "bold",
@@ -47481,7 +47799,7 @@
         "900"
       ]
     },
-    "_295": {
+    "_296": {
       "type": "boolean",
       "enum": [
         true,
@@ -47493,7 +47811,7 @@
       ],
       "description": "The start of a command to match against. A regular expression can be provided by wrapping the string in `/` characters."
     },
-    "_296": {
+    "_297": {
       "type": "object",
       "required": [
         "path"
@@ -47504,20 +47822,20 @@
           "type": "string"
         },
         "args": {
-          "$ref": "#/$defs/_284"
-        },
-        "icon": {
           "$ref": "#/$defs/_285"
         },
-        "color": {
+        "icon": {
           "$ref": "#/$defs/_286"
         },
-        "env": {
+        "color": {
           "$ref": "#/$defs/_287"
+        },
+        "env": {
+          "$ref": "#/$defs/_288"
         }
       }
     },
-    "_297": {
+    "_298": {
       "type": "array",
       "description": "Array of paths to deny read access. Leave empty to allow reading all paths.",
       "items": {
@@ -47525,7 +47843,7 @@
       },
       "default": []
     },
-    "_298": {
+    "_299": {
       "type": "array",
       "description": "Array of paths to re-allow read access within denied regions. Takes precedence over denyRead.",
       "items": {
@@ -47533,7 +47851,7 @@
       },
       "default": []
     },
-    "_299": {
+    "_300": {
       "type": "array",
       "description": "Array of additional paths to allow write access. Leave empty to disallow writes outside the workspace folders, workspace storage folder, and sandbox temp directory.",
       "items": {
@@ -47541,7 +47859,7 @@
       },
       "default": []
     },
-    "_300": {
+    "_301": {
       "type": "array",
       "description": "Array of paths to deny write access within allowed paths (takes precedence over allowWrite).",
       "items": {
@@ -47549,7 +47867,7 @@
       },
       "default": []
     },
-    "_301": {
+    "_302": {
       "deprecated": true,
       "markdownDeprecationMessage": "Use `#chat.tools.terminal.autoApprove#` instead",
       "section": {
@@ -47562,7 +47880,7 @@
       "restricted": false,
       "deprecationMessage": "Use chat.tools.terminal.autoApprove instead"
     },
-    "_302": {
+    "_303": {
       "type": "string",
       "enum": [
         "ui",
@@ -47573,22 +47891,22 @@
         "Workspace extension kind. In a remote window, such extensions are enabled only when available on the remote."
       ]
     },
-    "_303": {
+    "_304": {
       "type": "boolean",
       "description": "Automatically prompt for elevation (if needed) when this port is forwarded. Elevate is required if the local port is a privileged port.",
       "default": false
     },
-    "_304": {
+    "_305": {
       "type": "string",
       "description": "Label that will be shown in the UI for this port.",
       "default": "Application"
     },
-    "_305": {
+    "_306": {
       "type": "boolean",
       "markdownDescription": "When true, a modal dialog will show if the chosen local port isn't used for forwarding.",
       "default": false
     },
-    "_306": {
+    "_307": {
       "type": "string",
       "enum": [
         "http",
@@ -47596,13 +47914,13 @@
       ],
       "description": "The protocol to use when forwarding this port."
     },
-    "_307": {
+    "_308": {
       "type": "array",
       "items": {
         "type": "string"
       }
     },
-    "_308": {
+    "_309": {
       "description": "Plays a sound when the active line has a warning.",
       "type": "string",
       "enum": [
@@ -47620,7 +47938,7 @@
         "accessibility"
       ]
     },
-    "_309": {
+    "_310": {
       "type": "object",
       "tags": [
         "accessibility"
@@ -47633,7 +47951,7 @@
       "description": "Plays a signal - sound (audio cue) and/or announcement (alert) - when the active line has a warning.",
       "properties": {
         "sound": {
-          "$ref": "#/$defs/_308"
+          "$ref": "#/$defs/_309"
         },
         "announcement": {
           "description": "Announces when the active line has a warning.",
@@ -47663,14 +47981,14 @@
       "scope": 5,
       "restricted": false
     },
-    "_310": {
+    "_311": {
       "type": "object",
       "description": "Configure editor settings to be overridden for a language.",
       "errorMessage": "This setting does not support per-language configuration.",
       "$ref": "vscode://schemas/settings/resourceLanguage",
       "default": {}
     },
-    "_311": {
+    "_312": {
       "type": "object",
       "description": "Configure editor settings to be overridden for a language.",
       "errorMessage": "This setting does not support per-language configuration.",
@@ -47680,7 +47998,7 @@
       },
       "defaultValueSource": {}
     },
-    "_312": {
+    "_313": {
       "type": "object",
       "description": "Configure editor settings to be overridden for a language.",
       "errorMessage": "This setting does not support per-language configuration.",
@@ -47691,7 +48009,7 @@
       },
       "defaultValueSource": {}
     },
-    "_313": {
+    "_314": {
       "type": "object",
       "description": "Configure editor settings to be overridden for a language.",
       "errorMessage": "This setting does not support per-language configuration.",
@@ -47704,7 +48022,7 @@
       },
       "defaultValueSource": {}
     },
-    "_314": {
+    "_315": {
       "type": "object",
       "description": "Configure editor settings to be overridden for a language.",
       "errorMessage": "This setting does not support per-language configuration.",
@@ -47714,7 +48032,7 @@
       },
       "defaultValueSource": {}
     },
-    "_315": {
+    "_316": {
       "type": "object",
       "description": "Configure editor settings to be overridden for a language.",
       "errorMessage": "This setting does not support per-language configuration.",
@@ -47724,7 +48042,7 @@
       },
       "defaultValueSource": {}
     },
-    "_316": {
+    "_317": {
       "type": "object",
       "description": "Configure editor settings to be overridden for a language.",
       "errorMessage": "This setting does not support per-language configuration.",
@@ -47734,7 +48052,7 @@
       },
       "defaultValueSource": {}
     },
-    "_317": {
+    "_318": {
       "type": "object",
       "description": "Configure editor settings to be overridden for a language.",
       "errorMessage": "This setting does not support per-language configuration.",
@@ -47756,7 +48074,7 @@
       },
       "defaultValueSource": {}
     },
-    "_318": {
+    "_319": {
       "type": [
         "array",
         "null"
@@ -47770,7 +48088,7 @@
         "type": "string"
       }
     },
-    "_319": {
+    "_320": {
       "type": [
         "array"
       ],
@@ -47786,12 +48104,12 @@
         "setup"
       ]
     },
-    "_320": {
+    "_321": {
       "type": "boolean",
       "markdownDescription": "Whether to wait for source maps to load for each incoming script. This has a performance overhead, and might be safely disabled when running off of disk, so long as `rootPath` is not disabled.",
       "default": false
     },
-    "_321": {
+    "_322": {
       "description": "Show the async calls that led to the current call stack.",
       "default": true,
       "oneOf": [
@@ -47805,7 +48123,7 @@
           ],
           "properties": {
             "onAttach": {
-              "$ref": "#/$defs/_406"
+              "$ref": "#/$defs/_407"
             }
           }
         },
@@ -47816,35 +48134,35 @@
           ],
           "properties": {
             "onceBreakpointResolved": {
-              "$ref": "#/$defs/_406"
+              "$ref": "#/$defs/_407"
             }
           }
         }
       ]
     },
-    "_322": {
+    "_323": {
       "type": "array",
       "description": "An array of file or folder names, or path globs, to skip when debugging. Star patterns and negations are allowed, for example, `[\"**/node_modules/**\", \"!**/node_modules/my-module/**\"]`",
       "default": [
         "${/**"
       ]
     },
-    "_323": {
+    "_324": {
       "type": "boolean",
       "description": "Automatically step through generated code that cannot be mapped back to the original source.",
       "default": true
     },
-    "_324": {
+    "_325": {
       "type": "boolean",
       "description": "Use JavaScript source maps (if they exist).",
       "default": true
     },
-    "_325": {
+    "_326": {
       "type": "boolean",
       "default": true,
       "description": "Whether to use the \"names\" mapping in sourcemaps. This requires requesting source content, which can be slow with certain debuggers."
     },
-    "_326": {
+    "_327": {
       "type": "object",
       "description": "A set of mappings for rewriting the locations of source files from what the sourcemap says, to their locations on disk.",
       "default": {
@@ -47853,12 +48171,12 @@
         "meteor://💻app/*": "${workspaceFolder}/*"
       }
     },
-    "_327": {
+    "_328": {
       "type": "number",
       "description": "Retry for this number of milliseconds to connect to Node.js. Default is 10000 ms.",
       "default": 10000
     },
-    "_328": {
+    "_329": {
       "type": "object",
       "description": "Timeouts for several debugger operations.",
       "default": {},
@@ -47882,7 +48200,7 @@
       "additionalProperties": false,
       "markdownDescription": "Timeouts for several debugger operations."
     },
-    "_329": {
+    "_330": {
       "description": "Configures what diagnostic output is produced.",
       "default": true,
       "oneOf": [
@@ -47909,7 +48227,7 @@
         }
       ]
     },
-    "_330": {
+    "_331": {
       "enum": [
         "console",
         "std"
@@ -47917,34 +48235,34 @@
       "markdownDescription": "From where to capture output messages: the default debug API if set to `console`, or stdout/stderr streams if set to `std`.",
       "default": "console"
     },
-    "_331": {
+    "_332": {
       "default": true,
       "type": "boolean",
       "description": "Toggles whether we verify the contents of files on disk match the ones loaded in the runtime. This is useful in a variety of scenarios and required in some, but can cause issues if you have server-side transformation of scripts, for example."
     },
-    "_332": {
+    "_333": {
       "type": "string",
       "description": "Customize the textual description the debugger shows for objects (local variables, etc...). Samples:\n      1. this.toString() // will call toString to print all objects\n      2. this.customDescription ? this.customDescription() : defaultValue // Use customDescription method if available, if not return defaultValue\n      3. function (def) { return this.customDescription ? this.customDescription() : def } // Use customDescription method if available, if not return defaultValue\n      "
     },
-    "_333": {
+    "_334": {
       "type": "string",
       "deprecated": true,
       "description": "Customize the properties shown for an object in the debugger (local variables, etc...). Samples:\n    1. { ...this, extraProperty: '12345' } // Add an extraProperty 12345 to all objects\n    2. this.customProperties ? this.customProperties() : this // Use customProperties method if available, if not use the properties in this (the default properties)\n    3. function () { return this.customProperties ? this.customProperties() : this } // Use customDescription method if available, if not return the default properties\n\n    Deprecated: This is a temporary implementation of this feature until we have time to implement it in the way described here: https://github.com/microsoft/vscode/issues/102181"
     },
-    "_334": {
+    "_335": {
       "type": "array",
       "items": {
-        "$ref": "#/$defs/_291"
+        "$ref": "#/$defs/_292"
       },
       "default": [],
       "description": "A list of debug sessions which, when this debug session is terminated, will also be stopped."
     },
-    "_335": {
+    "_336": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "Toggles whether the debugger will try to read DWARF debug symbols from WebAssembly, which can be resource intensive. Requires the `ms-vscode.wasm-dwarf-debugging` extension to function."
     },
-    "_336": {
+    "_337": {
       "type": "string",
       "description": "Absolute path to the working directory of the program being debugged. If you've set localRoot then cwd will match that value otherwise it falls back to your workspaceFolder",
       "default": "${workspaceFolder}",
@@ -47953,7 +48271,7 @@
         "setup"
       ]
     },
-    "_337": {
+    "_338": {
       "type": [
         "string",
         "null"
@@ -47961,7 +48279,7 @@
       "description": "Path to the local directory containing the program.",
       "default": null
     },
-    "_338": {
+    "_339": {
       "type": [
         "string",
         "null"
@@ -47969,12 +48287,12 @@
       "description": "Absolute path to the remote directory containing the program.",
       "default": null
     },
-    "_339": {
+    "_340": {
       "type": "boolean",
       "description": "Attach debugger to new child processes automatically.",
       "default": true
     },
-    "_340": {
+    "_341": {
       "type": "object",
       "additionalProperties": {
         "type": [
@@ -47988,12 +48306,12 @@
         "setup"
       ]
     },
-    "_341": {
+    "_342": {
       "type": "string",
       "description": "Absolute path to a file containing environment variable definitions.",
       "default": "${workspaceFolder}/.env"
     },
-    "_342": {
+    "_343": {
       "type": "array",
       "items": {
         "type": "string"
@@ -48001,13 +48319,13 @@
       "markdownDescription": "A list of patterns at which to manually insert entrypoint breakpoints. This can be useful to give the debugger an opportunity to set breakpoints when using sourcemaps that don't exist or can't be detected before launch, such as [with the Serverless framework](https://github.com/microsoft/vscode-js-debug/issues/492).",
       "default": []
     },
-    "_343": {
+    "_344": {
       "type": "number",
       "minimum": 8,
       "description": "Allows you to explicitly specify the Node version that's running, which can be used to disable or enable certain behaviors in cases where the automatic version detection does not work.",
       "default": 12
     },
-    "_344": {
+    "_345": {
       "type": [
         "string",
         "null"
@@ -48018,7 +48336,7 @@
         "setup"
       ]
     },
-    "_345": {
+    "_346": {
       "type": "string",
       "enum": [
         "on",
@@ -48026,7 +48344,7 @@
         "always"
       ]
     },
-    "_346": {
+    "_347": {
       "description": "Try to reconnect to the program if we lose connection. If set to `true`, we'll try once a second, forever. You can customize the interval and maximum number of attempts by specifying the `delay` and `maxAttempts` in an object instead.",
       "default": true,
       "oneOf": [
@@ -48050,11 +48368,11 @@
         }
       ]
     },
-    "_347": {
+    "_348": {
       "type": "string",
       "pattern": "^\\${.*}$"
     },
-    "_348": {
+    "_349": {
       "type": "string",
       "enum": [
         "auto",
@@ -48086,7 +48404,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.quoteStyle instead."
     },
-    "_349": {
+    "_350": {
       "type": "string",
       "enum": [
         "shortest",
@@ -48120,7 +48438,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.importModuleSpecifier instead."
     },
-    "_350": {
+    "_351": {
       "type": "string",
       "enum": [
         "auto",
@@ -48160,7 +48478,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.importModuleSpecifierEnding instead."
     },
-    "_351": {
+    "_352": {
       "type": "array",
       "items": {
         "type": "string"
@@ -48184,7 +48502,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.autoImportFileExcludePatterns instead."
     },
-    "_352": {
+    "_353": {
       "type": "array",
       "items": {
         "type": "string"
@@ -48208,7 +48526,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.autoImportSpecifierExcludeRegexes instead."
     },
-    "_353": {
+    "_354": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable introducing aliases for object shorthand properties during renames.",
@@ -48230,7 +48548,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.useAliasesForRenames instead."
     },
-    "_354": {
+    "_355": {
       "type": "boolean",
       "default": true,
       "description": "When on a JSX tag, try to rename the matching tag instead of renaming the symbol. Requires using TypeScript 5.1+ in the workspace.",
@@ -48252,7 +48570,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.renameMatchingJsxTags instead."
     },
-    "_355": {
+    "_356": {
       "type": "string",
       "markdownDescription": "Specifies how imports should be sorted with regards to case-sensitivity. If `auto` or unspecified, we will detect the case-sensitivity per file",
       "enum": [
@@ -48267,7 +48585,7 @@
       ],
       "default": "auto"
     },
-    "_356": {
+    "_357": {
       "type": "string",
       "markdownDescription": "Specify how type-only named imports should be sorted.",
       "enum": [
@@ -48284,7 +48602,7 @@
         "Type only named imports are sorted to the beginning of the import list. E.g. `import { type A, type Y, B, Z } from 'module';`"
       ]
     },
-    "_357": {
+    "_358": {
       "type": "string",
       "markdownDescription": "Specify whether to sort imports using Unicode or Ordinal collation.",
       "enum": [
@@ -48297,19 +48615,19 @@
       ],
       "default": "ordinal"
     },
-    "_358": {
+    "_359": {
       "type": "string",
       "markdownDescription": "Requires `organizeImports.unicodeCollation: 'unicode'`. Overrides the locale used for collation. Specify `auto` to use the UI locale."
     },
-    "_359": {
+    "_360": {
       "type": "boolean",
       "markdownDescription": "Requires `organizeImports.unicodeCollation: 'unicode'`. Sort numeric strings by integer value."
     },
-    "_360": {
+    "_361": {
       "type": "boolean",
       "markdownDescription": "Requires `organizeImports.unicodeCollation: 'unicode'`. Compare characters with diacritical marks as unequal to base character."
     },
-    "_361": {
+    "_362": {
       "type": "string",
       "markdownDescription": "Requires `organizeImports.unicodeCollation: 'unicode'`, and `organizeImports.caseSensitivity` is not `caseInsensitive`. Indicates whether upper-case will sort before lower-case.",
       "enum": [
@@ -48324,7 +48642,7 @@
       ],
       "default": "default"
     },
-    "_362": {
+    "_363": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after a comma delimiter.",
@@ -48346,7 +48664,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterCommaDelimiter instead."
     },
-    "_363": {
+    "_364": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling after the constructor keyword.",
@@ -48368,7 +48686,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterConstructor instead."
     },
-    "_364": {
+    "_365": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after a semicolon in a for statement.",
@@ -48390,7 +48708,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterSemicolonInForStatements instead."
     },
-    "_365": {
+    "_366": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after a binary operator.",
@@ -48412,7 +48730,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceBeforeAndAfterBinaryOperators instead."
     },
-    "_366": {
+    "_367": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after keywords in a control flow statement.",
@@ -48434,7 +48752,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterKeywordsInControlFlowStatements instead."
     },
-    "_367": {
+    "_368": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after function keyword for anonymous functions.",
@@ -48456,7 +48774,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions instead."
     },
-    "_368": {
+    "_369": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling before function argument parentheses.",
@@ -48478,7 +48796,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceBeforeFunctionParenthesis instead."
     },
-    "_369": {
+    "_370": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling after opening and before closing non-empty parenthesis.",
@@ -48500,7 +48818,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis instead."
     },
-    "_370": {
+    "_371": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling after opening and before closing non-empty brackets.",
@@ -48522,7 +48840,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets instead."
     },
-    "_371": {
+    "_372": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after opening and before closing non-empty braces.",
@@ -48544,7 +48862,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces instead."
     },
-    "_372": {
+    "_373": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after opening and before closing empty braces.",
@@ -48566,7 +48884,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces instead."
     },
-    "_373": {
+    "_374": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling after opening and before closing template string braces.",
@@ -48588,7 +48906,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces instead."
     },
-    "_374": {
+    "_375": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling after opening and before closing JSX expression braces.",
@@ -48610,7 +48928,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces instead."
     },
-    "_375": {
+    "_376": {
       "type": "boolean",
       "default": false,
       "description": "Defines whether an open brace is put onto a new line for functions or not.",
@@ -48632,7 +48950,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.placeOpenBraceOnNewLineForFunctions instead."
     },
-    "_376": {
+    "_377": {
       "type": "boolean",
       "default": false,
       "description": "Defines whether an open brace is put onto a new line for control blocks or not.",
@@ -48654,7 +48972,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.placeOpenBraceOnNewLineForControlBlocks instead."
     },
-    "_377": {
+    "_378": {
       "type": "string",
       "default": "ignore",
       "description": "Defines handling of optional semicolons.",
@@ -48686,7 +49004,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.semicolons instead."
     },
-    "_378": {
+    "_379": {
       "type": "boolean",
       "default": true,
       "description": "Indent case clauses in switch statements. Requires using TypeScript 5.1+ in the workspace.",
@@ -48708,7 +49026,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.indentSwitchCase instead."
     },
-    "_379": {
+    "_380": {
       "type": "string",
       "enum": [
         "prompt",
@@ -48740,7 +49058,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.updateImportsOnFileMove.enabled instead."
     },
-    "_380": {
+    "_381": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable automatic closing of JSX tags.",
@@ -48762,7 +49080,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.autoClosingTags.enabled instead."
     },
-    "_381": {
+    "_382": {
       "type": "boolean",
       "default": false,
       "description": "Makes `Go to Definition` avoid type declaration files when possible by triggering `Go to Source Definition` instead. This allows `Go to Source Definition` to be triggered with the mouse gesture.",
@@ -48784,7 +49102,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.preferGoToSourceDefinition instead."
     },
-    "_382": {
+    "_383": {
       "scope": 4,
       "type": "boolean",
       "default": true,
@@ -48806,7 +49124,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.updateImportsOnPaste.enabled instead."
     },
-    "_383": {
+    "_384": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable autocomplete suggestions.",
@@ -48828,7 +49146,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.enabled instead."
     },
-    "_384": {
+    "_385": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable auto import suggestions.",
@@ -48850,7 +49168,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.autoImports instead."
     },
-    "_385": {
+    "_386": {
       "type": "boolean",
       "default": false,
       "description": "Complete functions with their parameter signature.",
@@ -48872,7 +49190,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.completeFunctionCalls instead."
     },
-    "_386": {
+    "_387": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable suggestions for paths in import statements and require calls.",
@@ -48894,7 +49212,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.paths instead."
     },
-    "_387": {
+    "_388": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable suggestion to complete JSDoc comments.",
@@ -48916,7 +49234,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.jsdoc.enabled instead."
     },
-    "_388": {
+    "_389": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "Enable/disable generating `@returns` annotations for JSDoc templates.",
@@ -48938,7 +49256,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.jsdoc.generateReturns instead."
     },
-    "_389": {
+    "_390": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable showing completions on potentially undefined values that insert an optional chain call. Requires strict null checks to be enabled.",
@@ -48960,7 +49278,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.includeAutomaticOptionalChainCompletions instead."
     },
-    "_390": {
+    "_391": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable auto-import-style completions on partially-typed import statements.",
@@ -48982,7 +49300,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.includeCompletionsForImportStatements instead."
     },
-    "_391": {
+    "_392": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable snippet completions for class members.",
@@ -49004,7 +49322,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.classMemberSnippets.enabled instead."
     },
-    "_392": {
+    "_393": {
       "type": "boolean",
       "default": false,
       "description": "Enable/disable references CodeLens in JavaScript and TypeScript files. This CodeLens shows the number of references for classes and exported functions and allows you to peek or navigate to them.",
@@ -49026,7 +49344,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.referencesCodeLens.enabled instead."
     },
-    "_393": {
+    "_394": {
       "type": "boolean",
       "default": false,
       "markdownDescription": "Enable/disable the [references CodeLens](#js/ts.referencesCodeLens.enabled) on all functions in JavaScript and TypeScript files.",
@@ -49048,7 +49366,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.referencesCodeLens.showOnAllFunctions instead."
     },
-    "_394": {
+    "_395": {
       "type": "string",
       "enum": [
         "none",
@@ -49080,7 +49398,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.inlayHints.parameterNames.enabled instead."
     },
-    "_395": {
+    "_396": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "Suppress parameter name hints on arguments whose text is identical to the parameter name.",
@@ -49102,7 +49420,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.inlayHints.parameterNames.suppressWhenArgumentMatchesName instead."
     },
-    "_396": {
+    "_397": {
       "type": "boolean",
       "default": false,
       "markdownDescription": "Enable/disable inlay hints for implicit parameter types:\n```typescript\n\nel.addEventListener('click', e /* :MouseEvent */ => ...)\n \n```",
@@ -49124,7 +49442,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.inlayHints.parameterTypes.enabled instead."
     },
-    "_397": {
+    "_398": {
       "type": "boolean",
       "default": false,
       "markdownDescription": "Enable/disable inlay hints for implicit variable types:\n```typescript\n\nconst foo /* :number */ = Date.now();\n \n```",
@@ -49146,7 +49464,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.inlayHints.variableTypes.enabled instead."
     },
-    "_398": {
+    "_399": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "Suppress type hints on variables whose name is identical to the type name.",
@@ -49168,7 +49486,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.inlayHints.variableTypes.suppressWhenTypeMatchesName instead."
     },
-    "_399": {
+    "_400": {
       "type": "boolean",
       "default": false,
       "markdownDescription": "Enable/disable inlay hints for implicit types on property declarations:\n```typescript\n\nclass Foo {\n\tprop /* :number */ = Date.now();\n}\n \n```",
@@ -49190,7 +49508,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.inlayHints.propertyDeclarationTypes.enabled instead."
     },
-    "_400": {
+    "_401": {
       "type": "boolean",
       "default": false,
       "markdownDescription": "Enable/disable inlay hints for implicit return types on function signatures:\n```typescript\n\nfunction foo() /* :number */ {\n\treturn Date.now();\n} \n \n```",
@@ -49212,12 +49530,12 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.inlayHints.functionLikeReturnTypes.enabled instead."
     },
-    "_401": {
+    "_402": {
       "type": "string",
       "const": "vscode",
       "description": "Use VS Code's file watchers instead of TypeScript's. Requires using TypeScript 5.4+ in the workspace."
     },
-    "_402": {
+    "_403": {
       "type": "object",
       "properties": {
         "watchFile": {
@@ -49278,11 +49596,11 @@
         }
       }
     },
-    "_403": {
+    "_404": {
       "type": "string",
       "description": "Either an absolute or relative path. Relative path will be resolved against workspace folder(s)."
     },
-    "_404": {
+    "_405": {
       "type": "string",
       "enum": [
         "on",
@@ -49297,11 +49615,11 @@
         "Quick suggestions are disabled when inline completions are showing"
       ]
     },
-    "_405": {
+    "_406": {
       "type": "number",
       "description": "Number of monospace characters at which this editor ruler will render."
     },
-    "_406": {
+    "_407": {
       "type": "number",
       "default": 32
     }

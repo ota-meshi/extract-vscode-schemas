@@ -472,6 +472,22 @@
       "scope": 6,
       "restricted": false
     },
+    "diffEditor.hideOriginalLineNumbers": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "default": null,
+      "description": "Controls whether original line numbers are hidden in inline diffs. When set to null, uses the editor's default: hidden in compact multi diff editors and visible in other diff editors.",
+      "section": {
+        "id": "editor",
+        "title": "Editor",
+        "order": 5
+      },
+      "defaultDefaultValue": null,
+      "scope": 6,
+      "restricted": false
+    },
     "diffEditor.hideUnchangedRegions.contextLineCount": {
       "type": "integer",
       "default": 3,
@@ -5975,6 +5991,19 @@
         "order": 5
       },
       "defaultDefaultValue": 80,
+      "scope": 6,
+      "restricted": false
+    },
+    "editor.wordWrapIndicator": {
+      "markdownDescription": "Controls whether an indicator is rendered at the wrapping column of lines that wrap. Only has an effect when `#editor.wordWrap#` is enabled.",
+      "type": "boolean",
+      "default": false,
+      "section": {
+        "id": "editor",
+        "title": "Editor",
+        "order": 5
+      },
+      "defaultDefaultValue": false,
       "scope": 6,
       "restricted": false
     },

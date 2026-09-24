@@ -190,7 +190,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_85"
+          "$ref": "#/$defs/_86"
         }
       ]
     },
@@ -201,7 +201,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_85"
+          "$ref": "#/$defs/_86"
         }
       ]
     },
@@ -623,7 +623,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_74"
+          "$ref": "#/$defs/_75"
         }
       ]
     },
@@ -778,7 +778,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_11"
+          "$ref": "#/$defs/_50"
         }
       ]
     },
@@ -1033,7 +1033,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_78"
+          "$ref": "#/$defs/_79"
         }
       ]
     },
@@ -1226,7 +1226,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_92"
+          "$ref": "#/$defs/_93"
         }
       ]
     },
@@ -1412,6 +1412,40 @@
         },
         {
           "$ref": "#/$defs/_23"
+        }
+      ]
+    },
+    "chat.workingProgressInsidersIconForeground": {
+      "description": "Foreground color of the Insiders VS Code icon in the chat working progress indicator.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#24bfa5}"
+            }
+          ]
+        }
+      ]
+    },
+    "chat.workingProgressStableIconForeground": {
+      "description": "Foreground color of the Stable VS Code icon in the chat working progress indicator.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#007acc}"
+            }
+          ]
         }
       ]
     },
@@ -1780,7 +1814,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_64"
+          "$ref": "#/$defs/_65"
         }
       ]
     },
@@ -1808,7 +1842,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_90"
+          "$ref": "#/$defs/_91"
         }
       ]
     },
@@ -1819,7 +1853,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_64"
+          "$ref": "#/$defs/_65"
         }
       ]
     },
@@ -1863,7 +1897,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_90"
+          "$ref": "#/$defs/_91"
         }
       ]
     },
@@ -1874,7 +1908,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_90"
+          "$ref": "#/$defs/_91"
         }
       ]
     },
@@ -1901,10 +1935,10 @@
       ]
     },
     "debugIcon.stepOutForeground": {
-      "$ref": "#/$defs/_97"
+      "$ref": "#/$defs/_98"
     },
     "debugIcon.stepOverForeground": {
-      "$ref": "#/$defs/_97"
+      "$ref": "#/$defs/_98"
     },
     "debugIcon.stopForeground": {
       "description": "Debug toolbar icon for stop.",
@@ -2761,7 +2795,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_65"
+          "$ref": "#/$defs/_66"
         }
       ]
     },
@@ -2939,7 +2973,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_77"
+          "$ref": "#/$defs/_78"
         }
       ]
     },
@@ -2983,7 +3017,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_77"
+          "$ref": "#/$defs/_78"
         }
       ]
     },
@@ -3494,7 +3528,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_65"
+          "$ref": "#/$defs/_66"
         }
       ]
     },
@@ -3505,7 +3539,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_82"
+          "$ref": "#/$defs/_83"
         }
       ]
     },
@@ -3516,7 +3550,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_83"
+          "$ref": "#/$defs/_84"
         }
       ]
     },
@@ -3604,7 +3638,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_35"
+          "$ref": "#/$defs/_22"
         }
       ]
     },
@@ -3626,7 +3660,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_87"
+          "$ref": "#/$defs/_88"
         }
       ]
     },
@@ -3709,7 +3743,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_88"
+          "$ref": "#/$defs/_89"
         }
       ]
     },
@@ -3770,7 +3804,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_86"
+          "$ref": "#/$defs/_87"
         }
       ]
     },
@@ -4265,7 +4299,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_69"
+          "$ref": "#/$defs/_70"
         }
       ]
     },
@@ -4287,7 +4321,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_70"
+          "$ref": "#/$defs/_71"
         }
       ]
     },
@@ -4326,7 +4360,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_91"
+          "$ref": "#/$defs/_92"
         }
       ]
     },
@@ -4381,7 +4415,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_89"
+          "$ref": "#/$defs/_90"
         }
       ]
     },
@@ -4567,7 +4601,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_91"
+          "$ref": "#/$defs/_92"
         }
       ]
     },
@@ -4705,7 +4739,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_64"
+          "$ref": "#/$defs/_65"
         }
       ]
     },
@@ -4837,7 +4871,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_71"
+          "$ref": "#/$defs/_72"
         }
       ]
     },
@@ -4870,7 +4904,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_72"
+          "$ref": "#/$defs/_73"
         }
       ]
     },
@@ -4964,13 +4998,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "type": "string",
-          "format": "color-hex",
-          "defaultSnippets": [
-            {
-              "body": "${1:#8c8c8c4d}"
-            }
-          ]
+          "$ref": "#/$defs/_64"
         }
       ]
     },
@@ -5015,6 +5043,17 @@
         },
         {
           "$ref": "#/$defs/_7"
+        }
+      ]
+    },
+    "editorWordWrapIndicator.foreground": {
+      "description": "Color of the indicator shown at the end of a soft wrapped line in the editor.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_64"
         }
       ]
     },
@@ -5197,7 +5236,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_93"
+          "$ref": "#/$defs/_94"
         }
       ]
     },
@@ -5252,7 +5291,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_89"
+          "$ref": "#/$defs/_90"
         }
       ]
     },
@@ -5307,7 +5346,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_89"
+          "$ref": "#/$defs/_90"
         }
       ]
     },
@@ -5357,7 +5396,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_89"
+          "$ref": "#/$defs/_90"
         }
       ]
     },
@@ -5527,7 +5566,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#191a1b80}"
+              "body": "${1:#20212280}"
             }
           ]
         }
@@ -5540,7 +5579,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_74"
+          "$ref": "#/$defs/_75"
         }
       ]
     },
@@ -5658,7 +5697,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_76"
+          "$ref": "#/$defs/_77"
         }
       ]
     },
@@ -5726,7 +5765,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_75"
+          "$ref": "#/$defs/_76"
         }
       ]
     },
@@ -5737,7 +5776,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_73"
+          "$ref": "#/$defs/_74"
         }
       ]
     },
@@ -5748,7 +5787,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_73"
+          "$ref": "#/$defs/_74"
         }
       ]
     },
@@ -5759,7 +5798,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_76"
+          "$ref": "#/$defs/_77"
         }
       ]
     },
@@ -5770,7 +5809,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_75"
+          "$ref": "#/$defs/_76"
         }
       ]
     },
@@ -6473,7 +6512,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_93"
+          "$ref": "#/$defs/_94"
         }
       ]
     },
@@ -7059,7 +7098,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_87"
+          "$ref": "#/$defs/_88"
         }
       ]
     },
@@ -7070,7 +7109,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_88"
+          "$ref": "#/$defs/_89"
         }
       ]
     },
@@ -7081,7 +7120,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_86"
+          "$ref": "#/$defs/_87"
         }
       ]
     },
@@ -7385,7 +7424,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_80"
+          "$ref": "#/$defs/_81"
         }
       ]
     },
@@ -7561,7 +7600,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_71"
+          "$ref": "#/$defs/_72"
         }
       ]
     },
@@ -7716,7 +7755,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_90"
+          "$ref": "#/$defs/_91"
         }
       ]
     },
@@ -7782,7 +7821,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_90"
+          "$ref": "#/$defs/_91"
         }
       ]
     },
@@ -7969,7 +8008,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_79"
+          "$ref": "#/$defs/_80"
         }
       ]
     },
@@ -7991,7 +8030,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_83"
+          "$ref": "#/$defs/_84"
         }
       ]
     },
@@ -8162,7 +8201,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_68"
+          "$ref": "#/$defs/_69"
         }
       ]
     },
@@ -8250,7 +8289,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_68"
+          "$ref": "#/$defs/_69"
         }
       ]
     },
@@ -9229,7 +9268,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_83"
+          "$ref": "#/$defs/_84"
         }
       ]
     },
@@ -9361,7 +9400,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_82"
+          "$ref": "#/$defs/_83"
         }
       ]
     },
@@ -9372,7 +9411,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_82"
+          "$ref": "#/$defs/_83"
         }
       ]
     },
@@ -9583,7 +9622,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_84"
+          "$ref": "#/$defs/_85"
         }
       ]
     },
@@ -9616,7 +9655,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_84"
+          "$ref": "#/$defs/_85"
         }
       ]
     },
@@ -9666,7 +9705,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_84"
+          "$ref": "#/$defs/_85"
         }
       ]
     },
@@ -9732,7 +9771,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_86"
+          "$ref": "#/$defs/_87"
         }
       ]
     },
@@ -9754,7 +9793,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_84"
+          "$ref": "#/$defs/_85"
         }
       ]
     },
@@ -9804,7 +9843,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_84"
+          "$ref": "#/$defs/_85"
         }
       ]
     },
@@ -9892,7 +9931,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_66"
+          "$ref": "#/$defs/_67"
         }
       ]
     },
@@ -9925,7 +9964,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_67"
+          "$ref": "#/$defs/_68"
         }
       ]
     },
@@ -9936,7 +9975,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_66"
+          "$ref": "#/$defs/_67"
         }
       ]
     },
@@ -9958,7 +9997,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_66"
+          "$ref": "#/$defs/_67"
         }
       ]
     },
@@ -10002,7 +10041,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_67"
+          "$ref": "#/$defs/_68"
         }
       ]
     },
@@ -10046,7 +10085,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_67"
+          "$ref": "#/$defs/_68"
         }
       ]
     },
@@ -10349,7 +10388,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_35"
+          "$ref": "#/$defs/_22"
         }
       ]
     },
@@ -10371,7 +10410,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_81"
+          "$ref": "#/$defs/_82"
         }
       ]
     },
@@ -10393,7 +10432,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_80"
+          "$ref": "#/$defs/_81"
         }
       ]
     },
@@ -10443,7 +10482,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_78"
+          "$ref": "#/$defs/_79"
         }
       ]
     },
@@ -10454,7 +10493,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_79"
+          "$ref": "#/$defs/_80"
         }
       ]
     },
@@ -10476,7 +10515,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_81"
+          "$ref": "#/$defs/_82"
         }
       ]
     },
@@ -10487,7 +10526,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_78"
+          "$ref": "#/$defs/_79"
         }
       ]
     },
@@ -10509,7 +10548,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_72"
+          "$ref": "#/$defs/_73"
         }
       ]
     },
@@ -10683,7 +10722,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_98"
+          "$ref": "#/$defs/_99"
         }
       ]
     },
@@ -10779,7 +10818,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_98"
+          "$ref": "#/$defs/_99"
         }
       ]
     },
@@ -10945,7 +10984,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_65"
+          "$ref": "#/$defs/_66"
         }
       ]
     },
@@ -10956,7 +10995,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_68"
+          "$ref": "#/$defs/_69"
         }
       ]
     },
@@ -11157,7 +11196,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_67"
+          "$ref": "#/$defs/_68"
         }
       ]
     },
@@ -11212,7 +11251,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_66"
+          "$ref": "#/$defs/_67"
         }
       ]
     },
@@ -11245,7 +11284,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_67"
+          "$ref": "#/$defs/_68"
         }
       ]
     },
@@ -11256,7 +11295,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_66"
+          "$ref": "#/$defs/_67"
         }
       ]
     },
@@ -11388,7 +11427,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_76"
+          "$ref": "#/$defs/_77"
         }
       ]
     },
@@ -11416,7 +11455,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_91"
+          "$ref": "#/$defs/_92"
         }
       ]
     },
@@ -11427,7 +11466,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_91"
+          "$ref": "#/$defs/_92"
         }
       ]
     },
@@ -11449,7 +11488,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_95"
+          "$ref": "#/$defs/_96"
         }
       ]
     },
@@ -11471,7 +11510,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_95"
+          "$ref": "#/$defs/_96"
         }
       ]
     },
@@ -11482,7 +11521,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_89"
+          "$ref": "#/$defs/_90"
         }
       ]
     },
@@ -11538,7 +11577,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_64"
+          "$ref": "#/$defs/_65"
         }
       ]
     },
@@ -11549,7 +11588,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_96"
+          "$ref": "#/$defs/_97"
         }
       ]
     },
@@ -11560,7 +11599,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_64"
+          "$ref": "#/$defs/_65"
         }
       ]
     },
@@ -11571,7 +11610,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_96"
+          "$ref": "#/$defs/_97"
         }
       ]
     },
@@ -11665,7 +11704,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_70"
+          "$ref": "#/$defs/_71"
         }
       ]
     },
@@ -11687,7 +11726,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_69"
+          "$ref": "#/$defs/_70"
         }
       ]
     },
@@ -11698,7 +11737,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_89"
+          "$ref": "#/$defs/_90"
         }
       ]
     },
@@ -11709,7 +11748,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_75"
+          "$ref": "#/$defs/_76"
         }
       ]
     },
@@ -11754,7 +11793,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_94"
+          "$ref": "#/$defs/_95"
         }
       ]
     },
@@ -11765,7 +11804,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_94"
+          "$ref": "#/$defs/_95"
         }
       ]
     },
@@ -12093,7 +12132,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_86"
+          "$ref": "#/$defs/_87"
         }
       ]
     },
@@ -12104,7 +12143,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_79"
+          "$ref": "#/$defs/_80"
         }
       ]
     },
@@ -12115,7 +12154,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_92"
+          "$ref": "#/$defs/_93"
         }
       ]
     },
@@ -12763,7 +12802,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#848484}"
+          "body": "${1:#8c8c8c4d}"
         }
       ]
     },
@@ -12772,7 +12811,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#ffffff56}"
+          "body": "${1:#848484}"
         }
       ]
     },
@@ -12781,7 +12820,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#ee9d28}"
+          "body": "${1:#ffffff56}"
         }
       ]
     },
@@ -12790,7 +12829,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#b180d7}"
+          "body": "${1:#ee9d28}"
         }
       ]
     },
@@ -12799,7 +12838,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#3994bc33}"
+          "body": "${1:#b180d7}"
         }
       ]
     },
@@ -12808,7 +12847,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#f14c4c1a}"
+          "body": "${1:#3994bc33}"
         }
       ]
     },
@@ -12817,7 +12856,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#59a4f91a}"
+          "body": "${1:#f14c4c1a}"
         }
       ]
     },
@@ -12826,7 +12865,7 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#ffffff26}"
+          "body": "${1:#59a4f91a}"
         }
       ]
     },
@@ -12835,11 +12874,20 @@
       "format": "color-hex",
       "defaultSnippets": [
         {
-          "body": "${1:#bfbfbf80}"
+          "body": "${1:#ffffff26}"
         }
       ]
     },
     "_73": {
+      "type": "string",
+      "format": "color-hex",
+      "defaultSnippets": [
+        {
+          "body": "${1:#bfbfbf80}"
+        }
+      ]
+    },
+    "_74": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -12850,7 +12898,7 @@
       "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
       "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
-    "_74": {
+    "_75": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -12859,7 +12907,7 @@
         }
       ]
     },
-    "_75": {
+    "_76": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -12868,7 +12916,7 @@
         }
       ]
     },
-    "_76": {
+    "_77": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -12877,7 +12925,7 @@
         }
       ]
     },
-    "_77": {
+    "_78": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -12888,7 +12936,7 @@
       "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
       "patternErrorMessage": "This color must be transparent or it will obscure content"
     },
-    "_78": {
+    "_79": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -12897,7 +12945,7 @@
         }
       ]
     },
-    "_79": {
+    "_80": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -12906,7 +12954,7 @@
         }
       ]
     },
-    "_80": {
+    "_81": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -12915,7 +12963,7 @@
         }
       ]
     },
-    "_81": {
+    "_82": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -12924,7 +12972,7 @@
         }
       ]
     },
-    "_82": {
+    "_83": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -12933,7 +12981,7 @@
         }
       ]
     },
-    "_83": {
+    "_84": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -12942,7 +12990,7 @@
         }
       ]
     },
-    "_84": {
+    "_85": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -12951,7 +12999,7 @@
         }
       ]
     },
-    "_85": {
+    "_86": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -12960,7 +13008,7 @@
         }
       ]
     },
-    "_86": {
+    "_87": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -12969,7 +13017,7 @@
         }
       ]
     },
-    "_87": {
+    "_88": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -12978,7 +13026,7 @@
         }
       ]
     },
-    "_88": {
+    "_89": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -12987,7 +13035,7 @@
         }
       ]
     },
-    "_89": {
+    "_90": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -12996,7 +13044,7 @@
         }
       ]
     },
-    "_90": {
+    "_91": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -13005,7 +13053,7 @@
         }
       ]
     },
-    "_91": {
+    "_92": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -13014,7 +13062,7 @@
         }
       ]
     },
-    "_92": {
+    "_93": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -13023,7 +13071,7 @@
         }
       ]
     },
-    "_93": {
+    "_94": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -13032,7 +13080,7 @@
         }
       ]
     },
-    "_94": {
+    "_95": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -13041,7 +13089,7 @@
         }
       ]
     },
-    "_95": {
+    "_96": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -13050,7 +13098,7 @@
         }
       ]
     },
-    "_96": {
+    "_97": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
@@ -13059,7 +13107,7 @@
         }
       ]
     },
-    "_97": {
+    "_98": {
       "description": "Debug toolbar icon for step over.",
       "oneOf": [
         {
@@ -13070,7 +13118,7 @@
         }
       ]
     },
-    "_98": {
+    "_99": {
       "type": "string",
       "format": "color-hex",
       "defaultSnippets": [
