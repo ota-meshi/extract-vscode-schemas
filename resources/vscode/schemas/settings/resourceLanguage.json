@@ -4705,6 +4705,29 @@
       "scope": 6,
       "restricted": false
     },
+    "editor.selectedTextMatchMode": {
+      "enumDescriptions": [
+        "Match occurrences case-insensitively and independently of the Find widget.",
+        "Match occurrences case-sensitively and independently of the Find widget.",
+        "Use the Find widget's match case and whole word settings."
+      ],
+      "markdownDescription": "Controls how occurrences of selected text are matched when selecting the next, previous, or all occurrences and when highlighting selection matches. `caseSensitive` and `caseInsensitive` match substrings independently of the Find widget. An empty selection always starts a whole-word, case-sensitive search.",
+      "type": "string",
+      "enum": [
+        "caseInsensitive",
+        "caseSensitive",
+        "findOptions"
+      ],
+      "default": "findOptions",
+      "section": {
+        "id": "editor",
+        "title": "Editor",
+        "order": 5
+      },
+      "defaultDefaultValue": "findOptions",
+      "scope": 6,
+      "restricted": false
+    },
     "editor.selectionClipboard": {
       "description": "Controls whether the Linux primary clipboard should be supported.",
       "included": true,
@@ -6237,7 +6260,7 @@
         ]
       },
       "default": [],
-      "markdownDescription": "List of character set encodings that the editor should attempt to guess in the order they are listed. In case it cannot be determined, `#files.encoding#` is respected",
+      "markdownDescription": "List of character set encodings that the editor should attempt to guess. If guessing fails for non-UTF-8 content, a legacy encoding is used only if it is the only lossless match among the candidates. If no encoding can be determined, `#files.encoding#` is respected.",
       "scope": 6,
       "section": {
         "id": "files",

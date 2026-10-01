@@ -870,6 +870,46 @@
       "scope": 5,
       "restricted": false
     },
+    "accessibility.signals.confetti": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "sound": "auto"
+      },
+      "description": "Plays a joyful sound / audio cue when confetti is shown.",
+      "properties": {
+        "sound": {
+          "description": "Plays a joyful sound when confetti is shown.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "section": {
+        "id": "accessibility",
+        "title": "Accessibility"
+      },
+      "defaultDefaultValue": {
+        "sound": "auto"
+      },
+      "scope": 5,
+      "restricted": false
+    },
     "accessibility.signals.diffLineDeleted": {
       "type": "object",
       "tags": [
@@ -1403,7 +1443,7 @@
           ]
         },
         "sound": {
-          "$ref": "#/$defs/_360"
+          "$ref": "#/$defs/_361"
         }
       },
       "section": {
@@ -1708,10 +1748,10 @@
       "restricted": false
     },
     "accessibility.signals.positionHasError": {
-      "$ref": "#/$defs/_361"
+      "$ref": "#/$defs/_362"
     },
     "accessibility.signals.positionHasWarning": {
-      "$ref": "#/$defs/_361"
+      "$ref": "#/$defs/_362"
     },
     "accessibility.signals.progress": {
       "type": "object",
@@ -2483,6 +2523,21 @@
       "scope": 5,
       "restricted": false
     },
+    "accessibility.verbosity.customizationDiscovery": {
+      "description": "Provide information about how to access accessibility help when discovering customizations.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "section": {
+        "id": "accessibility",
+        "title": "Accessibility"
+      },
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
     "accessibility.verbosity.customizationMigrations": {
       "description": "Provide information about how to access accessibility help for the customization migration checklist.",
       "type": "boolean",
@@ -2633,6 +2688,21 @@
       "scope": 5,
       "restricted": false
     },
+    "accessibility.verbosity.newSessionWelcome": {
+      "description": "Announce the welcome message when a new session composer is shown.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "section": {
+        "id": "accessibility",
+        "title": "Accessibility"
+      },
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
     "accessibility.verbosity.notebook": {
       "description": "Provide information about how to focus the cell container or inner editor when a notebook cell is focused.",
       "type": "boolean",
@@ -2665,6 +2735,21 @@
     },
     "accessibility.verbosity.panelChat": {
       "description": "Provide information about how to access the chat help menu when the chat input is focused.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "section": {
+        "id": "accessibility",
+        "title": "Accessibility"
+      },
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
+    "accessibility.verbosity.releaseNotes": {
+      "description": "Provide information about how to access release notes accessibility help when the release notes are focused.",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -3836,7 +3921,7 @@
         ".github/agents": true,
         "~/.copilot/agents": true
       },
-      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use [Migrate Location Settings](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%252C%2522migrationCategory%2522%253A%2522configuredLocations%2522%257D%255D \"Open Migrate Location Settings\") in the Agent Customizations editor to move agents into supported locations.",
+      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Review the [Migrations tab](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%257D%255D \"Open the Migrations Tab\") in the Agent Customizations editor to move agents into supported locations.",
       "deprecationMessageSeverity": "info",
       "additionalProperties": {
         "type": "boolean"
@@ -3872,7 +3957,7 @@
         "~/.copilot/agents": true
       },
       "scope": 4,
-      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use Migrate Location Settings in the Agent Customizations editor to move agents into supported locations."
+      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Review the Migrations tab in the Agent Customizations editor to move agents into supported locations."
     },
     "chat.agentHost.agentDebugLog.enabled": {
       "type": "boolean",
@@ -4012,22 +4097,6 @@
         "title": "Chat Agent Host Starter"
       },
       "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
-    },
-    "chat.agentHost.copilot.reasoningEffortOverride": {
-      "type": "string",
-      "markdownDescription": "Overrides the reasoning effort for Copilot SDK agent sessions regardless of the per-model picker value. Set it to a level the selected model supports (for example `low`, `medium`, `high`, or `xhigh`) — choosing a level the model does not support may be rejected by the model. A value that isn't a recognized effort level is ignored and the session falls back to the picker value. Applied when a session is created and when its model changes. Only affects Copilot CLI agent sessions.\n\n**Note**: This is an advanced setting for experimentation.",
-      "default": "",
-      "tags": [
-        "experimental",
-        "advanced"
-      ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": "",
       "scope": 4,
       "restricted": false
     },
@@ -4254,7 +4323,7 @@
         "Show up to the 2 most recent external sessions updated in the last 7 days. At startup, external sessions older than the second-most-recently updated local session are hidden."
       ],
       "default": "recent",
-      "markdownDescription": "Controls which external agent sessions, created outside VS Code's Agent Host, are shown.",
+      "markdownDescription": "Controls which external agent sessions are shown. External sessions are sessions that were created in a different application and have not received a message from this application yet.",
       "tags": [
         "experimental",
         "onExP"
@@ -4335,7 +4404,7 @@
         "~/.claude/skills": true,
         "~/.copilot/skills": true
       },
-      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use [Migrate Location Settings](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%252C%2522migrationCategory%2522%253A%2522configuredLocations%2522%257D%255D \"Open Migrate Location Settings\") in the Agent Customizations editor to move skills into supported locations.",
+      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Review the [Migrations tab](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%257D%255D \"Open the Migrations Tab\") in the Agent Customizations editor to move skills into supported locations.",
       "deprecationMessageSeverity": "info",
       "additionalProperties": {
         "type": "boolean"
@@ -4374,7 +4443,7 @@
         "~/.copilot/skills": true
       },
       "scope": 4,
-      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use Migrate Location Settings in the Agent Customizations editor to move skills into supported locations."
+      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Review the Migrations tab in the Agent Customizations editor to move skills into supported locations."
     },
     "chat.agentsParallelWorkBanner.enabled": {
       "type": "boolean",
@@ -4505,6 +4574,25 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.btwTip.enabled": {
+      "type": "boolean",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "markdownDescription": "Controls whether the Agents Window shows a tip about using `/btw` to ask side questions.",
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.byokUtilityModelDefault": {
       "type": "string",
       "markdownDescription": "Controls the default model used by built-in utility flows when the selected main agent model is a bring your own key (BYOK) model. This setting has no effect when the selected main agent model is provided by GitHub Copilot. A specific model configured in `#chat.utilityModel#` or `#chat.utilitySmallModel#` takes precedence.",
@@ -4556,6 +4644,33 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.closedPromoNotification": {
+      "type": "string",
+      "enum": [
+        "copilotIconPopup",
+        "none"
+      ],
+      "enumItemLabels": [
+        "None",
+        "Copilot Icon Popup"
+      ],
+      "enumDescriptions": [
+        "Show a promo tooltip when hovering or clicking the Copilot status icon while Chat is closed. Viewing the offer clears its indicator; the offer remains available for the current window session. Choosing Try dismisses the offer and its chat banner.",
+        "Do not show a promo on the Copilot icon when Chat is closed."
+      ],
+      "description": "Controls whether a live model promo is shown on the Copilot icon when Chat is closed. When explicitly set, this overrides the experiment without an experiment lookup. Otherwise, eligible promos use the experiment treatment.",
+      "default": "none",
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "none",
+      "scope": 4,
+      "restricted": false
+    },
     "chat.contextUsage.enabled": {
       "type": "boolean",
       "default": true,
@@ -4588,23 +4703,32 @@
       "scope": 4,
       "restricted": false
     },
-    "chat.copilot.subagentModelGuidance.enabled": {
-      "type": "boolean",
-      "markdownDescription": "When enabled, Copilot SDK agent sessions instruct the model to keep subagents on their default model, setting the task tool's `model` parameter only when you explicitly name the model a subagent should run on. Applied when a session launches or resumes.",
-      "default": false,
-      "experiment": {
-        "mode": "startup"
-      },
+    "chat.copilotHarnessIntroduction.mode": {
+      "type": "string",
+      "enum": [
+        "afterRequest",
+        "newSession",
+        "off"
+      ],
+      "enumDescriptions": [
+        "Show the introduction after the first request is submitted in a new Copilot harness session.",
+        "Show the introduction when a new Copilot harness session starts.",
+        "Do not show the Copilot harness introduction."
+      ],
+      "description": "Controls when the introduction to the new Copilot experience is shown.",
+      "default": "off",
       "tags": [
         "experimental",
-        "advanced",
         "onExP"
       ],
+      "experiment": {
+        "mode": "auto"
+      },
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": "off",
       "scope": 4,
       "restricted": false
     },
@@ -4623,12 +4747,42 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.customizations.marketplace.enabled": {
+      "type": "boolean",
+      "tags": [
+        "experimental"
+      ],
+      "description": "Shows Discover instead of Overview when a customization marketplace source is enabled. When disabled, marketplace discovery remains in the existing customization management pages.",
+      "default": false,
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.customizations.marketplace.sources.publicFeed.enabled": {
+      "type": "boolean",
+      "tags": [
+        "experimental"
+      ],
+      "description": "Enables the GitHub Feed as a source of skills, MCP servers, and plugins when Marketplace is shown. If Marketplace or this setting is disabled, the GitHub Feed is not queried.",
+      "default": true,
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.customizations.mcpServerMigration.enabled": {
       "type": "boolean",
       "tags": [
         "experimental"
       ],
-      "description": "Controls whether the Chat Customizations editor offers to move supported workspace MCP servers out of .vscode/mcp.json and into a .mcp.json file at the workspace root, where the active agent-host harness discovers them directly. When disabled, the migration card and sidebar shortcut are hidden.",
+      "description": "Controls whether VS Code shows MCP server migration actions, hints, compatibility badges, and compatibility details. Migration moves eligible workspace MCP servers out of .vscode/mcp.json and into a .mcp.json file at the workspace root, where the active agent-host harness discovers them directly.",
       "default": false,
       "section": {
         "id": "chatSidebar",
@@ -5095,6 +5249,29 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.experimental.customizations.toggleStyle": {
+      "type": "string",
+      "enum": [
+        "checkbox",
+        "switch"
+      ],
+      "enumDescriptions": [
+        "Use checkboxes for customization enablement controls.",
+        "Use switches for customization enablement controls."
+      ],
+      "tags": [
+        "experimental"
+      ],
+      "description": "Controls whether Plugin, MCP, and Tools customization pages use checkboxes or switches for enablement.",
+      "default": "switch",
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "switch",
+      "scope": 4,
+      "restricted": false
+    },
     "chat.experimental.detectParticipant.enabled": {
       "type": "boolean",
       "deprecationMessage": "This setting is deprecated. Please use `chat.detectParticipant.enabled` instead.",
@@ -5222,7 +5399,7 @@
     "chat.experimental.permissionsSandboxToggle.enabled": {
       "type": "boolean",
       "default": true,
-      "markdownDescription": "Controls whether the permissions picker shows a \"Sandboxing for terminal\" toggle. Local sessions show it on the Default permissions option. Copilot Agent Host sessions show it as a session-specific setting that applies to every permission mode; changing it saves the choice only for that session. New Copilot Agent Host sessions initially follow `#chat.agent.sandbox.enabled#` or `#chat.agent.sandbox.enabledWindows#` for both the SDK's built-in shell tool and the Agent Host terminal tool.",
+      "markdownDescription": "Controls whether the permissions picker shows a \"Sandboxing for terminal\" toggle. Local sessions show it on the Default permissions option. Local and remote Copilot Agent Host sessions show it as a session-specific setting that applies to every permission mode; changing it saves the choice only for that session. New Copilot Agent Host sessions initially follow `#chat.agent.sandbox.enabled#` or `#chat.agent.sandbox.enabledWindows#` based on the host's operating system, for both the SDK's built-in shell tool and the Agent Host terminal tool.",
       "tags": [
         "experimental",
         "onExP"
@@ -5242,30 +5419,24 @@
       "type": "string",
       "default": "off",
       "enum": [
-        "accordion",
-        "dial",
         "draw",
-        "off",
-        "orbit",
-        "weave"
+        "drawMonochrome",
+        "drawMonochromeNoIcon",
+        "off"
       ],
       "enumItemLabels": [
         "Off",
-        "Weave",
         "Draw",
-        "Orbit and Lock",
-        "Accordion",
-        "Dial Rotation"
+        "Draw (Monochrome)",
+        "Draw (Monochrome, No Icon)"
       ],
       "enumDescriptions": [
-        "Compress the logo pieces toward the center, then open them back up.",
-        "Rotate the logo in three steps, then pause upright.",
         "Draw the right-slanting ribbon, right edge, and left-slanting ribbon in sequence, then erase them in the same counterclockwise direction and order.",
-        "Keep the original thinking, tool, and working progress rendering without a persistent indicator or VS Code logo.",
-        "Loop the diagonal ribbons around the moving right edge, then lock the logo back together.",
-        "Move the three logo pieces in quick beats, then reset them together."
+        "Use the Draw animation with the same grayscale treatment as the VS Code icon in the Agents window. High contrast themes retain their contrast color.",
+        "Keep the same persistent progress text and tool rendering as Draw (Monochrome), but hide the VS Code icon.",
+        "Keep the original thinking, tool, and working progress rendering without a persistent indicator or VS Code logo."
       ],
-      "markdownDescription": "Keep a working progress indicator with an animated VS Code logo at the bottom until the response finishes. Selecting an animation shows tool calls in expanded, headerless chains without an internal scrolling limit. Reasoning is separated into collapsible previews that break the tool chain, and standalone tools retain their icons. Completed responses still follow the `#chat.agent.collapseCompletedResponses#` setting. This replaces inner working progress; terminal activity animations and rich subagent pills are unchanged. Off preserves the original thinking, tool, and progress rendering. Changes apply immediately; reduced motion keeps the indicator visible without animation.",
+      "markdownDescription": "Keep a working progress indicator at the bottom until the response finishes, with a colored or monochrome Draw animation, or without an icon. The default is Draw in VS Code Insiders and Off in Stable. Experiments can override either default; an explicit setting takes precedence. Tool calls follow `#chat.experimental.persistentProgressVerbosity#`, and reasoning is separated into collapsible previews that break the tool chain. Standalone tools retain their icons. Completed responses still follow `#chat.agent.collapseCompletedResponses#`. This replaces inner working progress; terminal activity animations and rich subagent pills are unchanged. Changes apply immediately; reduced motion keeps the indicator visible without animation.",
       "tags": [
         "experimental",
         "onExP"
@@ -5278,6 +5449,37 @@
         "title": "Chat"
       },
       "defaultDefaultValue": "off",
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.experimental.persistentProgressVerbosity": {
+      "type": "string",
+      "default": "compact",
+      "enum": [
+        "compact",
+        "verbose"
+      ],
+      "enumItemLabels": [
+        "Verbose",
+        "Compact"
+      ],
+      "enumDescriptions": [
+        "Preview tool calls while they run, then collapse each group to a single expandable summary row when the response moves on.",
+        "Keep tool calls in expanded, headerless chains without an internal scrolling limit."
+      ],
+      "markdownDescription": "Control tool call details when `#chat.experimental.persistentProgress#` is enabled. Compact is the default and collapses tool groups in place when thinking or response text resumes, or the response finishes. Expand a summary to inspect its tool calls. Has no effect when persistent progress is Off. Changes apply immediately.",
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "compact",
       "scope": 4,
       "restricted": false
     },
@@ -5384,7 +5586,7 @@
     },
     "chat.experimentalModelPicker": {
       "type": "boolean",
-      "description": "When enabled, the model picker uses a tab per model provider and configures thinking effort and context from a detail card next to each model, instead of a separate configuration button.",
+      "description": "When enabled, the model picker uses provider tabs and a model details page for information and configuration. Open details from a model's information button or the thinking effort and context readout in the chat input.",
       "default": false,
       "tags": [
         "experimental",
@@ -5526,6 +5728,25 @@
     "chat.growthNotification.enabled": {
       "type": "boolean",
       "description": "Controls whether to show a growth notification in the agent sessions view to encourage new users to try Copilot.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.harnessSwitchFeedbackSurvey.enabled": {
+      "type": "boolean",
+      "description": "Show a one-time feedback survey after switching from Copilot to Local.",
       "default": false,
       "tags": [
         "experimental",
@@ -5759,7 +5980,7 @@
         "~/.claude/rules": true,
         "~/.copilot/instructions": true
       },
-      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use [Migrate Location Settings](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%252C%2522migrationCategory%2522%253A%2522configuredLocations%2522%257D%255D \"Open Migrate Location Settings\") in the Agent Customizations editor to move instructions into supported locations.",
+      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Review the [Migrations tab](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%257D%255D \"Open the Migrations Tab\") in the Agent Customizations editor to move instructions into supported locations.",
       "deprecationMessageSeverity": "info",
       "additionalProperties": {
         "type": "boolean"
@@ -5794,7 +6015,7 @@
         "~/.copilot/instructions": true
       },
       "scope": 4,
-      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use Migrate Location Settings in the Agent Customizations editor to move instructions into supported locations."
+      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Review the Migrations tab in the Agent Customizations editor to move instructions into supported locations."
     },
     "chat.math.enabled": {
       "type": "boolean",
@@ -6032,7 +6253,7 @@
     },
     "chat.mcp.workspaceRootConfig.enabled": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "scope": 4,
       "tags": [
         "experimental"
@@ -6042,7 +6263,7 @@
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "restricted": false
     },
     "chat.modeFilesLocations": {
@@ -6052,7 +6273,7 @@
       "default": {
         ".github/chatmodes": true
       },
-      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Chat modes are now called custom agents and are located in `.github/agents`. Use [Migrate Location Settings](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%252C%2522migrationCategory%2522%253A%2522configuredLocations%2522%257D%255D \"Open Migrate Location Settings\") in the Agent Customizations editor to move them into supported locations.",
+      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Chat modes are now called custom agents and are located in `.github/agents`. Review the [Migrations tab](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%257D%255D \"Open the Migrations Tab\") in the Agent Customizations editor to move them into supported locations.",
       "deprecationMessageSeverity": "info",
       "additionalProperties": {
         "type": "boolean"
@@ -6085,7 +6306,7 @@
         ".github/chatmodes": true
       },
       "scope": 4,
-      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Chat modes are now called custom agents and are located in .github/agents. Use Migrate Location Settings in the Agent Customizations editor to move them into supported locations."
+      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Chat modes are now called custom agents and are located in .github/agents. Review the Migrations tab in the Agent Customizations editor to move them into supported locations."
     },
     "chat.newSession.defaultMode": {
       "type": "string",
@@ -6263,7 +6484,7 @@
       "default": {
         ".github/prompts": true
       },
-      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use [Migrate Prompt Files](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%252C%2522migrationCategory%2522%253A%2522promptFiles%2522%257D%255D \"Open Migrate Prompt Files\") in the Agent Customizations editor to convert prompt files into skills.",
+      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Review the [Migrations tab](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%257D%255D \"Open the Migrations Tab\") in the Agent Customizations editor to convert prompt files into skills.",
       "deprecationMessageSeverity": "info",
       "additionalProperties": {
         "type": "boolean"
@@ -6298,7 +6519,7 @@
         ".github/prompts": true
       },
       "scope": 4,
-      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use Migrate Prompt Files in the Agent Customizations editor to convert prompt files into skills."
+      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Review the Migrations tab in the Agent Customizations editor to convert prompt files into skills."
     },
     "chat.promptFilesRecommendations": {
       "type": "object",
@@ -6496,18 +6717,6 @@
         "title": "Chat"
       },
       "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
-    },
-    "chat.subagents.useRichRendering": {
-      "type": "boolean",
-      "description": "Controls whether subagents in chat editors use a rich presentation that opens each subagent in its own editor instead of rendering its full activity inline in the parent chat.",
-      "default": true,
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -6780,6 +6989,7 @@
         "/^find\\b.*\\s-(delete|exec|execdir|fprint|fprintf|fls|ok|okdir)\\b/": false,
         "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+branch\\b.*\\s-(d|D|m|M|-delete|-force)\\b/": false,
         "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+branch\\b/": true,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+diff\\b.*\\s--[^\\w\\s]*o[^\\w\\s]*u[^\\w\\s]*t[^\\w\\s]*p[^\\w\\s]*u[^\\w\\s]*t[^\\w\\s]*(=|\\s|$)/": false,
         "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+diff\\b/": true,
         "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+grep\\b.*\\s(?-i:--[^\\w\\s]*o[^\\w\\s]*p\\S*)(\\s|$)/": false,
         "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+grep\\b.*\\s(?-i:-[aIivwhHEGPFnlLqzco]*[^\\w\\s]*O\\S*)(\\s|$)/": false,
@@ -6920,6 +7130,7 @@
         "/^find\\b.*\\s-(delete|exec|execdir|fprint|fprintf|fls|ok|okdir)\\b/": false,
         "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+branch\\b.*\\s-(d|D|m|M|-delete|-force)\\b/": false,
         "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+branch\\b/": true,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+diff\\b.*\\s--[^\\w\\s]*o[^\\w\\s]*u[^\\w\\s]*t[^\\w\\s]*p[^\\w\\s]*u[^\\w\\s]*t[^\\w\\s]*(=|\\s|$)/": false,
         "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+diff\\b/": true,
         "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+grep\\b.*\\s(?-i:--[^\\w\\s]*o[^\\w\\s]*p\\S*)(\\s|$)/": false,
         "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+grep\\b.*\\s(?-i:-[aIivwhHEGPFnlLqzco]*[^\\w\\s]*O\\S*)(\\s|$)/": false,
@@ -7273,6 +7484,18 @@
         "order": 100
       },
       "defaultDefaultValue": "chat",
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.tools.terminal.outputReflow": {
+      "type": "boolean",
+      "default": true,
+      "description": "Controls whether terminal output in chat reflows to fit the available width. When disabled, previews use the terminal's column count, or 80 columns when no terminal is available, and scroll horizontally when needed. This does not resize the terminal running the command.",
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -9953,6 +10176,26 @@
       "defaultDefaultValue": {},
       "restricted": false
     },
+    "debug.javascript.resolveDebugEntrypoint": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "When true (default), js-debug uses source maps to remap a non-`.js` `program` path to its compiled output before launching. Set to false to execute the `program` path exactly as written.",
+      "scope": 4,
+      "section": {
+        "id": "ms-vscode.js-debug",
+        "title": "JavaScript Debugger",
+        "extensionInfo": {
+          "id": "ms-vscode.js-debug",
+          "displayName": "JavaScript Debugger"
+        }
+      },
+      "source": {
+        "id": "ms-vscode.js-debug",
+        "displayName": "JavaScript Debugger"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
     "debug.javascript.resourceRequestOptions": {
       "type": "object",
       "default": {},
@@ -10747,16 +10990,16 @@
       "restricted": false
     },
     "editor.acceptSuggestionOnCommitCharacter": {
-      "$ref": "#/$defs/_25"
+      "$ref": "#/$defs/_24"
     },
     "editor.acceptSuggestionOnEnter": {
-      "$ref": "#/$defs/_26"
+      "$ref": "#/$defs/_25"
     },
     "editor.accessibilityPageSize": {
-      "$ref": "#/$defs/_28"
+      "$ref": "#/$defs/_27"
     },
     "editor.accessibilitySupport": {
-      "$ref": "#/$defs/_27"
+      "$ref": "#/$defs/_26"
     },
     "editor.aiStats.enabled": {
       "markdownDescription": "Controls whether to enable AI statistics in the editor. The gauge shows the average AI rate across 5-minute sessions, where each session's rate is calculated as AI-inserted characters divided by total inserted characters.",
@@ -10779,46 +11022,46 @@
       "restricted": false
     },
     "editor.allowVariableFonts": {
-      "$ref": "#/$defs/_30"
-    },
-    "editor.allowVariableFontsInAccessibilityMode": {
-      "$ref": "#/$defs/_31"
-    },
-    "editor.allowVariableLineHeights": {
       "$ref": "#/$defs/_29"
     },
+    "editor.allowVariableFontsInAccessibilityMode": {
+      "$ref": "#/$defs/_30"
+    },
+    "editor.allowVariableLineHeights": {
+      "$ref": "#/$defs/_28"
+    },
     "editor.autoClosingBrackets": {
-      "$ref": "#/$defs/_32"
+      "$ref": "#/$defs/_31"
     },
     "editor.autoClosingComments": {
-      "$ref": "#/$defs/_33"
+      "$ref": "#/$defs/_32"
     },
     "editor.autoClosingDelete": {
-      "$ref": "#/$defs/_35"
+      "$ref": "#/$defs/_34"
     },
     "editor.autoClosingOvertype": {
-      "$ref": "#/$defs/_36"
+      "$ref": "#/$defs/_35"
     },
     "editor.autoClosingQuotes": {
-      "$ref": "#/$defs/_37"
+      "$ref": "#/$defs/_36"
     },
     "editor.autoIndent": {
-      "$ref": "#/$defs/_38"
+      "$ref": "#/$defs/_37"
     },
     "editor.autoIndentOnPaste": {
-      "$ref": "#/$defs/_39"
+      "$ref": "#/$defs/_38"
     },
     "editor.autoIndentOnPasteWithinString": {
-      "$ref": "#/$defs/_40"
+      "$ref": "#/$defs/_39"
     },
     "editor.autoSurround": {
-      "$ref": "#/$defs/_41"
+      "$ref": "#/$defs/_40"
     },
     "editor.bracketPairColorization.enabled": {
-      "$ref": "#/$defs/_42"
+      "$ref": "#/$defs/_41"
     },
     "editor.bracketPairColorization.independentColorPoolPerBracketType": {
-      "$ref": "#/$defs/_43"
+      "$ref": "#/$defs/_42"
     },
     "editor.codeActions.triggerOnFocusChange": {
       "type": "boolean",
@@ -10836,10 +11079,10 @@
     "editor.codeActionsOnSave": {
       "oneOf": [
         {
-          "$ref": "#/$defs/_358"
+          "$ref": "#/$defs/_359"
         },
         {
-          "$ref": "#/$defs/_359"
+          "$ref": "#/$defs/_360"
         }
       ],
       "markdownDescription": "Run Code Actions for the editor on save. Code Actions must be specified and the editor must not be shutting down. When `#files.autoSave#` is set to `afterDelay`, Code Actions will only be run when the file is saved explicitly. Example: `\"source.organizeImports\": \"explicit\" `",
@@ -10895,55 +11138,55 @@
       "restricted": false
     },
     "editor.codeLens": {
-      "$ref": "#/$defs/_49"
+      "$ref": "#/$defs/_48"
     },
     "editor.codeLensFontFamily": {
-      "$ref": "#/$defs/_50"
+      "$ref": "#/$defs/_49"
     },
     "editor.codeLensFontSize": {
-      "$ref": "#/$defs/_51"
+      "$ref": "#/$defs/_50"
     },
     "editor.colorDecorators": {
-      "$ref": "#/$defs/_52"
+      "$ref": "#/$defs/_51"
     },
     "editor.colorDecoratorsActivatedOn": {
       "$ref": "#/$defs/_279"
     },
     "editor.colorDecoratorsLimit": {
-      "$ref": "#/$defs/_53"
+      "$ref": "#/$defs/_52"
     },
     "editor.columnSelection": {
-      "$ref": "#/$defs/_54"
+      "$ref": "#/$defs/_53"
     },
     "editor.comments.ignoreEmptyLines": {
-      "$ref": "#/$defs/_56"
-    },
-    "editor.comments.insertSpace": {
       "$ref": "#/$defs/_55"
     },
+    "editor.comments.insertSpace": {
+      "$ref": "#/$defs/_54"
+    },
     "editor.copyWithSyntaxHighlighting": {
-      "$ref": "#/$defs/_57"
+      "$ref": "#/$defs/_56"
     },
     "editor.cursorBlinking": {
-      "$ref": "#/$defs/_58"
+      "$ref": "#/$defs/_57"
     },
     "editor.cursorHeight": {
-      "$ref": "#/$defs/_64"
+      "$ref": "#/$defs/_63"
     },
     "editor.cursorSmoothCaretAnimation": {
-      "$ref": "#/$defs/_59"
+      "$ref": "#/$defs/_58"
     },
     "editor.cursorStyle": {
-      "$ref": "#/$defs/_60"
+      "$ref": "#/$defs/_59"
     },
     "editor.cursorSurroundingLines": {
-      "$ref": "#/$defs/_61"
+      "$ref": "#/$defs/_60"
     },
     "editor.cursorSurroundingLinesStyle": {
-      "$ref": "#/$defs/_62"
+      "$ref": "#/$defs/_61"
     },
     "editor.cursorWidth": {
-      "$ref": "#/$defs/_63"
+      "$ref": "#/$defs/_62"
     },
     "editor.defaultColorDecorators": {
       "$ref": "#/$defs/_278"
@@ -11197,7 +11440,7 @@
       "restricted": false
     },
     "editor.definitionLinkOpensInPeek": {
-      "$ref": "#/$defs/_169"
+      "$ref": "#/$defs/_168"
     },
     "editor.detectIndentation": {
       "type": "boolean",
@@ -11216,10 +11459,10 @@
       "$ref": "#/$defs/_282"
     },
     "editor.dragAndDrop": {
-      "$ref": "#/$defs/_65"
+      "$ref": "#/$defs/_64"
     },
     "editor.dropIntoEditor.enabled": {
-      "$ref": "#/$defs/_66"
+      "$ref": "#/$defs/_65"
     },
     "editor.dropIntoEditor.preferences": {
       "type": "array",
@@ -11250,13 +11493,13 @@
       "restricted": false
     },
     "editor.dropIntoEditor.showDropSelector": {
-      "$ref": "#/$defs/_67"
+      "$ref": "#/$defs/_66"
     },
     "editor.editContext": {
-      "$ref": "#/$defs/_68"
+      "$ref": "#/$defs/_67"
     },
     "editor.emptySelectionClipboard": {
-      "$ref": "#/$defs/_69"
+      "$ref": "#/$defs/_68"
     },
     "editor.experimental.asyncTokenization": {
       "type": "boolean",
@@ -11404,73 +11647,73 @@
       "restricted": false
     },
     "editor.experimentalGpuAcceleration": {
-      "$ref": "#/$defs/_70"
+      "$ref": "#/$defs/_69"
     },
     "editor.experimentalWhitespaceRendering": {
-      "$ref": "#/$defs/_71"
+      "$ref": "#/$defs/_70"
     },
     "editor.fastScrollSensitivity": {
-      "$ref": "#/$defs/_72"
+      "$ref": "#/$defs/_71"
     },
     "editor.find.addExtraSpaceOnTop": {
-      "$ref": "#/$defs/_76"
-    },
-    "editor.find.autoFindInSelection": {
       "$ref": "#/$defs/_75"
     },
-    "editor.find.closeOnResult": {
-      "$ref": "#/$defs/_78"
-    },
-    "editor.find.cursorMoveOnType": {
-      "$ref": "#/$defs/_73"
-    },
-    "editor.find.findOnType": {
-      "$ref": "#/$defs/_81"
-    },
-    "editor.find.history": {
-      "$ref": "#/$defs/_79"
-    },
-    "editor.find.loop": {
-      "$ref": "#/$defs/_77"
-    },
-    "editor.find.replaceHistory": {
-      "$ref": "#/$defs/_80"
-    },
-    "editor.find.seedSearchStringFromSelection": {
+    "editor.find.autoFindInSelection": {
       "$ref": "#/$defs/_74"
     },
+    "editor.find.closeOnResult": {
+      "$ref": "#/$defs/_77"
+    },
+    "editor.find.cursorMoveOnType": {
+      "$ref": "#/$defs/_72"
+    },
+    "editor.find.findOnType": {
+      "$ref": "#/$defs/_80"
+    },
+    "editor.find.history": {
+      "$ref": "#/$defs/_78"
+    },
+    "editor.find.loop": {
+      "$ref": "#/$defs/_76"
+    },
+    "editor.find.replaceHistory": {
+      "$ref": "#/$defs/_79"
+    },
+    "editor.find.seedSearchStringFromSelection": {
+      "$ref": "#/$defs/_73"
+    },
     "editor.folding": {
-      "$ref": "#/$defs/_82"
+      "$ref": "#/$defs/_81"
     },
     "editor.foldingHighlight": {
-      "$ref": "#/$defs/_84"
-    },
-    "editor.foldingImportsByDefault": {
-      "$ref": "#/$defs/_85"
-    },
-    "editor.foldingMaximumRegions": {
-      "$ref": "#/$defs/_86"
-    },
-    "editor.foldingStrategy": {
       "$ref": "#/$defs/_83"
     },
+    "editor.foldingImportsByDefault": {
+      "$ref": "#/$defs/_84"
+    },
+    "editor.foldingMaximumRegions": {
+      "$ref": "#/$defs/_85"
+    },
+    "editor.foldingStrategy": {
+      "$ref": "#/$defs/_82"
+    },
     "editor.fontFamily": {
-      "$ref": "#/$defs/_88"
+      "$ref": "#/$defs/_87"
     },
     "editor.fontLigatures": {
-      "$ref": "#/$defs/_89"
+      "$ref": "#/$defs/_88"
     },
     "editor.fontSize": {
-      "$ref": "#/$defs/_90"
+      "$ref": "#/$defs/_89"
     },
     "editor.fontVariations": {
-      "$ref": "#/$defs/_92"
-    },
-    "editor.fontWeight": {
       "$ref": "#/$defs/_91"
     },
+    "editor.fontWeight": {
+      "$ref": "#/$defs/_90"
+    },
     "editor.formatOnPaste": {
-      "$ref": "#/$defs/_93"
+      "$ref": "#/$defs/_92"
     },
     "editor.formatOnSave": {
       "type": "boolean",
@@ -11508,82 +11751,82 @@
       "restricted": false
     },
     "editor.formatOnType": {
-      "$ref": "#/$defs/_94"
+      "$ref": "#/$defs/_93"
     },
     "editor.fullwidthCharacterWidth": {
       "$ref": "#/$defs/_283"
     },
     "editor.glyphMargin": {
-      "$ref": "#/$defs/_95"
+      "$ref": "#/$defs/_94"
     },
     "editor.gotoLocation.alternativeDeclarationCommand": {
-      "$ref": "#/$defs/_104"
-    },
-    "editor.gotoLocation.alternativeDefinitionCommand": {
-      "$ref": "#/$defs/_102"
-    },
-    "editor.gotoLocation.alternativeImplementationCommand": {
-      "$ref": "#/$defs/_105"
-    },
-    "editor.gotoLocation.alternativeReferenceCommand": {
-      "$ref": "#/$defs/_106"
-    },
-    "editor.gotoLocation.alternativeTypeDefinitionCommand": {
       "$ref": "#/$defs/_103"
     },
-    "editor.gotoLocation.multiple": {
-      "$ref": "#/$defs/_96"
-    },
-    "editor.gotoLocation.multipleDeclarations": {
-      "$ref": "#/$defs/_99"
-    },
-    "editor.gotoLocation.multipleDefinitions": {
-      "$ref": "#/$defs/_97"
-    },
-    "editor.gotoLocation.multipleImplementations": {
-      "$ref": "#/$defs/_100"
-    },
-    "editor.gotoLocation.multipleReferences": {
+    "editor.gotoLocation.alternativeDefinitionCommand": {
       "$ref": "#/$defs/_101"
     },
-    "editor.gotoLocation.multipleTypeDefinitions": {
+    "editor.gotoLocation.alternativeImplementationCommand": {
+      "$ref": "#/$defs/_104"
+    },
+    "editor.gotoLocation.alternativeReferenceCommand": {
+      "$ref": "#/$defs/_105"
+    },
+    "editor.gotoLocation.alternativeTypeDefinitionCommand": {
+      "$ref": "#/$defs/_102"
+    },
+    "editor.gotoLocation.multiple": {
+      "$ref": "#/$defs/_95"
+    },
+    "editor.gotoLocation.multipleDeclarations": {
       "$ref": "#/$defs/_98"
     },
+    "editor.gotoLocation.multipleDefinitions": {
+      "$ref": "#/$defs/_96"
+    },
+    "editor.gotoLocation.multipleImplementations": {
+      "$ref": "#/$defs/_99"
+    },
+    "editor.gotoLocation.multipleReferences": {
+      "$ref": "#/$defs/_100"
+    },
+    "editor.gotoLocation.multipleTypeDefinitions": {
+      "$ref": "#/$defs/_97"
+    },
     "editor.guides.bracketPairs": {
-      "$ref": "#/$defs/_44"
+      "$ref": "#/$defs/_43"
     },
     "editor.guides.bracketPairsHorizontal": {
-      "$ref": "#/$defs/_45"
+      "$ref": "#/$defs/_44"
     },
     "editor.guides.highlightActiveBracketPair": {
-      "$ref": "#/$defs/_46"
+      "$ref": "#/$defs/_45"
     },
     "editor.guides.highlightActiveIndentation": {
-      "$ref": "#/$defs/_48"
-    },
-    "editor.guides.indentation": {
       "$ref": "#/$defs/_47"
     },
+    "editor.guides.indentation": {
+      "$ref": "#/$defs/_46"
+    },
     "editor.hideCursorInOverviewRuler": {
-      "$ref": "#/$defs/_107"
+      "$ref": "#/$defs/_106"
     },
     "editor.hover.above": {
-      "$ref": "#/$defs/_112"
-    },
-    "editor.hover.delay": {
-      "$ref": "#/$defs/_109"
-    },
-    "editor.hover.enabled": {
-      "$ref": "#/$defs/_108"
-    },
-    "editor.hover.hidingDelay": {
       "$ref": "#/$defs/_111"
     },
+    "editor.hover.delay": {
+      "$ref": "#/$defs/_108"
+    },
+    "editor.hover.enabled": {
+      "$ref": "#/$defs/_107"
+    },
+    "editor.hover.hidingDelay": {
+      "$ref": "#/$defs/_110"
+    },
     "editor.hover.showLongLineWarning": {
-      "$ref": "#/$defs/_113"
+      "$ref": "#/$defs/_112"
     },
     "editor.hover.sticky": {
-      "$ref": "#/$defs/_110"
+      "$ref": "#/$defs/_109"
     },
     "editor.indentSize": {
       "anyOf": [
@@ -11631,52 +11874,52 @@
       "$ref": "#/$defs/_280"
     },
     "editor.inlineSuggest.edits.allowCodeShifting": {
-      "$ref": "#/$defs/_125"
-    },
-    "editor.inlineSuggest.edits.longDistanceHintContextLineCount": {
-      "$ref": "#/$defs/_127"
-    },
-    "editor.inlineSuggest.edits.renderSideBySide": {
-      "$ref": "#/$defs/_128"
-    },
-    "editor.inlineSuggest.edits.showCollapsed": {
-      "$ref": "#/$defs/_129"
-    },
-    "editor.inlineSuggest.edits.showLongDistanceHint": {
-      "$ref": "#/$defs/_126"
-    },
-    "editor.inlineSuggest.enabled": {
-      "$ref": "#/$defs/_114"
-    },
-    "editor.inlineSuggest.experimental.emptyResponseInformation": {
-      "$ref": "#/$defs/_121"
-    },
-    "editor.inlineSuggest.experimental.showOnSuggestConflict": {
-      "$ref": "#/$defs/_123"
-    },
-    "editor.inlineSuggest.experimental.suppressInlineSuggestions": {
-      "$ref": "#/$defs/_120"
-    },
-    "editor.inlineSuggest.fontFamily": {
       "$ref": "#/$defs/_124"
     },
-    "editor.inlineSuggest.minShowDelay": {
+    "editor.inlineSuggest.edits.longDistanceHintContextLineCount": {
+      "$ref": "#/$defs/_126"
+    },
+    "editor.inlineSuggest.edits.renderSideBySide": {
+      "$ref": "#/$defs/_127"
+    },
+    "editor.inlineSuggest.edits.showCollapsed": {
+      "$ref": "#/$defs/_128"
+    },
+    "editor.inlineSuggest.edits.showLongDistanceHint": {
+      "$ref": "#/$defs/_125"
+    },
+    "editor.inlineSuggest.enabled": {
+      "$ref": "#/$defs/_113"
+    },
+    "editor.inlineSuggest.experimental.emptyResponseInformation": {
+      "$ref": "#/$defs/_120"
+    },
+    "editor.inlineSuggest.experimental.showOnSuggestConflict": {
+      "$ref": "#/$defs/_122"
+    },
+    "editor.inlineSuggest.experimental.suppressInlineSuggestions": {
       "$ref": "#/$defs/_119"
     },
-    "editor.inlineSuggest.showToolbar": {
-      "$ref": "#/$defs/_115"
+    "editor.inlineSuggest.fontFamily": {
+      "$ref": "#/$defs/_123"
     },
-    "editor.inlineSuggest.suppressInSnippetMode": {
+    "editor.inlineSuggest.minShowDelay": {
       "$ref": "#/$defs/_118"
     },
-    "editor.inlineSuggest.suppressSuggestions": {
+    "editor.inlineSuggest.showToolbar": {
+      "$ref": "#/$defs/_114"
+    },
+    "editor.inlineSuggest.suppressInSnippetMode": {
       "$ref": "#/$defs/_117"
     },
-    "editor.inlineSuggest.syntaxHighlightingEnabled": {
+    "editor.inlineSuggest.suppressSuggestions": {
       "$ref": "#/$defs/_116"
     },
+    "editor.inlineSuggest.syntaxHighlightingEnabled": {
+      "$ref": "#/$defs/_115"
+    },
     "editor.inlineSuggest.triggerCommandOnProviderChange": {
-      "$ref": "#/$defs/_122"
+      "$ref": "#/$defs/_121"
     },
     "editor.insertSpaces": {
       "type": "boolean",
@@ -11699,7 +11942,7 @@
       "default": null,
       "description": "Defines the bracket symbols that increase or decrease the indentation.",
       "items": {
-        "$ref": "#/$defs/_356"
+        "$ref": "#/$defs/_357"
       },
       "section": {
         "id": "editor",
@@ -11718,7 +11961,7 @@
       "default": null,
       "description": "Defines the bracket pairs that are colorized by their nesting level if bracket pair colorization is enabled.",
       "items": {
-        "$ref": "#/$defs/_356"
+        "$ref": "#/$defs/_357"
       },
       "section": {
         "id": "editor",
@@ -11743,25 +11986,25 @@
       "restricted": false
     },
     "editor.letterSpacing": {
-      "$ref": "#/$defs/_130"
+      "$ref": "#/$defs/_129"
     },
     "editor.lightbulb.enabled": {
-      "$ref": "#/$defs/_131"
+      "$ref": "#/$defs/_130"
     },
     "editor.lineHeight": {
-      "$ref": "#/$defs/_132"
+      "$ref": "#/$defs/_131"
     },
     "editor.lineNumbers": {
-      "$ref": "#/$defs/_133"
+      "$ref": "#/$defs/_132"
     },
     "editor.linkedEditing": {
-      "$ref": "#/$defs/_134"
+      "$ref": "#/$defs/_133"
     },
     "editor.links": {
-      "$ref": "#/$defs/_135"
+      "$ref": "#/$defs/_134"
     },
     "editor.matchBrackets": {
-      "$ref": "#/$defs/_136"
+      "$ref": "#/$defs/_135"
     },
     "editor.maxTokenizationLineLength": {
       "type": "integer",
@@ -11777,94 +12020,94 @@
       "restricted": false
     },
     "editor.minimap.autohide": {
-      "$ref": "#/$defs/_138"
-    },
-    "editor.minimap.enabled": {
       "$ref": "#/$defs/_137"
     },
+    "editor.minimap.enabled": {
+      "$ref": "#/$defs/_136"
+    },
     "editor.minimap.markSectionHeaderRegex": {
-      "$ref": "#/$defs/_147"
-    },
-    "editor.minimap.maxColumn": {
-      "$ref": "#/$defs/_144"
-    },
-    "editor.minimap.renderCharacters": {
-      "$ref": "#/$defs/_143"
-    },
-    "editor.minimap.scale": {
-      "$ref": "#/$defs/_142"
-    },
-    "editor.minimap.sectionHeaderFontSize": {
-      "$ref": "#/$defs/_148"
-    },
-    "editor.minimap.sectionHeaderLetterSpacing": {
-      "$ref": "#/$defs/_149"
-    },
-    "editor.minimap.showMarkSectionHeaders": {
       "$ref": "#/$defs/_146"
     },
-    "editor.minimap.showRegionSectionHeaders": {
-      "$ref": "#/$defs/_145"
+    "editor.minimap.maxColumn": {
+      "$ref": "#/$defs/_143"
     },
-    "editor.minimap.showSlider": {
+    "editor.minimap.renderCharacters": {
+      "$ref": "#/$defs/_142"
+    },
+    "editor.minimap.scale": {
       "$ref": "#/$defs/_141"
     },
-    "editor.minimap.side": {
+    "editor.minimap.sectionHeaderFontSize": {
+      "$ref": "#/$defs/_147"
+    },
+    "editor.minimap.sectionHeaderLetterSpacing": {
+      "$ref": "#/$defs/_148"
+    },
+    "editor.minimap.showMarkSectionHeaders": {
+      "$ref": "#/$defs/_145"
+    },
+    "editor.minimap.showRegionSectionHeaders": {
+      "$ref": "#/$defs/_144"
+    },
+    "editor.minimap.showSlider": {
       "$ref": "#/$defs/_140"
     },
-    "editor.minimap.size": {
+    "editor.minimap.side": {
       "$ref": "#/$defs/_139"
     },
+    "editor.minimap.size": {
+      "$ref": "#/$defs/_138"
+    },
     "editor.mouseMiddleClickAction": {
-      "$ref": "#/$defs/_154"
-    },
-    "editor.mouseWheelScrollSensitivity": {
-      "$ref": "#/$defs/_150"
-    },
-    "editor.mouseWheelZoom": {
-      "$ref": "#/$defs/_151"
-    },
-    "editor.multiCursorLimit": {
-      "$ref": "#/$defs/_156"
-    },
-    "editor.multiCursorMergeOverlapping": {
-      "$ref": "#/$defs/_152"
-    },
-    "editor.multiCursorModifier": {
       "$ref": "#/$defs/_153"
     },
-    "editor.multiCursorPaste": {
+    "editor.mouseWheelScrollSensitivity": {
+      "$ref": "#/$defs/_149"
+    },
+    "editor.mouseWheelZoom": {
+      "$ref": "#/$defs/_150"
+    },
+    "editor.multiCursorLimit": {
       "$ref": "#/$defs/_155"
     },
+    "editor.multiCursorMergeOverlapping": {
+      "$ref": "#/$defs/_151"
+    },
+    "editor.multiCursorModifier": {
+      "$ref": "#/$defs/_152"
+    },
+    "editor.multiCursorPaste": {
+      "$ref": "#/$defs/_154"
+    },
     "editor.occurrencesHighlight": {
-      "$ref": "#/$defs/_157"
+      "$ref": "#/$defs/_156"
     },
     "editor.occurrencesHighlightDelay": {
-      "$ref": "#/$defs/_158"
+      "$ref": "#/$defs/_157"
     },
     "editor.overtypeCursorStyle": {
-      "$ref": "#/$defs/_159"
+      "$ref": "#/$defs/_158"
     },
     "editor.overtypeOnPaste": {
-      "$ref": "#/$defs/_160"
+      "$ref": "#/$defs/_159"
     },
     "editor.overviewRulerBorder": {
-      "$ref": "#/$defs/_161"
+      "$ref": "#/$defs/_160"
     },
     "editor.padding.bottom": {
-      "$ref": "#/$defs/_163"
-    },
-    "editor.padding.top": {
       "$ref": "#/$defs/_162"
     },
-    "editor.parameterHints.cycle": {
-      "$ref": "#/$defs/_167"
+    "editor.padding.top": {
+      "$ref": "#/$defs/_161"
     },
-    "editor.parameterHints.enabled": {
+    "editor.parameterHints.cycle": {
       "$ref": "#/$defs/_166"
     },
+    "editor.parameterHints.enabled": {
+      "$ref": "#/$defs/_165"
+    },
     "editor.pasteAs.enabled": {
-      "$ref": "#/$defs/_164"
+      "$ref": "#/$defs/_163"
     },
     "editor.pasteAs.preferences": {
       "type": "array",
@@ -11901,16 +12144,16 @@
       "restricted": false
     },
     "editor.pasteAs.showPasteSelector": {
-      "$ref": "#/$defs/_165"
+      "$ref": "#/$defs/_164"
     },
     "editor.peekWidgetDefaultFocus": {
-      "$ref": "#/$defs/_168"
+      "$ref": "#/$defs/_167"
     },
     "editor.quickSuggestions": {
-      "$ref": "#/$defs/_170"
+      "$ref": "#/$defs/_169"
     },
     "editor.quickSuggestionsDelay": {
-      "$ref": "#/$defs/_171"
+      "$ref": "#/$defs/_170"
     },
     "editor.rename.enablePreview": {
       "scope": 6,
@@ -11924,76 +12167,79 @@
       "restricted": false
     },
     "editor.renameOnType": {
-      "$ref": "#/$defs/_172"
+      "$ref": "#/$defs/_171"
     },
     "editor.renderControlCharacters": {
-      "$ref": "#/$defs/_174"
-    },
-    "editor.renderFinalNewline": {
-      "$ref": "#/$defs/_175"
-    },
-    "editor.renderLineHighlight": {
-      "$ref": "#/$defs/_176"
-    },
-    "editor.renderLineHighlightOnlyWhenFocus": {
-      "$ref": "#/$defs/_177"
-    },
-    "editor.renderRichScreenReaderContent": {
       "$ref": "#/$defs/_173"
     },
+    "editor.renderFinalNewline": {
+      "$ref": "#/$defs/_174"
+    },
+    "editor.renderLineHighlight": {
+      "$ref": "#/$defs/_175"
+    },
+    "editor.renderLineHighlightOnlyWhenFocus": {
+      "$ref": "#/$defs/_176"
+    },
+    "editor.renderRichScreenReaderContent": {
+      "$ref": "#/$defs/_172"
+    },
     "editor.renderWhitespace": {
-      "$ref": "#/$defs/_178"
+      "$ref": "#/$defs/_177"
     },
     "editor.roundedSelection": {
-      "$ref": "#/$defs/_179"
+      "$ref": "#/$defs/_178"
     },
     "editor.rulers": {
-      "$ref": "#/$defs/_180"
+      "$ref": "#/$defs/_179"
     },
     "editor.screenReaderAnnounceInlineSuggestion": {
-      "$ref": "#/$defs/_34"
+      "$ref": "#/$defs/_33"
     },
     "editor.scrollbar.horizontal": {
-      "$ref": "#/$defs/_182"
-    },
-    "editor.scrollbar.horizontalScrollbarSize": {
-      "$ref": "#/$defs/_184"
-    },
-    "editor.scrollbar.ignoreHorizontalScrollbarInContentHeight": {
-      "$ref": "#/$defs/_186"
-    },
-    "editor.scrollbar.scrollByPage": {
-      "$ref": "#/$defs/_185"
-    },
-    "editor.scrollbar.vertical": {
       "$ref": "#/$defs/_181"
     },
-    "editor.scrollbar.verticalScrollbarSize": {
+    "editor.scrollbar.horizontalScrollbarSize": {
       "$ref": "#/$defs/_183"
     },
+    "editor.scrollbar.ignoreHorizontalScrollbarInContentHeight": {
+      "$ref": "#/$defs/_185"
+    },
+    "editor.scrollbar.scrollByPage": {
+      "$ref": "#/$defs/_184"
+    },
+    "editor.scrollbar.vertical": {
+      "$ref": "#/$defs/_180"
+    },
+    "editor.scrollbar.verticalScrollbarSize": {
+      "$ref": "#/$defs/_182"
+    },
     "editor.scrollBeyondLastColumn": {
-      "$ref": "#/$defs/_187"
+      "$ref": "#/$defs/_186"
     },
     "editor.scrollBeyondLastLine": {
-      "$ref": "#/$defs/_188"
+      "$ref": "#/$defs/_187"
     },
     "editor.scrollOnMiddleClick": {
       "$ref": "#/$defs/_281"
     },
     "editor.scrollPredominantAxis": {
-      "$ref": "#/$defs/_189"
+      "$ref": "#/$defs/_188"
+    },
+    "editor.selectedTextMatchMode": {
+      "$ref": "#/$defs/_193"
     },
     "editor.selectionClipboard": {
-      "$ref": "#/$defs/_190"
+      "$ref": "#/$defs/_189"
     },
     "editor.selectionHighlight": {
-      "$ref": "#/$defs/_191"
+      "$ref": "#/$defs/_190"
     },
     "editor.selectionHighlightMaxLength": {
-      "$ref": "#/$defs/_192"
+      "$ref": "#/$defs/_191"
     },
     "editor.selectionHighlightMultiline": {
-      "$ref": "#/$defs/_193"
+      "$ref": "#/$defs/_192"
     },
     "editor.semanticHighlighting.enabled": {
       "enum": [
@@ -12024,66 +12270,66 @@
         {
           "properties": {
             "[Abyss]": {
-              "$ref": "#/$defs/_24"
+              "$ref": "#/$defs/_23"
             },
             "[Dark 2026]": {
-              "$ref": "#/$defs/_24"
+              "$ref": "#/$defs/_23"
             },
             "[Dark Modern]": {
-              "$ref": "#/$defs/_24"
+              "$ref": "#/$defs/_23"
             },
             "[Dark+]": {
-              "$ref": "#/$defs/_24"
+              "$ref": "#/$defs/_23"
             },
             "[Default High Contrast Light]": {
-              "$ref": "#/$defs/_24"
+              "$ref": "#/$defs/_23"
             },
             "[Default High Contrast]": {
-              "$ref": "#/$defs/_24"
+              "$ref": "#/$defs/_23"
             },
             "[Kimbie Dark]": {
-              "$ref": "#/$defs/_24"
+              "$ref": "#/$defs/_23"
             },
             "[Light 2026]": {
-              "$ref": "#/$defs/_24"
+              "$ref": "#/$defs/_23"
             },
             "[Light Modern]": {
-              "$ref": "#/$defs/_24"
+              "$ref": "#/$defs/_23"
             },
             "[Light+]": {
-              "$ref": "#/$defs/_24"
+              "$ref": "#/$defs/_23"
             },
             "[Monokai Dimmed]": {
-              "$ref": "#/$defs/_24"
+              "$ref": "#/$defs/_23"
             },
             "[Monokai]": {
-              "$ref": "#/$defs/_24"
+              "$ref": "#/$defs/_23"
             },
             "[Quiet Light]": {
-              "$ref": "#/$defs/_24"
+              "$ref": "#/$defs/_23"
             },
             "[Red]": {
-              "$ref": "#/$defs/_24"
+              "$ref": "#/$defs/_23"
             },
             "[Solarized Dark]": {
-              "$ref": "#/$defs/_24"
+              "$ref": "#/$defs/_23"
             },
             "[Solarized Light]": {
-              "$ref": "#/$defs/_24"
+              "$ref": "#/$defs/_23"
             },
             "[Tomorrow Night Blue]": {
-              "$ref": "#/$defs/_24"
+              "$ref": "#/$defs/_23"
             },
             "[Visual Studio Dark]": {
-              "$ref": "#/$defs/_24"
+              "$ref": "#/$defs/_23"
             },
             "[Visual Studio Light]": {
-              "$ref": "#/$defs/_24"
+              "$ref": "#/$defs/_23"
             }
           },
           "patternProperties": {
             "^\\[[^\\]]*(\\]\\s*\\[[^\\]]*)*\\]$": {
-              "$ref": "#/$defs/_24"
+              "$ref": "#/$defs/_23"
             }
           }
         },
@@ -12091,10 +12337,10 @@
           "type": "object",
           "properties": {
             "enabled": {
-              "$ref": "#/$defs/_22"
+              "$ref": "#/$defs/_21"
             },
             "rules": {
-              "$ref": "#/$defs/_23"
+              "$ref": "#/$defs/_22"
             }
           },
           "additionalProperties": false,
@@ -12336,66 +12582,66 @@
         {
           "properties": {
             "[Abyss]": {
-              "$ref": "#/$defs/_21"
+              "$ref": "#/$defs/_20"
             },
             "[Dark 2026]": {
-              "$ref": "#/$defs/_21"
+              "$ref": "#/$defs/_20"
             },
             "[Dark Modern]": {
-              "$ref": "#/$defs/_21"
+              "$ref": "#/$defs/_20"
             },
             "[Dark+]": {
-              "$ref": "#/$defs/_21"
+              "$ref": "#/$defs/_20"
             },
             "[Default High Contrast Light]": {
-              "$ref": "#/$defs/_21"
+              "$ref": "#/$defs/_20"
             },
             "[Default High Contrast]": {
-              "$ref": "#/$defs/_21"
+              "$ref": "#/$defs/_20"
             },
             "[Kimbie Dark]": {
-              "$ref": "#/$defs/_21"
+              "$ref": "#/$defs/_20"
             },
             "[Light 2026]": {
-              "$ref": "#/$defs/_21"
+              "$ref": "#/$defs/_20"
             },
             "[Light Modern]": {
-              "$ref": "#/$defs/_21"
+              "$ref": "#/$defs/_20"
             },
             "[Light+]": {
-              "$ref": "#/$defs/_21"
+              "$ref": "#/$defs/_20"
             },
             "[Monokai Dimmed]": {
-              "$ref": "#/$defs/_21"
+              "$ref": "#/$defs/_20"
             },
             "[Monokai]": {
-              "$ref": "#/$defs/_21"
+              "$ref": "#/$defs/_20"
             },
             "[Quiet Light]": {
-              "$ref": "#/$defs/_21"
+              "$ref": "#/$defs/_20"
             },
             "[Red]": {
-              "$ref": "#/$defs/_21"
+              "$ref": "#/$defs/_20"
             },
             "[Solarized Dark]": {
-              "$ref": "#/$defs/_21"
+              "$ref": "#/$defs/_20"
             },
             "[Solarized Light]": {
-              "$ref": "#/$defs/_21"
+              "$ref": "#/$defs/_20"
             },
             "[Tomorrow Night Blue]": {
-              "$ref": "#/$defs/_21"
+              "$ref": "#/$defs/_20"
             },
             "[Visual Studio Dark]": {
-              "$ref": "#/$defs/_21"
+              "$ref": "#/$defs/_20"
             },
             "[Visual Studio Light]": {
-              "$ref": "#/$defs/_21"
+              "$ref": "#/$defs/_20"
             }
           },
           "patternProperties": {
             "^\\[[^\\]]*(\\]\\s*\\[[^\\]]*)*\\]$": {
-              "$ref": "#/$defs/_21"
+              "$ref": "#/$defs/_20"
             }
           }
         },
@@ -12403,31 +12649,31 @@
           "type": "object",
           "properties": {
             "comments": {
-              "$ref": "#/$defs/_12"
+              "$ref": "#/$defs/_11"
             },
             "functions": {
-              "$ref": "#/$defs/_17"
-            },
-            "keywords": {
-              "$ref": "#/$defs/_14"
-            },
-            "numbers": {
-              "$ref": "#/$defs/_15"
-            },
-            "semanticHighlighting": {
-              "$ref": "#/$defs/_20"
-            },
-            "strings": {
-              "$ref": "#/$defs/_13"
-            },
-            "textMateRules": {
-              "$ref": "#/$defs/_19"
-            },
-            "types": {
               "$ref": "#/$defs/_16"
             },
-            "variables": {
+            "keywords": {
+              "$ref": "#/$defs/_13"
+            },
+            "numbers": {
+              "$ref": "#/$defs/_14"
+            },
+            "semanticHighlighting": {
+              "$ref": "#/$defs/_19"
+            },
+            "strings": {
+              "$ref": "#/$defs/_12"
+            },
+            "textMateRules": {
               "$ref": "#/$defs/_18"
+            },
+            "types": {
+              "$ref": "#/$defs/_15"
+            },
+            "variables": {
+              "$ref": "#/$defs/_17"
             }
           },
           "additionalProperties": false,
@@ -12461,7 +12707,7 @@
       "$ref": "#/$defs/_251"
     },
     "editor.unfoldOnClickAfterEndOfLine": {
-      "$ref": "#/$defs/_87"
+      "$ref": "#/$defs/_86"
     },
     "editor.unicodeHighlight.allowedCharacters": {
       "$ref": "#/$defs/_257"
@@ -13770,7 +14016,7 @@
         ]
       },
       "default": [],
-      "markdownDescription": "List of character set encodings that the editor should attempt to guess in the order they are listed. In case it cannot be determined, `#files.encoding#` is respected",
+      "markdownDescription": "List of character set encodings that the editor should attempt to guess. If guessing fails for non-UTF-8 content, a legacy encoding is used only if it is the only lossless match among the candidates. If no encoding can be determined, `#files.encoding#` is respected.",
       "scope": 6,
       "section": {
         "id": "files",
@@ -14035,7 +14281,7 @@
             "description": "The glob pattern to match file paths against. Set to true or false to enable or disable the pattern."
           },
           {
-            "$ref": "#/$defs/_357"
+            "$ref": "#/$defs/_358"
           }
         ]
       },
@@ -16627,7 +16873,33 @@
         "type": "string"
       },
       "default": [],
-      "markdownDescription": "Configure [glob patterns](https://aka.ms/vscode-glob-patterns) for files and folders that are included when creating a new worktree. Only files and folders that match the patterns and are listed in `.gitignore` will be copied to the newly created worktree.",
+      "markdownDescription": "Configure patterns, using `.gitignore` syntax, for files and folders that are included when creating a new worktree. Only files and folders that match the patterns and are ignored by git (for example, listed in `.gitignore`) will be copied to the newly created worktree.",
+      "scope": 5,
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "vscode.git",
+        "title": "Git",
+        "extensionInfo": {
+          "id": "vscode.git",
+          "displayName": "Git"
+        }
+      },
+      "source": {
+        "id": "vscode.git",
+        "displayName": "Git"
+      },
+      "defaultDefaultValue": [],
+      "restricted": false
+    },
+    "git.worktreeSymlinkFolders": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "markdownDescription": "Configure patterns, using `.gitignore` syntax, for folders to symlink from the current checkout into newly created worktrees. Only folders that match the patterns and are ignored by git (for example, listed in `.gitignore`) will be symlinked. Changes made through a symlink affect the folder in the current checkout.",
       "scope": 5,
       "tags": [
         "experimental"
@@ -17621,7 +17893,7 @@
       ]
     },
     "javascript.autoClosingTags": {
-      "$ref": "#/$defs/_387"
+      "$ref": "#/$defs/_388"
     },
     "javascript.format.enable": {
       "type": "boolean",
@@ -17646,88 +17918,88 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.enabled instead."
     },
     "javascript.format.indentSwitchCase": {
-      "$ref": "#/$defs/_385"
+      "$ref": "#/$defs/_386"
     },
     "javascript.format.insertSpaceAfterCommaDelimiter": {
-      "$ref": "#/$defs/_369"
-    },
-    "javascript.format.insertSpaceAfterConstructor": {
       "$ref": "#/$defs/_370"
     },
-    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": {
-      "$ref": "#/$defs/_374"
-    },
-    "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": {
-      "$ref": "#/$defs/_373"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": {
-      "$ref": "#/$defs/_379"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": {
-      "$ref": "#/$defs/_381"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": {
-      "$ref": "#/$defs/_378"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": {
-      "$ref": "#/$defs/_377"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": {
-      "$ref": "#/$defs/_376"
-    },
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": {
-      "$ref": "#/$defs/_380"
-    },
-    "javascript.format.insertSpaceAfterSemicolonInForStatements": {
+    "javascript.format.insertSpaceAfterConstructor": {
       "$ref": "#/$defs/_371"
     },
-    "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": {
-      "$ref": "#/$defs/_372"
-    },
-    "javascript.format.insertSpaceBeforeFunctionParenthesis": {
+    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": {
       "$ref": "#/$defs/_375"
     },
-    "javascript.format.placeOpenBraceOnNewLineForControlBlocks": {
-      "$ref": "#/$defs/_383"
+    "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": {
+      "$ref": "#/$defs/_374"
     },
-    "javascript.format.placeOpenBraceOnNewLineForFunctions": {
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": {
+      "$ref": "#/$defs/_380"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": {
       "$ref": "#/$defs/_382"
     },
-    "javascript.format.semicolons": {
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": {
+      "$ref": "#/$defs/_379"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": {
+      "$ref": "#/$defs/_378"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": {
+      "$ref": "#/$defs/_377"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": {
+      "$ref": "#/$defs/_381"
+    },
+    "javascript.format.insertSpaceAfterSemicolonInForStatements": {
+      "$ref": "#/$defs/_372"
+    },
+    "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": {
+      "$ref": "#/$defs/_373"
+    },
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": {
+      "$ref": "#/$defs/_376"
+    },
+    "javascript.format.placeOpenBraceOnNewLineForControlBlocks": {
       "$ref": "#/$defs/_384"
     },
+    "javascript.format.placeOpenBraceOnNewLineForFunctions": {
+      "$ref": "#/$defs/_383"
+    },
+    "javascript.format.semicolons": {
+      "$ref": "#/$defs/_385"
+    },
     "javascript.inlayHints.functionLikeReturnTypes.enabled": {
-      "$ref": "#/$defs/_403"
+      "$ref": "#/$defs/_404"
     },
     "javascript.inlayHints.parameterNames.enabled": {
-      "$ref": "#/$defs/_397"
-    },
-    "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": {
       "$ref": "#/$defs/_398"
     },
-    "javascript.inlayHints.parameterTypes.enabled": {
+    "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": {
       "$ref": "#/$defs/_399"
     },
-    "javascript.inlayHints.propertyDeclarationTypes.enabled": {
-      "$ref": "#/$defs/_402"
-    },
-    "javascript.inlayHints.variableTypes.enabled": {
+    "javascript.inlayHints.parameterTypes.enabled": {
       "$ref": "#/$defs/_400"
     },
-    "javascript.inlayHints.variableTypes.suppressWhenTypeMatchesName": {
+    "javascript.inlayHints.propertyDeclarationTypes.enabled": {
+      "$ref": "#/$defs/_403"
+    },
+    "javascript.inlayHints.variableTypes.enabled": {
       "$ref": "#/$defs/_401"
     },
-    "javascript.preferences.autoImportFileExcludePatterns": {
-      "$ref": "#/$defs/_365"
+    "javascript.inlayHints.variableTypes.suppressWhenTypeMatchesName": {
+      "$ref": "#/$defs/_402"
     },
-    "javascript.preferences.autoImportSpecifierExcludeRegexes": {
+    "javascript.preferences.autoImportFileExcludePatterns": {
       "$ref": "#/$defs/_366"
     },
+    "javascript.preferences.autoImportSpecifierExcludeRegexes": {
+      "$ref": "#/$defs/_367"
+    },
     "javascript.preferences.importModuleSpecifier": {
-      "$ref": "#/$defs/_363"
+      "$ref": "#/$defs/_364"
     },
     "javascript.preferences.importModuleSpecifierEnding": {
-      "$ref": "#/$defs/_364"
+      "$ref": "#/$defs/_365"
     },
     "javascript.preferences.jsxAttributeCompletionStyle": {
       "type": "string",
@@ -17806,13 +18078,13 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.organizeImports instead."
     },
     "javascript.preferences.quoteStyle": {
-      "$ref": "#/$defs/_362"
+      "$ref": "#/$defs/_363"
     },
     "javascript.preferences.renameMatchingJsxTags": {
-      "$ref": "#/$defs/_368"
+      "$ref": "#/$defs/_369"
     },
     "javascript.preferences.useAliasesForRenames": {
-      "$ref": "#/$defs/_367"
+      "$ref": "#/$defs/_368"
     },
     "javascript.preferGoToSourceDefinition": {
       "$ref": "#/$defs/_350"
@@ -17824,28 +18096,28 @@
       "$ref": "#/$defs/_353"
     },
     "javascript.suggest.autoImports": {
-      "$ref": "#/$defs/_389"
-    },
-    "javascript.suggest.classMemberSnippets.enabled": {
-      "$ref": "#/$defs/_396"
-    },
-    "javascript.suggest.completeFunctionCalls": {
       "$ref": "#/$defs/_390"
     },
+    "javascript.suggest.classMemberSnippets.enabled": {
+      "$ref": "#/$defs/_397"
+    },
+    "javascript.suggest.completeFunctionCalls": {
+      "$ref": "#/$defs/_391"
+    },
     "javascript.suggest.completeJSDocs": {
-      "$ref": "#/$defs/_392"
+      "$ref": "#/$defs/_393"
     },
     "javascript.suggest.enabled": {
-      "$ref": "#/$defs/_388"
+      "$ref": "#/$defs/_389"
     },
     "javascript.suggest.includeAutomaticOptionalChainCompletions": {
-      "$ref": "#/$defs/_394"
-    },
-    "javascript.suggest.includeCompletionsForImportStatements": {
       "$ref": "#/$defs/_395"
     },
+    "javascript.suggest.includeCompletionsForImportStatements": {
+      "$ref": "#/$defs/_396"
+    },
     "javascript.suggest.jsdoc.generateReturns": {
-      "$ref": "#/$defs/_393"
+      "$ref": "#/$defs/_394"
     },
     "javascript.suggest.names": {
       "type": "boolean",
@@ -17870,7 +18142,7 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.names instead."
     },
     "javascript.suggest.paths": {
-      "$ref": "#/$defs/_391"
+      "$ref": "#/$defs/_392"
     },
     "javascript.suggestionActions.enabled": {
       "type": "boolean",
@@ -17895,7 +18167,7 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggestionActions.enabled instead."
     },
     "javascript.updateImportsOnFileMove.enabled": {
-      "$ref": "#/$defs/_386"
+      "$ref": "#/$defs/_387"
     },
     "javascript.updateImportsOnPaste.enabled": {
       "$ref": "#/$defs/_351"
@@ -23176,10 +23448,10 @@
     "notebook.codeActionsOnSave": {
       "oneOf": [
         {
-          "$ref": "#/$defs/_358"
+          "$ref": "#/$defs/_359"
         },
         {
-          "$ref": "#/$defs/_359"
+          "$ref": "#/$defs/_360"
         }
       ],
       "markdownDescription": "Run a series of Code Actions for a notebook on save. Code Actions must be specified and the editor must not be shutting down. When `#files.autoSave#` is set to `afterDelay`, Code Actions will only be run when the file is saved explicitly. Example: `\"notebook.source.organizeImports\": \"explicit\"`",
@@ -23499,157 +23771,157 @@
         {
           "properties": {
             "editor.acceptSuggestionOnCommitCharacter": {
-              "$ref": "#/$defs/_25"
+              "$ref": "#/$defs/_24"
             },
             "editor.acceptSuggestionOnEnter": {
-              "$ref": "#/$defs/_26"
+              "$ref": "#/$defs/_25"
             },
             "editor.accessibilityPageSize": {
-              "$ref": "#/$defs/_28"
-            },
-            "editor.accessibilitySupport": {
               "$ref": "#/$defs/_27"
             },
+            "editor.accessibilitySupport": {
+              "$ref": "#/$defs/_26"
+            },
             "editor.allowVariableFonts": {
-              "$ref": "#/$defs/_30"
-            },
-            "editor.allowVariableFontsInAccessibilityMode": {
-              "$ref": "#/$defs/_31"
-            },
-            "editor.allowVariableLineHeights": {
               "$ref": "#/$defs/_29"
             },
+            "editor.allowVariableFontsInAccessibilityMode": {
+              "$ref": "#/$defs/_30"
+            },
+            "editor.allowVariableLineHeights": {
+              "$ref": "#/$defs/_28"
+            },
             "editor.autoClosingBrackets": {
-              "$ref": "#/$defs/_32"
+              "$ref": "#/$defs/_31"
             },
             "editor.autoClosingComments": {
-              "$ref": "#/$defs/_33"
+              "$ref": "#/$defs/_32"
             },
             "editor.autoClosingDelete": {
-              "$ref": "#/$defs/_35"
+              "$ref": "#/$defs/_34"
             },
             "editor.autoClosingOvertype": {
-              "$ref": "#/$defs/_36"
+              "$ref": "#/$defs/_35"
             },
             "editor.autoClosingQuotes": {
-              "$ref": "#/$defs/_37"
+              "$ref": "#/$defs/_36"
             },
             "editor.autoIndent": {
-              "$ref": "#/$defs/_38"
+              "$ref": "#/$defs/_37"
             },
             "editor.autoIndentOnPaste": {
-              "$ref": "#/$defs/_39"
+              "$ref": "#/$defs/_38"
             },
             "editor.autoIndentOnPasteWithinString": {
-              "$ref": "#/$defs/_40"
+              "$ref": "#/$defs/_39"
             },
             "editor.autoSurround": {
-              "$ref": "#/$defs/_41"
+              "$ref": "#/$defs/_40"
             },
             "editor.bracketPairColorization.enabled": {
-              "$ref": "#/$defs/_42"
+              "$ref": "#/$defs/_41"
             },
             "editor.bracketPairColorization.independentColorPoolPerBracketType": {
-              "$ref": "#/$defs/_43"
+              "$ref": "#/$defs/_42"
             },
             "editor.codeLens": {
-              "$ref": "#/$defs/_49"
+              "$ref": "#/$defs/_48"
             },
             "editor.codeLensFontFamily": {
-              "$ref": "#/$defs/_50"
+              "$ref": "#/$defs/_49"
             },
             "editor.codeLensFontSize": {
-              "$ref": "#/$defs/_51"
+              "$ref": "#/$defs/_50"
             },
             "editor.colorDecorators": {
-              "$ref": "#/$defs/_52"
+              "$ref": "#/$defs/_51"
             },
             "editor.colorDecoratorsActivatedOn": {
               "$ref": "#/$defs/_279"
             },
             "editor.colorDecoratorsLimit": {
-              "$ref": "#/$defs/_53"
+              "$ref": "#/$defs/_52"
             },
             "editor.columnSelection": {
-              "$ref": "#/$defs/_54"
+              "$ref": "#/$defs/_53"
             },
             "editor.comments.ignoreEmptyLines": {
-              "$ref": "#/$defs/_56"
-            },
-            "editor.comments.insertSpace": {
               "$ref": "#/$defs/_55"
             },
+            "editor.comments.insertSpace": {
+              "$ref": "#/$defs/_54"
+            },
             "editor.copyWithSyntaxHighlighting": {
-              "$ref": "#/$defs/_57"
+              "$ref": "#/$defs/_56"
             },
             "editor.cursorBlinking": {
-              "$ref": "#/$defs/_58"
+              "$ref": "#/$defs/_57"
             },
             "editor.cursorHeight": {
-              "$ref": "#/$defs/_64"
+              "$ref": "#/$defs/_63"
             },
             "editor.cursorSmoothCaretAnimation": {
-              "$ref": "#/$defs/_59"
+              "$ref": "#/$defs/_58"
             },
             "editor.cursorStyle": {
-              "$ref": "#/$defs/_60"
+              "$ref": "#/$defs/_59"
             },
             "editor.cursorSurroundingLines": {
-              "$ref": "#/$defs/_61"
+              "$ref": "#/$defs/_60"
             },
             "editor.cursorSurroundingLinesStyle": {
-              "$ref": "#/$defs/_62"
+              "$ref": "#/$defs/_61"
             },
             "editor.cursorWidth": {
-              "$ref": "#/$defs/_63"
+              "$ref": "#/$defs/_62"
             },
             "editor.defaultColorDecorators": {
               "$ref": "#/$defs/_278"
             },
             "editor.definitionLinkOpensInPeek": {
-              "$ref": "#/$defs/_169"
+              "$ref": "#/$defs/_168"
             },
             "editor.doubleClickSelectsBlock": {
               "$ref": "#/$defs/_282"
             },
             "editor.dragAndDrop": {
-              "$ref": "#/$defs/_65"
+              "$ref": "#/$defs/_64"
             },
             "editor.dropIntoEditor.enabled": {
-              "$ref": "#/$defs/_66"
+              "$ref": "#/$defs/_65"
             },
             "editor.dropIntoEditor.showDropSelector": {
-              "$ref": "#/$defs/_67"
+              "$ref": "#/$defs/_66"
             },
             "editor.editContext": {
-              "$ref": "#/$defs/_68"
+              "$ref": "#/$defs/_67"
             },
             "editor.emptySelectionClipboard": {
-              "$ref": "#/$defs/_69"
+              "$ref": "#/$defs/_68"
             },
             "editor.experimentalGpuAcceleration": {
-              "$ref": "#/$defs/_70"
+              "$ref": "#/$defs/_69"
             },
             "editor.experimentalWhitespaceRendering": {
-              "$ref": "#/$defs/_71"
+              "$ref": "#/$defs/_70"
             },
             "editor.fastScrollSensitivity": {
-              "$ref": "#/$defs/_72"
+              "$ref": "#/$defs/_71"
             },
             "editor.find.addExtraSpaceOnTop": {
-              "$ref": "#/$defs/_76"
-            },
-            "editor.find.autoFindInSelection": {
               "$ref": "#/$defs/_75"
             },
+            "editor.find.autoFindInSelection": {
+              "$ref": "#/$defs/_74"
+            },
             "editor.find.closeOnResult": {
-              "$ref": "#/$defs/_78"
+              "$ref": "#/$defs/_77"
             },
             "editor.find.cursorMoveOnType": {
-              "$ref": "#/$defs/_73"
+              "$ref": "#/$defs/_72"
             },
             "editor.find.findOnType": {
-              "$ref": "#/$defs/_81"
+              "$ref": "#/$defs/_80"
             },
             "editor.find.globalFindClipboard": {
               "type": "boolean",
@@ -23666,127 +23938,127 @@
               "restricted": false
             },
             "editor.find.history": {
-              "$ref": "#/$defs/_79"
+              "$ref": "#/$defs/_78"
             },
             "editor.find.loop": {
-              "$ref": "#/$defs/_77"
+              "$ref": "#/$defs/_76"
             },
             "editor.find.replaceHistory": {
-              "$ref": "#/$defs/_80"
+              "$ref": "#/$defs/_79"
             },
             "editor.find.seedSearchStringFromSelection": {
-              "$ref": "#/$defs/_74"
+              "$ref": "#/$defs/_73"
             },
             "editor.folding": {
-              "$ref": "#/$defs/_82"
+              "$ref": "#/$defs/_81"
             },
             "editor.foldingHighlight": {
-              "$ref": "#/$defs/_84"
-            },
-            "editor.foldingImportsByDefault": {
-              "$ref": "#/$defs/_85"
-            },
-            "editor.foldingMaximumRegions": {
-              "$ref": "#/$defs/_86"
-            },
-            "editor.foldingStrategy": {
               "$ref": "#/$defs/_83"
             },
+            "editor.foldingImportsByDefault": {
+              "$ref": "#/$defs/_84"
+            },
+            "editor.foldingMaximumRegions": {
+              "$ref": "#/$defs/_85"
+            },
+            "editor.foldingStrategy": {
+              "$ref": "#/$defs/_82"
+            },
             "editor.fontFamily": {
-              "$ref": "#/$defs/_88"
+              "$ref": "#/$defs/_87"
             },
             "editor.fontLigatures": {
-              "$ref": "#/$defs/_89"
+              "$ref": "#/$defs/_88"
             },
             "editor.fontSize": {
-              "$ref": "#/$defs/_90"
+              "$ref": "#/$defs/_89"
             },
             "editor.fontVariations": {
-              "$ref": "#/$defs/_92"
-            },
-            "editor.fontWeight": {
               "$ref": "#/$defs/_91"
             },
+            "editor.fontWeight": {
+              "$ref": "#/$defs/_90"
+            },
             "editor.formatOnPaste": {
-              "$ref": "#/$defs/_93"
+              "$ref": "#/$defs/_92"
             },
             "editor.formatOnType": {
-              "$ref": "#/$defs/_94"
+              "$ref": "#/$defs/_93"
             },
             "editor.fullwidthCharacterWidth": {
               "$ref": "#/$defs/_283"
             },
             "editor.glyphMargin": {
-              "$ref": "#/$defs/_95"
+              "$ref": "#/$defs/_94"
             },
             "editor.gotoLocation.alternativeDeclarationCommand": {
-              "$ref": "#/$defs/_104"
-            },
-            "editor.gotoLocation.alternativeDefinitionCommand": {
-              "$ref": "#/$defs/_102"
-            },
-            "editor.gotoLocation.alternativeImplementationCommand": {
-              "$ref": "#/$defs/_105"
-            },
-            "editor.gotoLocation.alternativeReferenceCommand": {
-              "$ref": "#/$defs/_106"
-            },
-            "editor.gotoLocation.alternativeTypeDefinitionCommand": {
               "$ref": "#/$defs/_103"
             },
-            "editor.gotoLocation.multiple": {
-              "$ref": "#/$defs/_96"
-            },
-            "editor.gotoLocation.multipleDeclarations": {
-              "$ref": "#/$defs/_99"
-            },
-            "editor.gotoLocation.multipleDefinitions": {
-              "$ref": "#/$defs/_97"
-            },
-            "editor.gotoLocation.multipleImplementations": {
-              "$ref": "#/$defs/_100"
-            },
-            "editor.gotoLocation.multipleReferences": {
+            "editor.gotoLocation.alternativeDefinitionCommand": {
               "$ref": "#/$defs/_101"
             },
-            "editor.gotoLocation.multipleTypeDefinitions": {
+            "editor.gotoLocation.alternativeImplementationCommand": {
+              "$ref": "#/$defs/_104"
+            },
+            "editor.gotoLocation.alternativeReferenceCommand": {
+              "$ref": "#/$defs/_105"
+            },
+            "editor.gotoLocation.alternativeTypeDefinitionCommand": {
+              "$ref": "#/$defs/_102"
+            },
+            "editor.gotoLocation.multiple": {
+              "$ref": "#/$defs/_95"
+            },
+            "editor.gotoLocation.multipleDeclarations": {
               "$ref": "#/$defs/_98"
             },
+            "editor.gotoLocation.multipleDefinitions": {
+              "$ref": "#/$defs/_96"
+            },
+            "editor.gotoLocation.multipleImplementations": {
+              "$ref": "#/$defs/_99"
+            },
+            "editor.gotoLocation.multipleReferences": {
+              "$ref": "#/$defs/_100"
+            },
+            "editor.gotoLocation.multipleTypeDefinitions": {
+              "$ref": "#/$defs/_97"
+            },
             "editor.guides.bracketPairs": {
-              "$ref": "#/$defs/_44"
+              "$ref": "#/$defs/_43"
             },
             "editor.guides.bracketPairsHorizontal": {
-              "$ref": "#/$defs/_45"
+              "$ref": "#/$defs/_44"
             },
             "editor.guides.highlightActiveBracketPair": {
-              "$ref": "#/$defs/_46"
+              "$ref": "#/$defs/_45"
             },
             "editor.guides.highlightActiveIndentation": {
-              "$ref": "#/$defs/_48"
-            },
-            "editor.guides.indentation": {
               "$ref": "#/$defs/_47"
             },
+            "editor.guides.indentation": {
+              "$ref": "#/$defs/_46"
+            },
             "editor.hideCursorInOverviewRuler": {
-              "$ref": "#/$defs/_107"
+              "$ref": "#/$defs/_106"
             },
             "editor.hover.above": {
-              "$ref": "#/$defs/_112"
-            },
-            "editor.hover.delay": {
-              "$ref": "#/$defs/_109"
-            },
-            "editor.hover.enabled": {
-              "$ref": "#/$defs/_108"
-            },
-            "editor.hover.hidingDelay": {
               "$ref": "#/$defs/_111"
             },
+            "editor.hover.delay": {
+              "$ref": "#/$defs/_108"
+            },
+            "editor.hover.enabled": {
+              "$ref": "#/$defs/_107"
+            },
+            "editor.hover.hidingDelay": {
+              "$ref": "#/$defs/_110"
+            },
             "editor.hover.showLongLineWarning": {
-              "$ref": "#/$defs/_113"
+              "$ref": "#/$defs/_112"
             },
             "editor.hover.sticky": {
-              "$ref": "#/$defs/_110"
+              "$ref": "#/$defs/_109"
             },
             "editor.inertialScroll": {
               "$ref": "#/$defs/_269"
@@ -23810,247 +24082,250 @@
               "$ref": "#/$defs/_280"
             },
             "editor.inlineSuggest.edits.allowCodeShifting": {
-              "$ref": "#/$defs/_125"
-            },
-            "editor.inlineSuggest.edits.longDistanceHintContextLineCount": {
-              "$ref": "#/$defs/_127"
-            },
-            "editor.inlineSuggest.edits.renderSideBySide": {
-              "$ref": "#/$defs/_128"
-            },
-            "editor.inlineSuggest.edits.showCollapsed": {
-              "$ref": "#/$defs/_129"
-            },
-            "editor.inlineSuggest.edits.showLongDistanceHint": {
-              "$ref": "#/$defs/_126"
-            },
-            "editor.inlineSuggest.enabled": {
-              "$ref": "#/$defs/_114"
-            },
-            "editor.inlineSuggest.experimental.emptyResponseInformation": {
-              "$ref": "#/$defs/_121"
-            },
-            "editor.inlineSuggest.experimental.showOnSuggestConflict": {
-              "$ref": "#/$defs/_123"
-            },
-            "editor.inlineSuggest.experimental.suppressInlineSuggestions": {
-              "$ref": "#/$defs/_120"
-            },
-            "editor.inlineSuggest.fontFamily": {
               "$ref": "#/$defs/_124"
             },
-            "editor.inlineSuggest.minShowDelay": {
-              "$ref": "#/$defs/_119"
+            "editor.inlineSuggest.edits.longDistanceHintContextLineCount": {
+              "$ref": "#/$defs/_126"
             },
-            "editor.inlineSuggest.showToolbar": {
-              "$ref": "#/$defs/_115"
+            "editor.inlineSuggest.edits.renderSideBySide": {
+              "$ref": "#/$defs/_127"
             },
-            "editor.inlineSuggest.suppressInSnippetMode": {
-              "$ref": "#/$defs/_118"
+            "editor.inlineSuggest.edits.showCollapsed": {
+              "$ref": "#/$defs/_128"
             },
-            "editor.inlineSuggest.suppressSuggestions": {
-              "$ref": "#/$defs/_117"
+            "editor.inlineSuggest.edits.showLongDistanceHint": {
+              "$ref": "#/$defs/_125"
             },
-            "editor.inlineSuggest.syntaxHighlightingEnabled": {
-              "$ref": "#/$defs/_116"
+            "editor.inlineSuggest.enabled": {
+              "$ref": "#/$defs/_113"
             },
-            "editor.inlineSuggest.triggerCommandOnProviderChange": {
+            "editor.inlineSuggest.experimental.emptyResponseInformation": {
+              "$ref": "#/$defs/_120"
+            },
+            "editor.inlineSuggest.experimental.showOnSuggestConflict": {
               "$ref": "#/$defs/_122"
             },
+            "editor.inlineSuggest.experimental.suppressInlineSuggestions": {
+              "$ref": "#/$defs/_119"
+            },
+            "editor.inlineSuggest.fontFamily": {
+              "$ref": "#/$defs/_123"
+            },
+            "editor.inlineSuggest.minShowDelay": {
+              "$ref": "#/$defs/_118"
+            },
+            "editor.inlineSuggest.showToolbar": {
+              "$ref": "#/$defs/_114"
+            },
+            "editor.inlineSuggest.suppressInSnippetMode": {
+              "$ref": "#/$defs/_117"
+            },
+            "editor.inlineSuggest.suppressSuggestions": {
+              "$ref": "#/$defs/_116"
+            },
+            "editor.inlineSuggest.syntaxHighlightingEnabled": {
+              "$ref": "#/$defs/_115"
+            },
+            "editor.inlineSuggest.triggerCommandOnProviderChange": {
+              "$ref": "#/$defs/_121"
+            },
             "editor.letterSpacing": {
-              "$ref": "#/$defs/_130"
+              "$ref": "#/$defs/_129"
             },
             "editor.lightbulb.enabled": {
-              "$ref": "#/$defs/_131"
+              "$ref": "#/$defs/_130"
             },
             "editor.lineHeight": {
-              "$ref": "#/$defs/_132"
+              "$ref": "#/$defs/_131"
             },
             "editor.lineNumbers": {
-              "$ref": "#/$defs/_133"
+              "$ref": "#/$defs/_132"
             },
             "editor.linkedEditing": {
-              "$ref": "#/$defs/_134"
+              "$ref": "#/$defs/_133"
             },
             "editor.links": {
-              "$ref": "#/$defs/_135"
+              "$ref": "#/$defs/_134"
             },
             "editor.matchBrackets": {
-              "$ref": "#/$defs/_136"
+              "$ref": "#/$defs/_135"
             },
             "editor.minimap.autohide": {
-              "$ref": "#/$defs/_138"
-            },
-            "editor.minimap.enabled": {
               "$ref": "#/$defs/_137"
             },
+            "editor.minimap.enabled": {
+              "$ref": "#/$defs/_136"
+            },
             "editor.minimap.markSectionHeaderRegex": {
-              "$ref": "#/$defs/_147"
-            },
-            "editor.minimap.maxColumn": {
-              "$ref": "#/$defs/_144"
-            },
-            "editor.minimap.renderCharacters": {
-              "$ref": "#/$defs/_143"
-            },
-            "editor.minimap.scale": {
-              "$ref": "#/$defs/_142"
-            },
-            "editor.minimap.sectionHeaderFontSize": {
-              "$ref": "#/$defs/_148"
-            },
-            "editor.minimap.sectionHeaderLetterSpacing": {
-              "$ref": "#/$defs/_149"
-            },
-            "editor.minimap.showMarkSectionHeaders": {
               "$ref": "#/$defs/_146"
             },
-            "editor.minimap.showRegionSectionHeaders": {
-              "$ref": "#/$defs/_145"
+            "editor.minimap.maxColumn": {
+              "$ref": "#/$defs/_143"
             },
-            "editor.minimap.showSlider": {
+            "editor.minimap.renderCharacters": {
+              "$ref": "#/$defs/_142"
+            },
+            "editor.minimap.scale": {
               "$ref": "#/$defs/_141"
             },
-            "editor.minimap.side": {
+            "editor.minimap.sectionHeaderFontSize": {
+              "$ref": "#/$defs/_147"
+            },
+            "editor.minimap.sectionHeaderLetterSpacing": {
+              "$ref": "#/$defs/_148"
+            },
+            "editor.minimap.showMarkSectionHeaders": {
+              "$ref": "#/$defs/_145"
+            },
+            "editor.minimap.showRegionSectionHeaders": {
+              "$ref": "#/$defs/_144"
+            },
+            "editor.minimap.showSlider": {
               "$ref": "#/$defs/_140"
             },
-            "editor.minimap.size": {
+            "editor.minimap.side": {
               "$ref": "#/$defs/_139"
             },
+            "editor.minimap.size": {
+              "$ref": "#/$defs/_138"
+            },
             "editor.mouseMiddleClickAction": {
-              "$ref": "#/$defs/_154"
-            },
-            "editor.mouseWheelScrollSensitivity": {
-              "$ref": "#/$defs/_150"
-            },
-            "editor.mouseWheelZoom": {
-              "$ref": "#/$defs/_151"
-            },
-            "editor.multiCursorLimit": {
-              "$ref": "#/$defs/_156"
-            },
-            "editor.multiCursorMergeOverlapping": {
-              "$ref": "#/$defs/_152"
-            },
-            "editor.multiCursorModifier": {
               "$ref": "#/$defs/_153"
             },
-            "editor.multiCursorPaste": {
+            "editor.mouseWheelScrollSensitivity": {
+              "$ref": "#/$defs/_149"
+            },
+            "editor.mouseWheelZoom": {
+              "$ref": "#/$defs/_150"
+            },
+            "editor.multiCursorLimit": {
               "$ref": "#/$defs/_155"
             },
+            "editor.multiCursorMergeOverlapping": {
+              "$ref": "#/$defs/_151"
+            },
+            "editor.multiCursorModifier": {
+              "$ref": "#/$defs/_152"
+            },
+            "editor.multiCursorPaste": {
+              "$ref": "#/$defs/_154"
+            },
             "editor.occurrencesHighlight": {
-              "$ref": "#/$defs/_157"
+              "$ref": "#/$defs/_156"
             },
             "editor.occurrencesHighlightDelay": {
-              "$ref": "#/$defs/_158"
+              "$ref": "#/$defs/_157"
             },
             "editor.overtypeCursorStyle": {
-              "$ref": "#/$defs/_159"
+              "$ref": "#/$defs/_158"
             },
             "editor.overtypeOnPaste": {
-              "$ref": "#/$defs/_160"
+              "$ref": "#/$defs/_159"
             },
             "editor.overviewRulerBorder": {
-              "$ref": "#/$defs/_161"
+              "$ref": "#/$defs/_160"
             },
             "editor.padding.bottom": {
-              "$ref": "#/$defs/_163"
-            },
-            "editor.padding.top": {
               "$ref": "#/$defs/_162"
             },
-            "editor.parameterHints.cycle": {
-              "$ref": "#/$defs/_167"
+            "editor.padding.top": {
+              "$ref": "#/$defs/_161"
             },
-            "editor.parameterHints.enabled": {
+            "editor.parameterHints.cycle": {
               "$ref": "#/$defs/_166"
             },
-            "editor.pasteAs.enabled": {
-              "$ref": "#/$defs/_164"
-            },
-            "editor.pasteAs.showPasteSelector": {
+            "editor.parameterHints.enabled": {
               "$ref": "#/$defs/_165"
             },
+            "editor.pasteAs.enabled": {
+              "$ref": "#/$defs/_163"
+            },
+            "editor.pasteAs.showPasteSelector": {
+              "$ref": "#/$defs/_164"
+            },
             "editor.peekWidgetDefaultFocus": {
-              "$ref": "#/$defs/_168"
+              "$ref": "#/$defs/_167"
             },
             "editor.quickSuggestions": {
-              "$ref": "#/$defs/_170"
+              "$ref": "#/$defs/_169"
             },
             "editor.quickSuggestionsDelay": {
-              "$ref": "#/$defs/_171"
+              "$ref": "#/$defs/_170"
             },
             "editor.renameOnType": {
-              "$ref": "#/$defs/_172"
+              "$ref": "#/$defs/_171"
             },
             "editor.renderControlCharacters": {
-              "$ref": "#/$defs/_174"
-            },
-            "editor.renderFinalNewline": {
-              "$ref": "#/$defs/_175"
-            },
-            "editor.renderLineHighlight": {
-              "$ref": "#/$defs/_176"
-            },
-            "editor.renderLineHighlightOnlyWhenFocus": {
-              "$ref": "#/$defs/_177"
-            },
-            "editor.renderRichScreenReaderContent": {
               "$ref": "#/$defs/_173"
             },
+            "editor.renderFinalNewline": {
+              "$ref": "#/$defs/_174"
+            },
+            "editor.renderLineHighlight": {
+              "$ref": "#/$defs/_175"
+            },
+            "editor.renderLineHighlightOnlyWhenFocus": {
+              "$ref": "#/$defs/_176"
+            },
+            "editor.renderRichScreenReaderContent": {
+              "$ref": "#/$defs/_172"
+            },
             "editor.renderWhitespace": {
-              "$ref": "#/$defs/_178"
+              "$ref": "#/$defs/_177"
             },
             "editor.roundedSelection": {
-              "$ref": "#/$defs/_179"
+              "$ref": "#/$defs/_178"
             },
             "editor.rulers": {
-              "$ref": "#/$defs/_180"
+              "$ref": "#/$defs/_179"
             },
             "editor.screenReaderAnnounceInlineSuggestion": {
-              "$ref": "#/$defs/_34"
+              "$ref": "#/$defs/_33"
             },
             "editor.scrollbar.horizontal": {
-              "$ref": "#/$defs/_182"
-            },
-            "editor.scrollbar.horizontalScrollbarSize": {
-              "$ref": "#/$defs/_184"
-            },
-            "editor.scrollbar.ignoreHorizontalScrollbarInContentHeight": {
-              "$ref": "#/$defs/_186"
-            },
-            "editor.scrollbar.scrollByPage": {
-              "$ref": "#/$defs/_185"
-            },
-            "editor.scrollbar.vertical": {
               "$ref": "#/$defs/_181"
             },
-            "editor.scrollbar.verticalScrollbarSize": {
+            "editor.scrollbar.horizontalScrollbarSize": {
               "$ref": "#/$defs/_183"
             },
+            "editor.scrollbar.ignoreHorizontalScrollbarInContentHeight": {
+              "$ref": "#/$defs/_185"
+            },
+            "editor.scrollbar.scrollByPage": {
+              "$ref": "#/$defs/_184"
+            },
+            "editor.scrollbar.vertical": {
+              "$ref": "#/$defs/_180"
+            },
+            "editor.scrollbar.verticalScrollbarSize": {
+              "$ref": "#/$defs/_182"
+            },
             "editor.scrollBeyondLastColumn": {
-              "$ref": "#/$defs/_187"
+              "$ref": "#/$defs/_186"
             },
             "editor.scrollBeyondLastLine": {
-              "$ref": "#/$defs/_188"
+              "$ref": "#/$defs/_187"
             },
             "editor.scrollOnMiddleClick": {
               "$ref": "#/$defs/_281"
             },
             "editor.scrollPredominantAxis": {
-              "$ref": "#/$defs/_189"
+              "$ref": "#/$defs/_188"
+            },
+            "editor.selectedTextMatchMode": {
+              "$ref": "#/$defs/_193"
             },
             "editor.selectionClipboard": {
-              "$ref": "#/$defs/_190"
+              "$ref": "#/$defs/_189"
             },
             "editor.selectionHighlight": {
-              "$ref": "#/$defs/_191"
+              "$ref": "#/$defs/_190"
             },
             "editor.selectionHighlightMaxLength": {
-              "$ref": "#/$defs/_192"
+              "$ref": "#/$defs/_191"
             },
             "editor.selectionHighlightMultiline": {
-              "$ref": "#/$defs/_193"
+              "$ref": "#/$defs/_192"
             },
             "editor.showDeprecated": {
               "$ref": "#/$defs/_268"
@@ -24233,7 +24508,7 @@
               "$ref": "#/$defs/_251"
             },
             "editor.unfoldOnClickAfterEndOfLine": {
-              "$ref": "#/$defs/_87"
+              "$ref": "#/$defs/_86"
             },
             "editor.unicodeHighlight.allowedCharacters": {
               "$ref": "#/$defs/_257"
@@ -27714,7 +27989,7 @@
             "$ref": "#/$defs/_288"
           },
           {
-            "$ref": "#/$defs/_357"
+            "$ref": "#/$defs/_358"
           }
         ]
       },
@@ -33312,7 +33587,7 @@
       "restricted": false
     },
     "typescript.autoClosingTags": {
-      "$ref": "#/$defs/_387"
+      "$ref": "#/$defs/_388"
     },
     "typescript.check.npmIsInstalled": {
       "type": "boolean",
@@ -33432,40 +33707,40 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.enabled instead."
     },
     "typescript.format.indentSwitchCase": {
-      "$ref": "#/$defs/_385"
+      "$ref": "#/$defs/_386"
     },
     "typescript.format.insertSpaceAfterCommaDelimiter": {
-      "$ref": "#/$defs/_369"
-    },
-    "typescript.format.insertSpaceAfterConstructor": {
       "$ref": "#/$defs/_370"
     },
+    "typescript.format.insertSpaceAfterConstructor": {
+      "$ref": "#/$defs/_371"
+    },
     "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": {
-      "$ref": "#/$defs/_374"
+      "$ref": "#/$defs/_375"
     },
     "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": {
-      "$ref": "#/$defs/_373"
+      "$ref": "#/$defs/_374"
     },
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": {
-      "$ref": "#/$defs/_379"
-    },
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": {
-      "$ref": "#/$defs/_381"
-    },
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": {
-      "$ref": "#/$defs/_378"
-    },
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": {
-      "$ref": "#/$defs/_377"
-    },
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": {
-      "$ref": "#/$defs/_376"
-    },
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": {
       "$ref": "#/$defs/_380"
     },
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": {
+      "$ref": "#/$defs/_382"
+    },
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": {
+      "$ref": "#/$defs/_379"
+    },
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": {
+      "$ref": "#/$defs/_378"
+    },
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": {
+      "$ref": "#/$defs/_377"
+    },
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": {
+      "$ref": "#/$defs/_381"
+    },
     "typescript.format.insertSpaceAfterSemicolonInForStatements": {
-      "$ref": "#/$defs/_371"
+      "$ref": "#/$defs/_372"
     },
     "typescript.format.insertSpaceAfterTypeAssertion": {
       "type": "boolean",
@@ -33490,19 +33765,19 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterTypeAssertion instead."
     },
     "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": {
-      "$ref": "#/$defs/_372"
+      "$ref": "#/$defs/_373"
     },
     "typescript.format.insertSpaceBeforeFunctionParenthesis": {
-      "$ref": "#/$defs/_375"
+      "$ref": "#/$defs/_376"
     },
     "typescript.format.placeOpenBraceOnNewLineForControlBlocks": {
-      "$ref": "#/$defs/_383"
+      "$ref": "#/$defs/_384"
     },
     "typescript.format.placeOpenBraceOnNewLineForFunctions": {
-      "$ref": "#/$defs/_382"
+      "$ref": "#/$defs/_383"
     },
     "typescript.format.semicolons": {
-      "$ref": "#/$defs/_384"
+      "$ref": "#/$defs/_385"
     },
     "typescript.implementationsCodeLens.enabled": {
       "type": "boolean",
@@ -33593,25 +33868,25 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.inlayHints.enumMemberValues.enabled instead."
     },
     "typescript.inlayHints.functionLikeReturnTypes.enabled": {
-      "$ref": "#/$defs/_403"
+      "$ref": "#/$defs/_404"
     },
     "typescript.inlayHints.parameterNames.enabled": {
-      "$ref": "#/$defs/_397"
-    },
-    "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": {
       "$ref": "#/$defs/_398"
     },
-    "typescript.inlayHints.parameterTypes.enabled": {
+    "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": {
       "$ref": "#/$defs/_399"
     },
-    "typescript.inlayHints.propertyDeclarationTypes.enabled": {
-      "$ref": "#/$defs/_402"
-    },
-    "typescript.inlayHints.variableTypes.enabled": {
+    "typescript.inlayHints.parameterTypes.enabled": {
       "$ref": "#/$defs/_400"
     },
-    "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": {
+    "typescript.inlayHints.propertyDeclarationTypes.enabled": {
+      "$ref": "#/$defs/_403"
+    },
+    "typescript.inlayHints.variableTypes.enabled": {
       "$ref": "#/$defs/_401"
+    },
+    "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": {
+      "$ref": "#/$defs/_402"
     },
     "typescript.locale": {
       "type": "string",
@@ -33684,16 +33959,16 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.tsserver.npm.path instead."
     },
     "typescript.preferences.autoImportFileExcludePatterns": {
-      "$ref": "#/$defs/_365"
-    },
-    "typescript.preferences.autoImportSpecifierExcludeRegexes": {
       "$ref": "#/$defs/_366"
     },
+    "typescript.preferences.autoImportSpecifierExcludeRegexes": {
+      "$ref": "#/$defs/_367"
+    },
     "typescript.preferences.importModuleSpecifier": {
-      "$ref": "#/$defs/_363"
+      "$ref": "#/$defs/_364"
     },
     "typescript.preferences.importModuleSpecifierEnding": {
-      "$ref": "#/$defs/_364"
+      "$ref": "#/$defs/_365"
     },
     "typescript.preferences.includePackageJsonAutoImports": {
       "type": "string",
@@ -33838,13 +34113,13 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.preferTypeOnlyAutoImports instead."
     },
     "typescript.preferences.quoteStyle": {
-      "$ref": "#/$defs/_362"
+      "$ref": "#/$defs/_363"
     },
     "typescript.preferences.renameMatchingJsxTags": {
-      "$ref": "#/$defs/_368"
+      "$ref": "#/$defs/_369"
     },
     "typescript.preferences.useAliasesForRenames": {
-      "$ref": "#/$defs/_367"
+      "$ref": "#/$defs/_368"
     },
     "typescript.preferGoToSourceDefinition": {
       "$ref": "#/$defs/_350"
@@ -33878,28 +34153,28 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.reportStyleChecksAsWarnings instead."
     },
     "typescript.suggest.autoImports": {
-      "$ref": "#/$defs/_389"
-    },
-    "typescript.suggest.classMemberSnippets.enabled": {
-      "$ref": "#/$defs/_396"
-    },
-    "typescript.suggest.completeFunctionCalls": {
       "$ref": "#/$defs/_390"
     },
+    "typescript.suggest.classMemberSnippets.enabled": {
+      "$ref": "#/$defs/_397"
+    },
+    "typescript.suggest.completeFunctionCalls": {
+      "$ref": "#/$defs/_391"
+    },
     "typescript.suggest.completeJSDocs": {
-      "$ref": "#/$defs/_392"
+      "$ref": "#/$defs/_393"
     },
     "typescript.suggest.enabled": {
-      "$ref": "#/$defs/_388"
+      "$ref": "#/$defs/_389"
     },
     "typescript.suggest.includeAutomaticOptionalChainCompletions": {
-      "$ref": "#/$defs/_394"
-    },
-    "typescript.suggest.includeCompletionsForImportStatements": {
       "$ref": "#/$defs/_395"
     },
+    "typescript.suggest.includeCompletionsForImportStatements": {
+      "$ref": "#/$defs/_396"
+    },
     "typescript.suggest.jsdoc.generateReturns": {
-      "$ref": "#/$defs/_393"
+      "$ref": "#/$defs/_394"
     },
     "typescript.suggest.objectLiteralMethodSnippets.enabled": {
       "type": "boolean",
@@ -33924,7 +34199,7 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.objectLiteralMethodSnippets.enabled instead."
     },
     "typescript.suggest.paths": {
-      "$ref": "#/$defs/_391"
+      "$ref": "#/$defs/_392"
     },
     "typescript.suggestionActions.enabled": {
       "type": "boolean",
@@ -34277,7 +34552,7 @@
       "deprecationMessage": "This setting is deprecated. Use js/ts.tsserver.web.typeAcquisition.enabled instead."
     },
     "typescript.updateImportsOnFileMove.enabled": {
-      "$ref": "#/$defs/_386"
+      "$ref": "#/$defs/_387"
     },
     "typescript.updateImportsOnPaste.enabled": {
       "$ref": "#/$defs/_351"
@@ -34927,66 +35202,66 @@
         {
           "properties": {
             "[Abyss]": {
-              "$ref": "#/$defs/_11"
+              "$ref": "#/$defs/_10"
             },
             "[Dark 2026]": {
-              "$ref": "#/$defs/_11"
+              "$ref": "#/$defs/_10"
             },
             "[Dark Modern]": {
-              "$ref": "#/$defs/_11"
+              "$ref": "#/$defs/_10"
             },
             "[Dark+]": {
-              "$ref": "#/$defs/_11"
+              "$ref": "#/$defs/_10"
             },
             "[Default High Contrast Light]": {
-              "$ref": "#/$defs/_11"
+              "$ref": "#/$defs/_10"
             },
             "[Default High Contrast]": {
-              "$ref": "#/$defs/_11"
+              "$ref": "#/$defs/_10"
             },
             "[Kimbie Dark]": {
-              "$ref": "#/$defs/_11"
+              "$ref": "#/$defs/_10"
             },
             "[Light 2026]": {
-              "$ref": "#/$defs/_11"
+              "$ref": "#/$defs/_10"
             },
             "[Light Modern]": {
-              "$ref": "#/$defs/_11"
+              "$ref": "#/$defs/_10"
             },
             "[Light+]": {
-              "$ref": "#/$defs/_11"
+              "$ref": "#/$defs/_10"
             },
             "[Monokai Dimmed]": {
-              "$ref": "#/$defs/_11"
+              "$ref": "#/$defs/_10"
             },
             "[Monokai]": {
-              "$ref": "#/$defs/_11"
+              "$ref": "#/$defs/_10"
             },
             "[Quiet Light]": {
-              "$ref": "#/$defs/_11"
+              "$ref": "#/$defs/_10"
             },
             "[Red]": {
-              "$ref": "#/$defs/_11"
+              "$ref": "#/$defs/_10"
             },
             "[Solarized Dark]": {
-              "$ref": "#/$defs/_11"
+              "$ref": "#/$defs/_10"
             },
             "[Solarized Light]": {
-              "$ref": "#/$defs/_11"
+              "$ref": "#/$defs/_10"
             },
             "[Tomorrow Night Blue]": {
-              "$ref": "#/$defs/_11"
+              "$ref": "#/$defs/_10"
             },
             "[Visual Studio Dark]": {
-              "$ref": "#/$defs/_11"
+              "$ref": "#/$defs/_10"
             },
             "[Visual Studio Light]": {
-              "$ref": "#/$defs/_11"
+              "$ref": "#/$defs/_10"
             }
           },
           "patternProperties": {
             "^\\[[^\\]]*(\\]\\s*\\[[^\\]]*)*\\]$": {
-              "$ref": "#/$defs/_11"
+              "$ref": "#/$defs/_10"
             }
           }
         }
@@ -35188,7 +35463,7 @@
       "markdownDescription": "Configure [glob patterns](https://aka.ms/vscode-glob-patterns) to editors for diff views (for example `\"*.md\": \"vscode.markdown.preview.editor\"`). These override `workbench.editorAssociations` for diffs.",
       "patternProperties": {
         ".*": {
-          "$ref": "#/$defs/_10"
+          "$ref": "#/$defs/_356"
         }
       },
       "agentsWindow": {
@@ -36416,7 +36691,7 @@
       "markdownDescription": "Configure [glob patterns](https://aka.ms/vscode-glob-patterns) to editors (for example `\"*.hex\": \"hexEditor.hexedit\"`). These have precedence over the default behavior.",
       "patternProperties": {
         ".*": {
-          "$ref": "#/$defs/_10"
+          "$ref": "#/$defs/_356"
         }
       },
       "agentsWindow": {
@@ -36523,11 +36798,7 @@
       "tags": [
         "experimental"
       ],
-      "markdownDescription": "Controls the editor tab style when `#workbench.experimental.modernUI#` is enabled. High contrast themes retain explicit selection and focus borders.",
-      "agentsWindow": {
-        "default": "pill",
-        "readOnly": true
-      },
+      "markdownDescription": "Controls the editor tab style when `#workbench.experimental.modernUI#` is enabled, and the chat and side-panel tab style in the Agents window. High contrast themes retain explicit selection and focus borders.",
       "section": {
         "id": "workbench",
         "title": "Workbench",
@@ -38229,124 +38500,102 @@
       "description": "Either an absolute or relative path. Relative path will be resolved against workspace folder(s)."
     },
     "_10": {
-      "type": "string",
-      "enum": [
-        "default",
-        "workbench.editor.chatSession",
-        "workbench.editorinputs.searchEditorInput",
-        "agentSessionsWelcomePage",
-        "workbench.editor.browser",
-        "notebookOutputEditor",
-        "repl",
-        "workbench.editors.gettingStartedInput",
-        "jupyter-notebook",
-        "vscode.markdown.preview.editor",
-        "vscode.markdown.editor",
-        "imagePreview.previewEditor",
-        "vscode.audioPreview",
-        "vscode.videoPreview",
-        "jsProfileVisualizer.cpuprofile.table",
-        "jsProfileVisualizer.heapprofile.table",
-        "jsProfileVisualizer.heapsnapshot.table"
-      ]
-    },
-    "_11": {
       "$ref": "vscode://schemas/workbench-colors",
       "additionalProperties": false
     },
-    "_12": {
+    "_11": {
       "description": "Sets the colors and styles for comments",
       "$ref": "vscode://schemas/textmate-colors#/definitions/colorGroup"
     },
-    "_13": {
+    "_12": {
       "description": "Sets the colors and styles for strings literals.",
       "$ref": "vscode://schemas/textmate-colors#/definitions/colorGroup"
     },
-    "_14": {
+    "_13": {
       "description": "Sets the colors and styles for keywords.",
       "$ref": "vscode://schemas/textmate-colors#/definitions/colorGroup"
     },
-    "_15": {
+    "_14": {
       "description": "Sets the colors and styles for number literals.",
       "$ref": "vscode://schemas/textmate-colors#/definitions/colorGroup"
     },
-    "_16": {
+    "_15": {
       "description": "Sets the colors and styles for type declarations and references.",
       "$ref": "vscode://schemas/textmate-colors#/definitions/colorGroup"
     },
-    "_17": {
+    "_16": {
       "description": "Sets the colors and styles for functions declarations and references.",
       "$ref": "vscode://schemas/textmate-colors#/definitions/colorGroup"
     },
-    "_18": {
+    "_17": {
       "description": "Sets the colors and styles for variables declarations and references.",
       "$ref": "vscode://schemas/textmate-colors#/definitions/colorGroup"
     },
-    "_19": {
+    "_18": {
       "description": "Sets colors and styles using textmate theming rules (advanced).",
       "$ref": "vscode://schemas/textmate-colors"
     },
-    "_20": {
+    "_19": {
       "description": "Whether semantic highlighting should be enabled for this theme.",
       "deprecationMessage": "Use `enabled` in `editor.semanticTokenColorCustomizations` setting instead.",
       "markdownDeprecationMessage": "Use `enabled` in `#editor.semanticTokenColorCustomizations#` setting instead.",
       "type": "boolean"
     },
-    "_21": {
+    "_20": {
       "properties": {
         "comments": {
-          "$ref": "#/$defs/_12"
+          "$ref": "#/$defs/_11"
         },
         "strings": {
-          "$ref": "#/$defs/_13"
+          "$ref": "#/$defs/_12"
         },
         "keywords": {
-          "$ref": "#/$defs/_14"
+          "$ref": "#/$defs/_13"
         },
         "numbers": {
-          "$ref": "#/$defs/_15"
+          "$ref": "#/$defs/_14"
         },
         "types": {
-          "$ref": "#/$defs/_16"
+          "$ref": "#/$defs/_15"
         },
         "functions": {
-          "$ref": "#/$defs/_17"
+          "$ref": "#/$defs/_16"
         },
         "variables": {
-          "$ref": "#/$defs/_18"
+          "$ref": "#/$defs/_17"
         },
         "textMateRules": {
-          "$ref": "#/$defs/_19"
+          "$ref": "#/$defs/_18"
         },
         "semanticHighlighting": {
-          "$ref": "#/$defs/_20"
+          "$ref": "#/$defs/_19"
         }
       },
       "additionalProperties": false
     },
-    "_22": {
+    "_21": {
       "type": "boolean",
       "description": "Whether semantic highlighting is enabled or disabled for this theme",
       "suggestSortText": "0_enabled"
     },
-    "_23": {
+    "_22": {
       "$ref": "vscode://schemas/token-styling",
       "description": "Semantic token styling rules for this theme.",
       "suggestSortText": "0_rules"
     },
-    "_24": {
+    "_23": {
       "type": "object",
       "properties": {
         "enabled": {
-          "$ref": "#/$defs/_22"
+          "$ref": "#/$defs/_21"
         },
         "rules": {
-          "$ref": "#/$defs/_23"
+          "$ref": "#/$defs/_22"
         }
       },
       "additionalProperties": false
     },
-    "_25": {
+    "_24": {
       "markdownDescription": "Controls whether suggestions should be accepted on commit characters. For example, in JavaScript, the semi-colon (`;`) can be a commit character that accepts a suggestion and types that character.",
       "type": "boolean",
       "default": true,
@@ -38359,7 +38608,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_26": {
+    "_25": {
       "markdownEnumDescriptions": [
         "",
         "Only accept a suggestion with `Enter` when it makes a textual change.",
@@ -38382,7 +38631,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_27": {
+    "_26": {
       "type": "string",
       "enum": [
         "auto",
@@ -38408,7 +38657,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_28": {
+    "_27": {
       "description": "Controls the number of lines in the editor that can be read out by a screen reader at once. When we detect a screen reader we automatically set the default to be 500. Warning: this has a performance implication for numbers larger than the default.",
       "tags": [
         "accessibility"
@@ -38426,7 +38675,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_29": {
+    "_28": {
       "description": "Controls whether to allow using variable line heights in the editor.",
       "type": "boolean",
       "default": true,
@@ -38439,7 +38688,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_30": {
+    "_29": {
       "description": "Controls whether to allow using variable fonts in the editor.",
       "type": "boolean",
       "default": true,
@@ -38452,7 +38701,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_31": {
+    "_30": {
       "description": "Controls whether to allow using variable fonts in the editor in the accessibility mode.",
       "tags": [
         "accessibility"
@@ -38468,7 +38717,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_32": {
+    "_31": {
       "enumDescriptions": [
         "",
         "Use language configurations to determine when to autoclose brackets.",
@@ -38493,7 +38742,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_33": {
+    "_32": {
       "enumDescriptions": [
         "",
         "Use language configurations to determine when to autoclose comments.",
@@ -38518,7 +38767,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_34": {
+    "_33": {
       "description": "Control whether inline suggestions are announced by a screen reader.",
       "tags": [
         "accessibility"
@@ -38534,7 +38783,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_35": {
+    "_34": {
       "enumDescriptions": [
         "",
         "Remove adjacent closing quotes or brackets only if they were automatically inserted.",
@@ -38557,7 +38806,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_36": {
+    "_35": {
       "enumDescriptions": [
         "",
         "Type over closing quotes or brackets only if they were automatically inserted.",
@@ -38580,7 +38829,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_37": {
+    "_36": {
       "enumDescriptions": [
         "",
         "Use language configurations to determine when to autoclose quotes.",
@@ -38605,7 +38854,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_38": {
+    "_37": {
       "enumDescriptions": [
         "The editor will not insert indentation automatically.",
         "The editor will keep the current line's indentation.",
@@ -38632,7 +38881,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_39": {
+    "_38": {
       "description": "Controls whether the editor should automatically auto-indent the pasted content.",
       "type": "boolean",
       "default": false,
@@ -38645,7 +38894,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_40": {
+    "_39": {
       "description": "Controls whether the editor should automatically auto-indent the pasted content when pasted within a string. This takes effect when autoIndentOnPaste is true.",
       "type": "boolean",
       "default": true,
@@ -38658,7 +38907,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_41": {
+    "_40": {
       "enumDescriptions": [
         "Use language configurations to determine when to automatically surround selections.",
         "Surround with quotes but not brackets.",
@@ -38683,7 +38932,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_42": {
+    "_41": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "Controls whether bracket pair colorization is enabled or not. Use `#workbench.colorCustomizations#` to override the bracket highlight colors.",
@@ -38696,7 +38945,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_43": {
+    "_42": {
       "type": "boolean",
       "default": false,
       "description": "Controls whether each bracket type has its own independent color pool.",
@@ -38709,7 +38958,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_44": {
+    "_43": {
       "type": [
         "boolean",
         "string"
@@ -38735,7 +38984,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_45": {
+    "_44": {
       "type": [
         "boolean",
         "string"
@@ -38761,7 +39010,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_46": {
+    "_45": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether the editor should highlight the active bracket pair.",
@@ -38774,7 +39023,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_47": {
+    "_46": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether the editor should render indent guides.",
@@ -38787,7 +39036,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_48": {
+    "_47": {
       "type": [
         "boolean",
         "string"
@@ -38813,7 +39062,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_49": {
+    "_48": {
       "description": "Controls whether the editor shows CodeLens.",
       "type": "boolean",
       "default": true,
@@ -38826,7 +39075,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_50": {
+    "_49": {
       "description": "Controls the font family for CodeLens.",
       "type": "string",
       "default": "",
@@ -38839,7 +39088,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_51": {
+    "_50": {
       "type": "integer",
       "default": 0,
       "minimum": 0,
@@ -38854,7 +39103,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_52": {
+    "_51": {
       "description": "Controls whether the editor should render the inline color decorators and color picker.",
       "type": "boolean",
       "default": true,
@@ -38867,7 +39116,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_53": {
+    "_52": {
       "markdownDescription": "Controls the max number of color decorators that can be rendered in an editor at once.",
       "type": "integer",
       "default": 500,
@@ -38882,7 +39131,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_54": {
+    "_53": {
       "description": "Enable that the selection with the mouse and keys is doing column selection.",
       "type": "boolean",
       "default": false,
@@ -38895,7 +39144,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_55": {
+    "_54": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether a space character is inserted when commenting.",
@@ -38908,7 +39157,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_56": {
+    "_55": {
       "type": "boolean",
       "default": true,
       "description": "Controls if empty lines should be ignored with toggle, add or remove actions for line comments.",
@@ -38921,7 +39170,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_57": {
+    "_56": {
       "description": "Controls whether syntax highlighting should be copied into the clipboard.",
       "type": "boolean",
       "default": true,
@@ -38934,7 +39183,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_58": {
+    "_57": {
       "description": "Control the cursor animation style.",
       "type": "string",
       "enum": [
@@ -38954,7 +39203,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_59": {
+    "_58": {
       "enumDescriptions": [
         "Smooth caret animation is disabled.",
         "Smooth caret animation is enabled only when the user moves the cursor with an explicit gesture.",
@@ -38977,7 +39226,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_60": {
+    "_59": {
       "description": "Controls the cursor style in insert input mode.",
       "type": "string",
       "enum": [
@@ -38998,7 +39247,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_61": {
+    "_60": {
       "description": "Controls the minimal number of visible leading lines (minimum 0) and trailing lines (minimum 1) surrounding the cursor. Known as 'scrollOff' or 'scrollOffset' in some other editors.",
       "type": "integer",
       "default": 0,
@@ -39013,7 +39262,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_62": {
+    "_61": {
       "enumDescriptions": [
         "`cursorSurroundingLines` is enforced only when triggered via the keyboard or API.",
         "`cursorSurroundingLines` is enforced always."
@@ -39034,7 +39283,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_63": {
+    "_62": {
       "markdownDescription": "Controls the width of the cursor when `#editor.cursorStyle#` is set to `line`.",
       "type": "integer",
       "default": 0,
@@ -39049,7 +39298,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_64": {
+    "_63": {
       "markdownDescription": "Controls the height of the cursor when `#editor.cursorStyle#` is set to `line`. Cursor's max height depends on line height.",
       "type": "integer",
       "default": 0,
@@ -39064,7 +39313,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_65": {
+    "_64": {
       "description": "Controls whether the editor should allow moving selections via drag and drop.",
       "type": "boolean",
       "default": true,
@@ -39077,7 +39326,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_66": {
+    "_65": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "Controls whether you can drag and drop a file into a text editor by holding down the `Shift` key (instead of opening the file in an editor).",
@@ -39090,7 +39339,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_67": {
+    "_66": {
       "type": "string",
       "markdownDescription": "Controls if a widget is shown when dropping files into the editor. This widget lets you control how the file is dropped.",
       "enum": [
@@ -39111,7 +39360,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_68": {
+    "_67": {
       "description": "Sets whether the EditContext API should be used instead of the text area to power input in the editor.",
       "included": true,
       "type": "boolean",
@@ -39125,7 +39374,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_69": {
+    "_68": {
       "description": "Controls whether copying without a selection copies the current line.",
       "type": "boolean",
       "default": true,
@@ -39138,7 +39387,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_70": {
+    "_69": {
       "tags": [
         "experimental"
       ],
@@ -39162,7 +39411,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_71": {
+    "_70": {
       "enumDescriptions": [
         "Use a new rendering method with svgs.",
         "Use a new rendering method with font characters.",
@@ -39185,7 +39434,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_72": {
+    "_71": {
       "markdownDescription": "Scrolling speed multiplier when pressing `Alt`.",
       "type": "number",
       "default": 5,
@@ -39198,7 +39447,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_73": {
+    "_72": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether the cursor should jump to find matches while typing.",
@@ -39211,7 +39460,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_74": {
+    "_73": {
       "type": "string",
       "enum": [
         "never",
@@ -39234,7 +39483,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_75": {
+    "_74": {
       "type": "string",
       "enum": [
         "never",
@@ -39257,7 +39506,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_76": {
+    "_75": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether the Find Widget should add extra lines on top of the editor. When true, you can scroll beyond the first line when the Find Widget is visible.",
@@ -39270,7 +39519,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_77": {
+    "_76": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether the search automatically restarts from the beginning (or the end) when no further matches can be found.",
@@ -39283,7 +39532,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_78": {
+    "_77": {
       "type": "boolean",
       "default": false,
       "description": "Controls whether the Find Widget closes after an explicit find navigation command lands on a result.",
@@ -39296,7 +39545,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_79": {
+    "_78": {
       "type": "string",
       "enum": [
         "never",
@@ -39317,7 +39566,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_80": {
+    "_79": {
       "type": "string",
       "enum": [
         "never",
@@ -39338,7 +39587,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_81": {
+    "_80": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether the Find Widget should search as you type.",
@@ -39351,7 +39600,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_82": {
+    "_81": {
       "description": "Controls whether the editor has code folding enabled.",
       "type": "boolean",
       "default": true,
@@ -39364,7 +39613,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_83": {
+    "_82": {
       "enumDescriptions": [
         "Use a language-specific folding strategy if available, else the indentation-based one.",
         "Use the indentation-based folding strategy."
@@ -39385,7 +39634,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_84": {
+    "_83": {
       "description": "Controls whether the editor should highlight folded ranges.",
       "type": "boolean",
       "default": true,
@@ -39398,7 +39647,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_85": {
+    "_84": {
       "description": "Controls whether the editor automatically collapses import ranges.",
       "type": "boolean",
       "default": false,
@@ -39411,7 +39660,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_86": {
+    "_85": {
       "description": "The maximum number of foldable regions. Increasing this value may result in the editor becoming less responsive when the current source has a large number of foldable regions.",
       "type": "integer",
       "default": 5000,
@@ -39426,7 +39675,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_87": {
+    "_86": {
       "description": "Controls whether clicking on the empty content after a folded line will unfold the line.",
       "type": "boolean",
       "default": false,
@@ -39439,7 +39688,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_88": {
+    "_87": {
       "description": "Controls the font family.",
       "type": "string",
       "default": "'Droid Sans Mono', monospace",
@@ -39613,7 +39862,7 @@
         }
       ]
     },
-    "_89": {
+    "_88": {
       "anyOf": [
         {
           "type": "boolean",
@@ -39635,7 +39884,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_90": {
+    "_89": {
       "type": "number",
       "minimum": 6,
       "maximum": 100,
@@ -39650,7 +39899,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_91": {
+    "_90": {
       "anyOf": [
         {
           "$ref": "#/$defs/_298"
@@ -39673,7 +39922,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_92": {
+    "_91": {
       "anyOf": [
         {
           "type": "boolean",
@@ -39695,7 +39944,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_93": {
+    "_92": {
       "description": "Controls whether the editor should automatically format the pasted content. A formatter must be available and the formatter should be able to format a range in a document.",
       "type": "boolean",
       "default": false,
@@ -39708,7 +39957,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_94": {
+    "_93": {
       "description": "Controls whether the editor should automatically format the line after typing.",
       "type": "boolean",
       "default": false,
@@ -39721,7 +39970,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_95": {
+    "_94": {
       "description": "Controls whether the editor should render the vertical glyph margin. Glyph margin is mostly used for debugging.",
       "type": "boolean",
       "default": true,
@@ -39734,7 +39983,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_96": {
+    "_95": {
       "deprecationMessage": "This setting is deprecated, please use separate settings like 'editor.editor.gotoLocation.multipleDefinitions' or 'editor.editor.gotoLocation.multipleImplementations' instead.",
       "section": {
         "id": "editor",
@@ -39745,7 +39994,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_97": {
+    "_96": {
       "description": "Controls the behavior the 'Go to Definition'-command when multiple target locations exist.",
       "type": "string",
       "enum": [
@@ -39768,7 +40017,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_98": {
+    "_97": {
       "description": "Controls the behavior the 'Go to Type Definition'-command when multiple target locations exist.",
       "type": "string",
       "enum": [
@@ -39791,7 +40040,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_99": {
+    "_98": {
       "description": "Controls the behavior the 'Go to Declaration'-command when multiple target locations exist.",
       "type": "string",
       "enum": [
@@ -39814,7 +40063,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_100": {
+    "_99": {
       "description": "Controls the behavior the 'Go to Implementations'-command when multiple target locations exist.",
       "type": "string",
       "enum": [
@@ -39837,7 +40086,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_101": {
+    "_100": {
       "description": "Controls the behavior the 'Go to References'-command when multiple target locations exist.",
       "type": "string",
       "enum": [
@@ -39860,7 +40109,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_102": {
+    "_101": {
       "type": "string",
       "default": "editor.action.goToReferences",
       "enum": [
@@ -39887,7 +40136,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_103": {
+    "_102": {
       "type": "string",
       "default": "editor.action.goToReferences",
       "enum": [
@@ -39914,7 +40163,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_104": {
+    "_103": {
       "type": "string",
       "default": "editor.action.goToReferences",
       "enum": [
@@ -39941,7 +40190,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_105": {
+    "_104": {
       "type": "string",
       "default": "",
       "enum": [
@@ -39968,7 +40217,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_106": {
+    "_105": {
       "type": "string",
       "default": "",
       "enum": [
@@ -39995,7 +40244,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_107": {
+    "_106": {
       "description": "Controls whether the cursor should be hidden in the overview ruler.",
       "type": "boolean",
       "default": false,
@@ -40008,7 +40257,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_108": {
+    "_107": {
       "type": "string",
       "enum": [
         "on",
@@ -40036,7 +40285,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_109": {
+    "_108": {
       "type": "number",
       "default": 300,
       "minimum": 0,
@@ -40051,7 +40300,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_110": {
+    "_109": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether the hover should remain visible when mouse is moved over it.",
@@ -40064,7 +40313,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_111": {
+    "_110": {
       "type": "integer",
       "minimum": 0,
       "default": 300,
@@ -40078,7 +40327,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_112": {
+    "_111": {
       "type": "boolean",
       "default": true,
       "description": "Prefer showing hovers above the line, if there's space.",
@@ -40091,7 +40340,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_113": {
+    "_112": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether long line warning hovers are shown, such as when tokenization is skipped or rendering is paused.",
@@ -40104,7 +40353,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_114": {
+    "_113": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether to automatically show inline suggestions in the editor.",
@@ -40117,7 +40366,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_115": {
+    "_114": {
       "type": "string",
       "default": "onHover",
       "enum": [
@@ -40140,7 +40389,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_116": {
+    "_115": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether to show syntax highlighting for inline suggestions in the editor.",
@@ -40153,7 +40402,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_117": {
+    "_116": {
       "type": "boolean",
       "default": false,
       "description": "Controls how inline suggestions interact with the suggest widget. If enabled, the suggest widget is not shown automatically when inline suggestions are available.",
@@ -40166,7 +40415,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_118": {
+    "_117": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether inline suggestions are suppressed when in snippet mode.",
@@ -40179,7 +40428,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_119": {
+    "_118": {
       "type": "number",
       "default": 0,
       "minimum": 0,
@@ -40194,7 +40443,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_120": {
+    "_119": {
       "type": "string",
       "default": "",
       "tags": [
@@ -40214,7 +40463,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_121": {
+    "_120": {
       "type": "boolean",
       "default": true,
       "tags": [
@@ -40234,7 +40483,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_122": {
+    "_121": {
       "type": "boolean",
       "default": false,
       "tags": [
@@ -40254,7 +40503,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_123": {
+    "_122": {
       "type": "string",
       "default": "never",
       "tags": [
@@ -40279,7 +40528,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_124": {
+    "_123": {
       "type": "string",
       "default": "default",
       "description": "Controls the font family of the inline suggestions.",
@@ -40292,7 +40541,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_125": {
+    "_124": {
       "type": "string",
       "default": "always",
       "description": "Controls whether showing a suggestion will shift the code to make space for the suggestion inline.",
@@ -40313,7 +40562,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_126": {
+    "_125": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether long distance inline suggestions are shown.",
@@ -40330,7 +40579,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_127": {
+    "_126": {
       "type": "number",
       "default": 0,
       "minimum": 0,
@@ -40353,7 +40602,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_128": {
+    "_127": {
       "type": "string",
       "default": "auto",
       "description": "Controls whether larger suggestions can be shown side by side.",
@@ -40377,7 +40626,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_129": {
+    "_128": {
       "type": "boolean",
       "default": false,
       "description": "Controls whether the suggestion will show as collapsed until jumping to it.",
@@ -40393,7 +40642,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_130": {
+    "_129": {
       "description": "Controls the letter spacing in pixels.",
       "type": "number",
       "default": 0,
@@ -40406,7 +40655,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_131": {
+    "_130": {
       "type": "string",
       "enum": [
         "off",
@@ -40429,7 +40678,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_132": {
+    "_131": {
       "markdownDescription": "Controls the line height. \n - Use 0 to automatically compute the line height from the font size.\n - Values between 0 and 8 will be used as a multiplier with the font size.\n - Values greater than or equal to 8 will be used as effective values.",
       "type": "number",
       "default": 0,
@@ -40444,7 +40693,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_133": {
+    "_132": {
       "type": "string",
       "enum": [
         "off",
@@ -40469,7 +40718,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_134": {
+    "_133": {
       "description": "Controls whether the editor has linked editing enabled. Depending on the language, related symbols such as HTML tags, are updated while editing.",
       "type": "boolean",
       "default": false,
@@ -40482,7 +40731,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_135": {
+    "_134": {
       "description": "Controls whether the editor should detect links and make them clickable.",
       "type": "boolean",
       "default": true,
@@ -40495,7 +40744,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_136": {
+    "_135": {
       "description": "Highlight matching brackets.",
       "type": "string",
       "enum": [
@@ -40513,7 +40762,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_137": {
+    "_136": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether the minimap is shown.",
@@ -40526,7 +40775,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_138": {
+    "_137": {
       "type": "string",
       "enum": [
         "none",
@@ -40549,7 +40798,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_139": {
+    "_138": {
       "type": "string",
       "enum": [
         "proportional",
@@ -40572,7 +40821,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_140": {
+    "_139": {
       "type": "string",
       "enum": [
         "left",
@@ -40589,7 +40838,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_141": {
+    "_140": {
       "type": "string",
       "enum": [
         "always",
@@ -40606,7 +40855,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_142": {
+    "_141": {
       "type": "number",
       "default": 1,
       "minimum": 1,
@@ -40626,7 +40875,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_143": {
+    "_142": {
       "type": "boolean",
       "default": true,
       "description": "Render the actual characters on a line as opposed to color blocks.",
@@ -40639,7 +40888,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_144": {
+    "_143": {
       "type": "number",
       "default": 120,
       "description": "Limit the width of the minimap to render at most a certain number of columns.",
@@ -40652,7 +40901,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_145": {
+    "_144": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether named regions are shown as section headers in the minimap.",
@@ -40665,7 +40914,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_146": {
+    "_145": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether MARK: comments are shown as section headers in the minimap.",
@@ -40678,7 +40927,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_147": {
+    "_146": {
       "type": "string",
       "default": "\\bMARK:\\s*(?<separator>-?)\\s*(?<label>.*)$",
       "description": "Defines the regular expression used to find section headers in comments. The regex must contain a named match group `label` (written as `(?<label>.+)`) that encapsulates the section header, otherwise it will not work. Optionally you can include another match group named `separator`. Use \\n in the pattern to match multi-line headers.",
@@ -40691,7 +40940,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_148": {
+    "_147": {
       "type": "number",
       "default": 9,
       "description": "Controls the font size of section headers in the minimap.",
@@ -40704,7 +40953,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_149": {
+    "_148": {
       "type": "number",
       "default": 1,
       "description": "Controls the amount of space (in pixels) between characters of section header. This helps the readability of the header in small font sizes.",
@@ -40717,7 +40966,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_150": {
+    "_149": {
       "markdownDescription": "A multiplier to be used on the `deltaX` and `deltaY` of mouse wheel scroll events.",
       "type": "number",
       "default": 1,
@@ -40730,7 +40979,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_151": {
+    "_150": {
       "markdownDescription": "Zoom the font of the editor when using mouse wheel and holding `Ctrl`.",
       "type": "boolean",
       "default": false,
@@ -40743,7 +40992,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_152": {
+    "_151": {
       "description": "Merge multiple cursors when they are overlapping.",
       "type": "boolean",
       "default": true,
@@ -40756,7 +41005,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_153": {
+    "_152": {
       "markdownEnumDescriptions": [
         "Maps to `Control` on Windows and Linux and to `Command` on macOS.",
         "Maps to `Alt` on Windows and Linux and to `Option` on macOS."
@@ -40777,7 +41026,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_154": {
+    "_153": {
       "description": "Controls what happens when middle mouse button is clicked in the editor.",
       "type": "string",
       "enum": [
@@ -40795,7 +41044,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_155": {
+    "_154": {
       "markdownEnumDescriptions": [
         "Each cursor pastes a single line of the text.",
         "Each cursor pastes the full text."
@@ -40816,7 +41065,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_156": {
+    "_155": {
       "markdownDescription": "Controls the max number of cursors that can be in an active editor at once.",
       "type": "integer",
       "default": 10000,
@@ -40831,7 +41080,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_157": {
+    "_156": {
       "markdownEnumDescriptions": [
         "Does not highlight occurrences.",
         "Highlights occurrences only in the current file.",
@@ -40854,7 +41103,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_158": {
+    "_157": {
       "description": "Controls the delay in milliseconds after which occurrences are highlighted.",
       "tags": [
         "preview"
@@ -40872,7 +41121,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_159": {
+    "_158": {
       "description": "Controls the cursor style in overtype input mode.",
       "type": "string",
       "enum": [
@@ -40893,7 +41142,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_160": {
+    "_159": {
       "description": "Controls whether pasting should overtype.",
       "type": "boolean",
       "default": true,
@@ -40906,7 +41155,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_161": {
+    "_160": {
       "description": "Controls whether a border should be drawn around the overview ruler.",
       "type": "boolean",
       "default": true,
@@ -40919,7 +41168,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_162": {
+    "_161": {
       "type": "number",
       "default": 0,
       "minimum": 0,
@@ -40934,7 +41183,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_163": {
+    "_162": {
       "type": "number",
       "default": 0,
       "minimum": 0,
@@ -40949,7 +41198,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_164": {
+    "_163": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "Controls whether you can paste content in different ways.",
@@ -40962,7 +41211,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_165": {
+    "_164": {
       "type": "string",
       "markdownDescription": "Controls if a widget is shown when pasting content in to the editor. This widget lets you control how the file is pasted.",
       "enum": [
@@ -40983,7 +41232,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_166": {
+    "_165": {
       "type": "boolean",
       "default": true,
       "description": "Enables a pop-up that shows parameter documentation and type information as you type.",
@@ -40996,7 +41245,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_167": {
+    "_166": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether the parameter hints menu cycles or closes when reaching the end of the list.",
@@ -41009,7 +41258,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_168": {
+    "_167": {
       "enumDescriptions": [
         "Focus the tree when opening peek",
         "Focus the editor when opening peek"
@@ -41030,7 +41279,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_169": {
+    "_168": {
       "description": "Controls whether the Go to Definition mouse gesture always opens the peek widget.",
       "type": "boolean",
       "default": false,
@@ -41043,7 +41292,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_170": {
+    "_169": {
       "anyOf": [
         {
           "type": "boolean"
@@ -41073,7 +41322,7 @@
                   "type": "boolean"
                 },
                 {
-                  "$ref": "#/$defs/_404"
+                  "$ref": "#/$defs/_405"
                 }
               ],
               "default": "off",
@@ -41085,7 +41334,7 @@
                   "type": "boolean"
                 },
                 {
-                  "$ref": "#/$defs/_404"
+                  "$ref": "#/$defs/_405"
                 }
               ],
               "default": "off",
@@ -41097,7 +41346,7 @@
                   "type": "boolean"
                 },
                 {
-                  "$ref": "#/$defs/_404"
+                  "$ref": "#/$defs/_405"
                 }
               ],
               "default": "offWhenInlineCompletions",
@@ -41131,7 +41380,7 @@
         "onExP"
       ]
     },
-    "_171": {
+    "_170": {
       "description": "Controls the delay in milliseconds after which quick suggestions will show up.",
       "experiment": {
         "mode": "auto"
@@ -41152,7 +41401,7 @@
         "onExP"
       ]
     },
-    "_172": {
+    "_171": {
       "description": "Controls whether the editor auto renames on type.",
       "markdownDeprecationMessage": "Deprecated, use `#editor.linkedEditing#` instead.",
       "type": "boolean",
@@ -41167,7 +41416,7 @@
       "restricted": false,
       "deprecationMessage": "Deprecated, use editor.linkedEditing instead."
     },
-    "_173": {
+    "_172": {
       "markdownDescription": "Whether to render rich screen reader content when the `#editor.editContext#` setting is enabled.",
       "type": "boolean",
       "default": false,
@@ -41180,7 +41429,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_174": {
+    "_173": {
       "description": "Controls whether the editor should render control characters.",
       "restricted": true,
       "type": "boolean",
@@ -41193,7 +41442,7 @@
       "defaultDefaultValue": true,
       "scope": 6
     },
-    "_175": {
+    "_174": {
       "description": "Render last line number when the file ends with a newline.",
       "type": "string",
       "enum": [
@@ -41211,7 +41460,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_176": {
+    "_175": {
       "enumDescriptions": [
         "",
         "",
@@ -41236,7 +41485,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_177": {
+    "_176": {
       "description": "Controls if the editor should render the current line highlight only when the editor is focused.",
       "type": "boolean",
       "default": false,
@@ -41249,7 +41498,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_178": {
+    "_177": {
       "enumDescriptions": [
         "",
         "Render whitespace characters except for single spaces between words.",
@@ -41276,7 +41525,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_179": {
+    "_178": {
       "description": "Controls whether selections should have rounded corners.",
       "type": "boolean",
       "default": true,
@@ -41289,12 +41538,12 @@
       "scope": 6,
       "restricted": false
     },
-    "_180": {
+    "_179": {
       "type": "array",
       "items": {
         "anyOf": [
           {
-            "$ref": "#/$defs/_405"
+            "$ref": "#/$defs/_406"
           },
           {
             "type": [
@@ -41302,7 +41551,7 @@
             ],
             "properties": {
               "column": {
-                "$ref": "#/$defs/_405"
+                "$ref": "#/$defs/_406"
               },
               "color": {
                 "type": "string",
@@ -41324,7 +41573,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_181": {
+    "_180": {
       "type": "string",
       "enum": [
         "auto",
@@ -41347,7 +41596,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_182": {
+    "_181": {
       "type": "string",
       "enum": [
         "auto",
@@ -41370,7 +41619,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_183": {
+    "_182": {
       "type": "number",
       "default": 14,
       "description": "The width of the vertical scrollbar.",
@@ -41383,7 +41632,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_184": {
+    "_183": {
       "type": "number",
       "default": 12,
       "description": "The height of the horizontal scrollbar.",
@@ -41396,7 +41645,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_185": {
+    "_184": {
       "type": "boolean",
       "default": false,
       "description": "Controls whether clicks scroll by page or jump to click position.",
@@ -41409,7 +41658,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_186": {
+    "_185": {
       "type": "boolean",
       "default": false,
       "description": "When set, the horizontal scrollbar will not increase the size of the editor's content.",
@@ -41422,7 +41671,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_187": {
+    "_186": {
       "description": "Controls the number of extra characters beyond which the editor will scroll horizontally.",
       "type": "integer",
       "default": 4,
@@ -41437,7 +41686,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_188": {
+    "_187": {
       "description": "Controls whether the editor will scroll beyond the last line.",
       "type": "boolean",
       "default": true,
@@ -41450,7 +41699,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_189": {
+    "_188": {
       "description": "Scroll only along the predominant axis when scrolling both vertically and horizontally at the same time. Prevents horizontal drift when scrolling vertically on a trackpad.",
       "type": "boolean",
       "default": true,
@@ -41463,7 +41712,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_190": {
+    "_189": {
       "description": "Controls whether the Linux primary clipboard should be supported.",
       "included": true,
       "type": "boolean",
@@ -41477,7 +41726,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_191": {
+    "_190": {
       "description": "Controls whether the editor should highlight matches similar to the selection.",
       "type": "boolean",
       "default": true,
@@ -41490,7 +41739,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_192": {
+    "_191": {
       "description": "Controls how many characters can be in the selection before similar matches are not highlighted. Set to zero for unlimited.",
       "type": "integer",
       "default": 200,
@@ -41505,7 +41754,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_193": {
+    "_192": {
       "description": "Controls whether the editor should highlight selection matches that span multiple lines.",
       "type": "boolean",
       "default": false,
@@ -41515,6 +41764,29 @@
         "order": 5
       },
       "defaultDefaultValue": false,
+      "scope": 6,
+      "restricted": false
+    },
+    "_193": {
+      "enumDescriptions": [
+        "Use the Find widget's match case and whole word settings.",
+        "Match occurrences case-sensitively and independently of the Find widget.",
+        "Match occurrences case-insensitively and independently of the Find widget."
+      ],
+      "markdownDescription": "Controls how occurrences of selected text are matched when selecting the next, previous, or all occurrences and when highlighting selection matches. `caseSensitive` and `caseInsensitive` match substrings independently of the Find widget. An empty selection always starts a whole-word, case-sensitive search.",
+      "type": "string",
+      "enum": [
+        "findOptions",
+        "caseSensitive",
+        "caseInsensitive"
+      ],
+      "default": "findOptions",
+      "section": {
+        "id": "editor",
+        "title": "Editor",
+        "order": 5
+      },
+      "defaultDefaultValue": "findOptions",
       "scope": 6,
       "restricted": false
     },
@@ -42534,7 +42806,7 @@
           "type": "string"
         },
         {
-          "$ref": "#/$defs/_359"
+          "$ref": "#/$defs/_360"
         }
       ],
       "description": "Locales to be used for word segmentation when doing word related navigations or operations. Specify the BCP 47 language tag of the word you wish to recognize (e.g., ja, zh-CN, zh-Hant-TW, etc.).",
@@ -44856,7 +45128,7 @@
           ],
           "properties": {
             "onAttach": {
-              "$ref": "#/$defs/_406"
+              "$ref": "#/$defs/_407"
             }
           }
         },
@@ -44867,7 +45139,7 @@
           ],
           "properties": {
             "onceBreakpointResolved": {
-              "$ref": "#/$defs/_406"
+              "$ref": "#/$defs/_407"
             }
           }
         }
@@ -45332,6 +45604,28 @@
       }
     },
     "_356": {
+      "type": "string",
+      "enum": [
+        "default",
+        "workbench.editor.chatSession",
+        "workbench.editorinputs.searchEditorInput",
+        "agentSessionsWelcomePage",
+        "workbench.editor.browser",
+        "notebookOutputEditor",
+        "repl",
+        "workbench.editors.gettingStartedInput",
+        "jupyter-notebook",
+        "vscode.markdown.preview.editor",
+        "vscode.markdown.editor",
+        "imagePreview.previewEditor",
+        "vscode.audioPreview",
+        "vscode.videoPreview",
+        "jsProfileVisualizer.cpuprofile.table",
+        "jsProfileVisualizer.heapprofile.table",
+        "jsProfileVisualizer.heapsnapshot.table"
+      ]
+    },
+    "_357": {
       "type": "array",
       "items": [
         {
@@ -45344,7 +45638,7 @@
         }
       ]
     },
-    "_357": {
+    "_358": {
       "type": "object",
       "properties": {
         "when": {
@@ -45355,19 +45649,19 @@
         }
       }
     },
-    "_358": {
+    "_359": {
       "type": "object",
       "additionalProperties": {
         "type": "string"
       }
     },
-    "_359": {
+    "_360": {
       "type": "array",
       "items": {
         "type": "string"
       }
     },
-    "_360": {
+    "_361": {
       "description": "Plays a sound when the active line has a warning.",
       "type": "string",
       "enum": [
@@ -45385,7 +45679,7 @@
         "accessibility"
       ]
     },
-    "_361": {
+    "_362": {
       "type": "object",
       "tags": [
         "accessibility"
@@ -45398,7 +45692,7 @@
       "description": "Plays a signal - sound (audio cue) and/or announcement (alert) - when the active line has a warning.",
       "properties": {
         "sound": {
-          "$ref": "#/$defs/_360"
+          "$ref": "#/$defs/_361"
         },
         "announcement": {
           "description": "Announces when the active line has a warning.",
@@ -45428,7 +45722,7 @@
       "scope": 5,
       "restricted": false
     },
-    "_362": {
+    "_363": {
       "type": "string",
       "enum": [
         "auto",
@@ -45460,7 +45754,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.quoteStyle instead."
     },
-    "_363": {
+    "_364": {
       "type": "string",
       "enum": [
         "shortest",
@@ -45494,7 +45788,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.importModuleSpecifier instead."
     },
-    "_364": {
+    "_365": {
       "type": "string",
       "enum": [
         "auto",
@@ -45534,7 +45828,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.importModuleSpecifierEnding instead."
     },
-    "_365": {
+    "_366": {
       "type": "array",
       "items": {
         "type": "string"
@@ -45558,7 +45852,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.autoImportFileExcludePatterns instead."
     },
-    "_366": {
+    "_367": {
       "type": "array",
       "items": {
         "type": "string"
@@ -45582,7 +45876,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.autoImportSpecifierExcludeRegexes instead."
     },
-    "_367": {
+    "_368": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable introducing aliases for object shorthand properties during renames.",
@@ -45604,7 +45898,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.useAliasesForRenames instead."
     },
-    "_368": {
+    "_369": {
       "type": "boolean",
       "default": true,
       "description": "When on a JSX tag, try to rename the matching tag instead of renaming the symbol. Requires using TypeScript 5.1+ in the workspace.",
@@ -45626,7 +45920,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.preferences.renameMatchingJsxTags instead."
     },
-    "_369": {
+    "_370": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after a comma delimiter.",
@@ -45648,7 +45942,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterCommaDelimiter instead."
     },
-    "_370": {
+    "_371": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling after the constructor keyword.",
@@ -45670,7 +45964,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterConstructor instead."
     },
-    "_371": {
+    "_372": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after a semicolon in a for statement.",
@@ -45692,7 +45986,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterSemicolonInForStatements instead."
     },
-    "_372": {
+    "_373": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after a binary operator.",
@@ -45714,7 +46008,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceBeforeAndAfterBinaryOperators instead."
     },
-    "_373": {
+    "_374": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after keywords in a control flow statement.",
@@ -45736,7 +46030,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterKeywordsInControlFlowStatements instead."
     },
-    "_374": {
+    "_375": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after function keyword for anonymous functions.",
@@ -45758,7 +46052,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions instead."
     },
-    "_375": {
+    "_376": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling before function argument parentheses.",
@@ -45780,7 +46074,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceBeforeFunctionParenthesis instead."
     },
-    "_376": {
+    "_377": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling after opening and before closing non-empty parenthesis.",
@@ -45802,7 +46096,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis instead."
     },
-    "_377": {
+    "_378": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling after opening and before closing non-empty brackets.",
@@ -45824,7 +46118,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets instead."
     },
-    "_378": {
+    "_379": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after opening and before closing non-empty braces.",
@@ -45846,7 +46140,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces instead."
     },
-    "_379": {
+    "_380": {
       "type": "boolean",
       "default": true,
       "description": "Defines space handling after opening and before closing empty braces.",
@@ -45868,7 +46162,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces instead."
     },
-    "_380": {
+    "_381": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling after opening and before closing template string braces.",
@@ -45890,7 +46184,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces instead."
     },
-    "_381": {
+    "_382": {
       "type": "boolean",
       "default": false,
       "description": "Defines space handling after opening and before closing JSX expression braces.",
@@ -45912,7 +46206,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces instead."
     },
-    "_382": {
+    "_383": {
       "type": "boolean",
       "default": false,
       "description": "Defines whether an open brace is put onto a new line for functions or not.",
@@ -45934,7 +46228,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.placeOpenBraceOnNewLineForFunctions instead."
     },
-    "_383": {
+    "_384": {
       "type": "boolean",
       "default": false,
       "description": "Defines whether an open brace is put onto a new line for control blocks or not.",
@@ -45956,7 +46250,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.placeOpenBraceOnNewLineForControlBlocks instead."
     },
-    "_384": {
+    "_385": {
       "type": "string",
       "default": "ignore",
       "description": "Defines handling of optional semicolons.",
@@ -45988,7 +46282,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.semicolons instead."
     },
-    "_385": {
+    "_386": {
       "type": "boolean",
       "default": true,
       "description": "Indent case clauses in switch statements. Requires using TypeScript 5.1+ in the workspace.",
@@ -46010,7 +46304,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.format.indentSwitchCase instead."
     },
-    "_386": {
+    "_387": {
       "type": "string",
       "enum": [
         "prompt",
@@ -46042,7 +46336,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.updateImportsOnFileMove.enabled instead."
     },
-    "_387": {
+    "_388": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable automatic closing of JSX tags.",
@@ -46064,7 +46358,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.autoClosingTags.enabled instead."
     },
-    "_388": {
+    "_389": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable autocomplete suggestions.",
@@ -46086,7 +46380,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.enabled instead."
     },
-    "_389": {
+    "_390": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable auto import suggestions.",
@@ -46108,7 +46402,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.autoImports instead."
     },
-    "_390": {
+    "_391": {
       "type": "boolean",
       "default": false,
       "description": "Complete functions with their parameter signature.",
@@ -46130,7 +46424,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.completeFunctionCalls instead."
     },
-    "_391": {
+    "_392": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable suggestions for paths in import statements and require calls.",
@@ -46152,7 +46446,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.paths instead."
     },
-    "_392": {
+    "_393": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable suggestion to complete JSDoc comments.",
@@ -46174,7 +46468,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.jsdoc.enabled instead."
     },
-    "_393": {
+    "_394": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "Enable/disable generating `@returns` annotations for JSDoc templates.",
@@ -46196,7 +46490,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.jsdoc.generateReturns instead."
     },
-    "_394": {
+    "_395": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable showing completions on potentially undefined values that insert an optional chain call. Requires strict null checks to be enabled.",
@@ -46218,7 +46512,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.includeAutomaticOptionalChainCompletions instead."
     },
-    "_395": {
+    "_396": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable auto-import-style completions on partially-typed import statements.",
@@ -46240,7 +46534,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.includeCompletionsForImportStatements instead."
     },
-    "_396": {
+    "_397": {
       "type": "boolean",
       "default": true,
       "description": "Enable/disable snippet completions for class members.",
@@ -46262,7 +46556,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.suggest.classMemberSnippets.enabled instead."
     },
-    "_397": {
+    "_398": {
       "type": "string",
       "enum": [
         "none",
@@ -46294,7 +46588,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.inlayHints.parameterNames.enabled instead."
     },
-    "_398": {
+    "_399": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "Suppress parameter name hints on arguments whose text is identical to the parameter name.",
@@ -46316,7 +46610,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.inlayHints.parameterNames.suppressWhenArgumentMatchesName instead."
     },
-    "_399": {
+    "_400": {
       "type": "boolean",
       "default": false,
       "markdownDescription": "Enable/disable inlay hints for implicit parameter types:\n```typescript\n\nel.addEventListener('click', e /* :MouseEvent */ => ...)\n \n```",
@@ -46338,7 +46632,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.inlayHints.parameterTypes.enabled instead."
     },
-    "_400": {
+    "_401": {
       "type": "boolean",
       "default": false,
       "markdownDescription": "Enable/disable inlay hints for implicit variable types:\n```typescript\n\nconst foo /* :number */ = Date.now();\n \n```",
@@ -46360,7 +46654,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.inlayHints.variableTypes.enabled instead."
     },
-    "_401": {
+    "_402": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "Suppress type hints on variables whose name is identical to the type name.",
@@ -46382,7 +46676,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.inlayHints.variableTypes.suppressWhenTypeMatchesName instead."
     },
-    "_402": {
+    "_403": {
       "type": "boolean",
       "default": false,
       "markdownDescription": "Enable/disable inlay hints for implicit types on property declarations:\n```typescript\n\nclass Foo {\n\tprop /* :number */ = Date.now();\n}\n \n```",
@@ -46404,7 +46698,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.inlayHints.propertyDeclarationTypes.enabled instead."
     },
-    "_403": {
+    "_404": {
       "type": "boolean",
       "default": false,
       "markdownDescription": "Enable/disable inlay hints for implicit return types on function signatures:\n```typescript\n\nfunction foo() /* :number */ {\n\treturn Date.now();\n} \n \n```",
@@ -46426,7 +46720,7 @@
       "restricted": false,
       "deprecationMessage": "This setting is deprecated. Use js/ts.inlayHints.functionLikeReturnTypes.enabled instead."
     },
-    "_404": {
+    "_405": {
       "type": "string",
       "enum": [
         "on",
@@ -46441,11 +46735,11 @@
         "Quick suggestions are disabled when inline completions are showing"
       ]
     },
-    "_405": {
+    "_406": {
       "type": "number",
       "description": "Number of monospace characters at which this editor ruler will render."
     },
-    "_406": {
+    "_407": {
       "type": "number",
       "default": 32
     }

@@ -294,6 +294,7 @@
         "deleteWordRight",
         "deleteWordStartLeft",
         "deleteWordStartRight",
+        "developer.onboarding.copyTryoutLink",
         "developer.showCurrentFileAsReleaseNotes",
         "diffEditor.collapseAllUnchangedRegions",
         "diffEditor.exitCompareMove",
@@ -1937,6 +1938,7 @@
         "workbench.action.chat.openInEditor",
         "workbench.action.chat.openInNewWindow",
         "workbench.action.chat.openInSidebar",
+        "workbench.action.chat.openLinkWith",
         "workbench.action.chat.openModelFeedbackSurvey",
         "workbench.action.chat.openModelPicker",
         "workbench.action.chat.openModePicker",
@@ -1980,6 +1982,7 @@
         "workbench.action.chat.restoreCheckpoint",
         "workbench.action.chat.restoreLastCheckpoint",
         "workbench.action.chat.retry",
+        "workbench.action.chat.retryPreparation",
         "workbench.action.chat.retrySetup",
         "workbench.action.chat.run-in-new-chat.prompt.current",
         "workbench.action.chat.run.prompt",
@@ -1997,6 +2000,7 @@
         "workbench.action.chat.showExtensionsUsingCopilot",
         "workbench.action.chat.showOutput",
         "workbench.action.chat.showSpeechToTextIntroduction",
+        "workbench.action.chat.showUpdateRequired",
         "workbench.action.chat.signInIndicator",
         "workbench.action.chat.skipTool",
         "workbench.action.chat.speechToTextConnecting",
@@ -2333,6 +2337,7 @@
         "workbench.action.nextPanelView",
         "workbench.action.nextSideBarView",
         "workbench.action.onboarding.resetShownState",
+        "workbench.action.onboarding.tryFeature",
         "workbench.action.openAccessibilitySettings",
         "workbench.action.openActiveLogOutputFile",
         "workbench.action.openActiveLogOutputFileInNewWindow",
@@ -3012,6 +3017,8 @@
         "workbench.output.action.toggleAutoScroll",
         "workbench.panel.chat",
         "workbench.panel.chat.resetViewContainerLocation",
+        "workbench.panel.chat.updateRequired.focus",
+        "workbench.panel.chat.updateRequired.resetViewLocation",
         "workbench.panel.chat.view.copilot.focus",
         "workbench.panel.chat.view.copilot.removeView",
         "workbench.panel.chat.view.copilot.resetViewLocation",
@@ -3558,6 +3565,7 @@
         "",
         "",
         "",
+        "Copy Feature Example Link",
         "Open Current File as Release Notes",
         "Collapse All Unchanged Regions",
         "Exit Compare Move",
@@ -5201,6 +5209,7 @@
         "Move Chat into Editor Area",
         "Move Chat into New Window",
         "Move Chat into Side Bar",
+        "Open With...",
         "Give Feedback",
         "Open Model Picker",
         "Open Agent Picker",
@@ -5245,6 +5254,7 @@
         "Restore to Last Checkpoint",
         "Retry",
         "",
+        "",
         "Run Prompt In New Chat",
         "Run Prompt...",
         "Run Prompt in Current Chat",
@@ -5261,6 +5271,7 @@
         "Show Extensions using Copilot",
         "",
         "Dictate: Show Introduction",
+        "Opens view Chat",
         "Sign In",
         "Skip",
         "Connecting to Speech to Text…",
@@ -5597,6 +5608,7 @@
         "Next Panel View",
         "Next Primary Side Bar View",
         "Reset Onboarding Shown State",
+        "Try Feature Example",
         "Open Accessibility Settings",
         "Open Output in Editor",
         "Open Output in New Window",
@@ -6275,6 +6287,8 @@
         "Switch Output",
         "Toggle Auto Scrolling",
         "Opens view Chat",
+        "Reset Location",
+        "Focus on Chat View",
         "Reset Location",
         "Focus on Chat View",
         "Hides the Chat view if it is visible and the view container it is located in is visible",
@@ -7871,6 +7885,21 @@
             ],
             "properties": {
               "command": {
+                "const": "workbench.action.chat.showUpdateRequired"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_19"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
                 "const": "workbench.action.files.newUntitledFile"
               }
             }
@@ -8566,6 +8595,21 @@
             "properties": {
               "command": {
                 "const": "workbench.files.action.focusOpenEditorsView"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/_20"
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "command"
+            ],
+            "properties": {
+              "command": {
+                "const": "workbench.panel.chat.updateRequired.focus"
               }
             }
           },
@@ -10339,6 +10383,7 @@
             "-deleteWordRight",
             "-deleteWordStartLeft",
             "-deleteWordStartRight",
+            "-developer.onboarding.copyTryoutLink",
             "-developer.showCurrentFileAsReleaseNotes",
             "-diffEditor.collapseAllUnchangedRegions",
             "-diffEditor.exitCompareMove",
@@ -11982,6 +12027,7 @@
             "-workbench.action.chat.openInEditor",
             "-workbench.action.chat.openInNewWindow",
             "-workbench.action.chat.openInSidebar",
+            "-workbench.action.chat.openLinkWith",
             "-workbench.action.chat.openModelFeedbackSurvey",
             "-workbench.action.chat.openModelPicker",
             "-workbench.action.chat.openModePicker",
@@ -12025,6 +12071,7 @@
             "-workbench.action.chat.restoreCheckpoint",
             "-workbench.action.chat.restoreLastCheckpoint",
             "-workbench.action.chat.retry",
+            "-workbench.action.chat.retryPreparation",
             "-workbench.action.chat.retrySetup",
             "-workbench.action.chat.run-in-new-chat.prompt.current",
             "-workbench.action.chat.run.prompt",
@@ -12042,6 +12089,7 @@
             "-workbench.action.chat.showExtensionsUsingCopilot",
             "-workbench.action.chat.showOutput",
             "-workbench.action.chat.showSpeechToTextIntroduction",
+            "-workbench.action.chat.showUpdateRequired",
             "-workbench.action.chat.signInIndicator",
             "-workbench.action.chat.skipTool",
             "-workbench.action.chat.speechToTextConnecting",
@@ -12378,6 +12426,7 @@
             "-workbench.action.nextPanelView",
             "-workbench.action.nextSideBarView",
             "-workbench.action.onboarding.resetShownState",
+            "-workbench.action.onboarding.tryFeature",
             "-workbench.action.openAccessibilitySettings",
             "-workbench.action.openActiveLogOutputFile",
             "-workbench.action.openActiveLogOutputFileInNewWindow",
@@ -13057,6 +13106,8 @@
             "-workbench.output.action.toggleAutoScroll",
             "-workbench.panel.chat",
             "-workbench.panel.chat.resetViewContainerLocation",
+            "-workbench.panel.chat.updateRequired.focus",
+            "-workbench.panel.chat.updateRequired.resetViewLocation",
             "-workbench.panel.chat.view.copilot.focus",
             "-workbench.panel.chat.view.copilot.removeView",
             "-workbench.panel.chat.view.copilot.resetViewLocation",
@@ -13603,6 +13654,7 @@
             "",
             "",
             "",
+            "Copy Feature Example Link",
             "Open Current File as Release Notes",
             "Collapse All Unchanged Regions",
             "Exit Compare Move",
@@ -15246,6 +15298,7 @@
             "Move Chat into Editor Area",
             "Move Chat into New Window",
             "Move Chat into Side Bar",
+            "Open With...",
             "Give Feedback",
             "Open Model Picker",
             "Open Agent Picker",
@@ -15290,6 +15343,7 @@
             "Restore to Last Checkpoint",
             "Retry",
             "",
+            "",
             "Run Prompt In New Chat",
             "Run Prompt...",
             "Run Prompt in Current Chat",
@@ -15306,6 +15360,7 @@
             "Show Extensions using Copilot",
             "",
             "Dictate: Show Introduction",
+            "Opens view Chat",
             "Sign In",
             "Skip",
             "Connecting to Speech to Text…",
@@ -15642,6 +15697,7 @@
             "Next Panel View",
             "Next Primary Side Bar View",
             "Reset Onboarding Shown State",
+            "Try Feature Example",
             "Open Accessibility Settings",
             "Open Output in Editor",
             "Open Output in New Window",
@@ -16320,6 +16376,8 @@
             "Switch Output",
             "Toggle Auto Scrolling",
             "Opens view Chat",
+            "Reset Location",
+            "Focus on Chat View",
             "Reset Location",
             "Focus on Chat View",
             "Hides the Chat view if it is visible and the view container it is located in is visible",

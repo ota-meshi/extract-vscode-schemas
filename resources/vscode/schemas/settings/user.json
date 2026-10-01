@@ -904,6 +904,46 @@
       "scope": 5,
       "restricted": false
     },
+    "accessibility.signals.confetti": {
+      "type": "object",
+      "tags": [
+        "accessibility"
+      ],
+      "additionalProperties": false,
+      "default": {
+        "sound": "auto"
+      },
+      "description": "Plays a joyful sound / audio cue when confetti is shown.",
+      "properties": {
+        "sound": {
+          "description": "Plays a joyful sound when confetti is shown.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "off",
+            "on"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "Enable sound when a screen reader is attached.",
+            "Disable sound.",
+            "Enable sound."
+          ],
+          "tags": [
+            "accessibility"
+          ]
+        }
+      },
+      "section": {
+        "id": "accessibility",
+        "title": "Accessibility"
+      },
+      "defaultDefaultValue": {
+        "sound": "auto"
+      },
+      "scope": 5,
+      "restricted": false
+    },
     "accessibility.signals.diffLineDeleted": {
       "type": "object",
       "tags": [
@@ -2517,6 +2557,21 @@
       "scope": 5,
       "restricted": false
     },
+    "accessibility.verbosity.customizationDiscovery": {
+      "description": "Provide information about how to access accessibility help when discovering customizations.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "section": {
+        "id": "accessibility",
+        "title": "Accessibility"
+      },
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
     "accessibility.verbosity.customizationMigrations": {
       "description": "Provide information about how to access accessibility help for the customization migration checklist.",
       "type": "boolean",
@@ -2667,6 +2722,21 @@
       "scope": 5,
       "restricted": false
     },
+    "accessibility.verbosity.newSessionWelcome": {
+      "description": "Announce the welcome message when a new session composer is shown.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "section": {
+        "id": "accessibility",
+        "title": "Accessibility"
+      },
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
     "accessibility.verbosity.notebook": {
       "description": "Provide information about how to focus the cell container or inner editor when a notebook cell is focused.",
       "type": "boolean",
@@ -2699,6 +2769,21 @@
     },
     "accessibility.verbosity.panelChat": {
       "description": "Provide information about how to access the chat help menu when the chat input is focused.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "section": {
+        "id": "accessibility",
+        "title": "Accessibility"
+      },
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
+    "accessibility.verbosity.releaseNotes": {
+      "description": "Provide information about how to access release notes accessibility help when the release notes are focused.",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -4177,7 +4262,7 @@
         ".github/agents": true,
         "~/.copilot/agents": true
       },
-      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use [Migrate Location Settings](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%252C%2522migrationCategory%2522%253A%2522configuredLocations%2522%257D%255D \"Open Migrate Location Settings\") in the Agent Customizations editor to move agents into supported locations.",
+      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Review the [Migrations tab](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%257D%255D \"Open the Migrations Tab\") in the Agent Customizations editor to move agents into supported locations.",
       "deprecationMessageSeverity": "info",
       "additionalProperties": {
         "type": "boolean"
@@ -4213,7 +4298,7 @@
         "~/.copilot/agents": true
       },
       "scope": 4,
-      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use Migrate Location Settings in the Agent Customizations editor to move agents into supported locations."
+      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Review the Migrations tab in the Agent Customizations editor to move agents into supported locations."
     },
     "chat.agentHost.agentDebugLog.enabled": {
       "type": "boolean",
@@ -4254,6 +4339,33 @@
       },
       "defaultDefaultValue": 10000,
       "scope": 4,
+      "restricted": false
+    },
+    "chat.agentHost.agentOrchestrationLimits": {
+      "type": "string",
+      "enum": [
+        "off",
+        "on"
+      ],
+      "enumDescriptions": [
+        "Do not enforce the limits.",
+        "Enforce the limits."
+      ],
+      "description": "Controls process-wide limits on sessions and chats created, messages sent, and recursive session spawning by Agent Host session tools. Confirmation requirements and input validation are unchanged.",
+      "default": "on",
+      "scope": 1,
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "agentHost": {
+        "key": "agentOrchestrationLimits"
+      },
+      "section": {
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
+      },
+      "defaultDefaultValue": "on",
       "restricted": false
     },
     "chat.agentHost.ahpJsonlLoggingEnabled": {
@@ -4341,6 +4453,23 @@
       },
       "defaultDefaultValue": true,
       "scope": 4,
+      "restricted": false
+    },
+    "chat.agentHost.cloudSandbox.enabled": {
+      "type": "boolean",
+      "description": "Enable discovering and opening Copilot cloud sandbox sessions in the Editor Window and Agents Window over a live Agent Host Protocol relay. Also adds a Sandbox option when starting a cloud session in the Agents Window.",
+      "default": false,
+      "scope": 1,
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {},
+      "defaultDefaultValue": false,
       "restricted": false
     },
     "chat.agentHost.codexAgent.enabled": {
@@ -4458,22 +4587,6 @@
       "defaultDefaultValue": {},
       "restricted": false
     },
-    "chat.agentHost.copilot.reasoningEffortOverride": {
-      "type": "string",
-      "markdownDescription": "Overrides the reasoning effort for Copilot SDK agent sessions regardless of the per-model picker value. Set it to a level the selected model supports (for example `low`, `medium`, `high`, or `xhigh`) — choosing a level the model does not support may be rejected by the model. A value that isn't a recognized effort level is ignored and the session falls back to the picker value. Applied when a session is created and when its model changes. Only affects Copilot CLI agent sessions.\n\n**Note**: This is an advanced setting for experimentation.",
-      "default": "",
-      "tags": [
-        "experimental",
-        "advanced"
-      ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": "",
-      "scope": 4,
-      "restricted": false
-    },
     "chat.agentHost.copilot.toolSearch.deferThreshold": {
       "type": "number",
       "description": "Minimum number of tools before MCP and external tools are deferred behind tool search. Set to 0 to always defer external tools. Only effective when tool search is enabled.",
@@ -4576,29 +4689,6 @@
       "defaultDefaultValue": "",
       "restricted": false
     },
-    "chat.agentHost.experimental.activeAgentTitleGeneration": {
-      "type": "boolean",
-      "description": "When enabled, the active agent names new sessions and chats using rename tools. When disabled, a utility model generates titles immediately. Deferred title generation takes precedence. Changes apply to new sessions; existing sessions and their chats retain their strategy.",
-      "default": false,
-      "scope": 1,
-      "tags": [
-        "experimental",
-        "advanced",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "auto"
-      },
-      "agentHost": {
-        "key": "activeAgentTitleGeneration"
-      },
-      "section": {
-        "id": "chatAgentHostStarter",
-        "title": "Chat Agent Host Starter"
-      },
-      "defaultDefaultValue": false,
-      "restricted": false
-    },
     "chat.agentHost.experimental.autoAttachPullRequests": {
       "type": "boolean",
       "description": "Controls whether the Agent Host automatically discovers and associates a pull request for the currently checked-out branch. When disabled, only pull requests recorded by the agent as artifacts or explicitly selected or created through session actions are considered.",
@@ -4620,25 +4710,6 @@
         "title": "Chat Agent Host Starter"
       },
       "defaultDefaultValue": true,
-      "restricted": false
-    },
-    "chat.agentHost.experimental.deferredTitleGeneration": {
-      "type": "boolean",
-      "description": "Seed titles immediately and refine them in the background if the first response turn completes successfully, without asking the active agent to name chats. Explicit rename tools remain available. Overrides active agent title generation for new sessions; existing sessions and their chats retain their strategy.",
-      "default": false,
-      "scope": 1,
-      "tags": [
-        "experimental",
-        "advanced"
-      ],
-      "agentHost": {
-        "key": "deferredTitleGeneration"
-      },
-      "section": {
-        "id": "chatAgentHostStarter",
-        "title": "Chat Agent Host Starter"
-      },
-      "defaultDefaultValue": false,
       "restricted": false
     },
     "chat.agentHost.experimental.markdownPlanRichLinks": {
@@ -5291,7 +5362,7 @@
         "Show up to the 2 most recent external sessions updated in the last 7 days. At startup, external sessions older than the second-most-recently updated local session are hidden."
       ],
       "default": "recent",
-      "markdownDescription": "Controls which external agent sessions, created outside VS Code's Agent Host, are shown.",
+      "markdownDescription": "Controls which external agent sessions are shown. External sessions are sessions that were created in a different application and have not received a message from this application yet.",
       "tags": [
         "experimental",
         "onExP"
@@ -5372,7 +5443,7 @@
         "~/.claude/skills": true,
         "~/.copilot/skills": true
       },
-      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use [Migrate Location Settings](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%252C%2522migrationCategory%2522%253A%2522configuredLocations%2522%257D%255D \"Open Migrate Location Settings\") in the Agent Customizations editor to move skills into supported locations.",
+      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Review the [Migrations tab](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%257D%255D \"Open the Migrations Tab\") in the Agent Customizations editor to move skills into supported locations.",
       "deprecationMessageSeverity": "info",
       "additionalProperties": {
         "type": "boolean"
@@ -5411,7 +5482,7 @@
         "~/.copilot/skills": true
       },
       "scope": 4,
-      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use Migrate Location Settings in the Agent Customizations editor to move skills into supported locations."
+      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Review the Migrations tab in the Agent Customizations editor to move skills into supported locations."
     },
     "chat.agentsParallelWorkBanner.enabled": {
       "type": "boolean",
@@ -5527,29 +5598,6 @@
       "scope": 4,
       "restricted": false
     },
-    "chat.artifactTools.compactPrompts": {
-      "type": "boolean",
-      "description": "Uses compact artifact tool guidance instead of the original wording. Does not change tool availability or deferral. Start a new chat to compare prompt formats.",
-      "default": false,
-      "scope": 1,
-      "tags": [
-        "experimental",
-        "advanced",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "auto"
-      },
-      "agentHost": {
-        "key": "artifactToolsCompactPrompts"
-      },
-      "section": {
-        "id": "chatAgentHostStarter",
-        "title": "Chat Agent Host Starter"
-      },
-      "defaultDefaultValue": false,
-      "restricted": false
-    },
     "chat.artifactTools.enabled": {
       "type": "boolean",
       "description": "When enabled, agents can record artifacts — pull requests, issues, commits, websites, files and other resources — which are surfaced above the chat input.",
@@ -5607,6 +5655,25 @@
       "defaultDefaultValue": false,
       "restricted": false
     },
+    "chat.btwTip.enabled": {
+      "type": "boolean",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "markdownDescription": "Controls whether the Agents Window shows a tip about using `/btw` to ask side questions.",
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.byokUtilityModelDefault": {
       "type": "string",
       "markdownDescription": "Controls the default model used by built-in utility flows when the selected main agent model is a bring your own key (BYOK) model. This setting has no effect when the selected main agent model is provided by GitHub Copilot. A specific model configured in `#chat.utilityModel#` or `#chat.utilitySmallModel#` takes precedence.",
@@ -5658,6 +5725,33 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.closedPromoNotification": {
+      "type": "string",
+      "enum": [
+        "copilotIconPopup",
+        "none"
+      ],
+      "enumItemLabels": [
+        "None",
+        "Copilot Icon Popup"
+      ],
+      "enumDescriptions": [
+        "Show a promo tooltip when hovering or clicking the Copilot status icon while Chat is closed. Viewing the offer clears its indicator; the offer remains available for the current window session. Choosing Try dismisses the offer and its chat banner.",
+        "Do not show a promo on the Copilot icon when Chat is closed."
+      ],
+      "description": "Controls whether a live model promo is shown on the Copilot icon when Chat is closed. When explicitly set, this overrides the experiment without an experiment lookup. Otherwise, eligible promos use the experiment treatment.",
+      "default": "none",
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "none",
+      "scope": 4,
+      "restricted": false
+    },
     "chat.contextUsage.enabled": {
       "type": "boolean",
       "default": true,
@@ -5689,7 +5783,7 @@
     "chat.copilot.hydraFusion.enabled": {
       "type": "boolean",
       "markdownDescription": "When enabled, makes the experimental HydraFusion model available to local Copilot Agent Host sessions. Changing this setting restarts the local Copilot runtime.",
-      "default": false,
+      "default": true,
       "experiment": {
         "mode": "startup"
       },
@@ -5704,7 +5798,7 @@
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "restricted": false
     },
     "chat.copilot.semanticSearch.enabled": {
@@ -5752,24 +5846,75 @@
       "defaultDefaultValue": 15000,
       "restricted": false
     },
-    "chat.copilot.subagentModelGuidance.enabled": {
+    "chat.copilot.tgrep.enabled": {
       "type": "boolean",
-      "markdownDescription": "When enabled, Copilot SDK agent sessions instruct the model to keep subagents on their default model, setting the task tool's `model` parameter only when you explicitly name the model a subagent should run on. Applied when a session launches or resumes.",
+      "markdownDescription": "When enabled, local Copilot Agent Host sessions force-enable tgrep indexed search, bypassing the repository-size threshold. Requires a local Git repository on a non-virtual filesystem. Changing this setting restarts the Copilot SDK client after active turns finish.",
       "default": false,
       "experiment": {
-        "mode": "startup"
+        "mode": "auto"
       },
       "tags": [
         "experimental",
         "advanced",
         "onExP"
       ],
+      "scope": 1,
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
       },
       "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "chat.copilotHarnessIntroduction.mode": {
+      "type": "string",
+      "enum": [
+        "afterRequest",
+        "newSession",
+        "off"
+      ],
+      "enumDescriptions": [
+        "Show the introduction after the first request is submitted in a new Copilot harness session.",
+        "Show the introduction when a new Copilot harness session starts.",
+        "Do not show the Copilot harness introduction."
+      ],
+      "description": "Controls when the introduction to the new Copilot experience is shown.",
+      "default": "off",
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "off",
       "scope": 4,
+      "restricted": false
+    },
+    "chat.customizations.copilotConnectors.enabled": {
+      "type": "boolean",
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "description": "Enables Copilot connectors in the unified marketplace and exposes connected connector MCP servers in Chat Customizations and Copilot agent sessions.",
+      "default": false,
+      "scope": 1,
+      "experiment": {
+        "mode": "auto"
+      },
+      "agentHost": {
+        "key": "mcpConnectorsEnabled"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
       "restricted": false
     },
     "chat.customizations.locationsMigration.enabled": {
@@ -5787,12 +5932,42 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.customizations.marketplace.enabled": {
+      "type": "boolean",
+      "tags": [
+        "experimental"
+      ],
+      "description": "Shows Discover instead of Overview when a customization marketplace source is enabled. When disabled, marketplace discovery remains in the existing customization management pages.",
+      "default": false,
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.customizations.marketplace.sources.publicFeed.enabled": {
+      "type": "boolean",
+      "tags": [
+        "experimental"
+      ],
+      "description": "Enables the GitHub Feed as a source of skills, MCP servers, and plugins when Marketplace is shown. If Marketplace or this setting is disabled, the GitHub Feed is not queried.",
+      "default": true,
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.customizations.mcpServerMigration.enabled": {
       "type": "boolean",
       "tags": [
         "experimental"
       ],
-      "description": "Controls whether the Chat Customizations editor offers to move supported workspace MCP servers out of .vscode/mcp.json and into a .mcp.json file at the workspace root, where the active agent-host harness discovers them directly. When disabled, the migration card and sidebar shortcut are hidden.",
+      "description": "Controls whether VS Code shows MCP server migration actions, hints, compatibility badges, and compatibility details. Migration moves eligible workspace MCP servers out of .vscode/mcp.json and into a .mcp.json file at the workspace root, where the active agent-host harness discovers them directly.",
       "default": false,
       "section": {
         "id": "chatSidebar",
@@ -6283,6 +6458,29 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.experimental.customizations.toggleStyle": {
+      "type": "string",
+      "enum": [
+        "checkbox",
+        "switch"
+      ],
+      "enumDescriptions": [
+        "Use checkboxes for customization enablement controls.",
+        "Use switches for customization enablement controls."
+      ],
+      "tags": [
+        "experimental"
+      ],
+      "description": "Controls whether Plugin, MCP, and Tools customization pages use checkboxes or switches for enablement.",
+      "default": "switch",
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "switch",
+      "scope": 4,
+      "restricted": false
+    },
     "chat.experimental.detectParticipant.enabled": {
       "type": "boolean",
       "deprecationMessage": "This setting is deprecated. Please use `chat.detectParticipant.enabled` instead.",
@@ -6410,7 +6608,7 @@
     "chat.experimental.permissionsSandboxToggle.enabled": {
       "type": "boolean",
       "default": true,
-      "markdownDescription": "Controls whether the permissions picker shows a \"Sandboxing for terminal\" toggle. Local sessions show it on the Default permissions option. Copilot Agent Host sessions show it as a session-specific setting that applies to every permission mode; changing it saves the choice only for that session. New Copilot Agent Host sessions initially follow `#chat.agent.sandbox.enabled#` or `#chat.agent.sandbox.enabledWindows#` for both the SDK's built-in shell tool and the Agent Host terminal tool.",
+      "markdownDescription": "Controls whether the permissions picker shows a \"Sandboxing for terminal\" toggle. Local sessions show it on the Default permissions option. Local and remote Copilot Agent Host sessions show it as a session-specific setting that applies to every permission mode; changing it saves the choice only for that session. New Copilot Agent Host sessions initially follow `#chat.agent.sandbox.enabled#` or `#chat.agent.sandbox.enabledWindows#` based on the host's operating system, for both the SDK's built-in shell tool and the Agent Host terminal tool.",
       "tags": [
         "experimental",
         "onExP"
@@ -6430,30 +6628,24 @@
       "type": "string",
       "default": "off",
       "enum": [
-        "accordion",
-        "dial",
         "draw",
-        "off",
-        "orbit",
-        "weave"
+        "drawMonochrome",
+        "drawMonochromeNoIcon",
+        "off"
       ],
       "enumItemLabels": [
         "Off",
-        "Weave",
         "Draw",
-        "Orbit and Lock",
-        "Accordion",
-        "Dial Rotation"
+        "Draw (Monochrome)",
+        "Draw (Monochrome, No Icon)"
       ],
       "enumDescriptions": [
-        "Compress the logo pieces toward the center, then open them back up.",
-        "Rotate the logo in three steps, then pause upright.",
         "Draw the right-slanting ribbon, right edge, and left-slanting ribbon in sequence, then erase them in the same counterclockwise direction and order.",
-        "Keep the original thinking, tool, and working progress rendering without a persistent indicator or VS Code logo.",
-        "Loop the diagonal ribbons around the moving right edge, then lock the logo back together.",
-        "Move the three logo pieces in quick beats, then reset them together."
+        "Use the Draw animation with the same grayscale treatment as the VS Code icon in the Agents window. High contrast themes retain their contrast color.",
+        "Keep the same persistent progress text and tool rendering as Draw (Monochrome), but hide the VS Code icon.",
+        "Keep the original thinking, tool, and working progress rendering without a persistent indicator or VS Code logo."
       ],
-      "markdownDescription": "Keep a working progress indicator with an animated VS Code logo at the bottom until the response finishes. Selecting an animation shows tool calls in expanded, headerless chains without an internal scrolling limit. Reasoning is separated into collapsible previews that break the tool chain, and standalone tools retain their icons. Completed responses still follow the `#chat.agent.collapseCompletedResponses#` setting. This replaces inner working progress; terminal activity animations and rich subagent pills are unchanged. Off preserves the original thinking, tool, and progress rendering. Changes apply immediately; reduced motion keeps the indicator visible without animation.",
+      "markdownDescription": "Keep a working progress indicator at the bottom until the response finishes, with a colored or monochrome Draw animation, or without an icon. The default is Draw in VS Code Insiders and Off in Stable. Experiments can override either default; an explicit setting takes precedence. Tool calls follow `#chat.experimental.persistentProgressVerbosity#`, and reasoning is separated into collapsible previews that break the tool chain. Standalone tools retain their icons. Completed responses still follow `#chat.agent.collapseCompletedResponses#`. This replaces inner working progress; terminal activity animations and rich subagent pills are unchanged. Changes apply immediately; reduced motion keeps the indicator visible without animation.",
       "tags": [
         "experimental",
         "onExP"
@@ -6466,6 +6658,37 @@
         "title": "Chat"
       },
       "defaultDefaultValue": "off",
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.experimental.persistentProgressVerbosity": {
+      "type": "string",
+      "default": "compact",
+      "enum": [
+        "compact",
+        "verbose"
+      ],
+      "enumItemLabels": [
+        "Verbose",
+        "Compact"
+      ],
+      "enumDescriptions": [
+        "Preview tool calls while they run, then collapse each group to a single expandable summary row when the response moves on.",
+        "Keep tool calls in expanded, headerless chains without an internal scrolling limit."
+      ],
+      "markdownDescription": "Control tool call details when `#chat.experimental.persistentProgress#` is enabled. Compact is the default and collapses tool groups in place when thinking or response text resumes, or the response finishes. Expand a summary to inspect its tool calls. Has no effect when persistent progress is Off. Changes apply immediately.",
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "compact",
       "scope": 4,
       "restricted": false
     },
@@ -6572,7 +6795,7 @@
     },
     "chat.experimentalModelPicker": {
       "type": "boolean",
-      "description": "When enabled, the model picker uses a tab per model provider and configures thinking effort and context from a detail card next to each model, instead of a separate configuration button.",
+      "description": "When enabled, the model picker uses provider tabs and a model details page for information and configuration. Open details from a model's information button or the thinking effort and context readout in the chat input.",
       "default": false,
       "tags": [
         "experimental",
@@ -6714,6 +6937,25 @@
     "chat.growthNotification.enabled": {
       "type": "boolean",
       "description": "Controls whether to show a growth notification in the agent sessions view to encourage new users to try Copilot.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.harnessSwitchFeedbackSurvey.enabled": {
+      "type": "boolean",
+      "description": "Show a one-time feedback survey after switching from Copilot to Local.",
       "default": false,
       "tags": [
         "experimental",
@@ -6947,7 +7189,7 @@
         "~/.claude/rules": true,
         "~/.copilot/instructions": true
       },
-      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use [Migrate Location Settings](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%252C%2522migrationCategory%2522%253A%2522configuredLocations%2522%257D%255D \"Open Migrate Location Settings\") in the Agent Customizations editor to move instructions into supported locations.",
+      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Review the [Migrations tab](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%257D%255D \"Open the Migrations Tab\") in the Agent Customizations editor to move instructions into supported locations.",
       "deprecationMessageSeverity": "info",
       "additionalProperties": {
         "type": "boolean"
@@ -6982,7 +7224,7 @@
         "~/.copilot/instructions": true
       },
       "scope": 4,
-      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use Migrate Location Settings in the Agent Customizations editor to move instructions into supported locations."
+      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Review the Migrations tab in the Agent Customizations editor to move instructions into supported locations."
     },
     "chat.math.enabled": {
       "type": "boolean",
@@ -7220,7 +7462,7 @@
     },
     "chat.mcp.workspaceRootConfig.enabled": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "scope": 4,
       "tags": [
         "experimental"
@@ -7230,7 +7472,7 @@
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "restricted": false
     },
     "chat.microsoftAuthentication.enabled": {
@@ -7260,7 +7502,7 @@
       "default": {
         ".github/chatmodes": true
       },
-      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Chat modes are now called custom agents and are located in `.github/agents`. Use [Migrate Location Settings](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%252C%2522migrationCategory%2522%253A%2522configuredLocations%2522%257D%255D \"Open Migrate Location Settings\") in the Agent Customizations editor to move them into supported locations.",
+      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Chat modes are now called custom agents and are located in `.github/agents`. Review the [Migrations tab](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%257D%255D \"Open the Migrations Tab\") in the Agent Customizations editor to move them into supported locations.",
       "deprecationMessageSeverity": "info",
       "additionalProperties": {
         "type": "boolean"
@@ -7293,7 +7535,7 @@
         ".github/chatmodes": true
       },
       "scope": 4,
-      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Chat modes are now called custom agents and are located in .github/agents. Use Migrate Location Settings in the Agent Customizations editor to move them into supported locations."
+      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Chat modes are now called custom agents and are located in .github/agents. Review the Migrations tab in the Agent Customizations editor to move them into supported locations."
     },
     "chat.newSession.defaultMode": {
       "type": "string",
@@ -7602,7 +7844,7 @@
       "default": {
         ".github/prompts": true
       },
-      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use [Migrate Prompt Files](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%252C%2522migrationCategory%2522%253A%2522promptFiles%2522%257D%255D \"Open Migrate Prompt Files\") in the Agent Customizations editor to convert prompt files into skills.",
+      "markdownDeprecationMessage": "This setting and the Local agent harness will be removed in a future release. Review the [Migrations tab](command:aiCustomization.openManagementEditor?%255B%257B%2522migration%2522%253Atrue%257D%255D \"Open the Migrations Tab\") in the Agent Customizations editor to convert prompt files into skills.",
       "deprecationMessageSeverity": "info",
       "additionalProperties": {
         "type": "boolean"
@@ -7637,7 +7879,7 @@
         ".github/prompts": true
       },
       "scope": 4,
-      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Use Migrate Prompt Files in the Agent Customizations editor to convert prompt files into skills."
+      "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Review the Migrations tab in the Agent Customizations editor to convert prompt files into skills."
     },
     "chat.promptFilesRecommendations": {
       "type": "object",
@@ -7674,6 +7916,19 @@
       },
       "defaultDefaultValue": {},
       "restricted": false
+    },
+    "chat.remoteAgentHostsEnabled": {
+      "type": "boolean",
+      "description": "Enable connecting to remote agent hosts.",
+      "default": true,
+      "scope": 1,
+      "restricted": true,
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {},
+      "defaultDefaultValue": true
     },
     "chat.requestQueuing.defaultAction": {
       "type": "string",
@@ -7835,18 +8090,6 @@
         "title": "Chat"
       },
       "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
-    },
-    "chat.subagents.useRichRendering": {
-      "type": "boolean",
-      "description": "Controls whether subagents in chat editors use a rich presentation that opens each subagent in its own editor instead of rendering its full activity inline in the parent chat.",
-      "default": true,
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -8225,6 +8468,7 @@
         "/^find\\b.*\\s-(delete|exec|execdir|fprint|fprintf|fls|ok|okdir)\\b/": false,
         "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+branch\\b.*\\s-(d|D|m|M|-delete|-force)\\b/": false,
         "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+branch\\b/": true,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+diff\\b.*\\s--[^\\w\\s]*o[^\\w\\s]*u[^\\w\\s]*t[^\\w\\s]*p[^\\w\\s]*u[^\\w\\s]*t[^\\w\\s]*(=|\\s|$)/": false,
         "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+diff\\b/": true,
         "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+grep\\b.*\\s(?-i:--[^\\w\\s]*o[^\\w\\s]*p\\S*)(\\s|$)/": false,
         "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+grep\\b.*\\s(?-i:-[aIivwhHEGPFnlLqzco]*[^\\w\\s]*O\\S*)(\\s|$)/": false,
@@ -8365,6 +8609,7 @@
         "/^find\\b.*\\s-(delete|exec|execdir|fprint|fprintf|fls|ok|okdir)\\b/": false,
         "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+branch\\b.*\\s-(d|D|m|M|-delete|-force)\\b/": false,
         "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+branch\\b/": true,
+        "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+diff\\b.*\\s--[^\\w\\s]*o[^\\w\\s]*u[^\\w\\s]*t[^\\w\\s]*p[^\\w\\s]*u[^\\w\\s]*t[^\\w\\s]*(=|\\s|$)/": false,
         "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+diff\\b/": true,
         "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+grep\\b.*\\s(?-i:--[^\\w\\s]*o[^\\w\\s]*p\\S*)(\\s|$)/": false,
         "/^git(\\s+(-(?-i:C)\\s+\\S+|--no-pager))*\\s+grep\\b.*\\s(?-i:-[aIivwhHEGPFnlLqzco]*[^\\w\\s]*O\\S*)(\\s|$)/": false,
@@ -8718,6 +8963,18 @@
         "order": 100
       },
       "defaultDefaultValue": "chat",
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.tools.terminal.outputReflow": {
+      "type": "boolean",
+      "default": true,
+      "description": "Controls whether terminal output in chat reflows to fit the available width. When disabled, previews use the terminal's column count, or 80 columns when no terminal is available, and scroll horizontally when needed. This does not resize the terminal running the command.",
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -11398,6 +11655,26 @@
       "defaultDefaultValue": {},
       "restricted": false
     },
+    "debug.javascript.resolveDebugEntrypoint": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "When true (default), js-debug uses source maps to remap a non-`.js` `program` path to its compiled output before launching. Set to false to execute the `program` path exactly as written.",
+      "scope": 4,
+      "section": {
+        "id": "ms-vscode.js-debug",
+        "title": "JavaScript Debugger",
+        "extensionInfo": {
+          "id": "ms-vscode.js-debug",
+          "displayName": "JavaScript Debugger"
+        }
+      },
+      "source": {
+        "id": "ms-vscode.js-debug",
+        "displayName": "JavaScript Debugger"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
     "debug.javascript.resourceRequestOptions": {
       "type": "object",
       "default": {},
@@ -12352,7 +12629,7 @@
       "$ref": "#/$defs/_29"
     },
     "editor.colorDecoratorsActivatedOn": {
-      "$ref": "#/$defs/_256"
+      "$ref": "#/$defs/_257"
     },
     "editor.colorDecoratorsLimit": {
       "$ref": "#/$defs/_30"
@@ -12391,7 +12668,7 @@
       "$ref": "#/$defs/_40"
     },
     "editor.defaultColorDecorators": {
-      "$ref": "#/$defs/_255"
+      "$ref": "#/$defs/_256"
     },
     "editor.defaultFoldingRangeProvider": {
       "description": "Defines a default folding range provider that takes precedence over all other folding range providers. Must be the identifier of an extension contributing a folding range provider.",
@@ -12658,7 +12935,7 @@
       "restricted": false
     },
     "editor.doubleClickSelectsBlock": {
-      "$ref": "#/$defs/_259"
+      "$ref": "#/$defs/_260"
     },
     "editor.dragAndDrop": {
       "$ref": "#/$defs/_42"
@@ -12956,7 +13233,7 @@
       "$ref": "#/$defs/_71"
     },
     "editor.fullwidthCharacterWidth": {
-      "$ref": "#/$defs/_260"
+      "$ref": "#/$defs/_261"
     },
     "editor.glyphMargin": {
       "$ref": "#/$defs/_72"
@@ -13055,25 +13332,25 @@
       "restricted": false
     },
     "editor.inertialScroll": {
-      "$ref": "#/$defs/_246"
-    },
-    "editor.inlayHints.enabled": {
       "$ref": "#/$defs/_247"
     },
-    "editor.inlayHints.fontFamily": {
-      "$ref": "#/$defs/_249"
-    },
-    "editor.inlayHints.fontSize": {
+    "editor.inlayHints.enabled": {
       "$ref": "#/$defs/_248"
     },
-    "editor.inlayHints.maximumLength": {
-      "$ref": "#/$defs/_251"
-    },
-    "editor.inlayHints.padding": {
+    "editor.inlayHints.fontFamily": {
       "$ref": "#/$defs/_250"
     },
+    "editor.inlayHints.fontSize": {
+      "$ref": "#/$defs/_249"
+    },
+    "editor.inlayHints.maximumLength": {
+      "$ref": "#/$defs/_252"
+    },
+    "editor.inlayHints.padding": {
+      "$ref": "#/$defs/_251"
+    },
     "editor.inlineCompletionsAccessibilityVerbose": {
-      "$ref": "#/$defs/_257"
+      "$ref": "#/$defs/_258"
     },
     "editor.inlineSuggest.edits.allowCodeShifting": {
       "$ref": "#/$defs/_102"
@@ -13423,10 +13700,13 @@
       "$ref": "#/$defs/_165"
     },
     "editor.scrollOnMiddleClick": {
-      "$ref": "#/$defs/_258"
+      "$ref": "#/$defs/_259"
     },
     "editor.scrollPredominantAxis": {
       "$ref": "#/$defs/_166"
+    },
+    "editor.selectedTextMatchMode": {
+      "$ref": "#/$defs/_171"
     },
     "editor.selectionClipboard": {
       "$ref": "#/$defs/_167"
@@ -13557,22 +13837,22 @@
       "restricted": false
     },
     "editor.showDeprecated": {
-      "$ref": "#/$defs/_245"
+      "$ref": "#/$defs/_246"
     },
     "editor.showFoldingControls": {
-      "$ref": "#/$defs/_171"
-    },
-    "editor.showUnused": {
       "$ref": "#/$defs/_172"
     },
-    "editor.smartSelect.selectLeadingAndTrailingWhitespace": {
-      "$ref": "#/$defs/_174"
+    "editor.showUnused": {
+      "$ref": "#/$defs/_173"
     },
-    "editor.smartSelect.selectSubwords": {
+    "editor.smartSelect.selectLeadingAndTrailingWhitespace": {
       "$ref": "#/$defs/_175"
     },
-    "editor.smoothScrolling": {
+    "editor.smartSelect.selectSubwords": {
       "$ref": "#/$defs/_176"
+    },
+    "editor.smoothScrolling": {
+      "$ref": "#/$defs/_177"
     },
     "editor.snippets.codeActions.enabled": {
       "description": "Controls if surround-with-snippets or file template snippets show as Code Actions.",
@@ -13588,7 +13868,7 @@
       "restricted": false
     },
     "editor.snippetSuggestions": {
-      "$ref": "#/$defs/_173"
+      "$ref": "#/$defs/_174"
     },
     "editor.stablePeek": {
       "type": "boolean",
@@ -13604,160 +13884,160 @@
       "restricted": false
     },
     "editor.stickyScroll.defaultModel": {
-      "$ref": "#/$defs/_179"
-    },
-    "editor.stickyScroll.enabled": {
-      "$ref": "#/$defs/_177"
-    },
-    "editor.stickyScroll.maxLineCount": {
-      "$ref": "#/$defs/_178"
-    },
-    "editor.stickyScroll.scrollWithEditor": {
       "$ref": "#/$defs/_180"
     },
-    "editor.stickyTabStops": {
+    "editor.stickyScroll.enabled": {
+      "$ref": "#/$defs/_178"
+    },
+    "editor.stickyScroll.maxLineCount": {
+      "$ref": "#/$defs/_179"
+    },
+    "editor.stickyScroll.scrollWithEditor": {
       "$ref": "#/$defs/_181"
     },
-    "editor.suggest.filteredTypes": {
-      "$ref": "#/$defs/_192"
-    },
-    "editor.suggest.filterGraceful": {
-      "$ref": "#/$defs/_183"
-    },
-    "editor.suggest.insertMode": {
+    "editor.stickyTabStops": {
       "$ref": "#/$defs/_182"
     },
-    "editor.suggest.localityBonus": {
-      "$ref": "#/$defs/_184"
-    },
-    "editor.suggest.matchOnWordStartOnly": {
-      "$ref": "#/$defs/_197"
-    },
-    "editor.suggest.preview": {
-      "$ref": "#/$defs/_190"
-    },
-    "editor.suggest.selectionMode": {
-      "$ref": "#/$defs/_186"
-    },
-    "editor.suggest.shareSuggestSelections": {
-      "$ref": "#/$defs/_185"
-    },
-    "editor.suggest.showClasses": {
-      "$ref": "#/$defs/_200"
-    },
-    "editor.suggest.showColors": {
-      "$ref": "#/$defs/_214"
-    },
-    "editor.suggest.showConstants": {
-      "$ref": "#/$defs/_209"
-    },
-    "editor.suggest.showConstructors": {
-      "$ref": "#/$defs/_195"
-    },
-    "editor.suggest.showCustomcolors": {
-      "$ref": "#/$defs/_217"
-    },
-    "editor.suggest.showDeprecated": {
-      "$ref": "#/$defs/_196"
-    },
-    "editor.suggest.showEnumMembers": {
-      "$ref": "#/$defs/_211"
-    },
-    "editor.suggest.showEnums": {
-      "$ref": "#/$defs/_210"
-    },
-    "editor.suggest.showEvents": {
-      "$ref": "#/$defs/_205"
-    },
-    "editor.suggest.showFields": {
-      "$ref": "#/$defs/_198"
-    },
-    "editor.suggest.showFiles": {
-      "$ref": "#/$defs/_215"
-    },
-    "editor.suggest.showFolders": {
-      "$ref": "#/$defs/_218"
-    },
-    "editor.suggest.showFunctions": {
-      "$ref": "#/$defs/_194"
-    },
-    "editor.suggest.showIcons": {
-      "$ref": "#/$defs/_188"
-    },
-    "editor.suggest.showInlineDetails": {
-      "$ref": "#/$defs/_191"
-    },
-    "editor.suggest.showInterfaces": {
-      "$ref": "#/$defs/_202"
-    },
-    "editor.suggest.showIssues": {
-      "$ref": "#/$defs/_222"
-    },
-    "editor.suggest.showKeywords": {
-      "$ref": "#/$defs/_212"
-    },
-    "editor.suggest.showMethods": {
+    "editor.suggest.filteredTypes": {
       "$ref": "#/$defs/_193"
     },
-    "editor.suggest.showModules": {
-      "$ref": "#/$defs/_203"
+    "editor.suggest.filterGraceful": {
+      "$ref": "#/$defs/_184"
     },
-    "editor.suggest.showOperators": {
-      "$ref": "#/$defs/_206"
+    "editor.suggest.insertMode": {
+      "$ref": "#/$defs/_183"
     },
-    "editor.suggest.showProperties": {
-      "$ref": "#/$defs/_204"
+    "editor.suggest.localityBonus": {
+      "$ref": "#/$defs/_185"
     },
-    "editor.suggest.showReferences": {
-      "$ref": "#/$defs/_216"
+    "editor.suggest.matchOnWordStartOnly": {
+      "$ref": "#/$defs/_198"
     },
-    "editor.suggest.showSnippets": {
-      "$ref": "#/$defs/_220"
+    "editor.suggest.preview": {
+      "$ref": "#/$defs/_191"
     },
-    "editor.suggest.showStatusBar": {
-      "$ref": "#/$defs/_189"
-    },
-    "editor.suggest.showStructs": {
-      "$ref": "#/$defs/_201"
-    },
-    "editor.suggest.showTypeParameters": {
-      "$ref": "#/$defs/_219"
-    },
-    "editor.suggest.showUnits": {
-      "$ref": "#/$defs/_207"
-    },
-    "editor.suggest.showUsers": {
-      "$ref": "#/$defs/_221"
-    },
-    "editor.suggest.showValues": {
-      "$ref": "#/$defs/_208"
-    },
-    "editor.suggest.showVariables": {
-      "$ref": "#/$defs/_199"
-    },
-    "editor.suggest.showWords": {
-      "$ref": "#/$defs/_213"
-    },
-    "editor.suggest.snippetsPreventQuickSuggestions": {
+    "editor.suggest.selectionMode": {
       "$ref": "#/$defs/_187"
     },
-    "editor.suggestFontSize": {
+    "editor.suggest.shareSuggestSelections": {
+      "$ref": "#/$defs/_186"
+    },
+    "editor.suggest.showClasses": {
+      "$ref": "#/$defs/_201"
+    },
+    "editor.suggest.showColors": {
+      "$ref": "#/$defs/_215"
+    },
+    "editor.suggest.showConstants": {
+      "$ref": "#/$defs/_210"
+    },
+    "editor.suggest.showConstructors": {
+      "$ref": "#/$defs/_196"
+    },
+    "editor.suggest.showCustomcolors": {
+      "$ref": "#/$defs/_218"
+    },
+    "editor.suggest.showDeprecated": {
+      "$ref": "#/$defs/_197"
+    },
+    "editor.suggest.showEnumMembers": {
+      "$ref": "#/$defs/_212"
+    },
+    "editor.suggest.showEnums": {
+      "$ref": "#/$defs/_211"
+    },
+    "editor.suggest.showEvents": {
+      "$ref": "#/$defs/_206"
+    },
+    "editor.suggest.showFields": {
+      "$ref": "#/$defs/_199"
+    },
+    "editor.suggest.showFiles": {
+      "$ref": "#/$defs/_216"
+    },
+    "editor.suggest.showFolders": {
+      "$ref": "#/$defs/_219"
+    },
+    "editor.suggest.showFunctions": {
+      "$ref": "#/$defs/_195"
+    },
+    "editor.suggest.showIcons": {
+      "$ref": "#/$defs/_189"
+    },
+    "editor.suggest.showInlineDetails": {
+      "$ref": "#/$defs/_192"
+    },
+    "editor.suggest.showInterfaces": {
+      "$ref": "#/$defs/_203"
+    },
+    "editor.suggest.showIssues": {
       "$ref": "#/$defs/_223"
     },
-    "editor.suggestLineHeight": {
+    "editor.suggest.showKeywords": {
+      "$ref": "#/$defs/_213"
+    },
+    "editor.suggest.showMethods": {
+      "$ref": "#/$defs/_194"
+    },
+    "editor.suggest.showModules": {
+      "$ref": "#/$defs/_204"
+    },
+    "editor.suggest.showOperators": {
+      "$ref": "#/$defs/_207"
+    },
+    "editor.suggest.showProperties": {
+      "$ref": "#/$defs/_205"
+    },
+    "editor.suggest.showReferences": {
+      "$ref": "#/$defs/_217"
+    },
+    "editor.suggest.showSnippets": {
+      "$ref": "#/$defs/_221"
+    },
+    "editor.suggest.showStatusBar": {
+      "$ref": "#/$defs/_190"
+    },
+    "editor.suggest.showStructs": {
+      "$ref": "#/$defs/_202"
+    },
+    "editor.suggest.showTypeParameters": {
+      "$ref": "#/$defs/_220"
+    },
+    "editor.suggest.showUnits": {
+      "$ref": "#/$defs/_208"
+    },
+    "editor.suggest.showUsers": {
+      "$ref": "#/$defs/_222"
+    },
+    "editor.suggest.showValues": {
+      "$ref": "#/$defs/_209"
+    },
+    "editor.suggest.showVariables": {
+      "$ref": "#/$defs/_200"
+    },
+    "editor.suggest.showWords": {
+      "$ref": "#/$defs/_214"
+    },
+    "editor.suggest.snippetsPreventQuickSuggestions": {
+      "$ref": "#/$defs/_188"
+    },
+    "editor.suggestFontSize": {
       "$ref": "#/$defs/_224"
     },
-    "editor.suggestOnTriggerCharacters": {
+    "editor.suggestLineHeight": {
       "$ref": "#/$defs/_225"
     },
-    "editor.suggestSelection": {
+    "editor.suggestOnTriggerCharacters": {
       "$ref": "#/$defs/_226"
     },
-    "editor.tabCompletion": {
+    "editor.suggestSelection": {
       "$ref": "#/$defs/_227"
     },
+    "editor.tabCompletion": {
+      "$ref": "#/$defs/_228"
+    },
     "editor.tabFocusMode": {
-      "$ref": "#/$defs/_254"
+      "$ref": "#/$defs/_255"
     },
     "editor.tabSize": {
       "type": "number",
@@ -13903,37 +14183,37 @@
       "restricted": false
     },
     "editor.trimWhitespaceOnDelete": {
-      "$ref": "#/$defs/_228"
+      "$ref": "#/$defs/_229"
     },
     "editor.unfoldOnClickAfterEndOfLine": {
       "$ref": "#/$defs/_64"
     },
     "editor.unicodeHighlight.allowedCharacters": {
-      "$ref": "#/$defs/_234"
-    },
-    "editor.unicodeHighlight.allowedLocales": {
       "$ref": "#/$defs/_235"
     },
-    "editor.unicodeHighlight.ambiguousCharacters": {
-      "$ref": "#/$defs/_231"
-    },
-    "editor.unicodeHighlight.includeComments": {
-      "$ref": "#/$defs/_232"
-    },
-    "editor.unicodeHighlight.includeStrings": {
-      "$ref": "#/$defs/_233"
-    },
-    "editor.unicodeHighlight.invisibleCharacters": {
-      "$ref": "#/$defs/_230"
-    },
-    "editor.unicodeHighlight.nonBasicASCII": {
-      "$ref": "#/$defs/_229"
-    },
-    "editor.unusualLineTerminators": {
+    "editor.unicodeHighlight.allowedLocales": {
       "$ref": "#/$defs/_236"
     },
-    "editor.useTabStops": {
+    "editor.unicodeHighlight.ambiguousCharacters": {
+      "$ref": "#/$defs/_232"
+    },
+    "editor.unicodeHighlight.includeComments": {
+      "$ref": "#/$defs/_233"
+    },
+    "editor.unicodeHighlight.includeStrings": {
+      "$ref": "#/$defs/_234"
+    },
+    "editor.unicodeHighlight.invisibleCharacters": {
+      "$ref": "#/$defs/_231"
+    },
+    "editor.unicodeHighlight.nonBasicASCII": {
+      "$ref": "#/$defs/_230"
+    },
+    "editor.unusualLineTerminators": {
       "$ref": "#/$defs/_237"
+    },
+    "editor.useTabStops": {
+      "$ref": "#/$defs/_238"
     },
     "editor.wordBasedSuggestions": {
       "enum": [
@@ -13968,31 +14248,31 @@
       ]
     },
     "editor.wordBreak": {
-      "$ref": "#/$defs/_238"
-    },
-    "editor.wordSegmenterLocales": {
       "$ref": "#/$defs/_239"
     },
-    "editor.wordSeparators": {
+    "editor.wordSegmenterLocales": {
       "$ref": "#/$defs/_240"
     },
-    "editor.wordWrap": {
+    "editor.wordSeparators": {
       "$ref": "#/$defs/_241"
     },
-    "editor.wordWrapColumn": {
+    "editor.wordWrap": {
       "$ref": "#/$defs/_242"
     },
-    "editor.wordWrapIndicator": {
-      "$ref": "#/$defs/_253"
-    },
-    "editor.wrapOnEscapedLineFeeds": {
-      "$ref": "#/$defs/_252"
-    },
-    "editor.wrappingIndent": {
+    "editor.wordWrapColumn": {
       "$ref": "#/$defs/_243"
     },
-    "editor.wrappingStrategy": {
+    "editor.wordWrapIndicator": {
+      "$ref": "#/$defs/_254"
+    },
+    "editor.wrapOnEscapedLineFeeds": {
+      "$ref": "#/$defs/_253"
+    },
+    "editor.wrappingIndent": {
       "$ref": "#/$defs/_244"
+    },
+    "editor.wrappingStrategy": {
+      "$ref": "#/$defs/_245"
     },
     "emmet.excludeLanguages": {
       "type": "array",
@@ -15509,7 +15789,7 @@
         ]
       },
       "default": [],
-      "markdownDescription": "List of character set encodings that the editor should attempt to guess in the order they are listed. In case it cannot be determined, `#files.encoding#` is respected",
+      "markdownDescription": "List of character set encodings that the editor should attempt to guess. If guessing fails for non-UTF-8 content, a legacy encoding is used only if it is the only lossless match among the candidates. If no encoding can be determined, `#files.encoding#` is respected.",
       "scope": 6,
       "section": {
         "id": "files",
@@ -18389,7 +18669,33 @@
         "type": "string"
       },
       "default": [],
-      "markdownDescription": "Configure [glob patterns](https://aka.ms/vscode-glob-patterns) for files and folders that are included when creating a new worktree. Only files and folders that match the patterns and are listed in `.gitignore` will be copied to the newly created worktree.",
+      "markdownDescription": "Configure patterns, using `.gitignore` syntax, for files and folders that are included when creating a new worktree. Only files and folders that match the patterns and are ignored by git (for example, listed in `.gitignore`) will be copied to the newly created worktree.",
+      "scope": 5,
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "vscode.git",
+        "title": "Git",
+        "extensionInfo": {
+          "id": "vscode.git",
+          "displayName": "Git"
+        }
+      },
+      "source": {
+        "id": "vscode.git",
+        "displayName": "Git"
+      },
+      "defaultDefaultValue": [],
+      "restricted": false
+    },
+    "git.worktreeSymlinkFolders": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "markdownDescription": "Configure patterns, using `.gitignore` syntax, for folders to symlink from the current checkout into newly created worktrees. Only folders that match the patterns and are ignored by git (for example, listed in `.gitignore`) will be symlinked. Changes made through a symlink affect the folder in the current checkout.",
       "scope": 5,
       "tags": [
         "experimental"
@@ -25698,7 +26004,7 @@
               "$ref": "#/$defs/_29"
             },
             "editor.colorDecoratorsActivatedOn": {
-              "$ref": "#/$defs/_256"
+              "$ref": "#/$defs/_257"
             },
             "editor.colorDecoratorsLimit": {
               "$ref": "#/$defs/_30"
@@ -25737,13 +26043,13 @@
               "$ref": "#/$defs/_40"
             },
             "editor.defaultColorDecorators": {
-              "$ref": "#/$defs/_255"
+              "$ref": "#/$defs/_256"
             },
             "editor.definitionLinkOpensInPeek": {
               "$ref": "#/$defs/_146"
             },
             "editor.doubleClickSelectsBlock": {
-              "$ref": "#/$defs/_259"
+              "$ref": "#/$defs/_260"
             },
             "editor.dragAndDrop": {
               "$ref": "#/$defs/_42"
@@ -25847,7 +26153,7 @@
               "$ref": "#/$defs/_71"
             },
             "editor.fullwidthCharacterWidth": {
-              "$ref": "#/$defs/_260"
+              "$ref": "#/$defs/_261"
             },
             "editor.glyphMargin": {
               "$ref": "#/$defs/_72"
@@ -25922,25 +26228,25 @@
               "$ref": "#/$defs/_87"
             },
             "editor.inertialScroll": {
-              "$ref": "#/$defs/_246"
-            },
-            "editor.inlayHints.enabled": {
               "$ref": "#/$defs/_247"
             },
-            "editor.inlayHints.fontFamily": {
-              "$ref": "#/$defs/_249"
-            },
-            "editor.inlayHints.fontSize": {
+            "editor.inlayHints.enabled": {
               "$ref": "#/$defs/_248"
             },
-            "editor.inlayHints.maximumLength": {
-              "$ref": "#/$defs/_251"
-            },
-            "editor.inlayHints.padding": {
+            "editor.inlayHints.fontFamily": {
               "$ref": "#/$defs/_250"
             },
+            "editor.inlayHints.fontSize": {
+              "$ref": "#/$defs/_249"
+            },
+            "editor.inlayHints.maximumLength": {
+              "$ref": "#/$defs/_252"
+            },
+            "editor.inlayHints.padding": {
+              "$ref": "#/$defs/_251"
+            },
             "editor.inlineCompletionsAccessibilityVerbose": {
-              "$ref": "#/$defs/_257"
+              "$ref": "#/$defs/_258"
             },
             "editor.inlineSuggest.edits.allowCodeShifting": {
               "$ref": "#/$defs/_102"
@@ -26168,10 +26474,13 @@
               "$ref": "#/$defs/_165"
             },
             "editor.scrollOnMiddleClick": {
-              "$ref": "#/$defs/_258"
+              "$ref": "#/$defs/_259"
             },
             "editor.scrollPredominantAxis": {
               "$ref": "#/$defs/_166"
+            },
+            "editor.selectedTextMatchMode": {
+              "$ref": "#/$defs/_171"
             },
             "editor.selectionClipboard": {
               "$ref": "#/$defs/_167"
@@ -26186,241 +26495,241 @@
               "$ref": "#/$defs/_170"
             },
             "editor.showDeprecated": {
-              "$ref": "#/$defs/_245"
+              "$ref": "#/$defs/_246"
             },
             "editor.showFoldingControls": {
-              "$ref": "#/$defs/_171"
-            },
-            "editor.showUnused": {
               "$ref": "#/$defs/_172"
             },
-            "editor.smartSelect.selectLeadingAndTrailingWhitespace": {
-              "$ref": "#/$defs/_174"
-            },
-            "editor.smartSelect.selectSubwords": {
-              "$ref": "#/$defs/_175"
-            },
-            "editor.smoothScrolling": {
-              "$ref": "#/$defs/_176"
-            },
-            "editor.snippetSuggestions": {
+            "editor.showUnused": {
               "$ref": "#/$defs/_173"
             },
-            "editor.stickyScroll.defaultModel": {
-              "$ref": "#/$defs/_179"
+            "editor.smartSelect.selectLeadingAndTrailingWhitespace": {
+              "$ref": "#/$defs/_175"
             },
-            "editor.stickyScroll.enabled": {
+            "editor.smartSelect.selectSubwords": {
+              "$ref": "#/$defs/_176"
+            },
+            "editor.smoothScrolling": {
               "$ref": "#/$defs/_177"
             },
-            "editor.stickyScroll.maxLineCount": {
-              "$ref": "#/$defs/_178"
+            "editor.snippetSuggestions": {
+              "$ref": "#/$defs/_174"
             },
-            "editor.stickyScroll.scrollWithEditor": {
+            "editor.stickyScroll.defaultModel": {
               "$ref": "#/$defs/_180"
             },
-            "editor.stickyTabStops": {
+            "editor.stickyScroll.enabled": {
+              "$ref": "#/$defs/_178"
+            },
+            "editor.stickyScroll.maxLineCount": {
+              "$ref": "#/$defs/_179"
+            },
+            "editor.stickyScroll.scrollWithEditor": {
               "$ref": "#/$defs/_181"
             },
-            "editor.suggest.filteredTypes": {
-              "$ref": "#/$defs/_192"
-            },
-            "editor.suggest.filterGraceful": {
-              "$ref": "#/$defs/_183"
-            },
-            "editor.suggest.insertMode": {
+            "editor.stickyTabStops": {
               "$ref": "#/$defs/_182"
             },
-            "editor.suggest.localityBonus": {
-              "$ref": "#/$defs/_184"
-            },
-            "editor.suggest.matchOnWordStartOnly": {
-              "$ref": "#/$defs/_197"
-            },
-            "editor.suggest.preview": {
-              "$ref": "#/$defs/_190"
-            },
-            "editor.suggest.selectionMode": {
-              "$ref": "#/$defs/_186"
-            },
-            "editor.suggest.shareSuggestSelections": {
-              "$ref": "#/$defs/_185"
-            },
-            "editor.suggest.showClasses": {
-              "$ref": "#/$defs/_200"
-            },
-            "editor.suggest.showColors": {
-              "$ref": "#/$defs/_214"
-            },
-            "editor.suggest.showConstants": {
-              "$ref": "#/$defs/_209"
-            },
-            "editor.suggest.showConstructors": {
-              "$ref": "#/$defs/_195"
-            },
-            "editor.suggest.showCustomcolors": {
-              "$ref": "#/$defs/_217"
-            },
-            "editor.suggest.showDeprecated": {
-              "$ref": "#/$defs/_196"
-            },
-            "editor.suggest.showEnumMembers": {
-              "$ref": "#/$defs/_211"
-            },
-            "editor.suggest.showEnums": {
-              "$ref": "#/$defs/_210"
-            },
-            "editor.suggest.showEvents": {
-              "$ref": "#/$defs/_205"
-            },
-            "editor.suggest.showFields": {
-              "$ref": "#/$defs/_198"
-            },
-            "editor.suggest.showFiles": {
-              "$ref": "#/$defs/_215"
-            },
-            "editor.suggest.showFolders": {
-              "$ref": "#/$defs/_218"
-            },
-            "editor.suggest.showFunctions": {
-              "$ref": "#/$defs/_194"
-            },
-            "editor.suggest.showIcons": {
-              "$ref": "#/$defs/_188"
-            },
-            "editor.suggest.showInlineDetails": {
-              "$ref": "#/$defs/_191"
-            },
-            "editor.suggest.showInterfaces": {
-              "$ref": "#/$defs/_202"
-            },
-            "editor.suggest.showIssues": {
-              "$ref": "#/$defs/_222"
-            },
-            "editor.suggest.showKeywords": {
-              "$ref": "#/$defs/_212"
-            },
-            "editor.suggest.showMethods": {
+            "editor.suggest.filteredTypes": {
               "$ref": "#/$defs/_193"
             },
-            "editor.suggest.showModules": {
-              "$ref": "#/$defs/_203"
+            "editor.suggest.filterGraceful": {
+              "$ref": "#/$defs/_184"
             },
-            "editor.suggest.showOperators": {
-              "$ref": "#/$defs/_206"
+            "editor.suggest.insertMode": {
+              "$ref": "#/$defs/_183"
             },
-            "editor.suggest.showProperties": {
-              "$ref": "#/$defs/_204"
+            "editor.suggest.localityBonus": {
+              "$ref": "#/$defs/_185"
             },
-            "editor.suggest.showReferences": {
-              "$ref": "#/$defs/_216"
+            "editor.suggest.matchOnWordStartOnly": {
+              "$ref": "#/$defs/_198"
             },
-            "editor.suggest.showSnippets": {
-              "$ref": "#/$defs/_220"
+            "editor.suggest.preview": {
+              "$ref": "#/$defs/_191"
             },
-            "editor.suggest.showStatusBar": {
-              "$ref": "#/$defs/_189"
-            },
-            "editor.suggest.showStructs": {
-              "$ref": "#/$defs/_201"
-            },
-            "editor.suggest.showTypeParameters": {
-              "$ref": "#/$defs/_219"
-            },
-            "editor.suggest.showUnits": {
-              "$ref": "#/$defs/_207"
-            },
-            "editor.suggest.showUsers": {
-              "$ref": "#/$defs/_221"
-            },
-            "editor.suggest.showValues": {
-              "$ref": "#/$defs/_208"
-            },
-            "editor.suggest.showVariables": {
-              "$ref": "#/$defs/_199"
-            },
-            "editor.suggest.showWords": {
-              "$ref": "#/$defs/_213"
-            },
-            "editor.suggest.snippetsPreventQuickSuggestions": {
+            "editor.suggest.selectionMode": {
               "$ref": "#/$defs/_187"
             },
-            "editor.suggestFontSize": {
+            "editor.suggest.shareSuggestSelections": {
+              "$ref": "#/$defs/_186"
+            },
+            "editor.suggest.showClasses": {
+              "$ref": "#/$defs/_201"
+            },
+            "editor.suggest.showColors": {
+              "$ref": "#/$defs/_215"
+            },
+            "editor.suggest.showConstants": {
+              "$ref": "#/$defs/_210"
+            },
+            "editor.suggest.showConstructors": {
+              "$ref": "#/$defs/_196"
+            },
+            "editor.suggest.showCustomcolors": {
+              "$ref": "#/$defs/_218"
+            },
+            "editor.suggest.showDeprecated": {
+              "$ref": "#/$defs/_197"
+            },
+            "editor.suggest.showEnumMembers": {
+              "$ref": "#/$defs/_212"
+            },
+            "editor.suggest.showEnums": {
+              "$ref": "#/$defs/_211"
+            },
+            "editor.suggest.showEvents": {
+              "$ref": "#/$defs/_206"
+            },
+            "editor.suggest.showFields": {
+              "$ref": "#/$defs/_199"
+            },
+            "editor.suggest.showFiles": {
+              "$ref": "#/$defs/_216"
+            },
+            "editor.suggest.showFolders": {
+              "$ref": "#/$defs/_219"
+            },
+            "editor.suggest.showFunctions": {
+              "$ref": "#/$defs/_195"
+            },
+            "editor.suggest.showIcons": {
+              "$ref": "#/$defs/_189"
+            },
+            "editor.suggest.showInlineDetails": {
+              "$ref": "#/$defs/_192"
+            },
+            "editor.suggest.showInterfaces": {
+              "$ref": "#/$defs/_203"
+            },
+            "editor.suggest.showIssues": {
               "$ref": "#/$defs/_223"
             },
-            "editor.suggestLineHeight": {
+            "editor.suggest.showKeywords": {
+              "$ref": "#/$defs/_213"
+            },
+            "editor.suggest.showMethods": {
+              "$ref": "#/$defs/_194"
+            },
+            "editor.suggest.showModules": {
+              "$ref": "#/$defs/_204"
+            },
+            "editor.suggest.showOperators": {
+              "$ref": "#/$defs/_207"
+            },
+            "editor.suggest.showProperties": {
+              "$ref": "#/$defs/_205"
+            },
+            "editor.suggest.showReferences": {
+              "$ref": "#/$defs/_217"
+            },
+            "editor.suggest.showSnippets": {
+              "$ref": "#/$defs/_221"
+            },
+            "editor.suggest.showStatusBar": {
+              "$ref": "#/$defs/_190"
+            },
+            "editor.suggest.showStructs": {
+              "$ref": "#/$defs/_202"
+            },
+            "editor.suggest.showTypeParameters": {
+              "$ref": "#/$defs/_220"
+            },
+            "editor.suggest.showUnits": {
+              "$ref": "#/$defs/_208"
+            },
+            "editor.suggest.showUsers": {
+              "$ref": "#/$defs/_222"
+            },
+            "editor.suggest.showValues": {
+              "$ref": "#/$defs/_209"
+            },
+            "editor.suggest.showVariables": {
+              "$ref": "#/$defs/_200"
+            },
+            "editor.suggest.showWords": {
+              "$ref": "#/$defs/_214"
+            },
+            "editor.suggest.snippetsPreventQuickSuggestions": {
+              "$ref": "#/$defs/_188"
+            },
+            "editor.suggestFontSize": {
               "$ref": "#/$defs/_224"
             },
-            "editor.suggestOnTriggerCharacters": {
+            "editor.suggestLineHeight": {
               "$ref": "#/$defs/_225"
             },
-            "editor.suggestSelection": {
+            "editor.suggestOnTriggerCharacters": {
               "$ref": "#/$defs/_226"
             },
-            "editor.tabCompletion": {
+            "editor.suggestSelection": {
               "$ref": "#/$defs/_227"
             },
+            "editor.tabCompletion": {
+              "$ref": "#/$defs/_228"
+            },
             "editor.tabFocusMode": {
-              "$ref": "#/$defs/_254"
+              "$ref": "#/$defs/_255"
             },
             "editor.trimWhitespaceOnDelete": {
-              "$ref": "#/$defs/_228"
+              "$ref": "#/$defs/_229"
             },
             "editor.unfoldOnClickAfterEndOfLine": {
               "$ref": "#/$defs/_64"
             },
             "editor.unicodeHighlight.allowedCharacters": {
-              "$ref": "#/$defs/_234"
-            },
-            "editor.unicodeHighlight.allowedLocales": {
               "$ref": "#/$defs/_235"
             },
-            "editor.unicodeHighlight.ambiguousCharacters": {
-              "$ref": "#/$defs/_231"
-            },
-            "editor.unicodeHighlight.includeComments": {
-              "$ref": "#/$defs/_232"
-            },
-            "editor.unicodeHighlight.includeStrings": {
-              "$ref": "#/$defs/_233"
-            },
-            "editor.unicodeHighlight.invisibleCharacters": {
-              "$ref": "#/$defs/_230"
-            },
-            "editor.unicodeHighlight.nonBasicASCII": {
-              "$ref": "#/$defs/_229"
-            },
-            "editor.unusualLineTerminators": {
+            "editor.unicodeHighlight.allowedLocales": {
               "$ref": "#/$defs/_236"
             },
-            "editor.useTabStops": {
+            "editor.unicodeHighlight.ambiguousCharacters": {
+              "$ref": "#/$defs/_232"
+            },
+            "editor.unicodeHighlight.includeComments": {
+              "$ref": "#/$defs/_233"
+            },
+            "editor.unicodeHighlight.includeStrings": {
+              "$ref": "#/$defs/_234"
+            },
+            "editor.unicodeHighlight.invisibleCharacters": {
+              "$ref": "#/$defs/_231"
+            },
+            "editor.unicodeHighlight.nonBasicASCII": {
+              "$ref": "#/$defs/_230"
+            },
+            "editor.unusualLineTerminators": {
               "$ref": "#/$defs/_237"
             },
-            "editor.wordBreak": {
+            "editor.useTabStops": {
               "$ref": "#/$defs/_238"
             },
-            "editor.wordSegmenterLocales": {
+            "editor.wordBreak": {
               "$ref": "#/$defs/_239"
             },
-            "editor.wordSeparators": {
+            "editor.wordSegmenterLocales": {
               "$ref": "#/$defs/_240"
             },
-            "editor.wordWrap": {
+            "editor.wordSeparators": {
               "$ref": "#/$defs/_241"
             },
-            "editor.wordWrapColumn": {
+            "editor.wordWrap": {
               "$ref": "#/$defs/_242"
             },
-            "editor.wordWrapIndicator": {
-              "$ref": "#/$defs/_253"
-            },
-            "editor.wrapOnEscapedLineFeeds": {
-              "$ref": "#/$defs/_252"
-            },
-            "editor.wrappingIndent": {
+            "editor.wordWrapColumn": {
               "$ref": "#/$defs/_243"
             },
-            "editor.wrappingStrategy": {
+            "editor.wordWrapIndicator": {
+              "$ref": "#/$defs/_254"
+            },
+            "editor.wrapOnEscapedLineFeeds": {
+              "$ref": "#/$defs/_253"
+            },
+            "editor.wrappingIndent": {
               "$ref": "#/$defs/_244"
+            },
+            "editor.wrappingStrategy": {
+              "$ref": "#/$defs/_245"
             }
           }
         }
@@ -38280,7 +38589,7 @@
       "markdownDescription": "Configure [glob patterns](https://aka.ms/vscode-glob-patterns) to editors for diff views (for example `\"*.md\": \"vscode.markdown.preview.editor\"`). These override `workbench.editorAssociations` for diffs.",
       "patternProperties": {
         ".*": {
-          "$ref": "#/$defs/_261"
+          "$ref": "#/$defs/_405"
         }
       },
       "agentsWindow": {
@@ -39508,7 +39817,7 @@
       "markdownDescription": "Configure [glob patterns](https://aka.ms/vscode-glob-patterns) to editors (for example `\"*.hex\": \"hexEditor.hexedit\"`). These have precedence over the default behavior.",
       "patternProperties": {
         ".*": {
-          "$ref": "#/$defs/_261"
+          "$ref": "#/$defs/_405"
         }
       },
       "agentsWindow": {
@@ -39631,11 +39940,7 @@
       "tags": [
         "experimental"
       ],
-      "markdownDescription": "Controls the editor tab style when `#workbench.experimental.modernUI#` is enabled. High contrast themes retain explicit selection and focus borders.",
-      "agentsWindow": {
-        "default": "pill",
-        "readOnly": true
-      },
+      "markdownDescription": "Controls the editor tab style when `#workbench.experimental.modernUI#` is enabled, and the chat and side-panel tab style in the Agents window. High contrast themes retain explicit selection and focus borders.",
       "section": {
         "id": "workbench",
         "title": "Workbench",
@@ -44041,7 +44346,7 @@
                   "type": "boolean"
                 },
                 {
-                  "$ref": "#/$defs/_405"
+                  "$ref": "#/$defs/_406"
                 }
               ],
               "default": "off",
@@ -44053,7 +44358,7 @@
                   "type": "boolean"
                 },
                 {
-                  "$ref": "#/$defs/_405"
+                  "$ref": "#/$defs/_406"
                 }
               ],
               "default": "off",
@@ -44065,7 +44370,7 @@
                   "type": "boolean"
                 },
                 {
-                  "$ref": "#/$defs/_405"
+                  "$ref": "#/$defs/_406"
                 }
               ],
               "default": "offWhenInlineCompletions",
@@ -44262,7 +44567,7 @@
       "items": {
         "anyOf": [
           {
-            "$ref": "#/$defs/_406"
+            "$ref": "#/$defs/_407"
           },
           {
             "type": [
@@ -44270,7 +44575,7 @@
             ],
             "properties": {
               "column": {
-                "$ref": "#/$defs/_406"
+                "$ref": "#/$defs/_407"
               },
               "color": {
                 "type": "string",
@@ -44488,6 +44793,29 @@
     },
     "_171": {
       "enumDescriptions": [
+        "Use the Find widget's match case and whole word settings.",
+        "Match occurrences case-sensitively and independently of the Find widget.",
+        "Match occurrences case-insensitively and independently of the Find widget."
+      ],
+      "markdownDescription": "Controls how occurrences of selected text are matched when selecting the next, previous, or all occurrences and when highlighting selection matches. `caseSensitive` and `caseInsensitive` match substrings independently of the Find widget. An empty selection always starts a whole-word, case-sensitive search.",
+      "type": "string",
+      "enum": [
+        "findOptions",
+        "caseSensitive",
+        "caseInsensitive"
+      ],
+      "default": "findOptions",
+      "section": {
+        "id": "editor",
+        "title": "Editor",
+        "order": 5
+      },
+      "defaultDefaultValue": "findOptions",
+      "scope": 6,
+      "restricted": false
+    },
+    "_172": {
+      "enumDescriptions": [
         "Always show the folding controls.",
         "Never show the folding controls and reduce the gutter size.",
         "Only show the folding controls when the mouse is over the gutter."
@@ -44509,7 +44837,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_172": {
+    "_173": {
       "description": "Controls fading out of unused code.",
       "type": "boolean",
       "default": true,
@@ -44522,7 +44850,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_173": {
+    "_174": {
       "enumDescriptions": [
         "Show snippet suggestions on top of other suggestions.",
         "Show snippet suggestions below other suggestions.",
@@ -44547,7 +44875,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_174": {
+    "_175": {
       "description": "Whether leading and trailing whitespace should always be selected.",
       "default": true,
       "type": "boolean",
@@ -44560,7 +44888,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_175": {
+    "_176": {
       "description": "Whether subwords (like 'foo' in 'fooBar' or 'foo_bar') should be selected.",
       "default": true,
       "type": "boolean",
@@ -44573,7 +44901,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_176": {
+    "_177": {
       "description": "Controls whether the editor will scroll using an animation.",
       "type": "boolean",
       "default": false,
@@ -44586,7 +44914,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_177": {
+    "_178": {
       "type": "boolean",
       "default": true,
       "description": "Shows the nested current scopes during the scroll at the top of the editor.",
@@ -44599,7 +44927,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_178": {
+    "_179": {
       "type": "number",
       "default": 5,
       "minimum": 1,
@@ -44614,7 +44942,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_179": {
+    "_180": {
       "type": "string",
       "enum": [
         "outlineModel",
@@ -44632,7 +44960,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_180": {
+    "_181": {
       "type": "boolean",
       "default": true,
       "description": "Enable scrolling of Sticky Scroll with the editor's horizontal scrollbar.",
@@ -44645,7 +44973,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_181": {
+    "_182": {
       "description": "Emulate selection behavior of tab characters when using spaces for indentation. Selection will stick to tab stops.",
       "type": "boolean",
       "default": false,
@@ -44658,7 +44986,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_182": {
+    "_183": {
       "type": "string",
       "enum": [
         "insert",
@@ -44679,7 +45007,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_183": {
+    "_184": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether filtering and sorting suggestions accounts for small typos.",
@@ -44692,7 +45020,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_184": {
+    "_185": {
       "type": "boolean",
       "default": false,
       "description": "Controls whether sorting favors words that appear close to the cursor.",
@@ -44705,7 +45033,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_185": {
+    "_186": {
       "type": "boolean",
       "default": false,
       "markdownDescription": "Controls whether remembered suggestion selections are shared between multiple workspaces and windows (needs `#editor.suggestSelection#`).",
@@ -44718,7 +45046,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_186": {
+    "_187": {
       "type": "string",
       "enum": [
         "always",
@@ -44743,7 +45071,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_187": {
+    "_188": {
       "type": "boolean",
       "default": false,
       "description": "Controls whether an active snippet prevents quick suggestions.",
@@ -44756,7 +45084,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_188": {
+    "_189": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether to show or hide icons in suggestions.",
@@ -44769,7 +45097,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_189": {
+    "_190": {
       "type": "boolean",
       "default": false,
       "description": "Controls the visibility of the status bar at the bottom of the suggest widget.",
@@ -44782,7 +45110,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_190": {
+    "_191": {
       "type": "boolean",
       "default": false,
       "description": "Controls whether to preview the suggestion outcome in the editor.",
@@ -44795,7 +45123,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_191": {
+    "_192": {
       "type": "boolean",
       "default": true,
       "description": "Controls whether suggest details show inline with the label or only in the details widget.",
@@ -44808,7 +45136,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_192": {
+    "_193": {
       "type": "object",
       "deprecationMessage": "This setting is deprecated, please use separate settings like 'editor.suggest.showKeywords' or 'editor.suggest.showSnippets' instead.",
       "section": {
@@ -44820,7 +45148,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_193": {
+    "_194": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `method`-suggestions.",
@@ -44833,7 +45161,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_194": {
+    "_195": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `function`-suggestions.",
@@ -44846,7 +45174,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_195": {
+    "_196": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `constructor`-suggestions.",
@@ -44859,7 +45187,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_196": {
+    "_197": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `deprecated`-suggestions.",
@@ -44872,7 +45200,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_197": {
+    "_198": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense filtering requires that the first character matches on a word start. For example, `c` on `Console` or `WebContext` but _not_ on `description`. When disabled IntelliSense will show more results but still sorts them by match quality.",
@@ -44885,7 +45213,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_198": {
+    "_199": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `field`-suggestions.",
@@ -44898,7 +45226,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_199": {
+    "_200": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `variable`-suggestions.",
@@ -44911,7 +45239,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_200": {
+    "_201": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `class`-suggestions.",
@@ -44924,7 +45252,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_201": {
+    "_202": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `struct`-suggestions.",
@@ -44937,7 +45265,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_202": {
+    "_203": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `interface`-suggestions.",
@@ -44950,7 +45278,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_203": {
+    "_204": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `module`-suggestions.",
@@ -44963,7 +45291,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_204": {
+    "_205": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `property`-suggestions.",
@@ -44976,7 +45304,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_205": {
+    "_206": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `event`-suggestions.",
@@ -44989,7 +45317,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_206": {
+    "_207": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `operator`-suggestions.",
@@ -45002,7 +45330,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_207": {
+    "_208": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `unit`-suggestions.",
@@ -45015,7 +45343,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_208": {
+    "_209": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `value`-suggestions.",
@@ -45028,7 +45356,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_209": {
+    "_210": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `constant`-suggestions.",
@@ -45041,7 +45369,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_210": {
+    "_211": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `enum`-suggestions.",
@@ -45054,7 +45382,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_211": {
+    "_212": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `enumMember`-suggestions.",
@@ -45067,7 +45395,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_212": {
+    "_213": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `keyword`-suggestions.",
@@ -45080,7 +45408,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_213": {
+    "_214": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `text`-suggestions.",
@@ -45093,7 +45421,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_214": {
+    "_215": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `color`-suggestions.",
@@ -45106,7 +45434,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_215": {
+    "_216": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `file`-suggestions.",
@@ -45119,7 +45447,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_216": {
+    "_217": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `reference`-suggestions.",
@@ -45132,7 +45460,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_217": {
+    "_218": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `customcolor`-suggestions.",
@@ -45145,7 +45473,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_218": {
+    "_219": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `folder`-suggestions.",
@@ -45158,7 +45486,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_219": {
+    "_220": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `typeParameter`-suggestions.",
@@ -45171,7 +45499,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_220": {
+    "_221": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `snippet`-suggestions.",
@@ -45184,7 +45512,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_221": {
+    "_222": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `user`-suggestions.",
@@ -45197,7 +45525,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_222": {
+    "_223": {
       "type": "boolean",
       "default": true,
       "markdownDescription": "When enabled IntelliSense shows `issues`-suggestions.",
@@ -45210,7 +45538,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_223": {
+    "_224": {
       "markdownDescription": "Font size for the suggest widget. When set to `0`, the value of `#editor.fontSize#` is used.",
       "type": "integer",
       "default": 0,
@@ -45225,7 +45553,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_224": {
+    "_225": {
       "markdownDescription": "Line height for the suggest widget. When set to `0`, the value of `#editor.lineHeight#` is used. The minimum value is 8.",
       "type": "integer",
       "default": 0,
@@ -45240,7 +45568,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_225": {
+    "_226": {
       "description": "Controls whether suggestions should automatically show up when typing trigger characters.",
       "type": "boolean",
       "default": true,
@@ -45253,7 +45581,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_226": {
+    "_227": {
       "markdownEnumDescriptions": [
         "Always select the first suggestion.",
         "Select recent suggestions unless further typing selects one, e.g. `console.| -> console.log` because `log` has been completed recently.",
@@ -45276,7 +45604,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_227": {
+    "_228": {
       "enumDescriptions": [
         "Tab complete will insert the best matching suggestion when pressing tab.",
         "Disable tab completions.",
@@ -45299,7 +45627,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_228": {
+    "_229": {
       "description": "Controls whether the editor will also delete the next line's indentation whitespace when deleting a newline.",
       "type": "boolean",
       "default": false,
@@ -45312,7 +45640,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_229": {
+    "_230": {
       "restricted": true,
       "type": [
         "boolean",
@@ -45333,7 +45661,7 @@
       "defaultDefaultValue": "inUntrustedWorkspace",
       "scope": 6
     },
-    "_230": {
+    "_231": {
       "restricted": true,
       "type": "boolean",
       "default": true,
@@ -45346,7 +45674,7 @@
       "defaultDefaultValue": true,
       "scope": 6
     },
-    "_231": {
+    "_232": {
       "restricted": true,
       "type": "boolean",
       "default": true,
@@ -45359,7 +45687,7 @@
       "defaultDefaultValue": true,
       "scope": 6
     },
-    "_232": {
+    "_233": {
       "restricted": true,
       "type": [
         "boolean",
@@ -45380,7 +45708,7 @@
       "defaultDefaultValue": "inUntrustedWorkspace",
       "scope": 6
     },
-    "_233": {
+    "_234": {
       "restricted": true,
       "type": [
         "boolean",
@@ -45401,7 +45729,7 @@
       "defaultDefaultValue": true,
       "scope": 6
     },
-    "_234": {
+    "_235": {
       "restricted": true,
       "type": "object",
       "default": {},
@@ -45417,7 +45745,7 @@
       "defaultDefaultValue": {},
       "scope": 6
     },
-    "_235": {
+    "_236": {
       "restricted": true,
       "type": "object",
       "additionalProperties": {
@@ -45439,7 +45767,7 @@
       },
       "scope": 6
     },
-    "_236": {
+    "_237": {
       "enumDescriptions": [
         "Unusual line terminators are automatically removed.",
         "Unusual line terminators are ignored.",
@@ -45462,7 +45790,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_237": {
+    "_238": {
       "description": "Spaces and tabs are inserted and deleted in alignment with tab stops.",
       "type": "boolean",
       "default": true,
@@ -45475,7 +45803,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_238": {
+    "_239": {
       "markdownEnumDescriptions": [
         "Use the default line break rule.",
         "Word breaks should not be used for Chinese/Japanese/Korean (CJK) text. Non-CJK text behavior is the same as for normal."
@@ -45496,7 +45824,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_239": {
+    "_240": {
       "anyOf": [
         {
           "type": "string"
@@ -45520,7 +45848,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_240": {
+    "_241": {
       "description": "Characters that will be used as word separators when doing word related navigations or operations.",
       "type": "string",
       "default": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?",
@@ -45533,7 +45861,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_241": {
+    "_242": {
       "markdownEnumDescriptions": [
         "Lines will never wrap.",
         "Lines will wrap at the viewport width.",
@@ -45558,7 +45886,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_242": {
+    "_243": {
       "markdownDescription": "Controls the wrapping column of the editor when `#editor.wordWrap#` is `wordWrapColumn` or `bounded`.",
       "type": "integer",
       "default": 80,
@@ -45573,7 +45901,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_243": {
+    "_244": {
       "type": "string",
       "enum": [
         "none",
@@ -45598,7 +45926,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_244": {
+    "_245": {
       "enumDescriptions": [
         "Assumes that all characters are of the same width. This is a fast algorithm that works correctly for monospace fonts and certain scripts (like Latin characters) where glyphs are of equal width.",
         "Delegates wrapping points computation to the browser. This is a slow algorithm, that might cause freezes for large files, but it works correctly in all cases."
@@ -45619,7 +45947,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_245": {
+    "_246": {
       "description": "Controls strikethrough deprecated variables.",
       "type": "boolean",
       "default": true,
@@ -45632,7 +45960,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_246": {
+    "_247": {
       "description": "Make scrolling inertial - mostly useful with touchpad on linux.",
       "type": "boolean",
       "default": false,
@@ -45645,7 +45973,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_247": {
+    "_248": {
       "type": "string",
       "default": "on",
       "description": "Enables the inlay hints in the editor.",
@@ -45670,7 +45998,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_248": {
+    "_249": {
       "type": "number",
       "default": 0,
       "markdownDescription": "Controls font size of inlay hints in the editor. As default the `#editor.fontSize#` is used when the configured value is less than `5` or greater than the editor font size.",
@@ -45683,7 +46011,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_249": {
+    "_250": {
       "type": "string",
       "default": "",
       "markdownDescription": "Controls font family of inlay hints in the editor. When set to empty, the `#editor.fontFamily#` is used.",
@@ -45696,7 +46024,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_250": {
+    "_251": {
       "type": "boolean",
       "default": false,
       "description": "Enables the padding around the inlay hints in the editor.",
@@ -45709,7 +46037,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_251": {
+    "_252": {
       "type": "number",
       "default": 43,
       "markdownDescription": "Maximum overall length of inlay hints, for a single line, before they get truncated by the editor. Set to `0` to never truncate",
@@ -45722,7 +46050,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_252": {
+    "_253": {
       "markdownDescription": "Controls whether literal `\\n` shall trigger a wordWrap when `#editor.wordWrap#` is enabled.\n\nFor example:\n```c\nchar* str=\"hello\\nworld\"\n```\nwill be displayed as\n```c\nchar* str=\"hello\\n\n           world\"\n```",
       "type": "boolean",
       "default": false,
@@ -45735,7 +46063,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_253": {
+    "_254": {
       "markdownDescription": "Controls whether an indicator is rendered at the wrapping column of lines that wrap. Only has an effect when `#editor.wordWrap#` is enabled.",
       "type": "boolean",
       "default": false,
@@ -45748,7 +46076,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_254": {
+    "_255": {
       "markdownDescription": "Controls whether the editor receives tabs or defers them to the workbench for navigation.",
       "type": "boolean",
       "default": false,
@@ -45761,7 +46089,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_255": {
+    "_256": {
       "enumDescriptions": [
         "Show default color decorators only when no extension provides colors decorators.",
         "Always show default color decorators.",
@@ -45784,7 +46112,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_256": {
+    "_257": {
       "enumDescriptions": [
         "Make the color picker appear both on click and hover of the color decorator",
         "Make the color picker appear on hover of the color decorator",
@@ -45807,7 +46135,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_257": {
+    "_258": {
       "description": "Controls whether the accessibility hint should be provided to screen reader users when an inline completion is shown.",
       "type": "boolean",
       "default": false,
@@ -45820,7 +46148,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_258": {
+    "_259": {
       "description": "Controls whether the editor will scroll when the middle button is pressed.",
       "type": "boolean",
       "default": false,
@@ -45833,7 +46161,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_259": {
+    "_260": {
       "description": "Controls whether double-clicking next to a bracket or quote selects the content inside.",
       "type": "boolean",
       "default": true,
@@ -45846,7 +46174,7 @@
       "scope": 6,
       "restricted": false
     },
-    "_260": {
+    "_261": {
       "enumDescriptions": [
         "Render full-width characters using the width defined by the font.",
         "Render full-width characters centered in exactly two character cells. Only applies to monospace fonts. Does not apply to multi codepoint full-width characters or to GPU rendering. This has a performance impact on line rendering."
@@ -45866,28 +46194,6 @@
       "defaultDefaultValue": "font",
       "scope": 6,
       "restricted": false
-    },
-    "_261": {
-      "type": "string",
-      "enum": [
-        "default",
-        "workbench.editor.chatSession",
-        "workbench.editorinputs.searchEditorInput",
-        "agentSessionsWelcomePage",
-        "workbench.editor.browser",
-        "notebookOutputEditor",
-        "repl",
-        "workbench.editors.gettingStartedInput",
-        "jupyter-notebook",
-        "vscode.markdown.preview.editor",
-        "vscode.markdown.editor",
-        "imagePreview.previewEditor",
-        "vscode.audioPreview",
-        "vscode.videoPreview",
-        "jsProfileVisualizer.cpuprofile.table",
-        "jsProfileVisualizer.heapprofile.table",
-        "jsProfileVisualizer.heapsnapshot.table"
-      ]
     },
     "_262": {
       "$ref": "vscode://schemas/workbench-colors",
@@ -48123,7 +48429,7 @@
           ],
           "properties": {
             "onAttach": {
-              "$ref": "#/$defs/_407"
+              "$ref": "#/$defs/_408"
             }
           }
         },
@@ -48134,7 +48440,7 @@
           ],
           "properties": {
             "onceBreakpointResolved": {
-              "$ref": "#/$defs/_407"
+              "$ref": "#/$defs/_408"
             }
           }
         }
@@ -49603,6 +49909,28 @@
     "_405": {
       "type": "string",
       "enum": [
+        "default",
+        "workbench.editor.chatSession",
+        "workbench.editorinputs.searchEditorInput",
+        "agentSessionsWelcomePage",
+        "workbench.editor.browser",
+        "notebookOutputEditor",
+        "repl",
+        "workbench.editors.gettingStartedInput",
+        "jupyter-notebook",
+        "vscode.markdown.preview.editor",
+        "vscode.markdown.editor",
+        "imagePreview.previewEditor",
+        "vscode.audioPreview",
+        "vscode.videoPreview",
+        "jsProfileVisualizer.cpuprofile.table",
+        "jsProfileVisualizer.heapprofile.table",
+        "jsProfileVisualizer.heapsnapshot.table"
+      ]
+    },
+    "_406": {
+      "type": "string",
+      "enum": [
         "on",
         "inline",
         "off",
@@ -49615,11 +49943,11 @@
         "Quick suggestions are disabled when inline completions are showing"
       ]
     },
-    "_406": {
+    "_407": {
       "type": "number",
       "description": "Number of monospace characters at which this editor ruler will render."
     },
-    "_407": {
+    "_408": {
       "type": "number",
       "default": 32
     }

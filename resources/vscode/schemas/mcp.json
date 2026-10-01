@@ -385,6 +385,14 @@
                 ],
                 "description": "The type of the server."
               },
+              "transport": {
+                "type": "string",
+                "enum": [
+                  "http",
+                  "sse"
+                ],
+                "description": "The HTTP transport to preserve when sharing this configuration with other MCP clients."
+              },
               "url": {
                 "type": "string",
                 "format": "uri",
@@ -394,7 +402,7 @@
               },
               "headers": {
                 "type": "object",
-                "description": "Additional headers sent to the server.",
+                "description": "Additional headers sent to the server. These headers are not sent to a different origin, including across redirects.",
                 "additionalProperties": {
                   "type": "string"
                 }
