@@ -357,7 +357,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_50"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -368,7 +368,7 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_50"
+          "$ref": "#/$defs/_11"
         }
       ]
     },
@@ -10360,7 +10360,18 @@
       ]
     },
     "tab.border": {
-      "description": "Border to separate tabs from each other. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+      "description": "Border around tabs. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_11"
+        }
+      ]
+    },
+    "tab.divider": {
+      "description": "Color of dividers between editor tabs.",
       "oneOf": [
         {
           "$ref": "#/$defs/_1"

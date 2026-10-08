@@ -3994,9 +3994,9 @@
     "editor.multiCursorPaste": {
       "markdownEnumDescriptions": [
         "Each cursor pastes the full text.",
-        "Each cursor pastes a single line of the text."
+        "Each cursor pastes a single line of the text. When pasting column selections into a single cursor, each copied line is pasted on a successive destination line and padded with spaces to form a rectangle."
       ],
-      "markdownDescription": "Controls pasting when the line count of the pasted text matches the cursor count.",
+      "markdownDescription": "Controls pasting when the line count of the pasted text matches the cursor count, or when pasting column selections into a single cursor.",
       "type": "string",
       "enum": [
         "full",
