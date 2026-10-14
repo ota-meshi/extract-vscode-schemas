@@ -41,7 +41,7 @@
                 "description": "The command to execute for this input variable."
               },
               "id": {
-                "$ref": "#/$defs/_1"
+                "$ref": "#/$defs/_4"
               },
               "type": {
                 "type": "string",
@@ -66,13 +66,13 @@
             "additionalProperties": false,
             "properties": {
               "default": {
-                "$ref": "#/$defs/_3"
+                "$ref": "#/$defs/_6"
               },
               "description": {
-                "$ref": "#/$defs/_2"
+                "$ref": "#/$defs/_5"
               },
               "id": {
-                "$ref": "#/$defs/_1"
+                "$ref": "#/$defs/_4"
               },
               "options": {
                 "type": "array",
@@ -124,13 +124,13 @@
             "additionalProperties": false,
             "properties": {
               "default": {
-                "$ref": "#/$defs/_3"
+                "$ref": "#/$defs/_6"
               },
               "description": {
-                "$ref": "#/$defs/_2"
+                "$ref": "#/$defs/_5"
               },
               "id": {
-                "$ref": "#/$defs/_1"
+                "$ref": "#/$defs/_4"
               },
               "password": {
                 "type": "boolean",
@@ -154,7 +154,6 @@
       "patternErrorMessage": "'env.', 'config.' and 'command.' are deprecated, use 'env:', 'config:' and 'command:' instead."
     },
     "sandbox": {
-      "description": "Sandbox config that determines file system and network access. Sandboxing is enabled when sandboxEnabled property is set at the server level on Mac OS and Linux only.",
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -163,29 +162,11 @@
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "allowWrite": {
-              "description": "List of file paths that the server is allowed to write to. e.g. `~/src/`.",
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "default": []
-            },
             "denyRead": {
-              "description": "List of file paths that the server is not allowed to read. By default, all files are allowed to be read. e.g. `~/src/secrets`.",
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "default": []
+              "$ref": "#/$defs/_1"
             },
             "denyWrite": {
-              "description": "List of file paths that the server is not allowed to write to. e.g. `~/src/auth/`.",
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "default": []
+              "$ref": "#/$defs/_2"
             }
           }
         },
@@ -194,25 +175,13 @@
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "allowedDomains": {
-              "description": "List of domains that the server is allowed to access. Wildcards are supported, e.g. `*.example.com`.",
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "default": []
-            },
             "deniedDomains": {
-              "description": "List of domains that the server is not allowed to access. e.g. `invalid.example.com`.",
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "default": []
+              "$ref": "#/$defs/_0"
             }
           }
         }
-      }
+      },
+      "description": "Sandbox deny rules shared by all servers in this file. Allow rules are only supported in a server's sandbox property; root-level allow rules are ignored. Sandboxing requires sandboxEnabled at the server level on macOS or Linux."
     },
     "servers": {
       "examples": [
@@ -262,6 +231,52 @@
                 "type": "boolean",
                 "default": false,
                 "description": "Whether to run the server in a sandboxed environment."
+              },
+              "sandbox": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "network": {
+                    "description": "Network access settings for the sandboxed server.",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "allowedDomains": {
+                        "description": "List of domains that the server is allowed to access. Wildcards are supported, e.g. `*.example.com`.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "default": []
+                      },
+                      "deniedDomains": {
+                        "$ref": "#/$defs/_0"
+                      }
+                    }
+                  },
+                  "filesystem": {
+                    "description": "Filesystem access settings for the sandboxed server. Glob patterns are supported for Mac OS only.",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "denyRead": {
+                        "$ref": "#/$defs/_1"
+                      },
+                      "allowWrite": {
+                        "description": "List of file paths that the server is allowed to write to. e.g. `~/src/`.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "default": []
+                      },
+                      "denyWrite": {
+                        "$ref": "#/$defs/_2"
+                      }
+                    }
+                  }
+                },
+                "description": "Sandbox filesystem and network permissions for this server only. Root-level sandbox deny rules also apply. Dialog approvals are saved here. Requires sandboxEnabled on macOS or Linux."
               },
               "command": {
                 "type": "string",
@@ -317,7 +332,7 @@
                 ],
                 "properties": {
                   "watch": {
-                    "$ref": "#/$defs/_0"
+                    "$ref": "#/$defs/_3"
                   },
                   "debug": {
                     "markdownDescription": "If set, debugs the MCP server using the given runtime as it's started.",
@@ -438,7 +453,7 @@
                 ],
                 "properties": {
                   "watch": {
-                    "$ref": "#/$defs/_0"
+                    "$ref": "#/$defs/_3"
                   }
                 }
               }
@@ -450,6 +465,30 @@
   },
   "$defs": {
     "_0": {
+      "description": "List of domains that the server is not allowed to access. e.g. `invalid.example.com`.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "_1": {
+      "description": "List of file paths that the server is not allowed to read. By default, all files are allowed to be read. e.g. `~/src/secrets`.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "_2": {
+      "description": "List of file paths that the server is not allowed to write to. e.g. `~/src/auth/`.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "_3": {
       "description": "A glob pattern or list of glob patterns relative to the workspace folder to watch. The MCP server will be restarted when these files change.",
       "examples": [
         "src/**/*.ts"
@@ -466,15 +505,15 @@
         }
       ]
     },
-    "_1": {
+    "_4": {
       "type": "string",
       "description": "The input's id is used to associate an input with a variable of the form ${input:id}."
     },
-    "_2": {
+    "_5": {
       "type": "string",
       "description": "The description is shown when the user is prompted for input."
     },
-    "_3": {
+    "_6": {
       "type": "string",
       "description": "The default value for the input."
     }
