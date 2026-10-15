@@ -1095,10 +1095,12 @@
         "markdown.editor.moveLinesUp",
         "markdown.editor.outdent",
         "markdown.editor.redo",
+        "markdown.editor.rename",
         "markdown.editor.selectAll",
         "markdown.editor.smartEnter",
         "markdown.editor.toggleLocked",
         "markdown.editor.toggleTabFocus",
+        "markdown.editor.triggerSuggest",
         "markdown.editor.undo",
         "markdown.findAllFileReferences",
         "markdown.preview.refresh",
@@ -1811,6 +1813,8 @@
         "workbench.action.chat.agentHost.signInToAgent",
         "workbench.action.chat.agentHost.signInToGitHubForAgent",
         "workbench.action.chat.agentHostNetworkDiagnostics",
+        "workbench.action.chat.agentsWindowBanner.mute",
+        "workbench.action.chat.agentsWindowBanner.open",
         "workbench.action.chat.applyCompareEdits",
         "workbench.action.chat.applyInEditor",
         "workbench.action.chat.archiveAllAgentSessions",
@@ -1839,6 +1843,8 @@
         "workbench.action.chat.configureDictationInstructions",
         "workbench.action.chat.configureTools",
         "workbench.action.chat.configureVoiceInstructions",
+        "workbench.action.chat.connectMissionControlEnvironment",
+        "workbench.action.chat.continueInCopilot",
         "workbench.action.chat.copyAll",
         "workbench.action.chat.copyCodeBlock",
         "workbench.action.chat.copyFinalResponse",
@@ -1848,6 +1854,7 @@
         "workbench.action.chat.createPlugin",
         "workbench.action.chat.debugAgentHostInDevTools",
         "workbench.action.chat.disablePromptCacheExpirationNotification",
+        "workbench.action.chat.disableRemoteByokNotification",
         "workbench.action.chat.disableTips",
         "workbench.action.chat.discardCompareEdits",
         "workbench.action.chat.dismissTip",
@@ -3162,12 +3169,6 @@
         "workbench.view.voiceTranscripts.resetViewLocation",
         "workbench.view.voiceTranscriptsContainer",
         "workbench.view.voiceTranscriptsContainer.resetViewContainerLocation",
-        "workbench.views.agentPlugins.default.marketplace.focus",
-        "workbench.views.agentPlugins.default.marketplace.open",
-        "workbench.views.agentPlugins.default.marketplace.resetViewLocation",
-        "workbench.views.agentPlugins.installed.focus",
-        "workbench.views.agentPlugins.installed.open",
-        "workbench.views.agentPlugins.installed.resetViewLocation",
         "workbench.views.agentPlugins.marketplace.focus",
         "workbench.views.agentPlugins.marketplace.open",
         "workbench.views.agentPlugins.marketplace.resetViewLocation",
@@ -3246,21 +3247,9 @@
         "workbench.views.extensions.workspaceRecommendations.focus",
         "workbench.views.extensions.workspaceRecommendations.open",
         "workbench.views.extensions.workspaceRecommendations.resetViewLocation",
-        "workbench.views.mcp.default.marketplace.focus",
-        "workbench.views.mcp.default.marketplace.open",
-        "workbench.views.mcp.default.marketplace.resetViewLocation",
-        "workbench.views.mcp.default.welcomeView.focus",
-        "workbench.views.mcp.default.welcomeView.open",
-        "workbench.views.mcp.default.welcomeView.resetViewLocation",
-        "workbench.views.mcp.installed.focus",
-        "workbench.views.mcp.installed.open",
-        "workbench.views.mcp.installed.resetViewLocation",
         "workbench.views.mcp.marketplace.focus",
         "workbench.views.mcp.marketplace.open",
         "workbench.views.mcp.marketplace.resetViewLocation",
-        "workbench.views.mcp.welcomeView.focus",
-        "workbench.views.mcp.welcomeView.open",
-        "workbench.views.mcp.welcomeView.resetViewLocation",
         "workbench.views.sync.conflicts.focus",
         "workbench.views.sync.conflicts.open",
         "workbench.views.sync.conflicts.resetViewLocation",
@@ -3326,7 +3315,7 @@
         "Failed",
         "Completed",
         "In Progress",
-        "Input Needed",
+        "Attention Needed",
         "Hide Agent Sessions Sidebar",
         "Show Agent Sessions Sidebar",
         "Toggle Agent Sessions Sidebar",
@@ -4384,6 +4373,8 @@
         "",
         "",
         "",
+        "",
+        "",
         "Reset All Menus",
         "Accept All Both",
         "Accept All Current",
@@ -5084,6 +5075,8 @@
         "",
         "",
         "Network Diagnostics",
+        "",
+        "",
         "Apply Edits",
         "Apply in Editor",
         "Mark All as Done",
@@ -5112,6 +5105,8 @@
         "Voice: Configure Dictation Instructions",
         "Configure Tools...",
         "Voice: Configure Voice Mode Instructions",
+        "Connect to Environment...",
+        "Move to Copilot",
         "Copy All",
         "Copy",
         "Copy Final Response",
@@ -5120,6 +5115,7 @@
         "Copy Link",
         "Create Plugin",
         "Debug Local Agent Host Process In Dev Tools",
+        "",
         "",
         "Disable tips",
         "Discard Edits",
@@ -6438,12 +6434,6 @@
         "Focus on Agent Plugins View",
         "Opens view Agent Plugins",
         "Reset Location",
-        "Focus on Agent Plugins - Installed View",
-        "Opens view Agent Plugins - Installed",
-        "Reset Location",
-        "Focus on Agent Plugins View",
-        "Opens view Agent Plugins",
-        "Reset Location",
         "Focus on Cloud Changes View",
         "Opens view Cloud Changes",
         "Reset Location",
@@ -6518,18 +6508,6 @@
         "Reset Location",
         "Focus on Workspace Recommendations View",
         "Opens view Workspace Recommendations",
-        "Reset Location",
-        "Focus on MCP Servers View",
-        "Opens view MCP Servers",
-        "Reset Location",
-        "Focus on MCP Servers View",
-        "Opens view MCP Servers",
-        "Reset Location",
-        "Focus on MCP Servers - Installed View",
-        "Opens view MCP Servers - Installed",
-        "Reset Location",
-        "Focus on MCP Servers View",
-        "Opens view MCP Servers",
         "Reset Location",
         "Focus on MCP Servers View",
         "Opens view MCP Servers",
@@ -8928,66 +8906,6 @@
             ],
             "properties": {
               "command": {
-                "const": "workbench.views.agentPlugins.default.marketplace.focus"
-              }
-            }
-          },
-          "then": {
-            "$ref": "#/$defs/_20"
-          }
-        },
-        {
-          "if": {
-            "required": [
-              "command"
-            ],
-            "properties": {
-              "command": {
-                "const": "workbench.views.agentPlugins.default.marketplace.open"
-              }
-            }
-          },
-          "then": {
-            "$ref": "#/$defs/_19"
-          }
-        },
-        {
-          "if": {
-            "required": [
-              "command"
-            ],
-            "properties": {
-              "command": {
-                "const": "workbench.views.agentPlugins.installed.focus"
-              }
-            }
-          },
-          "then": {
-            "$ref": "#/$defs/_20"
-          }
-        },
-        {
-          "if": {
-            "required": [
-              "command"
-            ],
-            "properties": {
-              "command": {
-                "const": "workbench.views.agentPlugins.installed.open"
-              }
-            }
-          },
-          "then": {
-            "$ref": "#/$defs/_19"
-          }
-        },
-        {
-          "if": {
-            "required": [
-              "command"
-            ],
-            "properties": {
-              "command": {
                 "const": "workbench.views.agentPlugins.marketplace.focus"
               }
             }
@@ -9768,96 +9686,6 @@
             ],
             "properties": {
               "command": {
-                "const": "workbench.views.mcp.default.marketplace.focus"
-              }
-            }
-          },
-          "then": {
-            "$ref": "#/$defs/_20"
-          }
-        },
-        {
-          "if": {
-            "required": [
-              "command"
-            ],
-            "properties": {
-              "command": {
-                "const": "workbench.views.mcp.default.marketplace.open"
-              }
-            }
-          },
-          "then": {
-            "$ref": "#/$defs/_19"
-          }
-        },
-        {
-          "if": {
-            "required": [
-              "command"
-            ],
-            "properties": {
-              "command": {
-                "const": "workbench.views.mcp.default.welcomeView.focus"
-              }
-            }
-          },
-          "then": {
-            "$ref": "#/$defs/_20"
-          }
-        },
-        {
-          "if": {
-            "required": [
-              "command"
-            ],
-            "properties": {
-              "command": {
-                "const": "workbench.views.mcp.default.welcomeView.open"
-              }
-            }
-          },
-          "then": {
-            "$ref": "#/$defs/_19"
-          }
-        },
-        {
-          "if": {
-            "required": [
-              "command"
-            ],
-            "properties": {
-              "command": {
-                "const": "workbench.views.mcp.installed.focus"
-              }
-            }
-          },
-          "then": {
-            "$ref": "#/$defs/_20"
-          }
-        },
-        {
-          "if": {
-            "required": [
-              "command"
-            ],
-            "properties": {
-              "command": {
-                "const": "workbench.views.mcp.installed.open"
-              }
-            }
-          },
-          "then": {
-            "$ref": "#/$defs/_19"
-          }
-        },
-        {
-          "if": {
-            "required": [
-              "command"
-            ],
-            "properties": {
-              "command": {
                 "const": "workbench.views.mcp.marketplace.focus"
               }
             }
@@ -9874,36 +9702,6 @@
             "properties": {
               "command": {
                 "const": "workbench.views.mcp.marketplace.open"
-              }
-            }
-          },
-          "then": {
-            "$ref": "#/$defs/_19"
-          }
-        },
-        {
-          "if": {
-            "required": [
-              "command"
-            ],
-            "properties": {
-              "command": {
-                "const": "workbench.views.mcp.welcomeView.focus"
-              }
-            }
-          },
-          "then": {
-            "$ref": "#/$defs/_20"
-          }
-        },
-        {
-          "if": {
-            "required": [
-              "command"
-            ],
-            "properties": {
-              "command": {
-                "const": "workbench.views.mcp.welcomeView.open"
               }
             }
           },
@@ -11188,10 +10986,12 @@
             "-markdown.editor.moveLinesUp",
             "-markdown.editor.outdent",
             "-markdown.editor.redo",
+            "-markdown.editor.rename",
             "-markdown.editor.selectAll",
             "-markdown.editor.smartEnter",
             "-markdown.editor.toggleLocked",
             "-markdown.editor.toggleTabFocus",
+            "-markdown.editor.triggerSuggest",
             "-markdown.editor.undo",
             "-markdown.findAllFileReferences",
             "-markdown.preview.refresh",
@@ -11904,6 +11704,8 @@
             "-workbench.action.chat.agentHost.signInToAgent",
             "-workbench.action.chat.agentHost.signInToGitHubForAgent",
             "-workbench.action.chat.agentHostNetworkDiagnostics",
+            "-workbench.action.chat.agentsWindowBanner.mute",
+            "-workbench.action.chat.agentsWindowBanner.open",
             "-workbench.action.chat.applyCompareEdits",
             "-workbench.action.chat.applyInEditor",
             "-workbench.action.chat.archiveAllAgentSessions",
@@ -11932,6 +11734,8 @@
             "-workbench.action.chat.configureDictationInstructions",
             "-workbench.action.chat.configureTools",
             "-workbench.action.chat.configureVoiceInstructions",
+            "-workbench.action.chat.connectMissionControlEnvironment",
+            "-workbench.action.chat.continueInCopilot",
             "-workbench.action.chat.copyAll",
             "-workbench.action.chat.copyCodeBlock",
             "-workbench.action.chat.copyFinalResponse",
@@ -11941,6 +11745,7 @@
             "-workbench.action.chat.createPlugin",
             "-workbench.action.chat.debugAgentHostInDevTools",
             "-workbench.action.chat.disablePromptCacheExpirationNotification",
+            "-workbench.action.chat.disableRemoteByokNotification",
             "-workbench.action.chat.disableTips",
             "-workbench.action.chat.discardCompareEdits",
             "-workbench.action.chat.dismissTip",
@@ -13255,12 +13060,6 @@
             "-workbench.view.voiceTranscripts.resetViewLocation",
             "-workbench.view.voiceTranscriptsContainer",
             "-workbench.view.voiceTranscriptsContainer.resetViewContainerLocation",
-            "-workbench.views.agentPlugins.default.marketplace.focus",
-            "-workbench.views.agentPlugins.default.marketplace.open",
-            "-workbench.views.agentPlugins.default.marketplace.resetViewLocation",
-            "-workbench.views.agentPlugins.installed.focus",
-            "-workbench.views.agentPlugins.installed.open",
-            "-workbench.views.agentPlugins.installed.resetViewLocation",
             "-workbench.views.agentPlugins.marketplace.focus",
             "-workbench.views.agentPlugins.marketplace.open",
             "-workbench.views.agentPlugins.marketplace.resetViewLocation",
@@ -13339,21 +13138,9 @@
             "-workbench.views.extensions.workspaceRecommendations.focus",
             "-workbench.views.extensions.workspaceRecommendations.open",
             "-workbench.views.extensions.workspaceRecommendations.resetViewLocation",
-            "-workbench.views.mcp.default.marketplace.focus",
-            "-workbench.views.mcp.default.marketplace.open",
-            "-workbench.views.mcp.default.marketplace.resetViewLocation",
-            "-workbench.views.mcp.default.welcomeView.focus",
-            "-workbench.views.mcp.default.welcomeView.open",
-            "-workbench.views.mcp.default.welcomeView.resetViewLocation",
-            "-workbench.views.mcp.installed.focus",
-            "-workbench.views.mcp.installed.open",
-            "-workbench.views.mcp.installed.resetViewLocation",
             "-workbench.views.mcp.marketplace.focus",
             "-workbench.views.mcp.marketplace.open",
             "-workbench.views.mcp.marketplace.resetViewLocation",
-            "-workbench.views.mcp.welcomeView.focus",
-            "-workbench.views.mcp.welcomeView.open",
-            "-workbench.views.mcp.welcomeView.resetViewLocation",
             "-workbench.views.sync.conflicts.focus",
             "-workbench.views.sync.conflicts.open",
             "-workbench.views.sync.conflicts.resetViewLocation",
@@ -13419,7 +13206,7 @@
             "Failed",
             "Completed",
             "In Progress",
-            "Input Needed",
+            "Attention Needed",
             "Hide Agent Sessions Sidebar",
             "Show Agent Sessions Sidebar",
             "Toggle Agent Sessions Sidebar",
@@ -14477,6 +14264,8 @@
             "",
             "",
             "",
+            "",
+            "",
             "Reset All Menus",
             "Accept All Both",
             "Accept All Current",
@@ -15177,6 +14966,8 @@
             "",
             "",
             "Network Diagnostics",
+            "",
+            "",
             "Apply Edits",
             "Apply in Editor",
             "Mark All as Done",
@@ -15205,6 +14996,8 @@
             "Voice: Configure Dictation Instructions",
             "Configure Tools...",
             "Voice: Configure Voice Mode Instructions",
+            "Connect to Environment...",
+            "Move to Copilot",
             "Copy All",
             "Copy",
             "Copy Final Response",
@@ -15213,6 +15006,7 @@
             "Copy Link",
             "Create Plugin",
             "Debug Local Agent Host Process In Dev Tools",
+            "",
             "",
             "Disable tips",
             "Discard Edits",
@@ -16531,12 +16325,6 @@
             "Focus on Agent Plugins View",
             "Opens view Agent Plugins",
             "Reset Location",
-            "Focus on Agent Plugins - Installed View",
-            "Opens view Agent Plugins - Installed",
-            "Reset Location",
-            "Focus on Agent Plugins View",
-            "Opens view Agent Plugins",
-            "Reset Location",
             "Focus on Cloud Changes View",
             "Opens view Cloud Changes",
             "Reset Location",
@@ -16611,18 +16399,6 @@
             "Reset Location",
             "Focus on Workspace Recommendations View",
             "Opens view Workspace Recommendations",
-            "Reset Location",
-            "Focus on MCP Servers View",
-            "Opens view MCP Servers",
-            "Reset Location",
-            "Focus on MCP Servers View",
-            "Opens view MCP Servers",
-            "Reset Location",
-            "Focus on MCP Servers - Installed View",
-            "Opens view MCP Servers - Installed",
-            "Reset Location",
-            "Focus on MCP Servers View",
-            "Opens view MCP Servers",
             "Reset Location",
             "Focus on MCP Servers View",
             "Opens view MCP Servers",

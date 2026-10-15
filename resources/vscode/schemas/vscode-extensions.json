@@ -215,7 +215,7 @@
       "type": "object",
       "properties": {
         "agentsWindow": {
-          "description": "Declares whether the extension should be enabled in the Agents window. Requires the `agentsWindowActivation` API proposal and the experimental Agents window capability setting.",
+          "description": "Declares whether the extension should be enabled in the Agents window. Requires the `agentsWindowActivation` API proposal. Non-built-in extensions also require the experimental Agents window capability setting.",
           "type": "object",
           "required": [
             "supported"
@@ -229,7 +229,7 @@
           ],
           "properties": {
             "supported": {
-              "markdownDescription": "Declares whether the extension supports running in the Agents window. The extension must enable the `agentsWindowActivation` API proposal and the `extensions.experimental.enableAgentsWindowCapability` setting for this property to take effect.",
+              "markdownDescription": "Declares whether the extension supports running in the Agents window. The extension must enable the `agentsWindowActivation` API proposal. Non-built-in extensions also require the `extensions.experimental.enableAgentsWindowCapability` setting for this property to take effect.",
               "type": "boolean"
             }
           }
@@ -2252,6 +2252,7 @@
                       "layout-density-default",
                       "gripper-corner",
                       "metered-connection",
+                      "report-question",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -3139,6 +3140,7 @@
                       "",
                       "",
                       "Icon for a terminal decoration of a command that errored.",
+                      "",
                       "",
                       "",
                       "",
@@ -6632,6 +6634,7 @@
           "css",
           "customEditorDiffs",
           "customEditorMove",
+          "customTextEditorNavigation",
           "dataChannels",
           "debugVisualization",
           "defaultChatParticipant",
@@ -6814,6 +6817,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.css.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.customEditorDiffs.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.customEditorMove.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.customTextEditorNavigation.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.dataChannels.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.debugVisualization.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.defaultChatParticipant.d.ts",
@@ -8919,7 +8923,7 @@
         "The background color of status elements in chat.",
         "Border color of a Chat Editor with a request in progress.",
         "Border color of a Chat Editor with an unvisited completion.",
-        "Border color of a Chat Editor that needs user input.",
+        "Border color of a Chat Editor that needs attention.",
         "The background color of a chat slash command.",
         "The foreground color of a chat slash command.",
         "The background color of a chat avatar.",
