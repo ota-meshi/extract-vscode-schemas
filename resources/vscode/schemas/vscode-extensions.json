@@ -215,7 +215,7 @@
       "type": "object",
       "properties": {
         "agentsWindow": {
-          "description": "Declares whether the extension should be enabled in the Agents window. Requires the `agentsWindowActivation` API proposal. Non-built-in extensions also require the experimental Agents window capability setting.",
+          "description": "Declares whether the extension should be enabled in the Agents window.",
           "type": "object",
           "required": [
             "supported"
@@ -229,7 +229,7 @@
           ],
           "properties": {
             "supported": {
-              "markdownDescription": "Declares whether the extension supports running in the Agents window. The extension must enable the `agentsWindowActivation` API proposal. Non-built-in extensions also require the `extensions.experimental.enableAgentsWindowCapability` setting for this property to take effect.",
+              "markdownDescription": "Declares whether the extension supports running in the Agents window. For non-built-in extensions, this takes effect while the `extensions.experimental.enableAgentsWindowCapability` setting is enabled (the default).",
               "type": "boolean"
             }
           }
@@ -2253,6 +2253,7 @@
                       "gripper-corner",
                       "metered-connection",
                       "report-question",
+                      "trophy",
                       "dialog-error",
                       "dialog-warning",
                       "dialog-info",
@@ -3140,6 +3141,7 @@
                       "",
                       "",
                       "Icon for a terminal decoration of a command that errored.",
+                      "",
                       "",
                       "",
                       "",
@@ -6565,7 +6567,6 @@
           "activeComment",
           "agentEditorComments",
           "agentSessionsWorkspace",
-          "agentsWindowActivation",
           "agentsWindowConfiguration",
           "aiRelatedInformation",
           "aiSettingsSearch",
@@ -6578,6 +6579,7 @@
           "authSessionAccountIcon",
           "authSessionAudience",
           "authSessionExpiration",
+          "autoClosingPairBeforeText",
           "browser",
           "canonicalUriProvider",
           "chatContextProvider",
@@ -6667,6 +6669,7 @@
           "languageModelCapabilities",
           "languageModelPricing",
           "languageModelProxy",
+          "languageModelRateLimit",
           "languageModelSystem",
           "languageModelThinkingPart",
           "languageModelToolResultAudience",
@@ -6748,7 +6751,6 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.activeComment.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.agentEditorComments.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.agentSessionsWorkspace.d.ts",
-          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.agentsWindowActivation.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.agentsWindowConfiguration.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiRelatedInformation.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.aiSettingsSearch.d.ts",
@@ -6761,6 +6763,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authSessionAccountIcon.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authSessionAudience.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.authSessionExpiration.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.autoClosingPairBeforeText.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.browser.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.canonicalUriProvider.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.chatContextProvider.d.ts",
@@ -6850,6 +6853,7 @@
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageModelCapabilities.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageModelPricing.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageModelProxy.d.ts",
+          "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageModelRateLimit.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageModelSystem.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageModelThinkingPart.d.ts",
           "https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageModelToolResultAudience.d.ts",
@@ -7254,17 +7258,6 @@
         "problemsErrorIcon.foreground",
         "problemsWarningIcon.foreground",
         "problemsInfoIcon.foreground",
-        "minimap.findMatchHighlight",
-        "minimap.selectionOccurrenceHighlight",
-        "minimap.selectionHighlight",
-        "minimap.infoHighlight",
-        "minimap.warningHighlight",
-        "minimap.errorHighlight",
-        "minimap.background",
-        "minimap.foregroundOpacity",
-        "minimapSlider.background",
-        "minimapSlider.hoverBackground",
-        "minimapSlider.activeBackground",
         "charts.foreground",
         "charts.lines",
         "charts.red",
@@ -7364,6 +7357,17 @@
         "menu.selectionBackground",
         "menu.selectionBorder",
         "menu.separatorBackground",
+        "minimap.findMatchHighlight",
+        "minimap.selectionOccurrenceHighlight",
+        "minimap.selectionHighlight",
+        "minimap.infoHighlight",
+        "minimap.warningHighlight",
+        "minimap.errorHighlight",
+        "minimap.background",
+        "minimap.foregroundOpacity",
+        "minimapSlider.background",
+        "minimapSlider.hoverBackground",
+        "minimapSlider.activeBackground",
         "quickInput.background",
         "quickInput.foreground",
         "quickInputTitle.background",
@@ -8250,17 +8254,6 @@
         "The color used for the problems error icon.",
         "The color used for the problems warning icon.",
         "The color used for the problems info icon.",
-        "Minimap marker color for find matches.",
-        "Minimap marker color for repeating editor selections.",
-        "Minimap marker color for the editor selection.",
-        "Minimap marker color for infos.",
-        "Minimap marker color for warnings.",
-        "Minimap marker color for errors.",
-        "Minimap background color.",
-        "Opacity of foreground elements rendered in the minimap. For example, \"#000000c0\" will render the elements with 75% opacity.",
-        "Minimap slider background color.",
-        "Minimap slider background color when hovering.",
-        "Minimap slider background color when clicked on.",
         "The foreground color used in charts.",
         "The color used for horizontal lines in charts.",
         "The red color used in chart visualizations.",
@@ -8360,6 +8353,17 @@
         "Background color of the selected menu item in menus.",
         "Border color of the selected menu item in menus.",
         "Color of a separator menu item in menus.",
+        "Minimap marker color for find matches.",
+        "Minimap marker color for repeating editor selections.",
+        "Minimap marker color for the editor selection.",
+        "Minimap marker color for infos.",
+        "Minimap marker color for warnings.",
+        "Minimap marker color for errors.",
+        "Minimap background color.",
+        "Opacity of foreground elements rendered in the minimap. For example, \"#000000c0\" will render the elements with 75% opacity.",
+        "Minimap slider background color.",
+        "Minimap slider background color when hovering.",
+        "Minimap slider background color when clicked on.",
         "Quick picker background color. The quick picker widget is the container for pickers like the command palette.",
         "Quick picker foreground color. The quick picker widget is the container for pickers like the command palette.",
         "Quick picker title background color. The quick picker widget is the container for pickers like the command palette.",
@@ -9228,6 +9232,31 @@
           "description": "A command to manage the language model chat provider, e.g. 'Manage Copilot models'. This is used in the chat model picker. If not provided, a gear icon is not rendered during vendor selection.",
           "deprecated": true,
           "deprecationMessage": "The managementCommand property is deprecated and will be removed in a future release. Use the new configuration property instead."
+        },
+        "icon": {
+          "markdownDescription": "An icon that represents this language model chat provider, shown in the chat model picker. Either a theme icon reference, like `\\$(zap)`, a file path relative to the extension, or an object with file paths for light and dark themes.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "light": {
+                  "description": "Icon path when a light theme is used.",
+                  "type": "string"
+                },
+                "dark": {
+                  "description": "Icon path when a dark theme is used.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "light",
+                "dark"
+              ]
+            }
+          ]
         },
         "deprecation": {
           "type": "object",

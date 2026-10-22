@@ -2613,6 +2613,21 @@
       "scope": 5,
       "restricted": false
     },
+    "accessibility.verbosity.emptyFileEditorSearch": {
+      "description": "Provide information about how to use file search in the empty Files editor.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "section": {
+        "id": "accessibility",
+        "title": "Accessibility"
+      },
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
     "accessibility.verbosity.find": {
       "description": "Provide information about how to access the find accessibility help menu when the find input is focused.",
       "type": "boolean",
@@ -2690,6 +2705,21 @@
     },
     "accessibility.verbosity.mcpServerConfiguration": {
       "description": "Provide information about how to access accessibility help when an MCP server configuration form is focused.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "section": {
+        "id": "accessibility",
+        "title": "Accessibility"
+      },
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
+    "accessibility.verbosity.multiDiffEditorFileList": {
+      "description": "Provide information about how to navigate the changed files list in the multi diff editor when it is focused.",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -4147,15 +4177,19 @@
     },
     "chat.agentHost.ahpJsonlLoggingEnabled": {
       "type": "boolean",
-      "description": "When enabled, logs all AHP transport messages for agent host connections to JSONL files under the window's log directory.",
+      "description": "When enabled, captures AHP transport messages once: in the window for local and remote connections, or on the host for Mission Control connections. Enabled by default only in Insiders. Each logging process stops capture after writing 500 MiB across all connections, including reconnects. Existing per-connection rotation still applies. Restart the window or host process to reset its budget. Mission Control host capture follows the host's owning window setting, including live changes.",
       "default": false,
       "tags": [
         "experimental",
         "advanced"
       ],
+      "agentHost": {
+        "key": "ahpJsonlLoggingEnabled",
+        "scope": "local"
+      },
       "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
       },
       "defaultDefaultValue": false,
       "scope": 4,
@@ -4197,6 +4231,11 @@
         "name": "Claude3PIntegration",
         "category": "InteractiveSession",
         "minimumVersion": "1.113",
+        "managedSettings": {
+          "vscode.temporaryAllowLocalHarness": {
+            "type": "boolean"
+          }
+        },
         "localization": {
           "description": {
             "key": "chat.agentHost.claudeAgent.enabled.policy",
@@ -4230,6 +4269,11 @@
         "name": "Codex3PIntegration",
         "category": "InteractiveSession",
         "minimumVersion": "1.126",
+        "managedSettings": {
+          "vscode.temporaryAllowLocalHarness": {
+            "type": "boolean"
+          }
+        },
         "localization": {
           "description": {
             "key": "chat.agentHost.codexAgent.enabled.policy",
@@ -4830,9 +4874,30 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.copilot.dynamicAutoTiers.enabled": {
+      "type": "boolean",
+      "markdownDescription": "When enabled, Auto's \"Optimize for\" tiers in Copilot Agent Host sessions come from the Copilot service, which can include HydraFusion, instead of the built-in list. Changing this setting restarts the Copilot runtime after active turns finish.",
+      "default": false,
+      "experiment": {
+        "mode": "startup"
+      },
+      "scope": 3,
+      "tags": [
+        "preview",
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
     "chat.copilot.ensemble.enabled": {
       "type": "boolean",
-      "markdownDescription": "When enabled, local Copilot Agent Host sessions present Auto as Ensemble, which optimizes for Balance, High, or Max. Max uses HydraFusion Max, so Ensemble uses HydraFusion v2 unless `#chat.copilot.hydraFusion.enabled#` is off. Changing this setting can restart the local Copilot runtime.",
+      "markdownDescription": "When enabled, Copilot Agent Host sessions present Auto as Fusion, which optimizes for Standard, High, or Max. Max uses HydraFusion Max, so Fusion uses HydraFusion v2 unless `#chat.copilot.hydraFusion.enabled#` is off. Changing this setting can restart the Copilot runtime.",
       "default": false,
       "experiment": {
         "mode": "startup"
@@ -4853,7 +4918,7 @@
     },
     "chat.copilot.ensemble.intelligenceUsesHydraFusion": {
       "type": "boolean",
-      "markdownDescription": "When enabled together with `#chat.copilot.ensemble.enabled#`, Ensemble's High tier uses HydraFusion v2. When HydraFusion is unavailable, High routes like Auto's Intelligence.",
+      "markdownDescription": "When enabled together with `#chat.copilot.ensemble.enabled#`, Fusion's High tier uses HydraFusion v2. When HydraFusion is unavailable, Fusion High routes like Auto's Intelligence.",
       "default": false,
       "experiment": {
         "mode": "startup"
@@ -4879,11 +4944,13 @@
       ],
       "enum": [
         false,
+        "multiRoot",
         true,
         "v2"
       ],
       "enumDescriptions": [
         "Do not make HydraFusion available.",
+        "Make HydraFusion v2 available and ask the service to keep reusing the previous turn's root model when it fits the next turn's workflow, which improves prompt cache reuse. Also applies to Fusion High and Max.",
         "Make HydraFusion available.",
         "Make HydraFusion v2 available, which plans with per-step reasoning effort and a wider set of models."
       ],
@@ -4906,9 +4973,57 @@
       "defaultDefaultValue": "v2",
       "restricted": false
     },
+    "chat.copilot.localModel.enabled": {
+      "type": "boolean",
+      "description": "When enabled, offers on-device models to download and run on this device with llama.cpp. Offered only on devices with a GPU that has about 64 GB of memory or more. Changing this setting restarts the local Copilot runtime after active turns finish. Local models may not use the same safety filters as GitHub Copilot-provided models and may be more susceptible to malicious instructions, especially when actions are automatically approved.",
+      "default": false,
+      "scope": 3,
+      "tags": [
+        "experimental",
+        "preview"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
+    "chat.copilot.localModel.llamaServerPath": {
+      "type": "string",
+      "markdownDescription": "Absolute path to a `llama-server` executable for on-device models. VS Code doesn't install llama.cpp: install a build that supports your model, then set this to its `llama-server`.",
+      "default": "",
+      "scope": 2,
+      "tags": [
+        "experimental",
+        "advanced"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": "",
+      "restricted": false
+    },
+    "chat.copilot.localModel.useInAuto": {
+      "type": "boolean",
+      "description": "When enabled, Auto can route turns to the active on-device model, with cloud fallback. Takes effect immediately. Local models may not use the same safety filters as GitHub Copilot-provided models and may be more susceptible to malicious instructions, especially when actions are automatically approved.",
+      "default": false,
+      "scope": 3,
+      "tags": [
+        "experimental",
+        "preview"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
     "chat.copilot.memory.enabled": {
       "type": "boolean",
-      "markdownDescription": "When enabled, local Copilot Agent Host sessions can store and recall [Copilot Memory](https://docs.github.com/en/copilot/concepts/agents/copilot-memory). Applies to sessions created or resumed after the setting changes.",
+      "markdownDescription": "When enabled, local Copilot Agent Host sessions can store and recall [Copilot Memory](https://docs.github.com/en/copilot/concepts/agents/copilot-memory). Your [Copilot Memory settings on GitHub](https://github.com/settings/copilot/memory) and organization policies still apply. Applies to sessions created or resumed after the setting changes.",
       "default": false,
       "experiment": {
         "mode": "auto"
@@ -4928,7 +5043,7 @@
     },
     "chat.copilot.memory.local.enabled": {
       "type": "boolean",
-      "markdownDescription": "When enabled together with `#chat.copilot.memory.enabled#`, local Copilot Agent Host sessions store Copilot Memory in the repository's `.github/copilot-memories.jsonl` file instead of GitHub's cloud memory service. The file is part of the working tree, so commits made by the agent or the Agents window can include it. Requires a GitHub-hosted repository; user-scoped memories and Copilot Memory policies configured on GitHub do not apply. Changing this setting restarts the Copilot SDK client after active turns finish.",
+      "markdownDescription": "When enabled together with `#chat.copilot.memory.enabled#`, local Copilot Agent Host sessions store Copilot Memory in the repository's `.github/copilot-memories.jsonl` file instead of GitHub's cloud memory service. The file is part of the working tree, so commits made by the agent or the Agents window can include it. Requires a GitHub-hosted repository. **Note:** your Copilot Memory settings and organization policies on GitHub don't apply, and user-scoped memories are unavailable. Changing this setting restarts the Copilot SDK client after active turns finish.",
       "default": false,
       "scope": 3,
       "tags": [
@@ -4940,26 +5055,6 @@
         "title": "Chat"
       },
       "defaultDefaultValue": false,
-      "restricted": false
-    },
-    "chat.copilot.semanticSearch.enabled": {
-      "type": "boolean",
-      "description": "Controls whether Copilot Agent Host sessions can use VS Code's semantic workspace search. When disabled, semantic search is unavailable.",
-      "default": false,
-      "experiment": {
-        "mode": "auto"
-      },
-      "tags": [
-        "experimental",
-        "advanced",
-        "onExP"
-      ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": false,
-      "scope": 4,
       "restricted": false
     },
     "chat.copilotHarnessIntroduction.mode": {
@@ -5013,7 +5108,7 @@
         "advanced",
         "onExP"
       ],
-      "description": "Shows Discover instead of Overview when a customization marketplace source is enabled. When disabled, marketplace discovery remains in the existing customization management pages.",
+      "description": "Shows Browse instead of Overview when a customization marketplace source is enabled. When disabled, marketplace discovery remains in the existing customization management pages.",
       "default": false,
       "experiment": {
         "mode": "auto"
@@ -5175,7 +5270,7 @@
     "chat.defaultModel": {
       "type": "string",
       "default": "",
-      "markdownDescription": "The default model for new chat conversations. Use \"auto\" to let Copilot pick a model, a model family name (such as \"opus\" or \"gemini\") to use the latest available model in that family, or a full model id. You can still switch the model within a conversation; each new conversation starts at this model.",
+      "markdownDescription": "The default model for new chat conversations. Use \"auto\" to let Copilot pick a model, a model family name (such as \"opus\" or \"gemini\") to use the latest available model in that family, or a full model id. An organization-managed default takes precedence over your saved preference. You can still switch the model within a conversation; each new conversation starts at the effective default.",
       "experiment": {
         "mode": "auto"
       },
@@ -5441,6 +5536,25 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.editor.workingSet.enabled": {
+      "type": "boolean",
+      "description": "Show Copilot Agent Host session changes as a working set above the chat input instead of the Changes pill in the editor window. Select a file to open its diff, or keep its changes to remove it from the working set. The Keep and View All Edits buttons in its heading act on every file. Hosts without a session changeset keep the Changes pill. Local and other chat harnesses are unaffected.",
+      "default": false,
+      "tags": [
+        "experimental"
+      ],
+      "agentsWindow": {
+        "default": false,
+        "readOnly": true
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.editorAssociations": {
       "type": "object",
       "markdownDescription": "Configure [glob patterns](https://aka.ms/vscode-glob-patterns) to editors for opening files from chat (for example `\"*.md\": \"vscode.markdown.preview.editor\"`).",
@@ -5582,25 +5696,6 @@
       "tags": [
         "experimental"
       ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
-    },
-    "chat.experimental.openInAgentsWindow.revealCurrentSession": {
-      "type": "boolean",
-      "description": "Controls whether Open in Agents Window reveals the current local Agent Host session instead of opening a new session.",
-      "default": false,
-      "tags": [
-        "experimental",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "auto"
-      },
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
@@ -6879,25 +6974,6 @@
       "tags": [
         "onExP"
       ]
-    },
-    "chat.subagents.defaultToAuto": {
-      "type": "boolean",
-      "markdownDescription": "Controls whether local subagents use the Auto model when neither the tool call nor the selected agent specifies a model. Explicit tool and agent model selections take precedence. Subagents of a BYOK main model continue to use that model. Auto routing is not constrained by the main model's fixed cost tier.",
-      "default": false,
-      "tags": [
-        "experimental",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "auto"
-      },
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
     },
     "chat.subagents.showCreditUsage": {
       "type": "boolean",
@@ -8223,7 +8299,7 @@
     "chat.welcomePage.signIn.enabled": {
       "type": "boolean",
       "description": "Controls whether the Welcome page shows a GitHub sign-in button instead of the Agents window button when signed out.",
-      "default": false,
+      "default": true,
       "tags": [
         "experimental",
         "onExP"
@@ -8235,7 +8311,7 @@
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -23587,6 +23663,21 @@
       "default": "",
       "restricted": true
     },
+    "multiDiffEditor.experimental.fileList": {
+      "type": "boolean",
+      "default": false,
+      "description": "Controls whether newly created multi diff editors support a list of the changed files alongside the diffs. Reload the window to apply this change to existing editors.",
+      "scope": 4,
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "multiDiffEditor",
+        "title": "Multi Diff Editor"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
     "multiDiffEditor.experimental.variant": {
       "type": "string",
       "enum": [
@@ -29718,7 +29809,7 @@
       "default": null,
       "enum": [
         null,
-        "Agent Host (Local)",
+        "Agent Host (This Computer)",
         "bash",
         "bash (2)",
         "dash",
@@ -29734,7 +29825,7 @@
       ],
       "markdownEnumDescriptions": [
         "Automatically detect the default",
-        "$(remote) Agent Host (Local)\n- extensionIdentifier: vscode.agent-host-terminal",
+        "$(remote) Agent Host (This Computer)\n- extensionIdentifier: vscode.agent-host-terminal",
         "$(terminal-bash) bash\n- path: /usr/bin/bash",
         "$(terminal) bash (2)\n- path: /usr/bin/bash",
         "$(terminal) dash\n- path: /usr/bin/dash",
@@ -32419,6 +32510,7 @@
         "triangle-left",
         "triangle-right",
         "triangle-up",
+        "trophy",
         "twitter",
         "type-hierarchy",
         "type-hierarchy-sub",
@@ -33211,6 +33303,7 @@
         "$(triangle-left)",
         "$(triangle-right)",
         "$(triangle-up)",
+        "$(trophy)",
         "$(twitter)",
         "$(type-hierarchy)",
         "$(type-hierarchy-sub)",
@@ -44346,6 +44439,7 @@
         "gripper-corner",
         "metered-connection",
         "report-question",
+        "trophy",
         "dialog-error",
         "dialog-warning",
         "dialog-info",
@@ -45138,6 +45232,7 @@
         "$(gripper-corner)",
         "$(metered-connection)",
         "$(report-question)",
+        "$(trophy)",
         "$(dialog-error)",
         "$(dialog-warning)",
         "$(dialog-info)",

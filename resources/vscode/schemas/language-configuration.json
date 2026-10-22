@@ -104,6 +104,21 @@
           {
             "type": "object",
             "properties": {
+              "beforeText": {
+                "type": [
+                  "string",
+                  "object"
+                ],
+                "description": "This pair will only auto close if the text on the current line before the cursor, including the just-typed opening string, matches this regular expression.",
+                "properties": {
+                  "flags": {
+                    "$ref": "#/$defs/_4"
+                  },
+                  "pattern": {
+                    "$ref": "#/$defs/_3"
+                  }
+                }
+              },
               "close": {
                 "$ref": "#/$defs/_1"
               },
@@ -450,16 +465,10 @@
             "description": "This rule will only execute if the text before the cursor matches this regular expression.",
             "properties": {
               "flags": {
-                "type": "string",
-                "description": "The RegExp flags for beforeText.",
-                "default": "",
-                "pattern": "^([gimuy]+)$",
-                "patternErrorMessage": "Must match the pattern `/^([gimuy]+)$/`."
+                "$ref": "#/$defs/_4"
               },
               "pattern": {
-                "type": "string",
-                "description": "The RegExp pattern for beforeText.",
-                "default": ""
+                "$ref": "#/$defs/_3"
               }
             }
           },
@@ -555,6 +564,18 @@
     },
     "_2": {
       "$ref": "#/definitions/bracketPair"
+    },
+    "_3": {
+      "type": "string",
+      "description": "The RegExp pattern for beforeText.",
+      "default": ""
+    },
+    "_4": {
+      "type": "string",
+      "description": "The RegExp flags for beforeText.",
+      "default": "",
+      "pattern": "^([gimuy]+)$",
+      "patternErrorMessage": "Must match the pattern `/^([gimuy]+)$/`."
     }
   }
 }

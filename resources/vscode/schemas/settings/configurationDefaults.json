@@ -2615,6 +2615,21 @@
       "scope": 5,
       "restricted": false
     },
+    "accessibility.verbosity.emptyFileEditorSearch": {
+      "description": "Provide information about how to use file search in the empty Files editor.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "section": {
+        "id": "accessibility",
+        "title": "Accessibility"
+      },
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
     "accessibility.verbosity.find": {
       "description": "Provide information about how to access the find accessibility help menu when the find input is focused.",
       "type": "boolean",
@@ -2692,6 +2707,21 @@
     },
     "accessibility.verbosity.mcpServerConfiguration": {
       "description": "Provide information about how to access accessibility help when an MCP server configuration form is focused.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "section": {
+        "id": "accessibility",
+        "title": "Accessibility"
+      },
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
+    "accessibility.verbosity.multiDiffEditorFileList": {
+      "description": "Provide information about how to navigate the changed files list in the multi diff editor when it is focused.",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -4149,15 +4179,19 @@
     },
     "chat.agentHost.ahpJsonlLoggingEnabled": {
       "type": "boolean",
-      "description": "When enabled, logs all AHP transport messages for agent host connections to JSONL files under the window's log directory.",
+      "description": "When enabled, captures AHP transport messages once: in the window for local and remote connections, or on the host for Mission Control connections. Enabled by default only in Insiders. Each logging process stops capture after writing 500 MiB across all connections, including reconnects. Existing per-connection rotation still applies. Restart the window or host process to reset its budget. Mission Control host capture follows the host's owning window setting, including live changes.",
       "default": false,
       "tags": [
         "experimental",
         "advanced"
       ],
+      "agentHost": {
+        "key": "ahpJsonlLoggingEnabled",
+        "scope": "local"
+      },
       "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
       },
       "defaultDefaultValue": false,
       "scope": 4,
@@ -4199,6 +4233,11 @@
         "name": "Claude3PIntegration",
         "category": "InteractiveSession",
         "minimumVersion": "1.113",
+        "managedSettings": {
+          "vscode.temporaryAllowLocalHarness": {
+            "type": "boolean"
+          }
+        },
         "localization": {
           "description": {
             "key": "chat.agentHost.claudeAgent.enabled.policy",
@@ -4232,6 +4271,11 @@
         "name": "Codex3PIntegration",
         "category": "InteractiveSession",
         "minimumVersion": "1.126",
+        "managedSettings": {
+          "vscode.temporaryAllowLocalHarness": {
+            "type": "boolean"
+          }
+        },
         "localization": {
           "description": {
             "key": "chat.agentHost.codexAgent.enabled.policy",
@@ -4813,26 +4857,6 @@
       "scope": 4,
       "restricted": false
     },
-    "chat.copilot.semanticSearch.enabled": {
-      "type": "boolean",
-      "description": "Controls whether Copilot Agent Host sessions can use VS Code's semantic workspace search. When disabled, semantic search is unavailable.",
-      "default": false,
-      "experiment": {
-        "mode": "auto"
-      },
-      "tags": [
-        "experimental",
-        "advanced",
-        "onExP"
-      ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
-    },
     "chat.copilotHarnessIntroduction.mode": {
       "type": "string",
       "enum": [
@@ -4884,7 +4908,7 @@
         "advanced",
         "onExP"
       ],
-      "description": "Shows Discover instead of Overview when a customization marketplace source is enabled. When disabled, marketplace discovery remains in the existing customization management pages.",
+      "description": "Shows Browse instead of Overview when a customization marketplace source is enabled. When disabled, marketplace discovery remains in the existing customization management pages.",
       "default": false,
       "experiment": {
         "mode": "auto"
@@ -5046,7 +5070,7 @@
     "chat.defaultModel": {
       "type": "string",
       "default": "",
-      "markdownDescription": "The default model for new chat conversations. Use \"auto\" to let Copilot pick a model, a model family name (such as \"opus\" or \"gemini\") to use the latest available model in that family, or a full model id. You can still switch the model within a conversation; each new conversation starts at this model.",
+      "markdownDescription": "The default model for new chat conversations. Use \"auto\" to let Copilot pick a model, a model family name (such as \"opus\" or \"gemini\") to use the latest available model in that family, or a full model id. An organization-managed default takes precedence over your saved preference. You can still switch the model within a conversation; each new conversation starts at the effective default.",
       "experiment": {
         "mode": "auto"
       },
@@ -5312,6 +5336,25 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.editor.workingSet.enabled": {
+      "type": "boolean",
+      "description": "Show Copilot Agent Host session changes as a working set above the chat input instead of the Changes pill in the editor window. Select a file to open its diff, or keep its changes to remove it from the working set. The Keep and View All Edits buttons in its heading act on every file. Hosts without a session changeset keep the Changes pill. Local and other chat harnesses are unaffected.",
+      "default": false,
+      "tags": [
+        "experimental"
+      ],
+      "agentsWindow": {
+        "default": false,
+        "readOnly": true
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.editorAssociations": {
       "type": "object",
       "markdownDescription": "Configure [glob patterns](https://aka.ms/vscode-glob-patterns) to editors for opening files from chat (for example `\"*.md\": \"vscode.markdown.preview.editor\"`).",
@@ -5453,25 +5496,6 @@
       "tags": [
         "experimental"
       ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
-    },
-    "chat.experimental.openInAgentsWindow.revealCurrentSession": {
-      "type": "boolean",
-      "description": "Controls whether Open in Agents Window reveals the current local Agent Host session instead of opening a new session.",
-      "default": false,
-      "tags": [
-        "experimental",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "auto"
-      },
       "section": {
         "id": "chatSidebar",
         "title": "Chat"
@@ -6669,25 +6693,6 @@
         "onExP"
       ]
     },
-    "chat.subagents.defaultToAuto": {
-      "type": "boolean",
-      "markdownDescription": "Controls whether local subagents use the Auto model when neither the tool call nor the selected agent specifies a model. Explicit tool and agent model selections take precedence. Subagents of a BYOK main model continue to use that model. Auto routing is not constrained by the main model's fixed cost tier.",
-      "default": false,
-      "tags": [
-        "experimental",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "auto"
-      },
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
-    },
     "chat.subagents.showCreditUsage": {
       "type": "boolean",
       "description": "Controls whether AI credit usage is shown next to the duration for subagents.",
@@ -7826,7 +7831,7 @@
     "chat.welcomePage.signIn.enabled": {
       "type": "boolean",
       "description": "Controls whether the Welcome page shows a GitHub sign-in button instead of the Agents window button when signed out.",
-      "default": false,
+      "default": true,
       "tags": [
         "experimental",
         "onExP"
@@ -7838,7 +7843,7 @@
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -22977,6 +22982,21 @@
       "default": "",
       "restricted": true
     },
+    "multiDiffEditor.experimental.fileList": {
+      "type": "boolean",
+      "default": false,
+      "description": "Controls whether newly created multi diff editors support a list of the changed files alongside the diffs. Reload the window to apply this change to existing editors.",
+      "scope": 4,
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "multiDiffEditor",
+        "title": "Multi Diff Editor"
+      },
+      "defaultDefaultValue": false,
+      "restricted": false
+    },
     "multiDiffEditor.experimental.variant": {
       "type": "string",
       "enum": [
@@ -29108,7 +29128,7 @@
       "default": null,
       "enum": [
         null,
-        "Agent Host (Local)",
+        "Agent Host (This Computer)",
         "bash",
         "bash (2)",
         "dash",
@@ -29124,7 +29144,7 @@
       ],
       "markdownEnumDescriptions": [
         "Automatically detect the default",
-        "$(remote) Agent Host (Local)\n- extensionIdentifier: vscode.agent-host-terminal",
+        "$(remote) Agent Host (This Computer)\n- extensionIdentifier: vscode.agent-host-terminal",
         "$(terminal-bash) bash\n- path: /usr/bin/bash",
         "$(terminal) bash (2)\n- path: /usr/bin/bash",
         "$(terminal) dash\n- path: /usr/bin/dash",
@@ -31809,6 +31829,7 @@
         "triangle-left",
         "triangle-right",
         "triangle-up",
+        "trophy",
         "twitter",
         "type-hierarchy",
         "type-hierarchy-sub",
@@ -32601,6 +32622,7 @@
         "$(triangle-left)",
         "$(triangle-right)",
         "$(triangle-up)",
+        "$(trophy)",
         "$(twitter)",
         "$(type-hierarchy)",
         "$(type-hierarchy-sub)",
@@ -43617,6 +43639,7 @@
         "gripper-corner",
         "metered-connection",
         "report-question",
+        "trophy",
         "dialog-error",
         "dialog-warning",
         "dialog-info",
@@ -44409,6 +44432,7 @@
         "$(gripper-corner)",
         "$(metered-connection)",
         "$(report-question)",
+        "$(trophy)",
         "$(dialog-error)",
         "$(dialog-warning)",
         "$(dialog-info)",
