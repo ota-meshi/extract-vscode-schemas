@@ -649,7 +649,7 @@
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#a371f714}"
+              "body": "${1:#57a3f814}"
             }
           ]
         }
@@ -662,11 +662,22 @@
           "$ref": "#/$defs/_1"
         },
         {
+          "$ref": "#/$defs/_39"
+        }
+      ]
+    },
+    "agentsWindowGraphic.orange": {
+      "description": "Orange used for a project and for code in the graphic that explains the Agents window on the Welcome page.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
           "type": "string",
           "format": "color-hex",
           "defaultSnippets": [
             {
-              "body": "${1:#a371f7}"
+              "body": "${1:#d18616}"
             }
           ]
         }
@@ -1128,6 +1139,51 @@
         }
       ]
     },
+    "chat.fusionBadgeForeground": {
+      "description": "Foreground color of the Copilot Fusion badge (discount or Recommended) in the model picker.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_79"
+        }
+      ]
+    },
+    "chat.fusionBadgeGradientEnd": {
+      "description": "End color of the gradient behind the Copilot Fusion badge (discount or Recommended) in the model picker.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#a685f3}"
+            }
+          ]
+        }
+      ]
+    },
+    "chat.fusionBadgeGradientStart": {
+      "description": "Start color of the gradient behind the Copilot Fusion badge (discount or Recommended) in the model picker.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#94f6ed}"
+            }
+          ]
+        }
+      ]
+    },
     "chat.inputWorkingBorderColor1": {
       "description": "Accent color of the animated chat input border shown while a request is in flight.",
       "oneOf": [
@@ -1397,7 +1453,7 @@
       ]
     },
     "chat.voiceGlowBaseColor": {
-      "description": "Base accent the Voice Mode ambient glow is derived from. The listening and speaking glows are hue-shifted from this color.",
+      "description": "Base accent for the connected Voice Mode ambient glow.",
       "oneOf": [
         {
           "$ref": "#/$defs/_1"
@@ -1416,7 +1472,7 @@
       ]
     },
     "chat.voiceListeningGlow": {
-      "description": "Accent color of the Voice Mode glow while listening. Derived from chat.voiceGlowBaseColor when unset.",
+      "description": "Accent color of the Voice Mode glow while connected, including listening and speaking. Derived from chat.voiceGlowBaseColor when unset.",
       "oneOf": [
         {
           "$ref": "#/$defs/_1"
@@ -1427,13 +1483,22 @@
       ]
     },
     "chat.voiceSpeakingGlow": {
-      "description": "Accent color of the Voice Mode glow while the agent is speaking. Derived from chat.voiceGlowBaseColor when unset.",
+      "description": "Unused speaking accent color.",
       "oneOf": [
         {
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_23"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#ff0000}"
+            }
+          ],
+          "deprecationMessage": "This color is no longer used. Use 'chat.voiceListeningGlow' to customize the connected Voice Mode glow.",
+          "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+          "patternErrorMessage": "This color must be transparent or it will obscure content"
         }
       ]
     },

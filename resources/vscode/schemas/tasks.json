@@ -626,6 +626,7 @@
                 "comment-draft",
                 "comment-unresolved",
                 "comment-unresolved-compact",
+                "compare",
                 "compare-changes",
                 "compass",
                 "compass-active",
@@ -1419,6 +1420,7 @@
                 "$(comment-draft)",
                 "$(comment-unresolved)",
                 "$(comment-unresolved-compact)",
+                "$(compare)",
                 "$(compare-changes)",
                 "$(compass)",
                 "$(compass-active)",
@@ -4792,7 +4794,8 @@
             "thumbsdown-filled",
             "thumbsup-filled",
             "lightbulb-sparkle-autofix",
-            "debug-breakpoint-pending"
+            "debug-breakpoint-pending",
+            "compare"
           ],
           "markdownEnumDescriptions": [
             "$(add)",
@@ -5585,7 +5588,8 @@
             "$(thumbsdown-filled)",
             "$(thumbsup-filled)",
             "$(lightbulb-sparkle-autofix)",
-            "$(debug-breakpoint-pending)"
+            "$(debug-breakpoint-pending)",
+            "$(compare)"
           ]
         },
         "color": {
