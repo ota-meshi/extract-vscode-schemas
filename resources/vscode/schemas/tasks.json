@@ -805,6 +805,7 @@
                 "gist-secret",
                 "git-branch",
                 "git-branch-changes",
+                "git-branch-checkout",
                 "git-branch-compact",
                 "git-branch-conflicts",
                 "git-branch-create",
@@ -1599,6 +1600,7 @@
                 "$(gist-secret)",
                 "$(git-branch)",
                 "$(git-branch-changes)",
+                "$(git-branch-checkout)",
                 "$(git-branch-compact)",
                 "$(git-branch-conflicts)",
                 "$(git-branch-create)",
@@ -4795,7 +4797,8 @@
             "thumbsup-filled",
             "lightbulb-sparkle-autofix",
             "debug-breakpoint-pending",
-            "compare"
+            "compare",
+            "git-branch-checkout"
           ],
           "markdownEnumDescriptions": [
             "$(add)",
@@ -5589,7 +5592,8 @@
             "$(thumbsup-filled)",
             "$(lightbulb-sparkle-autofix)",
             "$(debug-breakpoint-pending)",
-            "$(compare)"
+            "$(compare)",
+            "$(git-branch-checkout)"
           ]
         },
         "color": {

@@ -1139,19 +1139,8 @@
         }
       ]
     },
-    "chat.fusionBadgeForeground": {
-      "description": "Foreground color of the Copilot Fusion badge (discount or Recommended) in the model picker.",
-      "oneOf": [
-        {
-          "$ref": "#/$defs/_1"
-        },
-        {
-          "$ref": "#/$defs/_79"
-        }
-      ]
-    },
     "chat.fusionBadgeGradientEnd": {
-      "description": "End color of the gradient behind the Copilot Fusion badge (discount or Recommended) in the model picker.",
+      "description": "End color of the gradient border of the Copilot Fusion badge (discount or Recommended) in the model picker.",
       "oneOf": [
         {
           "$ref": "#/$defs/_1"
@@ -1168,7 +1157,7 @@
       ]
     },
     "chat.fusionBadgeGradientStart": {
-      "description": "Start color of the gradient behind the Copilot Fusion badge (discount or Recommended) in the model picker.",
+      "description": "Start color of the gradient border of the Copilot Fusion badge (discount or Recommended) in the model picker.",
       "oneOf": [
         {
           "$ref": "#/$defs/_1"
@@ -1769,6 +1758,108 @@
         },
         {
           "$ref": "#/$defs/_6"
+        }
+      ]
+    },
+    "confetti.color1": {
+      "description": "The first color used in confetti animations.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#f28b82}"
+            }
+          ]
+        }
+      ]
+    },
+    "confetti.color2": {
+      "description": "The second color used in confetti animations.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#f2b071}"
+            }
+          ]
+        }
+      ]
+    },
+    "confetti.color3": {
+      "description": "The third color used in confetti animations.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#e8d17a}"
+            }
+          ]
+        }
+      ]
+    },
+    "confetti.color4": {
+      "description": "The fourth color used in confetti animations.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#8fd19e}"
+            }
+          ]
+        }
+      ]
+    },
+    "confetti.color5": {
+      "description": "The fifth color used in confetti animations.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#7db7f0}"
+            }
+          ]
+        }
+      ]
+    },
+    "confetti.color6": {
+      "description": "The sixth color used in confetti animations.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#bf9ae8}"
+            }
+          ]
         }
       ]
     },
@@ -7116,13 +7207,21 @@
       ]
     },
     "minimap.findMatchHighlight": {
-      "description": "Minimap marker color for find matches.",
+      "description": "Minimap marker color for find matches. In light and dark themes, the default uses the overview ruler search match color at 80% opacity.",
       "oneOf": [
         {
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_28"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#3a94bccc}"
+            }
+          ],
+          "pattern": "^#(?:(?<rgba>[0-9a-fA-f]{3}[0-9a-eA-E])|(?:[0-9a-fA-F]{6}(?:(?![fF]{2})(?:[0-9a-fA-F]{2}))))?$",
+          "patternErrorMessage": "This color must be transparent or it will obscure content"
         }
       ]
     },
@@ -9720,7 +9819,13 @@
           "$ref": "#/$defs/_1"
         },
         {
-          "$ref": "#/$defs/_85"
+          "type": "string",
+          "format": "color-hex",
+          "defaultSnippets": [
+            {
+              "body": "${1:#9f250c}"
+            }
+          ]
         }
       ]
     },
