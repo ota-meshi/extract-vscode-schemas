@@ -3390,6 +3390,7 @@
     "editor.inlineSuggest.fontFamily": {
       "type": "string",
       "default": "default",
+      "restricted": true,
       "description": "Controls the font family of the inline suggestions.",
       "section": {
         "id": "editor",
@@ -3397,8 +3398,7 @@
         "order": 5
       },
       "defaultDefaultValue": "default",
-      "scope": 6,
-      "restricted": false
+      "scope": 6
     },
     "editor.inlineSuggest.minShowDelay": {
       "type": "number",
