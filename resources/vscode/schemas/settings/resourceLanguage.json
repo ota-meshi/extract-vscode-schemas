@@ -424,6 +424,9 @@
         "Uses the advanced diffing algorithm from the external `@vscode/diff` package (WebAssembly).",
         "Uses the legacy diffing algorithm."
       ],
+      "experiment": {
+        "mode": "startup"
+      },
       "section": {
         "id": "editor",
         "title": "Editor",
@@ -431,7 +434,10 @@
       },
       "defaultDefaultValue": "advanced",
       "scope": 6,
-      "restricted": false
+      "restricted": false,
+      "tags": [
+        "onExP"
+      ]
     },
     "diffEditor.experimental.showEmptyDecorations": {
       "type": "boolean",

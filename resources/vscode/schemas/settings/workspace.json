@@ -3724,6 +3724,79 @@
       "defaultDefaultValue": true,
       "scope": 4
     },
+    "chat.agent.sandbox.credentials.envVars": {
+      "order": 53,
+      "keywords": [
+        "Sandbox",
+        "sandboxing"
+      ],
+      "tags": [
+        "chatPermissions"
+      ],
+      "markdownDescription": "Mask the named environment variables inside the Copilot Agent Host sandbox. For each variable, list the HTTPS hosts that may receive its value in `injectHosts`. Enter variable names, not secret values.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "default": null,
+      "defaultSnippets": [
+        {
+          "body": {
+            "${1:ENV_VAR_NAME}": {
+              "injectHosts": [
+                "${2:api.example.com}"
+              ]
+            }
+          }
+        }
+      ],
+      "propertyNames": {
+        "description": "Name of an environment variable to mask, not its secret value.",
+        "examples": [
+          "ENV_VAR_NAME"
+        ]
+      },
+      "additionalProperties": {
+        "type": "object",
+        "defaultSnippets": [
+          {
+            "body": {
+              "injectHosts": [
+                "${1:api.example.com}"
+              ]
+            }
+          }
+        ],
+        "properties": {
+          "injectHosts": {
+            "type": "array",
+            "description": "HTTPS destination hosts where the sandbox may inject this environment variable's value. Host patterns are validated by the runtime.",
+            "items": {
+              "type": "string"
+            },
+            "defaultSnippets": [
+              {
+                "body": [
+                  "${1:api.example.com}"
+                ]
+              }
+            ]
+          }
+        },
+        "required": [
+          "injectHosts"
+        ],
+        "additionalProperties": false
+      },
+      "restricted": true,
+      "section": {
+        "id": "terminal",
+        "title": "Integrated Terminal",
+        "order": 100
+      },
+      "defaultDefaultValue": null,
+      "scope": 4
+    },
     "chat.agent.sandbox.enabled": {
       "order": 10,
       "keywords": [
@@ -4382,11 +4455,7 @@
     "chat.agentHost.codexAgent.enabled": {
       "type": "boolean",
       "description": "When enabled, the agent host registers the Codex provider (subject to the Codex SDK being reachable). Enabling takes effect without restarting the agent host.",
-      "default": false,
-      "tags": [
-        "experimental",
-        "onExP"
-      ],
+      "default": true,
       "experiment": {
         "mode": "startup"
       },
@@ -4413,9 +4482,12 @@
         "id": "chatAgentHostStarter",
         "title": "Chat Agent Host Starter"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 4,
-      "restricted": false
+      "restricted": false,
+      "tags": [
+        "onExP"
+      ]
     },
     "chat.agentHost.computerUse.enabled": {
       "type": "boolean",
@@ -4438,39 +4510,6 @@
         "title": "Chat Agent Host Starter"
       },
       "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
-    },
-    "chat.agentHost.copilot.toolSearch.deferThreshold": {
-      "type": "number",
-      "description": "Minimum number of tools before MCP and external tools are deferred behind tool search. Set to 0 to always defer external tools. Only effective when tool search is enabled.",
-      "default": 1,
-      "minimum": 0,
-      "tags": [
-        "experimental",
-        "advanced"
-      ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": 1,
-      "scope": 4,
-      "restricted": false
-    },
-    "chat.agentHost.copilot.toolSearch.enabled": {
-      "type": "boolean",
-      "description": "When enabled, Copilot SDK sessions defer MCP and non-core VS Code tools behind a tool-search tool so the model discovers them on demand instead of loading every tool definition up front.",
-      "default": true,
-      "tags": [
-        "experimental",
-        "advanced"
-      ],
-      "section": {
-        "id": "chatSidebar",
-        "title": "Chat"
-      },
-      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -5329,19 +5368,12 @@
     "chat.defaultToCopilotHarness": {
       "type": "boolean",
       "description": "When enabled, new editor and panel chat sessions default to the Agent Host Copilot SDK instead of the local harness.",
-      "default": false,
-      "tags": [
-        "experimental",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "startup"
-      },
+      "default": true,
       "section": {
         "id": "chatAgentHost",
         "title": "Chat Agent Host"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -5429,11 +5461,7 @@
     "chat.editor.codex.preferAgentHost": {
       "type": "boolean",
       "markdownDescription": "When enabled, Codex sessions opened from the regular workbench (sidebar chat) run inside the agent host process using the Codex App Server instead of the OpenAI extension. Only one Codex implementation surfaces per window. Requires `#chat.agentHost.codexAgent.enabled#`.",
-      "default": false,
-      "tags": [
-        "experimental",
-        "onExP"
-      ],
+      "default": true,
       "experiment": {
         "mode": "startup"
       },
@@ -5441,9 +5469,12 @@
         "id": "chatSidebar",
         "title": "Chat"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 4,
-      "restricted": false
+      "restricted": false,
+      "tags": [
+        "onExP"
+      ]
     },
     "chat.editor.fontFamily": {
       "type": "string",
@@ -5515,14 +5546,7 @@
     "chat.editor.preferCopilotHarness": {
       "type": "boolean",
       "description": "When enabled, uses the Agent Host Copilot SDK whenever the local harness would otherwise be selected for a new editor chat session. Claude and Codex selections are unaffected.",
-      "default": false,
-      "tags": [
-        "experimental",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "startup"
-      },
+      "default": true,
       "policy": {
         "name": "ChatEditorPreferCopilotHarness",
         "category": "InteractiveSession",
@@ -5538,7 +5562,7 @@
         "id": "chatAgentHost",
         "title": "Chat Agent Host"
       },
-      "defaultDefaultValue": false,
+      "defaultDefaultValue": true,
       "scope": 4,
       "restricted": false
     },
@@ -5956,7 +5980,7 @@
     },
     "chat.fontSize": {
       "type": "number",
-      "description": "Controls the font size in pixels in chat messages.",
+      "description": "Controls the font size in pixels in chat messages and the chat input.",
       "default": 13,
       "minimum": 6,
       "maximum": 100,
@@ -6176,7 +6200,7 @@
     },
     "chat.inlineAttachments.enabled": {
       "type": "boolean",
-      "markdownDescription": "Controls whether context attached to the chat input, such as files, folders, images, symbols, tools, and pull requests, is shown as pills inline with the prompt text at the position where it was added, instead of above the input. Each inline attachment behaves like a single character: move the cursor across it, select it, or delete it like text. Sent requests show the same pills inline. The prompt sent to the model mentions each pill by its attachment's name and location, and attaches each attachment once, however often it is mentioned.",
+      "markdownDescription": "Controls whether context attached to the chat input, such as files, folders, images, symbols, tools, and pull requests, is shown as pills inline with the prompt text at the position where it was added, instead of above the input. Each inline attachment behaves like a single character: move the cursor across it, select it, or delete it like text. Sent requests show the same pills inline, and still show attached images as thumbnails above their text. The prompt sent to the model mentions each pill by its attachment's name and location, and attaches each attachment once, however often it is mentioned.",
       "default": false,
       "tags": [
         "experimental"
@@ -6915,6 +6939,25 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.sendInBackgroundTip.enabled": {
+      "type": "boolean",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "description": "Controls whether the Agents Window shows a tip about starting new sessions in the background.",
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.sessionSync.enabled": {
       "default": false,
       "markdownDescription": "Enable session sync to GitHub.com. When enabled, Copilot session data is synced to your GitHub account for cross-device access and richer insights. Requires `#github.copilot.chat.localIndex.enabled#` to also be enabled.",
@@ -7069,6 +7112,26 @@
         "title": "Chat"
       },
       "defaultDefaultValue": "none",
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.titleBar.openInAgentsWindow.richHoverOnClick": {
+      "type": "boolean",
+      "markdownDescription": "Controls whether clicking the Open in Agents Window button in the title bar opens its hover card, with focus in it, instead of the Agents window. The card's Open Agents Window button opens the Agents window. Applies only while the button shows a hover card, see `#chat.titleBar.openInAgentsWindow.richHover#`.",
+      "default": false,
+      "tags": [
+        "experimental",
+        "advanced",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },
@@ -11155,6 +11218,9 @@
         "Uses the advanced diffing algorithm from the external `@vscode/diff` package (WebAssembly).",
         "Uses the legacy diffing algorithm."
       ],
+      "experiment": {
+        "mode": "startup"
+      },
       "section": {
         "id": "editor",
         "title": "Editor",
@@ -11162,7 +11228,10 @@
       },
       "defaultDefaultValue": "advanced",
       "scope": 6,
-      "restricted": false
+      "restricted": false,
+      "tags": [
+        "onExP"
+      ]
     },
     "diffEditor.experimental.showEmptyDecorations": {
       "type": "boolean",
@@ -14866,6 +14935,29 @@
         "order": 9
       },
       "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "files.simpleDialog.selectInitialPath": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "off",
+        "on"
+      ],
+      "enumDescriptions": [
+        "Select the pre-filled path only when a screen reader is detected.",
+        "Never select the pre-filled path; place the cursor at its end.",
+        "Always select the pre-filled path so typing replaces it."
+      ],
+      "description": "Controls whether the pre-filled path in the simple file dialog is selected when the dialog opens.",
+      "default": "auto",
+      "section": {
+        "id": "files",
+        "title": "Files",
+        "order": 9
+      },
+      "defaultDefaultValue": "auto",
       "scope": 4,
       "restricted": false
     },
@@ -29604,7 +29696,7 @@
       "restricted": false
     },
     "terminal.integrated.commandsToSkipShell": {
-      "markdownDescription": "A set of command IDs whose keybindings will not be sent to the shell but instead always be handled by VS Code. This allows keybindings that would normally be consumed by the shell to act instead the same as when the terminal is not focused, for example `Ctrl+P` to launch Quick Open.\n\n&nbsp;\n\nMany commands are skipped by default. To override a default and pass that command's keybinding to the shell instead, add the command prefixed with the `-` character. For example add `-workbench.action.quickOpen` to allow `Ctrl+P` to reach the shell.\n\n&nbsp;\n\nThe following list of default skipped commands is truncated when viewed in Settings Editor. To see the full list, [open the default settings JSON](command:workbench.action.openRawDefaultSettings 'Open Default Settings (JSON)') and search for the first command from the list below.\n\n&nbsp;\n\nDefault Skipped Commands:\n\n- editor.action.accessibilityHelp\n- editor.action.toggleTabFocusMode\n- notification.acceptPrimaryAction\n- notifications.hideList\n- notifications.hideToasts\n- runCommands\n- sessions.focusActiveSession\n- sessions.focusSessionInGrid1\n- sessions.focusSessionInGrid2\n- sessions.focusSessionInGrid3\n- sessions.focusSessionInGrid4\n- sessions.focusSessionInGrid5\n- sessions.focusSessionInGrid6\n- sessions.focusSessionInGrid7\n- sessions.focusSessionInGrid8\n- sessions.focusSessionInGrid9\n- sessions.goBack\n- sessions.goForward\n- sessionsViewPane.navigateNextSession\n- sessionsViewPane.navigatePreviousSession\n- workbench.action.closeQuickOpen\n- workbench.action.debug.continue\n- workbench.action.debug.disconnect\n- workbench.action.debug.pause\n- workbench.action.debug.restart\n- workbench.action.debug.run\n- workbench.action.debug.start\n- workbench.action.debug.stepInto\n- workbench.action.debug.stepOut\n- workbench.action.debug.stepOver\n- workbench.action.debug.stop\n- workbench.action.firstEditorInGroup\n- workbench.action.focusActiveEditorGroup\n- workbench.action.focusEighthEditorGroup\n- workbench.action.focusFifthEditorGroup\n- workbench.action.focusFirstEditorGroup\n- workbench.action.focusFourthEditorGroup\n- workbench.action.focusLastEditorGroup\n- workbench.action.focusNextPart\n- workbench.action.focusPreviousPart\n- workbench.action.focusSecondEditorGroup\n- workbench.action.focusSeventhEditorGroup\n- workbench.action.focusSixthEditorGroup\n- workbench.action.focusThirdEditorGroup\n- workbench.action.lastEditorInGroup\n- workbench.action.navigateDown\n- workbench.action.navigateLeft\n- workbench.action.navigateRight\n- workbench.action.navigateUp\n- workbench.action.nextEditor\n- workbench.action.nextEditorInGroup\n- workbench.action.nextPanelView\n- workbench.action.nextSideBarView\n- workbench.action.openNextRecentlyUsedEditor\n- workbench.action.openNextRecentlyUsedEditorInGroup\n- workbench.action.openPreviousRecentlyUsedEditor\n- workbench.action.openPreviousRecentlyUsedEditorInGroup\n- workbench.action.previousEditor\n- workbench.action.previousEditorInGroup\n- workbench.action.previousPanelView\n- workbench.action.previousSideBarView\n- workbench.action.quickOpen\n- workbench.action.quickOpenLeastRecentlyUsedEditor\n- workbench.action.quickOpenLeastRecentlyUsedEditorInGroup\n- workbench.action.quickOpenPreviousEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup\n- workbench.action.quickOpenView\n- workbench.action.showCommands\n- workbench.action.tasks.build\n- workbench.action.tasks.reRunTask\n- workbench.action.tasks.rerunForActiveTerminal\n- workbench.action.tasks.restartTask\n- workbench.action.tasks.runTask\n- workbench.action.tasks.showLog\n- workbench.action.tasks.showTasks\n- workbench.action.tasks.terminate\n- workbench.action.tasks.test\n- workbench.action.terminal.acceptSelectedSuggestion\n- workbench.action.terminal.acceptSelectedSuggestionEnter\n- workbench.action.terminal.chat.cancel\n- workbench.action.terminal.chat.close\n- workbench.action.terminal.chat.discard\n- workbench.action.terminal.chat.feedbackHelpful\n- workbench.action.terminal.chat.feedbackReportIssue\n- workbench.action.terminal.chat.feedbackUnhelpful\n- workbench.action.terminal.chat.insertCommand\n- workbench.action.terminal.chat.makeRequest\n- workbench.action.terminal.chat.runCommand\n- workbench.action.terminal.chat.start\n- workbench.action.terminal.chat.viewInChat\n- workbench.action.terminal.clear\n- workbench.action.terminal.clearSelection\n- workbench.action.terminal.copyAndClearSelection\n- workbench.action.terminal.copyLastCommand\n- workbench.action.terminal.copyLastCommandAndLastCommandOutput\n- workbench.action.terminal.copyLastCommandOutput\n- workbench.action.terminal.copySelection\n- workbench.action.terminal.copySelectionAsHtml\n- workbench.action.terminal.deleteToLineStart\n- workbench.action.terminal.deleteWordLeft\n- workbench.action.terminal.deleteWordRight\n- workbench.action.terminal.findNext\n- workbench.action.terminal.findPrevious\n- workbench.action.terminal.focus\n- workbench.action.terminal.focusAccessibleBuffer\n- workbench.action.terminal.focusAtIndex1\n- workbench.action.terminal.focusAtIndex2\n- workbench.action.terminal.focusAtIndex3\n- workbench.action.terminal.focusAtIndex4\n- workbench.action.terminal.focusAtIndex5\n- workbench.action.terminal.focusAtIndex6\n- workbench.action.terminal.focusAtIndex7\n- workbench.action.terminal.focusAtIndex8\n- workbench.action.terminal.focusAtIndex9\n- workbench.action.terminal.focusFind\n- workbench.action.terminal.focusHover\n- workbench.action.terminal.focusNext\n- workbench.action.terminal.focusNextPane\n- workbench.action.terminal.focusPrevious\n- workbench.action.terminal.focusPreviousPane\n- workbench.action.terminal.goToRecentDirectory\n- workbench.action.terminal.hideFind\n- workbench.action.terminal.hideSuggestWidget\n- workbench.action.terminal.kill\n- workbench.action.terminal.killEditor\n- workbench.action.terminal.moveToEditor\n- workbench.action.terminal.moveToLineEnd\n- workbench.action.terminal.moveToLineStart\n- workbench.action.terminal.moveToTerminalPanel\n- workbench.action.terminal.new\n- workbench.action.terminal.newInActiveWorkspace\n- workbench.action.terminal.newInNewWindow\n- workbench.action.terminal.paste\n- workbench.action.terminal.pastePwsh\n- workbench.action.terminal.pasteSelection\n- workbench.action.terminal.resizePaneDown\n- workbench.action.terminal.resizePaneLeft\n- workbench.action.terminal.resizePaneRight\n- workbench.action.terminal.resizePaneUp\n- workbench.action.terminal.runActiveFile\n- workbench.action.terminal.runRecentCommand\n- workbench.action.terminal.runSelectedText\n- workbench.action.terminal.scrollDown\n- workbench.action.terminal.scrollDownPage\n- workbench.action.terminal.scrollToBottom\n- workbench.action.terminal.scrollToNextCommand\n- workbench.action.terminal.scrollToPreviousCommand\n- workbench.action.terminal.scrollToTop\n- workbench.action.terminal.scrollUp\n- workbench.action.terminal.scrollUpPage\n- workbench.action.terminal.searchWorkspace\n- workbench.action.terminal.selectAll\n- workbench.action.terminal.selectNextPageSuggestion\n- workbench.action.terminal.selectNextSuggestion\n- workbench.action.terminal.selectPrevPageSuggestion\n- workbench.action.terminal.selectPrevSuggestion\n- workbench.action.terminal.selectToNextCommand\n- workbench.action.terminal.selectToNextLine\n- workbench.action.terminal.selectToPreviousCommand\n- workbench.action.terminal.selectToPreviousLine\n- workbench.action.terminal.sendSequence\n- workbench.action.terminal.sendSignal\n- workbench.action.terminal.sizeToContentWidth\n- workbench.action.terminal.split\n- workbench.action.terminal.splitInActiveWorkspace\n- workbench.action.terminal.stopVoice\n- workbench.action.terminal.suggestToggleDetails\n- workbench.action.terminal.suggestToggleDetailsFocus\n- workbench.action.terminal.toggleFindCaseSensitive\n- workbench.action.terminal.toggleFindRegex\n- workbench.action.terminal.toggleFindWholeWord\n- workbench.action.terminal.toggleTerminal\n- workbench.action.terminal.triggerSuggest\n- workbench.action.toggleFullScreen\n- workbench.action.toggleMaximizedPanel\n- workbench.action.togglePanel\n- workbench.action.zoomIn\n- workbench.action.zoomOut\n- workbench.action.zoomReset",
+      "markdownDescription": "A set of command IDs whose keybindings will not be sent to the shell but instead always be handled by VS Code. This allows keybindings that would normally be consumed by the shell to act instead the same as when the terminal is not focused, for example `Ctrl+P` to launch Quick Open.\n\n&nbsp;\n\nMany commands are skipped by default. To override a default and pass that command's keybinding to the shell instead, add the command prefixed with the `-` character. For example add `-workbench.action.quickOpen` to allow `Ctrl+P` to reach the shell.\n\n&nbsp;\n\nThe following list of default skipped commands is truncated when viewed in Settings Editor. To see the full list, [open the default settings JSON](command:workbench.action.openRawDefaultSettings 'Open Default Settings (JSON)') and search for the first command from the list below.\n\n&nbsp;\n\nDefault Skipped Commands:\n\n- editor.action.accessibilityHelp\n- editor.action.toggleTabFocusMode\n- notification.acceptPrimaryAction\n- notifications.hideList\n- notifications.hideToasts\n- runCommands\n- sessions.focusActiveSession\n- sessions.focusSessionInGrid1\n- sessions.focusSessionInGrid2\n- sessions.focusSessionInGrid3\n- sessions.focusSessionInGrid4\n- sessions.focusSessionInGrid5\n- sessions.focusSessionInGrid6\n- sessions.focusSessionInGrid7\n- sessions.focusSessionInGrid8\n- sessions.focusSessionInGrid9\n- sessions.goBack\n- sessions.goForward\n- sessionsViewPane.navigateNextSession\n- sessionsViewPane.navigatePreviousSession\n- workbench.action.agentToggleSidePanel\n- workbench.action.chatWindow.toggleTerminal\n- workbench.action.closeQuickOpen\n- workbench.action.debug.continue\n- workbench.action.debug.disconnect\n- workbench.action.debug.pause\n- workbench.action.debug.restart\n- workbench.action.debug.run\n- workbench.action.debug.start\n- workbench.action.debug.stepInto\n- workbench.action.debug.stepOut\n- workbench.action.debug.stepOver\n- workbench.action.debug.stop\n- workbench.action.firstEditorInGroup\n- workbench.action.focusActiveEditorGroup\n- workbench.action.focusEighthEditorGroup\n- workbench.action.focusFifthEditorGroup\n- workbench.action.focusFirstEditorGroup\n- workbench.action.focusFourthEditorGroup\n- workbench.action.focusLastEditorGroup\n- workbench.action.focusNextPart\n- workbench.action.focusPreviousPart\n- workbench.action.focusSecondEditorGroup\n- workbench.action.focusSeventhEditorGroup\n- workbench.action.focusSixthEditorGroup\n- workbench.action.focusThirdEditorGroup\n- workbench.action.lastEditorInGroup\n- workbench.action.navigateDown\n- workbench.action.navigateLeft\n- workbench.action.navigateRight\n- workbench.action.navigateUp\n- workbench.action.nextEditor\n- workbench.action.nextEditorInGroup\n- workbench.action.nextPanelView\n- workbench.action.nextSideBarView\n- workbench.action.openNextRecentlyUsedEditor\n- workbench.action.openNextRecentlyUsedEditorInGroup\n- workbench.action.openPreviousRecentlyUsedEditor\n- workbench.action.openPreviousRecentlyUsedEditorInGroup\n- workbench.action.previousEditor\n- workbench.action.previousEditorInGroup\n- workbench.action.previousPanelView\n- workbench.action.previousSideBarView\n- workbench.action.quickOpen\n- workbench.action.quickOpenLeastRecentlyUsedEditor\n- workbench.action.quickOpenLeastRecentlyUsedEditorInGroup\n- workbench.action.quickOpenPreviousEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditor\n- workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup\n- workbench.action.quickOpenView\n- workbench.action.showCommands\n- workbench.action.tasks.build\n- workbench.action.tasks.reRunTask\n- workbench.action.tasks.rerunForActiveTerminal\n- workbench.action.tasks.restartTask\n- workbench.action.tasks.runTask\n- workbench.action.tasks.showLog\n- workbench.action.tasks.showTasks\n- workbench.action.tasks.terminate\n- workbench.action.tasks.test\n- workbench.action.terminal.acceptSelectedSuggestion\n- workbench.action.terminal.acceptSelectedSuggestionEnter\n- workbench.action.terminal.chat.cancel\n- workbench.action.terminal.chat.close\n- workbench.action.terminal.chat.discard\n- workbench.action.terminal.chat.feedbackHelpful\n- workbench.action.terminal.chat.feedbackReportIssue\n- workbench.action.terminal.chat.feedbackUnhelpful\n- workbench.action.terminal.chat.insertCommand\n- workbench.action.terminal.chat.makeRequest\n- workbench.action.terminal.chat.runCommand\n- workbench.action.terminal.chat.start\n- workbench.action.terminal.chat.viewInChat\n- workbench.action.terminal.clear\n- workbench.action.terminal.clearSelection\n- workbench.action.terminal.copyAndClearSelection\n- workbench.action.terminal.copyLastCommand\n- workbench.action.terminal.copyLastCommandAndLastCommandOutput\n- workbench.action.terminal.copyLastCommandOutput\n- workbench.action.terminal.copySelection\n- workbench.action.terminal.copySelectionAsHtml\n- workbench.action.terminal.deleteToLineStart\n- workbench.action.terminal.deleteWordLeft\n- workbench.action.terminal.deleteWordRight\n- workbench.action.terminal.findNext\n- workbench.action.terminal.findPrevious\n- workbench.action.terminal.focus\n- workbench.action.terminal.focusAccessibleBuffer\n- workbench.action.terminal.focusAtIndex1\n- workbench.action.terminal.focusAtIndex2\n- workbench.action.terminal.focusAtIndex3\n- workbench.action.terminal.focusAtIndex4\n- workbench.action.terminal.focusAtIndex5\n- workbench.action.terminal.focusAtIndex6\n- workbench.action.terminal.focusAtIndex7\n- workbench.action.terminal.focusAtIndex8\n- workbench.action.terminal.focusAtIndex9\n- workbench.action.terminal.focusFind\n- workbench.action.terminal.focusHover\n- workbench.action.terminal.focusNext\n- workbench.action.terminal.focusNextPane\n- workbench.action.terminal.focusPrevious\n- workbench.action.terminal.focusPreviousPane\n- workbench.action.terminal.goToRecentDirectory\n- workbench.action.terminal.hideFind\n- workbench.action.terminal.hideSuggestWidget\n- workbench.action.terminal.kill\n- workbench.action.terminal.killEditor\n- workbench.action.terminal.moveToEditor\n- workbench.action.terminal.moveToLineEnd\n- workbench.action.terminal.moveToLineStart\n- workbench.action.terminal.moveToTerminalPanel\n- workbench.action.terminal.new\n- workbench.action.terminal.newInActiveWorkspace\n- workbench.action.terminal.newInNewWindow\n- workbench.action.terminal.paste\n- workbench.action.terminal.pastePwsh\n- workbench.action.terminal.pasteSelection\n- workbench.action.terminal.resizePaneDown\n- workbench.action.terminal.resizePaneLeft\n- workbench.action.terminal.resizePaneRight\n- workbench.action.terminal.resizePaneUp\n- workbench.action.terminal.runActiveFile\n- workbench.action.terminal.runRecentCommand\n- workbench.action.terminal.runSelectedText\n- workbench.action.terminal.scrollDown\n- workbench.action.terminal.scrollDownPage\n- workbench.action.terminal.scrollToBottom\n- workbench.action.terminal.scrollToNextCommand\n- workbench.action.terminal.scrollToPreviousCommand\n- workbench.action.terminal.scrollToTop\n- workbench.action.terminal.scrollUp\n- workbench.action.terminal.scrollUpPage\n- workbench.action.terminal.searchWorkspace\n- workbench.action.terminal.selectAll\n- workbench.action.terminal.selectNextPageSuggestion\n- workbench.action.terminal.selectNextSuggestion\n- workbench.action.terminal.selectPrevPageSuggestion\n- workbench.action.terminal.selectPrevSuggestion\n- workbench.action.terminal.selectToNextCommand\n- workbench.action.terminal.selectToNextLine\n- workbench.action.terminal.selectToPreviousCommand\n- workbench.action.terminal.selectToPreviousLine\n- workbench.action.terminal.sendSequence\n- workbench.action.terminal.sendSignal\n- workbench.action.terminal.sizeToContentWidth\n- workbench.action.terminal.split\n- workbench.action.terminal.splitInActiveWorkspace\n- workbench.action.terminal.stopVoice\n- workbench.action.terminal.suggestToggleDetails\n- workbench.action.terminal.suggestToggleDetailsFocus\n- workbench.action.terminal.toggleFindCaseSensitive\n- workbench.action.terminal.toggleFindRegex\n- workbench.action.terminal.toggleFindWholeWord\n- workbench.action.terminal.toggleTerminal\n- workbench.action.terminal.triggerSuggest\n- workbench.action.toggleFullScreen\n- workbench.action.toggleMaximizedPanel\n- workbench.action.togglePanel\n- workbench.action.zoomIn\n- workbench.action.zoomOut\n- workbench.action.zoomReset",
       "type": "array",
       "items": {
         "type": "string"
@@ -30762,14 +30854,18 @@
         "on"
       ],
       "enumDescriptions": [
-        "Enabled only for remote workspaces",
+        "Enabled only for remote terminals, such as those in remote workspaces or on remote agent hosts",
         "Always disabled",
         "Always enabled"
       ],
       "default": "off",
       "tags": [
-        "preview"
+        "preview",
+        "onExP"
       ],
+      "experiment": {
+        "mode": "auto"
+      },
       "section": {
         "id": "terminal",
         "title": "Integrated Terminal",
@@ -33369,14 +33465,14 @@
     },
     "terminal.integrated.tabs.description": {
       "type": "string",
-      "default": "${task}${separator}${local}${separator}${cwdFolder}",
-      "markdownDescription": "Controls the terminal description, which appears to the right of the title. Variables are substituted based on the context:\n- `${cwd}`: the terminal's current working directory.\n- `${cwdFolder}`: the terminal's current working directory, displayed for multi-root workspaces or in a single root workspace when the value differs from the initial working directory. On Windows, this will only be displayed when shell integration is enabled.\n- `${workspaceFolder}`: the workspace in which the terminal was launched.\n- `${workspaceFolderName}`: the `name` of the workspace in which the terminal was launched.\n- `${local}`: indicates a local terminal in a remote workspace.\n- `${process}`: the name of the terminal process.\n- `${progress}`: the progress state as reported by the `OSC 9;4` sequence.\n- `${separator}`: a conditional separator (` - `) that only shows when it's surrounded by variables with values or static text.\n- `${sequence}`: the name provided to the terminal by the process.\n- `${task}`: indicates this terminal is associated with a task.\n- `${shellType}`: the detected shell type.\n- `${shellCommand}`: the command being executed according to shell integration. This also requires high confidence in the detected command line, which may not work in some prompt frameworks.\n- `${shellPromptInput}`: the shell's full prompt input according to shell integration.",
+      "default": "${task}${separator}${local}${separator}${host}${separator}${cwdFolder}",
+      "markdownDescription": "Controls the terminal description, which appears to the right of the title. Variables are substituted based on the context:\n- `${cwd}`: the terminal's current working directory.\n- `${cwdFolder}`: the terminal's current working directory, displayed for multi-root workspaces or in a single root workspace when the value differs from the initial working directory. On Windows, this will only be displayed when shell integration is enabled.\n- `${workspaceFolder}`: the workspace in which the terminal was launched.\n- `${workspaceFolderName}`: the `name` of the workspace in which the terminal was launched.\n- `${local}`: indicates a local terminal in a remote workspace.\n- `${host}`: the name of the remote agent host the terminal runs on.\n- `${process}`: the name of the terminal process.\n- `${progress}`: the progress state as reported by the `OSC 9;4` sequence.\n- `${separator}`: a conditional separator (` - `) that only shows when it's surrounded by variables with values or static text.\n- `${sequence}`: the name provided to the terminal by the process.\n- `${task}`: indicates this terminal is associated with a task.\n- `${shellType}`: the detected shell type.\n- `${shellCommand}`: the command being executed according to shell integration. This also requires high confidence in the detected command line, which may not work in some prompt frameworks.\n- `${shellPromptInput}`: the shell's full prompt input according to shell integration.",
       "section": {
         "id": "terminal",
         "title": "Integrated Terminal",
         "order": 100
       },
-      "defaultDefaultValue": "${task}${separator}${local}${separator}${cwdFolder}",
+      "defaultDefaultValue": "${task}${separator}${local}${separator}${host}${separator}${cwdFolder}",
       "scope": 4,
       "restricted": false
     },
@@ -33537,7 +33633,7 @@
     "terminal.integrated.tabs.title": {
       "type": "string",
       "default": "${process}",
-      "markdownDescription": "Controls the terminal title. Variables are substituted based on the context:\n- `${cwd}`: the terminal's current working directory.\n- `${cwdFolder}`: the terminal's current working directory, displayed for multi-root workspaces or in a single root workspace when the value differs from the initial working directory. On Windows, this will only be displayed when shell integration is enabled.\n- `${workspaceFolder}`: the workspace in which the terminal was launched.\n- `${workspaceFolderName}`: the `name` of the workspace in which the terminal was launched.\n- `${local}`: indicates a local terminal in a remote workspace.\n- `${process}`: the name of the terminal process.\n- `${progress}`: the progress state as reported by the `OSC 9;4` sequence.\n- `${separator}`: a conditional separator (` - `) that only shows when it's surrounded by variables with values or static text.\n- `${sequence}`: the name provided to the terminal by the process.\n- `${task}`: indicates this terminal is associated with a task.\n- `${shellType}`: the detected shell type.\n- `${shellCommand}`: the command being executed according to shell integration. This also requires high confidence in the detected command line, which may not work in some prompt frameworks.\n- `${shellPromptInput}`: the shell's full prompt input according to shell integration.",
+      "markdownDescription": "Controls the terminal title. Variables are substituted based on the context:\n- `${cwd}`: the terminal's current working directory.\n- `${cwdFolder}`: the terminal's current working directory, displayed for multi-root workspaces or in a single root workspace when the value differs from the initial working directory. On Windows, this will only be displayed when shell integration is enabled.\n- `${workspaceFolder}`: the workspace in which the terminal was launched.\n- `${workspaceFolderName}`: the `name` of the workspace in which the terminal was launched.\n- `${local}`: indicates a local terminal in a remote workspace.\n- `${host}`: the name of the remote agent host the terminal runs on.\n- `${process}`: the name of the terminal process.\n- `${progress}`: the progress state as reported by the `OSC 9;4` sequence.\n- `${separator}`: a conditional separator (` - `) that only shows when it's surrounded by variables with values or static text.\n- `${sequence}`: the name provided to the terminal by the process.\n- `${task}`: indicates this terminal is associated with a task.\n- `${shellType}`: the detected shell type.\n- `${shellCommand}`: the command being executed according to shell integration. This also requires high confidence in the detected command line, which may not work in some prompt frameworks.\n- `${shellPromptInput}`: the shell's full prompt input according to shell integration.",
       "section": {
         "id": "terminal",
         "title": "Integrated Terminal",
@@ -35811,11 +35907,6 @@
       "type": "object",
       "description": "If an editor matching one of the listed types is opened as the first in an editor group and more than one group is open, the group is automatically locked. Locked groups will only be used for opening editors when explicitly chosen by a user gesture (for example drag and drop), but not by default. Consequently, the active editor in a locked group is less likely to be replaced accidentally with a different editor.",
       "properties": {
-        "agentSessionsWelcomePage": {
-          "type": "boolean",
-          "default": false,
-          "description": "Agent Sessions Welcome"
-        },
         "default": {
           "type": "boolean",
           "default": false,
@@ -35928,7 +36019,6 @@
         }
       },
       "default": {
-        "agentSessionsWelcomePage": false,
         "default": false,
         "imagePreview.previewEditor": false,
         "jsProfileVisualizer.cpuprofile.table": false,
@@ -35959,7 +36049,6 @@
         "order": 7
       },
       "defaultDefaultValue": {
-        "agentSessionsWelcomePage": false,
         "default": false,
         "imagePreview.previewEditor": false,
         "jsProfileVisualizer.cpuprofile.table": false,
@@ -36107,7 +36196,6 @@
       "default": "",
       "enum": [
         "",
-        "agentSessionsWelcomePage",
         "default",
         "imagePreview.previewEditor",
         "jsProfileVisualizer.cpuprofile.table",
@@ -38415,7 +38503,6 @@
       "scope": 5,
       "type": "string",
       "enum": [
-        "agentSessionsWelcomePage",
         "newUntitledFile",
         "none",
         "readme",
@@ -38424,7 +38511,6 @@
         "welcomePageInEmptyWorkbench"
       ],
       "enumDescriptions": [
-        "Open the Agent Sessions Welcome page. Will override the workbench secondary side bar visibility settings.",
         "Open a new untitled text file (only applies when opening an empty window).",
         "Start without an editor.",
         "Open the README when opening a folder that contains one, fallback to 'welcomePage' otherwise. Note: This is only observed as a global configuration, it will be ignored if set in a workspace or folder configuration.",
@@ -38833,7 +38919,6 @@
         "imagePreview.previewEditor",
         "vscode.videoPreview",
         "vscode.audioPreview",
-        "agentSessionsWelcomePage",
         "workbench.editor.browser",
         "notebookOutputEditor",
         "repl",
