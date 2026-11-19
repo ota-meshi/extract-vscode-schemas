@@ -11,7 +11,7 @@ You able to get it in the form of `https://raw.githubusercontent.com/ota-meshi/e
 
 <!--EXTRACT-INFO-START-->
 
-Version of VSCode used for extraction: 1.146.0
+Version of VSCode used for extraction: 1.147.0
 
 Extracted Resources:
 
@@ -39,6 +39,7 @@ Extracted Resources:
 | `vscode://schemas/settings/resourceLanguage` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/settings/resourceLanguage.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/settings/resourceLanguage.json) |
 | `vscode://schemas/settings/user` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/settings/user.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/settings/user.json) |
 | `vscode://schemas/settings/workspace` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/settings/workspace.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/settings/workspace.json) |
+| `vscode://schemas/size-customizations` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/size-customizations.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/size-customizations.json) |
 | `vscode://schemas/snippets` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/snippets.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/snippets.json) |
 | `vscode://schemas/tasks` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/tasks.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/tasks.json) |
 | `vscode://schemas/textmate-colors` | [https://raw.githubusercontent.com/ota-meshi/extract-vscode-schemas/main/resources/vscode/schemas/textmate-colors.json](https://github.com/ota-meshi/extract-vscode-schemas/raw/main/resources/vscode/schemas/textmate-colors.json) |

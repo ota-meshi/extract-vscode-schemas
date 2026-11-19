@@ -328,6 +328,28 @@
         }
       ]
     },
+    "agentsActivityBar.background": {
+      "description": "Background color of the docked Session Activity Bar in the Agents window.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_49"
+        }
+      ]
+    },
+    "agentsActivityBar.border": {
+      "description": "Border color of the docked Session Activity Bar in the Agents window.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_49"
+        }
+      ]
+    },
     "agentsBadge.background": {
       "description": "Background color of badges in the agent sessions window.",
       "oneOf": [
@@ -435,6 +457,17 @@
         },
         {
           "$ref": "#/$defs/_20"
+        }
+      ]
+    },
+    "agentSessionNeedsInput.foreground": {
+      "description": "Foreground color of agent session indicators that need input, including row markers in high contrast themes.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_48"
         }
       ]
     },
@@ -3586,6 +3619,17 @@
               "body": "${1:#488fae26}"
             }
           ]
+        }
+      ]
+    },
+    "editorCommentsWidget.rangeBorder": {
+      "description": "Color of the outline around the code that a floating comment thread is about, and of the line connecting the thread to that code, when the thread is neither resolved nor unresolved.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/_1"
+        },
+        {
+          "$ref": "#/$defs/_6"
         }
       ]
     },
@@ -10541,7 +10585,7 @@
       ]
     },
     "tab.divider": {
-      "description": "Color of dividers between editor tabs.",
+      "description": "Color of dividers between tabs.",
       "oneOf": [
         {
           "$ref": "#/$defs/_1"

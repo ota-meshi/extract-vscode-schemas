@@ -265,7 +265,7 @@
                 "string",
                 "object"
               ],
-              "description": "The RegExp pattern for the start marker. The regexp must start with '^'.",
+              "description": "The RegExp pattern for the start marker. The regexp must start with '^'. A named group 'label' captures the region's name, e.g. in '<!-- #region Name -->'; otherwise the name is the text after the match.",
               "properties": {
                 "flags": {
                   "type": "string",

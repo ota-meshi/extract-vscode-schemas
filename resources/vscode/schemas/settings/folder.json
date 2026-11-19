@@ -2688,21 +2688,6 @@
       "scope": 5,
       "restricted": false
     },
-    "accessibility.verbosity.inboxNotifications": {
-      "description": "Provide information about how to navigate and act on prioritized notifications in the Inbox view.",
-      "type": "boolean",
-      "default": true,
-      "tags": [
-        "accessibility"
-      ],
-      "section": {
-        "id": "accessibility",
-        "title": "Accessibility"
-      },
-      "defaultDefaultValue": true,
-      "scope": 5,
-      "restricted": false
-    },
     "accessibility.verbosity.inlineChat": {
       "description": "Provide information about how to access the inline editor chat accessibility help menu and alert with hints that describe how to use the feature when the input is focused.",
       "type": "boolean",
@@ -2870,6 +2855,21 @@
     },
     "accessibility.verbosity.replEditor": {
       "description": "Provide information about how to access the REPL editor accessibility help menu when the REPL editor is focused.",
+      "type": "boolean",
+      "default": true,
+      "tags": [
+        "accessibility"
+      ],
+      "section": {
+        "id": "accessibility",
+        "title": "Accessibility"
+      },
+      "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
+    "accessibility.verbosity.screenshotTool": {
+      "description": "Provide information about how to access the screenshot tool accessibility help when the screenshot tool opens.",
       "type": "boolean",
       "default": true,
       "tags": [
@@ -4192,7 +4192,7 @@
     "chat.agent.thinking.generateTitles": {
       "type": "boolean",
       "default": true,
-      "description": "Generate a summary only when a live thinking section finishes with its header in view. A single extracted reasoning heading is used directly without a model request; multiple headings are used as summary input. Opening a chat, returning to it, scrolling or expanding existing sections never generates titles. Sections that finish off-screen or in background chats keep their existing title or Finished thinking.",
+      "description": "Generate a summary only when a live thinking section finishes with its header in view. A single extracted reasoning heading is used directly without a model request; multiple headings are used as summary input. Opening a chat, returning to it, scrolling or expanding existing sections never generates titles. Sections that finish off-screen or in background chats keep their existing title or Finished thinking. Conversation sections never use a reasoning heading or a generated summary as their title.",
       "tags": [
         "experimental"
       ],
@@ -4396,6 +4396,30 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.agentHost.browserUse.enabled": {
+      "type": "boolean",
+      "markdownDescription": "When enabled, local Copilot agent sessions offer GitHub's Browser Use plugin, which can operate pages in Google Chrome or Microsoft Edge through the [GitHub Copilot browser extension](https://chromewebstore.google.com/detail/github-copilot/hblomdgalaelcilcdepgohfcogjiijhe). Turn it on with `/plugin enable browser-use` in a Copilot chat, then run `/browser-use:doctor` to check your setup. Requires Node.js 22 or later on your `PATH`. Changes take effect after a restart.",
+      "default": false,
+      "tags": [
+        "preview",
+        "advanced",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "startup"
+      },
+      "agentHost": {
+        "key": "browserUseEnabled",
+        "scope": "local"
+      },
+      "section": {
+        "id": "chatAgentHostStarter",
+        "title": "Chat Agent Host Starter"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.agentHost.byokModels.enabled": {
       "type": "boolean",
       "description": "When enabled, extension-provided BYOK ('bring your own key') models can run in agent-host sessions. Changes are synchronized to the running agent host and do not require a restart.",
@@ -4435,6 +4459,9 @@
         "managedSettings": {
           "vscode.temporaryAllowLocalHarness": {
             "type": "boolean"
+          },
+          "vscode.allowedHarnesses": {
+            "type": "string"
           }
         },
         "localization": {
@@ -4469,6 +4496,9 @@
         "managedSettings": {
           "vscode.temporaryAllowLocalHarness": {
             "type": "boolean"
+          },
+          "vscode.allowedHarnesses": {
+            "type": "string"
           }
         },
         "localization": {
@@ -4694,7 +4724,7 @@
         "Show external sessions updated in the last 30 days.",
         "Show external sessions updated in the last 7 days.",
         "Do not show external sessions.",
-        "Show up to the 2 most recent external sessions updated in the last 7 days. At startup, external sessions older than the second-most-recently updated local session are hidden."
+        "Show the 2 most recently updated external sessions from the last 7 days, hiding any that are older than your 2 newest local sessions."
       ],
       "default": "last7Days",
       "markdownDescription": "Controls which external agent sessions are shown. External sessions are sessions that were created in a different application and have not received a message from this application yet.",
@@ -4838,6 +4868,25 @@
       "scope": 4,
       "restricted": false
     },
+    "chat.appWindowScreenshots.enabled": {
+      "type": "boolean",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "markdownDescription": "Controls whether chat can attach a screenshot of the window of another app, such as the browser or simulator that runs the app that you are building. **Attach Screenshot of App Window** captures the window that you are using or just left, and you can mark up the screenshot before you send it. Its keybinding also works while the other app is in front.",
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.artifactIntegrations.githubPullRequests.autoMarkReadyIgnoredChecks": {
       "type": "array",
       "items": {
@@ -4952,6 +5001,25 @@
           "onlyShowGroup": true
         }
       },
+      "scope": 4,
+      "restricted": false
+    },
+    "chat.automateTip.enabled": {
+      "type": "boolean",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExP"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "markdownDescription": "Controls whether the Agents Window shows a tip about using `/automate` to create recurring automations.",
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
       "scope": 4,
       "restricted": false
     },
@@ -5926,7 +5994,7 @@
     },
     "chat.extensionTools.enabled": {
       "type": "boolean",
-      "description": "Enable using tools contributed by third-party extensions.",
+      "description": "Enable using tools contributed by third-party extensions. These tools are also disabled when your organization disables MCP.",
       "default": true,
       "policy": {
         "name": "ChatAgentExtensionTools",
@@ -5935,7 +6003,7 @@
         "localization": {
           "description": {
             "key": "chat.extensionToolsEnabled",
-            "value": "Enable using tools contributed by third-party extensions."
+            "value": "Enable using tools contributed by third-party extensions. These tools are also disabled when your organization disables MCP."
           }
         }
       },
@@ -6082,6 +6150,18 @@
         "~/.copilot/hooks": true
       },
       "scope": 4
+    },
+    "chat.htmlPreview.enabled": {
+      "type": "boolean",
+      "description": "Render explicit html-preview code blocks as inline HTML previews in the Agents window. When disabled, these blocks are shown as source code.",
+      "default": false,
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
     },
     "chat.implicitContext.enabled": {
       "type": "object",
@@ -6587,6 +6667,21 @@
       "scope": 4,
       "deprecationMessage": "This setting and the Local agent harness will be removed in a future release. Chat modes are now called custom agents and are located in .github/agents. Review the Migrations tab in the Agent Customizations editor to move them into supported locations."
     },
+    "chat.nativeComponents.enabled": {
+      "type": "boolean",
+      "description": "Render explicit vscode-ui code blocks as native visuals, such as metrics, tables, and bar charts, in Agents window responses. When disabled, these blocks are shown as source code.",
+      "default": false,
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "chatSidebar",
+        "title": "Chat"
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "chat.newSession.defaultMode": {
       "type": "string",
       "description": "The default mode for new chat sessions. When empty, the chat view's default mode is used.",
@@ -6739,10 +6834,10 @@
       ],
       "enumDescriptions": [
         "Preview tool calls while they run, then collapse each group to a single expandable summary row when the response moves on.",
-        "Collapse reasoning and tool calls together into a single section that names the current tool call or reasoning heading while it runs, then shows a generated summary or Finished thinking once it finishes.",
+        "Collapse reasoning and tool calls together into a single section that names the current tool call or reasoning heading while it runs. Once it finishes, it shows what its tool calls did, followed by the time it took when known, or how long it thought when it has no tool calls.",
         "Keep tool calls in expanded, headerless chains without an internal scrolling limit."
       ],
-      "markdownDescription": "Control tool call details when `#chat.persistentProgress#` is enabled. Compact is the default and collapses tool groups in place when thinking or response text resumes, or the response finishes. When Agent Host activity data is available, headers summarize up to three activity groups, prioritizing edits and commands, without language model requests. Remaining activity is counted as other steps. Failed, skipped, denied, and unfinished tool invocations remain explicit, including in the other-steps count. Completed shell invocations count as commands without tracking later background process status. Groups with no recognized activity or outcome use a step count. Expand a summary to inspect all its tool calls. Conversation collapses reasoning and tool calls between response text into one section that starts collapsed, names the current tool call, or the heading of the current reasoning summary (Thinking when the reasoning has no heading), while it runs, and shows a generated summary or Finished thinking once it finishes. Has no effect when persistent progress is Off. Changes apply immediately.",
+      "markdownDescription": "Control tool call details when `#chat.persistentProgress#` is enabled. Compact is the default and collapses tool groups in place when thinking or response text resumes, or the response finishes. When Agent Host activity data is available, headers summarize up to three activity groups, prioritizing edits and commands, without language model requests. Remaining activity is counted as other steps. Failed, skipped, denied, and unfinished tool invocations remain explicit, including in the other-steps count. Completed shell invocations count as commands without tracking later background process status. Groups with no recognized activity or outcome use a step count. Expand a summary to inspect all its tool calls. Conversation collapses reasoning and tool calls between response text into one section that starts collapsed, names the current tool call, or the heading of the current reasoning summary (Thinking, followed by the first line of the reasoning on a single row, when the reasoning has no heading), while it runs. Once it finishes, its header shows what its tool calls did, such as how many commands ran and which files were read or edited, followed by the time its reasoning and tool calls took when all of it was recorded. A section without tool calls shows how long it thought instead. A finished section never uses a reasoning heading or a generated summary as its header. Inside a section with tool calls, each reasoning run is a collapsible row naming how long it thought. Has no effect when persistent progress is Off. Changes apply immediately.",
       "tags": [
         "experimental",
         "onExP"
@@ -8602,6 +8697,30 @@
         "order": 20
       },
       "defaultDefaultValue": "whenHasUnsubmittedComments",
+      "scope": 4,
+      "restricted": false
+    },
+    "comments.thread.experimental.style": {
+      "type": "string",
+      "enum": [
+        "floating",
+        "inline"
+      ],
+      "enumDescriptions": [
+        "Show comment threads in floating windows above the code they are about. The windows can be moved by dragging their title and resized by dragging their edges.",
+        "Show comment threads between the lines of code they are about."
+      ],
+      "default": "inline",
+      "tags": [
+        "experimental"
+      ],
+      "description": "Controls how comment threads are shown in the editor.",
+      "section": {
+        "id": "comments",
+        "title": "Comments",
+        "order": 20
+      },
+      "defaultDefaultValue": "inline",
       "scope": 4,
       "restricted": false
     },
@@ -11511,26 +11630,6 @@
     },
     "editor.accessibilitySupport": {
       "$ref": "#/$defs/_25"
-    },
-    "editor.aiStats.enabled": {
-      "markdownDescription": "Controls whether to enable AI statistics in the editor. The gauge shows the average AI rate across 5-minute sessions, where each session's rate is calculated as AI-inserted characters divided by total inserted characters.",
-      "type": "boolean",
-      "default": false,
-      "tags": [
-        "experimental",
-        "onExP"
-      ],
-      "experiment": {
-        "mode": "auto"
-      },
-      "section": {
-        "id": "task",
-        "title": "Edit Telemetry",
-        "order": 100
-      },
-      "defaultDefaultValue": false,
-      "scope": 4,
-      "restricted": false
     },
     "editor.allowVariableFonts": {
       "$ref": "#/$defs/_28"
@@ -21243,12 +21342,38 @@
       "tags": [
         "onExp"
       ],
-      "default": false,
+      "default": true,
       "description": "These skills provide helpful prompts and features to enhance your experience when using Copilot to work with JavaScript and TypeScript.",
       "experiment": {
         "mode": "startup"
       },
       "scope": 4,
+      "section": {
+        "id": "TypeScriptTeam.jsts-chat-features",
+        "title": "JS/TS Chat Features",
+        "extensionInfo": {
+          "id": "TypeScriptTeam.jsts-chat-features",
+          "displayName": "JS/TS Chat Features"
+        }
+      },
+      "source": {
+        "id": "TypeScriptTeam.jsts-chat-features",
+        "displayName": "JS/TS Chat Features"
+      },
+      "defaultDefaultValue": true,
+      "restricted": false
+    },
+    "jsts-chat-features.skills.typescriptUpdate.enabled": {
+      "type": "boolean",
+      "scope": 4,
+      "tags": [
+        "onExp"
+      ],
+      "default": false,
+      "description": "Enable the TypeScript Update skill for experiment treatment. Also requires jsts-chat-features.skills.enabled.",
+      "experiment": {
+        "mode": "startup"
+      },
       "section": {
         "id": "TypeScriptTeam.jsts-chat-features",
         "title": "JS/TS Chat Features",
@@ -25897,10 +26022,18 @@
     "onboarding.developerMode": {
       "type": "object",
       "default": {
-        "chat.onboarding.chatInput": false
+        "chat.onboarding.agentPickerInAttachContext": false,
+        "chat.onboarding.chatInput": false,
+        "workbench.folderLocation.introduction": false
       },
       "properties": {
+        "chat.onboarding.agentPickerInAttachContext": {
+          "$ref": "#/$defs/_288"
+        },
         "chat.onboarding.chatInput": {
+          "$ref": "#/$defs/_288"
+        },
+        "workbench.folderLocation.introduction": {
           "$ref": "#/$defs/_288"
         }
       },
@@ -25917,7 +26050,9 @@
         "order": 7
       },
       "defaultDefaultValue": {
-        "chat.onboarding.chatInput": false
+        "chat.onboarding.agentPickerInAttachContext": false,
+        "chat.onboarding.chatInput": false,
+        "workbench.folderLocation.introduction": false
       },
       "scope": 4,
       "restricted": false
@@ -27397,6 +27532,22 @@
         "order": 5
       },
       "defaultDefaultValue": true,
+      "scope": 5,
+      "restricted": false
+    },
+    "scm.structuralDiff.enabled": {
+      "type": "boolean",
+      "description": "Controls whether the Source Control view can show the symbols that changed in a file. When enabled and an extension provides structural diffs for the file, use \"Show Structural Diff\" in the \"View & Sort\" menu to show or hide them.",
+      "default": false,
+      "tags": [
+        "experimental"
+      ],
+      "section": {
+        "id": "scm",
+        "title": "Source Control",
+        "order": 5
+      },
+      "defaultDefaultValue": false,
       "scope": 5,
       "restricted": false
     },
@@ -35192,8 +35343,8 @@
     },
     "window.title": {
       "type": "string",
-      "default": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}${separator}${appName}",
-      "markdownDescription": "Controls the window title based on the current context such as the opened workspace or active editor. Variables are substituted based on the context:\n- `${activeEditorShort}`: the file name (e.g. myFile.txt).\n- `${activeEditorMedium}`: the path of the file relative to the workspace folder (e.g. myFolder/myFileFolder/myFile.txt).\n- `${activeEditorLong}`: the full path of the file (e.g. /Users/Development/myFolder/myFileFolder/myFile.txt).\n- `${activeEditorLanguageId}`: the language identifier of the active editor (e.g. typescript).\n- `${activeFolderShort}`: the name of the folder the file is contained in (e.g. myFileFolder).\n- `${activeFolderMedium}`: the path of the folder the file is contained in, relative to the workspace folder (e.g. myFolder/myFileFolder).\n- `${activeFolderLong}`: the full path of the folder the file is contained in (e.g. /Users/Development/myFolder/myFileFolder).\n- `${folderName}`: name of the workspace folder the file is contained in (e.g. myFolder).\n- `${folderPath}`: file path of the workspace folder the file is contained in (e.g. /Users/Development/myFolder).\n- `${rootName}`: name of the workspace with optional remote name and workspace indicator if applicable (e.g. myFolder, myRemoteFolder [SSH] or myWorkspace (Workspace)).\n- `${rootNameShort}`: shortened name of the workspace without suffixes (e.g. myFolder, myRemoteFolder or myWorkspace).\n- `${rootPath}`: file path of the opened workspace or folder (e.g. /Users/Development/myWorkspace).\n- `${profileName}`: name of the profile in which the workspace is opened (e.g. Data Science (Profile)). Ignored if default profile is used.\n- `${appName}`: e.g. VS Code.\n- `${remoteName}`: e.g. SSH\n- `${dirty}`: an indicator for when the active editor has unsaved changes.\n- `${focusedView}`: the name of the view that is currently focused.\n- `${activeRepositoryName}`: the name of the active repository (e.g. vscode).\n- `${activeRepositoryBranchName}`: the name of the active branch in the active repository (e.g. main).\n- `${activeEditorState}`: provides information about the state of the active editor (e.g. modified). This will be appended by default when in screen reader mode with `accessibility.windowTitleOptimized` enabled.\n- `${separator}`: a conditional separator (\" - \") that only shows when surrounded by variables with values or static text.",
+      "default": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${folderLocation}${separator}${profileName}${separator}${appName}",
+      "markdownDescription": "Controls the window title based on the current context such as the opened workspace or active editor. Variables are substituted based on the context:\n- `${activeEditorShort}`: the file name (e.g. myFile.txt).\n- `${activeEditorMedium}`: the path of the file relative to the workspace folder (e.g. myFolder/myFileFolder/myFile.txt).\n- `${activeEditorLong}`: the full path of the file (e.g. /Users/Development/myFolder/myFileFolder/myFile.txt).\n- `${activeEditorLanguageId}`: the language identifier of the active editor (e.g. typescript).\n- `${activeFolderShort}`: the name of the folder the file is contained in (e.g. myFileFolder).\n- `${activeFolderMedium}`: the path of the folder the file is contained in, relative to the workspace folder (e.g. myFolder/myFileFolder).\n- `${activeFolderLong}`: the full path of the folder the file is contained in (e.g. /Users/Development/myFolder/myFileFolder).\n- `${folderName}`: name of the workspace folder the file is contained in (e.g. myFolder).\n- `${folderPath}`: file path of the workspace folder the file is contained in (e.g. /Users/Development/myFolder).\n- `${rootName}`: name of the workspace with optional remote name and workspace indicator if applicable (e.g. myFolder, myRemoteFolder [SSH] or myWorkspace (Workspace)).\n- `${rootNameShort}`: shortened name of the workspace without suffixes (e.g. myFolder, myRemoteFolder or myWorkspace).\n- `${folderLocation}`: the label of the alternate location the workspace folder is currently at (e.g. my-location). Empty while the folder is at its primary location.\n- `${rootPath}`: file path of the opened workspace or folder (e.g. /Users/Development/myWorkspace).\n- `${profileName}`: name of the profile in which the workspace is opened (e.g. Data Science (Profile)). Ignored if default profile is used.\n- `${appName}`: e.g. VS Code.\n- `${remoteName}`: e.g. SSH\n- `${dirty}`: an indicator for when the active editor has unsaved changes.\n- `${focusedView}`: the name of the view that is currently focused.\n- `${activeRepositoryName}`: the name of the active repository (e.g. vscode).\n- `${activeRepositoryBranchName}`: the name of the active branch in the active repository (e.g. main).\n- `${activeEditorState}`: provides information about the state of the active editor (e.g. modified). This will be appended by default when in screen reader mode with `accessibility.windowTitleOptimized` enabled.\n- `${separator}`: a conditional separator (\" - \") that only shows when surrounded by variables with values or static text.",
       "agentsWindow": {
         "default": "${appName}",
         "readOnly": true
@@ -35203,7 +35354,7 @@
         "title": "Window",
         "order": 8
       },
-      "defaultDefaultValue": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}${separator}${appName}",
+      "defaultDefaultValue": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${folderLocation}${separator}${profileName}${separator}${appName}",
       "scope": 4,
       "restricted": false
     },
@@ -35396,6 +35547,25 @@
         "order": 7
       },
       "defaultDefaultValue": "default"
+    },
+    "workbench.browser.dimOnOverlay": {
+      "type": "boolean",
+      "default": true,
+      "experiment": {
+        "mode": "startup"
+      },
+      "markdownDescription": "Controls whether the Integrated Browser page is dimmed when a temporary element, such as a context menu or tooltip, overlaps it and causes it to pause. The page is paused regardless of this setting.",
+      "section": {
+        "id": "workbench",
+        "title": "Workbench",
+        "order": 7
+      },
+      "defaultDefaultValue": true,
+      "scope": 4,
+      "restricted": false,
+      "tags": [
+        "onExP"
+      ]
     },
     "workbench.browser.enableChatTools": {
       "type": "boolean",
@@ -36346,6 +36516,46 @@
       "scope": 4,
       "restricted": false
     },
+    "workbench.editor.experimental.emptyEditorHintActions": {
+      "type": "boolean",
+      "default": false,
+      "tags": [
+        "experimental",
+        "onExp"
+      ],
+      "experiment": {
+        "mode": "auto"
+      },
+      "markdownDescription": "Controls whether the empty editor hint of new untitled files shows a list of actions instead of a single line. Only applies when `#workbench.editor.empty.hint#` is `text`.",
+      "section": {
+        "id": "workbench",
+        "title": "Workbench",
+        "order": 7
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
+    "workbench.editor.experimental.newTabButton": {
+      "type": "boolean",
+      "tags": [
+        "experimental",
+        "onExp"
+      ],
+      "markdownDescription": "Controls whether the editor tab bar shows a button to open a new tab, such as a new untitled file or a chat.",
+      "default": false,
+      "experiment": {
+        "mode": "auto"
+      },
+      "section": {
+        "id": "workbench",
+        "title": "Workbench",
+        "order": 7
+      },
+      "defaultDefaultValue": false,
+      "scope": 4,
+      "restricted": false
+    },
     "workbench.editor.focusRecentEditorAfterClose": {
       "type": "boolean",
       "description": "Controls whether editors are closed in most recently used order or from left to right.",
@@ -37283,7 +37493,12 @@
           },
           {
             "type": "string",
-            "enum": []
+            "enum": [
+              "workbench.integratedBrowser"
+            ],
+            "enumDescriptions": [
+              "Open in the Integrated Browser."
+            ]
           }
         ]
       },
@@ -38496,6 +38711,23 @@
         "order": 7
       },
       "defaultDefaultValue": "left",
+      "scope": 4,
+      "restricted": false
+    },
+    "workbench.sizeCustomizations": {
+      "type": "object",
+      "default": {},
+      "allOf": [
+        {
+          "$ref": "vscode://schemas/size-customizations"
+        }
+      ],
+      "description": "Customizes panel corners and inter-panel spacing in pixels. Use panels.cornerRadius (0-8) for shared panel corners, with individual area overrides. Use panels.spacing (0-16) for panel gaps. Agents window panels also support agentsWindow overrides. Compact layouts remain gapless, and joined edges remain square. Controls, pop-ups, native operating system surfaces, and window-edge gutters are unchanged.",
+      "section": {
+        "id": "workbench",
+        "order": 7.1
+      },
+      "defaultDefaultValue": {},
       "scope": 4,
       "restricted": false
     },

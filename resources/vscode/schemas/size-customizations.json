@@ -1,0 +1,84 @@
+{
+  "type": "object",
+  "properties": {
+    "activityBar.cornerRadius": {
+      "description": "Corner radius for the Activity Bar containing the Explorer, Search, and Source Control icons. Does not change the icons or their buttons. Inherits primarySideBar.cornerRadius unless overridden.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 8
+    },
+    "agentsWindow.chatPanels.cornerRadius": {
+      "description": "Corner radius of the outer panel frames containing conversations in the Agents window. Does not change individual messages, message bubbles, or the chat input. This does not affect the Chat side bar in the editor window; customize that side bar instead. Inherits agentsWindow.panels.cornerRadius unless overridden.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 8
+    },
+    "agentsWindow.editorArea.cornerRadius": {
+      "description": "Corner radius for the file editor area in the Agents window only. Inherits agentsWindow.panels.cornerRadius unless overridden.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 8
+    },
+    "agentsWindow.panels.cornerRadius": {
+      "description": "Shared corner radius for panel areas in the Agents window only. Inherits panels.cornerRadius unless overridden. Individual Agents areas can override this value.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 8
+    },
+    "agentsWindow.panels.spacing": {
+      "description": "Space between panel areas and between split chats in the Agents window only, in pixels from 0 to 16. Inherits panels.spacing unless overridden. Compact and phone layouts remain gapless; window-edge gutters are unchanged.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 16
+    },
+    "agentsWindow.secondarySideBar.cornerRadius": {
+      "description": "Corner radius for Files, Changes, and other side views in the Agents window only. Inherits agentsWindow.panels.cornerRadius unless overridden.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 8
+    },
+    "agentsWindow.toolsPanel.cornerRadius": {
+      "description": "Corner radius for the Terminal, Output, Problems, and Debug Console panel in the Agents window only. Inherits agentsWindow.panels.cornerRadius unless overridden.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 8
+    },
+    "editorArea.cornerRadius": {
+      "description": "Corner radius for the area containing file editors and their tabs. Does not change individual tab corners. Inherits panels.cornerRadius unless overridden.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 8
+    },
+    "panels.cornerRadius": {
+      "description": "Shared corner radius for side bars, the editor area, the tools panel, and Agents chat areas and pages. Individual areas can override this value. Controls, pop-ups, and the app window corners are unchanged.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 8
+    },
+    "panels.spacing": {
+      "description": "Space between panel areas in pixels, from 0 to 16. Applies to Modern UI editor windows and, unless overridden, the Agents window. Window-edge gutters and spacing inside controls are unchanged. Compact layouts remain gapless.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 16
+    },
+    "primarySideBar.cornerRadius": {
+      "description": "Corner radius for the editor window's Primary Side Bar, where Explorer, Search, and Source Control normally appear. Inherits panels.cornerRadius unless overridden.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 8
+    },
+    "secondarySideBar.cornerRadius": {
+      "description": "Corner radius for the editor window's Secondary Side Bar, often used for Chat. Inherits panels.cornerRadius unless overridden.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 8
+    },
+    "toolsPanel.cornerRadius": {
+      "description": "Corner radius for the panel containing Terminal, Output, Problems, and Debug Console, wherever it is positioned. Inherits panels.cornerRadius unless overridden.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 8
+    }
+  },
+  "additionalProperties": false
+}
